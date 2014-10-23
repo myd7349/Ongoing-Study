@@ -23,45 +23,46 @@ import random
 import timeit
 
 loops = random.randint(10000, 100000)
+rng = range(loops)
 
 def benchmark_list_pop_front():
-    s = list(range(loops))
-    for i in range(loops):
+    s = list(rng)
+    for i in rng:
         s.pop(0)
 
 def benchmark_list_pop_back():
-    s = list(range(loops))
-    for i in range(loops):
+    s = list(rng)
+    for i in rng:
         s.pop(-1)
 
 def benchmark_deque_pop_front():
-    q = collections.deque(range(loops))
-    for i in range(loops):
+    q = collections.deque(rng)
+    for i in rng:
         q.popleft()
 
 def benchmark_deque_pop_back():
-    q = collections.deque(range(loops))
-    for i in range(loops):
+    q = collections.deque(rng)
+    for i in rng:
         q.pop()
 
 def benchmark_list_push_front():
     s = []
-    for i in range(loops):
+    for i in rng:
         s.insert(0, None)
 
 def benchmark_list_push_back():
     s = []
-    for i in range(loops):
+    for i in rng:
         s.append(None)
 
 def benchmark_deque_push_front():
     q = collections.deque()
-    for i in range(loops):
+    for i in rng:
         q.appendleft(None)
 
 def benchmark_deque_push_back():
     q = collections.deque()
-    for i in range(loops):
+    for i in rng:
         q.append(None)
 
 if __name__ == '__main__':

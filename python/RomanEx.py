@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# 2014-10-11 14:59 UTC+8
+# 2014-10-11 14:59 (UTC+8)
 
 # This program is inspired by an example in "Dive into Python3" and some code
 # is based on a python script named "roman.py" available at: 
 # http://www.diveintopython.net/unit_testing/stage_4.html
-# and an extended javascript implement available at:
+# and an extended javascript implementation available at:
 # http://jeankorte.ca/jk-roman-numeral-converter.html
 
 '''Converting Roman Numerals to Arabic Numbers and vice versa.'''
@@ -52,7 +52,23 @@ roman_arabic_map = (
     ('I', 1))
 
 def str_to_int(integer):
-    'Convert a string to an integer.'
+    '''Convert a string to an integer.
+
+    >>> str_to_int('12')
+    12
+    >>> str_to_int('0x12')
+    18
+    >>> str_to_int('012')
+    10
+    >>> str_to_int('012a')
+    Traceback (most recent call last):
+        ...
+    ValueError: invalid literal for int() with base 8: '012a'
+    >>> str_to_int(None)
+    Traceback (most recent call last):
+        ...
+    InvalidInteger: a "str" object is excepted
+    '''
     if isinstance(integer, str):
         integer = integer.strip()
         if integer.startswith('0x'):
@@ -64,10 +80,14 @@ def str_to_int(integer):
 
         return int(integer, base)
 
-    raise InvalidInteger
+    raise InvalidInteger('a "str" object is excepted')
 
 def from_roman(roman, exmode = False):
-    'Convert a roman numeral to an integer.'
+    '''Convert a roman numeral to an integer.
+
+    TODO: Complete doctest based on the test cases on
+    http://ostermiller.org/calc/roman.html
+    '''
     if not isinstance(roman, str):
         raise InvalidRomanNumeral('A valid roman numeral must be a "str" object')
 
@@ -92,7 +112,10 @@ def from_roman(roman, exmode = False):
     return arabic
 
 def to_roman(arabic, exmode = False):
-    'Convert an integer to a roman numeral.'
+    '''Convert an integer to a roman numeral.
+
+    TODO: Complete doctest based on the test cases on
+    http://ostermiller.org/calc/roman.html'''
     if isinstance(arabic, str):
         arabic = str_to_int(arabic)
 
@@ -140,7 +163,7 @@ def is_roman(roman, exmode = False):
                          #        or 50-80 (L, followed by 0 to 3 X's)
         (IX|IV|V?I{0,3}) # ones - 9 (IX), 4(IV), 0-3 (0 to 3 I's)
                          #        or 5-8 (V, followed by 0 to 3 I's)
-                           $""", re.VERBOSE)
+                         $""", re.VERBOSE)
     
     return bool(roman_pat.match(roman))
 
@@ -150,5 +173,8 @@ def do_test():
         print(from_roman(input(), True))
         
 if __name__ == '__main__':
-    do_test()
+    import doctest
+    doctest.testmod()
+
+    # TODO: provide a GUI here
 
