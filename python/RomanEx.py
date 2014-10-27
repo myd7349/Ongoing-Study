@@ -144,18 +144,17 @@ def is_roman(roman, exmode = False):
     if len(roman) == 0:
         return False
     
-    roman_pat = re.compile('^' + \
-                           ("""
+    roman_pat = re.compile('^' + (
+        """
         m{0,3}           # millions - 0 to 3 m's
         (cm|cd|d?c{0,3}) # hundred thousands
         (xc|xl|l?x{0,3}) # ten thousands
         (Mx|Mv|v?M{0,3}) # thousands
-                            """ if exmode else \
-                            """
+        """ if exmode else \
+        """
         M{0,3}           # thousands - 0 to 3 M's
-                            """
-                            ) + \
-                           """
+        """) + \
+        """
         (CM|CD|D?C{0,3}) # hundreds - 900 (CM), 400 (CD),
                          #            0-300 (0 to 3 C's) or 
                          #            500-800 (D, followed by 0 to 3 C's)
@@ -163,7 +162,7 @@ def is_roman(roman, exmode = False):
                          #        or 50-80 (L, followed by 0 to 3 X's)
         (IX|IV|V?I{0,3}) # ones - 9 (IX), 4(IV), 0-3 (0 to 3 I's)
                          #        or 5-8 (V, followed by 0 to 3 I's)
-                         $""", re.VERBOSE)
+        $""", re.VERBOSE)
     
     return bool(roman_pat.match(roman))
 
