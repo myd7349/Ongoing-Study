@@ -5,6 +5,7 @@
 
 # TODO: documentation and unit test
 
+import functools
 import os.path
 import winreg
 
@@ -12,7 +13,7 @@ import winreg
 # and you should not call them directly.
 def _OpenKeyToEnum(key, sub_key):
     if sub_key != None and not isinstance(sub_key, str):
-        raise TypeError('{} argument "sub_key" must be str or None'.format(__name__))
+        raise TypeError('argument "sub_key" must be str or None')
     
     if sub_key != None and sub_key != '':
         return winreg.OpenKeyEx(key, sub_key, 0, winreg.KEY_READ)
@@ -24,7 +25,7 @@ def _CloseKeyToEnum(key, key_to_enum):
 
 _Join = os.path.join
 
-def EnumSubKey(key, sub_key = None, recursive = False, first_recursion = True):
+def _EnumSubKey(key, sub_key = None, recursive = False, first_recursion = True):
     '''Enumerate all sub-keys under specified registry item.'''
     key_to_enum = _OpenKeyToEnum(key, sub_key)
     sub_key_cnt, val_cnt, last_modified = winreg.QueryInfoKey(key_to_enum)
@@ -32,21 +33,26 @@ def EnumSubKey(key, sub_key = None, recursive = False, first_recursion = True):
     if recursive:
         if first_recursion:
             for i in range(sub_key_cnt):
-                yield from EnumSubKey(key_to_enum,
-                                      winreg.EnumKey(key_to_enum, i),
-                                      recursive, False)
+                yield from _EnumSubKey(key_to_enum,
+                                       winreg.EnumKey(key_to_enum, i),
+                                       recursive, False)
         else:
             if sub_key_cnt == 0:
                 yield sub_key
             else:
                 for i in range(sub_key_cnt):
                     new_sub_key = _Join(sub_key, winreg.EnumKey(key_to_enum, i))
-                    yield from EnumSubKey(key, new_sub_key, recursive, False)
+                    yield from _EnumSubKey(key, new_sub_key, recursive, False)
     else:
         for i in range(sub_key_cnt):
             yield winreg.EnumKey(key_to_enum, i)
 
     _CloseKeyToEnum(key, key_to_enum)
+
+# help(EnumSubKey) will not work, but print(EnumSubKey.__doc__) works.
+# http://stackoverflow.com/questions/16672856/allow-help-to-work-on-partial-function-object
+EnumSubKey = functools.update_wrapper(
+    functools.partial(_EnumSubKey, first_recursion = True), _EnumSubKey)
 
 def EnumValue(key, sub_key = None, recursive = False):
     '''Enumerate all values under specified registry item.'''
@@ -57,7 +63,7 @@ def EnumValue(key, sub_key = None, recursive = False):
         yield ('', ) + winreg.EnumValue(key_to_enum, i)
         
     if recursive:
-        for new_sub_key in EnumSubKey(key, sub_key, True, True):
+        for new_sub_key in EnumSubKey(key, sub_key, True):
             for parent_key, name, data, data_type in \
                 EnumValue(key, _Join(sub_key, new_sub_key), True):
                 yield (_Join(parent_key, new_sub_key), name, data, data_type)

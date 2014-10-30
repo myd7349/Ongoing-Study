@@ -46,8 +46,8 @@ def SetScaling(scaling):
                              search_res[2], scaling), 'Information'):
         logger.debug(79 * '-')
         try:
-            logger.info('Try to change the value of "Scaling" from {0} to {1} ' \
-                        'under key "{2}".'.format(search_res[2], scaling, sub_key))
+            logger.debug('Try to change the value of "Scaling" from {0} to {1} ' \
+                         'under key "{2}".'.format(search_res[2], scaling, sub_key))
             handle = winreg.OpenKeyEx(key, sub_key, access = winreg.KEY_SET_VALUE)
             winreg.SetValueEx(handle, 'Scaling', 0, winreg.REG_DWORD, scaling)
             winreg.CloseKey(handle)
