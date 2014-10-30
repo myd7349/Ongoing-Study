@@ -7,16 +7,17 @@
 
 import functools
 import time
-    
+
+# 2014-10-28 22:20    
 def benchmark(times):
     '''A decorator for calculating the execution time of calling a function several times.
 
     In MATLAB, you can use the "tic" and "toc" command to do similar things.
     A module named "timeit" is also available in Python.'''
     
-    def wrapper(func):
+    def wrap(func):
         @functools.wraps(func)
-        def another_wrapper(*args, **kwargs):
+        def wrap_again(*args, **kwargs):
             # *** The documentation says that time.clock() is deprecated in Python 3.3.
             start = time.clock()
             for i in range(times):
@@ -30,5 +31,19 @@ def benchmark(times):
             print('------------------------------------- toc -------------------------------------')
 
             return res    
-        return another_wrapper
-    return wrapper
+        return wrap_again
+    return wrap
+
+# 2014-10-29 19:14
+def nothrow(func):
+    '''A decorator for catching all the unhandled exceptions raised by the decorated function.'''
+    @functools.wraps(func)
+    def wrap(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except Exception as e:
+            print('Unhandled exception: {!r}'.format(e))
+    return wrap
+
+
+            

@@ -37,7 +37,7 @@ def main():
         line_generator):
         pass
 
-    # Try to find the HTML list's start tag: <ul>
+    # Ignore all lines until we find the HTML list's start tag: <ul>
     for line in itertools.takewhile(lambda x: x.strip() != '<ul>',
                                     line_generator):
         pass
