@@ -5,7 +5,6 @@
 
 # TODO: documentation and unit test
 
-import functools
 import os.path
 import winreg
 
@@ -25,34 +24,39 @@ def _CloseKeyToEnum(key, key_to_enum):
 
 _Join = os.path.join
 
-def _EnumSubKey(key, sub_key = None, recursive = False, first_recursion = True):
-    '''Enumerate all sub-keys under specified registry item.'''
+def _EnumSubKeyImpl(key, sub_key = None, recursive = False, first_recursion = True):
     key_to_enum = _OpenKeyToEnum(key, sub_key)
     sub_key_cnt, val_cnt, last_modified = winreg.QueryInfoKey(key_to_enum)
 
     if recursive:
         if first_recursion:
             for i in range(sub_key_cnt):
-                yield from _EnumSubKey(key_to_enum,
-                                       winreg.EnumKey(key_to_enum, i),
-                                       recursive, False)
+                yield from _EnumSubKeyImpl(key_to_enum,
+                                           winreg.EnumKey(key_to_enum, i),
+                                           recursive, False)
         else:
             if sub_key_cnt == 0:
                 yield sub_key
             else:
                 for i in range(sub_key_cnt):
                     new_sub_key = _Join(sub_key, winreg.EnumKey(key_to_enum, i))
-                    yield from _EnumSubKey(key, new_sub_key, recursive, False)
+                    yield from _EnumSubKeyImpl(key, new_sub_key, recursive, False)
     else:
         for i in range(sub_key_cnt):
             yield winreg.EnumKey(key_to_enum, i)
 
     _CloseKeyToEnum(key, key_to_enum)
 
-# help(EnumSubKey) will not work, but print(EnumSubKey.__doc__) works.
+# The old version of EnumSubKey looks like this:
+#EnumSubKey = functools.update_wrapper(
+#    functools.partial(_EnumSubKeyImpl, first_recursion = True), _EnumSubKeyImpl)
+# in which case 'help(EnumSubKey)' will not work but 'print(EnumSubKey.__doc__)' works.
+# So I may need some black-magic:
 # http://stackoverflow.com/questions/16672856/allow-help-to-work-on-partial-function-object
-EnumSubKey = functools.update_wrapper(
-    functools.partial(_EnumSubKey, first_recursion = True), _EnumSubKey)
+# But it is even more confusing. So I rewrite it.
+def EnumSubKey(key, sub_key = None, recursive = False):
+    '''Enumerate all sub-keys under specified registry item.'''
+    yield from _EnumSubKeyImpl(key, sub_key, recursive, True)
 
 def EnumValue(key, sub_key = None, recursive = False):
     '''Enumerate all values under specified registry item.'''
