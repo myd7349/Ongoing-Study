@@ -3,28 +3,32 @@
 # 2014-10-29 18:58 (UTC+8)
 
 '''Set the graphics drivesrs' scaling value on Windows NT.
-For example, changing the value of 'Scaling' under:
+For example, setting the value of 'Scaling' under:
 HKLM\SYSTEM\ControlSet001\Control\GraphicsDrivers\Configuration
-from 4 to 3 will make it possible to play DotA in full screen mode.'''
+to 3 will make it possible to play DotA in full screen mode.'''
 
-import os
-import winreg
-
-##############
-import RegKey
-import utility
-        
-@utility.nothrow
 def SetScaling(scaling):
-    import easygui
     import logging
+    import os
 
-    logging.basicConfig(level = logging.DEBUG, filename = 'SetScaling.log',
+    logging.basicConfig(level = logging.NOTSET, filename = 'SetScaling.log',
                         format = '%(asctime)s [%(levelname)s]: %(message)s')
     logger = logging.getLogger(__name__)
+    logger.info(79 * '-')
     
     if os.name != 'nt':
-        raise SystemExit('This program can only run on Windows NT')
+        logger.error('This program can only run on Windows NT!')
+        return
+
+    try:
+        import easygui
+    except ImportError:
+        logger.error('"easygui" is required. Please install this package.')
+        return
+    
+    import winreg
+
+    import RegKey
 
     key = winreg.HKEY_LOCAL_MACHINE
     sub_key = r'SYSTEM\ControlSet001\Control\GraphicsDrivers\Configuration'
@@ -41,22 +45,21 @@ def SetScaling(scaling):
 
     sub_key = os.path.join(sub_key, search_res[0])
     if easygui.ccbox('Key: {0}\nValue name: Scaling\nData: {1}\nType: {2}\n' \
-                     'Do you REALLY REALLY REALLY want to change its value from {3} to {4}?'
+                     'Do you REALLY want to change its value from {3} to {4}?'
                      .format(sub_key, search_res[2], search_res[3],
                              search_res[2], scaling), 'Information'):
-        logger.debug(79 * '-')
         try:
-            logger.debug('Try to change the value of "Scaling" from {0} to {1} ' \
+            logger.info('Try to change the value of "Scaling" from {0} to {1} ' \
                          'under key "{2}".'.format(search_res[2], scaling, sub_key))
             handle = winreg.OpenKeyEx(key, sub_key, access = winreg.KEY_SET_VALUE)
             winreg.SetValueEx(handle, 'Scaling', 0, winreg.REG_DWORD, scaling)
             winreg.CloseKey(handle)
-            logger.debug('Done successfully!')
+            logger.info('Done successfully!')
             easygui.msgbox('Done!', 'Information')
         except OSError:
             easygui.msgbox('Failed to change the value of "Scaling"!\n' \
                            'Maybe adminstrator privilege is required.')
-            logger.debug('*** Failed!')
+            logger.error('*** Failed!')
         
 if __name__ == '__main__':
     import sys
