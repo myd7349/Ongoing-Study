@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # 2014-11-04 17:14 (UTC+8)
@@ -13,6 +14,8 @@ import easygui
 import gridfs
 import pymongo
 ##############################
+
+import utility
 
 def get_file_md5(file_name, size = 1024 * 1024, upper = False):
     '''Calculate the MD5 digest of given file.
@@ -34,6 +37,7 @@ def get_file_md5(file_name, size = 1024 * 1024, upper = False):
     return md5_inst.hexdigest().upper() if upper else \
            md5_inst.hexdigest()
 
+@utility.benchmark(1)
 def put_test(conn, db, collection_name, file_name):
     md5 = get_file_md5(file_name)
     
@@ -46,6 +50,7 @@ def put_test(conn, db, collection_name, file_name):
         else:
             return None, None
 
+@utility.benchmark(1)
 def get_test(conn, db, collection_name, file_id, file_name):
     md5 = None
     with open(file_name, 'wb') as fp:
@@ -68,7 +73,7 @@ def main():
     db = client[db_name]
     db.drop_collection(collection_name)
 
-    # put
+    # GridFS put test
     file_to_put = easygui.fileopenbox(
         msg = 'Select the file you want to put into GridFS:')
     if file_to_put:
@@ -82,7 +87,7 @@ def main():
                 msg = 'Failed to "put"!', title = 'Error!')
             return
 
-    # get
+    # GridFS get test
     name, ext = os.path.splitext(os.path.basename(file_to_put))
     file_to_save = easygui.filesavebox(
         msg = 'Where do you want to save this file:',
