@@ -56,10 +56,10 @@ def SetScaling(scaling):
             winreg.CloseKey(handle)
             logger.info('Done successfully!')
             easygui.msgbox('Done!', 'Information')
-        except OSError:
+        except OSError as e:
             easygui.msgbox('Failed to change the value of "Scaling"!\n' \
                            'Maybe adminstrator privilege is required.')
-            logger.error('*** Failed!')
+            logger.error('*** Failed! {!r}'.format(e))
         
 if __name__ == '__main__':
     import sys
