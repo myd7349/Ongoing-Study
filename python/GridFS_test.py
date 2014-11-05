@@ -25,7 +25,8 @@ def get_file_md5(file_name, size = 1024 * 1024, upper = False):
     with open(file_name, 'rb') as fp:
         # Read a binary file elegantly:
         # http://stackoverflow.com/questions/1035340/reading-binary-file-in-python
-        # or do you want 
+        # or you want to make a binary file object iterable?
+        # http://stackoverflow.com/questions/4566498/python-file-iterator-over-a-binary-file-with-newer-idiom
         data = fp.read(size)
         while data:
             md5_inst.update(data)

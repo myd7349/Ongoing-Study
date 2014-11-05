@@ -14,8 +14,7 @@ def fetchPage(url, encoding = 'utf-8'):
         for line in response:
             yield line.decode(charset)
     else:
-        for line in response:
-            yield line
+        return response # HTTPResponse object is iterable
 
 def main():
     '''Extract all Python tutorials urls from this page:
