@@ -11,7 +11,9 @@ def SetScaling(scaling):
     import logging
     import os
 
-    logging.basicConfig(level = logging.NOTSET, filename = 'SetScaling.log',
+    
+    logging.basicConfig(level = logging.NOTSET,
+                        filename = os.path.join(os.path.dirname(__file__), 'SetScaling.log'),
                         format = '%(asctime)s [%(levelname)s]: %(message)s')
     logger = logging.getLogger(__name__)
     logger.info(79 * '-')

@@ -15,6 +15,8 @@ def benchmark(times):
     In MATLAB, you can use the "tic" and "toc" command to do similar things.
     A module named "timeit" is also available in Python.'''
     
+    assert isinstance(times, int) and times >= 0, 'Please pass a non-negative integer to "times".'
+    
     def wrap(func):
         @functools.wraps(func)
         def wrap_again(*args, **kwargs):
