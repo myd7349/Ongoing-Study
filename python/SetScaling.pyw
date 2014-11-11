@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# 2014-10-29 18:58 (UTC+8)
+# 2014-10-29T18:58+08:00
 
 '''Set the graphics drivesrs' scaling value on Windows NT.
 For example, setting the value of 'Scaling' under:
@@ -10,7 +10,6 @@ to 3 will make it possible to play DotA in full screen mode.'''
 def SetScaling(scaling):
     import logging
     import os
-
     
     logging.basicConfig(level = logging.NOTSET,
                         filename = os.path.join(os.path.dirname(__file__), 'SetScaling.log'),

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# 2014-10-29 19:30 (UTC+8)
+# 2014-10-29T19:30+08:00
 # By myd7349(myd7349@gmail.com)
 
 # TODO: documentation and unit test

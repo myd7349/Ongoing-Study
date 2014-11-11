@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# 2014-10-21 18:12 (UTC+8)
+# 2014-10-21T18:12+08:00
 
 """
 Benchmark test for list & deque in Python.

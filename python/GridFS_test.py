@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# 2014-11-04 17:14 (UTC+8)
+# 2014-11-04T17:14+08:00
 
 import hashlib
 import os.path

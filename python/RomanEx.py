@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# 2014-10-11 14:59 (UTC+8)
+# 2014-10-11T14:59+08:00
 
 # This program is inspired by an example in "Dive into Python3" and some code
 # is based on a python script named "roman.py" available at: 

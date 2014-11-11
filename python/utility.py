@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# 2014-10-28 22:20 (UTC+8)
+# 2014-10-28T22:20+08:00
 
 '''Some small useful code snippets.'''
 
