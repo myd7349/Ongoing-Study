@@ -11,11 +11,11 @@
 //        stat file_info;
 //        stat(LOCAL_FILE, &file_info);
 //    The answer is NO.
-//    Please refer to clause 3.3.10/2 in ISO C++11 standard or this page:
+//    Please refer to this page:
 //    http://stackoverflow.com/questions/23329382/function-and-struct-having-the-same-name-in-c
 // -------------------------------------------------------------------------------
 // 2. Explaining clause 6.4/3 in ISO C++98/11
-//    Please refer to:
+//    Please refer to this page:
 //    http://stackoverflow.com/questions/12655284/defining-a-variable-in-the-condition-part-of-an-if-statement
 #include <cassert>
 #include <iostream>
@@ -27,7 +27,7 @@ int main()
 {
     // Purpose 1:
     // Though we are using C++, we can't write code like this:
-    //stat fileInfo;
+    //     stat fileInfo;
     // Since stat is also a function here, which will hide the class with the same name in this scope.
     struct stat fileInfo;
 
@@ -35,13 +35,11 @@ int main()
     // We can define a variable in the condition part of if statement.
 #if 1
    // The unusual form for handling the return value.
-   // I think this form is more compact, but sometimes confusing. And
-   // you must remember what the meaning of the return code is.
-   // For function stat, return 0 means successfully.
+   // I think this form is more compact, but sometimes confusing.
    if (int res = stat("get_file_size.cpp", &fileInfo)) {
        // stat failed. Do error handling and output the error code.
        // ***Caution:
-       // Before you write you code in this form, you must remember what
+       // Before you write your code in this form, you must check out what
        // the meaning of the return code is.
         std::cerr << "Failed to obtain file-status information: " << res << '\n';
         return 1;
@@ -52,6 +50,9 @@ int main()
    }
 #else
     // The traditional form for handling the return code of some function.
+    // The 'res' variable may not be used anymore after we checking the return code
+    // of 'stat'. That's why sometimes I want to declare it in the condition part
+    // of the statement.
     int res = stat("get_file_size.cpp", &fileInfo);
     if (res != 0) {
         std::cerr << "Failed to obtain file-status information: " << res << '\n';
