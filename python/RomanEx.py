@@ -13,7 +13,7 @@
 
 import re
 
-class RomanError(Exception): pass
+class RomanError(ValueError): pass
 class InvalidRomanNumeral(RomanError): pass
 class InvalidInteger(RomanError): pass
 class OutOfRange(RomanError): pass

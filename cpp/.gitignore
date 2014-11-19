@@ -26,3 +26,6 @@
 *.exe
 *.out
 *.app
+
+# Code::Blocks layout file
+*.layout
