@@ -75,6 +75,5 @@ def EnumValue(key, sub_key = None, recursive = False):
     _CloseKeyToEnum(key, key_to_enum)
 
 def SearchValue(key, sub_key, value_name, recursive = False):
-    for value_tuple in EnumValue(key, sub_key, recursive):
-        if value_tuple[1] == value_name:
-            yield value_tuple
+    return filter(lambda value_tuple: value_tuple[1] == value_name,
+                  EnumValue(key, sub_key, recursive))
