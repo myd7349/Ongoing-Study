@@ -27,5 +27,6 @@
 *.out
 *.app
 
-# Code::Blocks layout file
+# Code::Blocks intermediate files
+*.depend
 *.layout

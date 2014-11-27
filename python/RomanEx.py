@@ -118,6 +118,8 @@ def to_roman(arabic, exmode = False):
     http://ostermiller.org/calc/roman.html'''
     if isinstance(arabic, str):
         arabic = str_to_int(arabic)
+    if not isinstance(arabic, int):
+        raise InvalidInteger('Invalid integer')
 
     largest = 3999999 if exmode else 3999
     if not 1 <= arabic <= largest:
