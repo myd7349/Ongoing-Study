@@ -51,7 +51,7 @@ int main()
 #if defined(_MSC_VER)
 	auto lst = new std::initializer_list<int>({1, 2, 3, 4});
 #else
-	// In VS2013, code below causes an compile-time error.
+	// In VS2013, code below causes a compile-time error.
 	auto lst = new auto({1, 2, 3, 4}); // C++11 is needed.
 #endif
     std::cout << TYPE_NAME(lst) << std::endl; // std::initializer_list<int>*
