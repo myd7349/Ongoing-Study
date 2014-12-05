@@ -1,6 +1,6 @@
 // 2014-11-27T10:47+08:00
 
-// An example for testing 'throw' keyword in C++.
+// An example for testing exception handling in C++.
 
 #include <cassert>
 #include <exception>
