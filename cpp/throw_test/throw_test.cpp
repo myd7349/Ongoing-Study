@@ -108,12 +108,71 @@ void test_3()
     throw std::runtime_error(__func__);
 }
 
+// 2014-12-05T09:42+08:00
+// Throwing exceptions out of a destructor, dangerous or not?
+// http://stackoverflow.com/questions/130117/throwing-exceptions-out-of-a-destructor
+// C++98/11 15.2/3
+// The process of calling destructors for automatic objects constructed on the path from
+//  a try block to a throw-expression is called "stack unwinding". If a destructor called
+//  during stack unwinding exits with an exception, std::terminate is called (15.5.1).
+// [ Note: So destructors should generally catch exceptions and not let them propagate out
+// of the destructor. - end note ]
+void test_4()
+{
+    class _fstream {
+    public:
+        ~_fstream() {
+            throw 42;
+        }
+    };
+
+    try {
+        _fstream file;
+    } catch (...) {
+        std::cerr << "Can you see me? I don't think so.\n";
+    }
+}
+// According to Narek's answer, here I refactor the 'dangerous' operation out into a
+// public method: close, and the destructor will call this method.
+// As I do the clean work by calling close explicitly here, I get a chance to
+// handle the potential exceptions thrown by it.
+void test_42()
+{
+    class _fstream {
+    public:
+        ~_fstream() {
+            close();
+        }
+        void close() {
+            if (_isOpen) {
+                _isOpen = false;
+                throw 42;
+            }
+        }
+    private:
+        bool _isOpen = true;
+    };
+
+    try {
+        _fstream file;
+        file.close();
+    } catch (...) {
+        std::cerr << "OK! You win!\n";
+    }
+}
+
 int main()
 {
     //SAND_BOX(test_0); // terminate called after throwing an instance of 'int'
+
     SAND_BOX(test_1);
+
     //SAND_BOX(test_2); // terminate called without an active exception
+
     SAND_BOX(test_3);
+
+    //SAND_BOX(test_4); // terminate called after throwing an instance of 'int'
+    SAND_BOX(test_42);
 
     return 0;
 }
