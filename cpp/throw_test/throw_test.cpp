@@ -161,6 +161,53 @@ void test_42()
     }
 }
 
+// 2014-12-05T15:11+08:00
+// Constructor failure test inspired by:
+// http://www.gotw.ca/gotw/066.htm
+//
+// C++98/11 15.3/11
+// The fully constructed base classes and members of an object shall be destroyed
+// before entering the handler of a function-try-block of a constructor or destructor
+// for that object.
+// C++98/11 15.3/15
+// The currently handled exception is rethrown if control reaches the end of a handler
+//  of the function-try-block of a constructor or destructor.
+void test_5()
+{
+    class Object {
+    public:
+        explicit Object(bool toBe) {
+            if (!toBe) {
+                throw "To be, or not to be";
+            }
+        }
+        ~Object() {
+            std::cout << "Destroying object\n";
+        }
+    };
+
+    class Creator {
+    public:
+        Creator()
+        try : _obj_to_be(true), _obj_not_to_be(false) {
+        } catch (...) {
+            // According to clause 15.3/11 in C++98/11 standard, the sub-object
+            // _obj_to_be will be destroyed before we reaching here.
+            std::cerr << "Oh, NO!\n";
+            // According to clause 15.3/15 in C++98/11 standard, the exception thrown
+            // during the construction of _obj will be rethrown.
+        }
+    private:
+        Object _obj_to_be, _obj_not_to_be;
+    };
+
+    try {
+        Creator c;
+    } catch (const char *&e) {
+        std::cerr << e << ", that is the question\n";
+    }
+}
+
 int main()
 {
     //SAND_BOX(test_0); // terminate called after throwing an instance of 'int'
@@ -173,6 +220,8 @@ int main()
 
     //SAND_BOX(test_4); // terminate called after throwing an instance of 'int'
     SAND_BOX(test_42);
+
+    SAND_BOX(test_5);
 
     return 0;
 }
