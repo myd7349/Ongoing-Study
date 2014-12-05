@@ -30,3 +30,14 @@
 # Code::Blocks intermediate files
 *.depend
 *.layout
+
+# VS2013 intermediate files
+*.aps
+*.idb
+*.ilk
+*.log
+*.pdb
+*.sdf
+*.suo
+*.tlog
+
