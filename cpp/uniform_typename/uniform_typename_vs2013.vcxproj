@@ -76,7 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="uniform_typename.cpp" />
+    <ClCompile Include="uniform_typename_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="uniform_typename.h" />

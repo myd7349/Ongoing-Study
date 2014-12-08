@@ -32,8 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="uniform_typename.cpp" />
 		<Unit filename="uniform_typename.h" />
+		<Unit filename="uniform_typename_test.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
