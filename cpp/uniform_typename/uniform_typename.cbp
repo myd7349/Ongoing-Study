@@ -33,6 +33,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="uniform_typename.cpp" />
+		<Unit filename="uniform_typename.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
