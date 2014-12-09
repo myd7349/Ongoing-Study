@@ -35,7 +35,7 @@ void what_square_brackets_really_mean()
     assert(arr[3] == 3[arr]);
 }
 
-// 1. most vexing parse
+// 1. Most vexing parse
 // TODO: standard
 void most_vexing_parse()
 {
@@ -66,10 +66,11 @@ void most_vexing_parse()
     std::cout << TYPE_NAME(bar2) << std::endl;
 }
 
-// 2. alternate operator tokens
+// 2. Alternate operator tokens
 void alternate_operator_tokens()
 {
     JUST_GO();
+
 }
 
 int main()
