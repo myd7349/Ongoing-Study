@@ -10,6 +10,8 @@
 #include <iostream>
 #include <type_traits>
 
+#include <boost/core/noncopyable.hpp>
+
 // 2014-12-09T17:17+08:00
 // 0. std::bind and overloaded function
 // When I was doing a test on MongoDB's C++ driver, I encountered this problem:
@@ -20,17 +22,17 @@
 // TODO: standard
 namespace bind_and_overloaded_function
 {
-    void say_hello()
+    void say_what()
     {
         std::cout << "Hello, world!\n";
     }
 
-    void say_hello(const char *msg)
+    void say_what(const char *msg)
     {
         std::cout << msg << std::endl;
     }
 
-    void say_hello(const char *msg, int repeat)
+    void say_what(const char *msg, int repeat)
     {
         for (int i = 0; i < repeat; ++i) {
             std::cout << "#" << i << " " << msg << std::endl;
@@ -40,17 +42,44 @@ namespace bind_and_overloaded_function
     void test()
     {
         auto simple_is_beautiful = std::bind(
-            static_cast<void (*)(const char *)>(say_hello), "Simple is Beautiful!");
+            static_cast<void (*)(const char *)>(say_what), "Simple is Beautiful!");
         assert(std::is_bind_expression<decltype(simple_is_beautiful)>::value);
         simple_is_beautiful();
     }
 }
 
-// 1.
+// 2014-12-10T09:33+08:00
+// 1. bind with non-copyable parameters
+namespace bind_with_noncopyable_parameters
+{
+    class Individual : public boost::noncopyable {
+    public:
+        virtual void say() const = 0;
+    };
+    class DonaldKnuth : public Individual {
+    public:
+        virtual void say() const override {
+            std::cout << "Premature optimization is the root of all evil\n";
+        }
+    };
+
+    void who_say(const Individual &individual)
+    {
+        individual.say();
+    }
+
+    void test()
+    {
+        DonaldKnuth guru;
+        std::bind(who_say, std::ref(guru))();
+    }
+}
 
 int main()
 {
     bind_and_overloaded_function::test();
+
+    bind_with_noncopyable_parameters::test();
 
     return 0;
 }
