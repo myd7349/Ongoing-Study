@@ -52,3 +52,10 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# PTVS(Python Tools for Visual Studio) intermediate files
+*.suo
+
+# Configuration files
+*.cfg
+*.ini

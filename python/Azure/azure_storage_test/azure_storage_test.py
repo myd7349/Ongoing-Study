@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
+# 2014-12-12T09:38+08:00
+
 import configparser
 import os.path
 
@@ -16,9 +19,9 @@ host_option = 'host'
 # The structure of the configuration file:
 '''
 [ACCOUNT]
-name = your account name here
-key = your account key here
-host = your host base here
+name = Your account name here. Note that it is not your Azure login name.
+key = Your account key here. Note that it is not your Azure login password.
+host = Your host base here. For example, I am using Microsoft Azure China, so I use .blob.core.chinacloudapi.cn as the host base.
 '''
 config_parser.read(config_file, encoding = 'utf-8')
 if not config_parser.has_section(section):
