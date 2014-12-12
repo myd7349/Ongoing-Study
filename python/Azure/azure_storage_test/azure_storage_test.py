@@ -17,6 +17,7 @@ key_option = 'key'
 host_option = 'host'
 
 # The structure of the configuration file:
+# azure_storage_test.cfg
 '''
 [ACCOUNT]
 name = Your account name here. Note that it is not your Azure login name.
