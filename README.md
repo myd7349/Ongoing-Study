@@ -5,5 +5,5 @@ Welcome to *myd7349's ongoing study*!
 
 This is a personal code repository for storing my daily code.
 
-My blog: http://www.cnblogs.com/myd7349/ (Chinese)
+My blog: http://www.cnblogs.com/myd7349/ (in Chinese)
 
