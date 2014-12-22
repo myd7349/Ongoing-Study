@@ -2,7 +2,7 @@
 // In C++, we can use typeid operator to get the RTTI of an expression or a type.
 // However, different C++ compilers provide different type names when we wrote:
 //     std::cout << typeid(type/expression).name();
-// The names returned by g++ is extremely unreadable, so I just STFG and wrote this sample.
+// The names returned by g++ are extremely unreadable, so I just STFG and wrote this sample.
 
 #include <initializer_list>
 #include <iostream>

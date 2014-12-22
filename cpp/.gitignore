@@ -41,3 +41,8 @@
 *.suo
 *.tlog
 
+# Configuration files
+*.ini
+*.cfg
+*.config
+

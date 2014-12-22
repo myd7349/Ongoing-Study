@@ -9,6 +9,8 @@
 #include <iostream>
 #include <stdexcept>
 
+#include <boost/property_tree/ini_parser.hpp>
+
 #include <was/blob.h>
 #include <was/common.h>
 #include <was/storage_account.h>
@@ -30,13 +32,37 @@
 # define PAUSE() (__noop)
 #endif
 
+#define RETURN_ON_FAILURE() std::cerr << e.what() << '\n'; PAUSE(); return EXIT_FAILURE
+
 namespace AS = azure::storage;
+namespace Cfg = boost::property_tree;
 
 int main(int argc, char *argv[])
 {
-    utility::string_t accountName = U("Your account name here");
-    utility::string_t accountKey = U("Your account key here");
+    // parse the configuration file and fetch out account name, account key, host endpoint
+    Cfg::basic_ptree<utility::string_t, utility::string_t> cfg;
+    try {
+        // The structure of "azure_storage_test.cfg" is described in this example:
+        // https://github.com/myd7349/Ongoing-Study/blob/master/python/Azure/azure_storage_test/azure_storage_test.py
+        Cfg::read_ini("azure_storage_test.cfg", cfg);
+    } catch (const Cfg::ini_parser_error &e) {
+        RETURN_ON_FAILURE();
+    }
+
+    utility::string_t accountName;
+    utility::string_t accountKey;
+    // I am using Microsoft Azure China service, so my endpoint is: core.chinacloudapi.cn
     utility::string_t endPoint = U("core.chinacloudapi.cn");
+
+    try {
+        accountName = cfg.get<utility::string_t>(U("ACCOUNT.name"));
+        accountKey = cfg.get<utility::string_t>(U("ACCOUNT.key"));
+        //endPoint = cfg.get<utility::string_t>(U("ACCOUNT.host"));
+    } catch (const Cfg::ptree_bad_path &e) {
+        RETURN_ON_FAILURE();
+    } catch (const Cfg::ptree_bad_data &e) {
+        RETURN_ON_FAILURE();
+    }
 
     AS::cloud_storage_account asAccount;
 
@@ -46,9 +72,7 @@ int main(int argc, char *argv[])
         AS::storage_credentials credential(accountName, accountKey);
         asAccount = AS::cloud_storage_account(credential, endPoint, true);
     } catch (const std::runtime_error &e) {
-        std::cerr << e.what() << std::endl;
-        PAUSE();
-        return EXIT_FAILURE;
+        RETURN_ON_FAILURE();
     }
 #else
     // The workflow of parse:
@@ -62,9 +86,7 @@ int main(int argc, char *argv[])
     try {
         asAccount = AS::cloud_storage_account::parse(connStr);
     } catch (const std::invalid_argument &e) {
-        std::cerr << e.what() << std::endl;
-        PAUSE();
-        return EXIT_FAILURE;
+        RETURN_ON_FAILURE();
     }
 #endif
 
@@ -76,9 +98,7 @@ int main(int argc, char *argv[])
     try {
         container.create_if_not_exists();
     } catch (const std::exception &e) {
-        std::cerr << e.what() << std::endl;
-        PAUSE();
-        return EXIT_FAILURE;
+        RETURN_ON_FAILURE();
     }
 
     // set access permission
