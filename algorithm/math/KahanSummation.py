@@ -9,6 +9,8 @@
 # (I read about math.fsum on this page too.)
 # For more details of this algorithm, see:
 # http://en.wikipedia.org/wiki/Kahan_summation_algorithm
+# The doc of math.fsum in Python 3.4.2 documentation also mention this page:
+# ASPN cookbook recipes for accurate floating point summation: http://code.activestate.com/recipes/393090/
 
 def KahanSum(iterable):
     res = 0.0
