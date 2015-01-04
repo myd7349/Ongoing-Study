@@ -11,15 +11,41 @@
 # http://en.wikipedia.org/wiki/Kahan_summation_algorithm
 
 def KahanSum(iterable):
-    pass
+    res = 0.0
+    
+    # A running compensation for lost low-order bits.
+    compensation = 0.0
+
+    for elem in iterable:
+        # So far, so good; compensation is zero.
+        y = elem - compensation
+        # Alas, res is big, y small, so low-order digits of y are lost.
+        t = res + y
+        # (t - res) recovers the high-order part of y; subtracting y recovers -(low part of y)
+        compensation = (t - res) - y
+        # Algebraically, compensation should always be zero. Beware overly-aggressive optimizing compilers!
+        res = t
+        # Next time around, the lost low part will be added to y in a fresh attempt.
+
+    return res
 
 if __name__ == '__main__':
     # The summation of ten 0.1
     print(.1 + .1 + .1 + .1 + .1 + .1 + .1 + .1 + .1 + .1)
-    
+
     # Now, use math.fsum
     import math
     print(math.fsum([.1] * 10))
-    
+
     # This time, use the function we defined above
-    KahanSum([.1] * 10)
+    print(KahanSum([.1] * 10))
+
+#### Output(Test on Win7 x64):
+## Python 2.7.8:
+#1.0
+#1.0
+#1.0
+## Python 3.4.2:
+#0.9999999999999999
+#1.0
+#1.0
