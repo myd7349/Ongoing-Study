@@ -31,7 +31,8 @@ def KahanSum(iterable):
 
 if __name__ == '__main__':
     # The summation of ten 0.1
-    print(.1 + .1 + .1 + .1 + .1 + .1 + .1 + .1 + .1 + .1)
+    #print(.1 + .1 + .1 + .1 + .1 + .1 + .1 + .1 + .1 + .1)
+    print(sum([.1] * 10))
 
     # Now, use math.fsum
     import math
@@ -40,7 +41,7 @@ if __name__ == '__main__':
     # This time, use the function we defined above
     print(KahanSum([.1] * 10))
 
-#### Output(Test on Win7 x64):
+#### Output(Tested on Win7 x64):
 ## Python 2.7.8:
 #1.0
 #1.0
