@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"net/url"
 	"os"
-	//"path/filepath"
+	"path/filepath"
 	"strings"
 )
 
@@ -26,10 +26,10 @@ func unescape(s string) string {
 
 func main() {
 	// -- Parse command line arguments.
-	var file, method string
+	var path, method string
 	var recursive, verbose, stimulate bool
 
-	flag.StringVar(&file, "f", "", "Specify the file name or path name to be processed")
+	flag.StringVar(&path, "f", "", "Specify the file name or path name to be processed")
 	flag.StringVar(&method, "m", "unescape", "Specify the operation: \"escape\" or \"unescape\"(default operation)")
 	flag.BoolVar(&recursive, "r", false, "Specify whether processing a directory recursively or not")
 	flag.BoolVar(&verbose, "V", false, "Specify whether enabling verbose mode or not")
@@ -37,7 +37,7 @@ func main() {
 
 	flag.Parse()
 
-	// -- Decide the action we should take according to the "-operation" option.
+	// -- Decide the action we should take according to the "-m" option.
 	var convert func(string) string
 	switch method {
 	case "escape":
@@ -68,7 +68,7 @@ func main() {
 	}
 
 	// -- Now, do something meaningful to make the life a little more easier.
-	if len(file) == 0 {
+	if len(path) == 0 {
 		// If path name is empty, then read string from stdin.
 		stdin := bufio.NewReader(os.Stdin)
 		var line string
@@ -82,11 +82,45 @@ func main() {
 		}
 	} else {
 		// Otherwise, process the target file/path name.
-	}
+		finfo, err := os.Stat(path)
+		if err != nil {
+			fmt.Printf("File or path \"%s\" doesn't exist.\n", path)
+			return
+		}
 
-	echo("Hello, world!")
-	rename("a", "a")
+		var processFile = func(path string) {
+			dir, file := filepath.Split(path)
+			newpath := filepath.Join(dir, convert(file))
+			rename(path, newpath)
+			echo(path, "->", newpath)
+		}
+
+		if finfo.IsDir() {
+			// Define an visitor to process each file encountered.
+			var visitor = func(p string, info os.FileInfo, err error) error {
+				if err != nil {
+					echo(err)
+					return nil
+				}
+
+				if info.IsDir() && recursive {
+					// Bad idea! Go doesn't support recursive lambda.
+					return filepath.Walk(p, visitor)
+				}
+
+				processFile(p)
+				return nil
+			}
+
+			filepath.Walk(path, visitor)
+		} else {
+			processFile(path)
+		}
+	}
 }
 
 // References:
+// Check if file exists: http://golang-examples.tumblr.com/post/46579246576/check-if-file-exists
 // Command-Line Flags: https://gobyexample.com/command-line-flags
+// Anonymous recursion: http://rosettacode.org/wiki/Anonymous_recursion#Go
+// Walk a directory/Recursively: http://rosettacode.org/wiki/Walk_a_directory/Recursively#Go
