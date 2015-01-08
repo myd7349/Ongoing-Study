@@ -15,44 +15,6 @@ import (
 	"strings"
 )
 
-var convert = func(string) string { return "" }
-var echo = func(a ...interface{}) (int, error) { return 0, nil }
-var rename = func(_, _ string) error { return nil }
-var recursive = false
-
-func processfile(path string) {
-	dir, file := filepath.Split(path)
-	newpath := filepath.Join(dir, convert(file))
-	rename(path, newpath)
-	echo(path, "->", newpath)
-}
-
-// Define an visitor to process each file.
-func filevisitor(p string, info os.FileInfo, err error) error {
-	if err != nil {
-		echo(err)
-		return nil
-	}
-
-	if info.IsDir() {
-		return nil
-		// filepath.Walk will always walk the directory recursively, so code below is not needed.
-		/*
-			echo("p == ", p, recursive)
-			if recursive {
-				echo("----")
-				return filepath.Walk(p, filevisitor)
-			} else {
-				return nil
-			}
-		*/
-	} else {
-		processfile(p)
-	}
-
-	return nil
-}
-
 func unescape(s string) string {
 	res, err := url.QueryUnescape(s)
 
@@ -66,35 +28,16 @@ func unescape(s string) string {
 func main() {
 	// -- Parse command line arguments.
 	var path, method string
-	var verbose, stimulate bool
 
 	flag.StringVar(&path, "f", "", "Specify the file name or path name to be processed")
 	flag.StringVar(&method, "m", "unescape", "Specify the operation: \"escape\" or \"unescape\"")
-	flag.BoolVar(&recursive, "r", false, "Specify whether processing a directory recursively or not")
-	flag.BoolVar(&verbose, "V", false, "Specify whether enabling verbose mode or not")
-	flag.BoolVar(&stimulate, "s", false, "Specify whether stimulating the processing procedure or not")
 
 	flag.Parse()
 
-	// -- If verbose mode is enabled, then more message will be printed.
-	if verbose {
-		echo = fmt.Println
-	}
-
-	// -- If "stimulate" is true, it means that we just want to stimulate the processing procedure.
-	if !stimulate {
-		rename = os.Rename
-	}
-
 	// -- Decide the action we should take according to the "-m" option.
+	var convert = func(string) string { return "" }
 	switch method {
 	case "escape":
-		// In most cases, escaping all files' name under given path recursively is not what we want to do.
-		// So, make sure that "-r" option and "-m=escape" are not provided simultaneously.
-		if recursive {
-			fmt.Println(errors.New("Option \"-r\" and \"-m=escape\" should not be provided simultaneously."))
-			return
-		}
 		convert = url.QueryEscape
 	case "unescape":
 		convert = unescape
@@ -124,6 +67,36 @@ func main() {
 			return
 		}
 
+		// In most cases, escaping/unescaping all files' name under given path recursively is not what we want to do.
+		// So, make sure that "-m=escape" is not provided when a path name is given.
+		/*
+			if finfo.IsDir() && method == "escape" {
+				fmt.Println(errors.New("Option \"-m=escape\" should not be provided when a path name is given."))
+				return
+			}
+		*/
+
+		// Define an visitor to process each file.
+		var filevisitor = func(p string, info os.FileInfo, err error) error {
+			if err != nil {
+				fmt.Println(err)
+				return nil
+			}
+
+			if !info.IsDir() {
+				dir, file := filepath.Split(p)
+				newpath := filepath.Join(dir, convert(file))
+
+				if p != newpath {
+					os.Rename(p, newpath)
+					fmt.Println(p, "->", newpath)
+				}
+			}
+
+			return nil
+		}
+
+		// filepath.Walk will always walk a directory recursively
 		filepath.Walk(path, filevisitor)
 	}
 }
