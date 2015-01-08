@@ -14,9 +14,9 @@
 // However, I am so lazy that I never start this work.
 //
 // I also considered to write such a program with C. And libcurl also provides us two
-// functions to do this work: easy_escape, easy_unescape. However, it is a little difficult to
-// deal with different character encodings in C(may be libiconv is a good choice). And you know, 
-// I am lazy, so...
+// functions to do this work: curl_easy_escape, curl_easy_unescape. However, it is a little 
+// difficult to deal with different character encodings in C(may be libiconv is a good choice). 
+// And you know, I am lazy, so...
 //
 // Recently, I began to learn Go. So, I wrote this program as a practice.
 
