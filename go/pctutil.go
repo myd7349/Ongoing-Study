@@ -1,12 +1,29 @@
 // 2015-01-07T08:59+08:00
 
-// Percent encoding/decoding utility.
+// Percent-encoding/decoding utility.
+//
+// Sometimes, when I downloaded something via my firefox, I may got a file with
+// a strange name.
+//
+// After some exploration, I began to know "Percent-encoding" (or "URL encoding")
+// and RFC 3986. Then I realised that what I need to do is unescaping those strange
+// names according to RFC 3986.
+//
+// At the beginning, I planned to write a program with Python 3.x, since Python 3.x provides
+// us two functions to complete this work: urllib.parse.quote, urllib.parse.unquote.
+// However, I am so lazy that I never start this work.
+//
+// I also considered to write such a program with C. And libcurl also provides me two
+// functions to do this work: easy_escape, easy_unescape. However, it is a little difficult to
+// deal with different character encodings in C(may be libiconv is a good choice). However,
+// you know, I am lazy, so...
+//
+// Recently, I began to learn Go. So, I wrote this program as a practice.
 
 package main
 
 import (
 	"bufio"
-	"errors"
 	"flag"
 	"fmt"
 	"net/url"
@@ -16,11 +33,12 @@ import (
 )
 
 func unescape(s string) string {
-	res, err := url.QueryUnescape(s)
+	normname, err := url.QueryUnescape(s)
 
 	if err == nil {
-		return res
+		return normname
 	} else {
+		fmt.Println(err)
 		return s
 	}
 }
@@ -42,7 +60,7 @@ func main() {
 	case "unescape":
 		convert = unescape
 	default:
-		fmt.Println(errors.New("Unknown operation: " + method))
+		fmt.Println("Unknown operation:", method)
 		return
 	}
 
@@ -67,42 +85,17 @@ func main() {
 			return
 		}
 
-		// In most cases, escaping/unescaping all files' name under given path recursively is not what we want to do.
-		// So, make sure that "-m=escape" is not provided when a path name is given.
-		/*
-			if finfo.IsDir() && method == "escape" {
-				fmt.Println(errors.New("Option \"-m=escape\" should not be provided when a path name is given."))
-				return
-			}
-		*/
+		// We just process the last pathname component.
+		head, tail := filepath.Split(path)
+		newpath := filepath.Join(head, convert(tail))
 
-		// Define an visitor to process each file.
-		var filevisitor = func(p string, info os.FileInfo, err error) error {
-			if err != nil {
-				fmt.Println(err)
-				return nil
-			}
-
-			if !info.IsDir() {
-				dir, file := filepath.Split(p)
-				newpath := filepath.Join(dir, convert(file))
-
-				if p != newpath {
-					os.Rename(p, newpath)
-					fmt.Println(p, "->", newpath)
-				}
-			}
-
-			return nil
+		if newpath != path {
+			os.Rename(path, newpath)
+			fmt.Println(path, "->", newpath)
 		}
-
-		// filepath.Walk will always walk a directory recursively
-		filepath.Walk(path, filevisitor)
 	}
 }
 
 // References:
 // Check if file exists: http://golang-examples.tumblr.com/post/46579246576/check-if-file-exists
 // Command-Line Flags: https://gobyexample.com/command-line-flags
-// Anonymous recursion: http://rosettacode.org/wiki/Anonymous_recursion#Go
-// Walk a directory/Recursively: http://rosettacode.org/wiki/Walk_a_directory/Recursively#Go
