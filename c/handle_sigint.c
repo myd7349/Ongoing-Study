@@ -9,7 +9,7 @@
 
 typedef void (*sig_handler)(int);
 
-jmp_buf env_buf;
+sigjmp_buf env_buf;
 
 void sigint_handler(int parm)
 {
@@ -24,7 +24,7 @@ int main(void)
         return EXIT_FAILURE;
     }
 
-    if (!sigsetjmp(env_buf, SIGINT)) {
+    if (!sigsetjmp(env_buf, 1)) {
         puts("We have a lot of work to do in our whole life...");
         while (1);
     } else {
