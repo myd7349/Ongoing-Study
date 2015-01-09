@@ -33,3 +33,8 @@ int main(void)
 
     return EXIT_SUCCESS;    
 }
+
+/*
+References:
+longjmp() from signal handler: http://stackoverflow.com/questions/1715413/longjmp-from-signal-handler
+*/
