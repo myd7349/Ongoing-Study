@@ -2,11 +2,8 @@
 
 /* Signal handling and non-local jump test on CentOS. */
 
-/* On Win7 x64, if I:
- *   1. replace sigjmp_buf with jmp_buf
- *   2. replace sigsetjmp with setjmp
- *   3. replace siglongjmp with longjmp
- *   then this program just crush.
+/* On Win7 x64, if I replace sigjmp_buf, sigsetjmp, siglongjmp with jmp_buf, setjmp, longjmp, 
+ * then this program just crashes.
  */
 
 #include <setjmp.h>
