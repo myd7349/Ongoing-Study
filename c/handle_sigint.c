@@ -2,6 +2,13 @@
 
 /* Signal handling and non-local jump test on CentOS. */
 
+/* On Win7 x64, if I:
+ *   1. replace sigjmp_buf with jmp_buf
+ *   2. replace sigsetjmp with setjmp
+ *   3. replace siglongjmp with longjmp
+ *   then this program just crush.
+ */
+
 #include <setjmp.h>
 #include <signal.h>
 #include <stdio.h>
@@ -9,9 +16,9 @@
 
 typedef void (*sig_handler)(int);
 
-sigjmp_buf env_buf;
+static sigjmp_buf env_buf;
 
-void sigint_handler(int parm)
+static void sigint_handler(int parm)
 {
     siglongjmp(env_buf, 1);
 }
@@ -36,5 +43,12 @@ int main(void)
 
 /*
 References:
+24.4.3 Nonlocal Control Transfer in Handlers: http://www.gnu.org/savannah-checkouts/gnu/libc/manual/html_node/Longjmp-in-Handler.html
+CS360 Lecture notes -- Setjmp: http://web.eecs.utk.edu/~huangj/cs360/360/notes/Setjmp/lecture.html
+Exception Handling Differences: http://msdn.microsoft.com/en-us/library/de5awhsw.aspx
+Exceptions in C with Longjmp and Setjmp: http://www.di.unipi.it/~nids/docs/longjump_try_trow_catch.html
+Is it good programming practice to use setjmp and longjmp in C?: http://stackoverflow.com/questions/7262494/is-it-good-programming-practice-to-use-setjmp-and-longjmp-in-c
 longjmp() from signal handler: http://stackoverflow.com/questions/1715413/longjmp-from-signal-handler
+Mixing C (Structured) and C++ Exceptions: http://msdn.microsoft.com/en-us/library/5skw957f.aspx
+Using setjmp/longjmp: http://msdn.microsoft.com/en-us/library/yz2ez4as.aspx
 */
