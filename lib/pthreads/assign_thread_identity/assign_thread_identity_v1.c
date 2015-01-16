@@ -42,3 +42,8 @@ int main(void)
 
     return 0;
 }
+
+/*
+References:
+Linux Pthread library, thread arguments: http://stackoverflow.com/questions/10871427/linux-pthread-library-thread-arguments
+*/
