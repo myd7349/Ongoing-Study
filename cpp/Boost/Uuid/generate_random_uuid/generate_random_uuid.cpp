@@ -1,5 +1,5 @@
 ﻿// 2015-01-21T10:40+08:00
-// Generating an UUID string with Boost.Uuid or Azure's builtin UUID library.
+// Generating an UUID with Boost.Uuid or Azure's builtin UUID library.
 
 #define USING_BOOST_UUID_LIBRARY
 #define USING_AZURE_UUID_LIBRARY
@@ -32,7 +32,7 @@
 # define PAUSE() ((void)0)
 #endif
 
-int main(int argc, char *argv[])
+int main()
 {
 #ifdef USING_BOOST_UUID_LIBRARY
     std::wstring uuidByBoost = boost::uuids::to_wstring(boost::uuids::random_generator()());
@@ -47,3 +47,6 @@ int main(int argc, char *argv[])
     PAUSE();
     return 0;
 }
+
+// References:
+// [Boost.Uuid](http://www.boost.org/doc/libs/1_57_0/libs/uuid/uuid.html)
