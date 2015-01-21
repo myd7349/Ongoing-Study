@@ -5,15 +5,17 @@
 // https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/
 
 #include <chrono>
+#include <cstdint>
 #include <cstdlib>
+#include <ctime>
 #include <exception>
 #include <iostream>
-#include <locale>
+//#include <locale>
+#include <vector>
 
 #include <boost/filesystem.hpp>
 #include <boost/progress.hpp>
 #include <boost/property_tree/ini_parser.hpp>
-//#include <boost/uuid/uuid.hpp>
 
 #include <cpprest/filestream.h>
 
@@ -147,8 +149,7 @@ int main(int argc, char *argv[])
         // Upload a blob from a file
         //utility::string_t filePath = U("D:\\学习笔记.txt");
         utility::string_t filePath = U("D:\\20120929152243.dat");
-        concurrency::streams::istream inStream
-            = concurrency::streams::file_stream<std::uint8_t>::open_istream(filePath).get();
+        auto inStream = concurrency::streams::fstream::open_istream(filePath).get();
         AS::cloud_block_blob blob = container.get_block_blob_reference(boost::filesystem::path(filePath).filename().native());
         
         // Now, start the uploading process. If we want to upload a single block each time, then:
@@ -161,16 +162,47 @@ int main(int argc, char *argv[])
             boost::progress_display prog(fileSize);
             boost::progress_timer t;
 
+            utility::string_t blockId;
+            std::uint64_t blockIndex = std::time(NULL);
+
+            std::vector<AS::block_list_item> blockList;
+
+            std::vector<std::uint8_t> buffer1;
+            std::vector<std::uint8_t> buffer2;
+            buffer1.resize(reqOptions.stream_write_size_in_bytes());
+            buffer2.resize(fileSize % reqOptions.stream_write_size_in_bytes());
+
+            auto stream1 = concurrency::streams::bytestream::open_ostream<decltype(buffer1)>();
+            auto stream2 = concurrency::streams::bytestream::open_ostream<decltype(buffer2)>();
+
             while (fileSize >= reqOptions.stream_write_size_in_bytes()) {
-                blob.upload_from_stream(inStream, reqOptions.stream_write_size_in_bytes());
+                // Generate an unique block id
+                blockId = utility::conversions::to_base64(blockIndex++);
+                // Upload the current block
+                inStream.read(stream1.streambuf(), reqOptions.stream_write_size_in_bytes());
+                blob.upload_block(blockId, 
+                    concurrency::streams::bytestream::open_istream(buffer1), U(""));
+                // Record the block id for following upload_block_list call
+                blockList.push_back(AS::block_list_item(blockId));
+
                 prog += reqOptions.stream_write_size_in_bytes();
                 fileSize -= reqOptions.stream_write_size_in_bytes();
             }
 
             if (fileSize > 0) {
-                blob.upload_from_stream(inStream, fileSize);
+                // Generate an unique block id
+                blockId = utility::conversions::to_base64(blockIndex++);
+                // Upload the current block
+                inStream.read_to_end(stream2.streambuf());
+                blob.upload_block(blockId, 
+                    concurrency::streams::bytestream::open_istream(buffer2), U(""));
+                // Record the block id for following upload_block_list call
+                blockList.push_back(AS::block_list_item(blockId));
+
                 prog += fileSize;
             }
+
+            blob.upload_block_list(blockList);
         }
 
         // Close the stream
@@ -186,6 +218,6 @@ int main(int argc, char *argv[])
 }
 
 // References:
+// [istream and ostream with shared streambuf mutually thread-safe for duplex I/O?](http://stackoverflow.com/questions/9963413/istream-and-ostream-with-shared-streambuf-mutually-thread-safe-for-duplex-i-o)
 // [Understanding Block Blobs and Page Blobs](http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx)
 // [Windows Azure: 使用Blob的PutBlock实现大文件断点续传](http://www.cnblogs.com/lijiawei/archive/2013/01/18/2866756.html)
-// 
