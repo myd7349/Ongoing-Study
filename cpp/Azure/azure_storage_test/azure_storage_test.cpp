@@ -145,13 +145,13 @@ int main(int argc, char *argv[])
         container.upload_permissions(permission);
 
         // Upload a blob from a file
-        //utility::string_t filePath = U("D:\\瀛︿範绗旇.txt");
+        //utility::string_t filePath = U("D:\\学习笔记.txt");
         utility::string_t filePath = U("D:\\20120929152243.dat");
         concurrency::streams::istream inStream
             = concurrency::streams::file_stream<std::uint8_t>::open_istream(filePath).get();
         AS::cloud_block_blob blob = container.get_block_blob_reference(boost::filesystem::path(filePath).filename().native());
         
-        // Now, start the uploading process. If we want to upload a block each time, then:
+        // Now, start the uploading process. If we want to upload a single block each time, then:
         //   C#:     PutBlock, PutBlockList
         //   Python: put_blob
         //   C++:    upload_block, upload_block_list
@@ -187,4 +187,5 @@ int main(int argc, char *argv[])
 
 // References:
 // [Understanding Block Blobs and Page Blobs](http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx)
-// [Windows Azure: 浣跨敤Blob鐨凱utBlock瀹炵幇澶ф枃浠舵柇鐐圭画浼燷(http://www.cnblogs.com/lijiawei/archive/2013/01/18/2866756.html)
+// [Windows Azure: 使用Blob的PutBlock实现大文件断点续传](http://www.cnblogs.com/lijiawei/archive/2013/01/18/2866756.html)
+// 
