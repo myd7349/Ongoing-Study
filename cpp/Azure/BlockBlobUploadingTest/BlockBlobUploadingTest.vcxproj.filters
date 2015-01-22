@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="azure_storage_test.cpp">
+    <ClCompile Include="BlockBlobUploadingTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

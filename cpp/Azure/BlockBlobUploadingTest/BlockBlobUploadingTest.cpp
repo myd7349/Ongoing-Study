@@ -125,13 +125,18 @@ void uploadBlockBlobFromFile(AS::cloud_blob_container &container,
 
 int main(int argc, char *argv[])
 {
+    if (argc < 2) {
+        ucout << U("Usage: BlockUploadingTest.exe file ...\n");
+        return EXIT_FAILURE;
+    }
+
     //std::locale::global(std::locale(""));
 
     // parse the configuration file and fetch out account name, account key, host endpoint
     Cfg::basic_ptree<utility::string_t, utility::string_t> cfg;
     try {
         // You can create your own configuration file based on "azure_storage_test.cfg.template".
-        Cfg::read_ini("azure_storage_test.cfg", cfg);
+        Cfg::read_ini("BlockBlobUploadingTest.cfg", cfg);
     } catch (const Cfg::ini_parser_error &e) {
         RETURN_ON_FAILURE("Parsing configuration file failed:");
     }
@@ -221,9 +226,10 @@ int main(int argc, char *argv[])
         container.upload_permissions(permission);
 
         // Upload a blob from a file
-        utility::string_t filePath = U("C:\\Users\\hnyd-myd\\Documents\\GitHub\\Ongoing-Study\\cpp\\Azure\\azure_storage_test\\Debug\\azure_storage_test.exe");
-        //utility::string_t filePath = U("D:\\20120929152243.dat");
-        uploadBlockBlobFromFile(container, filePath, reqOptions.stream_write_size_in_bytes());
+        for (int i = 1; i < argc; ++i) {
+            utility::string_t filePath = utility::conversions::to_utf16string(argv[i]);
+            uploadBlockBlobFromFile(container, filePath, reqOptions.stream_write_size_in_bytes());
+        }
     } catch (const AS::storage_exception &e) {
         RETURN_ON_FAILURE("Azure storage exception");
     } catch (const std::exception &e) {

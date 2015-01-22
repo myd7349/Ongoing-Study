@@ -13,7 +13,8 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9513003E-6744-46DC-BA67-D49FFC181C34}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>azure_storage_test</RootNamespace>
+    <RootNamespace>BlockBlobUploadingTest</RootNamespace>
+    <ProjectName>BlockBlobUploadingTest</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -78,7 +79,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="azure_storage_test.cpp" />
+    <ClCompile Include="BlockBlobUploadingTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
