@@ -21,16 +21,7 @@
 # endif
 #endif
 
-#ifdef _MSC_VER
-# ifdef NDEBUG
-#  define PAUSE() (__noop)
-# else
-#  include <cstdlib>
-#  define PAUSE() std::system("pause")
-# endif
-#else
-# define PAUSE() ((void)0)
-#endif
+#include "../../../common.h"
 
 int main()
 {

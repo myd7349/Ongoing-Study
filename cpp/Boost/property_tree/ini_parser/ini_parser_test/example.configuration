@@ -1,0 +1,8 @@
+[ACCOUNT]
+account_name = hndb
+primary_access_key = c1Xxyk3HdAy3t9/vRWN+fuhrEUn5YN1B5koJzo47iuGbMV8U9gl7P32XSbkbo1XCj15JsWl5Io+Nc9wqga98IQ==
+secondary_access_key = 
+end_point = core.chinacloudapi.cn
+use_https = true
+use_dev_account = false
+
