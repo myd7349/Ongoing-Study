@@ -102,8 +102,13 @@ void uploadBlockBlobFromFile(AS::cloud_blob_container &container,
         // Read data
         inFile.read(reinterpret_cast<char *>(buffer.data()), uploadSizeEachTime);
         if (!inFile) {
-            buffer.resize(inFile.gcount());
-            uploading = false;
+            auto bytesRead = inFile.gcount();
+            if (bytesRead > 0) {
+                buffer.resize(bytesRead);
+                uploading = false;
+            } else {
+                break;
+            }
         }
         // Upload the current block
         auto tmpStream = concurrency::streams::bytestream::open_istream(buffer);
@@ -197,7 +202,7 @@ int main(int argc, char *argv[])
 
     AS::blob_request_options reqOptions;
     reqOptions.set_stream_read_size_in_bytes(1024 * 1024);
-    reqOptions.set_stream_write_size_in_bytes(1024 * 1024);
+    reqOptions.set_stream_write_size_in_bytes(1024 * 1024 * 4);
     reqOptions.set_server_timeout(std::chrono::seconds(5));
     reqOptions.set_store_blob_content_md5(true);
 
@@ -216,8 +221,8 @@ int main(int argc, char *argv[])
         container.upload_permissions(permission);
 
         // Upload a blob from a file
-        //utility::string_t filePath = U("D:\\学习笔记.txt");
-        utility::string_t filePath = U("D:\\20120929152243.dat");
+        utility::string_t filePath = U("C:\\Users\\hnyd-myd\\Documents\\GitHub\\Ongoing-Study\\cpp\\Azure\\azure_storage_test\\Debug\\azure_storage_test.exe");
+        //utility::string_t filePath = U("D:\\20120929152243.dat");
         uploadBlockBlobFromFile(container, filePath, reqOptions.stream_write_size_in_bytes());
     } catch (const AS::storage_exception &e) {
         RETURN_ON_FAILURE("Azure storage exception");
