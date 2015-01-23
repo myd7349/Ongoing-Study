@@ -87,16 +87,13 @@ int parseCmdlineArgs(const std::vector<std::basic_string<charT>> &vargs, Options
             ("use-dev-storage", Opt::value<bool>(&options.useDevStorage), "Use development storage account")
             ;
 
-        Opt::options_description cmdlineOptions;
-        cmdlineOptions.add(genericOptions).add(configOptions);
-
         Opt::variables_map argsMap;
         Opt::store(Opt::basic_command_line_parser<charT>(vargs).options(genericOptions).allow_unregistered().run(), argsMap);
         Opt::notify(argsMap);
 
         if (vargs.size() < 2 || argsMap.count("help")) {
             std::cout << "Usage: " << getProgName(vargs[0]) << " [options]\n";
-            std::cout << cmdlineOptions << std::endl;
+            std::cout << Opt::options_description().add(genericOptions).add(configOptions) << std::endl;
             std::cout << "If \"--help\" is provided, then all other options will be ignored.\n"
                 "If \"--config-file\" is provided, then all \"Configuration options\""
                 " will be read from the specified configuration file.\n" << std::endl;
@@ -174,8 +171,8 @@ void uploadBlockBlobFromFile(AS::cloud_blob_container &container,
     }
 
     // Now, start the uploading process. If we want to upload a single block each time, then:
-    //   C#:     PutBlock?, PutBlockList?
-    //   Python: put_blob, ?
+    //   C#:     PutBlock, PutBlockList
+    //   Python: put_block, put_block_list
     //   Java:   uploadBlock, commitBlockList
     //   C++:    upload_block, upload_block_list
     ucout << U("Uploading file: ") << filePath << U("...");
@@ -220,66 +217,67 @@ int main(int argc, char *argv[])
 {
     //std::locale::global(std::locale(""));
 
-    Options options;
+    try {
+        Options options;
 #ifdef NDEBUG
-    if (int rc = parseCmdlineArgs(argc, argv, options)) {
-        return rc;
-    }
-#else
-    // _DEBUG
-    std::vector<std::string> args {argv[0], std::string("--config-file=") + getProgName(argv[0]) + ".cfg"};
-    if (int rc = parseCmdlineArgs(args, options)) {
-        return rc;
-    }
-#endif
-
-    AS::cloud_storage_account asAccount;
-
-    // initialize the storage account
-#if 1
-    try {
-        if (options.useDevStorage) {
-            // If you want to use a development storage account, please read this article: 
-            // Using the Azure Storage Emulator for Development and Testing
-            // http://msdn.microsoft.com/en-us/library/azure/hh403989.aspx
-            asAccount = AS::cloud_storage_account::development_storage_account();
-        } else {
-            AS::storage_credentials credential(options.accountName, options.primaryAccessKey);
-            asAccount = AS::cloud_storage_account(credential, options.endPoint, options.useHttps);
+        if (int rc = parseCmdlineArgs(argc, argv, options)) {
+            return rc;
         }
-    } catch (const std::exception &e) {
-        RETURN_ON_FAILURE_MSG("Creating storage account object failed");
-    }
 #else
-    // The workflow of parse:
-    //   1. parse_devstore_settings
-    //   2. parse_defaults_settings
-    //   3. parse_explicit_settings
-    // In cloud_storage_account.cpp, we can see all the valid setting strings.
-    utility::string_t connStr;
-    if (options.useDevStorage) {
-        connStr = U("UseDevelopmentStorage=true;DevelopmentStorageProxyUri=;");
-    } else {
-        connStr =
-            utility::string_t(U("DefaultEndpointsProtocol=")) + (options.useHttps ? U("https;") : U("http;")) +
-            U("AccountName=") + options.accountName + U(";") +
-            U("AccountKey=") + options.primaryAccessKey + U(";") +
-            U("EndpointSuffix=") + options.secondaryAccessKey + U(";");
-    }
-
-    try {
-        asAccount = AS::cloud_storage_account::parse(connStr);
-    } catch (const std::exception &e) {
-        RETURN_ON_FAILURE_MSG("Parsing connection string failed");
-    }
+        // _DEBUG
+        std::vector<std::string> args {argv[0], std::string("--config-file=") + getProgName(argv[0]) + ".cfg"};
+        if (int rc = parseCmdlineArgs(args, options)) {
+            return rc;
+        }
 #endif
 
-    AS::blob_request_options reqOptions;
-    reqOptions.set_stream_read_size_in_bytes(1024 * 1024);
-    reqOptions.set_stream_write_size_in_bytes(1024 * 1024 * 4);
-    //reqOptions.set_server_timeout(std::chrono::seconds(5));
+        AS::cloud_storage_account asAccount;
+        // initialize the storage account
+#if 1
+        try {
+            if (options.useDevStorage) {
+                // If you want to use a development storage account, please read this article: 
+                // Using the Azure Storage Emulator for Development and Testing
+                // http://msdn.microsoft.com/en-us/library/azure/hh403989.aspx
+                asAccount = AS::cloud_storage_account::development_storage_account();
+            }
+            else {
+                AS::storage_credentials credential(options.accountName, options.primaryAccessKey);
+                asAccount = AS::cloud_storage_account(credential, options.endPoint, options.useHttps);
+            }
+        } catch (const std::exception &e) {
+            RETURN_ON_FAILURE_MSG("Creating storage account object failed");
+        }
+#else
+        // The workflow of parse:
+        //   1. parse_devstore_settings
+        //   2. parse_defaults_settings
+        //   3. parse_explicit_settings
+        // In cloud_storage_account.cpp, we can see all the valid setting strings.
+        utility::string_t connStr;
+        if (options.useDevStorage) {
+            connStr = U("UseDevelopmentStorage=true;DevelopmentStorageProxyUri=;");
+        } else {
+            connStr =
+                utility::string_t(U("DefaultEndpointsProtocol=")) + (options.useHttps ? U("https;") : U("http;")) +
+                U("AccountName=") + options.accountName + U(";") +
+                U("AccountKey=") + options.primaryAccessKey + U(";") +
+                U("EndpointSuffix=") + options.secondaryAccessKey + U(";");
+        }
 
-    try {
+        try {
+            asAccount = AS::cloud_storage_account::parse(connStr);
+        }
+        catch (const std::exception &e) {
+            RETURN_ON_FAILURE_MSG("Parsing connection string failed");
+        }
+#endif
+
+        AS::blob_request_options reqOptions;
+        reqOptions.set_stream_read_size_in_bytes(1024 * 1024);
+        reqOptions.set_stream_write_size_in_bytes(1024 * 1024 * 4);
+        //reqOptions.set_server_timeout(std::chrono::seconds(5));
+
         AS::cloud_blob_client blobClient = asAccount.create_cloud_blob_client(reqOptions);
         // Caution:
         // A container name must be a valid DNS name. Please read the naming convention described here:
@@ -296,13 +294,16 @@ int main(int argc, char *argv[])
         // Upload files
         //for (int i = 1; i < argc; ++i) {
             //utility::string_t filePath = utility::conversions::to_utf16string(argv[i]);
-        utility::string_t filePath = U("d:\\20120929152243.dat");
+        utility::string_t filePath = U("e:\\MIT_sixsense.mp4"); // U("d:\\20120929152243.dat");
             uploadBlockBlobFromFile(container, filePath, reqOptions.stream_write_size_in_bytes());
         //}
     } catch (const AS::storage_exception &e) {
-        RETURN_ON_FAILURE_MSG("Azure storage exception");
+        RETURN_ON_FAILURE_MSG("storage_exception");
     } catch (const std::exception &e) {
-        RETURN_ON_FAILURE_MSG("Unknown exception");
+        RETURN_ON_FAILURE_MSG("exception");
+    } catch (...) {
+        std::cerr << "Unknown exception!\n";
+        return EXIT_FAILURE;
     }
 
     PAUSE();
