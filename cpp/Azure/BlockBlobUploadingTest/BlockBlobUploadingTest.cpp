@@ -1,4 +1,5 @@
 // 2014-12-17T13:31+08:00
+// 2015-01-23T09:15+08:00
 
 // An example for testing Azure Storage CPP SDK. 
 // Several official examples can be found here:
@@ -13,9 +14,11 @@
 #include <fstream>
 #include <iostream>
 //#include <locale>
+#include <string>
 #include <vector>
 
 #include <boost/filesystem.hpp>
+#include <boost/program_options.hpp>
 #include <boost/progress.hpp>
 #include <boost/property_tree/ini_parser.hpp>
 
@@ -36,20 +39,100 @@
 # pragma comment(lib, "wastorage.lib")
 #endif
 
-#ifdef _MSC_VER
-# ifdef NDEBUG
-#  define PAUSE() (__noop)
-# else
-#  define PAUSE() std::system("pause")
-# endif
-#else
-# define PAUSE() ((void)0)
-#endif
-
-#define RETURN_ON_FAILURE(msg) std::cerr << msg << ": " << e.what() << '\n'; PAUSE(); return EXIT_FAILURE
+#include "../../common.h"
 
 namespace AS = azure::storage;
 namespace Cfg = boost::property_tree;
+namespace Opt = boost::program_options;
+
+struct Options {
+    utility::string_t accountName;
+    utility::string_t primaryAccessKey;
+    utility::string_t secondaryAccessKey;
+    utility::string_t endPoint;
+    bool useHttps;
+    bool useDevStorage;
+};
+
+template <typename charT>
+int parseCmdlineArgs(const std::vector<std::basic_string<charT>> &vargs, Options &options)
+{
+    if (vargs.empty()) {
+        ucerr << U("At least one command line argument is expected.\n");
+        return EXIT_FAILURE;
+    }
+
+    try {
+        // Declare a group of options that will be allowed only on command line.
+        Opt::options_description genericOptions("Generic options");
+        std::string configFileName;
+        genericOptions.add_options()
+            ("config-file,c", Opt::value<std::string>(&configFileName), "Configuration file path")
+            ("help,h", "Display this information")
+            ;
+
+        // Declare a group of options that will be allowed both on command line and
+        // in configuration file.
+        Opt::options_description configOptions("Configuration options");
+        configOptions.add_options()
+            ("account-name,a", Opt::wvalue<utility::string_t>(&options.accountName), "Azure storage account name")
+            ("primary-key,p", Opt::wvalue<utility::string_t>(&options.primaryAccessKey), "The primary access key")
+            ("secondary-key,s", Opt::wvalue<utility::string_t>(&options.secondaryAccessKey), "The secondary access key")
+#if 0
+            ("end-point,e", Opt::wvalue<utility::string_t>(&options.endPoint)->default_value(U("core.windows.net")), "Endpoint suffix")
+#else
+            ("end-point,e", Opt::wvalue<utility::string_t>(&options.endPoint)->default_value(U("core.windows.net"), "core.windows.net"), "Endpoint suffix")
+#endif
+            ("use-https", Opt::value<bool>(&options.useHttps), "Use \"HTTPS\" rather than \"HTTP\"")
+            ("use-dev-storage", Opt::value<bool>(&options.useDevStorage), "Use development storage account")
+            ;
+
+        Opt::options_description cmdlineOptions;
+        cmdlineOptions.add(genericOptions).add(configOptions);
+
+        Opt::variables_map argsMap;
+        Opt::store(Opt::basic_command_line_parser<charT>(vargs).options(genericOptions).allow_unregistered().run(), argsMap);
+        Opt::notify(argsMap);
+
+        if (vargs.size() < 2 || argsMap.count("help")) {
+            std::cout << "Usage: " << getProgName(vargs[0]) << " [options]\n";
+            std::cout << cmdlineOptions << std::endl;
+            std::cout << "If \"--help\" is provided, then all other options will be ignored.\n"
+                "If \"--config-file\" is provided, then all \"Configuration options\""
+                " will be read from the specified configuration file.\n" << std::endl;
+            return EXIT_FAILURE;
+        }
+
+        if (argsMap.count("config-file")) {
+            std::ifstream configFileStream(configFileName);
+            if (configFileStream) {
+                Opt::store(Opt::parse_config_file(configFileStream, configOptions, true), argsMap);
+                Opt::notify(argsMap);
+            } else {
+                std::cerr << "Open configuration file \"" << configFileName << "\" failed.\n";
+            }
+        } else {
+            //Opt::store(Opt::parse_command_line<charT>(argc, argv, configOptions), argsMap);
+            Opt::store(Opt::basic_command_line_parser<charT>(vargs).options(configOptions).run(), argsMap);
+            Opt::notify(argsMap);
+        }
+    } catch (const std::exception &e) {
+        RETURN_ON_FAILURE_MSG("exception");
+    }
+
+    return 0;
+}
+
+template <typename charT>
+int parseCmdlineArgs(int argc, charT *argv[], Options &options)
+{
+    std::vector<std::basic_string<charT>> vargs;
+    for (int i = 0; i < argc; ++i) {
+        vargs.push_back(argv[i]);
+    }
+
+    return parseCmdlineArgs(vargs, options);
+}
 
 void uploadBlockBlobFromFile(AS::cloud_blob_container &container, 
     const utility::string_t &filePath, utility::size64_t uploadSizeEachTime)
@@ -62,6 +145,9 @@ void uploadBlockBlobFromFile(AS::cloud_blob_container &container,
     auto blob = container.get_block_blob_reference(
         boost::filesystem::path(filePath).filename().native());
 
+    boost::progress_timer t;
+
+#if 1
     utility::size64_t fileSize = boost::filesystem::file_size(filePath);
     if (0 == fileSize) {
         blob.upload_from_file(filePath);
@@ -88,12 +174,12 @@ void uploadBlockBlobFromFile(AS::cloud_blob_container &container,
     }
 
     // Now, start the uploading process. If we want to upload a single block each time, then:
-    //   C#:     PutBlock, PutBlockList
-    //   Python: put_blob
+    //   C#:     PutBlock?, PutBlockList?
+    //   Python: put_blob, ?
+    //   Java:   uploadBlock, commitBlockList
     //   C++:    upload_block, upload_block_list
     ucout << U("Uploading file: ") << filePath << U("...");
     boost::progress_display prog(fileSize);
-    boost::progress_timer t;
 
     bool uploading = true;
     while (uploading) {
@@ -121,65 +207,48 @@ void uploadBlockBlobFromFile(AS::cloud_blob_container &container,
 
     // The last step...
     blob.upload_block_list(blockList);
+#elif 0
+    blob.upload_from_file(filePath);
+#elif 0
+    auto inStream = concurrency::streams::fstream::open_istream(filePath).get();
+    blob.upload_from_stream(inStream);
+    inStream.close().wait();
+#endif
 }
 
 int main(int argc, char *argv[])
 {
-    if (argc < 2) {
-        ucout << U("Usage: BlockUploadingTest.exe file ...\n");
-        return EXIT_FAILURE;
-    }
-
     //std::locale::global(std::locale(""));
 
-    // parse the configuration file and fetch out account name, account key, host endpoint
-    Cfg::basic_ptree<utility::string_t, utility::string_t> cfg;
-    try {
-        // You can create your own configuration file based on "azure_storage_test.cfg.template".
-        Cfg::read_ini("BlockBlobUploadingTest.cfg", cfg);
-    } catch (const Cfg::ini_parser_error &e) {
-        RETURN_ON_FAILURE("Parsing configuration file failed:");
+    Options options;
+#ifdef NDEBUG
+    if (int rc = parseCmdlineArgs(argc, argv, options)) {
+        return rc;
     }
-
-    utility::string_t accountName;
-    utility::string_t primaryAccessKey;
-    utility::string_t secondaryAccessKey;
-    // I am using Microsoft Azure China service, so my endpoint is: core.chinacloudapi.cn
-    utility::string_t endPoint;
-    bool useHttps;
-    bool useDevAccount;
-
-    try {
-        accountName = cfg.get<utility::string_t>(U("ACCOUNT.account_name"));
-        primaryAccessKey = cfg.get<utility::string_t>(U("ACCOUNT.primary_access_key"));
-        secondaryAccessKey = cfg.get<utility::string_t>(U("ACCOUNT.secondary_access_key"));
-        endPoint = cfg.get<utility::string_t>(U("ACCOUNT.end_point"));
-        useHttps = cfg.get<bool>(U("ACCOUNT.use_https"));
-        useDevAccount = cfg.get<bool>(U("ACCOUNT.use_dev_account"));
-    } catch (const Cfg::ptree_bad_path &e) {
-        RETURN_ON_FAILURE("Specified key not found");
-    } catch (const Cfg::ptree_bad_data &e) {
-        RETURN_ON_FAILURE("Bad data");
-    } catch (const std::exception &e) {
-        RETURN_ON_FAILURE("Fetching configuration information failed");
+#else
+    // _DEBUG
+    std::vector<std::string> args {argv[0], std::string("--config-file=") + getProgName(argv[0]) + ".cfg"};
+    if (int rc = parseCmdlineArgs(args, options)) {
+        return rc;
     }
+#endif
 
     AS::cloud_storage_account asAccount;
 
     // initialize the storage account
 #if 1
     try {
-        if (useDevAccount) {
+        if (options.useDevStorage) {
             // If you want to use a development storage account, please read this article: 
             // Using the Azure Storage Emulator for Development and Testing
             // http://msdn.microsoft.com/en-us/library/azure/hh403989.aspx
             asAccount = AS::cloud_storage_account::development_storage_account();
         } else {
-            AS::storage_credentials credential(accountName, primaryAccessKey);
-            asAccount = AS::cloud_storage_account(credential, endPoint, useHttps);
+            AS::storage_credentials credential(options.accountName, options.primaryAccessKey);
+            asAccount = AS::cloud_storage_account(credential, options.endPoint, options.useHttps);
         }
     } catch (const std::exception &e) {
-        RETURN_ON_FAILURE("Creating storage account object failed");
+        RETURN_ON_FAILURE_MSG("Creating storage account object failed");
     }
 #else
     // The workflow of parse:
@@ -188,28 +257,27 @@ int main(int argc, char *argv[])
     //   3. parse_explicit_settings
     // In cloud_storage_account.cpp, we can see all the valid setting strings.
     utility::string_t connStr;
-    if (useDevAccount) {
+    if (options.useDevStorage) {
         connStr = U("UseDevelopmentStorage=true;DevelopmentStorageProxyUri=;");
     } else {
         connStr =
-            utility::string_t(U("DefaultEndpointsProtocol=")) + (useHttps ? U("https;") : U("http;")) +
-            U("AccountName=") + accountName + U(";") +
-            U("AccountKey=") + primaryAccessKey + U(";") +
-            U("EndpointSuffix=") + endPoint + U(";");
+            utility::string_t(U("DefaultEndpointsProtocol=")) + (options.useHttps ? U("https;") : U("http;")) +
+            U("AccountName=") + options.accountName + U(";") +
+            U("AccountKey=") + options.primaryAccessKey + U(";") +
+            U("EndpointSuffix=") + options.secondaryAccessKey + U(";");
     }
 
     try {
         asAccount = AS::cloud_storage_account::parse(connStr);
     } catch (const std::exception &e) {
-        RETURN_ON_FAILURE("Parsing connection string failed");
+        RETURN_ON_FAILURE_MSG("Parsing connection string failed");
     }
 #endif
 
     AS::blob_request_options reqOptions;
     reqOptions.set_stream_read_size_in_bytes(1024 * 1024);
     reqOptions.set_stream_write_size_in_bytes(1024 * 1024 * 4);
-    reqOptions.set_server_timeout(std::chrono::seconds(5));
-    reqOptions.set_store_blob_content_md5(true);
+    //reqOptions.set_server_timeout(std::chrono::seconds(5));
 
     try {
         AS::cloud_blob_client blobClient = asAccount.create_cloud_blob_client(reqOptions);
@@ -225,15 +293,16 @@ int main(int argc, char *argv[])
         permission.set_public_access(AS::blob_container_public_access_type::blob);
         container.upload_permissions(permission);
 
-        // Upload a blob from a file
-        for (int i = 1; i < argc; ++i) {
-            utility::string_t filePath = utility::conversions::to_utf16string(argv[i]);
+        // Upload files
+        //for (int i = 1; i < argc; ++i) {
+            //utility::string_t filePath = utility::conversions::to_utf16string(argv[i]);
+        utility::string_t filePath = U("d:\\20120929152243.dat");
             uploadBlockBlobFromFile(container, filePath, reqOptions.stream_write_size_in_bytes());
-        }
+        //}
     } catch (const AS::storage_exception &e) {
-        RETURN_ON_FAILURE("Azure storage exception");
+        RETURN_ON_FAILURE_MSG("Azure storage exception");
     } catch (const std::exception &e) {
-        RETURN_ON_FAILURE("Unknown exception");
+        RETURN_ON_FAILURE_MSG("Unknown exception");
     }
 
     PAUSE();
@@ -241,6 +310,7 @@ int main(int argc, char *argv[])
 }
 
 // References:
+// [In Boost::Program_Options, how to set default value for wstring?](http://stackoverflow.com/questions/6921196/in-boostprogram-options-how-to-set-default-value-for-wstring)
 // [istream and ostream with shared streambuf mutually thread-safe for duplex I/O?](http://stackoverflow.com/questions/9963413/istream-and-ostream-with-shared-streambuf-mutually-thread-safe-for-duplex-i-o)
 // [Understanding Block Blobs and Page Blobs](http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx)
 // [Windows Azure: 使用Blob的PutBlock实现大文件断点续传](http://www.cnblogs.com/lijiawei/archive/2013/01/18/2866756.html)
