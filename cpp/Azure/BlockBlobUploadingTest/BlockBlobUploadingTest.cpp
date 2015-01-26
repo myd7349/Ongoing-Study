@@ -165,8 +165,9 @@ void uploadBlockBlobFromFile(AS::cloud_blob_container &container,
     // Since concurrency::streams::basic_istream doesn't provide us a "read" method looks like this:
     //   istream& read (char* s, streamsize n);
     // so, I use std::ifstream instead.
-    std::ifstream inFile(filePath, std::wifstream::binary);
+    std::ifstream inFile(filePath, std::ifstream::binary);
     if (!inFile) {
+        ucout << U("Opening file \"") << filePath << U("\" failed.\n");
         return;
     }
 
@@ -211,6 +212,62 @@ void uploadBlockBlobFromFile(AS::cloud_blob_container &container,
     blob.upload_from_stream(inStream);
     inStream.close().wait();
 #endif
+}
+
+void downloadBlockBlobToFile(AS::cloud_blob_container &container,
+    const utility::string_t &blobName, const utility::string_t &targetFileName, 
+    utility::size64_t downloadSizeEachTime)
+{
+    auto blob = container.get_block_blob_reference(blobName);
+    if (!blob.exists()) {
+        ucerr << U("Specified block blob \"") << blobName << U("\" doesn't exist.\n");
+        return;
+    }
+
+    boost::progress_timer t;
+
+    // Get blob's size(in bytes)
+    auto properties = blob.properties();
+    auto blobSize = properties.size();
+
+    if (0 == blobSize) {
+        blob.download_to_file(targetFileName);
+        return;
+    }
+
+    assert(downloadSizeEachTime > 0);
+    if (downloadSizeEachTime == 0 || downloadSizeEachTime > blobSize) {
+        downloadSizeEachTime = blobSize;
+    }
+
+    std::ofstream outFile(targetFileName, std::ofstream::binary);
+    if (!outFile) {
+        ucout << U("Opening file \"") << targetFileName << U("\" failed.\n");
+        return;
+    }
+
+    ucout << U("Downloading file: ") << targetFileName << U("...");
+    boost::progress_display prog(blobSize);
+
+    utility::size64_t offset = 0;
+    utility::size64_t bytesRead;
+    while (offset < blobSize) {
+        // Create a memory buffer
+        concurrency::streams::container_buffer<std::vector<uint8_t>> buffer;
+        // Read data
+        concurrency::streams::ostream tmpOutStream(buffer);
+        blob.download_range_to_stream(tmpOutStream, offset, downloadSizeEachTime);
+        bytesRead = buffer.collection().size();
+        // Write out...
+        outFile.write(reinterpret_cast<char *>(buffer.collection().data()), bytesRead);
+        //outFile.flush();
+        // Upgrade the progress bar and other states
+        prog += bytesRead;
+        offset += bytesRead;
+    }
+
+    // The last step...
+    blob.download_block_list();
 }
 
 int main(int argc, char *argv[])
@@ -291,12 +348,18 @@ int main(int argc, char *argv[])
         permission.set_public_access(AS::blob_container_public_access_type::blob);
         container.upload_permissions(permission);
 
+#if 0
         // Upload files
         //for (int i = 1; i < argc; ++i) {
             //utility::string_t filePath = utility::conversions::to_utf16string(argv[i]);
         utility::string_t filePath = U("e:\\MIT_sixsense.mp4"); // U("d:\\20120929152243.dat");
             uploadBlockBlobFromFile(container, filePath, reqOptions.stream_write_size_in_bytes());
         //}
+#else
+        utility::string_t blobName = U("MIT_sixsense.mp4");
+        utility::string_t targetFileName = U("d:\\MIT_sixsense.mp4");
+        downloadBlockBlobToFile(container, blobName, targetFileName, 1024 * 1024);
+#endif
     } catch (const AS::storage_exception &e) {
         RETURN_ON_FAILURE_MSG("storage_exception");
     } catch (const std::exception &e) {
