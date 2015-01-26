@@ -3,5 +3,5 @@ primary-key = Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1S
 secondary-key = 
 end-point = core.chinacloudapi.cn
 use-https = false
-use-dev-storage = 0
+use-dev-storage = yes
 

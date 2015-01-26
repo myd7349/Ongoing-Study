@@ -1,15 +1,22 @@
 // 2015-01-13T15:29+08:00
 // Yet another INI file parsing example with Boost.Program_options.
 // The previous INI parsing example I wrote can be found here:
-// https://github.com/myd7349/Ongoing-Study/tree/master/cpp/Boost/property_tree/ini_parser/ini_parser_test
+// https://github.com/myd7349/Ongoing-Study/tree/master/cpp/Boost/property_tree/ini_parser/ini_parser_test 
+// 2015-01-16T15:12+08:00
+// This example also demonstrates two elegant ways to parse boolean options.
 
 #include <iostream>
 #include <string>
+#include <vector>
 
-#include <boost/lexical_cast.hpp>
+#include <boost/any.hpp>
 #include <boost/program_options.hpp>
 
 #include "../../../common.h"
+
+// Change between 0 and 1, and see the help information for "--use-https"
+// and "--use-dev-storage".
+#define PARSE_USE_HTTPS_OPTION_MYSELF (1)
 
 struct Options {
     std::wstring accountName;
@@ -49,10 +56,14 @@ int main()
 #else
             ("end-point,e", Opt::wvalue<std::wstring>(&options.endPoint)->default_value(L"core.windows.net", "core.windows.net"), "Endpoint suffix")
 #endif
-            // Boost.Property_tree.ini_parser will treat "true", "1", "yes" as true, and "false", "0", "no" as false.
-            // So what about Boost.Program_options?
+
+#if defined(PARSE_USE_HTTPS_OPTION_MYSELF) && PARSE_USE_HTTPS_OPTION_MYSELF
+            ("use-https", "Use \"HTTPS\" rather than \"HTTP\"")
+            ("use-dev-storage", "Use development storage account")
+#else
             ("use-https", Opt::value<bool>(&options.useHttps)->implicit_value(true), "Use \"HTTPS\" rather than \"HTTP\"")
             ("use-dev-storage", Opt::value<bool>(&options.useDevStorage)->implicit_value(true), "Use development storage account")
+#endif
             ;
 
         Opt::variables_map optionsMap;
@@ -69,9 +80,49 @@ int main()
             // since those lines in configuration file:
             //   use-https = false
             //   use-dev-storage = 0
-            // will always be wrongly parsed.
+            // will always be wrongly parsed in this way.
+            //
+            // If you really want to parse them yourself, then do it like this:
+#if defined(PARSE_USE_HTTPS_OPTION_MYSELF) && PARSE_USE_HTTPS_OPTION_MYSELF
+# if 0
+            // Oops! boost::bad_any_cast.
+            // We CANNOT cast a string "false" to a boolean false directly.
+            // We should convert "false" to "0", and then call boost::any_cast/boost::lexical_cast.
+            options.useHttps = optionsMap.count("use-https") > 0 ?
+                optionsMap["use-https"].as<bool>() : false;
+            options.useDevStorage = optionsMap.count("use-dev-storage") > 0 ?
+                optionsMap["use-dev-storage"].as<bool>() : false;
+# else
+            // Boost.Property_tree.ini_parser will treat "true", "1", "yes" as true, and "false", "0", "no" as false.
+            // 
+            // Internally, Boost.program_options calls boost::program_options::validate to
+            // validate boolean values. That is:
+            //   1. Any of "1", "true", "yes", "on" will be converted to "1".
+            //   2. Any of "0", "false", "no", "off" will be converted to "0".
+            // Please read libs/program_options/src/value_semantic.cpp for more details.
+            if (optionsMap.count("use-https") > 0) {
+                boost::any v;
+                std::vector<std::string> xs {optionsMap["use-https"].as<std::string>()};
+                Opt::validate(v, xs, reinterpret_cast<bool *>(NULL), 0);
+                options.useHttps = boost::any_cast<bool>(v);
+            } else {
+                options.useHttps = false;
+            }
 
-            std::wcout << options;
+            if (optionsMap.count("use-dev-storage") > 0) {
+                boost::any v;
+                std::vector<std::string> xs {optionsMap["use-dev-storage"].as<std::string>()};
+                Opt::validate(v, xs, reinterpret_cast<bool *>(NULL), 0);
+                options.useDevStorage = boost::any_cast<bool>(v);
+            } else {
+                options.useDevStorage = false;
+            }
+# endif
+#endif
+
+            std::cout << configOptions;
+
+            std::wcout << L"\n\n" << options;
         } else {
             std::cerr << "Open configuration file failed.\n";
             return EXIT_FAILURE;
