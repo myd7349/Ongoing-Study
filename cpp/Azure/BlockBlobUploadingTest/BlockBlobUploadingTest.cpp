@@ -20,7 +20,6 @@
 #include <boost/filesystem.hpp>
 #include <boost/program_options.hpp>
 #include <boost/progress.hpp>
-#include <boost/property_tree/ini_parser.hpp>
 
 #include <cpprest/filestream.h>
 
@@ -42,7 +41,6 @@
 #include "../../common.h"
 
 namespace AS = azure::storage;
-namespace Cfg = boost::property_tree;
 namespace Opt = boost::program_options;
 
 struct Options {
@@ -123,6 +121,7 @@ int parseCmdlineArgs(const std::vector<std::basic_string<charT>> &vargs, Options
 template <typename charT>
 int parseCmdlineArgs(int argc, charT *argv[], Options &options)
 {
+    assert(argv != nullptr);
     std::vector<std::basic_string<charT>> vargs;
     for (int i = 0; i < argc; ++i) {
         vargs.push_back(argv[i]);
@@ -246,7 +245,7 @@ void downloadBlockBlobToFile(AS::cloud_blob_container &container,
         return;
     }
 
-    ucout << U("Downloading file: ") << targetFileName << U("...");
+    ucout << U("Downloading file to: ") << targetFileName << U("...");
     boost::progress_display prog(blobSize);
 
     utility::size64_t offset = 0;
@@ -297,8 +296,7 @@ int main(int argc, char *argv[])
                 // Using the Azure Storage Emulator for Development and Testing
                 // http://msdn.microsoft.com/en-us/library/azure/hh403989.aspx
                 asAccount = AS::cloud_storage_account::development_storage_account();
-            }
-            else {
+            } else {
                 AS::storage_credentials credential(options.accountName, options.primaryAccessKey);
                 asAccount = AS::cloud_storage_account(credential, options.endPoint, options.useHttps);
             }
@@ -324,8 +322,7 @@ int main(int argc, char *argv[])
 
         try {
             asAccount = AS::cloud_storage_account::parse(connStr);
-        }
-        catch (const std::exception &e) {
+        } catch (const std::exception &e) {
             RETURN_ON_FAILURE_MSG("Parsing connection string failed");
         }
 #endif
