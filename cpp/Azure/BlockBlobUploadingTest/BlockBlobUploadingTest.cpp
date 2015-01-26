@@ -81,8 +81,8 @@ int parseCmdlineArgs(const std::vector<std::basic_string<charT>> &vargs, Options
 #else
             ("end-point,e", Opt::wvalue<utility::string_t>(&options.endPoint)->default_value(U("core.windows.net"), "core.windows.net"), "Endpoint suffix")
 #endif
-            ("use-https", Opt::value<bool>(&options.useHttps), "Use \"HTTPS\" rather than \"HTTP\"")
-            ("use-dev-storage", Opt::value<bool>(&options.useDevStorage), "Use development storage account")
+            ("use-https", Opt::value<bool>(&options.useHttps)->implicit_value(true), "Use \"HTTPS\" rather than \"HTTP\"")
+            ("use-dev-storage", Opt::value<bool>(&options.useDevStorage)->implicit_value(true), "Use development storage account")
             ;
 
         Opt::variables_map argsMap;

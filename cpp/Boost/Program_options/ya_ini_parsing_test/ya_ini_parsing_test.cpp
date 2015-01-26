@@ -49,10 +49,10 @@ int main()
 #else
             ("end-point,e", Opt::wvalue<std::wstring>(&options.endPoint)->default_value(L"core.windows.net", "core.windows.net"), "Endpoint suffix")
 #endif
-            // Boost.Property_tree.ini_parser will treat "true", "1" as true, and "false", "0" as false.
+            // Boost.Property_tree.ini_parser will treat "true", "1", "yes" as true, and "false", "0", "no" as false.
             // So what about Boost.Program_options?
-            ("use-https", Opt::value<bool>(&options.useHttps), "Use \"HTTPS\" rather than \"HTTP\"")
-            ("use-dev-storage", Opt::value<bool>(&options.useDevStorage), "Use development storage account")
+            ("use-https", Opt::value<bool>(&options.useHttps)->implicit_value(true), "Use \"HTTPS\" rather than \"HTTP\"")
+            ("use-dev-storage", Opt::value<bool>(&options.useDevStorage)->implicit_value(true), "Use development storage account")
             ;
 
         Opt::variables_map optionsMap;
