@@ -8,7 +8,14 @@ namespace foo {
     }
 }
 
-//
+// According to this page:
+// [When can I use a forward declaration?](http://stackoverflow.com/questions/553682/when-can-i-use-a-forward-declaration)
+// >whether you can use an incomplete type as a template parameter is
+// >dependent on the way the type is used in the template.
+// >For instance, std::vector<T> requires its parameter to be a complete type,
+// >while boost::container::vector<T> does not. Sometimes, a complete type is
+// >required only if you use certain member functions; this is the case for
+// >std::unique_ptr<T>, for example.
 std::shared_ptr<foo::bar::HelloWorld> haha;
 
 // Since now, we can see the definition of class `HelloWorld`
