@@ -98,6 +98,7 @@ void Println(Iter begin, Iter end)
 }
 
 #if 0
+// http://stackoverflow.com/questions/4850473/pretty-print-c-stl-containers
 template <typename Container, typename CharT>
 std::basic_ostream<CharT> &operator<<(std::basic_ostream<CharT> &os, const Container &c)
 {
