@@ -5,14 +5,19 @@
 #ifndef COMMON_H_INCLUDED
 #define COMMON_H_INCLUDED
 
-#define CONFIG_USING_BOOST (1)
+#include <algorithm>
+#include <cstddef>
+#include <cstdlib>
+#include <iostream>
+#include <iterator>
+
+#define CONFIG_USING_BOOST (0)
 
 // PAUSE
 #ifdef _MSC_VER
 # ifdef NDEBUG
 #  define PAUSE() (__noop)
 # else
-#  include <cstdlib>
 #  define PAUSE() std::system("pause")
 # endif
 #else
@@ -20,7 +25,6 @@
 #endif
 
 // RETURN_ON_FAILURE
-#include <iostream>
 #define RETURN_ON_FAILURE_MSG(msg) std::cerr << msg << ": " << e.what() << '\n'; PAUSE(); return EXIT_FAILURE
 #define RETURN_ON_FAILURE() std::cerr << e.what() << '\n'; PAUSE(); return EXIT_FAILURE
 
@@ -29,7 +33,7 @@
 #if defined(CONFIG_USING_BOOST) && CONFIG_USING_BOOST
 # include <boost/filesystem.hpp>
 template <typename charT>
-std::basic_string<charT> getProgName(const std::basic_string<charT> &argv0) 
+std::basic_string<charT> getProgName(const std::basic_string<charT> &argv0)
 {
     return boost::filesystem::path(argv0).stem().string<std::basic_string<charT>>();
 }
@@ -60,6 +64,59 @@ std::basic_string<charT> getProgName(const charT *argv0)
 {
     //return getProgName(std::basic_string(argv0)); // ???
     return getProgName(std::basic_string<charT>(argv0));
+}
+
+// ARRAYSIZE
+#ifndef ARRAYSIZE
+# ifdef _MSC_VER
+#  define ARRAYSIZE _countof
+# else
+template <typename T, std::size_t N>
+char (*_array_size_helper(T (&)[N]))[N];
+#  define ARRAYSIZE(array) (sizeof(*_array_size_helper(array)))
+# endif
+#endif
+
+// ArraySize
+template <typename T, std::size_t N>
+std::size_t ArraySize(T (&)[N])
+{
+    return N;
+}
+
+// print
+template <typename Iter>
+void Println(Iter begin, Iter end)
+{
+    using ValueT = typename std::iterator_traits<Iter>::value_type;
+
+    std::cout << "< ";
+    std::copy(begin,
+              end,
+              std::ostream_iterator<ValueT>(std::cout, " "));
+    std::cout << ">\n";
+}
+
+#if 0
+template <typename Container, typename CharT>
+std::basic_ostream<CharT> &operator<<(std::basic_ostream<CharT> &os, const Container &c)
+{
+    for (const auto &elem : c) {
+        os << '<' << elem << '>';
+    }
+
+    return os;
+}
+#endif
+
+template <typename Container>
+void Println(const Container &c)
+{
+    for (const auto &elem : c) {
+        std::cout << '<' << elem << '>';
+    }
+
+    std::cout << std::endl;
 }
 
 // To be continued...
