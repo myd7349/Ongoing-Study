@@ -23,6 +23,7 @@
 #elif defined(_MSC_VER)
 # if _MSC_VER >= 1600
 #  include <regex>
+#  define RE std
 # else
 #  define USING_BOOST_REGEX_INSTEAD
 # endif

@@ -76,9 +76,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="split_args.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="split_cmdline_args_into_vector.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

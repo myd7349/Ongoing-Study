@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "../common.h"
-#include "split_args.h"
+#include "../split_args.h"
 
 int main()
 {

@@ -28,7 +28,7 @@
 #define RETURN_ON_FAILURE_MSG(msg) std::cerr << msg << ": " << e.what() << '\n'; PAUSE(); return EXIT_FAILURE
 #define RETURN_ON_FAILURE() std::cerr << e.what() << '\n'; PAUSE(); return EXIT_FAILURE
 
-// getProgName
+// GetProgName
 #include <string>
 #if defined(CONFIG_USING_BOOST) && CONFIG_USING_BOOST
 # include <boost/filesystem.hpp>
@@ -60,7 +60,7 @@ _DEFINE_GETPROGNAME(char, "\\/", '.')
 _DEFINE_GETPROGNAME(wchar_t, L"\\/", L'.')
 #endif
 template <typename charT>
-std::basic_string<charT> getProgName(const charT *argv0)
+std::basic_string<charT> GetProgName(const charT *argv0)
 {
     //return getProgName(std::basic_string(argv0)); // ???
     return getProgName(std::basic_string<charT>(argv0));
