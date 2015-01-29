@@ -7,28 +7,31 @@
 #include <cassert>
 #include <iterator>
 #include <sstream>
+#include <string>
 
 #if defined(__GNUC__)
 // <regex> is implemented and released in GCC 4.9.0.
 # if __GNUC__ > 4 || \
     (__GNUC__ == 4 && (__GNUC_MINOR__ > 9 || \
                       (__GNUC_MINOR__ == 9 && \
-                       __GNUC_PATCHLEVEL__ > 0))
+                       __GNUC_PATCHLEVEL__ > 0)))
 #  include <regex>
 #  define RE std
 # else
-#  include <boost/regex.hpp>
-#  define RE boost
+#  define USING_BOOST_REGEX_INSTEAD
 # endif
 #elif defined(_MSC_VER)
 # if _MSC_VER >= 1600
 #  include <regex>
 # else
-#  include <boost/regex.hpp>
-#  define RE boost
+#  define USING_BOOST_REGEX_INSTEAD
 # endif
 #else
 # error Not tested yet!
+# define USING_BOOST_REGEX_INSTEAD
+#endif
+
+#ifdef USING_BOOST_REGEX_INSTEAD
 # include <boost/regex.hpp>
 # define RE boost
 #endif
@@ -70,6 +73,7 @@ SplitArgsEx(const std::basic_string<CharT> &cmdline_str,
 
     // \s*([^\s"]+|"[^"]*")
     //const char *re = R"(\s*([^\s"]+|"[^"]*"))";
+#ifndef USING_BOOST_REGEX_INSTEAD
     RE::basic_regex<CharT> arg_re {
         ' ', '*',                              // Zero or more space characters
         '(',                                   // Group begin
@@ -79,6 +83,10 @@ SplitArgsEx(const std::basic_string<CharT> &cmdline_str,
                                                    // (A file path name that contains space character, for instance)
         ')',                                   // Group end
     };
+#else
+    std::string re(R"(\s*([^\s"]+|"[^"]*"))");
+    RE::basic_regex<CharT> arg_re(re.begin(), re.end());
+#endif
 
     using StringIterator = typename std::basic_string<CharT>::const_iterator;
 
