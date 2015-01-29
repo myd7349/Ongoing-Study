@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "split_cmdline_args_into_vector", "split_cmdline_args_into_vector.vcxproj", "{1452DA28-ED61-425F-84B3-9D4BD05C5194}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1452DA28-ED61-425F-84B3-9D4BD05C5194}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1452DA28-ED61-425F-84B3-9D4BD05C5194}.Debug|Win32.Build.0 = Debug|Win32
+		{1452DA28-ED61-425F-84B3-9D4BD05C5194}.Release|Win32.ActiveCfg = Release|Win32
+		{1452DA28-ED61-425F-84B3-9D4BD05C5194}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

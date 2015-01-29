@@ -33,13 +33,13 @@
 #if defined(CONFIG_USING_BOOST) && CONFIG_USING_BOOST
 # include <boost/filesystem.hpp>
 template <typename charT>
-std::basic_string<charT> getProgName(const std::basic_string<charT> &argv0)
+std::basic_string<charT> GetProgName(const std::basic_string<charT> &argv0)
 {
     return boost::filesystem::path(argv0).stem().string<std::basic_string<charT>>();
 }
 #else
 #define _DEFINE_GETPROGNAME(charT, pathsep, dot) \
-    std::basic_string<charT> getProgName(const std::basic_string<charT> &argv0) \
+    std::basic_string<charT> GetProgName(const std::basic_string<charT> &argv0) \
     { \
         auto fileTitle = argv0; \
         auto lastSepPos = argv0.find_last_of(pathsep); \
@@ -84,7 +84,7 @@ std::size_t ArraySize(T (&)[N])
     return N;
 }
 
-// print
+// Println
 template <typename Iter>
 void Println(Iter begin, Iter end)
 {

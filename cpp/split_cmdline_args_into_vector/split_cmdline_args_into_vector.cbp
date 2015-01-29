@@ -33,6 +33,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="split_cmdline_args_into_vector.cpp" />
+		<Unit filename="split_args.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
