@@ -12,7 +12,19 @@
 #include <iterator>
 #include <string>
 
-#define CONFIG_USING_BOOST (1)
+#ifndef CONFIG_USING_BOOST
+# define CONFIG_USING_BOOST (1)
+#endif
+
+// CONCAT
+#define CONCAT_IMPL(a, b) a##b
+#define CONCAT(a, b) CONCAT_IMPL(a, b)
+
+// STR
+#ifndef STR
+#  define STR_IMPL(c) #c
+#  define STR(c) STR_IMPL(c)
+#endif
 
 // PAUSE
 #ifdef _MSC_VER
@@ -120,13 +132,6 @@ void Println(const Container &c)
 
     std::cout << std::endl;
 }
-
-// SPLIT_LINE
-#define SPLIT_LINE(c) ((void)(std::cout << std::string(79, c) << std::endl))
-#define SPLIT_LINE0() SPLIT_LINE('-')
-#define SPLIT_LINE1() SPLIT_LINE('=')
-#define SPLIT_LINE2() SPLIT_LINE('*')
-#define SPLIT_LINE3() SPLIT_LINE('+')
 
 // To be continued...
 

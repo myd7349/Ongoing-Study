@@ -11,6 +11,7 @@
 #include <boost/signals2.hpp>
 
 #include "../../../common.h"
+#include "../../../dividing_lines.h"
 #include "../../../uniform_typename/uniform_typename.h"
 
 double product(double x, double y) { return x * y; }
@@ -111,6 +112,7 @@ void test()
     sig.connect(&sum);
     sig.connect(&difference);
 
+    // The input iterators passed to the combiner transform dereference operations into slot calls.
     std::cout << "maximum: " << sig(5, 3) << std::endl;
 }
 }
@@ -151,16 +153,16 @@ void test()
 
 int main()
 {
-    SPLIT_LINE0();
+    DIVIDING_LINE('-');
     pass_values_to_slots::test();
 
-    SPLIT_LINE0();
+    DIVIDING_LINE('-');
     signal_return_values::test();
-
-    SPLIT_LINE0();
+    
+    DIVIDING_LINE('-');
     maximum_value_returned_by_slots::test();
 
-    SPLIT_LINE0();
+    DIVIDING_LINE('-');
     coalesce_values_returned_by_slots::test();
 
     PAUSE();
