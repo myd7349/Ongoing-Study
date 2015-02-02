@@ -5,13 +5,15 @@
 
 // VA_NARGS: Yet another BOOST_PP_VARIADIC_SIZE.
 // TODO: Implement this macro by using C++11's variadic template.
-#define VA_NARGS_IMPL(_10, _9, _8, _7, _6, _5, _4, _3, _2, _1, N, ...) (N)
+#define VA_NARGS_IMPL(_10, _9, _8, _7, _6, _5, _4, _3, _2, _1, N, ...) N
 
 #if defined(_MSC_VER)
 # define VA_NARGS_HELPER(arg_tuple) VA_NARGS_IMPL arg_tuple
 # define VA_NARGS(...) (bool(#__VA_ARGS__) ? (VA_NARGS_HELPER((__VA_ARGS__, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1))) : 0)
+# define VA_NARGS_V2(...) VA_NARGS_HELPER((##__VA_ARGS__, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1))
 #elif defined(__GNUC__) || defined(__GNUG__)
 # define VA_NARGS(...) (sizeof(#__VA_ARGS__) == 1 ? 0 : VA_NARGS_IMPL(__VA_ARGS__, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0)) // ???
+# define VA_NARGS_V2(...) VA_NARGS_IMPL(__VA_ARGS__, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0)
 #else
 # error Not tested yet!
 #endif
