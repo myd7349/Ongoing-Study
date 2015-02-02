@@ -6,6 +6,7 @@
 
 #include <cassert>
 #include <iostream>
+#include <vector>
 
 #include <boost/signals2.hpp>
 
@@ -75,7 +76,78 @@ void test()
 }
 }
 
-// coalesce_values_returned_by_slots
+namespace maximum_value_returned_by_slots {
+// combiner which returns the maximum value returned by all slots
+template <typename T>
+struct maximum
+{
+    typedef T result_type;
+
+    template <typename InputIterator>
+    T operator()(InputIterator first, InputIterator last) const
+    {
+        // If there are no slots to call, just return the
+        // default-constructed value
+        if (first == last) {
+            return T();
+        }
+        T max_value = *first++;
+        while (first != last) {
+            if (max_value < *first) {
+                max_value = *first;
+            }
+            ++first;
+        }
+        return max_value;
+    }
+};
+
+void test()
+{
+    boost::signals2::signal<double(double, double), maximum<double>> sig;
+
+    sig.connect(&product);
+    sig.connect(&quotient);
+    sig.connect(&sum);
+    sig.connect(&difference);
+
+    std::cout << "maximum: " << sig(5, 3) << std::endl;
+}
+}
+
+namespace coalesce_values_returned_by_slots {
+// aggregate_values is a combiner which places all the values returned
+// from slots into a container
+template <typename Container>
+struct aggregate_values {
+    typedef Container result_type;
+
+    template <typename InputIterator>
+    Container operator()(InputIterator first, InputIterator last) const
+    {
+        Container values;
+
+        while (first != last) {
+            values.push_back(*first);
+            ++first;
+        }
+
+        return values;
+    }
+};
+
+void test()
+{
+    boost::signals2::signal<double(double, double), aggregate_values<std::vector<double>>> sig;
+
+    sig.connect(&product);
+    sig.connect(&quotient);
+    sig.connect(&sum);
+    sig.connect(&difference);
+
+    Println(sig(5, 3));
+}
+}
 
 int main()
 {
@@ -86,7 +158,10 @@ int main()
     signal_return_values::test();
 
     SPLIT_LINE0();
+    maximum_value_returned_by_slots::test();
 
+    SPLIT_LINE0();
+    coalesce_values_returned_by_slots::test();
 
     PAUSE();
     return 0;
