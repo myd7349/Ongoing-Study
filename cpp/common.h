@@ -10,8 +10,9 @@
 #include <cstdlib>
 #include <iostream>
 #include <iterator>
+#include <string>
 
-#define CONFIG_USING_BOOST (0)
+#define CONFIG_USING_BOOST (1)
 
 // PAUSE
 #ifdef _MSC_VER
@@ -63,7 +64,7 @@ template <typename charT>
 std::basic_string<charT> GetProgName(const charT *argv0)
 {
     //return getProgName(std::basic_string(argv0)); // ???
-    return getProgName(std::basic_string<charT>(argv0));
+    return GetProgName(std::basic_string<charT>(argv0));
 }
 
 // ARRAYSIZE
@@ -119,6 +120,13 @@ void Println(const Container &c)
 
     std::cout << std::endl;
 }
+
+// SPLIT_LINE
+#define SPLIT_LINE(c) ((void)(std::cout << std::string(79, c) << std::endl))
+#define SPLIT_LINE0() SPLIT_LINE('-')
+#define SPLIT_LINE1() SPLIT_LINE('=')
+#define SPLIT_LINE2() SPLIT_LINE('*')
+#define SPLIT_LINE3() SPLIT_LINE('+')
 
 // To be continued...
 
