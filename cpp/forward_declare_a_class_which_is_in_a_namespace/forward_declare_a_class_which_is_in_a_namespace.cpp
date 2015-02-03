@@ -31,4 +31,5 @@ int main()
 }
 
 // References:
+// [Forward declaration of nested types/classes in C++](http://stackoverflow.com/questions/951234/forward-declaration-of-nested-types-classes-in-c)
 // [How to forward declare a class which is in a namespace](http://stackoverflow.com/questions/19001700/how-to-forward-declare-a-class-which-is-in-a-namespace)
