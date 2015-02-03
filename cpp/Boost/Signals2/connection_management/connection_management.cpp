@@ -53,8 +53,10 @@ void test()
 {
     boost::signals2::signal<void()> sig;
     {
+        DIVIDING_LINE('>', 40);
         boost::signals2::scoped_connection c(sig.connect(HelloWorld()));
         sig();
+        DIVIDING_LINE('<', 40);
     }
     sig();
 }
@@ -70,6 +72,8 @@ int main()
 
     DIVIDING_LINE('-');
     scoped_connection::test();
+
+    DIVIDING_LINE('-');
 
     PAUSE();
     return 0;
