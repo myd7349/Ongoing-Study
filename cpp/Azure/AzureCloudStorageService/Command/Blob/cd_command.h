@@ -8,6 +8,10 @@
 #define CD_COMMAND_STR U("cd")
 
 class CdCommand : public Command {
+public:
+    virtual bool parse(const std::vector<utility::string_t> &vargs);
+    virtual bool run(AzureCloudStorageService *storage_service);
+    virtual void help() const;
 };
 
 #endif // CD_COMMAND_H_

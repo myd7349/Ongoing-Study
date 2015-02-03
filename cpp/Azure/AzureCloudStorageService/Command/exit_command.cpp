@@ -7,7 +7,12 @@ bool ExitCommand::parse(const std::vector<utility::string_t> &/*vargs*/)
     return true;
 }
 
-bool ExitCommand::run(azure::storage::cloud_storage_account &/*storage_account*/)
+bool ExitCommand::run(AzureCloudStorageService */*storage_service*/)
 {
     return false;
+}
+
+void ExitCommand::help() const
+{
+    ucout << U("Quit this program.\n");
 }

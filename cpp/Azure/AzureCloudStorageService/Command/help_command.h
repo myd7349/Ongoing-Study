@@ -9,8 +9,15 @@
 
 class HelpCommand : public Command {
 public:
+    HelpCommand();
+
     virtual bool parse(const std::vector<utility::string_t> &vargs);
-    virtual bool run(azure::storage::cloud_storage_account &/*storage_account*/);
+    virtual bool run(AzureCloudStorageService *storage_service);
+    virtual void help() const;
+
+private:
+    utility::string_t command_;
+    std::vector<utility::string_t> sorted_commands_;
 };
 
 #endif // HELP_COMMAND_H_

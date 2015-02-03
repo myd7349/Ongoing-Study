@@ -8,12 +8,14 @@
 
 class ListCommand : public Command {
 public:
+    ListCommand();
+
     virtual bool parse(const std::vector<utility::string_t> &vargs);
-    virtual bool run(azure::storage::cloud_storage_account &storage_account);
+    virtual bool run(AzureCloudStorageService *storage_service);
+    virtual void help() const;
 
 private:
     utility::string_t container_name_;
-    bool container_name_provided_;
 };
 
 #endif // LIST_COMMAND_H_

@@ -10,6 +10,7 @@
 #include <boost/core/noncopyable.hpp>
 
 #include <wascore/basic_types.h>
+#include <was/blob.h>
 #include <was/storage_account.h>
 
 struct AzureStorageAccountOptions {
@@ -25,6 +26,8 @@ class Command;
 
 // Azure cloud storage service wrapper class.
 class AzureCloudStorageService : public boost::noncopyable {
+    friend class HelpCommand;
+    friend class ListCommand;
 public:
     AzureCloudStorageService();
     int run(const AzureStorageAccountOptions &storage_account_options);
@@ -33,8 +36,11 @@ protected:
     bool initialize(const AzureStorageAccountOptions &storage_account_options);
     std::shared_ptr<Command> get_command(const utility::string_t &command);
     void parse_command_and_dispatch();
+
 private:
     azure::storage::cloud_storage_account storage_account_;
+    azure::storage::cloud_blob_client blob_client_;
+    utility::string_t current_container_name_;
     std::set<utility::string_t> available_commands_;
     std::unordered_map<utility::string_t, std::shared_ptr<Command>> command_dispatcher_;
 };

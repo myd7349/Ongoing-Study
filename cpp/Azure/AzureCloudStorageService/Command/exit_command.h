@@ -10,7 +10,8 @@
 class ExitCommand : public Command {
 public:
     virtual bool parse(const std::vector<utility::string_t> &/*vargs*/);
-    virtual bool run(azure::storage::cloud_storage_account &/*storage_account*/);
+    virtual bool run(AzureCloudStorageService */*storage_service*/);
+    virtual void help() const;
 };
 
 #endif // EXIT_COMMAND_H_

@@ -4,14 +4,18 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <sstream>
+#include <stdexcept>
+#include <string>
 #include <vector>
 
 #include "../../common.h"
 #include "../../split_args.h"
 
+#include "Command/clear_command.h"
 #include "Command/exit_command.h"
 #include "Command/help_command.h"
-
+#include "Command/Blob/cd_command.h"
 #include "Command/Blob/list_command.h"
 
 #ifdef _MSC_VER
@@ -26,6 +30,8 @@
 
 AzureCloudStorageService::AzureCloudStorageService()
     : available_commands_ ({ 
+          CD_COMMAND_STR,
+          CLEAR_COMMAND_STR,
           EXIT_COMMAND_STR,
           HELP_COMMAND_STR,
           LIST_COMMAND_STR, 
@@ -70,7 +76,24 @@ bool AzureCloudStorageService::initialize(const AzureStorageAccountOptions &stor
     storage_account_ = azure::storage::cloud_storage_account::parse(connection_string);
 #endif
 
-    return storage_account_.is_initialized();
+    bool res = storage_account_.is_initialized();
+    if (!res) {
+        return res;
+    }
+
+    // Initialize blob client
+#if 0
+    azure::storage::blob_request_options blob_req_options;
+    blob_req_options.set_stream_read_size_in_bytes(1024 * 1024);
+    blob_req_options.set_stream_write_size_in_bytes(1024 * 1024 * 4);
+    blob_req_options.set_server_timeout(std::chrono::seconds(5));
+
+    blob_client_ = storage_account_.create_cloud_blob_client(blob_req_options);
+#else
+    blob_client_ = storage_account_.create_cloud_blob_client();
+#endif
+
+    return true;
 }
 
 std::shared_ptr<Command> AzureCloudStorageService::get_command(const utility::string_t &command)
@@ -79,8 +102,12 @@ std::shared_ptr<Command> AzureCloudStorageService::get_command(const utility::st
     if (command_it != command_dispatcher_.end()) {
         return command_it->second;
     } else {
-        assert(available_commands_.count(command));
-        if (command == EXIT_COMMAND_STR) {
+        //assert(available_commands_.count(command));
+        if (command == CD_COMMAND_STR) {
+            command_dispatcher_[command].reset(new CdCommand);
+        } else if (command == CLEAR_COMMAND_STR) {
+            command_dispatcher_[command].reset(new ClearCommand);
+        } else if (command == EXIT_COMMAND_STR) {
             command_dispatcher_[command].reset(new ExitCommand);
         } else if (command == HELP_COMMAND_STR) {
             command_dispatcher_[command].reset(new HelpCommand);
@@ -88,7 +115,12 @@ std::shared_ptr<Command> AzureCloudStorageService::get_command(const utility::st
             command_dispatcher_[command].reset(new ListCommand);
         } else {
             //static_assert(false, "Should never reach here!"); // ???
-            assert(false);
+            //assert(false);
+
+            std::basic_ostringstream<utility::string_t::value_type> oss;
+            oss << U("Unknown command: \"") << command << U("\". Type \"")
+                << HELP_COMMAND_STR << U("\" to get a list of available commands.");
+            throw oss.str();
         }
 
         return command_dispatcher_[command];
@@ -100,8 +132,10 @@ void AzureCloudStorageService::parse_command_and_dispatch()
     utility::string_t cmdline;
     std::vector<utility::string_t> vargs;
 
+    ucout << U("Type \"") << HELP_COMMAND_STR << U("\" to get a list of all available commands. Type \"")
+        << HELP_COMMAND_STR << U(" [command]\" to learn the usage of specified command.\n");
     while (true) {
-        ucout << U("> "); 
+        ucout << current_container_name_ << U("> "); 
         
         if (!std::getline(ucin, cmdline)) {
             ucerr << U("Failed to read user input commands.\n");
@@ -112,20 +146,19 @@ void AzureCloudStorageService::parse_command_and_dispatch()
             continue;
         }
 
-        if (available_commands_.count(vargs[0]) == 0) {
-            ucerr << U("Unknown command: \"") << vargs[0] << U("\"\n");
-            continue;
-        }
+        try {
+            std::shared_ptr<Command> command = get_command(vargs[0]);
 
-        std::shared_ptr<Command> command = get_command(vargs[0]);
+            // Now, erase the command itself and parse the following arguments.
+            vargs.erase(vargs.begin());
 
-        // Now, erase the command itself and parse the following arguments.
-        vargs.erase(vargs.begin());
-
-        if (command->parse(vargs)) {
-            if (!command->run(storage_account_)) {
-                break;
+            if (command->parse(vargs)) {
+                if (!command->run(this)) {
+                    break;
+                }
             }
+        } catch (const utility::string_t &err_msg) {
+            ucerr << err_msg << std::endl;
         }
     }
 }
