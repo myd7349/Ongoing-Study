@@ -2,7 +2,7 @@
 #ifndef LIST_COMMAND_H_
 #define LIST_COMMAND_H_
 
-#include "../command.h"
+#include "container_command.h"
 
 #define LIST_COMMAND_STR U("list")
 
@@ -13,10 +13,8 @@ class cloud_blob_container;
 }
 }
 
-class ListCommand : public Command {
+class ListCommand : public ContainerCommand {
 public:
-    ListCommand();
-
     virtual bool parse(const std::vector<utility::string_t> &vargs);
     virtual bool run(AzureCloudStorageService *storage_service);
     virtual void help() const;
@@ -26,9 +24,6 @@ protected:
     std::vector<utility::string_t> get_blob_list(azure::storage::cloud_blob_client &blob_client,
         const utility::string_t &container_name);
     std::vector<utility::string_t> get_blob_list(azure::storage::cloud_blob_container &blob_container);
-
-private:
-    utility::string_t container_name_;
 };
 
 #endif // LIST_COMMAND_H_

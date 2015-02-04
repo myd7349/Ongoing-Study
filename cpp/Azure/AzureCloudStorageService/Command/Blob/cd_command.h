@@ -3,11 +3,11 @@
 #ifndef CD_COMMAND_H_
 #define CD_COMMAND_H_
 
-#include "../command.h"
+#include "container_command.h"
 
 #define CD_COMMAND_STR U("cd")
 
-class CdCommand : public Command {
+class CdCommand : public ContainerCommand {
 public:
     virtual bool parse(const std::vector<utility::string_t> &vargs);
     virtual bool run(AzureCloudStorageService *storage_service);

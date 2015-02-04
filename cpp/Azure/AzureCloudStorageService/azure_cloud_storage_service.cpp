@@ -137,7 +137,10 @@ void AzureCloudStorageService::parse_command_and_dispatch()
     ucout << U("Type \"") << HELP_COMMAND_STR << U("\" to get a list of all available commands. Type \"")
         << HELP_COMMAND_STR << U(" [command]\" to learn the usage of specified command.\n");
     while (true) {
-        ucout << current_container_name_ << U("> "); 
+        if (current_container_.is_valid()) {
+            ucout << current_container_.name();
+        }
+        ucout << U("> "); 
         
         if (!std::getline(ucin, cmdline)) {
             ucerr << U("Failed to read user input commands.\n");
