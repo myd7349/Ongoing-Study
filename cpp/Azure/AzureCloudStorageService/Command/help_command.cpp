@@ -2,10 +2,7 @@
 
 #include "help_command.h"
 
-#include <algorithm>
 #include <cassert>
-#include <iostream>
-#include <iterator>
 
 #include "../azure_cloud_storage_service.h"
 
@@ -51,8 +48,7 @@ bool HelpCommand::run(AzureCloudStorageService *storage_service)
         }
 
         ucout << U("All available commands:\n");
-        std::copy(sorted_commands_.begin(), sorted_commands_.end(),
-            std::ostream_iterator<utility::string_t, utility::string_t::value_type>(ucout, U("\n")));
+        DumpLineByLine(sorted_commands_);
     } else {
         try {
             std::shared_ptr<Command> command_ptr = storage_service->get_command(command_);

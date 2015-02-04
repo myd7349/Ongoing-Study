@@ -2,8 +2,10 @@
 
 #include "azure_cloud_storage_service.h"
 
+#include <algorithm>
 #include <cstdlib>
 #include <iostream>
+#include <iterator>
 #include <sstream>
 #include <stdexcept>
 #include <string>
@@ -180,4 +182,10 @@ int AzureCloudStorageService::run(const AzureStorageAccountOptions &storage_acco
         ucerr << U("Unknown exception!\n");
         return EXIT_FAILURE;
     }
+}
+
+void DumpLineByLine(const std::vector<utility::string_t> &c)
+{
+    std::copy(c.cbegin(), c.cend(),
+        std::ostream_iterator<utility::string_t, utility::string_t::value_type>(ucout, U("\n")));
 }

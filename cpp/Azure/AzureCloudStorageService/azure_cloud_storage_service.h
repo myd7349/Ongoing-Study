@@ -40,9 +40,12 @@ protected:
 private:
     azure::storage::cloud_storage_account storage_account_;
     azure::storage::cloud_blob_client blob_client_;
+    azure::storage::cloud_blob_container current_container_;
     utility::string_t current_container_name_;
     std::set<utility::string_t> available_commands_;
     std::unordered_map<utility::string_t, std::shared_ptr<Command>> command_dispatcher_;
 };
+
+void DumpLineByLine(const std::vector<utility::string_t> &c);
 
 #endif // AZURE_CLOUD_STORAGE_SERVICE_H_

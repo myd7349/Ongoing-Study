@@ -4,8 +4,7 @@
 
 #include <iostream>
 
-Command::Command() 
-    : options_desc_("Options") 
+Command::Command() : options_desc_("Options") 
 {
 }
 
