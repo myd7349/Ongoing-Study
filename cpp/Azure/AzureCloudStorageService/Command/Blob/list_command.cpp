@@ -44,10 +44,6 @@ bool ListCommand::run(AzureCloudStorageService *storage_service)
     utility::string_t target_container;
 
     if (container_name_.empty()) {
-        container_name_ = storage_service->current_container_name_;
-    }
-
-    if (container_name_.empty()) {
         if (storage_service->current_container_name_.empty()) {
             ucout << U("Container list:\n");
             DumpLineByLine(get_container_list(storage_service->blob_client_));
