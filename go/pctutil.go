@@ -1,4 +1,5 @@
 // 2015-01-07T08:59+08:00
+
 // Percent-encoding/decoding utility.
 //
 // Sometimes, when I downloaded something via my firefox, I may got a file with
@@ -18,6 +19,7 @@
 // And you know, I am lazy, so...
 //
 // Recently, I began to learn Go. So, I wrote this program as a practice.
+
 package main
 
 import (
@@ -46,6 +48,7 @@ func main() {
 	flag.StringVar(&path, "f", "", "Specify the file name or path name to be processed")
 	flag.StringVar(&method, "m", "unescape", "Specify the operation: \"escape\" or \"unescape\"")
 	flag.Parse()
+
 	// -- Decide the action we should take according to the "-m" option.
 	var convert = func(string) string { return "" }
 	switch method {
@@ -57,12 +60,14 @@ func main() {
 		fmt.Println("Unknown operation:", method)
 		return
 	}
+
 	// -- Now, do something meaningful to make the life a little more easier.
 	if len(path) == 0 {
 		// If path name is empty, then read string from stdin.
 		stdin := bufio.NewReader(os.Stdin)
 		var line string
 		var err error
+
 		for {
 			if line, err = stdin.ReadString('\n'); err == nil {
 				fmt.Println(convert(strings.TrimSuffix(line, "\r\n")))
@@ -74,6 +79,7 @@ func main() {
 			fmt.Printf("File or path \"%s\" doesn't exist.\n", path)
 			return
 		}
+
 		// We just process the last pathname component.
 		head, tail := filepath.Split(path)
 		newpath := filepath.Join(head, convert(tail))
