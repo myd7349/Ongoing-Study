@@ -49,6 +49,7 @@ bool HelpCommand::run(AzureCloudStorageService *storage_service)
 
         ucout << U("All available commands:\n");
         DumpLineByLine(sorted_commands_);
+        ucout << U("Type \"") << HELP_COMMAND_STR << U(" [command]\" to learn the usage of target command.\n");
     } else {
         try {
             std::shared_ptr<Command> command_ptr = storage_service->get_command(command_);

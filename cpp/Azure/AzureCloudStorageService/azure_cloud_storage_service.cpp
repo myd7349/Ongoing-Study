@@ -12,6 +12,7 @@
 #include <vector>
 
 #include "../../common.h"
+#include "../../dividing_lines.h"
 #include "../../split_args.h"
 
 #include "Command/clear_command.h"
@@ -142,8 +143,12 @@ void AzureCloudStorageService::parse_command_and_dispatch()
     utility::string_t cmdline;
     std::vector<utility::string_t> vargs;
 
-    ucout << U("Type \"") << HELP_COMMAND_STR << U("\" to get a list of all available commands. Type \"")
-        << HELP_COMMAND_STR << U(" [command]\" to learn the usage of specified command.\n");
+    DIVIDING_LINE('-');
+    ucout << U("Welcome to azure storage service monitor!\n")
+        << U("Type \"") << HELP_COMMAND_STR << U("\" to get a list of all available commands.\nType \"")
+        << HELP_COMMAND_STR << U(" [command]\" to learn the usage of given command.\n");
+    DIVIDING_LINE('-');
+
     while (true) {
         if (current_container_.is_valid()) {
             ucout << current_container_.name();

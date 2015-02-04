@@ -38,6 +38,6 @@ bool CdCommand::run(AzureCloudStorageService *storage_service)
 
 void CdCommand::help() const
 {
-    ucout << U("Usage: ") << CD_COMMAND_STR << U(" [container]\n");
+    ucout << U("Change the current container.\nUsage: ") << CD_COMMAND_STR << U(" [container]\n");
     Command::help();
 }
