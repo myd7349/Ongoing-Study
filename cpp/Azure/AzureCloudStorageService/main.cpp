@@ -80,6 +80,7 @@ int ParseCmdlineArgs(const std::vector<std::basic_string<CharT>> &vargs,
                 Opt::notify(args_map);
             } else {
                 std::cerr << "Open configuration file \"" << config_file_name << "\" failed.\n";
+                return EXIT_FAILURE;
             }
         } else {
             //vargs.erase(vargs.begin()); // ???

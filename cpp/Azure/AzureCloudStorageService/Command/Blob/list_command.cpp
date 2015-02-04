@@ -25,8 +25,13 @@ bool ListCommand::run(AzureCloudStorageService *storage_service)
             DumpLineByLine(get_blob_list(storage_service->current_container_));
         }
     } else {
-        ucout << U("Blobs under container \"") << container_name_ << U("\":\n");
-        DumpLineByLine(get_blob_list(storage_service->blob_client_, container_name_));
+        if (container_name_ == U("~")) {
+            ucout << U("Container list:\n");
+            DumpLineByLine(get_container_list(storage_service->blob_client_));
+        } else {
+            ucout << U("Blobs under container \"") << container_name_ << U("\":\n");
+            DumpLineByLine(get_blob_list(storage_service->blob_client_, container_name_));
+        }
     }
 
     return true;

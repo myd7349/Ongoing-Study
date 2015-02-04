@@ -5,6 +5,7 @@
 #include <cassert>
 
 #include "../../azure_cloud_storage_service.h"
+#include "list_command.h"
 
 bool CdCommand::parse(const std::vector<utility::string_t> &vargs)
 {
@@ -25,7 +26,8 @@ bool CdCommand::run(AzureCloudStorageService *storage_service)
     } else {
         auto container = storage_service->blob_client_.get_container_reference(container_name_);
         if (!container.exists()) {
-            ucerr << U("Container \"") << container_name_ << U("\" doesn't exist.\n");
+            ucerr << U("Container \"") << container_name_ << U("\" doesn't exist. Type \"")
+                << LIST_COMMAND_STR << U(" ~\" to get a list of existing containers.\n");
         } else {
             storage_service->current_container_ = container;
         }
