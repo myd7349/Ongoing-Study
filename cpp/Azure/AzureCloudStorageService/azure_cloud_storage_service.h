@@ -27,8 +27,10 @@ class Command;
 // Azure cloud storage service wrapper class.
 class AzureCloudStorageService : public boost::noncopyable {
     friend class CdCommand;
+    friend class GetCommand;
     friend class HelpCommand;
     friend class ListCommand;
+    friend class PutCommand;
 public:
     AzureCloudStorageService();
     int run(const AzureStorageAccountOptions &storage_account_options);
@@ -47,5 +49,6 @@ private:
 };
 
 void DumpLineByLine(const std::vector<utility::string_t> &c);
+void DumpAzureStorageError(const azure::storage::storage_exception &e);
 
 #endif // AZURE_CLOUD_STORAGE_SERVICE_H_

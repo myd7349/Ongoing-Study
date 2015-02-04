@@ -18,7 +18,9 @@
 #include "Command/exit_command.h"
 #include "Command/help_command.h"
 #include "Command/Blob/cd_command.h"
+#include "Command/Blob/get_command.h"
 #include "Command/Blob/list_command.h"
+#include "Command/Blob/put_command.h"
 
 #ifdef _MSC_VER
 # ifdef NDEBUG
@@ -35,8 +37,10 @@ AzureCloudStorageService::AzureCloudStorageService()
           CD_COMMAND_STR,
           CLEAR_COMMAND_STR,
           EXIT_COMMAND_STR,
+          GET_COMMAND_STR,
           HELP_COMMAND_STR,
-          LIST_COMMAND_STR, 
+          LIST_COMMAND_STR,
+          PUT_COMMAND_STR,
       })
 {
 }
@@ -111,10 +115,14 @@ std::shared_ptr<Command> AzureCloudStorageService::get_command(const utility::st
             command_dispatcher_[command].reset(new ClearCommand);
         } else if (command == EXIT_COMMAND_STR) {
             command_dispatcher_[command].reset(new ExitCommand);
+        } else if (command == GET_COMMAND_STR) {
+            command_dispatcher_[command].reset(new GetCommand);
         } else if (command == HELP_COMMAND_STR) {
             command_dispatcher_[command].reset(new HelpCommand);
         } else if (command == LIST_COMMAND_STR) {
             command_dispatcher_[command].reset(new ListCommand);
+        } else if (command == PUT_COMMAND_STR) {
+            command_dispatcher_[command].reset(new PutCommand);
         } else {
             //static_assert(false, "Should never reach here!"); // ???
             //assert(false);
@@ -157,10 +165,18 @@ void AzureCloudStorageService::parse_command_and_dispatch()
             // Now, erase the command itself and parse the following arguments.
             vargs.erase(vargs.begin());
 
-            if (command->parse(vargs)) {
-                if (!command->run(this)) {
-                    break;
+            try {
+                if (command->parse(vargs)) {
+                    if (!command->run(this)) {
+                        break;
+                    }
                 }
+            } catch (const azure::storage::storage_exception &e) {
+                DumpAzureStorageError(e);
+            } catch (const std::exception &e) {
+                std::cerr << "exception: " << e.what() << '\n';
+            } catch (...) {
+                ucerr << U("Unknown exception!\n");
             }
         } catch (const utility::string_t &err_msg) {
             ucerr << err_msg << std::endl;
@@ -174,21 +190,22 @@ int AzureCloudStorageService::run(const AzureStorageAccountOptions &storage_acco
         return EXIT_FAILURE;
     }
     
-    try {
-        parse_command_and_dispatch();
-        return EXIT_SUCCESS;
-    } catch (const azure::storage::storage_exception &e) {
-        RETURN_ON_FAILURE_MSG("storage_exception");
-    } catch (const std::exception &e) {
-        RETURN_ON_FAILURE_MSG("exception");
-    } catch (...) {
-        ucerr << U("Unknown exception!\n");
-        return EXIT_FAILURE;
-    }
+    parse_command_and_dispatch();
+    return EXIT_SUCCESS;
 }
 
 void DumpLineByLine(const std::vector<utility::string_t> &c)
 {
     std::copy(c.cbegin(), c.cend(),
         std::ostream_iterator<utility::string_t, utility::string_t::value_type>(ucout, U("\n")));
+}
+
+void DumpAzureStorageError(const azure::storage::storage_exception &e)
+{
+    std::cerr << "storage_exception: " << e.what() << '\n';
+    
+    auto extended_error = e.result().extended_error();
+    if (!extended_error.message().empty()) {
+        ucout << extended_error.message() << std::endl;
+    }
 }

@@ -124,7 +124,8 @@ int _tmain(int argc, _TCHAR *argv[])
         AzureCloudStorageService storage_service;
         return storage_service.run(storage_account_options);
     } catch (const azure::storage::storage_exception &e) {
-        RETURN_ON_FAILURE_MSG("storage_exception");
+        DumpAzureStorageError(e);
+        return EXIT_FAILURE;
     } catch (const std::exception &e) {
         RETURN_ON_FAILURE_MSG("exception");
     } catch (...) {
