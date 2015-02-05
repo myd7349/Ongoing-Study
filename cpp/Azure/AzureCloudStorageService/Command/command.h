@@ -21,6 +21,9 @@ public:
     virtual void help() const;
 
 protected:
+    //using CharT = utility::string_t::value_type;
+    using CharT = utility::string_t::traits_type::char_type;
+
     void notify_err(const char *what, const utility::string_t &command);
 
     boost::program_options::options_description options_desc_;

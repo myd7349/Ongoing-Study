@@ -11,6 +11,8 @@
 #include <string>
 #include <vector>
 
+#include <boost/progress.hpp>
+
 #include "../../common.h"
 #include "../../dividing_lines.h"
 #include "../../split_args.h"
@@ -171,6 +173,8 @@ void AzureCloudStorageService::parse_command_and_dispatch()
             vargs.erase(vargs.begin());
 
             try {
+                boost::progress_timer t;
+
                 if (command->parse(vargs)) {
                     if (!command->run(this)) {
                         break;

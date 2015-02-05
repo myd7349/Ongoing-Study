@@ -5,7 +5,7 @@
 ContainerCommand::ContainerCommand()
 {
     options_desc_.add_options()
-        ("container,c", boost::program_options::wvalue<utility::string_t>(&container_name_), "Specify the target container name")
+        ("container,c", boost::program_options::wvalue<utility::string_t>(&container_name_), "The container to work with")
         ;
 }
 
@@ -20,8 +20,6 @@ bool ContainerCommand::parse_helper(const std::vector<utility::string_t> &vargs,
     boost::program_options::variables_map args_map;
 
     try {
-        using CharT = utility::string_t::traits_type::char_type;
-
         boost::program_options::store(boost::program_options::basic_command_line_parser<CharT>(vargs).
             options(options_desc_).positional(container_name_option).run(), args_map);
         boost::program_options::notify(args_map);

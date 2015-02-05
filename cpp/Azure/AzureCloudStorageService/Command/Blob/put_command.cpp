@@ -14,5 +14,4 @@ bool PutCommand::run(AzureCloudStorageService *storage_service)
 
 void PutCommand::help() const
 {
-
 }

@@ -3,15 +3,21 @@
 #ifndef GET_COMMAND_H_
 #define GET_COMMAND_H_
 
-#include "../command.h"
+#include "container_command.h"
 
 #define GET_COMMAND_STR U("get")
 
-class GetCommand : public Command {
+class GetCommand : public ContainerCommand {
 public:
+    GetCommand();
+
     virtual bool parse(const std::vector<utility::string_t> &vargs);
     virtual bool run(AzureCloudStorageService *storage_service);
     virtual void help() const;
+
+private:
+    utility::string_t blob_name_;
+    utility::string_t target_local_file_name_;
 };
 
 #endif // GET_COMMAND_H_

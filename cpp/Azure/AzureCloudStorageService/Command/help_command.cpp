@@ -23,8 +23,6 @@ bool HelpCommand::parse(const std::vector<utility::string_t> &vargs)
     boost::program_options::variables_map args_map;
 
     try {
-        using CharT = utility::string_t::value_type;
-
         boost::program_options::store(boost::program_options::basic_command_line_parser<CharT>(vargs).
             options(options_desc_).positional(command_name_option).run(), args_map);
         boost::program_options::notify(args_map);
