@@ -2,6 +2,8 @@
 
 package main
 
+import "fmt"
+
 func main() {
-    println("Let it Go!")
+    fmt.Println("Let it Go!")
 }
