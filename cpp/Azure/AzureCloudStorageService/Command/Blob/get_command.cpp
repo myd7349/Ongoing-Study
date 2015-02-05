@@ -8,7 +8,8 @@
 
 #include "../../azure_cloud_storage_service.h"
 
-void download_blob(azure::storage::cloud_blob_container &container,
+// Note that, blob name is case sensitive.
+void download_block_blob(azure::storage::cloud_blob_container &container,
     const utility::string_t &blob_name, const utility::string_t &target_file_name, 
     utility::size64_t downloading_bytes_each_time)
 {
@@ -97,14 +98,14 @@ bool GetCommand::run(AzureCloudStorageService *storage_service)
         if (!storage_service->current_container_.is_valid()) {
             ucerr << U("Container name didn't provided.\n");
         } else {
-            download_blob(storage_service->current_container_, blob_name_, target_local_file_name_, 1024 * 1024);
+            download_block_blob(storage_service->current_container_, blob_name_, target_local_file_name_, 1024 * 1024);
         }
     } else {
         auto container = storage_service->blob_client_.get_container_reference(container_name_);
         if (!container.exists()) {
             ucerr << U("Container \"") << container_name_ << U("\" doesn't exist.\n");
         } else {
-            download_blob(container, blob_name_, target_local_file_name_, 1024 * 1024);
+            download_block_blob(container, blob_name_, target_local_file_name_, 1024 * 1024);
         }
     }
 
