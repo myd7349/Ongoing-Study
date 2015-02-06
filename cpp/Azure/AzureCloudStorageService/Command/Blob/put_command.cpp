@@ -93,17 +93,57 @@ void upload_block_blob(azure::storage::cloud_blob_container &container,
 #endif
 }
 
+PutCommand::PutCommand()
+{
+    options_desc_.add_options()
+        ("blob,b", boost::program_options::wvalue<utility::string_t>(&blob_name_)->required(), "The blob to download")
+        ("in,i", boost::program_options::wvalue<utility::string_t>(&local_file_name_)->required(), "Local file name")
+        //("step")
+        ;
+}
+
 bool PutCommand::parse(const std::vector<utility::string_t> &vargs)
 {
-    return true;
+    container_name_.clear();
+    blob_name_.clear();
+    local_file_name_.clear();
+
+    boost::program_options::variables_map args_map;
+
+    try {
+        boost::program_options::store(boost::program_options::basic_command_line_parser<CharT>(vargs).
+            options(options_desc_).run(), args_map);
+        boost::program_options::notify(args_map);
+
+        return true;
+    } catch (const std::exception &e) {
+        notify_err(e.what(), PUT_COMMAND_STR);
+        return false;
+    }
 }
 
 bool PutCommand::run(AzureCloudStorageService *storage_service)
 {
-    assert(storage_service != nullptr);
+    if (container_name_.empty()) {
+        if (!storage_service->current_container_.is_valid()) {
+            ucerr << U("Container name didn't provided.\n");
+        } else {
+            upload_block_blob(storage_service->current_container_, local_file_name_, blob_name_, 1024 * 1024);
+        }
+    } else {
+        auto container = storage_service->blob_client_.get_container_reference(container_name_);
+        if (!container.exists()) {
+            ucerr << U("Container \"") << container_name_ << U("\" doesn't exist.\n");
+        } else {
+            upload_block_blob(container, local_file_name_, blob_name_, 1024 * 1024);
+        }
+    }
+
     return true;
 }
 
 void PutCommand::help() const
 {
+    ucout << U("Download specified blob.\nUsage: ") << PUT_COMMAND_STR << U(" [options]\n");
+    Command::help();
 }
