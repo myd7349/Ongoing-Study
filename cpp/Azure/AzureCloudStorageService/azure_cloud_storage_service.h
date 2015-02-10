@@ -3,6 +3,7 @@
 #ifndef AZURE_CLOUD_STORAGE_SERVICE_H_
 #define AZURE_CLOUD_STORAGE_SERVICE_H_
 
+#include <algorithm>
 #include <memory>
 #include <set>
 #include <unordered_map>
@@ -48,7 +49,13 @@ private:
     std::unordered_map<utility::string_t, std::shared_ptr<Command>> command_dispatcher_;
 };
 
-void DumpLineByLine(const std::vector<utility::string_t> &c);
+template <typename Container>
+void DumpLineByLine(const Container &c)
+{
+    std::copy(c.cbegin(), c.cend(),
+        std::ostream_iterator<utility::string_t, utility::string_t::value_type>(ucout, U("\n")));
+}
+
 void DumpAzureStorageError(const azure::storage::storage_exception &e);
 
 #endif // AZURE_CLOUD_STORAGE_SERVICE_H_

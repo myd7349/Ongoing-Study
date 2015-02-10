@@ -17,7 +17,6 @@ public:
 
 private:
     utility::string_t command_;
-    std::vector<utility::string_t> sorted_commands_;
 };
 
 #endif // HELP_COMMAND_H_

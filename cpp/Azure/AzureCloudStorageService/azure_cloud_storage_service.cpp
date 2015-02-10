@@ -203,12 +203,6 @@ int AzureCloudStorageService::run(const AzureStorageAccountOptions &storage_acco
     return EXIT_SUCCESS;
 }
 
-void DumpLineByLine(const std::vector<utility::string_t> &c)
-{
-    std::copy(c.cbegin(), c.cend(),
-        std::ostream_iterator<utility::string_t, utility::string_t::value_type>(ucout, U("\n")));
-}
-
 void DumpAzureStorageError(const azure::storage::storage_exception &e)
 {
     std::cerr << "storage_exception: " << e.what() << '\n';

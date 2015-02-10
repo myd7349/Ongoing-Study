@@ -96,7 +96,7 @@ void upload_block_blob(azure::storage::cloud_blob_container &container,
 PutCommand::PutCommand()
 {
     options_desc_.add_options()
-        ("blob,b", boost::program_options::wvalue<utility::string_t>(&blob_name_)->required(), "The blob to download")
+        ("blob,b", boost::program_options::wvalue<utility::string_t>(&blob_name_)->required(), "The blob to upload")
         ("in,i", boost::program_options::wvalue<utility::string_t>(&local_file_name_)->required(), "Local file name")
         //("step")
         ;

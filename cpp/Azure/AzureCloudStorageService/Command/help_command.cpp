@@ -38,15 +38,8 @@ bool HelpCommand::run(AzureCloudStorageService *storage_service)
 {
     assert(storage_service != nullptr);
     if (command_.empty()) {
-        if (sorted_commands_.empty()) {
-            std::copy(storage_service->available_commands_.begin(),
-                storage_service->available_commands_.end(), 
-                std::back_inserter(sorted_commands_));
-            std::sort(sorted_commands_.begin(), sorted_commands_.end());
-        }
-
         ucout << U("All available commands:\n");
-        DumpLineByLine(sorted_commands_);
+        DumpLineByLine(storage_service->available_commands_);
         ucout << U("Type \"") << HELP_COMMAND_STR << U(" [command]\" to learn the usage of target command.\n");
     } else {
         try {

@@ -20,8 +20,7 @@ void download_block_blob(azure::storage::cloud_blob_container &container,
     }
 
     // Get blob's size(in bytes)
-    auto properties = blob.properties();
-    auto blob_size = properties.size();
+    auto blob_size = blob.properties().size();
 
     if (0 == blob_size) {
         blob.download_to_file(target_file_name);
