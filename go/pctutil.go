@@ -61,6 +61,12 @@ func main() {
 		return
 	}
 
+	// Get positional arguments
+	pargs := flag.Args()
+	if len(pargs) != 0 {
+		path = pargs[0]
+	}
+
 	// -- Now, do something meaningful to make the life a little more easier.
 	if len(path) == 0 {
 		// If path name is empty, then read string from stdin.
@@ -91,5 +97,6 @@ func main() {
 }
 
 // References:
-// Check if file exists: http://golang-examples.tumblr.com/post/46579246576/check-if-file-exists
-// Command-Line Flags: https://gobyexample.com/command-line-flags
+// [Check if file exists](http://golang-examples.tumblr.com/post/46579246576/check-if-file-exists)
+// [Command-Line Flags](https://gobyexample.com/command-line-flags)
+// [How to specify positional arguments with the flag package in Golang?](http://stackoverflow.com/questions/25215088/how-to-specify-positional-arguments-with-the-flag-package-in-golang)
