@@ -1,9 +1,16 @@
 // 2015-02-10T10:22+08:00
 #include <algorithm>
+#include <cassert>
 #include <functional>
 #include <iostream>
+#include <iterator>
 #include <set>
 #include <string>
+#include <typeinfo>
+
+#define CONFIG_USING_BOOST (0)
+#include "../../common.h"
+#include "../../uniform_typename/uniform_typename.h"
 
 // Q1: Is STL's set an unordered set?
 // Answer:
@@ -18,7 +25,7 @@
 void Q1_test()
 {
     std::cout << __func__ << ":" << std::endl;
-    std::set<std::string> commands {"ls", "rm", "help", "cd", "tee", "ps", "gcc"};
+    std::set<std::string> commands {"ls", "rm", "man", "cd", "tee", "ps", "gcc"};
     for (const auto &cmd : commands) {
         std::cout << cmd << " ";
     }
@@ -30,6 +37,29 @@ void Q1_test()
 // http://stackoverflow.com/questions/13385348/sorting-sets-using-stdsort
 void Q2_test()
 {
+    std::cout << __func__ << ":" << std::endl;
+    std::set<int> integer_set {3, 2, 7, 5, 0, 9, 1};
+
+    // For std::set, iterator and const_iterator are the same type.
+    assert(typeid(std::set<int>::iterator) == typeid(std::set<int>::const_iterator));
+    // std::sort needs random access iterator, but std::set<T>::iterator
+    // is a bidirectional access iterator.
+    std::cout << TYPE_NAME(std::set<int>::iterator::iterator_category) << std::endl;
+
+    // http://www.cplusplus.com/reference/set/set/
+    // The value of the elements in a set cannot be modified once in the container
+    // (the elements are always const), but they can be inserted or removed from the
+    // container.
+#if 0
+    std::sort(integer_set.begin(), integer_set.end()); // Oops! We can not and needn't.
+#endif
+
+    // If you'd like to change the default comparison object, then:
+    std::set<std::string, std::greater<std::string>> commands {"ls", "rm", "man", "cd", "tee", "ps", "gcc"};
+    for (const auto &cmd : commands) {
+        std::cout << cmd << " ";
+    }
+    std::cout << std::endl;
 }
 
 // Q3: What's the difference between std::set and std::unordered_set(Since C++11)?
@@ -37,6 +67,7 @@ void Q2_test()
 // http://stackoverflow.com/questions/16075890/what-is-the-difference-between-set-and-unordered-set-in-c
 void Q3_test()
 {
+    std::cout << __func__ << ":" << std::endl;
 }
 
 int main()
@@ -45,6 +76,7 @@ int main()
     Q2_test();
     Q3_test();
 
+    PAUSE();
     return 0;
 }
 

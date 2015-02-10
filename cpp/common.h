@@ -26,6 +26,13 @@
 #  define STR(c) STR_IMPL(c)
 #endif
 
+// __func__
+// http://stackoverflow.com/questions/15126387/func-c11-functions-local-predefined-variable-wont-compile
+// http://stackoverflow.com/questions/2281970/cross-platform-defining-define-for-macros-function-and-func
+#if defined(_MSC_VER) && !defined(__func__)
+#  define __func__ __FUNCTION__
+#endif
+
 // PAUSE
 #ifdef _MSC_VER
 # ifdef NDEBUG
