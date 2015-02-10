@@ -1,0 +1,29 @@
+# -*- coding: utf-8 -*-
+# 2014-10-09T13:31+08:00
+
+# Python startup file
+
+import atexit
+import os
+import readline # pyreadline
+import rlcompleter
+
+# tab completion
+readline.parse_and_bind('tab: complete')
+
+# history file
+try:
+    histfile = os.path.join(os.environ['HOME'], '.pythonhistory')
+except:
+    histfile = os.path.join(os.environ['HOMEDRIVE'], os.environ['HOMEPATH'],  '.pythonhistory')
+
+try:
+    readline.read_history_file(histfile)
+except IOError:
+    pass
+
+atexit.register(readline.write_history_file, histfile)
+
+del os, histfile, readline, rlcompleter
+
+print('Hello, world! -- from my python guru.')
