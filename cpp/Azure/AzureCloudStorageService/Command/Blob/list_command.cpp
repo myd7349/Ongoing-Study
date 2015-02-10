@@ -78,7 +78,13 @@ std::vector<utility::string_t> ListCommand::get_blob_list(azure::storage::cloud_
     // https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp
     azure::storage::continuation_token token;
     do {
-        auto result = blob_container.list_blobs_segmented(token);
+        // Here, I set "use_flat_blob_listing" as true so that I needn't to
+        // walk the container recursively.
+        //auto result = blob_container.list_blobs_segmented(token);
+        auto result = blob_container.list_blobs_segmented(U(""), true,
+            azure::storage::blob_listing_details::none, 0, token, 
+            azure::storage::blob_request_options(), azure::storage::operation_context());
+
         for (const auto &b : result.blobs()) {
             blobs.push_back(b.uri().primary_uri().to_string());
         }

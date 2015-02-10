@@ -20,8 +20,7 @@ void upload_block_blob(azure::storage::cloud_blob_container &container,
         return;
     }
 
-    auto blob = container.get_block_blob_reference(
-        boost::filesystem::path(local_file_path).filename().native());
+    auto blob = container.get_block_blob_reference(target_blob_name);
 
 #if 1
     utility::size64_t file_size = boost::filesystem::file_size(local_file_path);

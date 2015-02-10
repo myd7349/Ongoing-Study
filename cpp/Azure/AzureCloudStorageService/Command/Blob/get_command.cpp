@@ -8,6 +8,8 @@
 
 #include "../../azure_cloud_storage_service.h"
 
+// ??? download_attributes()
+
 // Note that, blob name is case sensitive.
 void download_block_blob(azure::storage::cloud_blob_container &container,
     const utility::string_t &blob_name, const utility::string_t &target_file_name, 
