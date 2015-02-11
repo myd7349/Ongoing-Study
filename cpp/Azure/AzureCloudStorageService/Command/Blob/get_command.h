@@ -18,6 +18,7 @@ public:
 private:
     utility::string_t blob_name_;
     utility::string_t target_local_file_name_;
+    utility::size64_t size_;
 };
 
 #endif // GET_COMMAND_H_

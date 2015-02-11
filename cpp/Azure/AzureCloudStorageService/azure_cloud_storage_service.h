@@ -4,6 +4,7 @@
 #define AZURE_CLOUD_STORAGE_SERVICE_H_
 
 #include <algorithm>
+#include <iterator>
 #include <memory>
 #include <set>
 #include <unordered_map>
@@ -18,7 +19,7 @@ struct AzureStorageAccountOptions {
     utility::string_t account_name;
     utility::string_t primary_access_key;
     utility::string_t secondary_access_key;
-    utility::string_t end_point_suffix = U("core.windows.net");
+    utility::string_t endpoint_suffix = U("core.windows.net");
     bool use_https = false;
     bool use_dev_storage = false;
 };
@@ -37,6 +38,8 @@ public:
     int run(const AzureStorageAccountOptions &storage_account_options);
 
 protected:
+    bool connect_to_azure(const utility::string_t &account_name, const utility::string_t &access_key,
+        const utility::string_t &endpoint, bool use_https, bool use_dev_storage);
     bool initialize(const AzureStorageAccountOptions &storage_account_options);
     std::shared_ptr<Command> get_command(const utility::string_t &command);
     void parse_command_and_dispatch();

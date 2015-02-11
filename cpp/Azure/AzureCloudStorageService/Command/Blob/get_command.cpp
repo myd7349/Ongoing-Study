@@ -69,7 +69,7 @@ GetCommand::GetCommand()
     options_desc_.add_options()
         ("blob,b", boost::program_options::wvalue<utility::string_t>(&blob_name_)->required(), "The blob to download")
         ("out,o", boost::program_options::wvalue<utility::string_t>(&target_local_file_name_)->required(), "Target local file name")
-        //("step")
+        ("size,s", boost::program_options::value<utility::size64_t>(&size_)->default_value(1024 * 1024), "How many bytes to be downloaded each time")
         ;
 }
 
@@ -99,14 +99,14 @@ bool GetCommand::run(AzureCloudStorageService *storage_service)
         if (!storage_service->current_container_.is_valid()) {
             ucerr << U("Container name didn't provided.\n");
         } else {
-            download_block_blob(storage_service->current_container_, blob_name_, target_local_file_name_, 1024 * 1024);
+            download_block_blob(storage_service->current_container_, blob_name_, target_local_file_name_, size_);
         }
     } else {
         auto container = storage_service->blob_client_.get_container_reference(container_name_);
         if (!container.exists()) {
             ucerr << U("Container \"") << container_name_ << U("\" doesn't exist.\n");
         } else {
-            download_block_blob(container, blob_name_, target_local_file_name_, 1024 * 1024);
+            download_block_blob(container, blob_name_, target_local_file_name_, size_);
         }
     }
 

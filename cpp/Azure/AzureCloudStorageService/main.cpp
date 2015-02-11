@@ -52,9 +52,9 @@ int ParseCmdlineArgs(const std::vector<std::basic_string<CharT>> &vargs,
             ("primary-key,p", po::wvalue<utility::string_t>(&options.primary_access_key)->required(), "The primary access key")
             ("secondary-key,s", po::wvalue<utility::string_t>(&options.secondary_access_key), "The secondary access key")
 #if 0
-            ("end-point,e", po::wvalue<utility::string_t>(&options.end_point_suffix)->default_value(U("core.windows.net")), "Endpoint suffix")
+            ("end-point,e", po::wvalue<utility::string_t>(&options.endpoint_suffix)->default_value(U("core.windows.net")), "Endpoint suffix")
 #else
-            ("end-point,e", po::wvalue<utility::string_t>(&options.end_point_suffix)->default_value(U("core.windows.net"), "core.windows.net"), "Endpoint suffix")
+            ("end-point,e", po::wvalue<utility::string_t>(&options.endpoint_suffix)->default_value(U("core.windows.net"), "core.windows.net"), "Endpoint suffix")
 #endif
             ("use-https", po::value<bool>(&options.use_https)->implicit_value(true)->default_value(false), "Use \"HTTPS\" rather than \"HTTP\"")
             ("use-dev-storage", po::value<bool>(&options.use_dev_storage)->implicit_value(true)->default_value(false), "Use development storage account")

@@ -29,4 +29,4 @@ protected:
     boost::program_options::options_description options_desc_;
 };
 
-#endif // COMMAND_PARSER_H_
+#endif // COMMAND_H_

@@ -2,12 +2,10 @@
 
 #include "azure_cloud_storage_service.h"
 
-#include <algorithm>
 #include <cstdlib>
+#include <exception>
 #include <iostream>
-#include <iterator>
 #include <sstream>
-#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -47,23 +45,21 @@ AzureCloudStorageService::AzureCloudStorageService()
       })
 {
 }
-
-bool AzureCloudStorageService::initialize(const AzureStorageAccountOptions &storage_account_options)
+          
+bool AzureCloudStorageService::connect_to_azure(const utility::string_t &account_name, 
+    const utility::string_t &access_key, const utility::string_t &endpoint, 
+    bool use_https, bool use_dev_storage)
 {
     // Initialize the storage account
 #if 1
-    if (storage_account_options.use_dev_storage) {
+    if (use_dev_storage) {
         // If you want to use a development storage account, please read this article: 
         // Using the Azure Storage Emulator for Development and Testing
         // http://msdn.microsoft.com/en-us/library/azure/hh403989.aspx
         storage_account_ = azure::storage::cloud_storage_account::development_storage_account();
     } else {
-        azure::storage::storage_credentials credential(
-            storage_account_options.account_name, storage_account_options.primary_access_key);
-        storage_account_ = azure::storage::cloud_storage_account(
-            credential, 
-            storage_account_options.end_point_suffix, 
-            storage_account_options.use_https);
+        azure::storage::storage_credentials credential(account_name, access_key);
+        storage_account_ = azure::storage::cloud_storage_account(credential, endpoint, use_https);
     }
 #else
     // The workflow of parse:
@@ -72,22 +68,31 @@ bool AzureCloudStorageService::initialize(const AzureStorageAccountOptions &stor
     //   3. parse_explicit_settings
     // In cloud_storage_account.cpp, we can see all the valid setting strings.
     utility::string_t connection_string;
-    if (storage_account_options.use_dev_storage) {
+    if (use_dev_storage) {
         connection_string = U("UseDevelopmentStorage=true;DevelopmentStorageProxyUri=;");
     } else {
         connection_string =
-            utility::string_t(U("DefaultEndpointsProtocol=")) + (storage_account_options.use_https ? U("https;") : U("http;")) +
-            U("AccountName=") + storage_account_options.account_name + U(";") +
-            U("AccountKey=") + storage_account_options.primary_access_key + U(";") +
-            U("EndpointSuffix=") + storage_account_options.end_point_suffix + U(";");
+            utility::string_t(U("DefaultEndpointsProtocol=")) + (use_https ? U("https;") : U("http;")) +
+            U("AccountName=") + account_name + U(";") +
+            U("AccountKey=") + access_key + U(";") +
+            U("EndpointSuffix=") + endpoint + U(";");
     }
 
     storage_account_ = azure::storage::cloud_storage_account::parse(connection_string);
 #endif
 
-    bool res = storage_account_.is_initialized();
-    if (!res) {
-        return res;
+    return storage_account_.is_initialized();
+}
+
+bool AzureCloudStorageService::initialize(const AzureStorageAccountOptions &storage_account_options)
+{
+    // ??? Not work as what I want.
+    if (!connect_to_azure(storage_account_options.account_name, storage_account_options.primary_access_key,
+        storage_account_options.endpoint_suffix, storage_account_options.use_https, storage_account_options.use_dev_storage) &&
+        !connect_to_azure(storage_account_options.account_name, storage_account_options.secondary_access_key,
+        storage_account_options.endpoint_suffix, storage_account_options.use_https, storage_account_options.use_dev_storage)) {
+        ucerr << U("Failed to establish connection with azure!\n");
+        return false;
     }
 
     // Initialize blob client
