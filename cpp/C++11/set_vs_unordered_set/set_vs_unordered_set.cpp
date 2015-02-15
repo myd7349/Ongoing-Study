@@ -7,6 +7,7 @@
 #include <set>
 #include <string>
 #include <typeinfo>
+#include <unordered_set>
 
 #define CONFIG_USING_BOOST (0)
 #include "../../common.h"
@@ -70,11 +71,31 @@ void Q3_test()
     std::cout << __func__ << ":" << std::endl;
 }
 
+// Q4: http://www.zhihu.com/question/20654571
+// 
+void Q4_test()
+{
+    std::cout << __func__ << ":" << std::endl;
+
+    class Re {
+    public:
+        int End;
+        bool operator<(const Re &parm) const {
+            return End < parm.End;
+        }
+    };
+
+    std::set<Re> myset;
+    Re obj;
+    myset.insert(obj);
+}
+
 int main()
 {
     Q1_test();
     Q2_test();
     Q3_test();
+    Q4_test();
 
     PAUSE();
     return 0;
