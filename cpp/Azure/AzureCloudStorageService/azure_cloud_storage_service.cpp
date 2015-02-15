@@ -50,6 +50,10 @@ bool AzureCloudStorageService::connect_to_azure(const utility::string_t &account
     const utility::string_t &access_key, const utility::string_t &endpoint, 
     bool use_https, bool use_dev_storage)
 {
+    if (!use_dev_storage && access_key.empty()) {
+        return false;
+    }
+
     // Initialize the storage account
 #if 1
     if (use_dev_storage) {
@@ -58,8 +62,12 @@ bool AzureCloudStorageService::connect_to_azure(const utility::string_t &account
         // http://msdn.microsoft.com/en-us/library/azure/hh403989.aspx
         storage_account_ = azure::storage::cloud_storage_account::development_storage_account();
     } else {
-        azure::storage::storage_credentials credential(account_name, access_key);
-        storage_account_ = azure::storage::cloud_storage_account(credential, endpoint, use_https);
+        try {
+            azure::storage::storage_credentials credential(account_name, access_key);
+            storage_account_ = azure::storage::cloud_storage_account(credential, endpoint, use_https);
+        } catch (...) {
+            return false;
+        }
     }
 #else
     // The workflow of parse:
@@ -78,7 +86,11 @@ bool AzureCloudStorageService::connect_to_azure(const utility::string_t &account
             U("EndpointSuffix=") + endpoint + U(";");
     }
 
-    storage_account_ = azure::storage::cloud_storage_account::parse(connection_string);
+    try {
+        storage_account_ = azure::storage::cloud_storage_account::parse(connection_string);
+    } catch (...) {
+        return false;
+    }
 #endif
 
     return storage_account_.is_initialized();
@@ -86,7 +98,7 @@ bool AzureCloudStorageService::connect_to_azure(const utility::string_t &account
 
 bool AzureCloudStorageService::initialize(const AzureStorageAccountOptions &storage_account_options)
 {
-    // ??? Not work as what I want.
+    // ??? What if we regenerate one of the access key?
     if (!connect_to_azure(storage_account_options.account_name, storage_account_options.primary_access_key,
         storage_account_options.endpoint_suffix, storage_account_options.use_https, storage_account_options.use_dev_storage) &&
         !connect_to_azure(storage_account_options.account_name, storage_account_options.secondary_access_key,
