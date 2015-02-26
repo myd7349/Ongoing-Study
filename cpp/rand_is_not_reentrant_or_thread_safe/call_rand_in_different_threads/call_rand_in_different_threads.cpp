@@ -1,7 +1,10 @@
 // 2015-02-26T08:15+08:00
+//
 // When learning an example of ZeroMQ in zguide:
 // https://github.com/imatix/zguide/blob/master/examples/C/rtreq.c
-// I found that it doesn't work as expected in VS2013(Win7 x64).
+// I found that it doesn't work as expected in VS2013(Win7 x64):
+// https://github.com/imatix/zguide/issues/521
+//
 // After some boring debugging, I wondered if it is because that
 // calling `rand` in different threads in MSVC will produce the
 // same pseudo random number.
