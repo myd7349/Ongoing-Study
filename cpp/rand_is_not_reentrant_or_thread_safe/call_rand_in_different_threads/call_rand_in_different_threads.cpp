@@ -6,7 +6,7 @@
 // https://github.com/imatix/zguide/issues/521
 //
 // After some boring debugging, I wondered if it is because that
-// calling `rand` in different threads in MSVC will produce the
+// calling `rand` from multiple threads in MSVC will produce the
 // same pseudo random number.
 // Again, stackoverflow gave me the answer:
 // http://stackoverflow.com/questions/6161322/using-stdlibs-rand-from-multiple-threads
@@ -64,6 +64,6 @@ Output(Win7 x64 + GCC 4.8.1):
 41
 41
 41
-Output(CentOS + ):
-
+Output(CentOS + GCC 4.4.7, g++ -std=c++0x call_rand_in_different_threads.cpp):
+Segmentation fault (core dumped)
 */
