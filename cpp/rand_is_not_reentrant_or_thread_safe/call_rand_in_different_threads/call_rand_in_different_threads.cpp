@@ -16,8 +16,6 @@
 #include <cstdlib>
 #include <iostream>
 
-#define CONFIG_USING_BOOST (0)
-#include "../../common.h"
 
 #define THREAD_COUNT (10)
 
@@ -75,7 +73,6 @@ int main()
         std::free(res);
     }
 
-    PAUSE();
     return 0;
 }
 
@@ -141,8 +138,17 @@ Output(Win7 x64 + VS2013/GCC 4.8.1 + C++11 thread):
 #7: 41
 #8: 41
 #9: 41
-Output(CentOS x86_64 + GCC 4.4.7 + -lpthread):
-
+Output(CentOS x86_64 + GCC 4.4.7 + pthreads)(g++ -pthread -std=c++0x call_rand_in_different_threads.cpp):
+#1: 1804289383
+#0: 846930886
+#6: 1681692777
+#3: 1714636915
+#4: 1957747793
+#5: 424238335
+#2: 719885386
+#7: 1649760492
+#8: 596516649
+#9: 1189641421
 Output(CentOS x86_64 + GCC 4.4.7 + C++0x thread):
 Segmentation fault (core dumped)
 */
