@@ -143,6 +143,6 @@ bool PutCommand::run(AzureCloudStorageService *storage_service)
 
 void PutCommand::help() const
 {
-    ucout << U("Download specified blob.\nUsage: ") << PUT_COMMAND_STR << U(" [options]\n");
+    ucout << U("Upload specified file to target blob.\nUsage: ") << PUT_COMMAND_STR << U(" [options]\n");
     Command::help();
 }
