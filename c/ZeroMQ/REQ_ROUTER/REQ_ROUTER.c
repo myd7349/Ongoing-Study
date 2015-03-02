@@ -94,8 +94,12 @@ int main(void)
 References:
 [identity.c](https://github.com/imatix/zguide/blob/master/examples/C/identity.c)
 [lbbroker.c](https://github.com/imatix/zguide/blob/master/examples/C/lbbroker.c)
+[The REQ to ROUTER Combination](http://zguide.zeromq.org/page:all#The-REQ-to-ROUTER-Combination)
 [The Simple Reply Envelope](http://zguide.zeromq.org/page:all#The-Simple-Reply-Envelope)
 [The Extended Reply Envelope](http://zguide.zeromq.org/page:all#The-Extended-Reply-Envelope)
+[What's This Good For](http://zguide.zeromq.org/page:all#What-s-This-Good-For)
+[Recap of Request Reply Sockets](http://zguide.zeromq.org/page:all#Recap-of-Request-Reply-Sockets)
+[Request Reply Combinations](http://zguide.zeromq.org/page:all#Request-Reply-Combinations)
 [A-Load Balancing Message Broker](http://zguide.zeromq.org/page:all#A-Load-Balancing-Message-Broker)
 [zmq_socket](http://api.zeromq.org/2-1:zmq-socket)
 */
