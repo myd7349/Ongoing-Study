@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="REQ_REP.c">
+    <ClCompile Include="DEALER_REP.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

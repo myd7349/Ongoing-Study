@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0E33E8DD-8253-45A9-AFAF-AECA49D21A69}</ProjectGuid>
+    <ProjectGuid>{09607FBB-65F9-4FEB-B95A-77E968C069C6}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>REQ_REP</RootNamespace>
+    <RootNamespace>DEALER_REP</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -76,7 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="REQ_REP.c" />
+    <ClCompile Include="DEALER_REP.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
