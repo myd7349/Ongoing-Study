@@ -2,7 +2,8 @@
 
 /*
 This example demonstrates how messages are delivered between DEALER and REP
-in ZeroMQ.
+in ZeroMQ. That is, what do the envelope on the wire created by DEALER and 
+REP look like?
 */
 
 #include "../../common.h"
@@ -29,34 +30,17 @@ int main(void)
     zmq_connect(dealer, "inproc://dealervsrep");
 #endif
 
-    /* -------------------- REQ -> REP -------------------- */
-    /*
-    In the REQ to REP Combination, the REQ client must initiate the message flow.
-    A REP server cannot talk to a REQ client that hasn't first sent it a request.
-
-    1. The reply envelope created by REQ socket in this example is simple, and this
-    envelope contains no address:
-    Frame 1: An empty delimiter frame
-    Frame 2: The message body
-    2. When the two-frame envelope created by REQ is delivered to REP:
-    It strips off the envelope, up to and including the delimiter frame, saves
-    the whole envelope, and passes the message body("Hello" in this example) up
-    the application.
-    */
-    s_send(req, "Hello");
+    /* -------------------- DEALER -> REP -------------------- */
+    s_sendmore(dealer, "");
+    s_send(dealer, "Hello");
     s_dump(rep);
 
-    /* -------------------- REP -> REQ -------------------- */
+    /* -------------------- REP -> DEALER -------------------- */
     s_send(rep, "World");
-    s_dump(req);
-
-    /*
-    Conclusion:
-    Every request and every reply is in fact two frames, an empty frame and then the body.
-    */
+    s_dump(dealer);
 
     zmq_close(rep);
-    zmq_close(req);
+    zmq_close(dealer);
     zmq_ctx_term(context);
     PAUSE();
     return 0;
