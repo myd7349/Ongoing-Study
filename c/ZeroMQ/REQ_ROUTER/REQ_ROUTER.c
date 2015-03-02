@@ -100,6 +100,7 @@ References:
 [What's This Good For](http://zguide.zeromq.org/page:all#What-s-This-Good-For)
 [Recap of Request Reply Sockets](http://zguide.zeromq.org/page:all#Recap-of-Request-Reply-Sockets)
 [Request Reply Combinations](http://zguide.zeromq.org/page:all#Request-Reply-Combinations)
+[Exploring ROUTER Sockets](http://zguide.zeromq.org/page:all#Exploring-ROUTER-Sockets)
 [A-Load Balancing Message Broker](http://zguide.zeromq.org/page:all#A-Load-Balancing-Message-Broker)
 [zmq_socket](http://api.zeromq.org/2-1:zmq-socket)
 */
