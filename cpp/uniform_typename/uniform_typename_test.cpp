@@ -8,6 +8,8 @@
 #include <iostream>
 #include <typeinfo>
 
+#define CONFIG_USING_BOOST (0)
+#include "../common.h"
 #include "uniform_typename.h"
 
 int main()
@@ -24,5 +26,11 @@ int main()
     std::cout << TYPE_NAME(lst) << std::endl; // std::initializer_list<int>*
     delete lst;
 
+    std::cout << TYPE_NAME(std::cout) << std::endl;
+    std::cout << TYPE_NAME(std::cerr) << std::endl;
+    std::cout << TYPE_NAME(std::clog) << std::endl;
+    //std::cout << TYPE_NAME(std::endl) << std::endl;
+
+    PAUSE();
     return 0;
 }
