@@ -4,9 +4,9 @@
 This example demonstrates how messages are delivered between REQ and ROUTER
 sockets in ZeroMQ.
 */
-#include "zhelpers.h"
 
 #include "../../common.h"
+#include "../zhelpers.h"
 
 int main(void)
 {

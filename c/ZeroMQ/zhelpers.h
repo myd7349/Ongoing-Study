@@ -1,3 +1,9 @@
+/*
+2015-03-02T13:23+08:00
+The original version can be found here:
+https://github.com/imatix/zguide/blob/master/examples/C/zhelpers.h
+*/
+
 /*  =====================================================================
     zhelpers.h
 
@@ -73,6 +79,26 @@ s_sendmore (void *socket, char *string) {
     return size;
 }
 
+static void
+s_dump_data(char *data, int size)
+{
+    int is_text = 1;
+    int char_nbr;
+    for (char_nbr = 0; char_nbr < size; char_nbr++)
+        if ((unsigned char)data[char_nbr] < 32
+            || (unsigned char)data[char_nbr] > 127)
+            is_text = 0;
+
+    printf("[%03d] ", size);
+    for (char_nbr = 0; char_nbr < size; char_nbr++) {
+        if (is_text)
+            printf("%c", data[char_nbr]);
+        else
+            printf("%02X", (unsigned char)data[char_nbr]);
+    }
+    printf("\n");
+}
+
 //  Receives all message parts from socket, prints neatly
 //
 static void
@@ -87,21 +113,7 @@ s_dump (void *socket)
 
         //  Dump the message as text or binary
         char *data = (char*)zmq_msg_data (&message);
-        int is_text = 1;
-        int char_nbr;
-        for (char_nbr = 0; char_nbr < size; char_nbr++)
-            if ((unsigned char) data [char_nbr] < 32
-            ||  (unsigned char) data [char_nbr] > 127)
-                is_text = 0;
-
-        printf ("[%03d] ", size);
-        for (char_nbr = 0; char_nbr < size; char_nbr++) {
-            if (is_text)
-                printf ("%c", data [char_nbr]);
-            else
-                printf ("%02X", (unsigned char) data [char_nbr]);
-        }
-        printf ("\n");
+        s_dump_data(data, size);
 
         int more;        //  Multipart detection
         more = 0;
