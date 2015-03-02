@@ -93,6 +93,7 @@ int main(void)
 /*
 References:
 [identity.c](https://github.com/imatix/zguide/blob/master/examples/C/identity.c)
+[lbbroker.c](https://github.com/imatix/zguide/blob/master/examples/C/lbbroker.c)
 [The Simple Reply Envelope](http://zguide.zeromq.org/page:all#The-Simple-Reply-Envelope)
 [The Extended Reply Envelope](http://zguide.zeromq.org/page:all#The-Extended-Reply-Envelope)
 [A-Load Balancing Message Broker](http://zguide.zeromq.org/page:all#A-Load-Balancing-Message-Broker)
