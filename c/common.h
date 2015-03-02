@@ -4,6 +4,9 @@
 
 #include <stdlib.h>
 
+/* FREE */
+#define FREE(ptr) do { free(ptr); ptr = NULL; } while (0)
+
 /* PAUSE */
 #ifdef _MSC_VER
 # ifdef NDEBUG
@@ -15,6 +18,6 @@
 # define PAUSE() ((void)0)
 #endif
 
-#define FREE(ptr) do { free(ptr); ptr = NULL; } while (0)
+/* To be continued... */
 
 #endif /* COMMON_H_ */
