@@ -2,7 +2,7 @@
 
 /*
 This example demonstrates how messages are delivered between DEALER and REP
-in ZeroMQ. That is, what do the envelope on the wire created by DEALER and 
+in ZeroMQ. That is, what do the envelopes on the wire created by DEALER and 
 REP look like?
 */
 
