@@ -31,13 +31,53 @@ int main(void)
 #endif
 
     /* -------------------- DEALER -> REP -------------------- */
+    /*
+    The document of zmq_socket says that:
+    When a ZMQ_DEALER socket is connected to a ZMQ_REP socket each message
+    sent must consist of an empty message part, the delimiter, followed by 
+    one or more body parts.
+
+    0MQ - The Guide/The Simple Reply Envelope:
+    The REP socket does the matching work: it strips off the envelope, up to 
+    and including the delimiter frame, saves the whole envelope, and passes 
+    the "Hello" string up the application.
+    */
+    
+    // s_sendmore(dealer, "PSEUDO-ADDR");
     s_sendmore(dealer, "");
+#if 0
+    s_sendmore(dealer, "Hello");
+#endif
     s_send(dealer, "Hello");
     s_dump(rep);
 
     /* -------------------- REP -> DEALER -------------------- */
+    /*
+    0MQ - The Guide/The Extended Reply Envelope:
+    When REP sends "World" back, the REP socket wraps that with the envelope
+    it saved, and sends a reply message across the wire to the DEALER socket.
+
+    In this example, cause no identity frame exists, so this reply message is 
+    a two-frame message. But note that this is not always the case. For example,
+    in the "REQ <-> ROUTER | DEALER <-> REP" pattern, the reply message is a
+    three-frame message.
+
+    If we uncomment this line above:
+        // s_sendmore(dealer, "PSEUDO-ADDR");
+    then the reply message sent back by REP socket will be a three-frame message.
+    */
     s_send(rep, "World");
     s_dump(dealer);
+
+    /*
+    Conclusion:
+    The DEALER never touch the incoming message, and the outgoing message sent
+    by DEALER socket is identical to the incoming message.
+
+    REP socket, however, will strip off the whole envelope and save it. When 
+    REP's work is done, it will wraps that envelope with the message body and
+    send it back.
+    */
 
     zmq_close(rep);
     zmq_close(dealer);
@@ -54,6 +94,7 @@ References:
 [The REQ to REP Combination](http://zguide.zeromq.org/page:all#The-REQ-to-REP-Combination)
 [The Request Reply Mechanisms](http://zguide.zeromq.org/page:all#The-Request-Reply-Mechanisms)
 [The Simple Reply Envelope](http://zguide.zeromq.org/page:all#The-Simple-Reply-Envelope)
+[The Extended Reply Envelope](http://zguide.zeromq.org/page:all#The-Extended-Reply-Envelope)
 [Pub Sub Message Envelopes](http://zguide.zeromq.org/page:all#Pub-Sub-Message-Envelopes)
 [A Load Balancing Message Broker](http://zguide.zeromq.org/page:all#A-Load-Balancing-Message-Broker)
 [zmq_ctx_term vs zmq_ctx_destroy vs zmq_ctx_shutdown](http://lists.zeromq.org/pipermail/zeromq-dev/2014-June/026403.html)
