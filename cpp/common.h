@@ -13,7 +13,7 @@
 #include <string>
 
 #ifndef CONFIG_USING_BOOST
-# define CONFIG_USING_BOOST (1)
+# define CONFIG_USING_BOOST (0)
 #endif
 
 // CONCAT
