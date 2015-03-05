@@ -3,7 +3,7 @@
 #include <iostream>
 #include <typeinfo>
 
-#include <cxxabi.h>
+#include "../../uniform_typename/uniform_typename.h"
 
 int main()
 {
@@ -40,13 +40,7 @@ int main()
         std::cout << *it << std::endl;
     }
 
-    int status;
-    char *realname = abi::__cxa_demangle(typeid(arr3).name(), 0, 0, &status);
-    if (realname != nullptr) {
-        std::cout << realname << std::endl;
-        delete realname;
-        realname = nullptr;
-    }
+    std::cout << TYPE_NAME(arr3) << std::endl;
     delete[] arr3;
 
     return 0;
