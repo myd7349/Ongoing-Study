@@ -14,6 +14,8 @@
 // std::nullptr_t cannot be converted to a pointer with reinterpret_cast:
 // implicit conversion or static_cast should be used for this purpose.
 
+#include <cassert>
+#include <cstddef> // for std::nullptr_t
 #include <cstdio>
 
 void foo(const bool *)
@@ -50,7 +52,19 @@ int main()
     bar(NULL); // Oops! Not what we want.
     bar(nullptr); // Now, life becomes beautiful!
 
+    // -------- Test 2 --------
+    int haha = reinterpret_cast<int>(nullptr);
+    assert(0 == haha);
+
+    // -------- Test 3 --------
+    assert(sizeof(std::nullptr_t) == sizeof(void *));
+
     // To be continued...
 
     return 0;
 }
+
+// References:
+// [nullptr_t](http://www.cplusplus.com/reference/cstddef/nullptr_t/)
+// [nullptr_t](http://en.cppreference.com/w/cpp/types/nullptr_t)
+// [What exactly is nullptr?](http://stackoverflow.com/questions/1282295/what-exactly-is-nullptr)
