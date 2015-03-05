@@ -290,7 +290,7 @@ int _tmain()
         std::back_inserter(vUSBDrives), IsUSBDrive);
     if (vUSBDrives.size() > 0)
     {
-        tcout << _T("Totally ") << vUSBDrives.size() << _T(" Drives found on this computer:\n");
+        tcout << _T("Totally ") << vUSBDrives.size() << _T(" USB drives found on this computer:\n");
         printV(vUSBDrives.begin(), vUSBDrives.end());
     }
 
