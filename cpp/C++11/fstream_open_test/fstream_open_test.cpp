@@ -1,7 +1,6 @@
 // 2014-08-09T15:30+08:00
 #include <cstdio>
 #include <fstream>
-#include <iostream>
 #include <string>
 
 int main()
