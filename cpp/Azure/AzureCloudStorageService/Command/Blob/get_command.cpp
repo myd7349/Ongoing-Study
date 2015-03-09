@@ -8,7 +8,8 @@
 
 #include "../../azure_cloud_storage_service.h"
 
-// ??? download_attributes()
+// TODO: download_attributes()
+// TODO: override prompt
 
 // Note that, blob name is case sensitive.
 void download_block_blob(azure::storage::cloud_blob_container &container,
@@ -34,8 +35,8 @@ void download_block_blob(azure::storage::cloud_blob_container &container,
         downloading_bytes_each_time = blob_size;
     }
 
-    std::ofstream outFile(target_file_name, std::ofstream::binary);
-    if (!outFile) {
+    std::ofstream out_file(target_file_name, std::ofstream::binary);
+    if (!out_file) {
         ucout << U("Opening file \"") << target_file_name << U("\" failed.\n");
         return;
     }
@@ -53,8 +54,8 @@ void download_block_blob(azure::storage::cloud_blob_container &container,
         blob.download_range_to_stream(tmpOutStream, offset, downloading_bytes_each_time);
         bytes_read = buffer.collection().size();
         // Write out...
-        outFile.write(reinterpret_cast<char *>(buffer.collection().data()), bytes_read);
-        //outFile.flush();
+        out_file.write(reinterpret_cast<char *>(buffer.collection().data()), bytes_read);
+        //out_file.flush();
         // Upgrade the progress bar and other states
         prog += bytes_read;
         offset += bytes_read;
