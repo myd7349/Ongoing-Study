@@ -50,8 +50,8 @@ void download_block_blob(azure::storage::cloud_blob_container &container,
         // Create a memory buffer
         concurrency::streams::container_buffer<std::vector<uint8_t>> buffer;
         // Read data
-        concurrency::streams::ostream tmpOutStream(buffer);
-        blob.download_range_to_stream(tmpOutStream, offset, downloading_bytes_each_time);
+        concurrency::streams::ostream tmp_out_stream(buffer);
+        blob.download_range_to_stream(tmp_out_stream, offset, downloading_bytes_each_time);
         bytes_read = buffer.collection().size();
         // Write out...
         out_file.write(reinterpret_cast<char *>(buffer.collection().data()), bytes_read);

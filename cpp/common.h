@@ -2,8 +2,8 @@
 
 // Some frequently used stuffs.
 
-#ifndef COMMON_H_INCLUDED
-#define COMMON_H_INCLUDED
+#ifndef COMMON_H_
+#define COMMON_H_
 
 #include <algorithm>
 #include <cstddef>
@@ -49,17 +49,16 @@
 #define RETURN_ON_FAILURE() std::cerr << e.what() << '\n'; PAUSE(); return EXIT_FAILURE
 
 // GetProgName
-#include <string>
 #if defined(CONFIG_USING_BOOST) && CONFIG_USING_BOOST
 # include <boost/filesystem.hpp>
 template <typename charT>
-std::basic_string<charT> GetProgName(const std::basic_string<charT> &argv0)
+inline std::basic_string<charT> GetProgName(const std::basic_string<charT> &argv0)
 {
     return boost::filesystem::path(argv0).stem().string<std::basic_string<charT>>();
 }
 #else
 #define _DEFINE_GETPROGNAME(charT, pathsep, dot) \
-    std::basic_string<charT> GetProgName(const std::basic_string<charT> &argv0) \
+    inline std::basic_string<charT> GetProgName(const std::basic_string<charT> &argv0) \
     { \
         auto fileTitle = argv0; \
         auto lastSepPos = argv0.find_last_of(pathsep); \
@@ -80,9 +79,8 @@ _DEFINE_GETPROGNAME(char, "\\/", '.')
 _DEFINE_GETPROGNAME(wchar_t, L"\\/", L'.')
 #endif
 template <typename charT>
-std::basic_string<charT> GetProgName(const charT *argv0)
+inline std::basic_string<charT> GetProgName(const charT *argv0)
 {
-    //return getProgName(std::basic_string(argv0)); // ???
     return GetProgName(std::basic_string<charT>(argv0));
 }
 
@@ -99,14 +97,14 @@ char (*_array_size_helper(T (&)[N]))[N];
 
 // ArraySize
 template <typename T, std::size_t N>
-std::size_t ArraySize(T (&)[N])
+inline std::size_t ArraySize(T (&)[N])
 {
     return N;
 }
 
 // Println
 template <typename Iter>
-void Println(Iter begin, Iter end)
+inline void Println(Iter begin, Iter end)
 {
     using ValueT = typename std::iterator_traits<Iter>::value_type;
 
@@ -120,7 +118,7 @@ void Println(Iter begin, Iter end)
 #if 0
 // http://stackoverflow.com/questions/4850473/pretty-print-c-stl-containers
 template <typename Container, typename CharT>
-std::basic_ostream<CharT> &operator<<(std::basic_ostream<CharT> &os, const Container &c)
+inline std::basic_ostream<CharT> &operator<<(std::basic_ostream<CharT> &os, const Container &c)
 {
     for (const auto &elem : c) {
         os << '<' << elem << '>';
@@ -131,7 +129,7 @@ std::basic_ostream<CharT> &operator<<(std::basic_ostream<CharT> &os, const Conta
 #endif
 
 template <typename Container>
-void Println(const Container &c)
+inline void Println(const Container &c)
 {
     for (const auto &elem : c) {
         std::cout << '<' << elem << '>';
@@ -142,4 +140,5 @@ void Println(const Container &c)
 
 // To be continued...
 
-#endif // -- The End --
+#endif // COMMON_H_
+// -- The End --
