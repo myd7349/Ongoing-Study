@@ -73,8 +73,8 @@ void upload_block_blob(azure::storage::cloud_blob_container &container,
             }
         }
         // Upload the current block
-        auto tmpStream = concurrency::streams::bytestream::open_istream(buffer);
-        blob.upload_block(block_id, tmpStream, U(""));
+        auto tmp_stream = concurrency::streams::bytestream::open_istream(buffer);
+        blob.upload_block(block_id, tmp_stream, U(""));
         // Record the block id for following upload_block_list call
         block_list.push_back(azure::storage::block_list_item(block_id));
         // Upgrate the progress bar
