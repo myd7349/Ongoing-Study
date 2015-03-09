@@ -1,3 +1,4 @@
+// 2014-05-27T15:42+08:00
 #pragma once
 
 #include <atlstr.h>
