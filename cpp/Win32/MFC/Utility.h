@@ -11,6 +11,7 @@ CString GetModulePath(HMODULE hModule = NULL);
 CString JoinPath(LPCTSTR lpszBaseDir, LPCTSTR lpszSubDir);
 LPTSTR TransformPathSep(LPTSTR lpszPath);
 CString &TransformPathSep(CString &strPath);
+BOOL MakeFullPath(const CString &strPath);
 
 BOOL IsRemovableDrive(LPCTSTR lpcszDrive);
 

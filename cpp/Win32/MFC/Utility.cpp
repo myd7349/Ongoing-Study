@@ -98,3 +98,51 @@ BOOL IsRemovableDrive(LPCTSTR lpcszDrive)
 {
     return ::GetDriveType(lpcszDrive) == DRIVE_REMOVABLE;
 }
+
+// 2015-03-10T13:39+08:00
+// http://code.reactos.org/browse/reactos/trunk/reactos/base/shell/cmd/internal.c?hb=true
+BOOL MakeFullPath(const CString &strPath)
+{
+    LPCTSTR lpcszPath = strPath.GetString();
+
+    if (CreateDirectory(lpcszPath, NULL))
+    {
+        return TRUE;
+    }
+    else if (GetLastError() != ERROR_PATH_NOT_FOUND)
+    {
+        return FALSE;
+    }
+
+    LPCTSTR p = lpcszPath;
+
+    /* got ERROR_PATH_NOT_FOUND, so try building it up one component at a time */
+    if (p[0] && p[1] == _T(':'))
+    {
+        p += 2;
+    }
+
+    while (*p == _T('\\'))
+    {
+        p++; /* skip drive root */
+    }
+
+    TCHAR szPath[MAX_PATH];
+    INT_PTR n;
+
+    do
+    {
+        p = _tcschr(p, _T('\\'));
+        n = p ? p++ - lpcszPath : _tcslen(lpcszPath);
+        _tcsncpy(szPath, lpcszPath, n);
+        szPath[n] = _T('\0');
+
+        if (!CreateDirectory(szPath, NULL) && GetLastError() != ERROR_ALREADY_EXISTS)
+        {
+            return FALSE;
+        }
+    } while (p != NULL);
+
+    return TRUE;
+}
+
