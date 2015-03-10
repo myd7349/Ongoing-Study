@@ -4,6 +4,7 @@
 
 #include <fstream>
 
+#include <boost/filesystem.hpp>
 #include <boost/progress.hpp>
 
 #include "../../azure_cloud_storage_service.h"
@@ -20,6 +21,28 @@ void download_block_blob(azure::storage::cloud_blob_container &container,
     if (!blob.exists()) {
         ucerr << U("Block blob \"") << blob_name << U("\" doesn't exist.\n");
         return;
+    }
+
+    boost::filesystem::path target_path(target_file_name);
+    if (boost::filesystem::exists(target_path))
+    {
+        ucout << U("Warning! File \"") << target_file_name 
+            << U("\" already exists, and it will be overwrite.") << std::endl;
+    }
+    else
+    {
+        target_path.remove_filename();
+        if (!boost::filesystem::exists(target_path))
+        {
+            ucout << U("Creating directory \"") << target_path.string<utility::string_t>()
+                << U("\"...") << std::endl;
+            if (!boost::filesystem::create_directories(target_path))
+            {
+                ucerr << U("Failed to create directory \"")
+                    << target_path.string<utility::string_t>() << U("\"!\n");
+                return;
+            }
+        }
     }
 
     // Get blob's size(in bytes)

@@ -11,7 +11,6 @@
 
 #include <boost/core/noncopyable.hpp>
 
-#include <wascore/basic_types.h>
 #include <was/blob.h>
 #include <was/storage_account.h>
 
