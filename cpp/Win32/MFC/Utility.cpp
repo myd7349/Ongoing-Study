@@ -100,6 +100,8 @@ BOOL IsRemovableDrive(LPCTSTR lpcszDrive)
 }
 
 // 2015-03-10T13:39+08:00
+// MakeFullPath do similar work as boost::filesystem::create_directories.
+// In cmd, we can use the internal command `md`/`mkdir` to create a directory. 
 // http://code.reactos.org/browse/reactos/trunk/reactos/base/shell/cmd/internal.c?hb=true
 BOOL MakeFullPath(const CString &strPath)
 {
