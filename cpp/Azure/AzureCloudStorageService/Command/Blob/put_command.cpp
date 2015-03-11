@@ -59,8 +59,6 @@ void upload_block_blob(azure::storage::cloud_blob_container &container,
 
     bool uploading = true;
     while (uploading) {
-        // Generate an unique block id
-        block_id = utility::conversions::to_base64(block_index++);
         // Read data
         in_file.read(reinterpret_cast<char *>(buffer.data()), uploading_bytes_each_time);
         if (!in_file) {
@@ -72,6 +70,8 @@ void upload_block_blob(azure::storage::cloud_blob_container &container,
                 break;
             }
         }
+        // Generate an unique block id
+        block_id = utility::conversions::to_base64(block_index++);
         // Upload the current block
         auto tmp_stream = concurrency::streams::bytestream::open_istream(buffer);
         blob.upload_block(block_id, tmp_stream, U(""));
