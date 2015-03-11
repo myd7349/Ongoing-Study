@@ -1,7 +1,7 @@
 // 2014-05-27T15:42+08:00
+// By myd7349
 #pragma once
 
-#include <atlstr.h>
 #include <afxtempl.h>
 
 #define RES_STR(id) CString(MAKEINTRESOURCE(id))
@@ -40,4 +40,7 @@ DWORD GetDrives(CArray<CString> &arrDrives, _Pred p)
 
     return dwDrivesCount;
 }
+
+ULONGLONG GetFileSize(LPCTSTR lpcszFileName);
+CString GetReadableFileSize(const ULONGLONG &ullSizeInBytes);
 

@@ -40,10 +40,10 @@ CString GetModulePath(HMODULE hModule)
 CString JoinPath(LPCTSTR lpszBaseDir, LPCTSTR lpszSubDir)
 {
     TCHAR szPath[MAX_PATH];
-    LPTSTR lpszFullPath = ::PathCombine(szPath, 
-        lpszBaseDir != NULL ? lpszBaseDir : _T(""), 
+    LPTSTR lpszFullPath = ::PathCombine(szPath,
+        lpszBaseDir != NULL ? lpszBaseDir : _T(""),
         lpszSubDir != NULL ? lpszSubDir : _T(""));
-    
+
     TransformPathSep(lpszFullPath);
 
     if (lpszFullPath != NULL)
@@ -101,7 +101,7 @@ BOOL IsRemovableDrive(LPCTSTR lpcszDrive)
 
 // 2015-03-10T13:39+08:00
 // MakeFullPath do similar work as boost::filesystem::create_directories.
-// In cmd, we can use the internal command `md`/`mkdir` to create a directory. 
+// In cmd, we can use the internal command `md`/`mkdir` to create a directory.
 // http://code.reactos.org/browse/reactos/trunk/reactos/base/shell/cmd/internal.c?hb=true
 BOOL MakeFullPath(const CString &strPath)
 {
@@ -152,3 +152,62 @@ BOOL MakeFullPath(const CString &strPath)
     return TRUE;
 }
 
+// 2015-03-11T17:06+08:00
+// Windows also provides us an API:
+// DWORD WINAPI GetFileSize(HANDLE hFile, LPDWORD lpFileSizeHigh);
+// Please note the difference between them.
+ULONGLONG GetFileSize(LPCTSTR lpcszFileName)
+{
+    WIN32_FIND_DATA fd;
+    HANDLE hFile = ::FindFirstFile(lpcszFileName, &fd);
+    if (INVALID_HANDLE_VALUE == hFile)
+    {
+        return 0;
+    }
+    else
+    {
+        ::FindClose(hFile);
+        return (((ULONGLONG)fd.nFileSizeHigh << 32) | (ULONGLONG)fd.nFileSizeLow);
+    }
+}
+
+CString GetReadableFileSize(const ULONGLONG &ullSizeInBytes)
+{
+    CString strSize;
+
+    if (ullSizeInBytes < 1024 * 1024 * 1024) // smaller than 1 G
+    {
+        if (ullSizeInBytes >= 1024 * 1024) // bigger than 1M
+        {
+            strSize.Format(_T("%.2lf MB"),
+                ullSizeInBytes / (1024.0 * 1024.0));
+        }
+        else // smaller than 1M
+        {
+            if (ullSizeInBytes < 1024) // smaller than 1 KB
+            {
+                strSize.Format(_T("%I64u B"), ullSizeInBytes);
+            }
+            else // KB
+            {
+                strSize.Format(_T("%.2lf KB"),
+                    ullSizeInBytes / 1024.0);
+            }
+        }
+    }
+    else // bigger than 1G
+    {
+        if (ullSizeInBytes < 1024.0 * 1024 * 1024 * 1024) // smaller than 1 T
+        {
+            strSize.Format(_T("%.2lf GB"),
+                ullSizeInBytes / (1024.0 * 1024.0 * 1024.0));
+        }
+        else
+        {
+            strSize.Format(_T("%.2lf TB"),
+                ullSizeInBytes / (1024.0 * 1024.0 * 1024.0 * 1024.0));
+        }
+    }
+
+    return strSize;
+}
