@@ -82,6 +82,7 @@
     <ClCompile Include="Command\Blob\get_command.cpp" />
     <ClCompile Include="Command\Blob\list_command.cpp" />
     <ClCompile Include="Command\Blob\put_command.cpp" />
+    <ClCompile Include="Command\Blob\rm_command.cpp" />
     <ClCompile Include="Command\clear_command.cpp" />
     <ClCompile Include="Command\command.cpp" />
     <ClCompile Include="Command\exit_command.cpp" />
@@ -95,6 +96,7 @@
     <ClInclude Include="Command\Blob\get_command.h" />
     <ClInclude Include="Command\Blob\list_command.h" />
     <ClInclude Include="Command\Blob\put_command.h" />
+    <ClInclude Include="Command\Blob\rm_command.h" />
     <ClInclude Include="Command\clear_command.h" />
     <ClInclude Include="Command\command.h" />
     <ClInclude Include="Command\exit_command.h" />

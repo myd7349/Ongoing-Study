@@ -9,6 +9,10 @@
 
 #include <wascore/basic_types.h>
 
+#ifdef _MSC_VER
+# pragma warning(disable: 4138 4244)
+#endif
+
 class AzureCloudStorageService;
 
 class Command {

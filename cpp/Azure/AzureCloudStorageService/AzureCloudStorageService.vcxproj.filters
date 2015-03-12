@@ -48,6 +48,9 @@
     <ClCompile Include="Command\Blob\get_command.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Command\Blob\rm_command.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="azure_cloud_storage_service.h">
@@ -78,6 +81,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Command\Blob\get_command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Command\Blob\rm_command.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

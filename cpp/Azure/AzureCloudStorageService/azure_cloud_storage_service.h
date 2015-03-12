@@ -32,6 +32,7 @@ class AzureCloudStorageService : public boost::noncopyable {
     friend class HelpCommand;
     friend class ListCommand;
     friend class PutCommand;
+    friend class RmCommand;
 public:
     AzureCloudStorageService();
     int run(const AzureStorageAccountOptions &storage_account_options);

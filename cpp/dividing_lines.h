@@ -17,6 +17,7 @@
 //#define DIVIDING_LINE(...) BOOST_PP_OVERLOAD(DIVIDING_LINE_, __VA_ARGS__)(__VA_ARGS__)
 
 #if defined(_MSC_VER)
+# pragma warning(disable: 4003)
 # define SELMACRO_IMPL(_1, _2, N, ...) N
 # define SELMACRO_IMPL_(tuple) SELMACRO_IMPL tuple
 # define DIVIDING_LINE(...) SELMACRO_IMPL_((__VA_ARGS__, DIVIDING_LINE_2(__VA_ARGS__), DIVIDING_LINE_1(__VA_ARGS__)))

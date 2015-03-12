@@ -22,6 +22,7 @@
 #include "Command/Blob/get_command.h"
 #include "Command/Blob/list_command.h"
 #include "Command/Blob/put_command.h"
+#include "Command/Blob/rm_command.h"
 
 #ifdef _MSC_VER
 # ifdef NDEBUG
@@ -42,6 +43,7 @@ AzureCloudStorageService::AzureCloudStorageService()
           HELP_COMMAND_STR,
           LIST_COMMAND_STR,
           PUT_COMMAND_STR,
+          RM_COMMAND_STR, 
       })
 {
 }
@@ -143,10 +145,9 @@ std::shared_ptr<Command> AzureCloudStorageService::get_command(const utility::st
             command_dispatcher_[command].reset(new ListCommand);
         } else if (command == PUT_COMMAND_STR) {
             command_dispatcher_[command].reset(new PutCommand);
+        } else if (command == RM_COMMAND_STR) {
+            command_dispatcher_[command].reset(new RmCommand);
         } else {
-            //static_assert(false, "Should never reach here!"); // ???
-            //assert(false);
-
             std::basic_ostringstream<utility::string_t::value_type> oss;
             oss << U("Unknown command: \"") << command << U("\". Type \"")
                 << HELP_COMMAND_STR << U("\" to get a list of available commands.");
