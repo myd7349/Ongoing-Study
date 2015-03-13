@@ -16,8 +16,8 @@ public:
         USRDEF, // user defined sort policy
     };
 
-    typedef int (*SortCallback)(LPARAM, LPARAM);
-    static int DummySort(LPARAM, LPARAM) { return 0; }
+    typedef int (*SortCallback)(LPARAM, LPARAM, int, CListCtrlEx *);
+    static int DummySort(LPARAM, LPARAM, int, CListCtrlEx *) { return 0; }
 
     struct SortPolicy
     {

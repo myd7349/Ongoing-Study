@@ -198,7 +198,7 @@ int CListCtrlEx::OnCompareItems(LPARAM lParam1, LPARAM lParam2, int iColumn)
     SortPolicy sortPolicy = GetColumnSortPolicy(iColumn);
     if (USRDEF == sortPolicy.trait)
     {
-        return sortPolicy.func(lParam1, lParam2);
+        return sortPolicy.func(lParam1, lParam2, iColumn, this);
     }
     else
     {
