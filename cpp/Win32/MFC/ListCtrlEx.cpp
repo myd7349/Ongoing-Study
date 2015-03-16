@@ -18,7 +18,7 @@ IMPLEMENT_DYNAMIC(CListCtrlEx, CMFCListCtrl)
 
 CListCtrlEx::CListCtrlEx()
 {
-    _tsetlocale(LC_ALL, _T(""));
+    _tsetlocale(LC_COLLATE, _T(""));
 
     m_dummySortPolicy.trait = USRDEF;
     m_dummySortPolicy.func = DummySort;
