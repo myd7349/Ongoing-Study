@@ -15,7 +15,7 @@ void delete_container(azure::storage::cloud_blob_container &container)
 void delete_directory(azure::storage::cloud_blob_container &container, 
     const utility::string_t &directory)
 {
-    std::vector<utility::string_t> blobs = ListCommand::get_blob_list(container, directory);
+    std::vector<utility::string_t> blobs = ListCommand::get_blob_list(container, directory, true);
     std::for_each(blobs.cbegin(), blobs.cend(), 
         [&](const utility::string_t &blob_name) {
             container.get_block_blob_reference(blob_name).delete_blob();

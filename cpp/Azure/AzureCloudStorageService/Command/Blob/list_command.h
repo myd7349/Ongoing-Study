@@ -21,9 +21,9 @@ public:
 
     static std::vector<utility::string_t> get_container_list(azure::storage::cloud_blob_client &blob_client);
     static std::vector<utility::string_t> get_blob_list(azure::storage::cloud_blob_client &blob_client,
-        const utility::string_t &container_name, const utility::string_t &prefix = U(""));
+        const utility::string_t &container_name, const utility::string_t &prefix = U(""), bool short_name = false);
     static std::vector<utility::string_t> get_blob_list(azure::storage::cloud_blob_container &blob_container, 
-        const utility::string_t &prefix = U(""));
+        const utility::string_t &prefix = U(""), bool short_name = false);
 };
 
 #endif // LIST_COMMAND_H_

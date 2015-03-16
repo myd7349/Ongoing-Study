@@ -61,13 +61,13 @@ std::vector<utility::string_t> ListCommand::get_container_list(azure::storage::c
 }
 
 std::vector<utility::string_t> ListCommand::get_blob_list(azure::storage::cloud_blob_client &blob_client,
-    const utility::string_t &container_name, const utility::string_t &prefix)
+    const utility::string_t &container_name, const utility::string_t &prefix, bool short_name)
 {
     return get_blob_list(blob_client.get_container_reference(container_name), prefix);
 }
 
 std::vector<utility::string_t> ListCommand::get_blob_list(azure::storage::cloud_blob_container &blob_container, 
-    const utility::string_t &prefix)
+    const utility::string_t &prefix, bool short_name)
 {
     std::vector<utility::string_t> blobs;
 
@@ -87,7 +87,11 @@ std::vector<utility::string_t> ListCommand::get_blob_list(azure::storage::cloud_
             azure::storage::blob_request_options(), azure::storage::operation_context());
 
         for (const auto &b : result.blobs()) {
-            blobs.push_back(b.uri().primary_uri().to_string());
+            if (short_name) {
+                blobs.push_back(b.name());
+            } else {
+                blobs.push_back(b.uri().primary_uri().to_string());
+            }
         }
 
         token = result.continuation_token();
