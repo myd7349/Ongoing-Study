@@ -1,9 +1,11 @@
 // 2015-01-28T16:21+08:00
 
 #include <cassert>
+#include <codecvt>
 #include <exception>
 #include <fstream>
 #include <iostream>
+#include <locale>
 #include <vector>
 
 #include <boost/program_options.hpp>
@@ -106,6 +108,11 @@ int ParseCmdlineArgs(int argc, CharT *argv[], AzureStorageAccountOptions &option
 
 int _tmain(int argc, _TCHAR *argv[])
 {
+    ucin.imbue(std::locale(""));
+    ucout.imbue(std::locale(""));
+    //ucerr.imbue(std::locale(std::locale(""), 
+    //    new std::codecvt_utf8<wchar_t>));
+
     AzureStorageAccountOptions storage_account_options;
 #ifdef NDEBUG
     if (int rc = ParseCmdlineArgs(argc, argv, storage_account_options)) {
@@ -137,3 +144,6 @@ int _tmain(int argc, _TCHAR *argv[])
         return EXIT_FAILURE;
     }
 }
+
+// References:
+// [24.3 Differences between the C Locale and the C++ Locales](http://stdcxx.apache.org/doc/stdlibug/24-3.html)
