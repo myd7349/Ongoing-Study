@@ -7,7 +7,7 @@
 #include <tchar.h>
 #include <windows.h>
 
-static BOOL g_bWorking;
+static volatile BOOL g_bWorking;
 
 static unsigned int __stdcall WorkingRoutine(void *arg)
 {
@@ -39,13 +39,14 @@ int _tmain(int argc, _TCHAR **argv)
 
     SetConsoleTitle(_T("Hit any key to terminate the working thread!"));
 
-    while (!kbhit()) {
+    while (!_kbhit()) {
     }
+    _getch();
 
     InterlockedExchange(&g_bWorking, FALSE);
     WaitForSingleObject(hWorkingThread, INFINITE);
 
-    _ftprintf(stdout, "Goodbye!\n");
+    _ftprintf(stdout, _T("\nSee you, buddy!\n"));
 
     _tsystem(_T("pause"));
     return 0;
