@@ -3,10 +3,24 @@
 #include "rm_command.h"
 
 #include "../../azure_cloud_storage_service.h"
+#include "list_command.h"
+
+#include <algorithm>
 
 void delete_container(azure::storage::cloud_blob_container &container)
 {
     container.delete_container_if_exists();
+}
+
+void delete_directory(azure::storage::cloud_blob_container &container, 
+    const utility::string_t &directory)
+{
+    std::vector<utility::string_t> blobs = ListCommand::get_blob_list(container, directory);
+    std::for_each(blobs.cbegin(), blobs.cend(), 
+        [&](const utility::string_t &blob_name) {
+            container.get_block_blob_reference(blob_name).delete_blob();
+        }
+    );
 }
 
 void delete_block_blob(azure::storage::cloud_blob_container &container, 

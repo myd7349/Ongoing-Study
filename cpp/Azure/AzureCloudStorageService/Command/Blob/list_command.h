@@ -19,11 +19,11 @@ public:
     virtual bool run(AzureCloudStorageService *storage_service);
     virtual void help() const;
 
-protected:
-    std::vector<utility::string_t> get_container_list(azure::storage::cloud_blob_client &blob_client);
-    std::vector<utility::string_t> get_blob_list(azure::storage::cloud_blob_client &blob_client,
-        const utility::string_t &container_name);
-    std::vector<utility::string_t> get_blob_list(azure::storage::cloud_blob_container &blob_container);
+    static std::vector<utility::string_t> get_container_list(azure::storage::cloud_blob_client &blob_client);
+    static std::vector<utility::string_t> get_blob_list(azure::storage::cloud_blob_client &blob_client,
+        const utility::string_t &container_name, const utility::string_t &prefix = U(""));
+    static std::vector<utility::string_t> get_blob_list(azure::storage::cloud_blob_container &blob_container, 
+        const utility::string_t &prefix = U(""));
 };
 
 #endif // LIST_COMMAND_H_
