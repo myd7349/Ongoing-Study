@@ -1,4 +1,4 @@
-/***************************************************************
+ï»¿/***************************************************************
  * Name:      MD5Digest.h
  * Purpose:   
  * Author:    myd7349
@@ -20,7 +20,7 @@ public:
     ~CMD5Digest();
 
     BOOL Update(BYTE *pbyData, DWORD dwDataLen);
-    // µ÷ÓÃGetDigest¡¢GetHexDigestºó²»ÄÜÔÙµ÷ÓÃUpdate¡£
+    // è°ƒç”¨GetDigestã€GetHexDigeståä¸èƒ½å†è°ƒç”¨Updateã€‚
     BOOL GetDigest(BYTE (&abyMD5Digest)[MD5_DIGEST_LEN]);
     CString GetHexDigest(BOOL bUpperCase = FALSE);
 
