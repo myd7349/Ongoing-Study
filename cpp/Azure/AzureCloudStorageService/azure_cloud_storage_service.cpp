@@ -214,11 +214,11 @@ void AzureCloudStorageService::parse_command_and_dispatch()
 utility::string_t AzureCloudStorageService::storage_exception_to_string_t(const azure::storage::storage_exception &e)
 {
     utility::string_t err_msg = U("storage_exception: ");
-    err_msg += utility::conversions::to_string_t(e.what());
 
     auto extended_err_msg = e.result().extended_error().message();
-    if (!extended_err_msg.empty()) {
-        err_msg += U('\n');
+    if (extended_err_msg.empty()) {
+        err_msg += utility::conversions::to_string_t(e.what());
+    } else {
         err_msg += extended_err_msg;
     }
 
