@@ -31,6 +31,9 @@
 *.depend
 *.layout
 
+# VS2010 intermediate files
+*.vcxproj.user
+
 # VS2013 intermediate files
 *.aps
 *.idb
