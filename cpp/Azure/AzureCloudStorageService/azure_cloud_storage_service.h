@@ -44,6 +44,8 @@ protected:
     std::shared_ptr<Command> get_command(const utility::string_t &command);
     void parse_command_and_dispatch();
 
+    static utility::string_t storage_exception_to_string_t(const azure::storage::storage_exception &e);
+
 private:
     azure::storage::cloud_storage_account storage_account_;
     azure::storage::cloud_blob_client blob_client_;
@@ -53,12 +55,10 @@ private:
 };
 
 template <typename Container>
-void DumpLineByLine(const Container &c)
+inline void DumpLineByLine(const Container &c)
 {
     std::copy(c.cbegin(), c.cend(),
         std::ostream_iterator<utility::string_t, utility::string_t::value_type>(ucout, U("\n")));
 }
-
-void DumpAzureStorageError(const azure::storage::storage_exception &e);
 
 #endif // AZURE_CLOUD_STORAGE_SERVICE_H_

@@ -199,7 +199,7 @@ void AzureCloudStorageService::parse_command_and_dispatch()
                     }
                 }
             } catch (const azure::storage::storage_exception &e) {
-                DumpAzureStorageError(e);
+                ucerr << storage_exception_to_string_t(e) << U('\n');
             } catch (const std::exception &e) {
                 std::cerr << "exception: " << e.what() << '\n';
             } catch (...) {
@@ -211,6 +211,20 @@ void AzureCloudStorageService::parse_command_and_dispatch()
     }
 }
 
+utility::string_t AzureCloudStorageService::storage_exception_to_string_t(const azure::storage::storage_exception &e)
+{
+    utility::string_t err_msg = U("storage_exception: ");
+    err_msg += utility::conversions::to_string_t(e.what());
+
+    auto extended_err_msg = e.result().extended_error().message();
+    if (!extended_err_msg.empty()) {
+        err_msg += U('\n');
+        err_msg += extended_err_msg;
+    }
+
+    return err_msg;
+}
+
 int AzureCloudStorageService::run(const AzureStorageAccountOptions &storage_account_options)
 {
     if (!initialize(storage_account_options)) {
@@ -219,14 +233,4 @@ int AzureCloudStorageService::run(const AzureStorageAccountOptions &storage_acco
     
     parse_command_and_dispatch();
     return EXIT_SUCCESS;
-}
-
-void DumpAzureStorageError(const azure::storage::storage_exception &e)
-{
-    ucerr << U("storage_exception: ") << utility::conversions::to_string_t(e.what()) << U('\n');
-    
-    auto extended_error = e.result().extended_error();
-    if (!extended_error.message().empty()) {
-        ucerr << extended_error.message() << std::endl;
-    }
 }

@@ -47,6 +47,8 @@
 // RETURN_ON_FAILURE
 #define RETURN_ON_FAILURE_MSG(msg) std::cerr << msg << ": " << e.what() << '\n'; PAUSE(); return EXIT_FAILURE
 #define RETURN_ON_FAILURE() std::cerr << e.what() << '\n'; PAUSE(); return EXIT_FAILURE
+#define RETURN_ON_FAILURE_MSG_NO_PAUSE(msg) std::cerr << msg << ": " << e.what() << '\n'; return EXIT_FAILURE
+#define RETURN_ON_FAILURE_NO_PAUSE() std::cerr << e.what() << '\n'; return EXIT_FAILURE
 
 // GetProgName
 #if defined(CONFIG_USING_BOOST) && CONFIG_USING_BOOST
