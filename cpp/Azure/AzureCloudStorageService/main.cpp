@@ -1,7 +1,6 @@
 // 2015-01-28T16:21+08:00
 
 #include <cassert>
-#include <codecvt>
 #include <exception>
 #include <fstream>
 #include <iostream>
@@ -108,10 +107,11 @@ int ParseCmdlineArgs(int argc, CharT *argv[], AzureStorageAccountOptions &option
 
 int _tmain(int argc, _TCHAR *argv[])
 {
+#ifdef WIN32
     ucin.imbue(std::locale(""));
     ucout.imbue(std::locale(""));
-    //ucerr.imbue(std::locale(std::locale(""), 
-    //    new std::codecvt_utf8<wchar_t>));
+    ucerr.imbue(std::locale(""));
+#endif
 
     AzureStorageAccountOptions storage_account_options;
 #ifdef NDEBUG
@@ -147,3 +147,5 @@ int _tmain(int argc, _TCHAR *argv[])
 
 // References:
 // [24.3 Differences between the C Locale and the C++ Locales](http://stdcxx.apache.org/doc/stdlibug/24-3.html)
+// [Char * encoding](http://stackoverflow.com/questions/9739070/char-encoding)
+// [What is the Windows equivalent for en_US.UTF-8 locale?](http://stackoverflow.com/questions/4324542/what-is-the-windows-equivalent-for-en-us-utf-8-locale)

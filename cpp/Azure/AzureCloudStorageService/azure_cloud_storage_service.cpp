@@ -223,10 +223,10 @@ int AzureCloudStorageService::run(const AzureStorageAccountOptions &storage_acco
 
 void DumpAzureStorageError(const azure::storage::storage_exception &e)
 {
-    std::cerr << "storage_exception: " << e.what() << '\n';
+    ucerr << U("storage_exception: ") << utility::conversions::to_string_t(e.what()) << U('\n');
     
     auto extended_error = e.result().extended_error();
     if (!extended_error.message().empty()) {
-        ucout << extended_error.message() << std::endl;
+        ucerr << extended_error.message() << std::endl;
     }
 }
