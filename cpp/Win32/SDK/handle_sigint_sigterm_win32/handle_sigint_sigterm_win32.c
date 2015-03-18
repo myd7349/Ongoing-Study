@@ -10,27 +10,37 @@ know the Windows's way to do similar thing. Today, when I was learning CZMQ,
 the implementation code of function `zsys_handler_set` in `src/zsys.c` gives 
 me the answer: via `SetConsoleCtrlHandler`.
 */
+#ifndef USING_SetConsoleCtrlHandler
+# define USING_SetConsoleCtrlHandler (1)
+#endif
 
 #include <windows.h>
 #include <tchar.h>
 
 #include <assert.h>
+#include <signal.h>
 #include <stdio.h>
 
 #include "../../../../c/common.h"
 
 static volatile BOOL g_bSheSayGoodbyeToMe = FALSE;
 
-static BOOL WINAPI IHaveToWatchYouGo(DWORD dwWhySheLeavesMe)
+static void IHaveToWatchYouGoHelper(void)
 {
     g_bSheSayGoodbyeToMe = TRUE;
-    
-    _putts(_T("\n--------------------------------------------------------"));
-    _putts(_T("I guess our love story will never be seen"));
-    _putts(_T("On the big wide silver screen"));
-    _putts(_T("But it hurt as bad"));
-    _putts(_T("When I had to watch you go"));
-    _putts(_T("--------------------------------------------------------"));
+
+    puts("\n--------------------------------------------------------");
+    puts("I guess our love story will never be seen");
+    puts("On the big wide silver screen");
+    puts("But it hurt as bad");
+    puts("When I had to watch you go");
+    puts("--------------------------------------------------------");
+}
+
+#if USING_SetConsoleCtrlHandler
+static BOOL WINAPI IHaveToWatchYouGo(DWORD dwWhySheLeavesMe)
+{
+    IHaveToWatchYouGoHelper();
 
     switch (dwWhySheLeavesMe) {
     case CTRL_C_EVENT:
@@ -48,11 +58,20 @@ static BOOL WINAPI IHaveToWatchYouGo(DWORD dwWhySheLeavesMe)
         return FALSE;
     }
 }
-
-int _tmain(void)
+#else
+static void IHaveToWatchYouGo(int parm)
 {
+    (void)parm;
+
+    IHaveToWatchYouGoHelper();
+}
+#endif
+
+int main(void)
+{
+#if USING_SetConsoleCtrlHandler
     if (SetConsoleCtrlHandler(IHaveToWatchYouGo, TRUE)) {
-        _tprintf(_T("She was once a true love of mine..."));
+        printf("She was once a true love of mine...");
         fflush(stdout);
 
         while (TRUE) {
@@ -61,10 +80,25 @@ int _tmain(void)
             }
         }
 
-        _putts(_T("The end of the world!"));
+        puts("The end of the world!");
     } else {
-        _putts(_T("Never mind!"));
+        puts("Never mind!");
     }
+#else
+    printf("She was once a true love of mine...");
+    fflush(stdout);
+
+    signal(SIGINT, IHaveToWatchYouGo);
+    signal(SIGTERM, IHaveToWatchYouGo);
+
+    while (TRUE) {
+        if (g_bSheSayGoodbyeToMe) {
+            break;
+        }
+    }
+
+    puts("The end of the world!");
+#endif
 
     PAUSE();
     return 0;
