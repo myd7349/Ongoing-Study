@@ -173,7 +173,7 @@ void AzureCloudStorageService::parse_command_and_dispatch()
         if (current_container_.is_valid()) {
             ucout << current_container_.name();
         }
-        ucout << U("> "); 
+        ucout << U("> ");
         
         if (!std::getline(ucin, cmdline)) {
             ucerr << U("Failed to read user input commands.\n");
