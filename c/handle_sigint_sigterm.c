@@ -6,6 +6,11 @@
  * Background music: Bertie Higgins - Casablanca
  */
 
+/*
+An equivalent Win32 version can be found here:
+https://github.com/myd7349/Ongoing-Study/tree/master/cpp/Win32/SDK/handle_sigint_sigterm_win32
+*/
+
 #include <signal.h>
 #include <stdio.h>
 
@@ -51,4 +56,5 @@ int main(void)
 /*
 References:
 signal函数、sigaction函数及信号集操作函数: http://blog.csdn.net/guoping16/article/details/6583957
+https://github.com/zeromq/czmq/blob/master/src/zsys.c
 */
