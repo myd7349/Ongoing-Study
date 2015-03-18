@@ -1,0 +1,50 @@
+﻿2014-06-25 22:38
+
+VS2010 支持的编码类型：
+UTF-8 with BOM
+UTF-16-BE
+UTF-16-LE
+cp936
+不支持：
+UTF-8 without BOM
+UTF-32（在VS2010中，在工程视图中双击打开UTF-32编码的文件，VS2010将调用记事本打开它）
+
+Codeblocks好像只能正确处理cp936，无法正确处理UTF-8。对于UTF-16，将出现编译错误。
+
+参考文献：
+http://en.wikipedia.org/wiki/UTF-8
+https://blogea.bureau14.fr/index.php/2009/04/utf-8-strings-in-visual-c/
+http://www.stackoverflow.com/questions/5693136/is-it-possible-to-use-utf-8-encoding-by-default-in-visual-studio-2008?lq=1
+http://www.msmvps.com/blogs/gdicanio/archive/2011/02/04/conversion-between-unicode-utf-8-and-utf-16-with-stl-strings.aspx
+http://www.stackoverflow.com/questions/688760/how-to-create-a-utf-8-string-literal-in-visual-c-2008
+http://weblogs.asp.net/kennykerr/visual-c-in-short-converting-between-unicode-and-utf-8
+
+2014-07-02 21:33
+简体中文Windows 7操作系统：
+1. 在Unicode模式下，也即：_TCHAR == wchar_t的时候，windows使用UTF-16-LE编码字符串；
+2. 在非Unicode模式下，也即：_TCHAR == char的时候，windows使用cp936编码字符串；
+
+2014-07-20 18:55
+cp936和GB2312是不完全相同的两种编码。具体可以参考wiki的cp936词条。（但是在VS2010的Advanced save options中把它俩放在一块了。）
+
+TODO: 使用Python+makefile完成更多编码的自动测试。
+
+2014-08-20 17:14
+Visual Studio的设置中有一项：
+auto detecting UTF8 without signature
+有什么用？
+
+2014-10-08 14:08
+dive into python3中Strings一章中讲解Unicode、UTF-32、UTF-16、UTF-8讲解得比较好。
+
+2015-03-18 11:37
+以上测试都在Win7 x64（简体中文）操作系统上完成。时间过去了这么久，不保证以上结论的正确性。
+现给出更多的编码相关的参考文献：
+http://stackoverflow.com/questions/9739070/char-encoding
+http://stackoverflow.com/questions/12170488/how-to-get-current-locale-of-my-environment
+https://linuxprograms.wordpress.com/tag/setlocale/
+http://www.robberphex.com/2013/09/188
+http://stackoverflow.com/questions/4324542/what-is-the-windows-equivalent-for-en-us-utf-8-locale
+http://stdcxx.apache.org/doc/stdlibug/24-3.html
+http://www.zhihu.com/question/28164788
+http://www.zhihu.com/question/24572900
