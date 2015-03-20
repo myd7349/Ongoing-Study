@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "syncpub", "syncpub\syncpub.vcxproj", "{0C28AE8C-9866-4B68-B070-04C8E35DBA4E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "syncsub", "syncsub\syncsub.vcxproj", "{033EF2EB-777F-48A5-86CB-CB4A599D3064}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C28AE8C-9866-4B68-B070-04C8E35DBA4E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0C28AE8C-9866-4B68-B070-04C8E35DBA4E}.Debug|Win32.Build.0 = Debug|Win32
+		{0C28AE8C-9866-4B68-B070-04C8E35DBA4E}.Release|Win32.ActiveCfg = Release|Win32
+		{0C28AE8C-9866-4B68-B070-04C8E35DBA4E}.Release|Win32.Build.0 = Release|Win32
+		{033EF2EB-777F-48A5-86CB-CB4A599D3064}.Debug|Win32.ActiveCfg = Debug|Win32
+		{033EF2EB-777F-48A5-86CB-CB4A599D3064}.Debug|Win32.Build.0 = Debug|Win32
+		{033EF2EB-777F-48A5-86CB-CB4A599D3064}.Release|Win32.ActiveCfg = Release|Win32
+		{033EF2EB-777F-48A5-86CB-CB4A599D3064}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
