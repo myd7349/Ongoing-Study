@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rtreq", "rtreq\rtreq.vcxproj", "{3F3BC134-1AD6-4A61-B240-1EC9741D4740}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rtreq_cpp", "rtreq_cpp\rtreq_cpp.vcxproj", "{2651B8B2-85F9-46AF-AC9A-E7F179FFDBE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F3BC134-1AD6-4A61-B240-1EC9741D4740}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3F3BC134-1AD6-4A61-B240-1EC9741D4740}.Debug|Win32.Build.0 = Debug|Win32
+		{3F3BC134-1AD6-4A61-B240-1EC9741D4740}.Release|Win32.ActiveCfg = Release|Win32
+		{3F3BC134-1AD6-4A61-B240-1EC9741D4740}.Release|Win32.Build.0 = Release|Win32
+		{2651B8B2-85F9-46AF-AC9A-E7F179FFDBE0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2651B8B2-85F9-46AF-AC9A-E7F179FFDBE0}.Debug|Win32.Build.0 = Debug|Win32
+		{2651B8B2-85F9-46AF-AC9A-E7F179FFDBE0}.Release|Win32.ActiveCfg = Release|Win32
+		{2651B8B2-85F9-46AF-AC9A-E7F179FFDBE0}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
