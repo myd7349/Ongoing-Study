@@ -8,7 +8,7 @@
 #include <vector>
 
 #include <boost/program_options.hpp>
-# include <boost/scope_exit.hpp>
+#include <boost/scope_exit.hpp>
 
 #include "../../common.h"
 #include "azure_cloud_storage_service.h"
