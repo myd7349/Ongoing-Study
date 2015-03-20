@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rrclient", "rrclient\rrclient.vcxproj", "{6286FE47-9784-4694-B6AE-2B4FF57C2F5B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rrbroker", "rrbroker\rrbroker.vcxproj", "{AADE8DC0-2E82-44B0-BB15-A68B833492B1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rrworker", "rrworker\rrworker.vcxproj", "{BFD6F9AE-7BEA-4A77-8293-499E3FD20409}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "msgqueue", "msgqueue\msgqueue.vcxproj", "{9DA34102-D1B5-4026-97D5-21B627972FBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6286FE47-9784-4694-B6AE-2B4FF57C2F5B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6286FE47-9784-4694-B6AE-2B4FF57C2F5B}.Debug|Win32.Build.0 = Debug|Win32
+		{6286FE47-9784-4694-B6AE-2B4FF57C2F5B}.Release|Win32.ActiveCfg = Release|Win32
+		{6286FE47-9784-4694-B6AE-2B4FF57C2F5B}.Release|Win32.Build.0 = Release|Win32
+		{AADE8DC0-2E82-44B0-BB15-A68B833492B1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AADE8DC0-2E82-44B0-BB15-A68B833492B1}.Debug|Win32.Build.0 = Debug|Win32
+		{AADE8DC0-2E82-44B0-BB15-A68B833492B1}.Release|Win32.ActiveCfg = Release|Win32
+		{AADE8DC0-2E82-44B0-BB15-A68B833492B1}.Release|Win32.Build.0 = Release|Win32
+		{BFD6F9AE-7BEA-4A77-8293-499E3FD20409}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BFD6F9AE-7BEA-4A77-8293-499E3FD20409}.Debug|Win32.Build.0 = Debug|Win32
+		{BFD6F9AE-7BEA-4A77-8293-499E3FD20409}.Release|Win32.ActiveCfg = Release|Win32
+		{BFD6F9AE-7BEA-4A77-8293-499E3FD20409}.Release|Win32.Build.0 = Release|Win32
+		{9DA34102-D1B5-4026-97D5-21B627972FBB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9DA34102-D1B5-4026-97D5-21B627972FBB}.Debug|Win32.Build.0 = Debug|Win32
+		{9DA34102-D1B5-4026-97D5-21B627972FBB}.Release|Win32.ActiveCfg = Release|Win32
+		{9DA34102-D1B5-4026-97D5-21B627972FBB}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
