@@ -2,7 +2,7 @@
 
 // Simple request-reply broker
 
-#include "../zhelpers.h"
+#include "zhelpers.h"
 
 int main(void)
 {

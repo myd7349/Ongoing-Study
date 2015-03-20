@@ -1,7 +1,7 @@
 // 2015-01-12T13:59+08:00
 // Synchronized publisher
 
-#include "../zhelpers.h"
+#include "zhelpers.h"
 
 #define SUBSCRIBERS_EXPECTED (3) // We wait for 10 subscribers
 

@@ -1,7 +1,7 @@
 // 2015-01-08T15:03+08:00
 // Simple message queuing broker
 // Same as request-reply broker but using QUEUE device.
-#include "../zhelpers.h"
+#include "zhelpers.h"
 
 int main()
 {

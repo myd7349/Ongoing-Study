@@ -1,7 +1,7 @@
 // 2015-01-12T13:59+08:00
 // Synchronized subscriber
 
-#include "../zhelpers.h"
+#include "zhelpers.h"
 
 int main(void)
 {

@@ -3,7 +3,7 @@
 // Connects REQ socket to tcp://*:5560
 // Expects "Hello" from client, replies with "World"
 
-#include "../zhelpers.h"
+#include "zhelpers.h"
 
 int main(void)
 {
