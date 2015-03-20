@@ -1,5 +1,5 @@
 // 2014-12-23T09:48+08:00
-#include "../zhelpers.h"
+#include "zhelpers.h"
 
 #ifdef _MSC_VER
 # pragma comment(lib, "libzmq-v120-mt-4_0_4.lib")

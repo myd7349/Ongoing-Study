@@ -1,6 +1,6 @@
 // 2014-12-23T09:25+08:00
 
-#include "../zhelpers.h"
+#include "zhelpers.h"
 
 int main(void)
 {
