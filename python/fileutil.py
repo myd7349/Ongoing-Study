@@ -34,7 +34,7 @@ def replace_ext(file, new_ext):
     '''
 
     root, ext = os.path.splitext(file)
-    return root + new_ext if ext else file
+    return root + new_ext if ext else file + new_ext
 
 if __name__ == '__main__':
     import unittest
@@ -70,7 +70,9 @@ if __name__ == '__main__':
             self.assertEqual(replace_ext(file1, '.exe'), 'a.exe')
 
             file2 = '.cshrc'
-            self.assertEqual(replace_ext(file2, '.conf'), file2)
+            self.assertEqual(replace_ext(file2, '.conf'), file2 + '.conf')
+
+            self.assertEqual(replace_ext('foo', '.dcm'), 'foo.dcm')
             
     unittest.main()
     
