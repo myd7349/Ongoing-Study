@@ -39,7 +39,7 @@ def replace_ext(file, new_ext):
 if __name__ == '__main__':
     import unittest
     
-    class TestFPSize(unittest.TestCase):
+    class TestFileSize(unittest.TestCase):
         def test_regular_file(self):
             test_file = 'fpsize_test.dat'
             data = b'Hello, world'
