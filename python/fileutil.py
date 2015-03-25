@@ -12,10 +12,13 @@ def file_size(f):
 
     f: File name or an opened file object
     '''
+
+    if isinstance(f, str):
+        return os.stat(f).st_size
     
     if not all(map(functools.partial(hasattr, f),
                    ['read', 'fileno', 'seek', 'tell'])):
-        return os.stat(f).st_size
+        raise ValueError('Invalid file object')
 
     try:
         return os.fstat(f.fileno()).st_size
