@@ -150,4 +150,10 @@ if __name__ == '__main__':
     unittest.main()
     
 # References:
+# [Does filehandle get closed automatically in Python after it goes out of scope?](http://stackoverflow.com/questions/2404430/does-filehandle-get-closed-automatically-in-python-after-it-goes-out-of-scope)
+# [Does a File Object Automatically Close when its Reference Count Hits Zero?](http://stackoverflow.com/questions/1834556/does-a-file-object-automatically-close-when-its-reference-count-hits-zero)
+# [Explaining Python's '__enter__' and '__exit__'](http://stackoverflow.com/questions/1984325/explaining-pythons-enter-and-exit)
+# [Is close() necessary when using iterator on a Python file object](http://stackoverflow.com/questions/1832528/is-close-necessary-when-using-iterator-on-a-python-file-object)
+# [Python file with closing automatically](http://www.peterbe.com/plog/python-file-with-closing-automatically)
 # [Size of an open file object](http://stackoverflow.com/questions/283707/size-of-an-open-file-object)
+# [Understanding Python's "with" statement](http://effbot.org/zone/python-with-statement.htm)
