@@ -37,6 +37,7 @@ def benchmark(times):
     return wrap
 
 # 2014-10-29 19:14
+# 2015-03-25T16:12+08:00 This function is deprecated, think about contextlib.suppress.
 def nothrow(func):
     '''A decorator for catching all the unhandled exceptions raised by the decorated function.'''
     @functools.wraps(func)
