@@ -36,6 +36,52 @@ def replace_ext(file, new_ext):
     root, ext = os.path.splitext(file)
     return root + new_ext if ext else file + new_ext
 
+class FileGuard:
+    '''Sometimes when we wrote a function that accepts an file object, we also
+    want it be able to deal with file name. So some code like this:
+        def foo(f):
+            'Some function that handling an input file.'
+            if isinstance(f, str):
+                # A file name is passed in, let's open it.
+                fp = open(f, 'r')
+            else:
+                # Suppose that an opened file object is passed in.
+                assert hasattr(f, 'read')
+                fp = f
+    has been written.
+    
+    When it comes to a file name, it will be nice to wrap it with a `with` statement,
+    like this:
+        with open(f, 'r') as fp:
+            pass
+
+    With this class, we can rewrite `foo` like this:
+        def foo(f):
+            'Some function that handling an input file.'
+            with FileGuard(f, 'r') as fp:
+                pass
+    and if you passed a file name to `foo`, the file will be automatically closed when
+    FileGuard.__exit__ is executed. If you passed an opened file object, however,
+    FileGuard.__exit__ will do nothing. Sounds nice, hah?
+    '''
+    def __init__(self, file, *args, **kwargs):
+        if isinstance(file, str):
+            self._file = open(file, *args, **kwargs)
+            self._user_owned_the_file = False
+        else:
+            self._file = file
+            self._user_owned_the_file = True
+    
+    def __enter__(self):
+        return self._file
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        if not self._user_owned_the_file:
+            self._file.close()
+
+def open_file(file, *args, **kwargs):
+    return FileGuard(file, *args, **kwargs)
+
 if __name__ == '__main__':
     import unittest
     
@@ -73,6 +119,33 @@ if __name__ == '__main__':
             self.assertEqual(replace_ext(file2, '.conf'), file2 + '.conf')
 
             self.assertEqual(replace_ext('foo', '.dcm'), 'foo.dcm')
+
+    class TestOpenFile(unittest.TestCase):
+        def test_pass_a_file_name(self):
+            file = 'a.out'
+            test_data = b'Hello, world!'
+            fp = None
+            
+            if not os.path.exists(file):
+                with open_file(file, 'wb') as fp:
+                    fp.write(test_data)
+                self.assertTrue(fp.closed)
+
+                os.remove(file)
+
+        def test_pass_a_file_object(self):
+            file = 'a.out'
+            test_data = b'myd7349'
+            
+            if not os.path.exists(file):
+                f = open(file, 'w+b')
+                with open_file(f, 'w+b') as fp:
+                    fp.write(test_data)
+                self.assertFalse(f.closed)
+                f.seek(0, 0)
+                self.assertEqual(f.read(), test_data)
+                f.close()
+                os.remove(file)
             
     unittest.main()
     
