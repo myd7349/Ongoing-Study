@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 /* FREE */
+/* http://www.zhihu.com/question/24943388 */
 #define FREE(ptr) do { free(ptr); ptr = NULL; } while (0)
 
 /* PAUSE */
