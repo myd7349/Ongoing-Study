@@ -58,6 +58,172 @@ def unpack_data_from_file(f, fmt):
             else:
                 break
             data = fp.read(pack_size)
+
+class DCMECGDataset(dicom.dataset.Dataset):
+    '''Represents a DICOM waveform data set, with necessary attributed added.
+
+    To make things simple, when generating DICOM-ECG waveform files:
+    1. We only care those modules that are mandatory;
+    2. We put most of our attention to those attributes of type 1 and 2;
+    '''
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # The format of DICOM file is described in:
+        #   PS3.10 7.1 DICOM File Meta Information
+        # The 12-Lead ECG IOD is described in:
+        #   PS3.3 A.34.3.1 12-Lead ECG IOD Description
+        
+        # 1. DICOM File Meta Information
+        self._fill_file_meta_info()
+        # 2. Patient IE
+        self._fill_patient_IE()
+        # 3. Study IE
+        self._fill_study_IE()
+        # 4. Series IE
+        self._fill_series_IE()
+        # 5. Frame of Reference IE
+        # 6. Equipment IE
+        self._fill_equipment_IE()
+        # 7. Waveform IE
+        self._fill_waveform_IE()
+
+    def _fill_file_meta_info(self):
+        #----------------------------------------------------------------------
+        # 1. File Preamble. Please refer save_as's docstring.
+        #----------------------------------------------------------------------
+        # 2. DICOM Prefix. Please refer save_as's docstring.
+        #----------------------------------------------------------------------
+        # 3. File Meta Information Group
+        # dicom.filewriter._write_file_meta_info will add the following two
+        # elements for us:
+        #   FileMetaInformationGroupLength
+        #   FileMetaInformationVersion
+
+        # PS3.4 B.5 Standard SOP Classes. For 12-Lead ECG, we use:
+        self.MediaStorageSOPClassUID = '1.2.840.10008.5.1.4.1.1.9.1.1'
+
+        self.MediaStorageSOPInstanceUID = dicom.UID.generate_uid() # ???
+
+        # PS3.5 A.2 DICOM Little Endian Transfer Syntax (Explicit VR)
+        self.TransferSyntaxUID = dicom.UID.ExplicitVRLittleEndian
+        
+        self.ImplementationClassUID = dicom.UID.generate_uid() # ???
+        #----------------------------------------------------------------------
+
+    def _fill_patient_IE(self):
+        #----------------------------------------------------------------------
+        # 1. Patient(M)
+        self.PatientName = '' # Type 2
+        self.PatientID = '' # Type 2
+        self.PatientBirthDate = '' # Type 2. YYYYMMDD
+        self.PatientSex = '' # Type 2. M(ale)/F(emale)/O(ther)
+        #----------------------------------------------------------------------
+        # 2. Clinical Trial Subject(U)
+        #----------------------------------------------------------------------
+
+    def _fill_study_IE(self):
+        #----------------------------------------------------------------------
+        # 1. General Study(M)
+
+        # PS3.3 C.7.2.1 General Study Module tells us the Tag of Study Instance UID.
+        # PS3.6 6 Registry of DICOM Data Elements tells us the VR of it: UI.
+        # PS3.5 6.2 Value Representation (VR) tells us the meaning of UI and how to
+        # generate a UID.
+        self.StudyInstanceUID = dicom.UID.generate_uid() # Type 1
+        self.StudyDate = '' # Type 2
+        self.StudyTime = '' # Type 2
+        self.ReferringPhysicianName = '' # Type 2
+        self.StudyID = '' # Type 2
+        self.AccessionNumber = ''
+        #----------------------------------------------------------------------
+        # 2. Patient Study(U)
+        self.AdmittingDiagnosesDescription = '' # Type 3
+        self.PatientAge = 0 # Type 3
+        self.PatientSize = 0 # Type 3
+        self.PatientWeight = 0 # Type 3
+        self.AdditionalPatientHistory = '' # Type 3
+        #----------------------------------------------------------------------
+        # 3. Clinical Trial Study(U)
+        #----------------------------------------------------------------------
+
+    def _fill_series_IE(self):
+        #----------------------------------------------------------------------
+        # 1. General Series(M)
+        self.Modality = 'ECG' # Type 1. DICOM PS3.3-2015a A.34.3.4.1
+        self.SeriesInstanceUID = '' # Type 1
+        self.SeriesNumber = '' # (0020,0011), Type 2
+        #----------------------------------------------------------------------
+        # 2. Clinical Trial Series(U)
+        #----------------------------------------------------------------------
+
+    def _fill_equipment_IE(self):
+        #----------------------------------------------------------------------
+        # 1. General Equipment(M)
+        self.Manufacturer = '' # Type 2
+        self.InstitutionName = '' # Type 3
+        self.InstitutionAddress = '' # Type 3
+        self.SoftwareVersions = __version__ # Type 3
+        self.InstitutionalDepartmentName = '' # Type 3
+        #----------------------------------------------------------------------
+
+    def _fill_waveform_IE(self):
+        #----------------------------------------------------------------------
+        # 1. Waveform Identification(M)
+        self.InstanceNumber = '' # Type 1
+        self.ContentDate = '' # Type 1
+        self.ContentTime = '' # Type 1
+        self.AcquisitionDateTime = '' # Type 1
+        #----------------------------------------------------------------------
+        # 2. Waveform(M)
+        self.WaveformSequence = 1 # Type 1
+            self.WaveformOriginality = 'ORIGINAL' # Type 1
+            self.NumberOfWaveformChannels = 12 # Type 1. DICOM PS3.3-2015a A.34.3.4.4
+            self.NumberOfWaveformSamples = 0 # Type 1
+            self.SamplingFrequency = 500 # Type 1. DICOM PS3.3-2015a A.34.3.4.6
+            self.ChannelDefinitionSequence = '' # Type 1.
+                self.ChannelLabel = '' # Type 3
+                self.ChannelSourceSequence = '' # Type 1
+                self.ChannelSourceModifiersSequence = '' # Type 1C.
+                self.ChannelSensitivity = '' # Type 1C
+                self.ChannelSensitivityUnitsSequence = '' # Type 1C
+                self.ChannelSensitivityCorrectionFactor = 100 # Type 1C
+                self.ChannelBaseline = 0 # Type 1C
+                self.ChannelTimeSkew = 0 # Type 1C
+                self.WaveformBitsStored = 0 # Type 1
+                self.FilterLowFrequency = 0 # Type 3
+                self.FilterHighFrequency = 0 # Type 3
+                self.NotchFilterFrequency = 0 # Type 3
+                self.NotchFilterBandwidth = 0 # Type 3
+                self.ChannelMinimumValue = 0 # Type 3 PS3.3 C.10.9.1.4.5 
+                self.ChannelMaximumValue = 0 # Type 3
+            self.WaveformBitsAllocated = 0 # Type 1
+            self.WaveformSampleInterpretation = 0 # Type 1
+            self.WaveformPaddingValue = 0 # Type 1C
+            self.WaveformData = '' # Type 1
+        self.WaveformDataDisplayScale = 0 # Type 3
+        #----------------------------------------------------------------------
+        # 3. Acquisition Context(M)
+        self.AcquisitionContextSequence = 0 # Type 2 T3401 ECG Acquisition Context # A.34.3.4.2
+        #----------------------------------------------------------------------
+        # 4. Waveform Annotation(C)
+        #----------------------------------------------------------------------
+        # 5. SOP Common(M)
+        self.SOPClassUID = '' # Type 1
+        self.SOPInstanceUID = self.MediaStorageSOPInstanceUID # Type 1
+        self.SpecificCharacterSet = '' # Type 1C
+        self.TimezoneOffsetFromUTC = '+0800' # Type 3
+        #----------------------------------------------------------------------
+    
+    def save_as(self, filename):
+        '''dicom.dataset.Dataset.save_as calls dicom.filewriter.write_file to do
+        the real work. And the latter calls dicom.filewriter._write_file_meta_info
+        to write the file meta information. When no preamble is provided and
+        write_like_original is set as False,  _write_file_meta_info will write
+        the preamble and DICOM prefix for us.
+        '''
+        super().save_as(filename, write_like_original = False)
     
 def data_to_dcm(src, fmt, dest = None):
     '''Convert binary data file into DICOM-ECG standard compliant format.
@@ -79,129 +245,7 @@ def fecg_to_dcm(src, dest = None):
 
 def ecg_to_dcm(src, dest = None):
     '''Convert 12-Lead Electrocardiogram data into DICOM-ECG standard compliant format.'''
-
-    # To make things simple, when generating DICOM files:
-    # 1. Only mandatory modules will be used;
-    # 2. Only those attributes of type 1 and 2 will be used;
-
-    data_set = dicom.dataset.Dataset()
-    
-    # The format of DICOM file is described in PS3.10 7.1.
-    ############################################################################
-    # 1. DICOM File Meta Information
-
-    # 1.1 File Preamble
-    # Type 1. If no preamble is provided and `write_like_original` is False,
-    # dicom.filewriter.write_file will write this part for us.
-
-    # 1.2 DICOM Prefix
-    # Type 1. We would like dicom.filewriter.write_file to fill this part.
-
-    # 1.3 File Meta Information Group
-
-    # dicom.filewriter._write_file_meta_info will add this two data elements.
-    #data_set.FileMetaInformationGroupLength
-    #data_set.FileMetaInformationVersion
-
-    # PS3.4 B.5 Standard SOP Classes. For 12-Lead ECG, we use:
-    data_set.MediaStorageSOPClassUID = '1.2.840.10008.5.1.4.1.1.9.1.1'
-
-    data_set.MediaStorageSOPInstanceUID = dicom.UID.generate_uid() # ???
-    data_set.TransferSyntaxUID = dicom.UID.ExplicitVRLittleEndian
-    data_set.ImplementationClassUID = dicom.UID.generate_uid() # ???
-
-    ############################################################################
-    # 2. Patient IE
-    # 2.1 Patient(M)
-    data_set.PatientName = '' # Type 2
-    data_set.PatientID = '' # Type 2
-    data_set.TypeOfPatientID = 'TEXT' 
-    data_set.PatientBirthDate = '' # Type 2. YYYYMMDD
-    data_set.PatientSex = '' # Type 2. M(ale)/F(emale)/O(ther)
-    
-    data_set.PatientAddress = ''
-    # 2.2 Clinical Trial Subject(U)
-
-    ############################################################################
-    # 3. Study IE
-    # 3.1 General Study(M)
-    data_set.StudyInstanceUID = '' # Type 1
-    data_set.StudyDate = '' # Type 2
-    data_set.StudyTime = '' # Type 2
-    data_set.ReferringPhysicianName = '' # Type 2
-    data_set.StudyID = '' # Type 2
-    data_set.AccessionNumber = ''
-    # 3.2 Patient Study(U)
-    data_set.PatientAge = 0 # Type 3
-    data_set.PatientSize = 0 # Type 3
-    data_set.PatientWeight = 0 # Type 3
-    data_set.AdditionalPatientHistory = '' # Type 3
-    # 3.3 Clinical Trial Study(U)
-
-    ############################################################################
-    # 4. Series IE
-    # 4.1 General Series(M)
-    data_set.Modality = 'ECG' # Type 1. DICOM PS3.3-2015a A.34.3.4.1
-    data_set.SeriesInstanceUID = '' # Type 1
-    data_set.SeriesNumber = ''
-    # 4.2 Clinical Trial Series(U)
-
-    ############################################################################
-    # 5. Frame of Reference IE
-
-    ############################################################################
-    # 6. Equipment IE
-    # 6.1 General Equipment(M)
-    data_set.Manufacturer = '' # Type 2
-    data_set.InstitutionName = '' # Type 3
-    data_set.InstitutionAddress = '' # Type 3
-    data_set.SoftwareVersions = __version__ # Type 3
-    data_set.InstitutionalDepartmentName = '' # Type 3
-
-    ############################################################################
-    # 7. Waveform IE
-    # 7.1 Waveform Identification(M)
-    data_set.InstanceNumber = '' # Type 1
-    data_set.ContentDate = '' # Type 1
-    data_set.ContentTime = '' # Type 1
-    data_set.AcquisitionDateTime = '' # Type 1
-    # 7.2 Waveform(M)
-    data_set.WaveformSequence = 1 # Type 1
-    data_set.WaveformOriginality = 'ORIGINAL' # Type 1
-    data_set.NumberOfWaveformChannels = 12 # Type 1. DICOM PS3.3-2015a A.34.3.4.4
-    data_set.NumberOfWaveformSamples = 0 # Type 1
-    data_set.SamplingFrequency = 500 # Type 1. DICOM PS3.3-2015a A.34.3.4.6
-    data_set.ChannelDefinitionSequence = '' # Type 1.
-    data_set.WaveformChannelNumber = 0 # Type 3
-    data_set.ChannelLabel = '' # Type 3
-    data_set.ChannelSourceSequence = '' # Type 1
-    data_set.ChannelSourceModifiersSequence = '' # Type 1C.
-    data_set.ChannelSensitivity = '' # Type 1C
-    data_set.ChannelSensitivityUnitsSequence = '' # Type 1C
-    data_set.ChannelSensitivityCorrectionFactor = 100 # Type 1C
-    data_set.ChannelBaseline = 0 # Type 1C
-    data_set.ChannelSampleSkew = 0 # Type 1C
-    data_set.WaveformBitsStored = 0 # Type 1
-    data_set.FilterLowFrequency = 0 # Type 3
-    data_set.FilterHighFrequency = 0 # Type 3
-    data_set.NotchFilterFrequency = 0 # Type 3
-    data_set.NotchFilterBandwidth = 0 # Type 3
-    data_set.ChannelMinimumValue = 0 # Type 3
-    data_set.ChannelMaximumValue = 0 # Type 3
-    data_set.WaveformBitsAllocated = 0 # Type 1
-    data_set.WaveformSampleInterpretation = 0 # Type 1
-    data_set.WaveformPaddingValue = 0 # Type 1C
-    data_set.WaveformData = '' # Type 1
-    data_set.WaveformDataDisplayScale = 0 # Type 3
-    # 7.3 Acquisition Context(M)
-    # 7.4 SOP Common(M)
-    
-    
-    
-    data_set.AcquisitionContextSequence = '' # T3401 ECG Acquisition Context # A.34.3.4.2
-    
-    data_set.SOPClassUID = ''
-    data_set.SOPInstanceUID = data_set.MediaStorageSOPInstanceUID
+    data_set = DCMECGDataset()
 
     # Data format:
     # Lead I, II, III, aVR, aVL, aVF, V1, V2, V3, V4, V5, V6, I, II, III, ...
@@ -211,14 +255,9 @@ if __name__ == '__main__':
     ecg_to_dcm('', 'c:\test2.dcm')
 
 # References:
-# DICOM 2015a PS3.3 A.34.3.1 12-Lead ECG IOD Description
-# DICOM 2015a PS3.4 B.5 Standard SOP Classes
-# DICOM 2015a PS3.5 6.2 Value Representation (VR)
 # DICOM 2015a PS3.5 7.4 Data Element Type
 # DICOM 2015a PS3.5 8.3 Waveform Data and Related Data Elements
-# DICOM 2015a PS3.5 A.2 DICOM Little Endian Transfer Syntax (Explicit VR)
 # DICOM 2015a PS3.6 6 Registry of DICOM Data Elements
-# DICOM 2015a PS3.10 7.1 DICOM File Meta Information
 # [DICOM Waveform Generator](http://libir.tmu.edu.tw/bitstream/987654321/21661/1/B09.pdf)
 # [Mandatory Tags for DICOM Instance](http://stackoverflow.com/questions/6608535/mandatory-tags-for-dicom-instance)
 # [PEP8](https://www.python.org/dev/peps/pep-0008/)
