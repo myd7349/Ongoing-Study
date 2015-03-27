@@ -7,6 +7,7 @@
 
 import functools
 import time
+import warnings
 
 # 2014-10-28 22:20    
 def benchmark(times):
@@ -40,6 +41,10 @@ def benchmark(times):
 # 2015-03-25T16:12+08:00 This function is deprecated, think about contextlib.suppress.
 def nothrow(func):
     '''A decorator for catching all the unhandled exceptions raised by the decorated function.'''
+    # When running Python with "python -Wall", you will see this warning.
+    warnings.warn('This function is deprecated, consider using contextlib.suppress instead.',
+                  DeprecationWarning)
+    
     @functools.wraps(func)
     def wrap(*args, **kwargs):
         try:

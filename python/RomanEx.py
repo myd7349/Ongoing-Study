@@ -11,6 +11,7 @@
 
 '''Converting Roman Numerals to Arabic Numbers and vice versa.'''
 
+import warnings
 import re
 
 class RomanError(ValueError): pass
@@ -69,6 +70,8 @@ def str_to_int(integer):
         ...
     InvalidInteger: a "str" object is excepted
     '''
+    warnings.warn('This function is deprecated, consider using numutil.to_int instead.',
+                  DeprecationWarning)
     if isinstance(integer, str):
         integer = integer.strip()
         if integer.startswith('0x'):
