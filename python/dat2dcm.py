@@ -7,12 +7,15 @@
 __version__ = '0.0.1'
 
 import io
+import math
 import os
 import struct
+import warnings
 
 import dicom # [pydicom](http://www.pydicom.org/)
 
 import fileutil
+import numutil
 
 def unpack_data(buf, fmt):
     '''Retrieve data from given data buffer and unpack them according to specified format.'''
@@ -28,52 +31,59 @@ def unpack_data_from_file(f, fmt):
     f: The path name of the file or an opened file object
     fmt: Format specificaion
     '''
-
     if isinstance(f, str):
         if not os.path.isfile(f):
             raise ValueError('"{}" is not a regular file'.format(f))
-        
-        fp = open(f, 'rb')
     else:
-        fp = f
-
         if not hasattr(fp, 'read'):
             raise ValueError('Invalid file object')
-        
         if hasattr(fp, 'mode') and fp.mode != 'rb':
             raise ValueError('Invalid opening mode')
 
-    file_len = fileutil.file_size(fp)
-    pack_size = struct.calcsize(fmt)
-    
-    if file_len % pack_size == 0:
-        return struct.iter_unpack(fmt, fp.read())
-    else:
-        # The length of the file isn't the multiple of struct.calcsize(fmt), so
-        # don't calling struct.iter_unpack directly. 
-        data = fp.read(pack_size)
-        while data:
-            if len(data) == pack_size:
-                yield struct.unpack(fmt, data)
-            else:
-                break
+    with fileutil.open_file(f, 'rb') as fp:
+        file_len = fileutil.file_size(fp)
+        pack_size = struct.calcsize(fmt)
+
+        if file_len % pack_size == 0:
+            return struct.iter_unpack(fmt, fp.read())
+        else:
+            # The length of the file isn't the multiple of struct.calcsize(fmt), so
+            # don't calling struct.iter_unpack directly.
             data = fp.read(pack_size)
+            while data:
+                if len(data) == pack_size:
+                    yield struct.unpack(fmt, data)
+                else:
+                    break
+                data = fp.read(pack_size)
 
-class DCMECGDataset(dicom.dataset.Dataset):
-    '''Represents a DICOM waveform data set, with necessary attributed added.
+class DCMECGDataset(dicom.dataset.Dataset):    
+    def __init__(self, file, fmt, sampling_frequency, channels, channel_labels,
+                 *args, **kwargs):
+        '''Represents a DICOM waveform data set, with necessary attributed added.
 
-    To make things simple, when generating DICOM-ECG waveform files:
-    1. We only care those modules that are mandatory;
-    2. We put most of our attention to those attributes of type 1 and 2;
-    '''
-    
-    def __init__(self, *args, **kwargs):
+        file: An opened file object or a file name represents a file on the disk.
+        fmt: Format specification for unpacking data from file.
+        sampling_frequency: Sampling frequency of the data.
+        channels: Number of channels.
+        channel_labels: An iterable object that contains labels for each channel.
+        '''
         super().__init__(*args, **kwargs)
+
+        self._file = file
+        self._format = fmt
+        self._sampling_frequency = numutil.to_int(sampling_frequency)
+        self._channels = numutil.to_int(channels)
+        self._channel_label = channel_labels
 
         # The format of DICOM file is described in:
         #   PS3.10 7.1 DICOM File Meta Information
         # The 12-Lead ECG IOD is described in:
         #   PS3.3 A.34.3.1 12-Lead ECG IOD Description
+
+        # To make things simple, when generating DICOM-ECG waveform files:
+        # 1. We only care those modules that are mandatory;
+        # 2. We pay most of our attention on those attributes of type 1 and 2;
         
         # 1. DICOM File Meta Information
         self._fill_file_meta_info()
@@ -115,7 +125,7 @@ class DCMECGDataset(dicom.dataset.Dataset):
     def _fill_patient_IE(self):
         #----------------------------------------------------------------------
         # 1. Patient(M)
-        self.PatientName = '' # Type 2
+        self.PatientName = '^' # Type 2
         self.PatientID = '' # Type 2
         self.PatientBirthDate = '' # Type 2. YYYYMMDD
         self.PatientSex = '' # Type 2. M(ale)/F(emale)/O(ther)
@@ -134,7 +144,7 @@ class DCMECGDataset(dicom.dataset.Dataset):
         self.StudyInstanceUID = dicom.UID.generate_uid() # Type 1
         self.StudyDate = '' # Type 2
         self.StudyTime = '' # Type 2
-        self.ReferringPhysicianName = '' # Type 2
+        self.ReferringPhysicianName = '^' # Type 2
         self.StudyID = '' # Type 2
         self.AccessionNumber = ''
         #----------------------------------------------------------------------
@@ -168,51 +178,83 @@ class DCMECGDataset(dicom.dataset.Dataset):
         self.InstitutionalDepartmentName = '' # Type 3
         #----------------------------------------------------------------------
 
+    def _generate_channel_definition_sequence(self):
+        channel_def_seq = dicom.dataset.Dataset()
+        
+        channel_def_seq.ChannelLabel = '' # Type 3
+        channel_def_seq.ChannelSourceSequence = '' # Type 1
+        channel_def_seq.ChannelSourceModifiersSequence = '' # Type 1C.
+        channel_def_seq.ChannelSensitivity = '' # Type 1C
+        channel_def_seq.ChannelSensitivityUnitsSequence = '' # Type 1C
+        channel_def_seq.ChannelSensitivityCorrectionFactor = 100 # Type 1C
+        channel_def_seq.ChannelBaseline = 0 # Type 1C
+        channel_def_seq.ChannelTimeSkew = 0 # Type 1C
+        channel_def_seq.WaveformBitsStored = 0 # Type 1
+        channel_def_seq.FilterLowFrequency = 0 # Type 3
+        channel_def_seq.FilterHighFrequency = 0 # Type 3
+        channel_def_seq.NotchFilterFrequency = 0 # Type 3
+        channel_def_seq.NotchFilterBandwidth = 0 # Type 3
+        channel_def_seq.ChannelMinimumValue = 0 # Type 3 PS3.3 C.10.9.1.4.5 
+        channel_def_seq.ChannelMaximumValue = 0 # Type 3
+
+        return channel_def_seq
+    
+    def _generate_waveform_sequence(self):
+        maximum_waveform_sequences = 5 # PS3.3 A.34.3.4.3 Waveform Sequence
+        maximum_waveform_samples = 16384 # PS3.3 A.34.3.4.5 Number of Waveform Samples
+        data_file_len = fileutil.file_size(self._file)
+        pack_size = struct.calcsize(self._format)
+        data_file_total_samples = data_file_len // pack_size
+        if data_file_total_samples > maximum_waveform_sequences * maximum_waveform_samples:
+            warnings.warn('The file is too big.' RuntimeWarning)
+            data_file_total_samples = maximum_waveform_sequences * maximum_waveform_samples
+
+        waveform_seq = dicom.sequence.Sequence()
+        while data_file_total_samples > 0:
+            seq_item = dicom.dataset.Dataset()
+            seq_item.WaveformOriginality = 'ORIGINAL' # Type 1
+            seq_item.NumberOfWaveformChannels = self._channels # Type 1. DICOM PS3.3-2015a A.34.3.4.4
+            assert 1 <= seq_item.NumberOfWaveformChannels <= 13
+
+            if data_file_total_samples >= maximum_waveform_samples:
+                seq_item.NumberOfWaveformSamples = maximum_waveform_samples # Type 1
+            else:
+                seq_item.NumberOfWaveformSamples = data_file_total_samples
+            data_file_total_samples -= seq_item.NumberOfWaveformSamples
+
+            seq_item.SamplingFrequency = self._sampling_frequency # Type 1. DICOM PS3.3-2015a A.34.3.4.6
+            seq_item.ChannelDefinitionSequence = self._generate_channel_definition_sequence() # Type 1.
+
+            seq_item.WaveformBitsAllocated = 0 # Type 1
+            seq_item.WaveformSampleInterpretation = 0 # Type 1
+            seq_item.WaveformPaddingValue = 0 # Type 1C
+            seq_item.WaveformData = '' # Type 1
+        
+        return waveform_seq
+
     def _fill_waveform_IE(self):
         #----------------------------------------------------------------------
         # 1. Waveform Identification(M)
-        self.InstanceNumber = '' # Type 1
-        self.ContentDate = '' # Type 1
-        self.ContentTime = '' # Type 1
-        self.AcquisitionDateTime = '' # Type 1
+        self.InstanceNumber = '' # 0x00200013. Type 1
+        self.ContentDate = '' # 0x00080023. Type 1
+        self.ContentTime = '' # 0x00080033. Type 1
+        self.AcquisitionDateTime = '' # 0x0008002A. Type 1
         #----------------------------------------------------------------------
         # 2. Waveform(M)
-        self.WaveformSequence = 1 # Type 1
-            self.WaveformOriginality = 'ORIGINAL' # Type 1
-            self.NumberOfWaveformChannels = 12 # Type 1. DICOM PS3.3-2015a A.34.3.4.4
-            self.NumberOfWaveformSamples = 0 # Type 1
-            self.SamplingFrequency = 500 # Type 1. DICOM PS3.3-2015a A.34.3.4.6
-            self.ChannelDefinitionSequence = '' # Type 1.
-                self.ChannelLabel = '' # Type 3
-                self.ChannelSourceSequence = '' # Type 1
-                self.ChannelSourceModifiersSequence = '' # Type 1C.
-                self.ChannelSensitivity = '' # Type 1C
-                self.ChannelSensitivityUnitsSequence = '' # Type 1C
-                self.ChannelSensitivityCorrectionFactor = 100 # Type 1C
-                self.ChannelBaseline = 0 # Type 1C
-                self.ChannelTimeSkew = 0 # Type 1C
-                self.WaveformBitsStored = 0 # Type 1
-                self.FilterLowFrequency = 0 # Type 3
-                self.FilterHighFrequency = 0 # Type 3
-                self.NotchFilterFrequency = 0 # Type 3
-                self.NotchFilterBandwidth = 0 # Type 3
-                self.ChannelMinimumValue = 0 # Type 3 PS3.3 C.10.9.1.4.5 
-                self.ChannelMaximumValue = 0 # Type 3
-            self.WaveformBitsAllocated = 0 # Type 1
-            self.WaveformSampleInterpretation = 0 # Type 1
-            self.WaveformPaddingValue = 0 # Type 1C
-            self.WaveformData = '' # Type 1
+        self.WaveformSequence = self._generate_waveform_sequence() # 0x54000100. Type 1
         self.WaveformDataDisplayScale = 0 # Type 3
         #----------------------------------------------------------------------
         # 3. Acquisition Context(M)
-        self.AcquisitionContextSequence = 0 # Type 2 T3401 ECG Acquisition Context # A.34.3.4.2
+        self.AcquisitionContextSequence = 0 # 0x00400555, SQ. Type 2 T3401 ECG Acquisition Context # A.34.3.4.2
         #----------------------------------------------------------------------
         # 4. Waveform Annotation(C)
         #----------------------------------------------------------------------
         # 5. SOP Common(M)
-        self.SOPClassUID = '' # Type 1
+        # PS3.3 C.12.1.1.1 SOP Class UID, SOP Instance UID
+        self.SOPClassUID = self.MediaStorageSOPClassUID # Type 1
         self.SOPInstanceUID = self.MediaStorageSOPInstanceUID # Type 1
-        self.SpecificCharacterSet = '' # Type 1C
+        # PS3.3 C.12.1.1.2 Specific Character Set
+        self.SpecificCharacterSet = 'GBK' # Type 1C
         self.TimezoneOffsetFromUTC = '+0800' # Type 3
         #----------------------------------------------------------------------
     
