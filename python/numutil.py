@@ -72,7 +72,7 @@ def to_num(num):
 
 def to_float(num):
     '''Convert anything to float.'''
-    return float(to_float(num))
+    return float(to_num(num))
     
 def to_int(num):
     '''Convert anything to integer.
