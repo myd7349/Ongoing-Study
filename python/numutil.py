@@ -50,8 +50,12 @@ def aton(num):
             return int(num, 8)
 
 def atof(num):
-    '''Convert string to floating point number.'''
-    return float(num)
+    '''Convert string to floating point number.
+
+    >>> format(atof('0xa'), '.1f')
+    '10.0'
+    '''
+    return float(aton(num))
 
 def atoi(num):
     '''Convert string to integer.'''
