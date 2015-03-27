@@ -69,6 +69,10 @@ def to_num(num):
         return num
     else:
         return aton(num)
+
+def to_float(num):
+    '''Convert anything to float.'''
+    return float(to_float(num))
     
 def to_int(num):
     '''Convert anything to integer.
