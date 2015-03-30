@@ -57,7 +57,7 @@ def unpack_data_from_file(f, fmt):
                 else:
                     break
                 data = fp.read(pack_size)
-fff = open('d:\\111.dat', 'wb')
+
 # PS3.16 CID 3001 ECG Leads
 CID_3001 = {
     'I': ('2:1', 'LEAD I'),
@@ -87,7 +87,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         '''
         file_meta = self._generate_file_meta_info()
         
-        super().__init__('', {}, file_meta = file_meta, *args, **kwargs)
+        super().__init__('', {}, file_meta = file_meta, is_implicit_VR = False, *args, **kwargs)
 
         self._file = file
         self._format = fmt
@@ -275,13 +275,17 @@ class DCMECGDataset(dicom.dataset.FileDataset):
 
             seq_item.WaveformBitsAllocated = 16 # Type 1. PS3.3 C.10.9.1.5 Waveform Bits Allocated and Waveform Sample Interpretation
             seq_item.WaveformSampleInterpretation = 'SS' # Type 1. PS3.3 A.34.3.4.8 Waveform Sample Interpretation
-            seq_item.WaveformPaddingValue = b'\x00\x00' # Type 1C. OB or OW.
+
+            # The VR of `Waveform Padding Value` may be OB or OW, so:
+            #seq_item.WaveformPaddingValue = b'\x00\x00'
+            # will not work, instead:
+            seq_item.add_new((0x5400, 0x100A), 'OW', b'\x00\x00')  # Type 1C. OB or OW.
 
             data = bytearray()
             for i, d in zip(range(seq_item.NumberOfWaveformSamples), data_unpacker):
                 data.extend(struct.pack('<{}'.format('h' * self._channels), *d))
-            seq_item.WaveformData = bytes(data) # Type 1. OB or OW.
-            fff.write(data)
+            #seq_item.WaveformData = bytes(data) # Type 1. OB or OW.
+            seq_item.add_new((0x5400, 0x1010), 'OW', bytes(data))
 
             waveform_seq.append(seq_item)
         
@@ -325,8 +329,8 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         self.SOPClassUID = self.file_meta.MediaStorageSOPClassUID # Type 1
         self.SOPInstanceUID = self.file_meta.MediaStorageSOPInstanceUID # Type 1
         # PS3.3 C.12.1.1.2 Specific Character Set
-        self.SpecificCharacterSet = 'GBK' # Type 1C
-        self.TimezoneOffsetFromUTC = '+0800' # Type 3
+        #self.SpecificCharacterSet = 'GBK' # Type 1C
+        #self.TimezoneOffsetFromUTC = '+0800' # Type 3
         #----------------------------------------------------------------------
     
     def save_as(self, filename):
