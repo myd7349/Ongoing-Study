@@ -125,10 +125,18 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         # 4. Series IE
         self._fill_series_IE()
         # 5. Frame of Reference IE
+        self.SynchronizationFrameOfReferenceUID = '1.3.6.1.4.1.6018.6.999'
         # 6. Equipment IE
         self._fill_equipment_IE()
         # 7. Waveform IE
         self._fill_waveform_IE()
+
+        # HAHA
+        self.CurveDate = '19991223'
+        self.CurveTime = ''
+        self.InstanceCreationDate = '20001003'
+        self.InstanceCreationTime = '165519'
+
 
     def _fill_file_meta_info(self):
         self.file_meta = dicom.dataset.Dataset() 
@@ -144,23 +152,23 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         #   FileMetaInformationVersion
 
         # PS3.4 B.5 Standard SOP Classes. For 12-Lead ECG, we use:
-        self.file_meta.MediaStorageSOPClassUID = '1.2.840.10008.5.1.4.1.1.9.1.1'
+        self.file_meta.MediaStorageSOPClassUID = '1.2.840.10008.5.1.4.1.1.9.2.1'#'1.2.840.10008.5.1.4.1.1.9.1.1'
 
-        self.file_meta.MediaStorageSOPInstanceUID = dicom.UID.generate_uid() # ???
+        self.file_meta.MediaStorageSOPInstanceUID = '1.3.6.1.4.1.6018.1.1'#dicom.UID.generate_uid() # ???
 
         # PS3.5 A.2 DICOM Little Endian Transfer Syntax (Explicit VR)
         self.file_meta.TransferSyntaxUID = dicom.UID.ExplicitVRLittleEndian
         
-        self.file_meta.ImplementationClassUID = dicom.UID.generate_uid() # ???
+        self.file_meta.ImplementationClassUID = '1.3.6.1.4.1.6018.2.11111'#dicom.UID.generate_uid() # ???
         #----------------------------------------------------------------------
 
     def _fill_patient_IE(self):
         #----------------------------------------------------------------------
         # 1. Patient(M)
-        self.PatientName = '^' # Type 2
-        self.PatientID = '' # Type 2
-        self.PatientBirthDate = '' # Type 2. YYYYMMDD
-        self.PatientSex = '' # Type 2. M(ale)/F(emale)/O(ther)
+        self.PatientName = 'Patient^Test' # Type 2
+        self.PatientID = '123-654' # Type 2
+        self.PatientBirthDate = '19440102' # Type 2. YYYYMMDD
+        self.PatientSex = 'M' # Type 2. M(ale)/F(emale)/O(ther)
         #----------------------------------------------------------------------
         # 2. Clinical Trial Subject(U)
         #----------------------------------------------------------------------
@@ -173,18 +181,18 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         # PS3.6 6 Registry of DICOM Data Elements tells us the VR of it: UI.
         # PS3.5 6.2 Value Representation (VR) tells us the meaning of UI and how to
         # generate a UID.
-        self.StudyInstanceUID = dicom.UID.generate_uid() # Type 1. UI.
-        self.StudyDate = '' # Type 2. DA.
-        self.StudyTime = '' # Type 2. TM.
+        self.StudyInstanceUID = '1.3.6.1.4.1.6018.4.999' # dicom.UID.generate_uid() # Type 1. UI.
+        self.StudyDate = '19991223' # Type 2. DA.
+        self.StudyTime = '100545' # Type 2. TM.
         self.ReferringPhysicianName = '^' # Type 2. PN.
-        self.StudyID = '' # Type 2. SH.
-        self.AccessionNumber = '' # Type 2. SH.
+        self.StudyID = '43288' # Type 2. SH.
+        self.AccessionNumber = '0001' # Type 2. SH.
         #----------------------------------------------------------------------
         # 2. Patient Study(U)
-        self.AdmittingDiagnosesDescription = '' # Type 3. LO.
-        self.PatientAge = '018Y' # Type 3. AS.
-        self.PatientSize = '0' # Type 3. DS.
-        self.PatientWeight = '0' # Type 3. DS.
+        #self.AdmittingDiagnosesDescription = '' # Type 3. LO.
+        self.PatientAge = '055Y' # Type 3. AS.
+        self.PatientSize = '1.77' # Type 3. DS.
+        self.PatientWeight = '90' # Type 3. DS.
         self.AdditionalPatientHistory = '' # Type 3. LT.
         #----------------------------------------------------------------------
         # 3. Clinical Trial Study(U)
@@ -194,8 +202,8 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         #----------------------------------------------------------------------
         # 1. General Series(M)
         self.Modality = 'ECG' # Type 1. DICOM PS3.3-2015a A.34.3.4.1
-        self.SeriesInstanceUID = dicom.UID.generate_uid() # Type 1. UI. ???
-        self.SeriesNumber = '' # (0020,0011), Type 2. IS.
+        self.SeriesInstanceUID = ' 1.3.6.1.4.1.6018.5.999'#dicom.UID.generate_uid() # Type 1. UI. ???
+        self.SeriesNumber = '0001' # (0020,0011), Type 2. IS.
         #----------------------------------------------------------------------
         # 2. Clinical Trial Series(U)
         #----------------------------------------------------------------------
@@ -203,11 +211,11 @@ class DCMECGDataset(dicom.dataset.FileDataset):
     def _fill_equipment_IE(self):
         #----------------------------------------------------------------------
         # 1. General Equipment(M)
-        self.Manufacturer = '' # Type 2. LO.
-        self.InstitutionName = '' # Type 3. LO.
-        self.InstitutionAddress = '' # Type 3. ST.
-        self.SoftwareVersions = __version__ # Type 3. LO.
-        self.InstitutionalDepartmentName = '' # Type 3. LO.
+        self.Manufacturer = 'GE Marquette' # Type 2. LO.
+        self.InstitutionName = 'Test Hospital' # Type 3. LO.
+        self.InstitutionAddress = '100 MARQUETTE DR' # Type 3. ST.
+        self.SoftwareVersions = ' 17A '#__version__ # Type 3. LO.
+        #self.InstitutionalDepartmentName = '' # Type 3. LO.
         #----------------------------------------------------------------------
 
     def _generate_channel_source_sequence(self, label):
@@ -237,7 +245,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         for c in range(self._channels):
             channel_def_item = dicom.dataset.Dataset()
             
-            channel_def_item.ChannelLabel = self._channel_labels[c] # Type 3. SH.
+            ##channel_def_item.ChannelLabel = self._channel_labels[c] # Type 3. SH.
             channel_def_item.ChannelSourceSequence = self._generate_channel_source_sequence(self._channel_labels[c]) # Type 1
             channel_def_item.ChannelSensitivity = '0.00122' # Type 1C. DS.
             channel_def_item.ChannelSensitivityUnitsSequence = self._generate_channel_sensitivity_units_sequence() # Type 1C
@@ -292,7 +300,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
             # The VR of `Waveform Padding Value` may be OB or OW, so:
             #seq_item.WaveformPaddingValue = b'\x00\x00'
             # will not work, instead:
-            seq_item.add_new((0x5400, 0x100A), 'OW', b'\x00\x00')  # Type 1C. OB or OW.
+            seq_item.add_new((0x5400, 0x100A), 'OW', b'\x00\x80')  # Type 1C. OB or OW.
 
             data = bytearray()
             for i, d in zip(range(seq_item.NumberOfWaveformSamples), data_unpacker):
@@ -303,30 +311,61 @@ class DCMECGDataset(dicom.dataset.FileDataset):
             waveform_seq.append(seq_item)
         
         return waveform_seq
-
-    def _generate_concept_name_code_sequence(self):
-        # I don't know how to fill this part, so follow GE's step.
-        concept_name_code_seq = dicom.dataset.Dataset()
-        concept_name_code_seq.CodeValue = 'G-7293'
-        concept_name_code_seq.CodingSchemeDesignator = 'SRT'
-        concept_name_code_seq.CodingSchemeVersion = 'V1'
-        concept_name_code_seq.CodeMeaning = 'Cardiac catheterization baseline phase'
-        
-        return (concept_name_code_seq, )
     
     def _generate_acquisition_context_sequence(self):
         # PS3.3 A.34.3.4.2 Acquisition Context Module
         acquisition_context_seq = dicom.dataset.Dataset()
-        acquisition_context_seq.ConceptNameCodeSequence = self._generate_concept_name_code_sequence()
+
+        # I don't know how to fill this part, so follow GE's step.
+        concept_name_code_seq = dicom.dataset.Dataset()
+        concept_name_code_seq.CodeValue = '109057'
+        concept_name_code_seq.CodingSchemeDesignator = 'DCM'
+        concept_name_code_seq.CodingSchemeVersion = '01'
+        concept_name_code_seq.CodeMeaning = 'Catheterization Procedure Phase'
+        
+        acquisition_context_seq.ConceptNameCodeSequence = (concept_name_code_seq, )
+
+        concept_code_seq = dicom.dataset.Dataset()
+        concept_code_seq.CodeValue = 'G-7293'
+        concept_code_seq.CodingSchemeDesignator = 'SRT'
+        concept_code_seq.CodingSchemeVersion = 'V1'
+        concept_code_seq.CodeMeaning = 'Cardiac catheterization baseline phase'
+
+        acquisition_context_seq.ConceptCodeSequence = (concept_code_seq, )
+        
         return (acquisition_context_seq, )
+
+    def _generate_waveform_annotation_sequence(self):
+        # ??????
+        waveform_annotation_seq = dicom.dataset.Dataset()
+        # Measurement Units Code Sequence
+        measurement_unit_code_seq = dicom.dataset.Dataset()
+        measurement_unit_code_seq.CodeValue = '{H.B.}/min'
+        measurement_unit_code_seq.CodingSchemeDesignator = 'UCUM'
+        measurement_unit_code_seq.CodingSchemeVersion = '1.4'
+        measurement_unit_code_seq.CodeMeaning = 'Heart beat per minute'
+        #
+        concept_name_code_seq = dicom.dataset.Dataset()
+        concept_name_code_seq.CodeValue = '8867-4'
+        concept_name_code_seq.CodingSchemeDesignator = 'LN'
+        concept_name_code_seq.CodingSchemeVersion = '19971101'
+        concept_name_code_seq.CodeMeaning = 'Heart rate'
+        #
+        waveform_annotation_seq.MeasurementUnitsCodeSequence = (measurement_unit_code_seq,)
+        waveform_annotation_seq.ConceptNameCodeSequence = (concept_name_code_seq, )
+        #
+        waveform_annotation_seq.ReferencedWaveformChannels = [1, 1] # US
+        waveform_annotation_seq.NumericValue = '69'
+   
+        return (waveform_annotation_seq, )
 
     def _fill_waveform_IE(self):
         #----------------------------------------------------------------------
         # 1. Waveform Identification(M)
         self.InstanceNumber = '0001' # 0x00200013. Type 1. IS.
         self.ContentDate = '19991223' # 0x00080023. Type 1. DA.
-        self.ContentTime = '100723' # 0x00080033. Type 1. TM.
-        self.AcquisitionDateTime = '19991223100723' # 0x0008002A. Type 1. DT.
+        self.ContentTime = '100709' # 0x00080033. Type 1. TM.
+        self.AcquisitionDateTime = '19991223100709' # 0x0008002A. Type 1. DT.
         #----------------------------------------------------------------------
         # 2. Waveform(M)
         self.WaveformSequence = self._generate_waveform_sequence() # 0x54000100. Type 1
@@ -336,11 +375,12 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         self.AcquisitionContextSequence = self._generate_acquisition_context_sequence() # 0x00400555, SQ. Type 2 T3401 ECG Acquisition Context # A.34.3.4.2
         #----------------------------------------------------------------------
         # 4. Waveform Annotation(C)
+        self.WaveformAnnotationSequence = self._generate_waveform_annotation_sequence()
         #----------------------------------------------------------------------
         # 5. SOP Common(M)
         # PS3.3 C.12.1.1.1 SOP Class UID, SOP Instance UID
         self.SOPClassUID = self.file_meta.MediaStorageSOPClassUID # Type 1
-        self.SOPInstanceUID = self.file_meta.MediaStorageSOPInstanceUID # Type 1
+        self.SOPInstanceUID = '1.3.6.1.4.1.6018.3.999'#self.file_meta.MediaStorageSOPInstanceUID # Type 1
         # PS3.3 C.12.1.1.2 Specific Character Set
         #self.SpecificCharacterSet = 'GBK' # Type 1C
         #self.TimezoneOffsetFromUTC = '+0800' # Type 3
