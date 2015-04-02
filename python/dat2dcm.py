@@ -58,34 +58,19 @@ def unpack_data_from_file(f, fmt):
                 data = fp.read(pack_size)
 
 # PS3.16 CID 3001 ECG Leads
-CID_3001_old = {
-    'I': ('2:1', 'LEAD I'),
-    'II': ('2:2', 'LEAD II'),
-    'III': ('2:61', 'LEAD III'),
+CID_3001 = {
+    'I': ('2:1', 'Lead I'),
+    'II': ('2:2', 'Lead II'),
+    'III': ('2:61', 'Lead III'),
     'aVR': ('2:62', 'aVR, augmented voltage, right'),
     'aVL': ('2:63', 'aVL, augmented voltage, left'),
     'aVF': ('2:64', 'aVF, augmented voltage, foot'),
-    'V1': ('2:3', 'LEAD V1'),
-    'V2': ('2:4', 'LEAD V2'),
-    'V3': ('2:5', 'LEAD V3'),
-    'V4': ('2:6', 'LEAD V4'),
-    'V5': ('2:7', 'LEAD V5'),
-    'V6': ('2:8', 'LEAD V6'),
-    }
-
-CID_3001 = {
-    'I': ('5.6.3-9-1', 'Lead I'),
-    'II': ('5.6.3-9-2', 'Lead II'),
-    'III': ('5.6.3-9-61', 'Lead III'),
-    'aVR': ('5.6.3-9-62', 'Lead aVR'),
-    'aVL': ('5.6.3-9-63', 'Lead aVL'),
-    'aVF': ('5.6.3-9-64', 'Lead aVF'),
-    'V1': ('5.6.3-9-3', 'Lead V1'),
-    'V2': ('5.6.3-9-4', 'Lead V2'),
-    'V3': ('5.6.3-9-5', 'Lead V3'),
-    'V4': ('5.6.3-9-6', 'Lead V4'),
-    'V5': ('5.6.3-9-7', 'Lead V5'),
-    'V6': ('5.6.3-9-8', 'Lead V6'),
+    'V1': ('2:3', 'Lead V1'),
+    'V2': ('2:4', 'Lead V2'),
+    'V3': ('2:5', 'Lead V3'),
+    'V4': ('2:6', 'Lead V4'),
+    'V5': ('2:7', 'Lead V5'),
+    'V6': ('2:8', 'Lead V6'),
     }
 
 class DCMECGDataset(dicom.dataset.FileDataset):    
@@ -99,7 +84,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         channels: Number of channels.
         channel_labels: An iterable object that contains labels for each channel.
         '''
-        super().__init__('', {}, is_implicit_VR = False, *args, **kwargs)
+        super().__init__('', {}, is_implicit_VR = False, preamble = b'\x00' * 128, *args, **kwargs)
 
         self._file = file
         self._format = fmt
@@ -132,18 +117,23 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         self._fill_waveform_IE()
 
         # HAHA
-        self.CurveDate = '19991223'
-        self.CurveTime = ''
-        self.InstanceCreationDate = '20001003'
-        self.InstanceCreationTime = '165519'
+        #self.CurveDate = '19991223'
+        #self.CurveTime = ''
+        #self.InstanceCreationDate = '20001003'
+        #self.InstanceCreationTime = '165519'
+        #self.SynchronizationTrigger = 'NO TRIGGER'
+        #self.AcquisitionTimeSynchronized = 'N'
 
 
     def _fill_file_meta_info(self):
-        self.file_meta = dicom.dataset.Dataset() 
+        self.file_meta = dicom.dataset.Dataset()
+        # dicom.dataset.Dataset.save_as calls dicom.filewriter.write_file to do
+        # the real work. And the latter calls dicom.filewriter._write_file_meta_info
+        # to write the file meta information.
         #----------------------------------------------------------------------
-        # 1. File Preamble. Please refer save_as's docstring.
+        # 1. File Preamble.
         #----------------------------------------------------------------------
-        # 2. DICOM Prefix. Please refer save_as's docstring.
+        # 2. DICOM Prefix.
         #----------------------------------------------------------------------
         # 3. File Meta Information Group
         # dicom.filewriter._write_file_meta_info will add the following two
@@ -152,7 +142,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         #   FileMetaInformationVersion
 
         # PS3.4 B.5 Standard SOP Classes. For 12-Lead ECG, we use:
-        self.file_meta.MediaStorageSOPClassUID = '1.2.840.10008.5.1.4.1.1.9.2.1'#'1.2.840.10008.5.1.4.1.1.9.1.1'
+        self.file_meta.MediaStorageSOPClassUID = '1.2.840.10008.5.1.4.1.1.9.1.1'
 
         self.file_meta.MediaStorageSOPInstanceUID = '1.3.6.1.4.1.6018.1.1'#dicom.UID.generate_uid() # ???
 
@@ -165,7 +155,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
     def _fill_patient_IE(self):
         #----------------------------------------------------------------------
         # 1. Patient(M)
-        self.PatientName = 'Patient^Test' # Type 2
+        self.PatientName = '张大彪' # Type 2
         self.PatientID = '123-654' # Type 2
         self.PatientBirthDate = '19440102' # Type 2. YYYYMMDD
         self.PatientSex = 'M' # Type 2. M(ale)/F(emale)/O(ther)
@@ -222,7 +212,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         # PS3.3 A.34.3.4.7 Channel Source
         channel_source_seq = dicom.dataset.Dataset()
         channel_source_seq.CodeValue = CID_3001[label][0] # Type 1C. SH.
-        channel_source_seq.CodingSchemeDesignator = 'SCPECG'#'MDC' # Type 1C. SH.
+        channel_source_seq.CodingSchemeDesignator = 'MDC' # Type 1C. SH.
         channel_source_seq.CodingSchemeVersion = '1.3' # Type 1C. SH.
         channel_source_seq.CodeMeaning = CID_3001[label][1] # Type 1. LO.
 
@@ -245,7 +235,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         for c in range(self._channels):
             channel_def_item = dicom.dataset.Dataset()
             
-            ##channel_def_item.ChannelLabel = self._channel_labels[c] # Type 3. SH.
+            channel_def_item.ChannelLabel = self._channel_labels[c] # Type 3. SH.
             channel_def_item.ChannelSourceSequence = self._generate_channel_source_sequence(self._channel_labels[c]) # Type 1
             channel_def_item.ChannelSensitivity = '0.00122' # Type 1C. DS.
             channel_def_item.ChannelSensitivityUnitsSequence = self._generate_channel_sensitivity_units_sequence() # Type 1C
@@ -382,18 +372,9 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         self.SOPClassUID = self.file_meta.MediaStorageSOPClassUID # Type 1
         self.SOPInstanceUID = '1.3.6.1.4.1.6018.3.999'#self.file_meta.MediaStorageSOPInstanceUID # Type 1
         # PS3.3 C.12.1.1.2 Specific Character Set
-        #self.SpecificCharacterSet = 'GBK' # Type 1C
+        self.SpecificCharacterSet = 'GBK' # Type 1C
         #self.TimezoneOffsetFromUTC = '+0800' # Type 3
         #----------------------------------------------------------------------
-    
-    def save_as(self, filename):
-        '''dicom.dataset.Dataset.save_as calls dicom.filewriter.write_file to do
-        the real work. And the latter calls dicom.filewriter._write_file_meta_info
-        to write the file meta information. When no preamble is provided and
-        write_like_original is set as False,  _write_file_meta_info will write
-        the preamble and DICOM prefix for us.
-        '''
-        super().save_as(filename, write_like_original = False)
 
 def fecg_to_dcm(src, dest = None):
     '''Convert Foetus Electrocardiogram data into DICOM-ECG standard compliant format.'''
