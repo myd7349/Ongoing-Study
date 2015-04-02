@@ -45,9 +45,15 @@ int _tmain(int argc, _TCHAR **argv)
 
     InterlockedExchange(&g_bWorking, FALSE);
     WaitForSingleObject(hWorkingThread, INFINITE);
+    CloseHandle(hWorkingThread);
 
     _ftprintf(stdout, _T("\nSee you, buddy!\n"));
 
     _tsystem(_T("pause"));
     return 0;
 }
+
+/*
+References:
+[Can I call CloseHandle() immediately after _beginthreadex() succeeded?](http://stackoverflow.com/questions/8241712/can-i-call-closehandle-immediately-after-beginthreadex-succeeded)
+*/
