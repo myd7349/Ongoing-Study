@@ -110,20 +110,10 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         # 4. Series IE
         self._fill_series_IE()
         # 5. Frame of Reference IE
-        self.SynchronizationFrameOfReferenceUID = '1.3.6.1.4.1.6018.6.999'
         # 6. Equipment IE
         self._fill_equipment_IE()
         # 7. Waveform IE
         self._fill_waveform_IE()
-
-        # HAHA
-        #self.CurveDate = '19991223'
-        #self.CurveTime = ''
-        #self.InstanceCreationDate = '20001003'
-        #self.InstanceCreationTime = '165519'
-        #self.SynchronizationTrigger = 'NO TRIGGER'
-        #self.AcquisitionTimeSynchronized = 'N'
-
 
     def _fill_file_meta_info(self):
         self.file_meta = dicom.dataset.Dataset()
@@ -155,8 +145,8 @@ class DCMECGDataset(dicom.dataset.FileDataset):
     def _fill_patient_IE(self):
         #----------------------------------------------------------------------
         # 1. Patient(M)
-        self.PatientName = '张大彪' # Type 2
-        self.PatientID = '123-654' # Type 2
+        self.PatientName = '^' # Type 2. PN.
+        self.PatientID = '123-654' # Type 2. LO.
         self.PatientBirthDate = '19440102' # Type 2. YYYYMMDD
         self.PatientSex = 'M' # Type 2. M(ale)/F(emale)/O(ther)
         #----------------------------------------------------------------------
@@ -213,7 +203,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         channel_source_seq = dicom.dataset.Dataset()
         channel_source_seq.CodeValue = CID_3001[label][0] # Type 1C. SH.
         channel_source_seq.CodingSchemeDesignator = 'MDC' # Type 1C. SH.
-        channel_source_seq.CodingSchemeVersion = '1.3' # Type 1C. SH.
+        #channel_source_seq.CodingSchemeVersion = '' # Type 1C. SH.
         channel_source_seq.CodeMeaning = CID_3001[label][1] # Type 1. LO.
 
         return (channel_source_seq, )
@@ -325,30 +315,6 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         
         return (acquisition_context_seq, )
 
-    def _generate_waveform_annotation_sequence(self):
-        # ??????
-        waveform_annotation_seq = dicom.dataset.Dataset()
-        # Measurement Units Code Sequence
-        measurement_unit_code_seq = dicom.dataset.Dataset()
-        measurement_unit_code_seq.CodeValue = '{H.B.}/min'
-        measurement_unit_code_seq.CodingSchemeDesignator = 'UCUM'
-        measurement_unit_code_seq.CodingSchemeVersion = '1.4'
-        measurement_unit_code_seq.CodeMeaning = 'Heart beat per minute'
-        #
-        concept_name_code_seq = dicom.dataset.Dataset()
-        concept_name_code_seq.CodeValue = '8867-4'
-        concept_name_code_seq.CodingSchemeDesignator = 'LN'
-        concept_name_code_seq.CodingSchemeVersion = '19971101'
-        concept_name_code_seq.CodeMeaning = 'Heart rate'
-        #
-        waveform_annotation_seq.MeasurementUnitsCodeSequence = (measurement_unit_code_seq,)
-        waveform_annotation_seq.ConceptNameCodeSequence = (concept_name_code_seq, )
-        #
-        waveform_annotation_seq.ReferencedWaveformChannels = [1, 1] # US
-        waveform_annotation_seq.NumericValue = '69'
-   
-        return (waveform_annotation_seq, )
-
     def _fill_waveform_IE(self):
         #----------------------------------------------------------------------
         # 1. Waveform Identification(M)
@@ -365,15 +331,14 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         self.AcquisitionContextSequence = self._generate_acquisition_context_sequence() # 0x00400555, SQ. Type 2 T3401 ECG Acquisition Context # A.34.3.4.2
         #----------------------------------------------------------------------
         # 4. Waveform Annotation(C)
-        self.WaveformAnnotationSequence = self._generate_waveform_annotation_sequence()
         #----------------------------------------------------------------------
         # 5. SOP Common(M)
         # PS3.3 C.12.1.1.1 SOP Class UID, SOP Instance UID
         self.SOPClassUID = self.file_meta.MediaStorageSOPClassUID # Type 1
         self.SOPInstanceUID = '1.3.6.1.4.1.6018.3.999'#self.file_meta.MediaStorageSOPInstanceUID # Type 1
         # PS3.3 C.12.1.1.2 Specific Character Set
-        self.SpecificCharacterSet = 'GBK' # Type 1C
-        #self.TimezoneOffsetFromUTC = '+0800' # Type 3
+        self.SpecificCharacterSet = 'ISO_IR 192' # Type 1C. 'ISO_IR 192' for UTF-8, 'GBK' for GBK, 'GB18030' for GB18030.
+        self.TimezoneOffsetFromUTC = '+0800' # Type 3
         #----------------------------------------------------------------------
 
 def fecg_to_dcm(src, dest = None):
