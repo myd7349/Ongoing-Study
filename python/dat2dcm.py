@@ -16,18 +16,19 @@ import dicom # [pydicom](http://www.pydicom.org/)
 
 import fileutil
 
-def unpack_data(buf, fmt):
+def unpack_data(buf, fmt, offset = 0):
     '''Retrieve data from given data buffer and unpack them according to specified format.'''
     if not isinstance(buf, (bytes, bytearray)):
         raise ValueError('Invalid data buffer')
     
-    return unpack_data_from_file(io.BytesIO(buf), fmt)
+    return unpack_data_from_file(io.BytesIO(buf), fmt, offset)
     
-def unpack_data_from_file(f, fmt):
+def unpack_data_from_file(f, fmt, offset = 0):
     '''Retrieve data from given file and unpack them according to specified format.
 
     f: The path name of the file or an opened file object
     fmt: Format specificaion
+    offset: Offset from the start of the file from where to start the unpacking operation
     '''
     if isinstance(f, str):
         if not os.path.isfile(f):
@@ -38,11 +39,19 @@ def unpack_data_from_file(f, fmt):
         if hasattr(fp, 'mode') and fp.mode != 'rb':
             raise ValueError('Invalid opening mode')
 
+    if not isinstance(offset, int) or offset < 0:
+        raise ValueError('Invalid offset value')
+    
     with fileutil.open_file(f, 'rb') as fp:
         file_len = fileutil.file_size(fp)
         pack_size = struct.calcsize(fmt)
+
+        if file_len <= offset:
+            return
+
+        fp.seek(offset, os.SEEK_SET)
         
-        if file_len % pack_size == 0:
+        if (file_len - offset) % pack_size == 0:
             #return struct.iter_unpack(fmt, fp.read()) # ???
             yield from struct.iter_unpack(fmt, fp.read())
         else:
@@ -57,7 +66,7 @@ def unpack_data_from_file(f, fmt):
                 data = fp.read(pack_size)
 
 # PS3.16 CID 3001 ECG Leads
-CID_3001 = {
+CID_3001_for_12_Lead_ECG = {
     'I': ('2:1', 'Lead I'),
     'II': ('2:2', 'Lead II'),
     'III': ('2:61', 'Lead III'),
@@ -210,9 +219,13 @@ class DCMECGDataset(dicom.dataset.FileDataset):
     def _generate_channel_source_sequence(self, label):
         # PS3.3 A.34.3.4.7 Channel Source
         channel_source_seq = dicom.dataset.Dataset()
-        channel_source_seq.CodeValue = CID_3001[label][0] # Type 1C. SH.
-        channel_source_seq.CodingSchemeDesignator = 'MDC' # Type 1C. SH.
-        channel_source_seq.CodeMeaning = CID_3001[label][1] # Type 1. LO.
+
+        if self._is_12_lead_ecg:
+            channel_source_seq.CodeValue = CID_3001_for_12_Lead_ECG[label][0] # Type 1C. SH.
+            channel_source_seq.CodingSchemeDesignator = 'MDC' # Type 1C. SH.
+            channel_source_seq.CodeMeaning = CID_3001_for_12_Lead_ECG[label][1] # Type 1. LO.
+        else:
+            pass
 
         return (channel_source_seq, )
 
@@ -262,7 +275,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
 
         waveform_seq = dicom.sequence.Sequence()
         data_unpacker = unpack_data_from_file(self._file, self._format)
-        target_fmt = 'h' * self._channels
+        target_fmt = '<{}'.format('h' * self._channels)
         adjusted_data = map(lambda v: map(self._adjust_callback, v), data_unpacker)
         while data_file_total_samples > 0:
             seq_item = dicom.dataset.Dataset()
@@ -295,7 +308,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
 
             data = bytearray()
             for i, d in zip(range(seq_item.NumberOfWaveformSamples), adjusted_data):
-                data.extend(struct.pack('<{}'.format(target_fmt), *d))
+                data.extend(struct.pack(target_fmt, *d))
             seq_item.add_new((0x5400, 0x1010), 'OW', bytes(data)) # WaveformData. Type 1. OB or OW.
 
             waveform_seq.append(seq_item)
@@ -355,7 +368,13 @@ def fecg_to_dcm(src, dest = None):
     '''Convert Foetus Electrocardiogram data into DICOM-ECG standard compliant format.'''
     # Data values are encoded interleaved. That is:
     # lead 1, 2, 3, 4, 5, 1, 2, ...
-    data_set = DCMECGDataset(src, '@{}'.format('d' * 5), 1000, 5, ('', '', '', '', ''))
+    if not dest:
+        dest = fileutil.replace_ext(src, '.dcm')
+    
+    data_set = DCMECGDataset(src, '@{}'.format('d' * 5), 1000, 5, ('', '', '', '', ''),
+                             adjust_callback = lambda v: int(v * 100),
+                             is_12_lead_ecg = False)
+    data_set.save_as(dest)
 
 def ecg_to_dcm(src, dest = None):
     '''Convert 12-Lead Electrocardiogram data into DICOM-ECG standard compliant format.'''
@@ -377,7 +396,8 @@ if __name__ == '__main__':
     u = unpack_data_from_file(r'E:\data\1\20110607153002.dat', '<d')
     print(min(u))
     '''
-    ecg_to_dcm(r'E:\data\1\20110607153002.dat')
+    #ecg_to_dcm(r'E:\data\5\20140606145132.dat')
+    fecg_to_dcm(r'd:\20120503152310.dat')
 
 # References:
 # DICOM 2015a PS3.5 7.4 Data Element Type
