@@ -18,7 +18,6 @@ import fileutil
 
 def unpack_data(buf, fmt):
     '''Retrieve data from given data buffer and unpack them according to specified format.'''
-    
     if not isinstance(buf, (bytes, bytearray)):
         raise ValueError('Invalid data buffer')
     
@@ -75,7 +74,7 @@ CID_3001 = {
 
 class DCMECGDataset(dicom.dataset.FileDataset):    
     def __init__(self, file, fmt, sampling_frequency, channels, channel_labels,
-                 *args, **kwargs):
+                 adjust_callback = int, is_12_lead_ecg = True, *args, **kwargs):
         '''Represents a DICOM waveform data set, with necessary attributed added.
 
         file: An opened file object or a file name represents a file on the disk.
@@ -83,6 +82,8 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         sampling_frequency: Sampling frequency of the data.
         channels: Number of channels.
         channel_labels: An iterable object that contains labels for each channel.
+        adjust_callback: A callback function to adjust unpacked data.
+        is_12_lead_ecg: True for 12-Lead ECG IOD, False for General ECG IOD.
         '''
         super().__init__('', {}, is_implicit_VR = False, preamble = b'\x00' * 128, *args, **kwargs)
 
@@ -91,6 +92,8 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         self._sampling_frequency = sampling_frequency
         self._channels = channels
         self._channel_labels = channel_labels
+        self._adjust_callback = adjust_callback
+        self._is_12_lead_ecg = is_12_lead_ecg
 
         # The format of DICOM file is described in:
         #   PS3.10 7.1 DICOM File Meta Information
@@ -103,16 +106,16 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         
         # 1. DICOM File Meta Information
         self._fill_file_meta_info()
-        # 2. Patient IE
+        # 2. Patient IE(M)
         self._fill_patient_IE()
-        # 3. Study IE
+        # 3. Study IE(M)
         self._fill_study_IE()
-        # 4. Series IE
+        # 4. Series IE(M)
         self._fill_series_IE()
-        # 5. Frame of Reference IE
-        # 6. Equipment IE
+        # 5. Frame of Reference IE(U)
+        # 6. Equipment IE(M)
         self._fill_equipment_IE()
-        # 7. Waveform IE
+        # 7. Waveform IE(M)
         self._fill_waveform_IE()
 
     def _fill_file_meta_info(self):
@@ -131,8 +134,14 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         #   FileMetaInformationGroupLength
         #   FileMetaInformationVersion
 
-        # PS3.4 B.5 Standard SOP Classes. For 12-Lead ECG, we use:
-        self.file_meta.MediaStorageSOPClassUID = '1.2.840.10008.5.1.4.1.1.9.1.1'
+        # PS3.4 B.5 Standard SOP Classes. See PS3.4 B.5 Standard SOP Classes.
+        # Note that, this program only supports 12-Lead ECG IOD and General ECG IOD currently.
+        if self._is_12_lead_ecg:
+            # For 12-Lead ECG, we use:
+            self.file_meta.MediaStorageSOPClassUID = '1.2.840.10008.5.1.4.1.1.9.1.1'
+        else:
+            # Otherwise, suppose that it is General Electrocardiogram IOD. So we use:
+            self.file_meta.MediaStorageSOPClassUID = '1.2.840.10008.5.1.4.1.1.9.1.2'
 
         self.file_meta.MediaStorageSOPInstanceUID = '1.3.6.1.4.1.6018.1.1'#dicom.UID.generate_uid() # ???
 
@@ -146,9 +155,9 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         #----------------------------------------------------------------------
         # 1. Patient(M)
         self.PatientName = '^' # Type 2. PN.
-        self.PatientID = '123-654' # Type 2. LO.
-        self.PatientBirthDate = '19440102' # Type 2. YYYYMMDD
-        self.PatientSex = 'M' # Type 2. M(ale)/F(emale)/O(ther)
+        self.PatientID = ' ' # Type 2. LO.
+        self.PatientBirthDate = ' ' # Type 2. YYYYMMDD
+        self.PatientSex = ' ' # Type 2. M(ale)/F(emale)/O(ther)
         #----------------------------------------------------------------------
         # 2. Clinical Trial Subject(U)
         #----------------------------------------------------------------------
@@ -162,18 +171,18 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         # PS3.5 6.2 Value Representation (VR) tells us the meaning of UI and how to
         # generate a UID.
         self.StudyInstanceUID = '1.3.6.1.4.1.6018.4.999' # dicom.UID.generate_uid() # Type 1. UI.
-        self.StudyDate = '19991223' # Type 2. DA.
-        self.StudyTime = '100545' # Type 2. TM.
+        self.StudyDate = ' ' # Type 2. DA.
+        self.StudyTime = ' ' # Type 2. TM.
         self.ReferringPhysicianName = '^' # Type 2. PN.
-        self.StudyID = '43288' # Type 2. SH.
-        self.AccessionNumber = '0001' # Type 2. SH.
+        self.StudyID = ' ' # Type 2. SH.
+        self.AccessionNumber = ' ' # Type 2. SH.
         #----------------------------------------------------------------------
         # 2. Patient Study(U)
         #self.AdmittingDiagnosesDescription = '' # Type 3. LO.
-        self.PatientAge = '055Y' # Type 3. AS.
-        self.PatientSize = '1.77' # Type 3. DS.
-        self.PatientWeight = '90' # Type 3. DS.
-        self.AdditionalPatientHistory = '' # Type 3. LT.
+        self.PatientAge = ' ' # Type 3. AS.
+        self.PatientSize = ' ' # Type 3. DS.
+        self.PatientWeight = ' ' # Type 3. DS.
+        self.AdditionalPatientHistory = ' ' # Type 3. LT.
         #----------------------------------------------------------------------
         # 3. Clinical Trial Study(U)
         #----------------------------------------------------------------------
@@ -183,7 +192,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         # 1. General Series(M)
         self.Modality = 'ECG' # Type 1. DICOM PS3.3-2015a A.34.3.4.1
         self.SeriesInstanceUID = ' 1.3.6.1.4.1.6018.5.999'#dicom.UID.generate_uid() # Type 1. UI. ???
-        self.SeriesNumber = '0001' # (0020,0011), Type 2. IS.
+        self.SeriesNumber = '0001' # (0020,0011), Type 2. IS. ***
         #----------------------------------------------------------------------
         # 2. Clinical Trial Series(U)
         #----------------------------------------------------------------------
@@ -191,11 +200,11 @@ class DCMECGDataset(dicom.dataset.FileDataset):
     def _fill_equipment_IE(self):
         #----------------------------------------------------------------------
         # 1. General Equipment(M)
-        self.Manufacturer = 'GE Marquette' # Type 2. LO.
-        self.InstitutionName = 'Test Hospital' # Type 3. LO.
-        self.InstitutionAddress = '100 MARQUETTE DR' # Type 3. ST.
-        self.SoftwareVersions = ' 17A '#__version__ # Type 3. LO.
-        #self.InstitutionalDepartmentName = '' # Type 3. LO.
+        self.Manufacturer = ' ' # Type 2. LO.
+        self.InstitutionName = ' ' # Type 3. LO.
+        self.InstitutionAddress = ' ' # Type 3. ST.
+        self.SoftwareVersions = __version__ # Type 3. LO.
+        self.InstitutionalDepartmentName = ' ' # Type 3. LO.
         #----------------------------------------------------------------------
 
     def _generate_channel_source_sequence(self, label):
@@ -203,7 +212,6 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         channel_source_seq = dicom.dataset.Dataset()
         channel_source_seq.CodeValue = CID_3001[label][0] # Type 1C. SH.
         channel_source_seq.CodingSchemeDesignator = 'MDC' # Type 1C. SH.
-        #channel_source_seq.CodingSchemeVersion = '' # Type 1C. SH.
         channel_source_seq.CodeMeaning = CID_3001[label][1] # Type 1. LO.
 
         return (channel_source_seq, )
@@ -231,21 +239,19 @@ class DCMECGDataset(dicom.dataset.FileDataset):
             channel_def_item.ChannelSensitivityUnitsSequence = self._generate_channel_sensitivity_units_sequence() # Type 1C
             channel_def_item.ChannelSensitivityCorrectionFactor = '1' # Type 1C. DS. ?
             channel_def_item.ChannelBaseline = '0' # Type 1C. DS.
-            channel_def_item.ChannelTimeSkew = '0' # Type 1C. DS. ?
+            channel_def_item.ChannelTimeSkew = '0' # Type 1C. DS.
             channel_def_item.WaveformBitsStored = 16 # Type 1. US. PS3.3 C.10.9.1.5 Waveform Bits Allocated and Waveform Sample Interpretation
-            channel_def_item.FilterLowFrequency = '.05' # Type 3. DS. ?
-            channel_def_item.FilterHighFrequency = '100' # Type 3. DS. ?
-            #channel_def_item.NotchFilterFrequency = 0 # Type 3
-            #channel_def_item.NotchFilterBandwidth = 0 # Type 3
-            #channel_def_item.ChannelMinimumValue = 0 # Type 3 PS3.3 C.10.9.1.4.5 C.10.9.1.6
-            #channel_def_item.ChannelMaximumValue = 0 # Type 3
 
             channel_def_seq.append(channel_def_item)
 
         return channel_def_seq
     
     def _generate_waveform_sequence(self):
-        maximum_waveform_sequences = 5 # PS3.3 A.34.3.4.3 Waveform Sequence
+        if self._is_12_lead_ecg:
+            maximum_waveform_sequences = 5 # PS3.3 A.34.3.4.3 Waveform Sequence
+        else:
+            maximum_waveform_sequences = 4 # PS3.3 A.34.4.4.2 Waveform Sequence
+            
         maximum_waveform_samples = 16384 # PS3.3 A.34.3.4.5 Number of Waveform Samples
         data_file_len = fileutil.file_size(self._file)
         pack_size = struct.calcsize(self._format)
@@ -256,12 +262,16 @@ class DCMECGDataset(dicom.dataset.FileDataset):
 
         waveform_seq = dicom.sequence.Sequence()
         data_unpacker = unpack_data_from_file(self._file, self._format)
+        target_fmt = 'h' * self._channels
         while data_file_total_samples > 0:
             seq_item = dicom.dataset.Dataset()
             seq_item.WaveformOriginality = 'ORIGINAL' # Type 1
             
-            seq_item.NumberOfWaveformChannels = self._channels # Type 1. 
-            assert 1 <= seq_item.NumberOfWaveformChannels <= 13 # DICOM PS3.3-2015a A.34.3.4.4
+            seq_item.NumberOfWaveformChannels = self._channels # Type 1.
+            if self._is_12_lead_ecg:
+                assert 1 <= seq_item.NumberOfWaveformChannels <= 13 # DICOM PS3.3-2015a A.34.3.4.4
+            else:
+                assert 1 <= seq_item.NumberOfWaveformChannels <= 24 # PS3.3 A.34.4.4.3 Number of Waveform Channels
 
             if data_file_total_samples >= maximum_waveform_samples:
                 seq_item.NumberOfWaveformSamples = maximum_waveform_samples # Type 1. UL.
@@ -284,9 +294,8 @@ class DCMECGDataset(dicom.dataset.FileDataset):
 
             data = bytearray()
             for i, d in zip(range(seq_item.NumberOfWaveformSamples), data_unpacker):
-                data.extend(struct.pack('<{}'.format('h' * self._channels), *d))
-            #seq_item.WaveformData = bytes(data) # Type 1. OB or OW.
-            seq_item.add_new((0x5400, 0x1010), 'OW', bytes(data))
+                data.extend(struct.pack('<{}'.format(target_fmt), *[self._adjust_callback(d_) for d_ in d]))
+            seq_item.add_new((0x5400, 0x1010), 'OW', bytes(data)) # WaveformData. Type 1. OB or OW.
 
             waveform_seq.append(seq_item)
         
@@ -345,18 +354,29 @@ def fecg_to_dcm(src, dest = None):
     '''Convert Foetus Electrocardiogram data into DICOM-ECG standard compliant format.'''
     # Data values are encoded interleaved. That is:
     # lead 1, 2, 3, 4, 5, 1, 2, ...
-    _data_to_dcm(src, '@{}'.format('d' * 5), dest)
+    data_set = DCMECGDataset(src, '@{}'.format('d' * 5), 1000, 5, ('', '', '', '', ''))
 
 def ecg_to_dcm(src, dest = None):
     '''Convert 12-Lead Electrocardiogram data into DICOM-ECG standard compliant format.'''
     # Data values are encoded interleaved. That is:
     # Lead I, II, III, aVR, aVL, aVF, V1, V2, V3, V4, V5, V6, I, II, III, ...
-    data_set = DCMECGDataset(src, '@{}'.format('h' * 12), 240, 12,
-                             ('I', 'II', 'III', 'aVR', 'aVL', 'aVF', 'V1', 'V2', 'V3', 'V4', 'V5', 'V6'))
+    if not dest:
+        dest = fileutil.replace_ext(src, '.dcm')
+
+    data_set = DCMECGDataset(src, '@{}'.format('d' * 12), 500, 12,
+                             ('I', 'II', 'III', 'aVR', 'aVL', 'aVF', 'V1', 'V2', 'V3', 'V4', 'V5', 'V6'),
+                             adjust_callback = lambda v: int(v * 1000 / 6 * 10))
     data_set.save_as(dest)
 
 if __name__ == '__main__':
-    ecg_to_dcm(r'e:\12-Lead_ECG.dat', r'd:\12-Lead_ECG.dcm')
+    #ecg_to_dcm(r'e:\12-Lead_ECG.dat', r'd:\12-Lead_ECG.dcm')
+    '''
+    u = unpack_data_from_file(r'E:\data\1\20110607153002.dat', '<d')
+    print(max(u))
+    u = unpack_data_from_file(r'E:\data\1\20110607153002.dat', '<d')
+    print(min(u))
+    '''
+    ecg_to_dcm(r'E:\data\1\20110607153002.dat')
 
 # References:
 # DICOM 2015a PS3.5 7.4 Data Element Type
@@ -364,6 +384,5 @@ if __name__ == '__main__':
 # DICOM 2015a PS3.6 6 Registry of DICOM Data Elements
 # [DICOM Waveform Generator](http://libir.tmu.edu.tw/bitstream/987654321/21661/1/B09.pdf)
 # [Mandatory Tags for DICOM Instance](http://stackoverflow.com/questions/6608535/mandatory-tags-for-dicom-instance)
-# [PEP8](https://www.python.org/dev/peps/pep-0008/)
 # [Questions regarding the DICOM file](http://fixunix.com/dicom/50267-questions-regarding-dicom-file.html)
 # [Dicom: What's the point of SOPInstanceUID tag?](http://stackoverflow.com/questions/1434918/dicom-whats-the-point-of-sopinstanceuid-tag)
