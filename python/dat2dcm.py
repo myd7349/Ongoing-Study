@@ -263,6 +263,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         waveform_seq = dicom.sequence.Sequence()
         data_unpacker = unpack_data_from_file(self._file, self._format)
         target_fmt = 'h' * self._channels
+        adjusted_data = map(lambda v: map(self._adjust_callback, v), data_unpacker)
         while data_file_total_samples > 0:
             seq_item = dicom.dataset.Dataset()
             seq_item.WaveformOriginality = 'ORIGINAL' # Type 1
@@ -293,8 +294,8 @@ class DCMECGDataset(dicom.dataset.FileDataset):
             seq_item.add_new((0x5400, 0x100A), 'OW', b'\x00\x80')  # Type 1C. OB or OW.
 
             data = bytearray()
-            for i, d in zip(range(seq_item.NumberOfWaveformSamples), data_unpacker):
-                data.extend(struct.pack('<{}'.format(target_fmt), *[self._adjust_callback(d_) for d_ in d]))
+            for i, d in zip(range(seq_item.NumberOfWaveformSamples), adjusted_data):
+                data.extend(struct.pack('<{}'.format(target_fmt), *d))
             seq_item.add_new((0x5400, 0x1010), 'OW', bytes(data)) # WaveformData. Type 1. OB or OW.
 
             waveform_seq.append(seq_item)
