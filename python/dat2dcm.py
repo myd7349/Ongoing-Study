@@ -14,6 +14,7 @@ import struct
 import warnings
 
 import dicom # [pydicom](http://www.pydicom.org/)
+import watchdog # [watchdog](https://github.com/gorakhargosh/watchdog)
 
 import fileutil
 
@@ -21,6 +22,7 @@ logger_filename = os.path.join(os.environ['HOME'],
                             fileutil.replace_ext(os.path.basename(__file__), '.log'))
 logging.basicConfig(level = logging.NOTSET, filename = logger_filename,
                     format = '%(asctime)s [%(levelname)s]: %(message)s')
+logging.captureWarnings(True)
 logger = logging.getLogger(__name__)
 
 def unpack_data(buf, fmt, offset = 0):
@@ -283,8 +285,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
                            fileutil.file_name(self._file), data_file_len, pack_size, self._format,
                            data_file_total_samples, saved_samples, saved_samples * pack_size)
 
-            logger.warn(warn_msg)
-            warnings.warn(warn_msg, Warning)
+            warnings.warn(warn_msg)
 
             data_file_total_samples = saved_samples
 
@@ -403,6 +404,24 @@ def ecg_to_dcm(src, dest = None):
                              adjust_callback = lambda v: int(v * 1000 / 6 * 10))
     data_set.save_as(dest)
 
+def daemon():
+    import sys
+    import time
+    from watchdog.observers import Observer
+    from watchdog.events import LoggingEventHandler
+
+    path = r'd:\dcmdir'
+    event_handler = LoggingEventHandler()
+    observer = Observer()
+    observer.schedule(event_handler, path, recursive = False)
+    observer.start()
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        observer.stop()
+    observer.join()
+
 if __name__ == '__main__':
     #ecg_to_dcm(r'e:\12-Lead_ECG.dat', r'd:\12-Lead_ECG.dcm')
     '''
@@ -412,7 +431,11 @@ if __name__ == '__main__':
     print(min(u))
     '''
     #ecg_to_dcm(r'E:\data\5\20140606145132.dat')
-    fecg_to_dcm(r'd:\20120503152310.dat')
+    #fecg_to_dcm(r'd:\20120503152310.dat')
+    import contextlib
+
+    with contextlib.suppress(FileNotFoundError):
+        daemon()
 
 # References:
 # DICOM 2015a PS3.5 7.4 Data Element Type
