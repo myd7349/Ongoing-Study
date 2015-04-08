@@ -7,6 +7,12 @@ import functools
 import io
 import os
 
+def is_file_object(f):
+    if not all(map(functools.partial(hasattr, f),
+                   ['read', 'fileno', 'seek', 'tell'])):
+        return False
+    return True
+    
 def file_size(f):
     '''Get the size of given file.
 
@@ -15,9 +21,8 @@ def file_size(f):
 
     if isinstance(f, str):
         return os.stat(f).st_size
-    
-    if not all(map(functools.partial(hasattr, f),
-                   ['read', 'fileno', 'seek', 'tell'])):
+
+    if not is_file_object(f):
         raise ValueError('Invalid file object')
 
     try:
@@ -28,7 +33,20 @@ def file_size(f):
         f.seek(prev_pos, os.SEEK_SET)
         return size
 
-def replace_ext(file, new_ext):
+def file_name(f):
+    '''Retrieve the name of given file.
+
+    f: File name or an opened file object
+    '''
+    if isinstance(f, str):
+        return f
+
+    if is_file_object(f):
+        return getattr(f, 'name', '')
+    else:
+        return ''
+
+def replace_ext(file, new_ext, prefix = '', suffix = ''):
     '''Produce a new file name based on input file name with its extension
     replaced with a new extension.
 
@@ -37,7 +55,7 @@ def replace_ext(file, new_ext):
     '''
 
     root, ext = os.path.splitext(file)
-    return root + new_ext if ext else file + new_ext
+    return prefix + root + suffix + new_ext if ext else prefix + file + suffix + new_ext
 
 class FileGuard:
     '''Sometimes when we wrote a function that accepts an file object, we also
@@ -113,15 +131,42 @@ if __name__ == '__main__':
             self.assertEqual(pseudo_file.tell(), 5)
             self.assertEqual(pseudo_file.read(), b', world!')
 
+    class TestFileName(unittest.TestCase):
+        def setUp(self):
+            self._file = 'a.out'
+            
+        def test_file_name(self):
+            self.assertEqual(file_name(self._file), self._file)
+
+        def test_file_object(self):
+            with open(self._file, 'w') as fp:
+                self.assertEqual(file_name(fp), self._file)
+            os.remove(self._file)
+
+        def test_buffer_object(self):
+            buffer = b'Howdy, world!'
+            pseudo_file = io.BytesIO(buffer)
+
+            self.assertEqual(file_name(pseudo_file), '')
+
     class TestReplaceExt(unittest.TestCase):
+        def setUp(self):
+            self._file = 'a.out'
+            
         def test(self):
-            file1 = 'a.out'
-            self.assertEqual(replace_ext(file1, '.exe'), 'a.exe')
+            self.assertEqual(replace_ext(self._file, '.exe'), 'a.exe')
 
             file2 = '.cshrc'
             self.assertEqual(replace_ext(file2, '.conf'), file2 + '.conf')
 
             self.assertEqual(replace_ext('foo', '.dcm'), 'foo.dcm')
+
+        def test_prefix_suffix(self):
+            self.assertEqual(replace_ext(self._file, '.exe', 'WOW-', '-2'), 'WOW-a-2.exe')
+            self.assertEqual(replace_ext('foo', '.dcm', suffix = '-0'), 'foo-0.dcm')
+            self.assertEqual(replace_ext('foo', '.dcm', suffix = '-1'), 'foo-1.dcm')
+            self.assertEqual(replace_ext('foo', '.dcm', suffix = '-2'), 'foo-2.dcm')
+            
 
     class TestOpenFile(unittest.TestCase):
         def test_pass_a_file_name(self):
