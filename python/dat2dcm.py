@@ -7,6 +7,7 @@
 __version__ = '0.0.1'
 
 import io
+import logging
 import math
 import os
 import struct
@@ -15,6 +16,12 @@ import warnings
 import dicom # [pydicom](http://www.pydicom.org/)
 
 import fileutil
+
+logger_filename = os.path.join(os.environ['HOME'],
+                            fileutil.replace_ext(os.path.basename(__file__), '.log'))
+logging.basicConfig(level = logging.NOTSET, filename = logger_filename,
+                    format = '%(asctime)s [%(levelname)s]: %(message)s')
+logger = logging.getLogger(__name__)
 
 def unpack_data(buf, fmt, offset = 0):
     '''Retrieve data from given data buffer and unpack them according to specified format.'''
@@ -269,9 +276,17 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         data_file_len = fileutil.file_size(self._file)
         pack_size = struct.calcsize(self._format)
         data_file_total_samples = data_file_len // pack_size
-        if data_file_total_samples > maximum_waveform_sequences * maximum_waveform_samples:
-            warnings.warn('The file is too big.', RuntimeWarning)
-            data_file_total_samples = maximum_waveform_sequences * maximum_waveform_samples
+        saved_samples = maximum_waveform_sequences * maximum_waveform_samples
+        if data_file_total_samples > saved_samples:
+            warn_msg = 'File "{}" is too big. File size: {}, pack size: {}, format string: {}, ' \
+                       'total samples: {}, saved samples: {}, saved size: {}.'.format(
+                           fileutil.file_name(self._file), data_file_len, pack_size, self._format,
+                           data_file_total_samples, saved_samples, saved_samples * pack_size)
+
+            logger.warn(warn_msg)
+            warnings.warn(warn_msg, Warning)
+
+            data_file_total_samples = saved_samples
 
         waveform_seq = dicom.sequence.Sequence()
         data_unpacker = unpack_data_from_file(self._file, self._format)
