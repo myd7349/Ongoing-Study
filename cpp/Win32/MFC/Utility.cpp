@@ -152,6 +152,22 @@ BOOL MakeFullPath(const CString &strPath)
     return TRUE;
 }
 
+// 2015-04-09T09:56+08:00
+CString GetDirName(const CString &strPath)
+{
+    int iLastPathSepPos = strPath.ReverseFind(_T('\\'));
+    if (-1 == iLastPathSepPos) 
+    {
+        iLastPathSepPos = strPath.ReverseFind(_T('/'));
+        if (-1 == iLastPathSepPos)
+        {
+            return strPath;
+        }
+    }
+
+    return strPath.Left(iLastPathSepPos + 1);
+}
+
 // 2015-03-11T17:06+08:00
 // Windows also provides us an API:
 // DWORD WINAPI GetFileSize(HANDLE hFile, LPDWORD lpFileSizeHigh);
@@ -210,4 +226,62 @@ CString GetReadableFileSize(const ULONGLONG &ullSizeInBytes)
     }
 
     return strSize;
+}
+
+class _CFileSizeCmpHelper
+{
+public:
+    enum FILESIZE_UNIT
+    {
+        B,
+        KB,
+        MB,
+        GB,
+        TB
+    };
+    _CFileSizeCmpHelper()
+    {
+        m_mapFileSizeUnit[_T(" B")] = B; // Caution
+        m_mapFileSizeUnit[_T("KB")] = KB;
+        m_mapFileSizeUnit[_T("MB")] = MB;
+        m_mapFileSizeUnit[_T("GB")] = GB;
+        m_mapFileSizeUnit[_T("TB")] = TB;
+    }
+public:
+    FILESIZE_UNIT GetUnit(const CString &strUnit)
+    {
+        FILESIZE_UNIT unit;
+        if (m_mapFileSizeUnit.Lookup(strUnit, unit))
+        {
+            return unit;
+        }
+        throw FALSE;
+    }
+private:
+    _CFileSizeCmpHelper(const _CFileSizeCmpHelper &);
+    _CFileSizeCmpHelper &operator=(const _CFileSizeCmpHelper &);
+private:
+    CMap<CString, LPCTSTR, FILESIZE_UNIT, const FILESIZE_UNIT &> m_mapFileSizeUnit;
+};
+
+// 这个函数必须与GetReadableFileSize相对应。
+int CompareReadableFileSize(const CString &strLSize, const CString &strRSize)
+{
+    static _CFileSizeCmpHelper s_fileSizeHelper;
+    CString strLUnit = strLSize.Right(2);
+    CString strRUnit = strRSize.Right(2);
+    if (strLUnit != strRUnit)
+    {
+        _CFileSizeCmpHelper::FILESIZE_UNIT unitL, unitR;
+        try
+        {
+            unitL = s_fileSizeHelper.GetUnit(strLUnit);
+            unitR = s_fileSizeHelper.GetUnit(strRUnit);
+            return unitL - unitR;
+        }
+        catch (...)
+        {
+        }
+    }
+    return (int)(_tcstod(strLSize, NULL) - _tcstod(strRSize, NULL));
 }

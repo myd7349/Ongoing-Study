@@ -12,6 +12,7 @@ CString JoinPath(LPCTSTR lpszBaseDir, LPCTSTR lpszSubDir);
 LPTSTR TransformPathSep(LPTSTR lpszPath);
 CString &TransformPathSep(CString &strPath);
 BOOL MakeFullPath(const CString &strPath);
+CString GetDirName(const CString &strPath);
 
 BOOL IsRemovableDrive(LPCTSTR lpcszDrive);
 
@@ -43,4 +44,5 @@ DWORD GetDrives(CArray<CString> &arrDrives, _Pred p)
 
 ULONGLONG GetFileSize(LPCTSTR lpcszFileName);
 CString GetReadableFileSize(const ULONGLONG &ullSizeInBytes);
+int CompareReadableFileSize(const CString &strLSize, const CString &strRSize);
 
