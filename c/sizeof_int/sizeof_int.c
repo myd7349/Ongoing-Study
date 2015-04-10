@@ -34,7 +34,14 @@ http://stackoverflow.com/questions/1219199/size-of-a-datatype-without-using-size
 
 size_t get_bits_of_int_v4(void)
 {
-    return (size_t)log2(UINT_MAX);
+#ifndef NDEBUG
+    printf("%f\n", log2(INT_MAX)); // 0.000000 ?
+    printf("%f\n", log2(UINT_MAX)); // 0.000000
+#endif
+
+    return (size_t)ceil(log2(UINT_MAX));
+    return (int)log2(INT_MAX) + 2;
+    return (int)log2(UINT_MAX) + 1;
 }
 
 int main()
