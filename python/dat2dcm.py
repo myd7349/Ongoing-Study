@@ -14,7 +14,6 @@ import struct
 import warnings
 
 import dicom # [pydicom](http://www.pydicom.org/)
-import watchdog # [watchdog](https://github.com/gorakhargosh/watchdog)
 
 import fileutil
 
@@ -271,10 +270,11 @@ class DCMECGDataset(dicom.dataset.FileDataset):
     def _generate_waveform_sequence(self):
         if self._is_12_lead_ecg:
             maximum_waveform_sequences = 5 # PS3.3 A.34.3.4.3 Waveform Sequence
+            maximum_waveform_samples = 16384 # PS3.3 A.34.3.4.5 Number of Waveform Samples
         else:
             maximum_waveform_sequences = 4 # PS3.3 A.34.4.4.2 Waveform Sequence
-            
-        maximum_waveform_samples = 16384 # PS3.3 A.34.3.4.5 Number of Waveform Samples
+            maximum_waveform_samples = 2 ** 32 - 1 # NumberOfWaveformSamples's VR is `UL`.
+        
         data_file_len = fileutil.file_size(self._file)
         pack_size = struct.calcsize(self._format)
         data_file_total_samples = data_file_len // pack_size
@@ -284,9 +284,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
                        'total samples: {}, saved samples: {}, saved size: {}.'.format(
                            fileutil.file_name(self._file), data_file_len, pack_size, self._format,
                            data_file_total_samples, saved_samples, saved_samples * pack_size)
-
             warnings.warn(warn_msg)
-
             data_file_total_samples = saved_samples
 
         waveform_seq = dicom.sequence.Sequence()
@@ -404,24 +402,6 @@ def ecg_to_dcm(src, dest = None):
                              adjust_callback = lambda v: int(v * 1000 / 6 * 10))
     data_set.save_as(dest)
 
-def daemon():
-    import sys
-    import time
-    from watchdog.observers import Observer
-    from watchdog.events import LoggingEventHandler
-
-    path = r'd:\dcmdir'
-    event_handler = LoggingEventHandler()
-    observer = Observer()
-    observer.schedule(event_handler, path, recursive = False)
-    observer.start()
-    try:
-        while True:
-            time.sleep(1)
-    except KeyboardInterrupt:
-        observer.stop()
-    observer.join()
-
 if __name__ == '__main__':
     #ecg_to_dcm(r'e:\12-Lead_ECG.dat', r'd:\12-Lead_ECG.dcm')
     '''
@@ -431,11 +411,7 @@ if __name__ == '__main__':
     print(min(u))
     '''
     #ecg_to_dcm(r'E:\data\5\20140606145132.dat')
-    #fecg_to_dcm(r'd:\20120503152310.dat')
-    import contextlib
-
-    with contextlib.suppress(FileNotFoundError):
-        daemon()
+    fecg_to_dcm(r'd:\20120503152310.dat')
 
 # References:
 # DICOM 2015a PS3.5 7.4 Data Element Type
