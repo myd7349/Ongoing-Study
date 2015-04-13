@@ -226,6 +226,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
 
     def _generate_channel_source_sequence(self, label):
         # PS3.3 A.34.3.4.7 Channel Source
+        # PS3.3 C.10.9.1.4.1 Channel Source and Modifiers
         channel_source_seq = dicom.dataset.Dataset()
 
         if self._is_12_lead_ecg:
@@ -260,7 +261,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
             channel_def_item.ChannelSensitivityUnitsSequence = self._generate_channel_sensitivity_units_sequence() # Type 1C
             channel_def_item.ChannelSensitivityCorrectionFactor = '1' # Type 1C. DS. ?
             channel_def_item.ChannelBaseline = '0' # Type 1C. DS.
-            channel_def_item.ChannelTimeSkew = '0' # Type 1C. DS.
+            channel_def_item.ChannelTimeSkew = '0' # Type 1C. DS. PS3.3 C.10.9.1.4.3 Channel Skew and Channel Offset
             channel_def_item.WaveformBitsStored = 16 # Type 1. US. PS3.3 C.10.9.1.5 Waveform Bits Allocated and Waveform Sample Interpretation
 
             channel_def_seq.append(channel_def_item)
@@ -297,7 +298,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
             
             seq_item.NumberOfWaveformChannels = self._channels # Type 1.
             if self._is_12_lead_ecg:
-                assert 1 <= seq_item.NumberOfWaveformChannels <= 13 # DICOM PS3.3-2015a A.34.3.4.4
+                assert 1 <= seq_item.NumberOfWaveformChannels <= 13 # PS3.3 A.34.3.4.4
             else:
                 assert 1 <= seq_item.NumberOfWaveformChannels <= 24 # PS3.3 A.34.4.4.3 Number of Waveform Channels
 
@@ -385,7 +386,7 @@ def fecg_to_dcm(src, dest = None):
     if not dest:
         dest = fileutil.replace_ext(src, '.dcm')
     
-    data_set = DCMECGDataset(src, '@{}'.format('d' * 5), 1000, 5, ('', '', '', '', ''),
+    data_set = DCMECGDataset(src, '<{}'.format('d' * 5), 1000, 5, ('', '', '', '', ''),
                              adjust_callback = lambda v: int(v * 100),
                              is_12_lead_ecg = False)
     data_set.save_as(dest)
@@ -394,23 +395,24 @@ def ecg_to_dcm(src, dest = None):
     '''Convert 12-Lead Electrocardiogram data into DICOM-ECG standard compliant format.'''
     # Data values are encoded interleaved. That is:
     # Lead I, II, III, aVR, aVL, aVF, V1, V2, V3, V4, V5, V6, I, II, III, ...
+    # The unit of signals collected by the cardiac conduction is: 0.4V/(2^15).
     if not dest:
         dest = fileutil.replace_ext(src, '.dcm')
 
-    data_set = DCMECGDataset(src, '@{}'.format('d' * 12), 500, 12,
+    data_set = DCMECGDataset(src, '<{}'.format('d' * 12), 500, 12,
                              ('I', 'II', 'III', 'aVR', 'aVL', 'aVF', 'V1', 'V2', 'V3', 'V4', 'V5', 'V6'),
-                             adjust_callback = lambda v: int(v * 1000 / 6 * 10))
+                             adjust_callback = lambda v: int(v * 1000 / 6))
     data_set.save_as(dest)
 
 if __name__ == '__main__':
     #ecg_to_dcm(r'e:\12-Lead_ECG.dat', r'd:\12-Lead_ECG.dcm')
-    '''
+    
     u = unpack_data_from_file(r'E:\data\1\20110607153002.dat', '<d')
     print(max(u))
     u = unpack_data_from_file(r'E:\data\1\20110607153002.dat', '<d')
     print(min(u))
-    '''
-    #ecg_to_dcm(r'E:\data\5\20140606145132.dat')
+    
+    ecg_to_dcm(r'E:\data\1\20110607153002.dat')
     fecg_to_dcm(r'd:\20120503152310.dat')
 
 # References:
