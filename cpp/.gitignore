@@ -45,6 +45,9 @@
 *.tlog
 *.opensdf
 
+# QtCreator intermediate files
+*.pro.user
+
 # Configuration files
 *.ini
 *.cfg
