@@ -11,7 +11,14 @@ CString GetModulePath(HMODULE hModule = NULL);
 CString JoinPath(LPCTSTR lpszBaseDir, LPCTSTR lpszSubDir);
 LPTSTR TransformPathSep(LPTSTR lpszPath);
 CString &TransformPathSep(CString &strPath);
+
+#if 0
+__declspec(deprecated("Deprecated, use SHCreateDirectoryEx instead."))
 BOOL MakeFullPath(const CString &strPath);
+#else
+#define MakeFullPath(path) SHCreateDirectoryEx(NULL, (path), NULL)
+#endif
+
 CString GetDirName(const CString &strPath);
 
 BOOL IsRemovableDrive(LPCTSTR lpcszDrive);
