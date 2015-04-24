@@ -105,7 +105,7 @@ BOOL IsRemovableDrive(LPCTSTR lpcszDrive)
 // In cmd, we can use the internal command `md`/`mkdir` to create a directory.
 // http://code.reactos.org/browse/reactos/trunk/reactos/base/shell/cmd/internal.c?hb=true
 // 2015-04-23T09:21+08:00
-// Deprecated, use SHCreateDirectoryEx instead.
+// Deprecated, use SHCreateDirectory(Ex) instead.
 BOOL MakeFullPath(const CString &strPath)
 {
     TCHAR szNormPath[MAX_PATH];
@@ -170,6 +170,26 @@ CString GetDirName(const CString &strPath)
     }
 
     return strPath.Left(iLastPathSepPos + 1);
+}
+
+// 2015-04-23T13:45+08:00
+CString BrowseForFolder(const CString &strTitle, HWND hParent, const CString &strRoot)
+{
+    TCHAR szFolder[MAX_PATH] = _T("");
+    
+    BROWSEINFO bi = {};
+    bi.hwndOwner = hParent;
+    bi.pszDisplayName = szFolder;
+    bi.lpszTitle = strTitle;
+    bi.ulFlags = BIF_DONTGOBELOWDOMAIN | BIF_NEWDIALOGSTYLE | BIF_RETURNONLYFSDIRS;
+
+    PIDLIST_ABSOLUTE pidl = SHBrowseForFolder(&bi);
+    if (pidl != NULL && SHGetPathFromIDList(pidl, szFolder))
+    {
+        return szFolder;
+    }
+
+    return _T("");
 }
 
 // 2015-03-11T17:06+08:00

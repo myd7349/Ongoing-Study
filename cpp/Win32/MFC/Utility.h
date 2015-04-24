@@ -13,13 +13,15 @@ LPTSTR TransformPathSep(LPTSTR lpszPath);
 CString &TransformPathSep(CString &strPath);
 
 #if 0
-__declspec(deprecated("Deprecated, use SHCreateDirectoryEx instead."))
+__declspec(deprecated("Deprecated, use SHCreateDirectory(Ex) instead."))
 BOOL MakeFullPath(const CString &strPath);
 #else
-#define MakeFullPath(path) SHCreateDirectoryEx(NULL, (path), NULL)
+#define MakeFullPath(path) SHCreateDirectory(NULL, (path))
 #endif
 
 CString GetDirName(const CString &strPath);
+CString BrowseForFolder(const CString &strTitle = _T(""),
+    HWND hParent = NULL, const CString &strRoot = _T(""));
 
 BOOL IsRemovableDrive(LPCTSTR lpcszDrive);
 
