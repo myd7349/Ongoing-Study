@@ -118,6 +118,7 @@ inline void Println(Iter begin, Iter end)
 }
 
 #if 0
+// https://github.com/adob/print-stmt
 // http://stackoverflow.com/questions/4850473/pretty-print-c-stl-containers
 template <typename Container, typename CharT>
 inline std::basic_ostream<CharT> &operator<<(std::basic_ostream<CharT> &os, const Container &c)
