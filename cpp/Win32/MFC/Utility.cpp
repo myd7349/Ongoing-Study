@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 
 #include "Utility.h"
 
@@ -99,10 +99,13 @@ BOOL IsRemovableDrive(LPCTSTR lpcszDrive)
     return ::GetDriveType(lpcszDrive) == DRIVE_REMOVABLE;
 }
 
+#if 0
 // 2015-03-10T13:39+08:00
 // MakeFullPath do similar work as boost::filesystem::create_directories.
 // In cmd, we can use the internal command `md`/`mkdir` to create a directory.
 // http://code.reactos.org/browse/reactos/trunk/reactos/base/shell/cmd/internal.c?hb=true
+// 2015-04-23T09:21+08:00
+// Deprecated, use SHCreateDirectoryEx instead.
 BOOL MakeFullPath(const CString &strPath)
 {
     TCHAR szNormPath[MAX_PATH];
@@ -151,6 +154,7 @@ BOOL MakeFullPath(const CString &strPath)
 
     return TRUE;
 }
+#endif
 
 // 2015-04-09T09:56+08:00
 CString GetDirName(const CString &strPath)
