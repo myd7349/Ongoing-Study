@@ -208,6 +208,27 @@ void test_5()
     }
 }
 
+// 2015-04-27T22:12+08:00
+/*
+In Python 3.x:
+try:
+    raise ValueError
+except ValueError:
+    raise TypeError # Duang! During handling of the above exception, another exception occurred:
+except TypeError as e:
+    print(repr(e))
+*/
+void test_6()
+{
+    try {
+        throw 42;
+    } catch (int) {
+        throw "Hello, world!";
+    } catch (const char *&wtf) {
+        std::cerr << wtf << '\n';
+    }
+}
+
 int main()
 {
     //SAND_BOX(test_0); // terminate called after throwing an instance of 'int'
@@ -222,6 +243,8 @@ int main()
     SAND_BOX(test_42);
 
     SAND_BOX(test_5);
+
+    SAND_BOX(test_6);
 
     return 0;
 }
