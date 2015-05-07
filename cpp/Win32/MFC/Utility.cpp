@@ -37,6 +37,9 @@ CString GetModulePath(HMODULE hModule)
     }
 }
 
+// Note that:
+// JoinPath(_T("E:\\data\\data.dat"), _T("E:\\data\\data.dat")) will return
+// _T("E:\\data\\data.dat").
 CString JoinPath(LPCTSTR lpszBaseDir, LPCTSTR lpszSubDir)
 {
     TCHAR szPath[MAX_PATH];
