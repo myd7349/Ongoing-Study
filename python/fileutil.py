@@ -7,12 +7,10 @@ import functools
 import io
 import os
 
-def is_file_object(f):
-    if not all(map(functools.partial(hasattr, f),
-                   ['read', 'fileno', 'seek', 'tell'])):
-        return False
-    return True
-    
+def is_file_obj(f):
+    return all(map(functools.partial(hasattr, f),
+                   ['read', 'fileno', 'seek', 'tell']))
+
 def file_size(f):
     '''Get the size of given file.
 
@@ -22,7 +20,7 @@ def file_size(f):
     if isinstance(f, str):
         return os.stat(f).st_size
 
-    if not is_file_object(f):
+    if not is_file_obj(f):
         raise ValueError('Invalid file object')
 
     try:
@@ -41,7 +39,7 @@ def file_name(f):
     if isinstance(f, str):
         return f
 
-    if is_file_object(f):
+    if is_file_obj(f):
         return getattr(f, 'name', '')
     else:
         return ''
@@ -70,7 +68,7 @@ class FileGuard:
                 assert hasattr(f, 'read')
                 fp = f
     has been written.
-    
+
     When it comes to a file name, it will be nice to wrap it with a `with` statement,
     like this:
         with open(f, 'r') as fp:
@@ -92,7 +90,7 @@ class FileGuard:
         else:
             self._file = file
             self._user_owned_the_file = True
-    
+
     def __enter__(self):
         return self._file
 
@@ -105,7 +103,7 @@ def open_file(file, *args, **kwargs):
 
 if __name__ == '__main__':
     import unittest
-    
+
     class TestFileSize(unittest.TestCase):
         def test_regular_file(self):
             test_file = 'fpsize_test.dat'
@@ -134,7 +132,7 @@ if __name__ == '__main__':
     class TestFileName(unittest.TestCase):
         def setUp(self):
             self._file = 'a.out'
-            
+
         def test_file_name(self):
             self.assertEqual(file_name(self._file), self._file)
 
@@ -152,7 +150,7 @@ if __name__ == '__main__':
     class TestReplaceExt(unittest.TestCase):
         def setUp(self):
             self._file = 'a.out'
-            
+
         def test(self):
             self.assertEqual(replace_ext(self._file, '.exe'), 'a.exe')
 
@@ -166,14 +164,14 @@ if __name__ == '__main__':
             self.assertEqual(replace_ext('foo', '.dcm', suffix = '-0'), 'foo-0.dcm')
             self.assertEqual(replace_ext('foo', '.dcm', suffix = '-1'), 'foo-1.dcm')
             self.assertEqual(replace_ext('foo', '.dcm', suffix = '-2'), 'foo-2.dcm')
-            
+
 
     class TestOpenFile(unittest.TestCase):
         def test_pass_a_file_name(self):
             file = 'a.out'
             test_data = b'Hello, world!'
             fp = None
-            
+
             if not os.path.exists(file):
                 with open_file(file, 'wb') as fp:
                     fp.write(test_data)
@@ -184,7 +182,7 @@ if __name__ == '__main__':
         def test_pass_a_file_object(self):
             file = 'a.out'
             test_data = b'myd7349'
-            
+
             if not os.path.exists(file):
                 f = open(file, 'w+b')
                 with open_file(f, 'w+b') as fp:
@@ -194,9 +192,9 @@ if __name__ == '__main__':
                 self.assertEqual(f.read(), test_data)
                 f.close()
                 os.remove(file)
-            
+
     unittest.main()
-    
+
 # References:
 # [Does filehandle get closed automatically in Python after it goes out of scope?](http://stackoverflow.com/questions/2404430/does-filehandle-get-closed-automatically-in-python-after-it-goes-out-of-scope)
 # [Does a File Object Automatically Close when its Reference Count Hits Zero?](http://stackoverflow.com/questions/1834556/does-a-file-object-automatically-close-when-its-reference-count-hits-zero)
