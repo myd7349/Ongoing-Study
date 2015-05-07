@@ -94,6 +94,41 @@ CString &TransformPathSep(CString &strPath)
     return strPath;
 }
 
+// 2015-05-07T09:33+08:00
+BOOL HasLastPathSep(const CString &strPath)
+{
+    int iLen = strPath.GetLength();
+
+    return iLen > 0 && (strPath[iLen - 1] == _T('\\') 
+        || strPath[iLen - 1] == _T('/')); 
+}
+
+// 2015-05-07T09:33+08:00
+CString AddLastPathSep(const CString &strPath)
+{
+    if (!HasLastPathSep(strPath))
+    {
+        return strPath + _T('\\');
+    }
+    else
+    {
+        return strPath;
+    }
+}
+
+// 2015-05-07T09:33+08:00
+CString RemoveLastPathSep(const CString &strPath)
+{
+    if (HasLastPathSep(strPath))
+    {
+        return strPath.Left(strPath.GetLength() - 1);
+    }
+    else
+    {
+        return strPath;
+    }
+}
+
 BOOL IsRemovableDrive(LPCTSTR lpcszDrive)
 {
     return ::GetDriveType(lpcszDrive) == DRIVE_REMOVABLE;
@@ -173,7 +208,7 @@ CString GetDirName(const CString &strPath)
 }
 
 // 2015-04-23T13:45+08:00
-CString BrowseForFolder(const CString &strTitle, HWND hParent, const CString &strRoot)
+CString BrowseForFolder(const CString &strTitle, HWND hParent, BOOL bShowFile, const CString &strRoot)
 {
     TCHAR szFolder[MAX_PATH] = _T("");
     
@@ -182,6 +217,11 @@ CString BrowseForFolder(const CString &strTitle, HWND hParent, const CString &st
     bi.pszDisplayName = szFolder;
     bi.lpszTitle = strTitle;
     bi.ulFlags = BIF_DONTGOBELOWDOMAIN | BIF_NEWDIALOGSTYLE | BIF_RETURNONLYFSDIRS;
+
+    if (bShowFile)
+    {
+        bi.ulFlags |= BIF_BROWSEINCLUDEFILES;
+    }
 
     PIDLIST_ABSOLUTE pidl = SHBrowseForFolder(&bi);
     if (pidl != NULL && SHGetPathFromIDList(pidl, szFolder))

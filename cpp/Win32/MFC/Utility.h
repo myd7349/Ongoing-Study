@@ -12,6 +12,10 @@ CString JoinPath(LPCTSTR lpszBaseDir, LPCTSTR lpszSubDir);
 LPTSTR TransformPathSep(LPTSTR lpszPath);
 CString &TransformPathSep(CString &strPath);
 
+BOOL HasLastPathSep(const CString &strPath);
+CString AddLastPathSep(const CString &strPath);
+CString RemoveLastPathSep(const CString &strPath);
+
 #if 0
 __declspec(deprecated("Deprecated, use SHCreateDirectory(Ex) instead."))
 BOOL MakeFullPath(const CString &strPath);
@@ -21,7 +25,7 @@ BOOL MakeFullPath(const CString &strPath);
 
 CString GetDirName(const CString &strPath);
 CString BrowseForFolder(const CString &strTitle = _T(""),
-    HWND hParent = NULL, const CString &strRoot = _T(""));
+    HWND hParent = NULL, BOOL bShowFile = FALSE, const CString &strRoot = _T(""));
 
 BOOL IsRemovableDrive(LPCTSTR lpcszDrive);
 
