@@ -33,6 +33,9 @@
 
 # VS2010 intermediate files
 *.vcxproj.user
+*.lastbuildstate
+*.ipch
+*.manifest
 
 # VS2013 intermediate files
 *.aps
