@@ -7,6 +7,7 @@ def main():
     import array
     import struct
 
+    #---------------------------------------------------------------------------
     # Suppose that we got a C-style integer array that contains 10 integers:
     #   int data[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     # so how is this array stored in memory?
@@ -29,8 +30,28 @@ def main():
     data = bytes(data)
     print(data)
 
+    #---------------------------------------------------------------------------
+    # unpack_data_v0 itself is a function that returns an iterable object.
+    # unpack_data_v1 itself is a generator function.
+    def unpack_data_v0():
+        return struct.iter_unpack('=i', data)
+    def unpack_data_v1():
+        yield from struct.iter_unpack('=i', data)
+
+    for i in unpack_data_v0():
+        print(*i, end = ' ')
+    print()
+    
+    for i in unpack_data_v1():
+        print(*i, end = ' ')
+    print()
+
+    #---------------------------------------------------------------------------
+    # To be continued...
+
 if __name__ == '__main__':
     main()
 
 # References:
 # [Python 3.4.3 documentation/The Python Standard Library/4.8. Binary Sequence Types — bytes, bytearray, memoryview]
+# [Python 3.4.3 documentation/The Python Language Reference/6.2.9.1. Generator-iterator methods]
