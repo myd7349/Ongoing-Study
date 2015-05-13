@@ -13,7 +13,11 @@ def fetchPage(url, encoding = 'utf-8'):
         for line in response:
             yield line.decode(charset)
     else:
-        return response # HTTPResponse object is iterable
+        # Though HTTPResponse object is iterable, we CANNOT just return `response`
+        # object here. Because `return` statement in a generator function has
+        # special meanings. Instead, we should use `yield from`. See issue #1.
+        #return response
+        yield from response 
 
 def main():
     '''Extract all Python tutorials urls from this page:

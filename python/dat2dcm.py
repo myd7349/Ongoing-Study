@@ -60,7 +60,7 @@ def unpack_data_from_file(f, fmt, offset = 0):
         fp.seek(offset, os.SEEK_SET)
         
         if (file_len - offset) % pack_size == 0:
-            #return struct.iter_unpack(fmt, fp.read()) # ???
+            #return struct.iter_unpack(fmt, fp.read()) # See issue #1
             yield from struct.iter_unpack(fmt, fp.read())
         else:
             # The length of the file isn't the multiple of struct.calcsize(fmt), so

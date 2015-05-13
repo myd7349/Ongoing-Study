@@ -56,7 +56,7 @@ def _EnumSubKeyImpl(key, sub_key = None, recursive = False, first_recursion = Tr
 # But it is even more confusing. So I rewrite it.
 def EnumSubKey(key, sub_key = None, recursive = False):
     '''Enumerate all sub-keys under specified registry item.'''
-    return _EnumSubKeyImpl(key, sub_key, recursive, True)
+    return _EnumSubKeyImpl(key, sub_key, recursive, True) # See issue #1
 
 def EnumValue(key, sub_key = None, recursive = False):
     '''Enumerate all values under specified registry item.'''
