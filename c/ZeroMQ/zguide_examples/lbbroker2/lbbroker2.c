@@ -5,9 +5,44 @@
 
 #define NBR_CLIENTS 10
 #define NBR_WORKERS 3
-#define WORKER_READY "\001" // Signals worker is ready
+#define WORKER_READY "READY" // Signals worker is ready
 
 #define DEBUG_POINT() printf("%s: %d\n", __FUNCTION__, __LINE__)
+
+// Based on those code in zframe_print
+static void
+zframe_dump(zframe_t *frame, const char *prefix, const char *suffix)
+{
+	assert(frame);
+	assert(zframe_is(frame));
+
+	byte *data = zframe_data(frame);
+	size_t size = zframe_size(frame);
+
+	//  Probe data to check if it looks like unprintable binary
+	int is_bin = 0;
+	uint char_nbr;
+	for (char_nbr = 0; char_nbr < size; char_nbr++)
+		if (data[char_nbr] < 9 || data[char_nbr] > 127)
+			is_bin = 1;
+
+	char buffer[256] = "";
+	size_t max_size = is_bin ? 35 : 70;
+	const char *ellipsis = "";
+	if (size > max_size) {
+		size = max_size;
+		ellipsis = "...";
+	}
+	for (char_nbr = 0; char_nbr < size; char_nbr++) {
+		if (is_bin)
+			sprintf(buffer + strlen(buffer), "%02X", (unsigned char)data[char_nbr]);
+		else
+			sprintf(buffer + strlen(buffer), "%c", data[char_nbr]);
+	}
+	strcat(buffer, ellipsis);
+
+	printf("%s%s%s", prefix ? prefix : "", buffer, suffix ? suffix : "");
+}
 
 // Basic request-reply client using REQ socket
 //
@@ -17,7 +52,7 @@ client_task(void *args)
     zctx_t *ctx = zctx_new();
     void *client = zsocket_new(ctx, ZMQ_REQ);
 
-#ifdef WIN32
+#if (defined (WIN32))
     zsocket_connect(client, "tcp://localhost:5672"); // frontend
 #else
     zsocket_connect(client, "ipc://frontend.ipc");
@@ -59,7 +94,11 @@ worker_task(void *args)
         zmsg_t *msg = zmsg_recv(worker);
         if (!msg)
             break; // Interrupted
-        zframe_reset(zmsg_last(msg), "OK", 2);
+
+		zframe_t *request = zmsg_last(msg);
+		zframe_dump(request, "Worker: ", "\n");
+
+        zframe_reset(request, "OK", 2);
         zmsg_send(&msg, worker);
     }
 
@@ -85,6 +124,7 @@ int main(void)
     assert(streq(zsocket_type_str(backend), "ROUTER"));
 
 #ifdef WIN32
+# if 0
     const char *interf = "127.0.0.1";
     int frontend_port = 5672;
     int backend_port = 5673;
@@ -94,17 +134,23 @@ int main(void)
     assert(res == frontend_port);
     res = zsocket_bind(backend, "tcp://%s:%d", interf, backend_port); // backend
     assert(res == backend_port);
+# else
+	zsocket_bind(frontend, "tcp://*:5672");
+	zsocket_bind(backend, "tcp://*:5673");
+# endif
 #else
     zsocket_bind(frontend, "ipc://frontend.ipc");
     zsocket_bind(backend, "ipc://backend.ipc");
 #endif
 
+#if 0
     unsigned int fd;
     size_t zmq_fd_size = sizeof(fd);
     if (zmq_getsockopt(backend, ZMQ_RCVHWM, &fd, &zmq_fd_size) == -1)
     {
         printf("haha");
     }
+#endif
 
     int client_nbr;
     for (client_nbr = 0; client_nbr < NBR_CLIENTS; client_nbr++)
@@ -143,7 +189,7 @@ int main(void)
 
             // Forward message to client if it's not a READY
             zframe_t *frame = zmsg_first(msg);
-            if (memcmp(zframe_data(frame), WORKER_READY, 1) == 0)
+            if (memcmp(zframe_data(frame), WORKER_READY, strlen(WORKER_READY)) == 0)
                 zmsg_destroy(&msg);
             else
                 zmsg_send(&msg, frontend);
