@@ -79,14 +79,14 @@ worker_task(void *args)
     zctx_t *ctx = zctx_new();
     void *worker = zsocket_new(ctx, ZMQ_REQ);
 
-#ifdef WIN32
+#if (defined (WIN32))
     zsocket_connect(worker, "tcp://localhost:5673"); // backend
 #else
     zsocket_connect(worker, "ipc://backend.ipc");
 #endif
 
     // Tell broker we're ready for work
-    zframe_t *frame = zframe_new(WORKER_READY, 1);
+    zframe_t *frame = zframe_new(WORKER_READY, strlen(WORKER_READY));
     zframe_send(&frame, worker, 0);
 
     // Process messages as they arrive
@@ -96,7 +96,11 @@ worker_task(void *args)
             break; // Interrupted
 
 		zframe_t *request = zmsg_last(msg);
+#if 0
+		zframe_print(request, "Worker: ");
+#else
 		zframe_dump(request, "Worker: ", "\n");
+#endif
 
         zframe_reset(request, "OK", 2);
         zmsg_send(&msg, worker);
@@ -123,7 +127,7 @@ int main(void)
     assert(streq(zsocket_type_str(frontend), "ROUTER"));
     assert(streq(zsocket_type_str(backend), "ROUTER"));
 
-#ifdef WIN32
+#if (defined (WIN32))
 # if 0
     const char *interf = "127.0.0.1";
     int frontend_port = 5672;
@@ -209,7 +213,7 @@ int main(void)
             zmsg_t *msg = zmsg_recv(frontend);
             if (msg) {
 #if 1
-				if (zmsg_pushmem(msg, "", 0) == 0)
+				if (zmsg_pushmem(msg, NULL, 0) == 0)
 					zmsg_push(msg, (zframe_t *)zlist_pop(workers));
 #else
 				zmsg_wrap(msg, (zframe_t *)zlist_pop(workers));
