@@ -50,9 +50,12 @@ def main():
     #---------------------------------------------------------------------------
     # However, it is not always the case. For example, in a generator function
     # we can only use `yield from`, not `return`.
-    # A more useful example that demonstrates this question can be found in:
+    # Two more useful examples that demonstrate this question can be found in:
     # https://github.com/myd7349/Ongoing-Study/blob/master/python/dat2dcm.py
     # (the implementation of dat2dcm.unpack_data_from_file)
+    # and in:
+    # https://github.com/myd7349/Ongoing-Study/blob/master/python/FetchPythonTutorialsURLs.py
+    # (the implementation of FetchPythonTutorialsURLs.fetchPage)
     # See issue #1
     def unpack_data_v3(do_real_work = True):
         if do_real_work:
