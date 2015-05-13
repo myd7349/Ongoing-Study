@@ -86,3 +86,8 @@ if __name__ == '__main__':
 # References:
 # [Python 3.4.3 documentation/The Python Standard Library/4.8. Binary Sequence Types — bytes, bytearray, memoryview]
 # [Python 3.4.3 documentation/The Python Language Reference/6.2.9.1. Generator-iterator methods]
+# [PEP 0380 -- Syntax for Delegating to a Subgenerator](https://www.python.org/dev/peps/pep-0380/)
+# [Python: generator expression vs. yield](http://stackoverflow.com/questions/1995418/python-generator-expression-vs-yield)
+# [Return in generator together with yield in Python 3.3](http://stackoverflow.com/questions/16780002/return-in-generator-together-with-yield-in-python-3-3)
+# [What does the yield keyword do in Python?](http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python)
+# [python中的协程（yield）内部是怎么实现的？](http://www.zhihu.com/question/30133749/)
