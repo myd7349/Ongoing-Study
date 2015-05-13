@@ -59,12 +59,24 @@ client_task(void *args)
 #endif
 
     // Send request, get reply
-    zstr_send(client, "HELLO");
-    char *reply = zstr_recv(client);
-    if (reply) {
-        printf("Client: %s\n", reply);
-        free(reply);
-    }
+#if 0
+	while (1) {
+		zstr_send(client, "HELLO");
+		char *reply = zstr_recv(client);
+		if (!reply)
+			break;
+		printf("Client: %s\n", reply);
+		free(reply);
+		zclock_sleep(1);
+	}
+#else
+	zstr_send(client, "HELLO");
+	char *reply = zstr_recv(client);
+	if (reply) {
+		printf("Client: %s\n", reply);
+		free(reply);
+	}
+#endif
 
     zsocket_destroy(ctx, client);
     zctx_destroy(&ctx);
