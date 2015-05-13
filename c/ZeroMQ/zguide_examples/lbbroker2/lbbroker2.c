@@ -184,7 +184,16 @@ int main(void)
             zmsg_t *msg = zmsg_recv(backend);
             if (!msg)
                 break; // Interrupted
-            zframe_t *identity = zmsg_unwrap(msg);
+#if 1
+			zframe_t *identity = zmsg_pop(msg);
+			zframe_t *delimiter = zmsg_first(msg);
+			if (delimiter != NULL && zframe_size(delimiter) == 0) {
+				delimiter = zmsg_pop(msg);
+				zframe_destroy(&delimiter);
+			}
+#else
+			zframe_t *identity = zmsg_unwrap(msg);
+#endif
             zlist_append(workers, identity);
 
             // Forward message to client if it's not a READY
@@ -199,7 +208,12 @@ int main(void)
             // Get client request, route to first available worker
             zmsg_t *msg = zmsg_recv(frontend);
             if (msg) {
-                zmsg_wrap(msg, (zframe_t *)zlist_pop(workers));
+#if 1
+				if (zmsg_pushmem(msg, "", 0) == 0)
+					zmsg_push(msg, (zframe_t *)zlist_pop(workers));
+#else
+				zmsg_wrap(msg, (zframe_t *)zlist_pop(workers));
+#endif
                 zmsg_send(&msg, backend);
             }
         }
