@@ -129,9 +129,9 @@ int main(void)
 
 			//  Forward message to client if it's not a READY
 			zframe_t *frame = zmsg_first(msg);
-			if (memcmp(zframe_data(frame), WORKER_READY, strlen(WORKER_READY)) == 0)
+			if (memcmp(zframe_data(frame), WORKER_READY, strlen(WORKER_READY)) == 0) {
 				zmsg_destroy(&msg);
-			else {
+			} else {
 				zmsg_send(&msg, frontend);
 				if (--client_nbr == 0)
 					break; // Exit after N messages
