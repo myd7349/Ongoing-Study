@@ -53,7 +53,7 @@ worker_task(void *args)
 	zframe_send(&frame, worker, 0);
 
 	//  Process messages as they arrive
-	while (1) {
+	while (true) {
 		zmsg_t *msg = zmsg_recv(worker);
 		if (!msg)
 			break;              //  Interrupted
@@ -70,7 +70,7 @@ worker_task(void *args)
 //  the previous {{lbbroker}} broker example, but uses CZMQ to start child 
 //  threads, to hold the list of workers, and to read and send messages:
 
-int main(void)
+int main()
 {
 	zctx_t *ctx = zctx_new();
 	void *frontend = zsocket_new(ctx, ZMQ_ROUTER);
@@ -99,7 +99,7 @@ int main(void)
 	//  Here is the main loop for the load balancer. It works the same way
 	//  as the previous example, but is a lot shorter because CZMQ gives
 	//  us an API that does more with fewer calls:
-	while (1) {
+	while (true) {
 		zmq_pollitem_t items[] = {
 				{ backend, 0, ZMQ_POLLIN, 0 },
 				{ frontend, 0, ZMQ_POLLIN, 0 }
