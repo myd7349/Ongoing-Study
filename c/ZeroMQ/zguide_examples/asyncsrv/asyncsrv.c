@@ -116,6 +116,8 @@ server_worker(void *args, zctx_t *ctx, void *pipe)
 
 int main(void)
 {
+	srandom((unsigned int)time(NULL));
+
 	int client_nbr;
 	for (client_nbr = 0; client_nbr < NBR_CLIENTS; client_nbr++) {
 		zthread_new(client_task, (void *)(intptr_t)client_nbr);
@@ -123,6 +125,5 @@ int main(void)
 
 	zthread_new(server_task, NULL);
 	zclock_sleep(5 * 1000); // Run for 5 seconds then quit
-	system("pause");
 	return 0;
 }
