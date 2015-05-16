@@ -125,5 +125,6 @@ int main(void)
 
 	zthread_new(server_task, NULL);
 	zclock_sleep(5 * 1000); // Run for 5 seconds then quit
+	system("pause");
 	return 0;
 }
