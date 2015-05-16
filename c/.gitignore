@@ -44,6 +44,7 @@
 *.suo
 *.tlog
 *.opensdf
+*.vcxproj.user
 
 # Configuration files
 *.ini
