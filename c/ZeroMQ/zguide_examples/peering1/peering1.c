@@ -21,7 +21,15 @@ int main(int argc, char *argv[])
 
 	// Bind state backend to endpoint
 	void *statebe = zsocket_new(ctx, ZMQ_PUB);
+
+	// According to zguide, we prefer IPC to TCP in this example.
+	// However, since IPC doesn't work on windows currently, so we
+	// will still use TCP on windows.
+#if (defined (WIN32))
+	zsocket_bind(statebe, "tcp://*:%s", self);
+#else
 	zsocket_bind(statebe, "ipc://%s-state.ipc", self);
+#endif
 
 	// Connect statefe to all peers
 	void *statefe = zsocket_new(ctx, ZMQ_SUB);
@@ -30,7 +38,12 @@ int main(int argc, char *argv[])
 	for (argn = 2; argn < argc; argn++) {
 		char *peer = argv[argn];
 		printf("I: connecting to state backend at '%s'\n", peer);
-		zsocket_connect("statefe", "ipc://%s-state.ipc", peer);
+
+#if (defined (WIN32))
+		zsocket_connect(statefe, "tcp://localhost:%s", peer);
+#else
+		zsocket_connect(statefe, "ipc://%s-state.ipc", peer);
+#endif
 	}
 	// .split main loop
 	// The main loop sends out status messages to peers, and collects
