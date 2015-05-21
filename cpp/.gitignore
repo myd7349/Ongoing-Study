@@ -36,6 +36,9 @@
 *.lastbuildstate
 *.ipch
 *.manifest
+*.cache
+*.res
+*.unsuccessfulbuild
 
 # VS2013 intermediate files
 *.aps
