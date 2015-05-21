@@ -4,6 +4,8 @@
 
 #include "serial/serial.h" // https://github.com/wjwwood/serial
 
+#include "../../common.h"
+
 #ifdef _MSC_VER
 # pragma comment(lib, "serial.lib")
 #endif
@@ -16,7 +18,6 @@ int main()
         std::cout << it->port << '\t' << it->hardware_id << '\t' << it->description << std::endl;
     }
 
-    std::system("pause");
-
+    PAUSE();
     return 0;
 }
