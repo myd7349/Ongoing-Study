@@ -30,7 +30,7 @@
 
 int main(int argc, char *argv[])
 {
-    // Try to change the value of `OPERATION_DELAY` and watch the behavior of this program.
+    // Try to change the value of `OPERATION_DELAY` and see how the behavior of this program changes.
 #ifndef NDEBUG
     const int OPERATION_DELAY(200);
 #else
@@ -117,3 +117,5 @@ int main(int argc, char *argv[])
     PAUSE();
     return 0;
 }
+// References:
+// [C read call blocking on serial port operation](http://stackoverflow.com/questions/7396255/c-read-call-blocking-on-serial-port-operation)
