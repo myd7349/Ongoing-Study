@@ -1,5 +1,5 @@
 // 2015-05-21T15:17+08:00
-// Demonstrates how to reconnect to a serial port once the device is unplugged.
+// Demonstrates how to reconnect to a serial port once the device was unplugged and then plugged back.
 //
 // Firstly, connect the device to the PC. Start this program. And some stuff is dumped out.
 // Then, plug out the device and wait a while. In the meantime, see how the output changes.
