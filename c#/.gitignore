@@ -1,1 +1,7 @@
 *.suo
+
+*.exe
+*.pdb
+*.exe.manifest
+*.cache
+*.csproj.FileListAbsolute.txt
