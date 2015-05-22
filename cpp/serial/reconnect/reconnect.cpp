@@ -7,11 +7,13 @@
 // 
 // Each time you run this program, please try to use a different `OPERATION_DELAY` and
 // see how it will influence the behaviour of this program. For example, try 10 and 200 separately.
+#include <algorithm>
 #include <cstdint>
 #include <cstdio>
 #include <functional>
 #include <memory>
 #include <string>
+#include <vector>
 
 #include "serial/serial.h" // https://github.com/wjwwood/serial
 
@@ -27,6 +29,22 @@
 #else
 # error Not implemented yet!
 #endif
+
+std::string GetDevicePort()
+{
+    std::vector<serial::PortInfo> ports = serial::list_ports();
+    auto it = std::find_if(ports.cbegin(), ports.cend(), 
+        [](const serial::PortInfo &portInfo) ->bool
+        {
+            std::string description = "Silicon Labs CP210x USB to UART Bridge";
+            return portInfo.description.substr(0, description.length()) == description; 
+        });
+    if (it != ports.cend()) {
+        return it->port;
+    } else {
+        return "";
+    }
+}
 
 int main(int argc, char *argv[])
 {
@@ -48,7 +66,7 @@ int main(int argc, char *argv[])
 
     std::unique_ptr<serial::Serial> serialPtr = nullptr;
     try {
-        serialPtr = std::unique_ptr<serial::Serial>(new serial::Serial("COM4", 576000));
+        serialPtr = std::unique_ptr<serial::Serial>(new serial::Serial(GetDevicePort(), 576000));
     } catch (const std::exception &e) {
         RETURN_ON_FAILURE();
     }
