@@ -26,6 +26,9 @@
 #define cmFUNIN             cmCSTRCAT(_T("(i): "), cmFUNCTION)
 #define cmFUNOUT            cmCSTRCAT(_T("(o): "), cmFUNCTION)
 
+// 2015-05-25T09:09+08:00
+#define cmAssignIfNotEqual(var, val) if (var != val) var = val
+
 inline CRect cmRect2CRect(const Gdiplus::Rect &rc)
 {
     return CRect(rc.X, rc.Y, 
