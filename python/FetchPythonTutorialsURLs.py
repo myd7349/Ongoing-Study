@@ -24,7 +24,7 @@ def main():
     http://www.bogotobogo.com/python/pytut.php
     '''
     import itertools
-    import os
+    import os.path
     import re
 
     line_generator = fetchPage('http://www.bogotobogo.com/python/pytut.php')
@@ -45,7 +45,7 @@ def main():
         pass
 
     # Extract all the urls in the HTML list until we reach the end tag: </ul>
-    with open(os.path.join(os.environ['HOME'], 'List_of_Python_Tutorials.txt'),
+    with open(os.path.join(os.path.expanduser('~'), 'List_of_Python_Tutorials.txt'),
               'w') as fp:
         url_pattern = re.compile(r'<a href="(.*)">')
         

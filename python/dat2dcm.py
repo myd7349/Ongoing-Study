@@ -17,7 +17,9 @@ import dicom # [pydicom](http://www.pydicom.org/)
 
 import fileutil
 
-logger_filename = os.path.join(os.environ['HOME'],
+# Fix issue #5: https://github.com/myd7349/Ongoing-Study/issues/5
+# Don't use os.environ['HOME'], use os.path.expanduser('~') instead.
+logger_filename = os.path.join(os.path.expanduser('~'),
                             fileutil.replace_ext(os.path.basename(__file__), '.log'))
 logging.basicConfig(level = logging.NOTSET, filename = logger_filename,
                     format = '%(asctime)s [%(levelname)s]: %(message)s')
