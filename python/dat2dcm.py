@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 # 2015-03-23T14:34+08:00
-# myd7349@gmail.com
 
+__author__ = 'myd7349 <myd7349@gmail.com>'
 __version__ = '0.0.1'
 
 import io
@@ -11,24 +11,21 @@ import logging
 import math
 import os
 import struct
+import sys
 import warnings
 
 import dicom # [pydicom](http://www.pydicom.org/)
 
 import fileutil
 
-# Fix issue #6: https://github.com/myd7349/Ongoing-Study/issues/6
-try:
-    import sys
-    if sys.frozen or sys.importers:
-        file_name = sys.executable
-except AttributeError:
-    file_name = __file__
+# Fix issue #6
+if hasattr(sys, 'frozen') or hasattr(sys, 'importers'):
+    __file__ = sys.executable
 
-# Fix issue #5: https://github.com/myd7349/Ongoing-Study/issues/5
+# Fix issue #5
 # Don't use os.environ['HOME'], use os.path.expanduser('~') instead.
 logger_filename = os.path.join(os.path.expanduser('~'),
-                            fileutil.replace_ext(os.path.basename(file_name), '.log'))
+                            fileutil.replace_ext(os.path.basename(__file__), '.log'))
 logging.basicConfig(level = logging.NOTSET, filename = logger_filename,
                     format = '%(asctime)s [%(levelname)s]: %(message)s')
 logging.captureWarnings(True)
@@ -70,7 +67,7 @@ def unpack_data_from_file(f, fmt, offset = 0):
         fp.seek(offset, os.SEEK_SET)
         
         if (file_len - offset) % pack_size == 0:
-            #return struct.iter_unpack(fmt, fp.read()) # See issue #1
+            #return struct.iter_unpack(fmt, fp.read()) # Fix issue #1
             yield from struct.iter_unpack(fmt, fp.read())
         else:
             # The length of the file isn't the multiple of struct.calcsize(fmt), so
@@ -99,7 +96,7 @@ CID_3001_for_12_Lead_ECG = {
     'V6': ('2:8', 'Lead V6'),
     }
 
-class DCMECGDataset(dicom.dataset.FileDataset):    
+class DCMECGDataset(dicom.dataset.FileDataset):
     def __init__(self, file, fmt, sampling_frequency, channels, channel_labels,
                  adjust_callback = int, is_12_lead_ecg = True, *args, **kwargs):
         '''Represents a DICOM waveform data set, with necessary attributed added.
@@ -423,7 +420,7 @@ if __name__ == '__main__':
     print(min(u))
     
     ecg_to_dcm(r'E:\data\1\20110607153002.dat')
-    fecg_to_dcm(r'd:\20120503152310.dat')
+    ecg_to_dcm(r'd:\20120503152310.dat')
 
 # References:
 # DICOM 2015a PS3.5 7.4 Data Element Type
