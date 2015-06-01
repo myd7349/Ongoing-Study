@@ -47,7 +47,9 @@ def aton(num):
             return int(num, 0)
         except ValueError:
             # Make it possible to handle Python 2.6 style octal string literals.
-            return int(num, 8)
+            if num.startswith('0'):
+                return int(num, 8)
+            raise
 
 def atof(num):
     '''Convert string to floating point number.
