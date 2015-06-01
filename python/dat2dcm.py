@@ -12,7 +12,6 @@ import math
 import os
 import struct
 import sys
-import warnings
 
 import dicom # [pydicom](http://www.pydicom.org/)
 
@@ -292,7 +291,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
                        'total samples: {}, saved samples: {}, saved size: {}.'.format(
                            fileutil.file_name(self._file), data_file_len, pack_size, self._format,
                            data_file_total_samples, saved_samples, saved_samples * pack_size)
-            warnings.warn(warn_msg)
+            logger.warn(warn_msg)
             data_file_total_samples = saved_samples
 
         waveform_seq = dicom.sequence.Sequence()
