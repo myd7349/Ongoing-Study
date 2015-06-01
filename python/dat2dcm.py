@@ -17,9 +17,12 @@ import dicom # [pydicom](http://www.pydicom.org/)
 
 import fileutil
 
-# Fix issue #6
-if hasattr(sys, 'frozen') or hasattr(sys, 'importers'):
-    __file__ = sys.executable
+_frozen = hasattr(sys, 'frozen') or hasattr(sys, 'importers')
+
+if _frozen:
+    __file__ = sys.executable # Fix issue #6
+else:
+    import warnings # Fix issue #7
 
 # Fix issue #5
 # Don't use os.environ['HOME'], use os.path.expanduser('~') instead.
@@ -27,7 +30,7 @@ logger_filename = os.path.join(os.path.expanduser('~'),
                             fileutil.replace_ext(os.path.basename(__file__), '.log'))
 logging.basicConfig(level = logging.NOTSET, filename = logger_filename,
                     format = '%(asctime)s [%(levelname)s]: %(message)s')
-logging.captureWarnings(True)
+#logging.captureWarnings(True)
 logger = logging.getLogger(__name__)
 
 def unpack_data(buf, fmt, offset = 0):
@@ -291,6 +294,8 @@ class DCMECGDataset(dicom.dataset.FileDataset):
                        'total samples: {}, saved samples: {}, saved size: {}.'.format(
                            fileutil.file_name(self._file), data_file_len, pack_size, self._format,
                            data_file_total_samples, saved_samples, saved_samples * pack_size)
+            if not _frozen: # Fix issue #7
+                warnings.warn(warn_msg)
             logger.warn(warn_msg)
             data_file_total_samples = saved_samples
 
