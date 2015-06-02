@@ -1,0 +1,31 @@
+[DB]
+DRIVER = {Microsoft Access Driver (*.mdb)}
+SERVER = 
+PORT = 
+DATABASE = 
+DBQ = testdb.mdb
+UID = admin
+PWD = 
+
+[Fields]
+AdditionalPatientHistory = 
+InstitutionAddress = 
+InstitutionalDepartmentName = 
+InstitutionName = 
+Manufacturer = 
+PatientAge = Case:Age
+PatientBirthDate = 
+PatientID = Case:CaseNumber
+PatientName = Case:PatientName
+PatientSex = 
+PatientSize = 
+PatientWeight = 
+ReferringPhysicianName = 
+SoftwareVersions = 
+StudyDate = Data:StudyDate
+StudyTime = Data:StudyTime
+
+[Query]
+Criteria = Case.CaseNumber = Data.CaseNumber
+CriteriaWithOneArg = Case.CaseNumber = '{}'
+
