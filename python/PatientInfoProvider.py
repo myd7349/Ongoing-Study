@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # 2015-06-01T15:20+08:00
@@ -7,9 +8,12 @@ __version__ = '0.0.1'
 
 import configparser
 import odbc
+import string
+
+import dicom # [pydicom](http://www.pydicom.org/)
 
 db_section = 'DB'
-db_options = ('DRIVER', 'SERVER', 'PORT', 'DATABASE', 'DBQ', 'UID', 'PWD')
+db_options = ('DRIVER', 'SERVER', 'PORT', 'DATABASE', 'DBQ', 'UID', 'PWD', 'CaseTable', 'DataTable')
 fields_section = 'Fields'
 fields_options = (
     'AdditionalPatientHistory',
@@ -68,11 +72,43 @@ def read_config_file(config_file, config_dict = {}):
 
     return config
 
-def fetch_patient_info(config, projection):
-    pass
+def _create_connection_string(config):
+    if not config[db_section]['DRIVER']:
+        raise ValueError('"DRIVER" not provided')
 
+    temp = string.Template('$arg={0[$arg]};')
+    args = ['DRIVER']
+
+    if config[db_section]['DBQ']:
+        args.append('DBQ') # For databases like Microsoft Access's mdb file on local disk
+    else:
+        if not all(map(bool, (config[db_section]['SERVER'],
+                              config[db_section]['PORT'],
+                              config[db_section]['DATABASE']))):
+            raise ValueError('''Make sure that one of this condition is satisfied: 1. "DBQ" is provided; 2. "SERVER", "PORT", "DATABASE" are all provided''')
+        args += ['SERVER', 'PORT', 'DATABASE'] # For databases like MySql on remote server
+
+    args += ['UID', 'PWD']
+    return ''.join(map(lambda x: temp.substitute(arg = x), args)).format(config[db_section])
+
+def fetch_patient_info(config_file, config_dict = {}, projection = {}):
+    config = read_config_file(config_file, config_dict)
+    if not config:
+        raise RuntimeError('Failed to load configuration file.')
+
+    conn_str = _create_connection_string(config)
+    if __debug__:
+        print(conn_str)
+
+    connection = odbc.odbc(conn_str)
+    try:
+        cursor = connection.cursor()
+        cursor.execute('')
+    finally:
+        connection.close()
+    
 if __name__ == '__main__':
-    read_config_file('d:\\1.cfg', {})
+    fetch_patient_info(r'd:\1.cfg')
 
 # References:
 # [MS Access library for python](http://stackoverflow.com/questions/1047580/ms-access-library-for-python)

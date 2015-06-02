@@ -5,7 +5,6 @@
 # Create one single executable file from `dat2dcm.py`.
 
 from distutils.core import setup
-import os
 import sys
 
 import py2exe # http://www.py2exe.org/
