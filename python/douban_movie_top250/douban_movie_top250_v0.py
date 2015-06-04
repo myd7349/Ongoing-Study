@@ -16,6 +16,7 @@ def main():
     try:
         import lxml
         lxml_installed = True
+        del lxml
     except ImportError:
         lxml_installed = False
 
