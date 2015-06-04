@@ -6,81 +6,32 @@
 __author__ = 'myd7349 <myd7349@gmail.com>'
 __version__ = '0.0.1'
 
-import io
 import logging
-import math
 import os
 import struct
 import sys
 
-import dicom # [pydicom](http://www.pydicom.org/)
+import dicom  # [pydicom](http://www.pydicom.org/)
 
 import fileutil
+import unpacker
 
 _frozen = hasattr(sys, 'frozen') or hasattr(sys, 'importers')
 
 if _frozen:
-    __file__ = sys.executable # Fix issue #6
+    __file__ = sys.executable  # Fix issue #6
 else:
-    import warnings # Fix issue #7
+    import warnings  # Fix issue #7
 
 # Fix issue #5
 # Don't use os.environ['HOME'], use os.path.expanduser('~') instead.
 logger_filename = os.path.join(os.path.expanduser('~'),
                             fileutil.replace_ext(os.path.basename(__file__), '.log'))
 logging.basicConfig(level = logging.NOTSET, filename = logger_filename,
-                    format = '%(asctime)s [%(levelname)s]: %(message)s')
+                    format ='%(asctime)s [%(levelname)s]: %(message)s')
 #logging.captureWarnings(True)
 logger = logging.getLogger(__name__)
 
-def unpack_data(buf, fmt, offset = 0):
-    '''Retrieve data from given data buffer and unpack them according to specified format.'''
-    if not isinstance(buf, (bytes, bytearray)):
-        raise ValueError('Invalid data buffer')
-    
-    return unpack_data_from_file(io.BytesIO(buf), fmt, offset)
-    
-def unpack_data_from_file(f, fmt, offset = 0):
-    '''Retrieve data from given file and unpack them according to specified format.
-
-    f: The path name of the file or an opened file object
-    fmt: Format specificaion
-    offset: Offset from the start of the file from where to start the unpacking operation
-    '''
-    if isinstance(f, str):
-        if not os.path.isfile(f):
-            raise ValueError('"{}" is not a regular file'.format(f))
-    else:
-        if not hasattr(fp, 'read'):
-            raise ValueError('Invalid file object')
-        if hasattr(fp, 'mode') and fp.mode != 'rb':
-            raise ValueError('Invalid opening mode')
-
-    if not isinstance(offset, int) or offset < 0:
-        raise ValueError('Invalid offset value')
-    
-    with fileutil.open_file(f, 'rb') as fp:
-        file_len = fileutil.file_size(fp)
-        pack_size = struct.calcsize(fmt)
-
-        if file_len <= offset:
-            return
-
-        fp.seek(offset, os.SEEK_SET)
-        
-        if (file_len - offset) % pack_size == 0:
-            #return struct.iter_unpack(fmt, fp.read()) # Fix issue #1
-            yield from struct.iter_unpack(fmt, fp.read())
-        else:
-            # The length of the file isn't the multiple of struct.calcsize(fmt), so
-            # don't calling struct.iter_unpack directly.
-            data = fp.read(pack_size)
-            while data:
-                if len(data) == pack_size:
-                    yield struct.unpack(fmt, data)
-                else:
-                    break
-                data = fp.read(pack_size)
 
 # PS3.16 CID 3001 ECG Leads
 CID_3001_for_12_Lead_ECG = {
@@ -101,7 +52,7 @@ CID_3001_for_12_Lead_ECG = {
 class DCMECGDataset(dicom.dataset.FileDataset):
     def __init__(self, file, fmt, sampling_frequency, channels, channel_labels,
                  adjust_callback = int, is_12_lead_ecg = True, *args, **kwargs):
-        '''Represents a DICOM waveform data set, with necessary attributed added.
+        """Represents a DICOM waveform data set, with necessary attributed added.
 
         file: An opened file object or a file name represents a file on the disk.
         fmt: Format specification for unpacking data from file.
@@ -110,8 +61,8 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         channel_labels: An iterable object that contains labels for each channel.
         adjust_callback: A callback function to adjust unpacked data.
         is_12_lead_ecg: True for 12-Lead ECG IOD, False for General ECG IOD.
-        '''
-        super().__init__('', {}, is_implicit_VR = False, preamble = b'\x00' * 128, *args, **kwargs)
+        """
+        super().__init__('', {}, is_implicit_VR=False, preamble=b'\x00' * 128, *args, **kwargs)
 
         self._file = file
         self._format = fmt
@@ -294,29 +245,29 @@ class DCMECGDataset(dicom.dataset.FileDataset):
                        'total samples: {}, saved samples: {}, saved size: {}.'.format(
                            fileutil.file_name(self._file), data_file_len, pack_size, self._format,
                            data_file_total_samples, saved_samples, saved_samples * pack_size)
-            if not _frozen: # Fix issue #7
+            if not _frozen:  # Fix issue #7
                 warnings.warn(warn_msg)
             logger.warn(warn_msg)
             data_file_total_samples = saved_samples
 
         waveform_seq = dicom.sequence.Sequence()
-        data_unpacker = unpack_data_from_file(self._file, self._format)
+        data_unpacker = unpacker.unpack_data_from_file(self._file, self._format)
         target_fmt = '<{}'.format('h' * self._channels)
         adjusted_data = map(lambda v: map(self._adjust_callback, v), data_unpacker)
         while data_file_total_samples > 0:
             seq_item = dicom.dataset.Dataset()
-            seq_item.WaveformOriginality = 'ORIGINAL' # Type 1
+            seq_item.WaveformOriginality = 'ORIGINAL'  # Type 1
             
-            seq_item.NumberOfWaveformChannels = self._channels # Type 1.
+            seq_item.NumberOfWaveformChannels = self._channels  # Type 1.
             if self._is_12_lead_ecg:
-                assert 1 <= seq_item.NumberOfWaveformChannels <= 13 # PS3.3 A.34.3.4.4
+                assert 1 <= seq_item.NumberOfWaveformChannels <= 13  # PS3.3 A.34.3.4.4
             else:
-                assert 1 <= seq_item.NumberOfWaveformChannels <= 24 # PS3.3 A.34.4.4.3 Number of Waveform Channels
+                assert 1 <= seq_item.NumberOfWaveformChannels <= 24  # PS3.3 A.34.4.4.3 Number of Waveform Channels
 
             if data_file_total_samples >= maximum_waveform_samples:
-                seq_item.NumberOfWaveformSamples = maximum_waveform_samples # Type 1. UL.
+                seq_item.NumberOfWaveformSamples = maximum_waveform_samples  # Type 1. UL.
             else:
-                seq_item.NumberOfWaveformSamples = data_file_total_samples # Type 1. UL.
+                seq_item.NumberOfWaveformSamples = data_file_total_samples  # Type 1. UL.
             data_file_total_samples -= seq_item.NumberOfWaveformSamples
 
             assert 200 <= self._sampling_frequency <= 1000 # DICOM PS3.3-2015a A.34.3.4.6
@@ -416,11 +367,9 @@ def ecg_to_dcm(src, dest = None):
     data_set.save_as(dest)
 
 if __name__ == '__main__':
-    #ecg_to_dcm(r'e:\12-Lead_ECG.dat', r'd:\12-Lead_ECG.dcm')
-    
-    u = unpack_data_from_file(r'E:\data\1\20110607153002.dat', '<d')
+    u = unpacker.unpack_data_from_file(r'E:\data\1\20110607153002.dat', '<d')
     print(max(u))
-    u = unpack_data_from_file(r'E:\data\1\20110607153002.dat', '<d')
+    u = unpacker.unpack_data_from_file(r'E:\data\1\20110607153002.dat', '<d')
     print(min(u))
     
     ecg_to_dcm(r'E:\data\1\20110607153002.dat')
