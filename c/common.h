@@ -19,6 +19,9 @@
 # define PAUSE() ((void)0)
 #endif
 
+/* ARRAYSIZE */
+#define ARRAYSIZE(arr) (sizeof(arr) / sizeof(arr[0]))
+
 /* To be continued... */
 
 #endif /* COMMON_H_ */
