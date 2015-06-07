@@ -25,3 +25,7 @@ if __name__ == '__main__':
     print('{!r}'.format(cps))
     print(repr(cps))
 
+    b = '海阔天空'.encode('unicode-escape')
+    print(b)
+    print(b.decode('unicode_escape'))
+
