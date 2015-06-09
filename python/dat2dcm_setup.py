@@ -13,9 +13,10 @@ sys.argv.append('py2exe')
 
 setup(
     options = {'py2exe': {'bundle_files': 1, 'compressed': True}},
-    windows = [{'script': 'dat2dcm.py'}],
+    console = [{'script': 'dat2dcm.py'}],
     zipfile = None,
     )
 
 # References:
 # https://github.com/myd7349/Ongoing-Study/issues/4
+# https://github.com/myd7349/Ongoing-Study/issues/8
