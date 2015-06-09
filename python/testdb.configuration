@@ -9,21 +9,21 @@ PWD =
 
 [Fields]
 AdditionalPatientHistory = 
-InstitutionAddress = 
+InstitutionAddress = hospitalinfo.configuration|utf-8[Hospital]Address
 InstitutionalDepartmentName = 
 InstitutionName = 
-Manufacturer = 
-PatientAge = Case:Age
+Manufacturer = [Blalala Medical]
+PatientAge = Case.Age
 PatientBirthDate = 
-PatientID = Case:CaseNumber
-PatientName = Case:PatientName
+PatientID = Case.CaseNumber
+PatientName = Case.PatientName
 PatientSex = 
 PatientSize = 
 PatientWeight = 
 ReferringPhysicianName = 
-SoftwareVersions = 
-StudyDate = Data:StudyDate
-StudyTime = Data:StudyTime
+SoftwareVersions = [v1.0]
+StudyDate = Data.StudyDate
+StudyTime = Data.StudyTime
 
 [Query]
 Criteria = Case.CaseNumber = Data.CaseNumber

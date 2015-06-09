@@ -4,7 +4,7 @@
 # 2015-06-01T15:20+08:00
 
 __author__ = 'myd7349 <myd7349@gmail.com>'
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 import configparser
 import odbc
@@ -65,31 +65,26 @@ def _get_nonempty_options(config):
     return [key for key in config[fields_section] if config[fields_section][key]]
 
 
-def _create_sql_statement(config, criteria_arg):
+def _create_sql_statement(config, info_from_db, criteria_arg):
+    assert isinstance(config, configparser.ConfigParser)
+    assert isinstance(info_from_db, dict)
+    
     sql = ''
-    nonempty_options = _get_nonempty_options(config)
     mapped_field = {}
     tables = set()
 
-    for option in nonempty_options:
-        try:
-            table, field = re.split('[,;:.]', config[fields_section][option])
-            table_field = '{}.{}'.format(table, field)
-            mapped_field[option] = table_field
-            tables.add(table)
-        except ValueError:
-            raise ValueError('Invalid format to map "{}" to a specified table field in a database. The '
-                             'accepted format is: [table name][spliter][field name]. The splitter can be '
-                             'one of [,;:.]'.format(option))
+    for option, value in info_from_db.items():
+        mapped_field[option] = value
+        tables.add(re.split(r'\.', value)[0])
 
-    if nonempty_options and tables:
+    if info_from_db and tables:
         query_criteria = config[query_section]['Criteria']
         additional_criteria = config[query_section]['CriteriaWithOneArg'].format(criteria_arg) \
             if config[query_section]['CriteriaWithOneArg'] and criteria_arg else ''
 
         query_criteria += (' and ' if query_criteria and additional_criteria else '') + additional_criteria
 
-        sql = 'SELECT ' + ', '.join('{{0[{}]}}'.format(option) for option in nonempty_options) + \
+        sql = 'SELECT ' + ', '.join('{{0[{}]}}'.format(option) for option in info_from_db) + \
               ' FROM ' + ', '.join(tables) + \
               (' WHERE ' if query_criteria else '') + query_criteria
         sql = sql.format(mapped_field)
@@ -102,7 +97,7 @@ def _debug_print(*args, **kwargs):
         print(*args, **kwargs)
 
 
-def read_config_file(config_file, config_dict=None):
+def _read_config_file(config_file, config_dict=None):
     """Load configuration information from specified file.
     If the file doesn't exist, create a configuration template, which you should
     edit manually first to make it a useful one.
@@ -144,39 +139,91 @@ def read_config_file(config_file, config_dict=None):
 
 
 def fetch_patient_info(config_file, config_dict=None, criteria_arg=''):
-    config = read_config_file(config_file, config_dict)
+    config = _read_config_file(config_file, config_dict)
     if not config:
-        raise RuntimeError('Failed to load configuration file.')
+        raise RuntimeError('Failed to load configuration file')
 
+    # The format of configuration information can be one of these three:
+    # 1. Raw information;
+    # 2. Information that comes from a INI-likely configuration file;
+    # 3. Information that comes from a database;
+    info_raw = {}
+    info_from_cfg = {}
+    info_from_db = {}
+
+    info_parsers = {
+        # Raw information is enclosed by square brackets.
+        re.compile(r'^\[(.+)\]$'): info_raw,
+        # Information coming from INI-likely configuration file has three or four parts:
+        # The first part is the configuration file name;
+        # The second part is the encoding of the configuration file;
+        # The third part is a section name enclosed by square brackets;
+        # The forth part is the option name.
+        re.compile(r'^(.+)\|(.+)\[(.+)\](.+)$'): info_from_cfg,
+        # Information coming from database is split by a dot: the left hand is
+        # the table name, and the right hand is field name.
+        re.compile(r'^(\w+).(\w+)$'): info_from_db,
+    }
+
+    ds = dicom.dataset.Dataset()
+
+    cached_cfg_parsers = {}
+    def _get_value_from_cfg(cfg, encoding, section, option):
+        if cfg not in cached_cfg_parsers:
+            config_parser = configparser.ConfigParser()
+            config_parser.optionxform = str
+            config_parser.read(cfg, encoding=encoding)
+
+            cached_cfg_parsers[cfg] = config_parser
+
+        return cached_cfg_parsers[cfg][section][option]
+
+    nonempty_options = _get_nonempty_options(config)
+    for option in nonempty_options:
+        value = config[fields_section][option]
+        for compiled_re, d in info_parsers.items():
+            matched_res = compiled_re.match(value)
+            if matched_res:
+                if d is info_raw:
+                    d[option] = matched_res.group(1)
+                    setattr(ds, option, d[option])
+                elif d is info_from_cfg:
+                    d[option] = _get_value_from_cfg(*matched_res.groups())
+                    setattr(ds, option, d[option])
+                elif d is info_from_db:
+                    d[option] = value
+
+    # Fetch patient information from database
     conn_str = _create_connection_string(config)
     _debug_print(conn_str)
 
-    connection = odbc.odbc(conn_str)
-    ds = dicom.dataset.Dataset()
-
     try:
-        cursor = connection.cursor()
+        connection = odbc.odbc(conn_str)
 
-        sql = _create_sql_statement(config, criteria_arg)
-        _debug_print(sql)
+        try:
+            cursor = connection.cursor()
 
-        if sql:
-            cursor.execute(sql)
-            try:
-                for attr, val in zip(_get_nonempty_options(config), cursor.fetchone()):
-                    setattr(ds, attr, val)
-            finally:
-                pass
+            sql = _create_sql_statement(config, info_from_db, criteria_arg)
+            _debug_print(sql)
+            if sql:
+                cursor.execute(sql)
+                
+                try:
+                    for attr, val in zip(info_from_db.keys(), cursor.fetchone()):
+                        setattr(ds, attr, val)
+                finally:
+                    pass
+        finally:
+            connection.close()
     finally:
-        connection.close()
+        pass
 
-    assert isinstance(ds, dicom.dataset.Dataset)
     return ds
 
 
 if __name__ == '__main__':
-    file_meta = fetch_patient_info(r'testdb.configuration', criteria_arg='0002')
-    print(file_meta)
+    file_meta_ds = fetch_patient_info(r'testdb.configuration', criteria_arg='0002')
+    print(file_meta_ds)
 
 # References:
 # [MS Access library for python](http://stackoverflow.com/questions/1047580/ms-access-library-for-python)
