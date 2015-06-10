@@ -7,15 +7,17 @@ import functools
 import io
 import os
 
+
 def is_file_obj(f):
     return all(map(functools.partial(hasattr, f),
                    ['read', 'fileno', 'seek', 'tell']))
 
+
 def file_size(f):
-    '''Get the size of given file.
+    """Get the size of given file.
 
     f: File name or an opened file object
-    '''
+    """
 
     if isinstance(f, str):
         return os.stat(f).st_size
@@ -31,11 +33,12 @@ def file_size(f):
         f.seek(prev_pos, os.SEEK_SET)
         return size
 
+
 def file_name(f):
-    '''Retrieve the name of given file.
+    """Retrieve the name of given file.
 
     f: File name or an opened file object
-    '''
+    """
     if isinstance(f, str):
         return f
 
@@ -44,19 +47,31 @@ def file_name(f):
     else:
         return ''
 
-def replace_ext(file, new_ext, prefix = '', suffix = ''):
-    '''Produce a new file name based on input file name with its extension
+
+def file_title(f):
+    """Get the title of given file: no path, no extension
+
+    f: File name or an opened file object
+    """
+    fn = file_name(f)
+
+    return os.path.basename(os.path.splitext(fn)[0])
+    
+
+def replace_ext(file, new_ext, prefix='', suffix=''):
+    """Produce a new file name based on input file name with its extension
     replaced with a new extension.
 
     file: Source file name
     new_ext: The new extension to be used
-    '''
+    """
 
     root, ext = os.path.splitext(file)
     return prefix + root + suffix + new_ext if ext else prefix + file + suffix + new_ext
 
+
 class FileGuard:
-    '''Sometimes when we wrote a function that accepts an file object, we also
+    """Sometimes when we wrote a function that accepts an file object, we also
     want it be able to deal with file name. So some code like this:
         def foo(f):
             'Some function that handling an input file.'
@@ -82,7 +97,7 @@ class FileGuard:
     and if you passed a file name to `foo`, the file will be automatically closed when
     FileGuard.__exit__ is executed. If you passed an opened file object, however,
     FileGuard.__exit__ will do nothing. Sounds nice, hah?
-    '''
+    """
     def __init__(self, file, *args, **kwargs):
         if isinstance(file, str):
             self._file = open(file, *args, **kwargs)
@@ -98,8 +113,10 @@ class FileGuard:
         if not self._user_owned_the_file:
             self._file.close()
 
+
 def open_file(file, *args, **kwargs):
     return FileGuard(file, *args, **kwargs)
+
 
 if __name__ == '__main__':
     import unittest
@@ -147,6 +164,12 @@ if __name__ == '__main__':
 
             self.assertEqual(file_name(pseudo_file), '')
 
+    class TestFileTitle(unittest.TestCase):
+        def test(self):
+            self.assertEqual(file_title('a.out'), 'a')
+            self.assertEqual(file_title('/home/me/a.out'), 'a')
+            self.assertEqual(file_title('.gitconfig'), '.gitconfig')
+
     class TestReplaceExt(unittest.TestCase):
         def setUp(self):
             self._file = 'a.out'
@@ -161,16 +184,14 @@ if __name__ == '__main__':
 
         def test_prefix_suffix(self):
             self.assertEqual(replace_ext(self._file, '.exe', 'WOW-', '-2'), 'WOW-a-2.exe')
-            self.assertEqual(replace_ext('foo', '.dcm', suffix = '-0'), 'foo-0.dcm')
-            self.assertEqual(replace_ext('foo', '.dcm', suffix = '-1'), 'foo-1.dcm')
-            self.assertEqual(replace_ext('foo', '.dcm', suffix = '-2'), 'foo-2.dcm')
-
+            self.assertEqual(replace_ext('foo', '.dcm', suffix='-0'), 'foo-0.dcm')
+            self.assertEqual(replace_ext('foo', '.dcm', suffix='-1'), 'foo-1.dcm')
+            self.assertEqual(replace_ext('foo', '.dcm', suffix='-2'), 'foo-2.dcm')
 
     class TestOpenFile(unittest.TestCase):
         def test_pass_a_file_name(self):
             file = 'a.out'
             test_data = b'Hello, world!'
-            fp = None
 
             if not os.path.exists(file):
                 with open_file(file, 'wb') as fp:
