@@ -64,10 +64,12 @@ def replace_ext(file, new_ext, prefix='', suffix=''):
 
     file: Source file name
     new_ext: The new extension to be used
+    suffix: Suffix inserted between file name and extension
     """
 
-    root, ext = os.path.splitext(file)
-    return prefix + root + suffix + new_ext if ext else prefix + file + suffix + new_ext
+    fn = file_name(file)
+    root, ext = os.path.splitext(fn)
+    return prefix + root + suffix + new_ext if ext else prefix + fn + suffix + new_ext
 
 
 class FileGuard:
