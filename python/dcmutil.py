@@ -29,15 +29,25 @@ _errors = {
     ErrorCode.dcmutil_error: 'Operation not completed.',
     }
 
+class _ListErrorCodesAction(argparse.Action):
+    def __init__(self, option_strings, dest=argparse.SUPPRESS, default=argparse.SUPPRESS, help=None):
+        super().__init__(option_strings=option_strings, dest=dest, default=default, nargs=0, help=help)
+
+    def __call__(self, parser, namespace, values, option_string=None):
+        for code in sorted(_errors):
+            print('{:d}: {}'.format(code, _errors[code]))
+        _report_error(ErrorCode.ok)
+
 _prog = fileutil.file_title(sys.argv[0])
 
 _generic_options_group = (
     'Generic',
     (['--config'], {'help': 'configuration file that stores FTP/{} options'.format(_prog)}),
-    (['--errcodes'], {'action': 'store_true', 'help': 'list all error codes this program may return'}),
+    (['--errors'], {'action': _ListErrorCodesAction, 'help': 'list all error codes this program may return'}),
     (['--source'], {'required': True, 'help': 'source data file to be converted'}),
     (['--target'], {'required': True, 'help': 'target DICOM file name'}),
-    (['--type'], {'choices': ['ECG', 'FECG'], 'default': 'ECG', 'help': 'source data type: "ECG" for normal 12-Lead ECG, and "FECG" for Foetus ECG'}),
+    (['--type'], {'choices': ['ECG', 'FECG'], 'default': 'ECG',
+                  'help': 'source data type: "ECG" for normal 12-Lead ECG, and "FECG" for Foetus ECG'}),
     (['--criteria'], {'help': 'criteria argument'}),
     (['--template'], {'help': 'template file name'}),
     (['-h', '--help'], {'action': 'help', 'help': 'show this help message and exit'}),
@@ -60,12 +70,14 @@ _prog_options_group = (
 
 
 def _parse_args():
-    parser = argparse.ArgumentParser(prog=_prog,
-                                     description='Convert input data file to DICOM-ECG standard compliant format.',
-                                     epilog='If "--config" is provided, then all FTP/%(prog)s options will be read from this configuration file.\n'
-                                     'If "--host" is provided, then target DICOM file will be sent to this host, otherwise \'--target\' stands for a path on local drive.',
-                                     formatter_class=argparse.RawDescriptionHelpFormatter,
-                                     add_help=False)
+    parser = argparse.ArgumentParser(
+        prog=_prog,
+        description='Convert input data file to DICOM-ECG standard compliant format.',
+        epilog='If "--config" is provided, then all FTP/%(prog)s options will be read from this configuration file.\n'
+               'If "--host" is provided, then target DICOM file will be sent to this host, otherwise \'--target\' '
+               'stands for a path on local drive.',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        add_help=False)
 
     for group in (_generic_options_group, _ftp_options_group, _prog_options_group):
         arg_group = parser.add_argument_group(group[0] + ' options')
@@ -84,6 +96,7 @@ def _report_error(error_code):
 
     if error_code != ErrorCode.ok:
         print('[{:d}] {}'.format(error_code, _errors[error_code]), file=sys.stderr)
+
     sys.exit(error_code)
 
 
@@ -113,6 +126,11 @@ def _load_config(args):
     else:
         try:
             config.read(args.config)
+
+            for option, value in ((option, config[section][option])
+                                  for section in config for option in config[section]):
+                if value and not getattr(args, option, True):
+                    setattr(args, option, value)
         except configparser.Error:
             _report_error(ErrorCode.invalid_config_file)
 
@@ -120,14 +138,8 @@ def _load_config(args):
 def main():
     args = _parse_args()
 
-    if args.errcodes:
-        for code in sorted(_errors):
-            print('{:d}: {}'.format(code, _errors[code]))
-        _report_error(ErrorCode.ok)
-
     _load_config(args)
 
 
 if __name__ == '__main__':
     main()
-
