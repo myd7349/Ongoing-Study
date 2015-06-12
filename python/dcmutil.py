@@ -8,11 +8,13 @@ __version__ = '0.0.1'
 
 import argparse
 import enum
+import os.path
 import sys
 
 import fileutil
 
-class ErrorCode(enum.IntEnum):
+
+class _ErrorCode(enum.IntEnum):
     ok = 0
     config_file_not_found = 1
     invalid_config_file = 2
@@ -21,12 +23,12 @@ class ErrorCode(enum.IntEnum):
     dcmutil_error = 5
 
 _errors = {
-    ErrorCode.ok: 'Everything is OK!',
-    ErrorCode.config_file_not_found: 'Specified configuration file doesn\'t exist.',
-    ErrorCode.invalid_config_file: 'Invalid configuration file.',
-    ErrorCode.invalid_option: 'Invalid option.',
-    ErrorCode.ftp_error: 'FTP operation failed.',
-    ErrorCode.dcmutil_error: 'Operation not completed.',
+    _ErrorCode.ok: 'Everything is OK!',
+    _ErrorCode.config_file_not_found: 'Specified configuration file doesn\'t exist.',
+    _ErrorCode.invalid_config_file: 'Invalid configuration file.',
+    _ErrorCode.invalid_option: 'Invalid option.',
+    _ErrorCode.ftp_error: 'FTP operation failed.',
+    _ErrorCode.dcmutil_error: 'Operation not completed.',
     }
 
 class _ListErrorCodesAction(argparse.Action):
@@ -36,7 +38,7 @@ class _ListErrorCodesAction(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         for code in sorted(_errors):
             print('{:d}: {}'.format(code, _errors[code]))
-        _report_error(ErrorCode.ok)
+        _report_error(_ErrorCode.ok)
 
 _prog = fileutil.file_title(sys.argv[0])
 
@@ -85,8 +87,8 @@ def _parse_args():
             arg_group.add_argument(*args, **kwargs)
 
     if len(sys.argv) <= 1:
-        parser.print_help()
-        _report_error(ErrorCode.ok)
+        # parser.print_help(); _report_error(_ErrorCode.ok)
+        sys.argv.append('-h')
         
     return parser.parse_args()
 
@@ -94,18 +96,19 @@ def _parse_args():
 def _report_error(error_code):
     assert error_code in _errors
 
-    if error_code != ErrorCode.ok:
+    if error_code != _ErrorCode.ok:
         print('[{:d}] {}'.format(error_code, _errors[error_code]), file=sys.stderr)
 
     sys.exit(error_code)
 
 
 def _load_config(args):
+    assert isinstance(args, argparse.Namespace) and hasattr(args, 'config')
+    
     if not args.config:
         return
 
     import configparser
-    import os.path
 
     config = configparser.ConfigParser()
     config.optionxform = str
@@ -117,12 +120,14 @@ def _load_config(args):
         for group in groups:
             config.add_section(group[0])
             for flag, _ in group[1:]:
-                config[group[0]][flag[-1][2:]] = ''
+                dest = flag[-1][2:]
+                value = getattr(args, dest, '')
+                config[group[0]][dest] = value if value else ''
 
         with open(args.config, 'w') as fp:
             config.write(fp)
                 
-        _report_error(ErrorCode.config_file_not_found)
+        _report_error(_ErrorCode.config_file_not_found)
     else:
         try:
             config.read(args.config)
@@ -132,13 +137,40 @@ def _load_config(args):
                 if value and not getattr(args, option, True):
                     setattr(args, option, value)
         except configparser.Error:
-            _report_error(ErrorCode.invalid_config_file)
+            _report_error(_ErrorCode.invalid_config_file)
+
+
+def _get_logger(args):
+    assert isinstance(args, argparse.Namespace) and hasattr(args, 'log')
+
+    import logging
+
+    log_file = args.log if args.log else os.path.join(os.path.expanduser('~'), _prog + '.log')
+    logging.basicConfig(level=logging.NOTSET, filename=log_file,
+                        format='%(asctime)s %(name)s [%(levelname)s]: %(message)s')
+    return logging.getLogger(_prog)
 
 
 def main():
     args = _parse_args()
 
     _load_config(args)
+    logger = _get_logger(args)
+
+    if args.host:
+        import ftplib
+
+        try:
+            with ftplib.FTP() as ftp:
+                ftp.connect(args.host, int(args.port, 0) if args.port else 0)
+                ftp.login(args.user, args.passwd)
+                with open(args.source, 'rb') as fp:
+                    ftp.storbinary('STOR {}'.format(args.target), fp)
+        except (ftplib.Error, OSError) as e:
+            logger.error('{!r}'.format(e))
+            _report_error(_ErrorCode.ftp_error)
+    else:
+        pass
 
 
 if __name__ == '__main__':
