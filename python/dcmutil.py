@@ -50,6 +50,8 @@ _generic_options_group = (
     (['--target'], {'required': True, 'help': 'target DICOM file name'}),
     (['--type'], {'choices': ['ECG', 'FECG'], 'default': 'ECG',
                   'help': 'source data type: "ECG" for normal 12-Lead ECG, and "FECG" for Foetus ECG'}),
+    (['--srcfmt'], {'choices': ['RAW', 'SCP-ECG', 'HL7-aECG', 'DICOM-ECG'], 'default': 'RAW', 'help': 'source file format'}),
+    (['--dstfmt'], {'choices': ['RAW', 'SCP-ECG', 'HL7-aECG', 'DICOM-ECG'], 'default': 'DICOM-ECG', 'help': 'destination file format'}),
     (['--criteria'], {'help': 'criteria argument'}),
     (['--template'], {'help': 'template file name'}),
     (['-h', '--help'], {'action': 'help', 'help': 'show this help message and exit'}),
@@ -171,6 +173,7 @@ def main():
             _report_error(_ErrorCode.ftp_error)
     else:
         pass
+
 
 
 if __name__ == '__main__':
