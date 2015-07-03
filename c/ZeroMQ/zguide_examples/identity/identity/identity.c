@@ -2,7 +2,8 @@
 
 // Demonstrate request-reply identities
 
-#include "zhelpers.h"
+#include "../../../../common.h"
+#include "../../../zhelpers.h"
 
 int main(void)
 {
@@ -28,9 +29,6 @@ int main(void)
     zmq_close(identified);
     zmq_ctx_destroy(context);
 
-#ifdef _MSC_VER
-    system("pause");
-#endif
-
+	PAUSE();
     return 0;
 }
