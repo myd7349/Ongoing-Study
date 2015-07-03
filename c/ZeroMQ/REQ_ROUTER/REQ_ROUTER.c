@@ -8,6 +8,10 @@ sockets in ZeroMQ.
 #include "../../common.h"
 #include "../zhelpers.h"
 
+#ifndef USE_LOGICAL_ADDRESS_AS_IDENTITY
+# define USE_LOGICAL_ADDRESS_AS_IDENTITY (0)
+#endif
+
 int main(void)
 {
     char *identity = NULL;
@@ -19,8 +23,13 @@ int main(void)
     void *router = zmq_socket(context, ZMQ_ROUTER);
     void *req = zmq_socket(context, ZMQ_REQ);
 
-    /* In reality, we'd allow the ROUTER sockets to invent identities for connections. */
-    zmq_setsockopt(req, ZMQ_IDENTITY, "CLIENT", strlen("CLIENT"));
+#if !(USE_LOGICAL_ADDRESS_AS_IDENTITY)
+	int size;
+#else
+	/* Specify an user-defined printable logical address as identity. 
+	   In reality, we'd allow the ROUTER sockets to invent identities for connections. */
+	zmq_setsockopt(req, ZMQ_IDENTITY, "CLIENT", strlen("CLIENT"));
+#endif
 
     zmq_bind(router, "inproc://reqvsrouter");
     zmq_connect(req, "inproc://reqvsrouter");
@@ -49,11 +58,17 @@ int main(void)
     */
     s_send(req, "Hello");
 
+#if USE_LOGICAL_ADDRESS_AS_IDENTITY
     identity = s_recv(router); /* Frame 1: Identity frame */
-    s_dump_data(identity, strlen(identity));
+	s_dump_data(identity, strlen(identity));
+#else
+	size = recv_data(router, &identity);
+	assert(size >= 0);
+	s_dump_data(identity, size);
+#endif
 
     delimiter = s_recv(router); /* Frame 2: An empty frame(the frame delimiter) */
-    s_dump_data(delimiter, strlen(delimiter));
+    s_dump_data(delimiter, 0);
     assert(0 == *delimiter);
     FREE(delimiter);
 
@@ -75,7 +90,11 @@ int main(void)
        that the first frame is the empty delimiter, which it is. The REQ socket 
        discards that frame and passes "World" to the calling application
     */
+#if USE_LOGICAL_ADDRESS_AS_IDENTITY
     s_sendmore(router, identity);
+#else
+	zmq_send(router, identity, size, ZMQ_SNDMORE);
+#endif
     FREE(identity);
     s_sendmore(router, "");
     s_send(router, "World");
