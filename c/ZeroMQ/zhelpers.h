@@ -50,6 +50,34 @@ https://github.com/imatix/zguide/blob/master/examples/C/zhelpers.h
 //  Provide random number from 0..(num-1)
 #define randof(num)  (int) ((float) (num) * random () / (RAND_MAX + 1.0))
 
+//  Receive 0MQ raw binary data from socket.
+//  Caller must free returned buffer. Return the bytes received, otherwise
+// -1 is returned.
+static int
+recv_data(void *socket, void **pbuf)
+{
+	zmq_msg_t msg;
+	int size;
+	int rc;
+
+	rc = zmq_msg_init(&msg);
+	assert(rc == 0);
+
+	size = zmq_msg_recv(&msg, socket, 0);
+	if (size > 0) {
+		*pbuf = malloc(size);
+		if (*pbuf != NULL) {
+			char *data = (char *)zmq_msg_data(&msg);
+			memcpy(*pbuf, data, size);
+		}
+	}
+
+	rc = zmq_msg_close(&msg);
+	assert(rc == 0);
+
+	return size;
+}
+
 //  Receive 0MQ string from socket and convert into C string
 //  Caller must free returned string. Returns NULL if the context
 //  is being terminated.
