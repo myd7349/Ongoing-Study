@@ -14,6 +14,9 @@
 // std::nullptr_t cannot be converted to a pointer with reinterpret_cast:
 // implicit conversion or static_cast should be used for this purpose.
 
+// 2015-06-02T11:19+08:00
+// http://www.zhihu.com/question/22203461
+
 #include <cassert>
 #include <cstddef> // for std::nullptr_t
 #include <cstdio>

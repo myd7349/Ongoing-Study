@@ -56,7 +56,7 @@ def unpack_data_from_file(file, fmt, offset=0):
                     yield unpacked_data
         else:
             # The length of the file isn't the multiple of struct.calcsize(fmt), so
-            # don't calling struct.iter_unpack directly.
+            # don't call struct.iter_unpack directly.
             data = fp.read(pack_size)
             while data:
                 if len(data) == pack_size:

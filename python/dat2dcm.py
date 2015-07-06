@@ -51,7 +51,7 @@ CID_3001_for_12_Lead_ECG = {
 
 class DCMECGDataset(dicom.dataset.FileDataset):
     def __init__(self, file, fmt, sampling_frequency, channels, channel_labels,
-                 adjust_callback = int, is_12_lead_ecg = True, *args, **kwargs):
+                 adjust_callback=int, is_12_lead_ecg=True, **kwargs):
         """Represents a DICOM waveform data set, with necessary attributed added.
 
         file: An opened file object or a file name represents a file on the disk.
@@ -62,7 +62,7 @@ class DCMECGDataset(dicom.dataset.FileDataset):
         adjust_callback: A callback function to adjust unpacked data.
         is_12_lead_ecg: True for 12-Lead ECG IOD, False for General ECG IOD.
         """
-        super().__init__('', {}, is_implicit_VR=False, preamble=b'\x00' * 128, *args, **kwargs)
+        super().__init__('', {}, is_implicit_VR=False, preamble=b'\x00' * 128, **kwargs)
 
         self._file = file
         self._format = fmt
