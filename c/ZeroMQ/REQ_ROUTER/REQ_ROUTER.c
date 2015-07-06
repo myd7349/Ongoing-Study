@@ -9,23 +9,77 @@ sockets in ZeroMQ.
 #include "../zhelpers.h"
 
 #ifndef USE_LOGICAL_ADDRESS_AS_IDENTITY
-# define USE_LOGICAL_ADDRESS_AS_IDENTITY (0)
+# define USE_LOGICAL_ADDRESS_AS_IDENTITY (1)
 #endif
+
+typedef struct frame_t {
+    void *data;
+    int size;
+} frame_t;
+
+#define FRAME_INIT NULL, -1,
+
+static frame_t recv_frame(void *socket)
+{
+    frame_t frame = { FRAME_INIT };
+    zmq_msg_t msg;
+    int rc;
+
+    rc = zmq_msg_init(&msg);
+    assert(rc == 0);
+
+    frame.size = zmq_msg_recv(&msg, socket, 0);
+    if (frame.size > 0) {
+        frame.data = malloc(frame.size);
+        if (frame.data != NULL) {
+            memcpy(frame.data, zmq_msg_data(&msg), frame.size);
+        } else {
+            frame.size = 0;
+        }
+    }
+
+    rc = zmq_msg_close(&msg);
+    assert(rc == 0);
+
+    return frame;
+}
+
+#define send_frame(s, f, flag)                 \
+    do {                                       \
+        if (f.size > 0 && f.data != NULL) {    \
+            zmq_send(s, f.data, f.size, flag); \
+        } else if (f.size == 0) {              \
+            zmq_send(s, "", 0, flag);          \
+        }                                      \
+    } while (0)
+
+#define free_frame(f)                          \
+    do {                                       \
+        if (f.size > 0) {                      \
+            FREE(f.data);                      \
+            f.size = -1;                       \
+        }                                      \
+    } while (0)
+
+#define dump_frame(f)                          \
+    do {                                       \
+        assert((f.size > 0 && f.data != NULL)  \
+            || f.size == 0);                   \
+        s_dump_data(f.data, f.size);           \
+    } while (0)
 
 int main(void)
 {
-    char *identity = NULL;
-    char *delimiter = NULL;
-    char *data = NULL;
+    frame_t identity = { FRAME_INIT };
+    frame_t delimiter = { FRAME_INIT };
+    frame_t body = { FRAME_INIT };
 
     void *context = zmq_ctx_new();
 
     void *router = zmq_socket(context, ZMQ_ROUTER);
     void *req = zmq_socket(context, ZMQ_REQ);
 
-#if !(USE_LOGICAL_ADDRESS_AS_IDENTITY)
-	int size;
-#else
+#if USE_LOGICAL_ADDRESS_AS_IDENTITY
 	/* Specify an user-defined printable logical address as identity. 
 	   In reality, we'd allow the ROUTER sockets to invent identities for connections. */
 	zmq_setsockopt(req, ZMQ_IDENTITY, "CLIENT", strlen("CLIENT"));
@@ -58,23 +112,16 @@ int main(void)
     */
     s_send(req, "Hello");
 
-#if USE_LOGICAL_ADDRESS_AS_IDENTITY
-    identity = s_recv(router); /* Frame 1: Identity frame */
-	s_dump_data(identity, strlen(identity));
-#else
-	size = recv_data(router, &identity);
-	assert(size >= 0);
-	s_dump_data(identity, size);
-#endif
+    identity = recv_frame(router);
+    dump_frame(identity);
 
-    delimiter = s_recv(router); /* Frame 2: An empty frame(the frame delimiter) */
-    s_dump_data(delimiter, 0);
-    assert(0 == *delimiter);
-    FREE(delimiter);
+    delimiter = recv_frame(router); /* Frame 2: An empty frame(the frame delimiter) */
+    dump_frame(delimiter);
+    free_frame(delimiter);
 
-    data = s_recv(router); /* Frame 3: The real data frame sent by REQ socket */
-    s_dump_data(data, strlen(data));
-    FREE(data);
+    body = recv_frame(router); /* Frame 3: The real data frame sent by REQ socket */
+    dump_frame(body);
+    free_frame(body);
     /* ----------- REQ -> ROUTER End ----------- */
 
     /* ---------- ROUTER -> REQ Begin ---------- */
@@ -90,12 +137,8 @@ int main(void)
        that the first frame is the empty delimiter, which it is. The REQ socket 
        discards that frame and passes "World" to the calling application
     */
-#if USE_LOGICAL_ADDRESS_AS_IDENTITY
-    s_sendmore(router, identity);
-#else
-	zmq_send(router, identity, size, ZMQ_SNDMORE);
-#endif
-    FREE(identity);
+    send_frame(router, identity, ZMQ_SNDMORE);
+    free_frame(identity);
     s_sendmore(router, "");
     s_send(router, "World");
 

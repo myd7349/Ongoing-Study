@@ -2,6 +2,13 @@
 #ifndef COMMON_H_
 #define COMMON_H_
 
+#ifdef _MSC_VER
+# define _CRT_SECURE_NO_WARNINGS
+# define _CRT_NONSTDC_NO_DEPRECATE
+
+# pragma warning(disable: 4005)
+#endif
+
 #include <stdlib.h>
 
 /* FREE */
