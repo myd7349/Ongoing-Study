@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # 2015-03-24T08:33+08:00
+# 2015-07-07T11:26+08:00 Use temporary file when running unit test
 
 import functools
 import io
@@ -73,7 +74,7 @@ def replace_ext(file, new_ext, prefix='', suffix=''):
 
 
 class FileGuard:
-    """Sometimes when we wrote a function that accepts an file object, we also
+    """Sometimes when we wrote a function that accepts a file object, we also
     want it be able to deal with file name. So some code like this:
         def foo(f):
             'Some function that handling an input file.'
@@ -121,48 +122,46 @@ def open_file(file, *args, **kwargs):
 
 
 if __name__ == '__main__':
+    import tempfile
     import unittest
 
-    class TestFileSize(unittest.TestCase):
-        def test_regular_file(self):
-            test_file = 'fpsize_test.dat'
-            data = b'Hello, world'
-            try:
-                with open(test_file, 'wb') as fp:
-                    fp.write(data)
-                    fp.flush()
+    test_data = b'>>> Hello, world!'
 
-                    self.assertEqual(file_size(fp), len(data))
-            finally:
-                self.assertEqual(file_size(test_file), len(data))
-                os.remove(test_file)
+    class TestFileSize(unittest.TestCase):            
+        def test_regular_file(self):
+            with tempfile.TemporaryFile() as fp:
+                fp.write(test_data)
+                fp.flush()
+
+                self.assertEqual(file_size(fp), len(test_data))
 
         def test_bytes_buffer(self):
-            buffer = b'Hello, world!'
-            pseudo_file = io.BytesIO(buffer)
+            pseudo_file = io.BytesIO(test_data)
 
             self.assertRaises(io.UnsupportedOperation, pseudo_file.fileno)
-            self.assertEqual(pseudo_file.read(5), b'Hello')
+            self.assertEqual(pseudo_file.read(5), test_data[:5])
             self.assertEqual(pseudo_file.tell(), 5)
-            self.assertEqual(file_size(pseudo_file), len(buffer))
+            self.assertEqual(file_size(pseudo_file), len(test_data))
             self.assertEqual(pseudo_file.tell(), 5)
-            self.assertEqual(pseudo_file.read(), b', world!')
+            self.assertEqual(pseudo_file.read(), test_data[5:])
 
     class TestFileName(unittest.TestCase):
         def setUp(self):
-            self._file = 'a.out'
+            fd, self._filename = tempfile.mkstemp()
+            os.close(fd)
+
+        def tearDown(self):
+            os.unlink(self._filename)
 
         def test_file_name(self):
-            self.assertEqual(file_name(self._file), self._file)
+            self.assertEqual(file_name(self._filename), self._filename)
 
         def test_file_object(self):
-            with open(self._file, 'w') as fp:
-                self.assertEqual(file_name(fp), self._file)
-            os.remove(self._file)
+            with open(self._filename, 'w') as fp:
+                self.assertEqual(file_name(fp), self._filename)
 
         def test_buffer_object(self):
-            buffer = b'Howdy, world!'
-            pseudo_file = io.BytesIO(buffer)
+            pseudo_file = io.BytesIO()
 
             self.assertEqual(file_name(pseudo_file), '')
 
@@ -191,30 +190,28 @@ if __name__ == '__main__':
             self.assertEqual(replace_ext('foo', '.dcm', suffix='-2'), 'foo-2.dcm')
 
     class TestOpenFile(unittest.TestCase):
+        def setUp(self):
+            fd, self._filename = tempfile.mkstemp()
+            os.close(fd)
+
+        def tearDown(self):
+            os.unlink(self._filename)
+            
         def test_pass_a_file_name(self):
-            file = 'a.out'
-            test_data = b'Hello, world!'
-
-            if not os.path.exists(file):
-                with open_file(file, 'wb') as fp:
-                    fp.write(test_data)
-                self.assertTrue(fp.closed)
-
-                os.remove(file)
+            with open_file(self._filename, 'wb') as fp:
+                fp.write(test_data)
+            self.assertTrue(fp.closed)
 
         def test_pass_a_file_object(self):
-            file = 'a.out'
-            test_data = b'myd7349'
+            f = open(self._filename, 'w+b')
 
-            if not os.path.exists(file):
-                f = open(file, 'w+b')
-                with open_file(f, 'w+b') as fp:
-                    fp.write(test_data)
-                self.assertFalse(f.closed)
-                f.seek(0, 0)
-                self.assertEqual(f.read(), test_data)
-                f.close()
-                os.remove(file)
+            with open_file(f, 'w+b') as fp:
+                fp.write(test_data)
+
+            self.assertFalse(f.closed)
+            f.seek(0, 0)
+            self.assertEqual(f.read(), test_data)
+            f.close()
 
     unittest.main()
 
