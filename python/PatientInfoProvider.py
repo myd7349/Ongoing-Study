@@ -18,6 +18,7 @@ db_options = ('DRIVER', 'SERVER', 'PORT', 'DATABASE', 'DBQ', 'UID', 'PWD')
 fields_section = 'Fields'
 fields_options = (
     'AdditionalPatientHistory',
+    'AdmittingDiagnosesDescription',
     'InstitutionAddress',
     'InstitutionalDepartmentName',
     'InstitutionName',

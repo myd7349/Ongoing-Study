@@ -2,6 +2,7 @@
 # coding: utf-8
 # 2014-06-11T23:14+08:00
 
+import platform
 import sys
 import sysconfig
 import warnings
@@ -22,6 +23,7 @@ if __name__ == '__main__':
         
     print(sys.version)
     print(sysconfig.get_python_version())
+    print(platform.python_version())
 
 # References:
 # https://github.com/myd7349/Ongoing-Study/issues/3
