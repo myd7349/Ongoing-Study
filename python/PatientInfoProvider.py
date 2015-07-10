@@ -108,7 +108,7 @@ def _read_config_file(config_file, config_dict=None):
 
     config = configparser.ConfigParser()
     config.optionxform = str
-    config.read(config_file, encoding='utf-8')
+    config.read(config_file, encoding='utf-8') # TODO: chardet
 
     need_to_init = False
 
@@ -155,7 +155,7 @@ def fetch_patient_info(config_file, config_dict=None, criteria_arg=''):
     info_parsers = {
         # Raw information is enclosed by square brackets.
         re.compile(r'^\[(.+)\]$'): info_raw,
-        # Information coming from INI-likely configuration file has three or four parts:
+        # Information coming from INI-likely configuration file has four parts:
         # The first part is the configuration file name;
         # The second part is the encoding of the configuration file;
         # The third part is a section name enclosed by square brackets;
@@ -198,27 +198,22 @@ def fetch_patient_info(config_file, config_dict=None, criteria_arg=''):
     conn_str = _create_connection_string(config)
     _debug_print(conn_str)
 
-    try:
-        connection = odbc.odbc(conn_str)
+    connection = odbc.odbc(conn_str)
+    cursor = connection.cursor()
+    
+    sql = _create_sql_statement(config, info_from_db, criteria_arg)
+    _debug_print(sql)
+    if sql:
+        cursor.execute(sql)
+        record = cursor.fetchone()
+        if record:
+            for attr, val in zip(info_from_db.keys(), record):
+                setattr(ds, attr, val)
 
-        try:
-            cursor = connection.cursor()
+    cursor.close()
+    connection.close()
 
-            sql = _create_sql_statement(config, info_from_db, criteria_arg)
-            _debug_print(sql)
-            if sql:
-                cursor.execute(sql)
-                
-                try:
-                    for attr, val in zip(info_from_db.keys(), cursor.fetchone()):
-                        setattr(ds, attr, val)
-                finally:
-                    pass
-        finally:
-            connection.close()
-    finally:
-        pass
-
+    _debug_print(ds)
     return ds
 
 
