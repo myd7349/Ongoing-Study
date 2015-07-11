@@ -19,8 +19,10 @@ http://stackoverflow.com/questions/1436020/c-stl-containers-whats-the-difference
 """
 
 import collections
+#import inspect
 import random
 import timeit
+#import types
 
 loops = random.randint(10000, 100000)
 rng = range(loops)
@@ -70,7 +72,13 @@ if __name__ == '__main__':
     
     for i in dir():
         item = locals()[i]
-        #if isinstance(item, collections.Callable) and i.startswith('benchmark'):
+
+        # Several ways to check whether an object is callable or not.
+        #  0. unittest.mock defines two internal function: _callable, _instance_callable
+        #  1. if isinstance(item, collections.Callable) and i.startswith('benchmark'):
+        #  2. if isinstance(item, types.FunctionType) and i.startswith('benchmark'):
+        #  3. if inspect.isfunction(item) and i.startswith('benchmark'):
+        #  4. 
         if hasattr(item, '__call__') and i.startswith('benchmark'):
             print('{}:'.format(i),
                 timeit.timeit('{}()'.format(i),
