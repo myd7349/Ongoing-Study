@@ -4,11 +4,11 @@
 # 2015-06-10T17:41+08:00
 
 __author__ = 'myd7349 <myd7349@gmail.com>'
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 import argparse
 import enum
-import os.path
+import os
 import sys
 
 import fileutil
@@ -20,7 +20,9 @@ class _ErrorCode(enum.IntEnum):
     invalid_config_file = 2
     invalid_option = 3
     ftp_error = 4
-    dcmutil_error = 5
+    source_file_not_found = 5
+    convert_operation_failed = 6
+    not_implemented = 7
 
 _errors = {
     _ErrorCode.ok: 'Everything is OK!',
@@ -28,7 +30,9 @@ _errors = {
     _ErrorCode.invalid_config_file: 'Invalid configuration file.',
     _ErrorCode.invalid_option: 'Invalid option.',
     _ErrorCode.ftp_error: 'FTP operation failed.',
-    _ErrorCode.dcmutil_error: 'Operation not completed.',
+    _ErrorCode.source_file_not_found: 'Source file doesn\'t exist.',
+    _ErrorCode.convert_operation_failed: 'Operation failed.',
+    _ErrorCode.not_implemented: 'Not implemented.',
     }
 
 class _ListErrorCodesAction(argparse.Action):
@@ -44,16 +48,21 @@ _prog = fileutil.file_title(sys.argv[0])
 
 _generic_options_group = (
     'Generic',
+    (['--callback'], {'help': 'callback function used to adjust the unpacked data'}),
     (['--config'], {'help': 'configuration file that stores FTP/{} options'.format(_prog)}),
+    (['--criteria'], {'help': 'criteria argument'}),
     (['--errors'], {'action': _ListErrorCodesAction, 'help': 'list all error codes this program may return'}),
+    (['--format'], {'choices': list('hHiIfd'), 'default': 'd',
+                    'help': 'format characters used by unpacker when unpacking data from file'}),
     (['--source'], {'required': True, 'help': 'source data file to be converted'}),
-    (['--target'], {'required': True, 'help': 'target DICOM file name'}),
+    (['--target'], {'help': 'target DICOM file name'}),
+    (['--template'], {'help': 'template file name'}),
     (['--type'], {'choices': ['ECG', 'FECG'], 'default': 'ECG',
                   'help': 'source data type: "ECG" for normal 12-Lead ECG, and "FECG" for Foetus ECG'}),
-    (['--srcfmt'], {'choices': ['RAW', 'SCP-ECG', 'HL7-aECG', 'DICOM-ECG'], 'default': 'RAW', 'help': 'source file format'}),
-    (['--dstfmt'], {'choices': ['RAW', 'SCP-ECG', 'HL7-aECG', 'DICOM-ECG'], 'default': 'DICOM-ECG', 'help': 'destination file format'}),
-    (['--criteria'], {'help': 'criteria argument'}),
-    (['--template'], {'help': 'template file name'}),
+    (['--srcfmt'], {'choices': ['RAW', 'SCP-ECG', 'HL7-aECG', 'DICOM-ECG'],
+                    'default': 'RAW', 'help': 'source file format'}),
+    (['--dstfmt'], {'choices': ['RAW', 'SCP-ECG', 'HL7-aECG', 'DICOM-ECG'],
+                    'default': 'DICOM-ECG', 'help': 'destination file format'}),
     (['-h', '--help'], {'action': 'help', 'help': 'show this help message and exit'}),
     (['-v', '--version'], {'action': 'version', 'version': ' '.join((_prog, __version__, 'by', __author__))}),
     )
@@ -159,6 +168,31 @@ def main():
     _load_config(args)
     logger = _get_logger(args)
 
+    if not args.source or not os.path.isfile(args.source):
+        logger.error('Invalid source file: {}'.format(args.source))
+        _report_error(_ErrorCode.source_file_not_found)
+
+    if not args.target:
+        args.target = fileutil.replace_ext(args.source, '.dcm')
+
+    import tempfile
+    if args.host:
+        fd, dest_dcm = tempfile.mkstemp(); os.close(fd)
+    else:
+        dest_dcm = args.target
+
+    import dat2dcm_v2
+    from PatientInfoProvider import fetch_patient_info
+    try:
+        extra_ds = {}
+        if args.info:
+            extra_ds = fetch_patient_info(args.info, criteria_arg=args.criteria)
+        dat2dcm_v2.ecg_to_dcm(args.source, dest_dcm, extra_ds, args.format)
+        logger.info('{} -> {}'.format(args.source, dest_dcm))
+    except Exception as exc:
+        logger.info('Failed to complete this operation: {} -> {}. {!r}'.format(args.source, dest_dcm, exc))
+        raise
+
     if args.host:
         import ftplib
 
@@ -166,14 +200,15 @@ def main():
             with ftplib.FTP() as ftp:
                 ftp.connect(args.host, int(args.port, 0) if args.port else 0)
                 ftp.login(args.user, args.passwd)
-                with open(args.source, 'rb') as fp:
+                args.target = os.path.basename(args.target)
+                with open(dest_dcm, 'rb') as fp:
                     ftp.storbinary('STOR {}'.format(args.target), fp)
+                logger.info('The target file is saved as: {}'.format(args.target))
         except (ftplib.Error, OSError) as e:
             logger.error('{!r}'.format(e))
             _report_error(_ErrorCode.ftp_error)
-    else:
-        pass
-
+        finally:
+            os.unlink(dest_dcm)
 
 
 if __name__ == '__main__':
