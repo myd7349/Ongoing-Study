@@ -47,3 +47,6 @@ int main(void)
 	system("pause");
 	return 0;
 }
+// References:
+// [Does zeromq support IPC as a transport channel on windows?](http://stackoverflow.com/questions/15386121/does-zeromq-support-ipc-as-a-transport-channel-on-windows)
+// [IPC not supported on windows](https://zeromq.jira.com/browse/LIBZMQ-153)
