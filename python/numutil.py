@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 
 # 2015-03-27T10:30+08:00
-    
+
+
 def aton(num):
-    '''Convert string to number.
+    """Convert string to number.
     The return value may be an integer or a floating point number.
 
     >>> aton('12')
@@ -33,7 +34,7 @@ def aton(num):
     Traceback (most recent call last):
         ...
     TypeError: Invalid "str" object
-    '''
+    """
     if not isinstance(num, str):
         raise TypeError('Invalid "str" object')
 
@@ -51,44 +52,50 @@ def aton(num):
                 return int(num, 8)
             raise
 
+
 def atof(num):
-    '''Convert string to floating point number.
+    """Convert string to floating point number.
 
     >>> format(atof('0xa'), '.1f')
     '10.0'
-    '''
+    """
     return float(aton(num))
 
+
 def atoi(num):
-    '''Convert string to integer.'''
+    """Convert string to integer."""
     return int(aton(num))
 
+
 def to_num(num):
-    '''Convert anything to number.
+    """Convert anything to number.
 
     >>> to_num(123)
     123
     >>> print('{:.2f}'.format(to_num(3.1415926)))
     3.14
-    '''
+    """
     if isinstance(num, (int, float)):
         return num
     else:
         return aton(num)
 
+
 def to_float(num):
-    '''Convert anything to float.'''
+    """Convert anything to float."""
     return float(to_num(num))
-    
+
+
 def to_int(num):
-    '''Convert anything to integer.
+    """Convert anything to integer.
 
     >>> to_int(3.14)
     3
     >>> to_int(' 3.14 ')
     3
-    '''
+    """
     return int(to_num(num))
+
 
 if __name__ == '__main__':
     import doctest
