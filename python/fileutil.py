@@ -64,12 +64,15 @@ def replace_ext(file, new_ext, prefix='', suffix=''):
     replaced with a new extension.
 
     file: Source file name
-    new_ext: The new extension to be used
+    new_ext: The new extension to be used. If it is None, then the extension
+             stays unchange, but the prefix and suffix are inserted.
     suffix: Suffix inserted between file name and extension
     """
 
     fn = file_name(file)
     root, ext = os.path.splitext(fn)
+    if new_ext is None:
+        new_ext = ext
     return prefix + root + suffix + new_ext if ext else prefix + fn + suffix + new_ext
 
 
@@ -188,6 +191,10 @@ if __name__ == '__main__':
             self.assertEqual(replace_ext('foo', '.dcm', suffix='-0'), 'foo-0.dcm')
             self.assertEqual(replace_ext('foo', '.dcm', suffix='-1'), 'foo-1.dcm')
             self.assertEqual(replace_ext('foo', '.dcm', suffix='-2'), 'foo-2.dcm')
+
+        def test_new_ext_as_None(self):
+            self.assertEqual(replace_ext('BigFish.jpeg', None, 'Screenshot-', '-2015-07-12'),
+                             'Screenshot-BigFish-2015-07-12.jpeg')
 
     class TestOpenFile(unittest.TestCase):
         def setUp(self):
