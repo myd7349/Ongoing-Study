@@ -2,7 +2,7 @@
 
 # 2015-05-29T15:18+08:00
 
-# Create one single executable file from `dat2dcm.py`.
+# Create one single executable file from `dcmutil.py`.
 
 from distutils.core import setup
 import sys

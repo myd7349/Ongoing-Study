@@ -9,7 +9,8 @@ import functools
 import time
 import warnings
 
-# 2014-10-28 22:20    
+
+# 2014-10-28T22:20+08:00 
 def benchmark(times):
     '''A decorator for calculating the execution time of calling a function several times.
 
@@ -37,6 +38,7 @@ def benchmark(times):
         return wrap_again
     return wrap
 
+
 # 2014-10-29 19:14
 # 2015-03-25T16:12+08:00 This function is deprecated, think about contextlib.suppress.
 def nothrow(func):
@@ -52,6 +54,3 @@ def nothrow(func):
         except Exception as e:
             print('Unhandled exception: {!r}'.format(e))
     return wrap
-
-
-            
