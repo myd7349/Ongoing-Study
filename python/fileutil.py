@@ -66,6 +66,7 @@ def replace_ext(file, new_ext, prefix='', suffix=''):
     file: Source file name
     new_ext: The new extension to be used. If it is None, then the extension
              stays unchange, but the prefix and suffix are inserted.
+    prefix: Prefix prepended the file name
     suffix: Suffix inserted between file name and extension
     """
 
