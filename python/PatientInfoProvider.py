@@ -4,13 +4,20 @@
 # 2015-06-01T15:20+08:00
 
 __author__ = 'myd7349 <myd7349@gmail.com>'
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 
 import configparser
 import odbc
 import re
 import string
+import sys
 
+try:
+    import chardet.universaldetector
+    _chardet_available = True
+except ImportError:
+    _chardet_available = False
+    
 import dicom  # [pydicom](http://www.pydicom.org/)
 
 db_section = 'DB'
@@ -37,6 +44,24 @@ fields_options = (
 )
 query_section = 'Query'
 query_options = ('Criteria', 'CriteriaWithOneArg')
+
+
+def _get_file_encoding(filename):
+    if _chardet_available:
+        detector = chardet.universaldetector.UniversalDetector()
+        with open(filename, 'rb') as fp:
+            for line in fp:
+                detector.feed(line)
+                if detector.done:
+                    break
+        detector.close()
+        
+        if detector.result['confidence'] > 0.95:
+            return detector.result['encoding']
+        else:
+            return sys.getfilesystemencoding()
+    else:
+        return sys.getfilesystemencoding()
 
 
 def _create_connection_string(config):
@@ -84,10 +109,10 @@ def _create_sql_statement(config, info_from_db, criteria_arg):
             if config[query_section]['CriteriaWithOneArg'] and criteria_arg else ''
 
         query_criteria += (' and ' if query_criteria and additional_criteria else '') + additional_criteria
-
-        sql = 'SELECT ' + ', '.join('{{0[{}]}}'.format(option) for option in info_from_db) + \
+        formatter = '{{0[{}]}}'.format
+        sql = 'SELECT ' + ', '.join(map(formatter, info_from_db)) + \
               ' FROM ' + ', '.join(tables) + \
-              (' WHERE ' if query_criteria else '') + query_criteria
+              ' WHERE ' + query_criteria if query_criteria else ''
         sql = sql.format(mapped_field)
 
     return sql
@@ -108,7 +133,7 @@ def _read_config_file(config_file, config_dict=None):
 
     config = configparser.ConfigParser()
     config.optionxform = str
-    config.read(config_file, encoding='utf-8') # TODO: chardet
+    config.read(config_file, encoding=_get_file_encoding(config_file))
 
     need_to_init = False
 
@@ -156,11 +181,12 @@ def fetch_patient_info(config_file, config_dict=None, criteria_arg=''):
         # Raw information is enclosed by square brackets.
         re.compile(r'^\[(.+)\]$'): info_raw,
         # Information coming from INI-likely configuration file has four parts:
-        # The first part is the configuration file name;
-        # The second part is the encoding of the configuration file;
-        # The third part is a section name enclosed by square brackets;
-        # The forth part is the option name.
-        re.compile(r'^(.+)\|(.+)\[(.+)\](.+)$'): info_from_cfg,
+        re.compile(r'''
+                    ^(?P<file>.+?)          # Part 1: configuration file path
+                    (?:\|(?P<encoding>.+))? # Part 2(if exists): the encoding of the configuration file
+                    \[(?P<section>.+)\]     # Part 3: a section name enclosed by square brackets
+                    (?P<option>.+)$         # Part 4: option name
+                    ''', re.VERBOSE): info_from_cfg,
         # Information coming from database is split by a dot: the left hand is
         # the table name, and the right hand is field name.
         re.compile(r'^(\w+).(\w+)$'): info_from_db,
@@ -169,15 +195,15 @@ def fetch_patient_info(config_file, config_dict=None, criteria_arg=''):
     ds = dicom.dataset.Dataset()
 
     cached_cfg_parsers = {}
-    def _get_value_from_cfg(cfg, encoding, section, option):
-        if cfg not in cached_cfg_parsers:
+    def _get_value_from_cfg(*, file, encoding, section, option):
+        if file not in cached_cfg_parsers:
             config_parser = configparser.ConfigParser()
             config_parser.optionxform = str
-            config_parser.read(cfg, encoding=encoding)
+            config_parser.read(file, encoding=encoding if encoding else _get_file_encoding(file))
 
-            cached_cfg_parsers[cfg] = config_parser
+            cached_cfg_parsers[file] = config_parser
 
-        return cached_cfg_parsers[cfg][section][option]
+        return cached_cfg_parsers[file][section][option]
 
     nonempty_options = _get_nonempty_options(config)
     for option in nonempty_options:
@@ -189,7 +215,7 @@ def fetch_patient_info(config_file, config_dict=None, criteria_arg=''):
                     d[option] = matched_res.group(1)
                     setattr(ds, option, d[option])
                 elif d is info_from_cfg:
-                    d[option] = _get_value_from_cfg(*matched_res.groups())
+                    d[option] = _get_value_from_cfg(**matched_res.groupdict())
                     setattr(ds, option, d[option])
                 elif d is info_from_db:
                     d[option] = value
@@ -200,7 +226,7 @@ def fetch_patient_info(config_file, config_dict=None, criteria_arg=''):
 
     connection = odbc.odbc(conn_str)
     cursor = connection.cursor()
-    
+
     sql = _create_sql_statement(config, info_from_db, criteria_arg)
     _debug_print(sql)
     if sql:
@@ -219,7 +245,7 @@ def fetch_patient_info(config_file, config_dict=None, criteria_arg=''):
 
 if __name__ == '__main__':
     file_meta_ds = fetch_patient_info(r'testdb.configuration', criteria_arg='0002')
-    print(file_meta_ds)
+    # print(file_meta_ds)
 
 # References:
 # [MS Access library for python](http://stackoverflow.com/questions/1047580/ms-access-library-for-python)
