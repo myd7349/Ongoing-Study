@@ -7,6 +7,7 @@ __author__ = 'myd7349 <myd7349@gmail.com>'
 __version__ = '0.0.3'
 
 import configparser
+import collections
 import odbc
 import re
 import string
@@ -112,7 +113,7 @@ def _create_sql_statement(config, info_from_db, criteria_arg):
         formatter = '{{0[{}]}}'.format
         sql = 'SELECT ' + ', '.join(map(formatter, info_from_db)) + \
               ' FROM ' + ', '.join(tables) + \
-              ' WHERE ' + query_criteria if query_criteria else ''
+              (' WHERE ' + query_criteria if query_criteria else '')
         sql = sql.format(mapped_field)
 
     return sql
@@ -133,7 +134,8 @@ def _read_config_file(config_file, config_dict=None):
 
     config = configparser.ConfigParser()
     config.optionxform = str
-    config.read(config_file, encoding=_get_file_encoding(config_file))
+    encoding = _get_file_encoding(config_file)
+    config.read(config_file, encoding=encoding)
 
     need_to_init = False
 
@@ -157,7 +159,7 @@ def _read_config_file(config_file, config_dict=None):
     config.read_dict(config_dict)
 
     if need_to_init:
-        with open(config_file, 'w') as fp:
+        with open(config_file, 'w', encoding=encoding) as fp:
             config.write(fp)
         return
 
@@ -175,7 +177,7 @@ def fetch_patient_info(config_file, config_dict=None, criteria_arg=''):
     # 3. Information that comes from a database;
     info_raw = {}
     info_from_cfg = {}
-    info_from_db = {}
+    info_from_db = collections.OrderedDict()
 
     info_parsers = {
         # Raw information is enclosed by square brackets.
