@@ -18,7 +18,7 @@ try:
     _chardet_available = True
 except ImportError:
     _chardet_available = False
-    
+
 import dicom  # [pydicom](http://www.pydicom.org/)
 
 db_section = 'DB'
@@ -88,10 +88,6 @@ def _create_connection_string(config):
     return ''.join(map(lambda x: temp.substitute(arg=x), args)).format(config[db_section])
 
 
-def _get_nonempty_options(config):
-    return [key for key in config[fields_section] if config[fields_section][key]]
-
-
 def _create_sql_statement(config, info_from_db, criteria_arg):
     assert isinstance(config, configparser.ConfigParser)
     assert isinstance(info_from_db, dict)
@@ -102,7 +98,7 @@ def _create_sql_statement(config, info_from_db, criteria_arg):
 
     for option, value in info_from_db.items():
         mapped_field[option] = value
-        tables.add(re.split(r'\.', value)[0])
+        tables.add(value.split('.')[0])
 
     if info_from_db and tables:
         query_criteria = config[query_section]['Criteria']
@@ -151,9 +147,9 @@ def _read_config_file(config_file, config_dict=None):
                 config[section][option] = ''
                 need_to_init = True
 
-    config_dict = {section: v for section, v in config_dict if section in config}
-    for section in config_dict.keys():
-        for option in config_dict[section].keys():
+    config_dict = {section: config_dict[section] for section in config_dict if section in config}
+    for section in config_dict:
+        for option in config_dict[section]:
             if option not in config[section]:
                 config_dict[section].pop(option)
     config.read_dict(config_dict)
@@ -207,7 +203,7 @@ def fetch_patient_info(config_file, config_dict=None, criteria_arg=''):
 
         return cached_cfg_parsers[file][section][option]
 
-    nonempty_options = _get_nonempty_options(config)
+    nonempty_options = [key for key in config[fields_section] if config[fields_section][key]]
     for option in nonempty_options:
         value = config[fields_section][option]
         for compiled_re, d in info_parsers.items():
