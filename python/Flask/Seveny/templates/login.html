@@ -1,0 +1,21 @@
+<!-- 2015-07-17T15:28+08:00 -->
+{% extends "layout.html" %}
+{% block body %}
+  <h2>登录</h2>
+
+  {% if error %}
+    <p class=error>
+      <strong>{{ error }}</strong>
+    </p>
+  {% endif %}
+
+  <form action="{{ url_for('login') }}" method=post>
+    <dl>
+        <dt>用户名：</dt>
+        <dd><input type=text name=username /></dd>
+        <dt>密码：</dt>
+        <dd><input type=password name=password /></dd>
+        <dd><input type=submit value=登录 /></dd>
+    </dl>
+  </form>
+{% endblock %}
