@@ -167,33 +167,8 @@ def fetch_patient_info(config_file, config_dict=None, criteria_arg=''):
     if not config:
         raise RuntimeError('Failed to load configuration file')
 
-    # The format of configuration information can be one of these three:
-    # 1. Raw information;
-    # 2. Information that comes from a INI-likely configuration file;
-    # 3. Information that comes from a database;
-    info_raw = {}
-    info_from_cfg = {}
-    info_from_db = collections.OrderedDict()
-
-    info_parsers = {
-        # Raw information is enclosed by square brackets.
-        re.compile(r'^\[(.+)\]$'): info_raw,
-        # Information coming from INI-likely configuration file has four parts:
-        re.compile(r'''
-                    ^(?P<file>.+?)          # Part 1: configuration file path
-                    (?:\|(?P<encoding>.+))? # Part 2(if exists): the encoding of the configuration file
-                    \[(?P<section>.+)\]     # Part 3: a section name enclosed by square brackets
-                    (?P<option>.+)$         # Part 4: option name
-                    ''', re.VERBOSE): info_from_cfg,
-        # Information coming from database is split by a dot: the left hand is
-        # the table name, and the right hand is field name.
-        re.compile(r'^(\w+).(\w+)$'): info_from_db,
-    }
-
-    ds = dicom.dataset.Dataset()
-
     cached_cfg_parsers = {}
-    def _get_value_from_cfg(*, file, encoding, section, option):
+    def get_value_from_cfg(*, file, encoding, section, option):
         if file not in cached_cfg_parsers:
             config_parser = configparser.ConfigParser()
             config_parser.optionxform = str
@@ -202,21 +177,36 @@ def fetch_patient_info(config_file, config_dict=None, criteria_arg=''):
             cached_cfg_parsers[file] = config_parser
 
         return cached_cfg_parsers[file][section][option]
+    
+    ds = dicom.dataset.Dataset()
 
-    nonempty_options = [key for key in config[fields_section] if config[fields_section][key]]
-    for option in nonempty_options:
-        value = config[fields_section][option]
-        for compiled_re, d in info_parsers.items():
-            matched_res = compiled_re.match(value)
-            if matched_res:
-                if d is info_raw:
-                    d[option] = matched_res.group(1)
-                    setattr(ds, option, d[option])
-                elif d is info_from_cfg:
-                    d[option] = _get_value_from_cfg(**matched_res.groupdict())
-                    setattr(ds, option, d[option])
-                elif d is info_from_db:
-                    d[option] = value
+    # The format of configuration information can be one of these three:
+    # 1. Raw information(enclosed by square brackets);
+    info_raw_re = re.compile(r'^\[(.+)\]$')
+    info_raw_callback = lambda keyword, matched_res: setattr(ds, keyword, matched_res.group(1))   
+    # 2. Information that comes from a INI-likely configuration file(consist of four parts);
+    info_from_cfg_re = re.compile(r'''
+                                   ^(?P<file>.+?)          # Part 1: configuration file path
+                                   (?:\|(?P<encoding>.+))? # Part 2(if exists): the encoding of the configuration file
+                                   \[(?P<section>.+)\]     # Part 3: a section name enclosed by square brackets
+                                   (?P<option>.+)$         # Part 4: option name
+                                   ''', re.VERBOSE)
+    info_from_cfg_callback = lambda keyword, matched_res: setattr(ds, keyword, get_value_from_cfg(**matched_res.groupdict()))
+    # 3. Information that comes from a database(table name and field name are split by a dot);
+    info_from_db_re = re.compile(r'^(\w+).(\w+)$')
+    info_from_db = collections.OrderedDict()
+    info_from_db_callback = lambda keyword, matched_res: info_from_db.update({keyword: matched_res.group()})
+
+    info_res = info_raw_re, info_from_cfg_re, info_from_db_re
+    info_callbacks = info_raw_callback, info_from_cfg_callback, info_from_db_callback
+    
+    for keyword in config[fields_section]:
+        value = config[fields_section][keyword]
+        if value:
+            for compiled_re, callback in zip(info_res, info_callbacks):
+                matched_res = compiled_re.match(value)
+                if matched_res:
+                    callback(keyword, matched_res)
 
     # Fetch patient information from database
     conn_str = _create_connection_string(config)
