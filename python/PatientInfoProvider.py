@@ -198,6 +198,33 @@ def _read_config_file(config_file, config_dict=None, extra_elems_dict=None):
         return config
 
 
+def _correct_value(keyword, value):
+    # Correct the type of the value. For example, the PatientAge's VR is 'AS'(that is, a string).
+    # However, the PatientAge information we got from database maybe an integer. In this case,
+    # we should convert this integer into a string first. Otherwise, pydicom's filewriter module
+    # will raise a TypeError exception.
+    empty_value = {bytes: b'', float: 0.0, int: 0, str: ''}
+    # TODO: More VRs handling
+    # TODO: Try to normalize VRs like AS, DT according to PS3.5 6.2
+    VR_type_map = {
+        'AS': str,
+        'DA': str,
+        'DS': str,
+        'DT': str,
+        'IS': str,
+        'LO': str,
+        'LT': str,
+        }
+    VR = dicom.dataset.dictionaryVR(dicom.dataset.tag_for_name(keyword))
+    if VR in VR_type_map:
+        if value is None:
+            return empty_value[VR_type_map[VR]]
+        else:
+            return VR_type_map[VR](value)
+
+    return value
+
+
 def fetch_patient_info(config_file, config_dict=None, extra_elems_dict=None, criteria_arg=''):
     """Fetch patient information from various source(configuration files, database) with a
     user-defined behavior.
@@ -268,14 +295,14 @@ def fetch_patient_info(config_file, config_dict=None, extra_elems_dict=None, cri
                     record = cursor.fetchone()
                     if record:
                         for keyword, value in zip(keywords, record):
-                            setattr(ds, keyword, value)
+                            setattr(ds, keyword, _correct_value(keyword, value))
     
     debug_print(ds)
     return ds
 
 
-if __name__ == '__main__':
-    file_meta_ds = fetch_patient_info(r'testdb.configuration', criteria_arg='0002', extra_elems_dict={})
+if __name__ == '__main__':    
+    dataset = fetch_patient_info(r'testdb.configuration', criteria_arg='0002', extra_elems_dict={})
 
 # References:
 # [MS Access library for python](http://stackoverflow.com/questions/1047580/ms-access-library-for-python)
