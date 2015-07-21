@@ -6,8 +6,9 @@
 __author__ = 'myd7349 <myd7349@gmail.com>'
 __version__ = '0.0.3'
 
-import configparser
 import collections
+import configparser
+import contextlib
 import odbc
 import re
 import string
@@ -46,6 +47,8 @@ fields_options = (
 query_section = 'Query'
 query_options = ('Criteria', 'CriteriaWithOneArg')
 
+table_field_re = re.compile(r'(?P<table>\w+).(?P<field>\w+)')
+table_field_re_strict = re.compile(r'^(?P<table>\w+).(?P<field>\w+)$')
 
 def _get_file_encoding(filename):
     if _chardet_available:
@@ -88,49 +91,80 @@ def _create_connection_string(config):
     return ''.join(map(lambda x: temp.substitute(arg=x), args)).format(config[db_section])
 
 
-def _create_sql_statement(config, info_from_db, criteria_arg):
-    assert isinstance(config, configparser.ConfigParser)
-    assert isinstance(info_from_db, dict)
-    
+def _create_single_sql_statement(mapped_fields, tables, query_criteria):
     sql = ''
-    mapped_field = {}
-    tables = set()
+    keywords = []
 
-    for option, value in info_from_db.items():
-        mapped_field[option] = value
-        tables.add(value.split('.')[0])
+    keyword_field_map = collections.OrderedDict()
+    for table in tables:
+        keyword_field_map.update(mapped_fields[table])
 
-    if info_from_db and tables:
-        query_criteria = config[query_section]['Criteria']
-        additional_criteria = config[query_section]['CriteriaWithOneArg'].format(criteria_arg) \
-            if config[query_section]['CriteriaWithOneArg'] and criteria_arg else ''
-
-        query_criteria += (' and ' if query_criteria and additional_criteria else '') + additional_criteria
+    if keyword_field_map:
+        keywords = list(keyword_field_map.keys())
+        
         formatter = '{{0[{}]}}'.format
-        sql = 'SELECT ' + ', '.join(map(formatter, info_from_db)) + \
+        sql = 'SELECT ' + ', '.join(map(formatter, keywords)) + \
               ' FROM ' + ', '.join(tables) + \
               (' WHERE ' + query_criteria if query_criteria else '')
-        sql = sql.format(mapped_field)
+        sql = sql.format(keyword_field_map)
 
-    return sql
-
-
-def _debug_print(*args, **kwargs):
-    if __debug__:
-        print(*args, **kwargs)
+    return sql, keywords
 
 
-def _read_config_file(config_file, config_dict=None):
-    """Load configuration information from specified file.
-    If the file doesn't exist, create a configuration template, which you should
-    edit manually first to make it a useful one.
-    """
+def _create_sql_statements(config, info_from_db, criteria_arg):
+    sqls = []
+    keywords_array = []
+
+    if not info_from_db:
+        return sqls, keywords
+    
+    tables_used_in_criteria = {matched_res.group('table')
+                               for matched_res in table_field_re.finditer(
+                                   ' '.join([config[query_section]['Criteria'],
+                                             config[query_section]['CriteriaWithOneArg']]))}
+    tables = {value.split('.')[0] for value in info_from_db.values()}
+    tables_has_relationship = tables.intersection(tables_used_in_criteria)
+    tables_standardalone = tables - tables_has_relationship
+
+    mapped_fields = {}
+    for keyword, value in info_from_db.items():
+        table = value.split('.')[0]
+        if table not in mapped_fields:
+            mapped_fields[table] = {}
+        mapped_fields[table][keyword] = value
+
+    
+    if tables_has_relationship:
+        criteria = config[query_section]['Criteria']
+        criteria_with_1arg = config[query_section]['CriteriaWithOneArg'].format(criteria_arg) \
+                             if config[query_section]['CriteriaWithOneArg'] and criteria_arg else ''
+        criteria += (' and ' if criteria and criteria_with_1arg else '') + criteria_with_1arg
+
+        sql_, keywords_ = _create_single_sql_statement(mapped_fields, tables_has_relationship, criteria)
+        if sql_ and keywords_:
+            sqls.append(sql_)
+            keywords_array.append(keywords_)
+
+    for table in tables_standardalone:
+        sql_, keywords_ = _create_single_sql_statement(mapped_fields, (table, ), None)
+        if sql_ and keywords_:
+            sqls.append(sql_)
+            keywords_array.append(keywords_)
+
+    return sqls, keywords_array
+
+
+def _read_config_file(config_file, config_dict=None, extra_elems_dict=None):
     if config_dict is None:
         config_dict = {}
+
+    if extra_elems_dict is None:
+        extra_elems_dict = {}
 
     config = configparser.ConfigParser()
     config.optionxform = str
     encoding = _get_file_encoding(config_file)
+    # Load configuration information from specified file.
     config.read(config_file, encoding=encoding)
 
     need_to_init = False
@@ -155,50 +189,60 @@ def _read_config_file(config_file, config_dict=None):
     config.read_dict(config_dict)
 
     if need_to_init:
+        # If the configuration file doesn't exist, create a configuration
+        # template, which you should edit manually first to make it a useful one.
         with open(config_file, 'w', encoding=encoding) as fp:
             config.write(fp)
-        return
+    else:
+        config[fields_section].update(extra_elems_dict)
+        return config
 
-    return config
 
-
-def fetch_patient_info(config_file, config_dict=None, criteria_arg=''):
-    config = _read_config_file(config_file, config_dict)
+def fetch_patient_info(config_file, config_dict=None, extra_elems_dict=None, criteria_arg=''):
+    """Fetch patient information from various source(configuration files, database) with a
+    user-defined behavior.
+    
+    config_file: Configuration file name.
+    config_dict: This dictionary is used to initialize the configparser.ConfigParser
+                 object. You can use this arguement to specify initial value of those
+                 keywords listed in `fields_options`.
+    extra_elems_dict: Specify additional elements that are not exist in `fields_options`.
+    criteria_arg: Criteria argument used to generate SQL statement.
+    """
+    config = _read_config_file(config_file, config_dict, extra_elems_dict)
     if not config:
         raise RuntimeError('Failed to load configuration file')
 
     cached_cfg_parsers = {}
+
     def get_value_from_cfg(*, file, encoding, section, option):
         if file not in cached_cfg_parsers:
             config_parser = configparser.ConfigParser()
             config_parser.optionxform = str
             config_parser.read(file, encoding=encoding if encoding else _get_file_encoding(file))
-
             cached_cfg_parsers[file] = config_parser
-
         return cached_cfg_parsers[file][section][option]
     
     ds = dicom.dataset.Dataset()
 
-    # The format of configuration information can be one of these three:
+    info_res = []
+    info_callbacks = []
+    # The format of configuration information can be one of these three forms:
     # 1. Raw information(enclosed by square brackets);
-    info_raw_re = re.compile(r'^\[(.+)\]$')
-    info_raw_callback = lambda keyword, matched_res: setattr(ds, keyword, matched_res.group(1))   
+    info_res.append(re.compile(r'^\[(.+)\]$'))
+    info_callbacks.append(lambda keyword, matched_res: setattr(ds, keyword, matched_res.group(1)))
     # 2. Information that comes from a INI-likely configuration file(consist of four parts);
-    info_from_cfg_re = re.compile(r'''
-                                   ^(?P<file>.+?)          # Part 1: configuration file path
-                                   (?:\|(?P<encoding>.+))? # Part 2(if exists): the encoding of the configuration file
-                                   \[(?P<section>.+)\]     # Part 3: a section name enclosed by square brackets
-                                   (?P<option>.+)$         # Part 4: option name
-                                   ''', re.VERBOSE)
-    info_from_cfg_callback = lambda keyword, matched_res: setattr(ds, keyword, get_value_from_cfg(**matched_res.groupdict()))
+    info_res.append(re.compile(r'''
+                                ^(?P<file>.+?)          # Part 1: configuration file path
+                                (?:\|(?P<encoding>.+))? # Part 2(if exists): the encoding of the configuration file
+                                \[(?P<section>.+)\]     # Part 3: a section name enclosed by square brackets
+                                (?P<option>.+)$         # Part 4: option name
+                                ''', re.VERBOSE))
+    info_callbacks.append(lambda keyword, matched_res: setattr(ds, keyword, get_value_from_cfg(**matched_res.groupdict())))
     # 3. Information that comes from a database(table name and field name are split by a dot);
-    info_from_db_re = re.compile(r'^(\w+).(\w+)$')
-    info_from_db = collections.OrderedDict()
-    info_from_db_callback = lambda keyword, matched_res: info_from_db.update({keyword: matched_res.group()})
-
-    info_res = info_raw_re, info_from_cfg_re, info_from_db_re
-    info_callbacks = info_raw_callback, info_from_cfg_callback, info_from_db_callback
+    info_res.append(table_field_re_strict)
+    info_from_db = dict()
+    info_callbacks.append(lambda keyword, matched_res: info_from_db.update({keyword: matched_res.group()}))
     
     for keyword in config[fields_section]:
         value = config[fields_section][keyword]
@@ -208,32 +252,30 @@ def fetch_patient_info(config_file, config_dict=None, criteria_arg=''):
                 if matched_res:
                     callback(keyword, matched_res)
 
+    debug_print = lambda *args, **kwargs: print(*args, **kwargs) if __debug__ else None
+    
     # Fetch patient information from database
     conn_str = _create_connection_string(config)
-    _debug_print(conn_str)
+    debug_print(conn_str)
 
-    connection = odbc.odbc(conn_str)
-    cursor = connection.cursor()
-
-    sql = _create_sql_statement(config, info_from_db, criteria_arg)
-    _debug_print(sql)
-    if sql:
-        cursor.execute(sql)
-        record = cursor.fetchone()
-        if record:
-            for attr, val in zip(info_from_db.keys(), record):
-                setattr(ds, attr, val)
-
-    cursor.close()
-    connection.close()
-
-    _debug_print(ds)
+    with contextlib.closing(odbc.odbc(conn_str)) as connection:
+        with contextlib.closing(connection.cursor()) as cursor:
+            for sql, keywords in zip(*_create_sql_statements(config, info_from_db, criteria_arg)):
+                debug_print(sql)
+                debug_print(keywords)
+                if sql and keywords:
+                    cursor.execute(sql)
+                    record = cursor.fetchone()
+                    if record:
+                        for keyword, value in zip(keywords, record):
+                            setattr(ds, keyword, value)
+    
+    debug_print(ds)
     return ds
 
 
 if __name__ == '__main__':
-    file_meta_ds = fetch_patient_info(r'testdb.configuration', criteria_arg='0002')
-    # print(file_meta_ds)
+    file_meta_ds = fetch_patient_info(r'testdb.configuration', criteria_arg='0002', extra_elems_dict={})
 
 # References:
 # [MS Access library for python](http://stackoverflow.com/questions/1047580/ms-access-library-for-python)
