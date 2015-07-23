@@ -19,6 +19,8 @@ import os
 # (3) scandir
 #     New in Python v3.5. I haven't take a look at it yet. The README.md on GitHub says
 #     that it is faster than `os.walk`.
+# (4) This one is cool.
+#     https://github.com/eliben/pss/blob/master/psslib/filefinder.py
 
 
 # This function is inspired by `os.walk`, but they have different behaviours.
@@ -89,4 +91,3 @@ if __name__ == '__main__':
         print('How many files?', how_many_files)
         print('How many directories?', how_many_subdirs)
         print('Totally:', total)
-
