@@ -12,6 +12,10 @@
 # The doc of math.fsum in Python 3.4.2 documentation also mention this page:
 # ASPN cookbook recipes for accurate floating point summation: http://code.activestate.com/recipes/393090/
 
+# 2015-07-27T13:51+08:00
+# Ongoing-Study/cpp/Boost/Accumulators/KahanSum
+
+
 def KahanSum(iterable):
     res = 0.0
     
@@ -30,6 +34,7 @@ def KahanSum(iterable):
         # Next time around, the lost low part will be added to y in a fresh attempt.
 
     return res
+
 
 if __name__ == '__main__':
     # The summation of ten 0.1
