@@ -6,9 +6,9 @@
 
 #include <initializer_list>
 #include <iostream>
+#include <iterator>
 #include <typeinfo>
 
-#define CONFIG_USING_BOOST (0)
 #include "../common.h"
 #include "uniform_typename.h"
 
@@ -34,3 +34,6 @@ int main()
     PAUSE();
     return 0;
 }
+
+// References:
+// Ongoing-Study/cpp/C++11/type_traits

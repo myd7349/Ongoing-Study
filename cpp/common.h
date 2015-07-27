@@ -6,6 +6,7 @@
 #define COMMON_H_
 
 #include <algorithm>
+#include <cassert>
 #include <cstddef>
 #include <cstdlib>
 #include <iostream>
