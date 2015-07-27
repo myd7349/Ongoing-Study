@@ -1,6 +1,7 @@
 // 2015-07-27T15:05+08:00
 #include <iostream>
 #include <iterator>
+#include <type_traits>
 
 #include "../../common.h"
 #include "../../uniform_typename/uniform_typename.h"
@@ -32,9 +33,19 @@ template <typename InIt>
 // decltype(entity/expression) is OK; decltype(type), however, is wrong. That is, decltype specifier
 // can not work with a type.
 // 3.
+//decltype(*first) accu(InIt first, InIt last)
+// VS2013: error C2893: Failed to specialize function template 'unknown-type accu(InIt,InIt)'
+// 4.
 auto accu(InIt first, InIt last) -> decltype(*first)
 {
-    using ValueT = typename std::iterator_traits<InIt>::value_type;
+#if 0
+    using ValueT = decltype(*first);
+    std::cout << TYPE_NAME(ValueT) << std::endl;
+#else
+    using ValueT = std::iterator_traits<InIt>::value_type;
+    std::cout << TYPE_NAME(const int &) << std::endl;
+#endif
+
     ValueT result = ValueT();
     while (first != last) {
         result += *first++;
@@ -59,3 +70,4 @@ int main()
 // [Omit return type in C++11](http://stackoverflow.com/questions/4523617/omit-return-type-in-c11)
 // [When should I use C++14 automatic return type deduction?](http://stackoverflow.com/questions/15737223/when-should-i-use-c14-automatic-return-type-deduction)
 // [Deducing value type from iterator for return type of template function](http://stackoverflow.com/questions/30354455/deducing-value-type-from-iterator-for-return-type-of-template-function)
+// [Can C++11 decltype be used to create a typedef for function pointer from an existing function?](http://stackoverflow.com/questions/13089067/can-c11-decltype-be-used-to-create-a-typedef-for-function-pointer-from-an-exis)

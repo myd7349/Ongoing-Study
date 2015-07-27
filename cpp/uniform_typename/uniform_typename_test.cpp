@@ -6,7 +6,6 @@
 
 #include <initializer_list>
 #include <iostream>
-#include <iterator>
 #include <typeinfo>
 
 #include "../common.h"
@@ -31,9 +30,20 @@ int main()
     std::cout << TYPE_NAME(std::clog) << std::endl;
     //std::cout << TYPE_NAME(std::endl) << std::endl;
 
+    // According to cppreference.com:
+    // (1)  If type is a reference type, the result refers to the referenced type.
+    std::cout << TYPE_NAME(int) << std::endl;
+    std::cout << TYPE_NAME(int &) << std::endl;
+    std::cout << (typeid(int) == typeid(int &)) << std::endl;
+    // (2) In all cases, cv-qualifiers are ignored by typeid 
+    //     (that is, typeid(T)==typeid(const T)) 
+    std::cout << TYPE_NAME(const int) << std::endl;
+    std::cout << (typeid(int) == typeid(const int)) << std::endl;
+
     PAUSE();
     return 0;
 }
 
 // References:
+// http://en.cppreference.com/w/cpp/language/typeid
 // Ongoing-Study/cpp/C++11/type_traits
