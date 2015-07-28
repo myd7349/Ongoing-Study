@@ -24,7 +24,7 @@ template <typename InIt>
 //auto accu(InIt first, InIt last)
 // Not supported by C++11.
 // 0.
-//typename std::iterator_traits<InIt>::value_type accu(InIt first, InIt last) // OK
+typename std::iterator_traits<InIt>::value_type accu(InIt first, InIt last) // OK
 // 1.
 //auto accu(InIt first, InIt last) -> typename std::iterator_traits<InIt>::value_type // OK
 // 2.
@@ -36,7 +36,10 @@ template <typename InIt>
 //decltype(*first) accu(InIt first, InIt last)
 // VS2013: error C2893: Failed to specialize function template 'unknown-type accu(InIt,InIt)'
 // 4.
-auto accu(InIt first, InIt last) -> decltype(*first)
+//auto accu(InIt first, InIt last) -> decltype(*first)
+// Not OK!!!
+// From this test: Ongoing-study/cpp/C++11/type_traits
+// we know that, we shouldn't deduce the value type from `decltype(*iter)`.
 {
 #if 0
     using ValueT = decltype(*first);
@@ -71,3 +74,4 @@ int main()
 // [When should I use C++14 automatic return type deduction?](http://stackoverflow.com/questions/15737223/when-should-i-use-c14-automatic-return-type-deduction)
 // [Deducing value type from iterator for return type of template function](http://stackoverflow.com/questions/30354455/deducing-value-type-from-iterator-for-return-type-of-template-function)
 // [Can C++11 decltype be used to create a typedef for function pointer from an existing function?](http://stackoverflow.com/questions/13089067/can-c11-decltype-be-used-to-create-a-typedef-for-function-pointer-from-an-exis)
+// Ongoing-study/cpp/C++11/type_traits
