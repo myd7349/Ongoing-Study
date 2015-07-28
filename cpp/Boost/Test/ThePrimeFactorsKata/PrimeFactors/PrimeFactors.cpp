@@ -1,7 +1,15 @@
 #include "PrimeFactors.h"
 
+
 std::list<int> PrimeFactors::Generate(int n)
 {
-    //throw "Not implemented"; // 0
-    return std::list<int>();
+    std::list<int> primes;
+
+    for (int candidate = 2; n > 1; ++candidate) {
+        for (; n % candidate == 0; n /= candidate) {
+            primes.push_back(candidate);
+        }
+    }
+
+    return primes;
 }
