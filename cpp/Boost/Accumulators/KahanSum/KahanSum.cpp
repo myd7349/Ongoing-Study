@@ -4,11 +4,8 @@
 #include <numeric>
 #include <vector>
 
-#include <boost/accumulators/accumulators.hpp>
-#include <boost/accumulators/statistics.hpp>
-
 #include "../../../common.h"
-
+#include "kahan_sum.hpp"
 
 int main()
 {
@@ -17,10 +14,7 @@ int main()
     double res = std::accumulate(nums.cbegin(), nums.cend(), 0.0); // std::plus
     std::printf("%.20f, %.1f\n", res, res);
 
-    namespace Acc = boost::accumulators;
-    Acc::accumulator_set<double, Acc::stats<Acc::tag::sum_kahan>> acc;
-    std::for_each(nums.cbegin(), nums.cend(), [&] (double elem) { acc(elem); });
-    res = Acc::sum_kahan(acc);
+    res = kahan_sum(nums.cbegin(), nums.cend());
     std::printf("%.20f, %.1f\n", res, res);
 
     PAUSE();

@@ -78,6 +78,9 @@
   <ItemGroup>
     <ClCompile Include="KahanSum.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="kahan_sum.hpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
