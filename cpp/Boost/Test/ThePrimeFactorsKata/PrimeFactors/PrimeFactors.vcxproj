@@ -12,9 +12,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PrimeFactors.h" />
+    <ClInclude Include="PrimeFactorsMediator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PrimeFactors.cpp" />
+    <ClCompile Include="PrimeFactorsMediator.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{57735027-646D-494D-95B2-DAE66403E0A5}</ProjectGuid>

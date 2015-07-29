@@ -52,6 +52,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)PrimeFactors;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -59,7 +60,7 @@
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>$(TargetPath)</Command>
+      <Command>$(TargetPath) --log_level=test_suite</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Running unit tests for PrimeFactors...</Message>
@@ -84,6 +85,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp" />
+    <ClCompile Include="TestPrimeFactors.cpp" />
+    <ClCompile Include="TestPrimeFactorsMediator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PrimeFactors\PrimeFactors.vcxproj">

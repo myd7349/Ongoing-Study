@@ -1,6 +1,5 @@
 #include "PrimeFactors.h"
 
-
 std::list<int> PrimeFactors::Generate(int n)
 {
     std::list<int> primes;

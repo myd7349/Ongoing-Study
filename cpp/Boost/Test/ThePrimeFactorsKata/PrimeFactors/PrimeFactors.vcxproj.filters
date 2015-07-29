@@ -18,9 +18,15 @@
     <ClInclude Include="PrimeFactors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PrimeFactorsMediator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PrimeFactors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PrimeFactorsMediator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
