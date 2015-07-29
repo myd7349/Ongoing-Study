@@ -108,7 +108,15 @@ def employee(name):
     if session.get('logged_in'):
         return '欢迎您！' + name
     else:
-        return 'haha'
+        abort(404)
+
+
+@app.route('/administrator/<name>')
+def administrator(name):
+    if session.get('logged_in'):
+        return '欢迎您！管理员：' + name
+    else:
+        abort(404)
 
 
 if __name__ == '__main__':
