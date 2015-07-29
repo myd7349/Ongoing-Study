@@ -41,6 +41,7 @@ def benchmark(times):
 
 # 2014-10-29 19:14
 # 2015-03-25T16:12+08:00 This function is deprecated, think about contextlib.suppress.
+# 2015-07-29T15:18+08:00 https://github.com/ajalt/fuckitpy
 def nothrow(func):
     '''A decorator for catching all the unhandled exceptions raised by the decorated function.'''
     # When running Python with "python -Wall", you will see this warning.
