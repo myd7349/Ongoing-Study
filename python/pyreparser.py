@@ -5,7 +5,7 @@
 # http://blog.csdn.net/ubiter/article/details/18408273
 
 # 2015-04-19T11:20+08:00
-# TODO: ast.literal_eval
+
 
 def parse_re(str_re = ''):
     from os import name as os_name
