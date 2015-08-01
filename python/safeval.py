@@ -6,28 +6,29 @@
 class UnsafeError(Exception): pass
 
 
-def safe_eval(expr):
+def safe_eval(expr, allow_doublescore=False):
     """A relatively safe `eval`."""
-    if '__' in expr:
+    if not allow_doublescore and '__' in expr:
         raise UnsafeError('For security propose, double underscore is not allowed')
 
-    try:
-        return eval(expr, {'__builtins__': {}}, {})
-    except NameError as e:
-        raise UnsafeError  # TODO
+    return eval(expr, {'__builtins__': {}}, {})
 
 
 if __name__ == '__main__':
+    import builtins
+    import os
     import unittest
 
     class SafeEvalTest(unittest.TestCase):
         def test_double_underscore(self):
             self.assertRaises(UnsafeError, safe_eval, '__builtins__')
-            self.assertRaises(UnsafeError, safe_eval, '__import__("os")')
+            self.assertEqual(safe_eval('__builtins__', True), {})
+            self.assertRaises(UnsafeError, safe_eval, '__import__("urllib.parse")')
+            self.assertRaises(NameError, safe_eval, '__import__("urllib.parse")', True)
 
         def test_globals_locals(self):
-            import os
-            self.assertRaises(UnsafeError, safe_eval, 'os.system')
+            self.assertRaises(NameError, safe_eval, 'os.system')
+            self.assertRaises(NameError, safe_eval, 'builtins')
 
     unittest.main()
 
