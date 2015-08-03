@@ -6,7 +6,7 @@
 import io
 import tokenize
 
-# How to tokenize a str object?
+# How to tokenize a code snippet that stored in a str object?
 
 
 def tokenize_str(s):
@@ -26,8 +26,9 @@ def tokenize_str_2(s):
 if __name__ == '__main__':
     code = 'print("Hello, world!")'
 
-    for tok in tokenize_str(code):
-        print(tok)
+    for toknum, tokval, *_ in tokenize_str(code):
+        if toknum in (tokenize.NAME, tokenize.STRING):
+            print(tokenize.tok_name[toknum], tokval)
     print(79 * '-')
     for tok in tokenize_str_2(code):
         print(tok)    
