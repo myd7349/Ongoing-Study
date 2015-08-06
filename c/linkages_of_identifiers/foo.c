@@ -11,3 +11,11 @@ void foo_hah(void)
 {
     printf("foo> hah: %d @%p\n", hah, &hah);
 }
+
+void foo_duang(void)
+{
+#if TEST_FILE_SCOPE_CONSTANT_LINKAGE
+    printf("foo> duang: %d @%p\n", Duang, &Duang);
+#endif
+}
+
