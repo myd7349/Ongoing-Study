@@ -28,3 +28,5 @@ int main(void)
 }
 // References:
 // ISO/IEC 9899:1999 (E)/6.2.2 Linkages of identifiers
+// [What is external linkage and internal linkage in C++](http://www.stackoverflow.com/questions/1358400/what-is-external-linkage-and-internal-linkage-in-c)
+// Ongoing-study/cpp/static_const_data_member
