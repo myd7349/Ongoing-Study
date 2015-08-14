@@ -26,7 +26,7 @@ struct AzureStorageAccountOptions {
 class Command;
 
 // Azure cloud storage service wrapper class.
-class AzureCloudStorageService : public boost::noncopyable {
+class AzureCloudStorageService : private boost::noncopyable {
     friend class CdCommand;
     friend class GetCommand;
     friend class HelpCommand;
