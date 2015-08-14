@@ -53,8 +53,8 @@ def walk(top, recursively=True, topdown=True, onerror=None, followlinks=False):
         yield from map(fullpath, os.listdir(top))
 
 
-def list_files(top, recursively=True, topdown=True, onerror=None, followlinks=False):
-    """List all files under specified directory."""
+def ifile(top, recursively=True, topdown=True, onerror=None, followlinks=False):
+    """Iterate all files under specified directory."""
     if recursively:
         for root, subdirs, files in os.walk(top, topdown, onerror, followlinks):
             fullpath = functools.partial(os.path.join, root)
@@ -63,8 +63,8 @@ def list_files(top, recursively=True, topdown=True, onerror=None, followlinks=Fa
         yield from filter(os.path.isfile, walk(top, recursively))
 
 
-def list_subdirs(top, recursively=True, topdown=True, onerror=None, followlinks=False):
-    """List all sub-directories under specified directory."""
+def isubdir(top, recursively=True, topdown=True, onerror=None, followlinks=False):
+    """Iterate all sub-directories under specified directory."""
     if recursively:
         for root, subdirs, files in os.walk(top, topdown, onerror, followlinks):
             fullpath = functools.partial(os.path.join, root)
@@ -82,8 +82,8 @@ if __name__ == '__main__':
     for recursively in (True, False):
         print('-' * 79)
         
-        how_many_files = length(list_files(rootdir, recursively))
-        how_many_subdirs = length(list_subdirs(rootdir, recursively))
+        how_many_files = length(ifile(rootdir, recursively))
+        how_many_subdirs = length(isubdir(rootdir, recursively))
         total = length(walk(rootdir, recursively))
         
         assert total == how_many_files + how_many_subdirs
