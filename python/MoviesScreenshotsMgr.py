@@ -20,13 +20,13 @@ def dump_timeline():
     pass
 
 
-def list_images(root_dir, recursively=True):
+def iter_images(root_dir, recursively=True):
     """List all image files under specified directory."""
-    return filter(imghdr.what, dirwalker.list_files(root_dir, recursively))
+    return filter(imghdr.what, dirwalker.ifile(root_dir, recursively))
 
 
 if __name__ == '__main__':
-    for file in list_images(os.path.dirname(os.path.dirname(__file__))):
+    for file in iter_images(os.path.dirname(os.path.dirname(__file__))):
         print(file)
 
 
