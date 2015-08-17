@@ -8,6 +8,9 @@ struct Bar {
     int operator()() {
         return 1;
     }
+    int hah() {
+        return 101;
+    }
 };
 
 int main()
@@ -22,8 +25,11 @@ int main()
     IFunc func1 = foo;
     IFunc func2 = Bar();
     IFunc func3 = []() { return 42; };
+    Bar bar;
+    auto bound_hah = std::bind(&Bar::hah, std::placeholders::_1);
+    IFunc func4 = std::bind(bound_hah, bar);
 
-    std::printf("%d, %d, %d, %d\n", func0(), func1(), func2(), func3());
+    std::printf("%d, %d, %d, %d, %d\n", func0(), func1(), func2(), func3(), func4());
     return 0;
 }
 
