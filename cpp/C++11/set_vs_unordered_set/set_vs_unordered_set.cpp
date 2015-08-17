@@ -9,7 +9,6 @@
 #include <typeinfo>
 #include <unordered_set>
 
-#define CONFIG_USING_BOOST (0)
 #include "../../common.h"
 #include "../../uniform_typename/uniform_typename.h"
 
@@ -72,7 +71,7 @@ void Q3_test()
 }
 
 // Q4: http://www.zhihu.com/question/20654571
-// 
+//
 void Q4_test()
 {
     std::cout << __func__ << ":" << std::endl;
@@ -101,3 +100,8 @@ int main()
     return 0;
 }
 
+// 2015-08-17T13:33+08:00
+// Effective C++ 3rd Edition/Item 38:
+// set implementations typically incur an overhead of three pointers per element.
+// This is because sets are usually implemented as balanced search trees, something
+// that allows them to guarantee logarithmic-time lookups, insertions, and erasures.
