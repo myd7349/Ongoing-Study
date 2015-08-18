@@ -5,6 +5,16 @@
 // * [Deprecated binders and adaptors](http://thenewcpp.wordpress.com/2012/04/25/deprecated-binders-and-adaptors/)
 // * [Why might std::bind1st be considered ¡°almost unusable¡±?](http://stackoverflow.com/questions/6609337/why-might-stdbind1st-be-considered-almost-unusable)
 
+// 2015-08-18T17:33+08:00
+// Effective C++ 3rd Edition/Item 54:
+// tr1::bind, which does everything the STL binders bind1st and bind2nd do, plus
+// much more. Unlike the pre-TR1 binders, tr1::bind works with both const and
+// non-const member functions. Unlike the pre-TR1 binders, TR1::bind works with
+// by-reference parameters. Unlike the pre-TR1 binders, TR1::bind handles function
+// pointers without help, so there's no need to mess with ptr_fun, mem_fun, or
+// mem_fun_ref before calling TR1::bind. Simply put, TR1::bind is a second-generation
+// binding facility that is significantly better than its predecessor.
+
 #include <cassert>
 #include <functional>
 #include <iostream>
