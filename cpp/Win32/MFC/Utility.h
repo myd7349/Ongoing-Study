@@ -56,6 +56,6 @@ DWORD GetDrives(CArray<CString> &arrDrives, _Pred p)
 }
 
 ULONGLONG GetFileSize(LPCTSTR lpcszFileName);
-CString GetReadableFileSize(const ULONGLONG &ullSizeInBytes);
+CString GetReadableFileSize(ULONGLONG ullSizeInBytes);
 int CompareReadableFileSize(const CString &strLSize, const CString &strRSize);
 

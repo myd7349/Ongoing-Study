@@ -256,7 +256,7 @@ ULONGLONG GetFileSize(LPCTSTR lpcszFileName)
     }
 }
 
-CString GetReadableFileSize(const ULONGLONG &ullSizeInBytes)
+CString GetReadableFileSize(ULONGLONG ullSizeInBytes)
 {
     CString strSize;
 
