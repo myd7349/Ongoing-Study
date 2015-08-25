@@ -28,6 +28,8 @@ public:
 	CListCtrlEx();
 	virtual ~CListCtrlEx();
 
+    // 2015-08-25T10:13+08:00
+    // Warning: These methods are non-virtual.
     int InsertColumn(int nCol, const LVCOLUMN* pColumn, 
         SortTrait sortTrait = STRING, SortCallback sortFunc = DummySort);
     int InsertColumn(int nCol, LPCTSTR lpszColumnHeading, 
