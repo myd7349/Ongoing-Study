@@ -2,6 +2,7 @@
 #ifndef UNIFORM_TYPENAME_H_INCLUDED
 #define UNIFORM_TYPENAME_H_INCLUDED
 
+// 2015-08-26T22:22+08:00 TODO: Boost.Predef
 // What predefined macro can I use to detect clang/gcc/msvc?
 // http://nadeausoftware.com/articles/2012/10/c_c_tip_how_detect_compiler_name_and_version_using_compiler_predefined_macros
 // http://stackoverflow.com/questions/2658461/what-predefined-macro-can-i-use-to-detect-clang
