@@ -352,5 +352,5 @@ int CompareReadableFileSize(const CString &strLSize, const CString &strRSize)
         {
         }
     }
-    return (int)(_tcstod(strLSize, NULL) - _tcstod(strRSize, NULL));
+    return Compare(_tcstod(strLSize, NULL), _tcstod(strRSize, NULL));
 }

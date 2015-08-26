@@ -10,6 +10,8 @@
 #include <algorithm>
 #include <iterator>
 
+#include "Utility.h"
+
 #pragma warning(disable: 4018)
 
 // CListCtrlEx
@@ -178,20 +180,6 @@ void CListCtrlEx::Sort(int iColumn, BOOL bAscending, BOOL bAdd)
 }
 #endif
 
-template <typename T>
-int Compare(const T &lhs, const T &rhs)
-{
-    if (lhs < rhs)
-    {
-        return -1;
-    }
-    else if (rhs < lhs)
-    {
-        return 1;
-    }
-
-    return 0;
-}
 
 int CListCtrlEx::OnCompareItems(LPARAM lParam1, LPARAM lParam2, int iColumn)
 {

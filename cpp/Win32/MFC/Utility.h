@@ -59,3 +59,13 @@ ULONGLONG GetFileSize(LPCTSTR lpcszFileName);
 CString GetReadableFileSize(ULONGLONG ullSizeInBytes);
 int CompareReadableFileSize(const CString &strLSize, const CString &strRSize);
 
+template <typename T>
+int Compare(const T &lhs, const T &rhs)
+{
+    if (lhs < rhs)
+        return -1;
+    else if (rhs < lhs)
+        return 1;
+
+    return 0;
+}
