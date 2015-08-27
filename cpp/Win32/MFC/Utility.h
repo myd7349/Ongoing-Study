@@ -69,3 +69,9 @@ int Compare(const T &lhs, const T &rhs)
 
     return 0;
 }
+
+CString VariantToCString(REFVARIANT varIn);
+inline CString VariantToCString(const _variant_t &varIn)
+{
+    return VariantToCString(static_cast<REFVARIANT>(varIn));
+}

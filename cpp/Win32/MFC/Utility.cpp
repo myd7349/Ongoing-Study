@@ -4,8 +4,10 @@
 
 #include <algorithm>
 
+#include <propvarutil.h>
 #include <shlwapi.h>
 #include <strsafe.h>
+#pragma comment(lib, "propsys.lib")
 #pragma comment(lib, "shlwapi.lib")
 #pragma comment(lib, "strsafe.lib")
 
@@ -354,3 +356,53 @@ int CompareReadableFileSize(const CString &strLSize, const CString &strRSize)
     }
     return Compare(_tcstod(strLSize, NULL), _tcstod(strRSize, NULL));
 }
+
+// 2015-08-27T10:01+08:00
+#if 1
+CString VariantToCString(REFVARIANT varIn)
+{
+    if (varIn.vt == VT_BSTR)
+        return varIn.bstrVal;
+
+    WCHAR szBuffer[1024];
+    if (SUCCEEDED(VariantToString(varIn, szBuffer, ARRAYSIZE(szBuffer))))
+        return CW2T(szBuffer);
+    else
+        return _T("");
+}
+#else
+CString VariantToCString(REFVARIANT varIn)
+{
+#define VT_TO_STR(fmt, mem) \
+    do \
+    { \
+        CString strValue; \
+        strValue.Format(fmt, mem((&varIn))); \
+        return strValue; \
+    } while (0)
+
+    switch (varIn.vt)
+    {
+    case VT_NULL: break;
+    case VT_ERROR: break;
+    case VT_EMPTY: break;
+    case VT_BSTR: return LPCTSTR(V_BSTR(&varIn));
+    case VT_BOOL: VT_TO_STR(_T("%d"), V_BOOL);
+    case VT_INT: VT_TO_STR(_T("%d"), V_INT);
+    case VT_I1: VT_TO_STR(_T("%d"), V_I1);
+    case VT_I2: VT_TO_STR(_T("%d"), V_I2);
+    case VT_I4: VT_TO_STR(_T("%ld"), V_I4);
+    case VT_I8: VT_TO_STR(_T("%I64d"), V_I8);
+    case VT_UINT: VT_TO_STR(_T("%u"), V_UINT);
+    case VT_UI1: VT_TO_STR(_T("%d"), V_UI1);
+    case VT_UI2: VT_TO_STR(_T("%hu"), V_UI2);
+    case VT_UI4: VT_TO_STR(_T("%u"), V_UI4);
+    case VT_UI8: VT_TO_STR(_T("%I64u"), V_UI8);
+    case VT_R4: VT_TO_STR(_T("%f"), V_R4);
+    case VT_R8: VT_TO_STR(_T("%lf"), V_R8);
+    default: break;
+    }
+
+    return _T("");
+}
+#endif
