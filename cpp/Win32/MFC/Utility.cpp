@@ -358,9 +358,27 @@ int CompareReadableFileSize(const CString &strLSize, const CString &strRSize)
 }
 
 // 2015-08-27T10:01+08:00
-#if 1
+#define VT_TO_STR(fmt, mem) \
+    do \
+    { \
+        CString strValue; \
+        strValue.Format(fmt, mem((&varIn))); \
+        return strValue; \
+    } while (0)
+
+#if 0
+// It seems that VariantToString:
+// 1. can convert int/unsigned/double to string properly;
+// 2. can not convert float properly;
 CString VariantToCString(REFVARIANT varIn)
 {
+    switch (varIn.vt)
+    {
+    case VT_BSTR: return varIn.bstrVal;
+    case VT_R4: VT_TO_STR(_T("%f"), V_R4);
+    default: break;
+    }
+
     if (varIn.vt == VT_BSTR)
         return varIn.bstrVal;
 
@@ -373,14 +391,6 @@ CString VariantToCString(REFVARIANT varIn)
 #else
 CString VariantToCString(REFVARIANT varIn)
 {
-#define VT_TO_STR(fmt, mem) \
-    do \
-    { \
-        CString strValue; \
-        strValue.Format(fmt, mem((&varIn))); \
-        return strValue; \
-    } while (0)
-
     switch (varIn.vt)
     {
     case VT_NULL: break;
@@ -405,4 +415,5 @@ CString VariantToCString(REFVARIANT varIn)
 
     return _T("");
 }
+// http://www.codeproject.com/Articles/542/CString-Management
 #endif
