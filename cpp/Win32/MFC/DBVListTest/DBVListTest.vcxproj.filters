@@ -44,6 +44,9 @@
     <ClInclude Include="..\Utility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SearchDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DBVListTest.cpp">
@@ -59,6 +62,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Utility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

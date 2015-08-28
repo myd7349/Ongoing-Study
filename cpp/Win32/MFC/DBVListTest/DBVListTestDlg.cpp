@@ -6,6 +6,9 @@
 #include "DBVListTest.h"
 #include "DBVListTestDlg.h"
 #include "afxdialogex.h"
+#include "SearchDlg.h"
+
+#include <algorithm>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -45,9 +48,6 @@ END_MESSAGE_MAP()
 
 // CDBVListTestDlg dialog
 
-
-
-
 CDBVListTestDlg::CDBVListTestDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CDBVListTestDlg::IDD, pParent)
 {
@@ -68,6 +68,9 @@ BEGIN_MESSAGE_MAP(CDBVListTestDlg, CDialogEx)
     ON_NOTIFY(LVN_GETDISPINFO, IDC_EMP_LIST, &CDBVListTestDlg::OnLvnGetdispinfoEmpList)
     ON_NOTIFY(LVN_ODCACHEHINT, IDC_EMP_LIST, &CDBVListTestDlg::OnLvnOdcachehintEmpList)
     ON_NOTIFY(LVN_ODFINDITEM, IDC_EMP_LIST, &CDBVListTestDlg::OnLvnOdfinditemEmpList)
+    ON_WM_SIZE()
+    ON_BN_CLICKED(IDC_BTN_SEARCH, &CDBVListTestDlg::OnBnClickedBtnSearch)
+    ON_BN_CLICKED(IDC_BTN_DELETE, &CDBVListTestDlg::OnBnClickedBtnDelete)
 END_MESSAGE_MAP()
 
 void CDBVListTestDlg::GetDispInfo(LVITEM* pItem)
@@ -115,6 +118,23 @@ void CDBVListTestDlg::UpdateFilter(CString strCurQuery, BOOL bUpdate)
     m_ctrlEmpList.Invalidate();
 }
 
+std::size_t CDBVListTestDlg::GetFieldInfos(std::vector<CODBCFieldInfo> &vFieldInfos)
+{
+    vFieldInfos.clear();
+
+    if (!m_DBVListSet.IsOpen() && !m_DBVListSet.Open())
+        return 0;
+
+    std::size_t cols = m_DBVListSet.GetODBCFieldCount();
+    for (std::size_t i = 0; i < cols; ++i) {
+        CODBCFieldInfo fieldInfo;
+        m_DBVListSet.GetODBCFieldInfo(i, fieldInfo);
+        vFieldInfos.push_back(fieldInfo);
+    }
+
+    return cols;
+}
+
 void CDBVListTestDlg::InitListControl()
 {
     if (m_ctrlEmpList.GetSafeHwnd() == NULL)
@@ -123,14 +143,10 @@ void CDBVListTestDlg::InitListControl()
     m_ctrlEmpList.SetExtendedStyle(LVS_EX_FLATSB | LVS_EX_FULLROWSELECT
         | LVS_EX_ONECLICKACTIVATE | LVS_EX_GRIDLINES | LVS_EX_HEADERDRAGDROP);
 
-    if (!m_DBVListSet.IsOpen() && !m_DBVListSet.Open())
-        return;
-
-    int iColumns = m_DBVListSet.GetODBCFieldCount();
-    CODBCFieldInfo fieldInfo;
+    std::vector<CODBCFieldInfo> vFieldInfos;
+    int iColumns = static_cast<int>(GetFieldInfos(vFieldInfos));
     for (int i = 0; i < iColumns; ++i) {
-        m_DBVListSet.GetODBCFieldInfo(i, fieldInfo);
-        m_ctrlEmpList.InsertColumn(i, fieldInfo.m_strName, LVCFMT_LEFT, 100);
+        m_ctrlEmpList.InsertColumn(i, vFieldInfos[i].m_strName, LVCFMT_LEFT, 100);
     }
 }
 
@@ -164,6 +180,8 @@ BOOL CDBVListTestDlg::OnInitDialog()
 	//  when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
+
+    ModifyStyle(0, WS_CLIPCHILDREN | WS_CLIPSIBLINGS);
 
 	InitListControl();
     UpdateFilter(_T(""), TRUE);
@@ -220,6 +238,45 @@ HCURSOR CDBVListTestDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+void CDBVListTestDlg::OnSize(UINT nType, int cx, int cy)
+{
+    CDialogEx::OnSize(nType, cx, cy);
+
+    const int MARGIN = 10;
+    const int BUTTON_WIDTH = 75;
+    const int BUTTON_HEIGHT = 25;
+
+    if (GetDlgItem(IDC_EMP_LIST) == NULL)
+        return;
+
+    CRect rcClient;
+    GetClientRect(rcClient);
+
+    CRect rcListCtrl;
+    rcListCtrl.SetRect(0, 0, 
+        rcClient.Width() - 2 * MARGIN, 
+        rcClient.Height() - 3 * MARGIN - BUTTON_HEIGHT);
+    rcListCtrl.MoveToXY(MARGIN, MARGIN);
+
+    m_ctrlEmpList.MoveWindow(rcListCtrl);
+
+    CRect rcButton;
+    rcButton.SetRect(0, 0, BUTTON_WIDTH, BUTTON_HEIGHT);
+
+    int iButtons[] = {IDOK, IDC_BTN_DELETE, IDC_BTN_SEARCH};
+    for (int i = 0; i < ARRAYSIZE(iButtons); ++i) {
+        rcButton.MoveToXY(
+            rcClient.right - (i + 1) * (BUTTON_WIDTH + MARGIN),
+            rcClient.bottom - (BUTTON_HEIGHT + MARGIN));
+        CWnd *pWnd = GetDlgItem(iButtons[i]);
+        ATLASSERT(pWnd != NULL);
+        pWnd->MoveWindow(rcButton);
+        pWnd->Invalidate();
+    }
+
+    Invalidate();
+}
+
 void CDBVListTestDlg::OnLvnColumnclickEmpList(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
@@ -262,4 +319,22 @@ void CDBVListTestDlg::OnLvnOdfinditemEmpList(NMHDR *pNMHDR, LRESULT *pResult)
     LPNMLVFINDITEM pFindInfo = reinterpret_cast<LPNMLVFINDITEM>(pNMHDR);
     // TODO: Add your control notification handler code here
     *pResult = 0;
+}
+
+
+void CDBVListTestDlg::OnBnClickedBtnSearch()
+{
+    std::vector<CODBCFieldInfo> vFieldInfos;
+    GetFieldInfos(vFieldInfos);
+
+    CSearchDlg searchDlg(vFieldInfos);
+    if (searchDlg.DoModal() == IDOK) {
+        UpdateFilter(searchDlg.GetFilter());
+    }
+}
+
+
+void CDBVListTestDlg::OnBnClickedBtnDelete()
+{
+    // TODO: Add your control notification handler code here
 }
