@@ -28,8 +28,8 @@ void DeleteAllItems(CComboBox &comboBox)
 
 IMPLEMENT_DYNAMIC(CSearchDlg, CDialogEx)
 
-CSearchDlg::CSearchDlg(const std::vector<CODBCFieldInfo> &vFieldInfos, CWnd* pParent /*=NULL*/)
-	: CDialogEx(CSearchDlg::IDD, pParent), m_vFieldInfos(vFieldInfos)
+    CSearchDlg::CSearchDlg(const std::vector<CODBCFieldInfo> &vFieldInfos, CWnd* pParent /*=NULL*/)
+    : CDialogEx(CSearchDlg::IDD, pParent), m_vFieldInfos(vFieldInfos)
 {
 }
 
@@ -89,9 +89,9 @@ void CSearchDlg::OnCbnSelchangeComboFields()
     auto it = std::find_if(m_vFieldInfos.cbegin(), m_vFieldInfos.cend(), 
         //[&m_strField](const CODBCFieldInfo &fieldInfo) // ???
         [&](const CODBCFieldInfo &fieldInfo) 
-        {
-            return fieldInfo.m_strName == m_strField;
-        });
+    {
+        return fieldInfo.m_strName == m_strField;
+    });
     if (it == m_vFieldInfos.cend())
         return;
 
@@ -104,7 +104,7 @@ void CSearchDlg::OnCbnSelchangeComboFields()
     // text filter here; for fields with a numeric type, however, we will
     // use a number filter.
     // The text filter may supports: equals, contains, starts with, end withs, etc.
-    // The number filter may supports: equals, greater than, less than, in range of, etc.
+    // The number filter may supports: equals, greater than, less than, within, etc.
     // This idea is inspired by the column filtering facility in MS Access. 
     switch (it->m_nSQLType) {
     case SQL_VARCHAR: m_ctrlOperatorsCombox.AddString(_T("=")); break;
@@ -118,7 +118,7 @@ void CSearchDlg::OnCbnSelchangeComboOperator()
     m_strOperator.Empty();
     if (!GetCurSelString(m_ctrlOperatorsCombox, m_strOperator))
         return;
-    
+
     m_ctrlCriteriaEdit.EnableWindow(!m_strOperator.IsEmpty());
 }
 
