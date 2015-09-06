@@ -22,8 +22,22 @@ public:
     CEmployeeSet(CDatabase* pDatabase = NULL);
     DECLARE_DYNAMIC(CEmployeeSet)
 
-    void SetFilter(CString strCurQuery, BOOL bUpdate);
-    void SetSort(LPCTSTR pszSortField);
+    void SetFilter(const CString &strCurQuery, BOOL bUpdate = FALSE);
+    void SetSort(const CString &strSortField, BOOL bUpdate = FALSE);
+
+    void MoveFirst()
+    {
+        TRY { if (!IsBOF()) CRecordset::MoveFirst(); }
+        CATCH_ALL (e) { DumpException(e, _T(__FUNCTION__)); }
+        END_CATCH_ALL
+    }
+
+    void MoveLast()
+    {
+        TRY { if (!IsEOF()) CRecordset::MoveLast(); }
+        CATCH_ALL (e) { DumpException(e, _T(__FUNCTION__)); }
+        END_CATCH_ALL
+    }
 
     // Field/Param Data
 
@@ -50,6 +64,19 @@ public:
     virtual void AssertValid() const;
     virtual void Dump(CDumpContext& dc) const;
 #endif
+
+    static void DumpException(CException *e, LPCTSTR lpcszFun)
+    {
+        ATLASSERT(e != NULL);
+        ATLASSERT(lpcszFun != NULL);
+
+        TCHAR szError[256];
+        if (e->GetErrorMessage(szError, ARRAYSIZE(szError)))
+            ATLTRACE(_T("%s: %s\n"), lpcszFun, szError);
+    }
+
+private:
+    void RequeryAndUpdateRecordCount();
 };
 
 

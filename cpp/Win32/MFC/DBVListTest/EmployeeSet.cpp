@@ -11,35 +11,26 @@ IMPLEMENT_DYNAMIC(CEmployeeSet, CRecordset)
     m_nDefaultType = dynaset;
 }
 
-void CEmployeeSet::SetFilter(CString strCurQuery, BOOL bUpdate)
-{
-    // convenience function to set the SQL filter for the query
-    if (strCurQuery == m_strFilter && !bUpdate)
+// convenience function to set the SQL filter for the query
+void CEmployeeSet::SetFilter(const CString &strCurQuery, BOOL bUpdate)
+{    
+    if (m_strFilter == strCurQuery && !bUpdate)
         return;
 
-    CWaitCursor wait;
-
     m_strFilter.SetString(strCurQuery);
-    if (!IsOpen())
-        Open();
-    Requery();
-
-    // update record counts
-    while (!IsEOF())
-        MoveNext();
+    RequeryAndUpdateRecordCount();
 }
 
-
-void CEmployeeSet::SetSort(LPCTSTR pszSortField)
+// convenience function to set the SQL sort for the query
+void CEmployeeSet::SetSort(const CString &strSortField, BOOL bUpdate)
 {
-    // convenience function to set the SQL sort for the query
-
-    m_strSort = pszSortField;
-    if (IsOpen())
-    {
-        CWaitCursor wait;
-        Requery();
-    }
+    if (m_strSort == strSortField && !bUpdate)
+        return;
+    
+    m_strSort = strSortField;
+    // After updating the sorting criteria, we must requery and update the
+    // record count. Otherwise you may got a wrong record count.
+    RequeryAndUpdateRecordCount();
 }
 
 
@@ -100,4 +91,21 @@ void CEmployeeSet::Dump(CDumpContext& dc) const
 }
 #endif //_DEBUG
 
+void CEmployeeSet::RequeryAndUpdateRecordCount()
+{
+    CWaitCursor wait;
 
+    if (!IsOpen())
+        Open();
+
+    if (IsOpen()) {
+        Requery();
+
+        // update record counts
+        while (!IsEOF())
+            MoveNext();
+
+        if (!IsBOF())
+            CRecordset::MoveFirst();
+    }
+}
