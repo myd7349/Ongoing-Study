@@ -22,7 +22,6 @@ END_MESSAGE_MAP()
 
 CDBVListTestApp::CDBVListTestApp()
 {
-    // TODO: add construction code here,
     // Place all significant initialization in InitInstance
 }
 

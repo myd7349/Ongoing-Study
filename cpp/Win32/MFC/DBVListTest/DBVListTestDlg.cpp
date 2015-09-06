@@ -234,9 +234,7 @@ void CDBVListTestDlg::UpdateFilter(CString strCurQuery, BOOL bUpdate)
     // set the item count to the new record count
     int nRecordCount = 0;
     if (m_DBVListSet.IsOpen())
-    {
         nRecordCount = m_DBVListSet.GetRecordCount();
-    }
 
     m_ctrlEmpList.SetItemCountEx(nRecordCount);
     // Invalidate the list control so it will redraw itself
@@ -312,6 +310,7 @@ BOOL CDBVListTestDlg::OnInitDialog()
     ModifyStyle(0, WS_CLIPCHILDREN | WS_CLIPSIBLINGS);
 
     InitListControl();
+    m_DBVListSet.SetSort(_T("[Name] ASC"), FALSE);
     UpdateFilter(_T(""), TRUE);
 
     return TRUE;  // return TRUE  unless you set the focus to a control
@@ -421,10 +420,10 @@ void CDBVListTestDlg::OnLvnColumnclickEmpList(NMHDR *pNMHDR, LRESULT *pResult)
     lvc.cchTextMax = ARRAYSIZE(szText);
     m_ctrlEmpList.GetColumn(pNMLV->iSubItem, &lvc);
 
-    CString strFilter;
-    strFilter.Format(_T("[%s]"), lvc.pszText);
-    strFilter += m_bASC ? _T(" ASC") : _T(" DESC");
-    m_DBVListSet.SetSort(strFilter);
+    CString strSort;
+    strSort.Format(_T("[%s]"), lvc.pszText);
+    strSort += m_bASC ? _T(" ASC") : _T(" DESC");
+    m_DBVListSet.SetSort(strSort);
 
     m_ctrlEmpList.Invalidate();
 

@@ -4,7 +4,7 @@
 
 IMPLEMENT_DYNAMIC(CEmployeeSet, CRecordset)
 
-    CEmployeeSet::CEmployeeSet(CDatabase* pdb)
+CEmployeeSet::CEmployeeSet(CDatabase* pdb)
     : CRecordset(pdb)
 {
     m_nFields = 7;
@@ -12,25 +12,18 @@ IMPLEMENT_DYNAMIC(CEmployeeSet, CRecordset)
 }
 
 // convenience function to set the SQL filter for the query
-void CEmployeeSet::SetFilter(const CString &strCurQuery, BOOL bUpdate)
-{    
-    if (m_strFilter == strCurQuery && !bUpdate)
-        return;
-
-    m_strFilter.SetString(strCurQuery);
-    RequeryAndUpdateRecordCount();
+CString CEmployeeSet::SetFilter(const CString &strCurQuery, BOOL bUpdate)
+{
+    return SetCriteria(m_strFilter, strCurQuery, bUpdate);
 }
 
 // convenience function to set the SQL sort for the query
-void CEmployeeSet::SetSort(const CString &strSortField, BOOL bUpdate)
+CString CEmployeeSet::SetSort(const CString &strSortField, BOOL bUpdate)
 {
-    if (m_strSort == strSortField && !bUpdate)
-        return;
-    
-    m_strSort = strSortField;
     // After updating the sorting criteria, we must requery and update the
     // record count. Otherwise you may got a wrong record count.
-    RequeryAndUpdateRecordCount();
+    
+    return SetCriteria(m_strSort, strSortField, bUpdate);
 }
 
 
@@ -97,10 +90,10 @@ void CEmployeeSet::RequeryAndUpdateRecordCount()
 
     if (!IsOpen())
         Open();
+    else
+        ATLVERIFY(Requery());
 
     if (IsOpen()) {
-        Requery();
-
         // update record counts
         while (!IsEOF())
             MoveNext();
@@ -108,4 +101,21 @@ void CEmployeeSet::RequeryAndUpdateRecordCount()
         if (!IsBOF())
             CRecordset::MoveFirst();
     }
+}
+
+CString CEmployeeSet::SetCriteria(CString &strCriteria, const CString &strNewValue, BOOL bUpdate)
+{
+    CString strOldValue = strCriteria;
+
+    if (strCriteria == strNewValue) {
+        if (!bUpdate)
+            return strOldValue;
+    } else {
+        strCriteria.SetString(strNewValue);
+    }
+
+    if (bUpdate)
+        RequeryAndUpdateRecordCount();
+
+    return strOldValue;
 }

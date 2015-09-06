@@ -22,8 +22,8 @@ public:
     CEmployeeSet(CDatabase* pDatabase = NULL);
     DECLARE_DYNAMIC(CEmployeeSet)
 
-    void SetFilter(const CString &strCurQuery, BOOL bUpdate = FALSE);
-    void SetSort(const CString &strSortField, BOOL bUpdate = FALSE);
+    CString SetFilter(const CString &strCurQuery, BOOL bUpdate = TRUE);
+    CString SetSort(const CString &strSortField, BOOL bUpdate = TRUE);
 
     void MoveFirst()
     {
@@ -75,8 +75,10 @@ public:
             ATLTRACE(_T("%s: %s\n"), lpcszFun, szError);
     }
 
-private:
     void RequeryAndUpdateRecordCount();
+
+private:
+    CString SetCriteria(CString &strCriteria, const CString &strNewValue, BOOL bUpdate);
 };
 
 
