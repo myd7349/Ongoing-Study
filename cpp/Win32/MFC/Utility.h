@@ -75,3 +75,6 @@ inline CString VariantToCString(const _variant_t &varIn)
 {
     return VariantToCString(static_cast<REFVARIANT>(varIn));
 }
+
+CString ExceptionToString(CException *e, LPCTSTR lpcszPrefix = NULL);
+void TraceException(CException *e, LPCTSTR lpcszPrefix = NULL);

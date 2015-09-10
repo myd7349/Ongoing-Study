@@ -7,6 +7,7 @@
 #include "DBVListTestDlg.h"
 #include "afxdialogex.h"
 #include "SearchDlg.h"
+#include "../Utility.h"
 
 #include <algorithm>
 
@@ -529,6 +530,8 @@ void CDBVListTestDlg::OnBnClickedBtnDelete()
         pDatabase->CommitTrans();
     } CATCH_ALL (e) {
         pDatabase->Rollback();
+        AfxMessageBox(ExceptionToString(e, 
+            _T("Failed to delete cases!\n") _T(__FUNCTION__)));
     }
     END_CATCH_ALL
 

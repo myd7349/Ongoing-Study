@@ -65,16 +65,7 @@ public:
     virtual void Dump(CDumpContext& dc) const;
 #endif
 
-    static void DumpException(CException *e, LPCTSTR lpcszFun)
-    {
-        ATLASSERT(e != NULL);
-        ATLASSERT(lpcszFun != NULL);
-
-        TCHAR szError[256];
-        if (e->GetErrorMessage(szError, ARRAYSIZE(szError)))
-            ATLTRACE(_T("%s: %s\n"), lpcszFun, szError);
-    }
-
+    void DumpException(CException *e, LPCTSTR lpcszFun);
     void RequeryAndUpdateRecordCount();
 
 private:

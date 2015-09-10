@@ -417,3 +417,29 @@ CString VariantToCString(REFVARIANT varIn)
 }
 // http://www.codeproject.com/Articles/542/CString-Management
 #endif
+
+// 2015-09-10T12:27+08:00
+CString ExceptionToString(CException *e, LPCTSTR lpcszPrefix)
+{
+    ATLASSERT(e != NULL && e->IsKindOf(RUNTIME_CLASS(CException)));
+    ATLASSERT(lpcszPrefix != NULL);
+
+    CString strError;
+    TCHAR szError[1024] = _T("");
+    if (e->GetErrorMessage(szError, ARRAYSIZE(szError))) {
+        if (lpcszPrefix == NULL || lpcszPrefix[0] == _T('\0'))
+            strError = szError;
+        else
+            strError.Format(_T("%s:\n%s"), lpcszPrefix, szError);
+    }
+
+    return strError;
+}
+
+// 2015-09-10T12:27+08:00
+void TraceException(CException *e, LPCTSTR lpcszPrefix)
+{
+    CString strError = ExceptionToString(e, lpcszPrefix);
+    if (!strError.IsEmpty())
+        ATLTRACE(_T("%s\n"), strError.GetString());
+}

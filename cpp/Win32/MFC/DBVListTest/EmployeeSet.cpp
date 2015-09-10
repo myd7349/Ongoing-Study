@@ -103,6 +103,11 @@ void CEmployeeSet::RequeryAndUpdateRecordCount()
     }
 }
 
+void CEmployeeSet::DumpException(CException *e, LPCTSTR lpcszFun)
+{
+    TraceException(e, lpcszFun);
+}
+
 CString CEmployeeSet::SetCriteria(CString &strCriteria, const CString &strNewValue, BOOL bUpdate)
 {
     CString strOldValue = strCriteria;
