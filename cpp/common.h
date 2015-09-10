@@ -93,6 +93,10 @@ inline std::basic_string<charT> GetProgName(const charT *argv0)
 }
 
 // ARRAYSIZE
+// %{
+// 2015-09-03T12:10+08:00
+// Google/benchmark/macros.h:arraysize 
+// %}
 #ifndef ARRAYSIZE
 # ifdef _MSC_VER
 #  define ARRAYSIZE _countof
