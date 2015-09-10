@@ -39,7 +39,7 @@ protected:
 #if USE_ITEM_CACHE_HINT
     void PrepareCache(int iFrom, int iTo);
 #endif
-    void UpdateFilter(CString strCurQuery, BOOL bUpdate = TRUE);
+    void UpdateFilterAndRecordCount(CString strCurQuery);
     void InitListControl();
     std::size_t GetFieldInfos(std::vector<CODBCFieldInfo> &vFieldInfos);
     inline CString QuotedValue(const CString &strValue)

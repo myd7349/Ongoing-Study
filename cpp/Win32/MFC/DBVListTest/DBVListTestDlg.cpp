@@ -226,10 +226,10 @@ PEmployeeItem CDBVListTestDlg::RetrieveItem(int iItem)
         return &m_DBVListSet.m_EmpItem;
 }
 
-void CDBVListTestDlg::UpdateFilter(CString strCurQuery, BOOL bUpdate)
+void CDBVListTestDlg::UpdateFilterAndRecordCount(CString strCurQuery)
 {
     // convenience function to set the SQL filter for the query
-    m_DBVListSet.SetFilter(strCurQuery, bUpdate);
+    m_DBVListSet.SetFilter(strCurQuery, TRUE);
 
     // set the item count to the new record count
     int nRecordCount = 0;
@@ -311,7 +311,7 @@ BOOL CDBVListTestDlg::OnInitDialog()
 
     InitListControl();
     m_DBVListSet.SetSort(_T("[Name] ASC"), FALSE);
-    UpdateFilter(_T(""), TRUE);
+    UpdateFilterAndRecordCount(_T(""));
 
     return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -464,7 +464,6 @@ void CDBVListTestDlg::OnLvnEndlabeleditEmpList(NMHDR *pNMHDR, LRESULT *pResult)
         m_DBVListSet.m_EmpItem.m_Email = pDispInfo->item.pszText;
         if (!m_DBVListSet.Update())
             AfxMessageBox(_T("Failed to update record!"));
-        UpdateFilter(m_DBVListSet.m_strFilter, TRUE);
     }
 
     *pResult = 0;
@@ -472,7 +471,7 @@ void CDBVListTestDlg::OnLvnEndlabeleditEmpList(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CDBVListTestDlg::OnBnClickedBtnAll()
 {
-    UpdateFilter(_T(""), TRUE);
+    UpdateFilterAndRecordCount(_T(""));
 }
 
 void CDBVListTestDlg::OnBnClickedBtnSearch()
@@ -482,7 +481,7 @@ void CDBVListTestDlg::OnBnClickedBtnSearch()
 
     CSearchDlg searchDlg(vFieldInfos);
     if (searchDlg.DoModal() == IDOK) {
-        UpdateFilter(searchDlg.GetFilter());
+        UpdateFilterAndRecordCount(searchDlg.GetFilter());
     }
 }
 
@@ -513,14 +512,9 @@ void CDBVListTestDlg::OnBnClickedBtnDelete()
 
     ATLASSERT(m_DBVListSet.IsOpen());
     CString strPrevFilter = m_DBVListSet.m_strFilter;
-    UpdateFilter(strNewFilter);
-    m_DBVListSet.MoveFirst();
+    UpdateFilterAndRecordCount(strNewFilter);
 
-    if (m_DBVListSet.IsEOF() 
-        || !m_DBVListSet.CanUpdate() || !m_DBVListSet.CanTransact()) {
-        UpdateFilter(strPrevFilter);
-        return;
-    }
+    ATLASSERT(!m_DBVListSet.IsEOF() && m_DBVListSet.CanUpdate() && m_DBVListSet.CanTransact());
 
     CDatabase *pDatabase = m_DBVListSet.m_pDatabase;
     ATLASSERT(pDatabase != NULL);
@@ -538,5 +532,5 @@ void CDBVListTestDlg::OnBnClickedBtnDelete()
     }
     END_CATCH_ALL
 
-    UpdateFilter(strPrevFilter);
+    UpdateFilterAndRecordCount(strPrevFilter);
 }
