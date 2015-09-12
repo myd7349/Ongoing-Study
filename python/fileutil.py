@@ -106,9 +106,9 @@ def open_file(file, *args, **kwargs):
             'Some function that handling an input file.'
             with open_file(f, 'r') as fp:
                 pass
-    and if you passed a file name to `foo`, the file will be automatically closed when
-    open_file.__exit__ is executed. If you passed an opened file object, however,
-    open_file.__exit__ will do nothing. Sounds nice, hah?
+    and if you passed a file name to `foo`, the file will be automatically closed at
+    the end; if you passed an opened file object, however, open_file will do nothing.
+    Sounds nice, hah?
     """
     is_file_name = isinstance(file, str)
     fp = open(file, *args, **kwargs) if is_file_name else file
