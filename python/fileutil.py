@@ -119,6 +119,7 @@ class FileGuard:
     def __exit__(self, exc_type, exc_value, traceback):
         if not self._user_owned_the_file:
             self._file.close()
+        return False
 
 
 def open_file(file, *args, **kwargs):
