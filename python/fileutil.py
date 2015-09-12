@@ -4,9 +4,13 @@
 # 2015-03-24T08:33+08:00
 # 2015-07-07T11:26+08:00 Use temporary file when running unit test
 
+import contextlib
 import functools
 import io
 import os
+
+__all__ = ['is_file_obj', 'file_size', 'file_name', 'file_title', 'replace_ext',
+           'open_file']
 
 
 def is_file_obj(f):
@@ -77,7 +81,8 @@ def replace_ext(file, new_ext, prefix='', suffix=''):
     return prefix + root + suffix + new_ext if ext else prefix + fn + suffix + new_ext
 
 
-class FileGuard:
+@contextlib.contextmanager
+def open_file(file, *args, **kwargs):
     """Sometimes when we wrote a function that accepts a file object, we also
     want it be able to deal with file name. So some code like this:
         def foo(f):
@@ -99,31 +104,19 @@ class FileGuard:
     With this class, we can rewrite `foo` like this:
         def foo(f):
             'Some function that handling an input file.'
-            with FileGuard(f, 'r') as fp:
+            with open_file(f, 'r') as fp:
                 pass
     and if you passed a file name to `foo`, the file will be automatically closed when
-    FileGuard.__exit__ is executed. If you passed an opened file object, however,
-    FileGuard.__exit__ will do nothing. Sounds nice, hah?
+    open_file.__exit__ is executed. If you passed an opened file object, however,
+    open_file.__exit__ will do nothing. Sounds nice, hah?
     """
-    def __init__(self, file, *args, **kwargs):
-        if isinstance(file, str):
-            self._file = open(file, *args, **kwargs)
-            self._user_owned_the_file = False
-        else:
-            self._file = file
-            self._user_owned_the_file = True
-
-    def __enter__(self):
-        return self._file
-
-    def __exit__(self, exc_type, exc_value, traceback):
-        if not self._user_owned_the_file:
-            self._file.close()
-        return False
-
-
-def open_file(file, *args, **kwargs):
-    return FileGuard(file, *args, **kwargs)
+    is_file_name = isinstance(file, str)
+    fp = open(file, *args, **kwargs) if is_file_name else file
+    try:
+        yield fp
+    finally:
+        if is_file_name:
+            fp.close()
 
 
 if __name__ == '__main__':
@@ -223,6 +216,7 @@ if __name__ == '__main__':
             f.close()
 
     unittest.main()
+
 
 # References:
 # [Does filehandle get closed automatically in Python after it goes out of scope?](http://stackoverflow.com/questions/2404430/does-filehandle-get-closed-automatically-in-python-after-it-goes-out-of-scope)
