@@ -10,15 +10,17 @@ import os
 # Several ways to walk/list a directory:
 # (0) os.listdir
 #     It can not walk a directory tree recursively. However, we can implement one
-#     by ourselves(that's how os.walk works). The `stat` module's documentation
-#     also give us a working example, called `walktree`.
+#     by ourselves(that's how `os.walk` before Python 3.5 works). The `stat` module's
+#     documentation also give us a working example, called `walktree`.
 # (1) os.walk
 #     Internally, it calls `os.listdir` to do the listing work for each sub-directory.
+#     (That is not the case since Python 3.5.)
 # (2) pathlib.Path.iterdir
 #     New in Python v3.4. I haven't take a look at it yet.
-# (3) scandir
+# (3) os.scandir
 #     New in Python v3.5. I haven't take a look at it yet. The README.md on GitHub says
-#     that it is faster than `os.walk`.
+#     that it is faster than the previous version of `os.walk`.
+#     In Python 3.5, `os.walk` calls `os.scandir` instead of `os.listdir`. 
 # (4) This one is cool.
 #     https://github.com/eliben/pss/blob/master/psslib/filefinder.py
 
