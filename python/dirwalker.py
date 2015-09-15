@@ -18,14 +18,16 @@ import os
 # (2) pathlib.Path.iterdir
 #     New in Python v3.4. I haven't take a look at it yet.
 # (3) os.scandir
-#     New in Python v3.5. I haven't take a look at it yet. The README.md on GitHub says
-#     that it is faster than the previous version of `os.walk`.
+#     New in Python v3.5. The README at:
+#         https://github.com/benhoyt/scandir/blob/master/README.rst
+#     says that it is faster than the previous version of `os.walk`.
 #     In Python 3.5, `os.walk` calls `os.scandir` instead of `os.listdir`. 
 # (4) This one is cool.
 #     https://github.com/eliben/pss/blob/master/psslib/filefinder.py
 
 
 # This function is inspired by `os.walk`, but they have different behaviours.
+# TODO: Replace the call to `os.listdir` with `os.scandir`.
 def _walk_recursively_impl(top, topdown=True, onerror=None, followlinks=False):
     try:
         items = os.listdir(top)
