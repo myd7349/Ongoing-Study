@@ -3,7 +3,7 @@
 // javac EnclosingClass.java
 // java EnclosingClass
 
-// Algorithms Forth Edition P139
+// Algorithms Fourth Edition P139
 // >Note that this nested class can access the instance variables of the enclosing class, in
 // >this case a[]  and N (this ability is the main reason we use nested classes for iterators).
 
