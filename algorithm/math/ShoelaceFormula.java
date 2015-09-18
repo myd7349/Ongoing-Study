@@ -58,8 +58,11 @@ class Point2D {
 // 0.5 * |A.x * B.y + B.x * C.y + C.x * A.y - B.x * A.y - C.x * B.y - A.x * C.y|
 // 0.5 * |A.x * (B.y - C.y) + B.x * (C.y - A.y) + C.x * (A.y - B.y)|
 // 0.5 * |A.x * ((B.y  - A.y) - (C.y - A.y)) + B.x * (C.y - A.y) + C.x * (A.y - B.y)|
-// 0.5 * |(B.y - A.y) * (A.x - C.x) + (C.y - A.y) * (B.x - A.x)|
+// 0.5 * |(B.y - A.y) * (A.x - C.x) + (C.y - A.y) * (B.x - A.x)| (1)
 // that's how Point2D/area2 in Algorithms exercise 1.2.1 works.
+// A trangle's area can also be calculated by the cross product of vector AB and BC:
+// area = 0.5 * |AB x AC| = 0.5 * |AB x BC| = 0.5 * |AC x BC|
+// we can get formula (1) from this formula too.
 
 
 // References:
