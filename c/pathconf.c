@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 {  
   if (argc < 2) {
     fprintf(stderr, "usage: pathconf path\n");
-	return 0;
+    return 0;
   }
   
   for (int i = 1; i < argc; i++) {
