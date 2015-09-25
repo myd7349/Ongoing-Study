@@ -233,7 +233,7 @@ def fetch_patient_info(config_file, config_dict=None, extra_elems_dict=None, cri
     config_dict: This dictionary is used to initialize the configparser.ConfigParser
                  object. You can use this arguement to specify initial value of those
                  keywords listed in `fields_options`.
-    extra_elems_dict: Specify additional elements that are not exist in `fields_options`.
+    extra_elems_dict: Specify additional elements that are not existing in `fields_options`.
     criteria_arg: Criteria argument used to generate SQL statement.
     """
     config = _read_config_file(config_file, config_dict, extra_elems_dict)
