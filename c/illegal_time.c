@@ -2,13 +2,14 @@
 // Can we call mktime/localtime with datetime 1970-01-01T00:00:00+08:00?
 #include <assert.h>
 #include <locale.h>
+#include <stddef.h>
 #include <stdio.h>
 #include <time.h>
 
 int main(void)
 {
     const char *locales[] = {NULL, "", "C"};
-    int i = 0;
+    size_t i = 0;
 
     struct tm atm;
     time_t t;
@@ -41,4 +42,25 @@ Local is: Chinese (Simplified)_People's Republic of China.936
 Illegal time.
 Local is: C
 Illegal time.
+*/
+
+// http://coliru.stacked-crooked.com/
+/*
+Local is: C
+Local is: C
+Local is: C
+*/
+
+// http://webcompiler.cloudapp.net/
+/*
+Local is: C
+Local is: English_United States.1252
+Local is: C
+*/
+
+// http://melpon.org/wandbox/
+/*
+Local is: C
+Local is: en_US.UTF-8
+Local is: C
 */
