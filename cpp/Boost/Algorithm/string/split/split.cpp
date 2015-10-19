@@ -6,15 +6,17 @@
 #include <boost/algorithm/string.hpp>
 
 #include "../../../../common.h"
+#include "../../../../join.hpp"
 
 int main()
 {
-    std::string str = "GOROOT=D:\\go;GOPATH=D:\\study\\go;OS=Windows_NT;";
+    std::string str = "GOROOT=D:\\go;GOPATH=D:\\study\\go;OS=Windows_NT";
 
     std::vector<std::string> tokens;
     boost::split(tokens, str, boost::is_any_of("=;"));
 
     Println(tokens);
+    std::cout << join(tokens.cbegin(), tokens.cend(), ';') << std::endl;
 
     // TODO:
     // Use RegEx as a splitter.
@@ -23,4 +25,4 @@ int main()
 }
 
 // References:
-// [c++的string为什么不提供split函数？](http://www.zhihu.com/question/36642771)
+// http://www.zhihu.com/question/36642771
