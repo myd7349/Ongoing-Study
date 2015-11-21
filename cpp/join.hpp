@@ -8,8 +8,8 @@
 #include <sstream>
 #include <string>
 
-template <typename BidIt, typename SplitterT, typename CharT = char>
-std::basic_string<CharT> join(BidIt first, BidIt last, SplitterT s)
+template <typename BidIt, typename CharT>
+std::basic_string<CharT> join(BidIt first, BidIt last, const std::basic_string<CharT> &s)
 {
     using value_t = typename std::iterator_traits<BidIt>::value_type;
 
@@ -21,6 +21,24 @@ std::basic_string<CharT> join(BidIt first, BidIt last, SplitterT s)
         oss << *back;
 
     return oss.str();
+}
+
+
+template <typename BidIt, typename CharT>
+std::basic_string<CharT> join(BidIt first, BidIt last, const CharT *s)
+{
+    return join(first, last, std::basic_string<CharT>(s));
+}
+
+
+template <typename BidIt, typename CharT>
+std::basic_string<CharT> join(BidIt first, BidIt last, CharT c)
+{
+    //char ch = 'A';
+    //std::string str(ch); // error
+    //std::string str = ch; // error
+    //std::string str; str += ch; // OK
+    return join(first, last, std::basic_string<CharT>(1, c));
 }
 
 #endif // JOIN_H_
