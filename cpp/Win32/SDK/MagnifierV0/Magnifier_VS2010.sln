@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Magnifier_VS2010", "Magnifier\Magnifier_VS2010.vcxproj", "{B0A472EE-F15E-4890-942B-A404702BA9EE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MagnifierAPI_VS2010", "MagnifierAPI\MagnifierAPI_VS2010.vcxproj", "{45A4AFFC-5E81-4227-AB3E-99DC3AA730C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0A472EE-F15E-4890-942B-A404702BA9EE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B0A472EE-F15E-4890-942B-A404702BA9EE}.Debug|Win32.Build.0 = Debug|Win32
+		{B0A472EE-F15E-4890-942B-A404702BA9EE}.Release|Win32.ActiveCfg = Release|Win32
+		{B0A472EE-F15E-4890-942B-A404702BA9EE}.Release|Win32.Build.0 = Release|Win32
+		{45A4AFFC-5E81-4227-AB3E-99DC3AA730C0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{45A4AFFC-5E81-4227-AB3E-99DC3AA730C0}.Debug|Win32.Build.0 = Debug|Win32
+		{45A4AFFC-5E81-4227-AB3E-99DC3AA730C0}.Release|Win32.ActiveCfg = Release|Win32
+		{45A4AFFC-5E81-4227-AB3E-99DC3AA730C0}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

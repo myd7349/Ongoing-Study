@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -10,22 +10,64 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Common\GdiplusHelper.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Common\Utility.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="MagDynamic.cpp" />
+    <ClCompile Include="MagFocus.cpp" />
+    <ClCompile Include="Magnifier.cpp" />
+    <ClCompile Include="MagSnapshot.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MagOptions.cpp" />
+    <ClCompile Include="MagOptionsDlg.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Common\Common.h" />
+    <ClInclude Include="Common\GdiplusHelper.h" />
+    <ClInclude Include="Common\Singleton.h" />
+    <ClInclude Include="Common\targetver.h" />
+    <ClInclude Include="Common\Utility.h" />
+    <ClInclude Include="MagDynamic.h" />
+    <ClInclude Include="MagFocus.h" />
+    <ClInclude Include="Magnifier.h" />
+    <ClInclude Include="MagInstance.h" />
+    <ClInclude Include="MagOptions.h" />
+    <ClInclude Include="MagOptionsDlg.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="MagSnapshot.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Magnifier.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Magnifier.ico" />
+    <None Include="small.ico" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1C82CBAD-422F-415A-BB28-1DBDA9CFA7A5}</ProjectGuid>
+    <ProjectGuid>{B0A472EE-F15E-4890-942B-A404702BA9EE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Magnifier</RootNamespace>
+    <RootNamespace>Magnifier_VS2010</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -55,7 +97,6 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -72,40 +113,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="MagDef.h" />
-    <ClInclude Include="MagDynamic.h" />
-    <ClInclude Include="MagInstance.h" />
-    <ClInclude Include="Magnifier.h" />
-    <ClInclude Include="MagOptions.h" />
-    <ClInclude Include="MagOptionsDlg.h" />
-    <ClInclude Include="MagSnapshot.h" />
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="MagDynamic.cpp" />
-    <ClCompile Include="Magnifier.cpp" />
-    <ClCompile Include="MagOptions.cpp" />
-    <ClCompile Include="MagOptionsDlg.cpp" />
-    <ClCompile Include="MagSnapshot.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Magnifier.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Magnifier.ico" />
-    <Image Include="small.ico" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

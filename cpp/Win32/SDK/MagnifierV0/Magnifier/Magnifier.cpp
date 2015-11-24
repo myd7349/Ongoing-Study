@@ -1,197 +1,98 @@
 #include "stdafx.h"
+#include "MagDynamic.h"
+#include "MagFocus.h"
 #include "Magnifier.h"
+#include "MagSnapshot.h"
+#include "Common/Utility.h"
 
 
-#define CLIENT_WIDTH (400)
-#define CLIENT_HEIGHT (250)
-#define FACTOR (2.5)
-#define MAX_FACTOR (10.0)
-#define MIN_FACTOR (0.05)
-#define FOCUS_COLOR RGB(0, 0, 0)
-#define FOCUS_SIZE (5)
-#define INVERT_COLOR (TRUE)
-#define SHOW_FACTOR (TRUE)
-#define SHOW_POS (TRUE)
+#define MAX_FACTOR (5.0)
+#define MIN_FACTOR (0.5)
+#define DYNAMIC_MODE (TRUE)
 
 
-HINSTANCE hInst;
-
-ATOM MyRegisterClass(HINSTANCE, LPCTSTR);
-HWND InitInstance(HINSTANCE, LPCTSTR, LPCTSTR, int);
-LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
-INT_PTR CALLBACK About(HWND, UINT, WPARAM, LPARAM);
-
-
-void Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify);
-void Cls_OnPaint(HWND hwnd);
-void Cls_OnMouseMove(HWND hwnd, int x, int y, UINT keyFlags);
-void Cls_OnDestroy(HWND hwnd);
-
-
-void SetClientSize(HWND hwnd, int width, int height);
+namespace
+{
 void CalcMagParam(RECT &rcMagWnd, RECT &rcMagArea, POINT &ptFocus, HWND hwnd, const POINT &ptCur, int width, int height, double factor);
+} // namespace -
 
 
-int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
+namespace Mag
 {
-    UNREFERENCED_PARAMETER(hPrevInstance);
-    UNREFERENCED_PARAMETER(lpCmdLine);
+Magnifier::Magnifier()
+{
+    Options::LoadEx(m_Options);
 
-    MSG msg;
-    HACCEL hAccelTable;
-
-    const int MAX_LOADSTRING = 64;
-    TCHAR szWindowClass[MAX_LOADSTRING] = _T("");
-    TCHAR szTitle[MAX_LOADSTRING] = _T("");
-
-    HWND hWnd = NULL;
-
-    LoadString(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
-    LoadString(hInstance, IDC_MAGNIFIER, szWindowClass, MAX_LOADSTRING);
-    MyRegisterClass(hInstance, szWindowClass);
-
-    if ((hWnd = InitInstance(hInstance, szWindowClass, szTitle, nCmdShow)) == NULL)
+    switch (m_Options.mode)
     {
-        return FALSE;
+    case MAGM_DYNAMIC: m_Mag.reset(new MagDynamic); break;
+    case MAGM_SNAPSHOT: m_Mag.reset(new MagSnapshot); break;
+    default: assert(FALSE); break;
     }
 
-    hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_MAGNIFIER));
-
-    while (TRUE)
+    switch (m_Options.focus)
     {
-        if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
-        {
-            if (msg.message == WM_QUIT)
-            {
-                break;
-            }
-            else if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-            {
-                TranslateMessage(&msg);
-                DispatchMessage(&msg);
-            }
-        }
-        else
-        {
-            InvalidateRect(hWnd, NULL, FALSE);
-            Sleep(16);
-        }
-    }
-
-    return (int)msg.wParam;
-}
-
-
-ATOM MyRegisterClass(HINSTANCE hInstance, LPCTSTR lpcszWindowClass)
-{
-    WNDCLASSEX wcex;
-
-    wcex.cbSize = sizeof(WNDCLASSEX);
-
-    wcex.style = CS_HREDRAW | CS_VREDRAW;
-    wcex.lpfnWndProc = WndProc;
-    wcex.cbClsExtra = 0;
-    wcex.cbWndExtra = 0;
-    wcex.hInstance = hInstance;
-    wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_MAGNIFIER));
-    wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
-    wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
-    wcex.lpszMenuName = NULL; //MAKEINTRESOURCE(IDC_MAGNIFIER);
-    wcex.lpszClassName = lpcszWindowClass;
-    wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
-
-    return RegisterClassEx(&wcex);
-}
-
-
-HWND InitInstance(HINSTANCE hInstance, LPCTSTR lpcszWindowClass, LPCTSTR lpcszTitle, int nCmdShow)
-{
-    HWND hWnd;
-
-    hInst = hInstance;
-
-    hWnd = CreateWindowEx(WS_EX_CLIENTEDGE | WS_EX_TOPMOST | WS_EX_TOOLWINDOW | WS_EX_CLIENTEDGE, lpcszWindowClass, lpcszTitle,
-        WS_POPUP, CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, NULL, NULL, hInstance, NULL);
-
-    if (!hWnd)
-    {
-        return NULL;
-    }
-
-    SetClientSize(hWnd, CLIENT_WIDTH, CLIENT_HEIGHT);
-    ShowWindow(hWnd, nCmdShow);
-    UpdateWindow(hWnd);
-
-    return hWnd;
-}
-
-
-LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
-{
-	switch (message)
-	{
-        HANDLE_MSG(hWnd, WM_COMMAND, Cls_OnCommand);
-        HANDLE_MSG(hWnd, WM_PAINT, Cls_OnPaint);
-        HANDLE_MSG(hWnd, WM_DESTROY, Cls_OnDestroy);
-        default:
-		    return DefWindowProc(hWnd, message, wParam, lParam);
-	}
-
-	return 0;
-}
-
-
-INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
-{
-	UNREFERENCED_PARAMETER(lParam);
-
-	switch (message)
-	{
-	case WM_INITDIALOG:
-		return (INT_PTR)TRUE;
-
-	case WM_COMMAND:
-		if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
-		{
-			EndDialog(hDlg, LOWORD(wParam));
-			return (INT_PTR)TRUE;
-		}
-		break;
-	}
-
-	return (INT_PTR)FALSE;
-}
-
-
-void Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
-{
-    switch (id)
-    {
-    case IDM_ABOUT:
-        DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hwnd, About);
+    case MAGF_CROSS:
+        m_Focus.reset(new FocusCross(m_Options.nFocusHalfLen, m_Options.clrFocus));
         break;
-    case IDM_EXIT:
-        DestroyWindow(hwnd);
+    case MAGF_X:
+        m_Focus.reset(new FocusX(m_Options.nFocusHalfLen, m_Options.clrFocus));
         break;
-    default:
-        FORWARD_WM_COMMAND(hwnd, id, hwndCtl, codeNotify, DefWindowProc);
+    case MAGF_RECT:
+        m_Focus.reset(new FocusRect(m_Options.nFocusHalfLen, m_Options.clrFocus));
+        break;
+    default: assert(FALSE); break;
     }
 }
 
 
-void Cls_OnPaint(HWND hwnd)
+Magnifier::~Magnifier()
 {
+}
+
+
+BOOL Magnifier::OnCreate(HWND hwnd, LPCREATESTRUCT lpCreateStruct)
+{
+    assert(IsWindow(hwnd));
+
+    if (m_Options.bIsClientSize)
+    {
+        Utility::SetClientSize(hwnd, m_Options.nWidth, m_Options.nHeight);
+    }
+    else
+    {
+        SetWindowPos(hwnd, HWND_TOPMOST, 
+            0, 0, m_Options.nWidth, m_Options.nHeight, 
+            SWP_NOMOVE | SWP_NOACTIVATE | SWP_NOZORDER);
+    }
+
+    SetWindowLongPtr(hwnd, GWL_STYLE, m_Options.dwStyle);
+    SetWindowLongPtr(hwnd, GWL_EXSTYLE, m_Options.dwExStyle);
+
+    return TRUE;
+}
+
+
+void Magnifier::OnPaint(HWND hwnd)
+{
+    assert(IsWindow(hwnd));
+
     PAINTSTRUCT ps;
     HDC hdc = BeginPaint(hwnd, &ps);
 
     POINT pt;
     GetCursorPos(&pt);
 
+    RECT rcClient;
+    GetClientRect(hwnd, &rcClient);
+    int cxClient = rcClient.right - rcClient.left;
+    int cyClient = rcClient.bottom - rcClient.top;
+
     RECT rcMagWnd;
     RECT rcMagArea;
     POINT ptFocus;
 
-    CalcMagParam(rcMagWnd, rcMagArea, ptFocus, hwnd, pt, CLIENT_WIDTH, CLIENT_HEIGHT, FACTOR);
+    CalcMagParam(rcMagWnd, rcMagArea, ptFocus, hwnd, pt, cxClient, cyClient, m_Options.dFactor);
     SetWindowPos(hwnd, HWND_TOPMOST, 
         rcMagWnd.left, rcMagWnd.top, rcMagWnd.right - rcMagWnd.left, rcMagWnd.bottom - rcMagWnd.top, 
         SWP_NOACTIVATE | SWP_NOSIZE);
@@ -200,44 +101,29 @@ void Cls_OnPaint(HWND hwnd)
         // GetWindowDC(GetDesktopWindow());
         // GetDC(NULL);
         HDC hdcScreen = CreateDC(_T("DISPLAY"), NULL, NULL, NULL);
-        StretchBlt(hdc, 0, 0, CLIENT_WIDTH, CLIENT_HEIGHT, hdcScreen, rcMagArea.left, rcMagArea.top,
+        StretchBlt(hdc, 0, 0, cxClient, cyClient, hdcScreen, rcMagArea.left, rcMagArea.top,
             rcMagArea.right - rcMagArea.left, rcMagArea.bottom - rcMagArea.top, SRCCOPY);
         DeleteDC(hdcScreen);
 
-        MoveToEx(hdc, ptFocus.x - 5, ptFocus.y, NULL);
-        LineTo(hdc, ptFocus.x + 5, ptFocus.y);
-        MoveToEx(hdc, ptFocus.x, ptFocus.y - 5, NULL);
-        LineTo(hdc, ptFocus.x, ptFocus.y + 5);
+        Gdiplus::Graphics graphics(hdc);
+
+        m_Mag->Draw(graphics);
+        m_Focus->Draw(graphics, Utility::POINTToPointF(ptFocus));
     }
 
     EndPaint(hwnd, &ps);
 }
 
 
-void Cls_OnDestroy(HWND hwnd)
+void Magnifier::OnDestroy(HWND hwnd)
 {
     PostQuitMessage(0);
 }
+} // namespace Mag
 
 
-void SetClientSize(HWND hwnd, int width, int height)
+namespace
 {
-    RECT rcWindow;
-    RECT rcClient;
-
-    GetWindowRect(hwnd, &rcWindow);
-    GetClientRect(hwnd, &rcClient);
-    
-    int cx = (rcWindow.right - rcWindow.left) - (rcClient.right - rcClient.left);
-    int cy = (rcWindow.bottom - rcWindow.top) - (rcClient.bottom - rcClient.top);
-
-    width += cx;
-    height += cy;
-
-    SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, width, height, SWP_NOMOVE | SWP_NOACTIVATE | SWP_NOZORDER);
-}
-
-
 void AdjustFactor(double &factor)
 {
     if (factor < MIN_FACTOR)
@@ -368,18 +254,26 @@ void CalcMagParam(RECT &rcMagWnd, RECT &rcMagArea, POINT &ptFocus,
 
     CalcMagAreaRect(rcMagArea, ptFocus, ptCur, width, height, factor);
 
-    int cxOffset = (int)(max(width - ptFocus.x, ptFocus.x) / factor) + 2;
-    int cyOffset = (int)(max(height - ptFocus.y, ptFocus.y) / factor) + 2;
-
-    if (cxOffset < 16)
+    if (DYNAMIC_MODE)
     {
-        cxOffset = 16;
-    }
+        int cxOffset = (int)(max(width - ptFocus.x, ptFocus.x) / factor) + 2;
+        int cyOffset = (int)(max(height - ptFocus.y, ptFocus.y) / factor) + 2;
 
-    if (cyOffset < 16)
+        if (cxOffset < 16)
+        {
+            cxOffset = 16;
+        }
+
+        if (cyOffset < 16)
+        {
+            cyOffset = 16;
+        }
+
+        CalcMagWndRect(hwnd, rcMagWnd, ptCur, cxOffset, cyOffset, ERC_LT, width, height);
+    }
+    else
     {
-        cyOffset = 16;
+        CalcMagWndRect(hwnd, rcMagWnd, ptCur, 32, 32, ERC_LT, width, height);
     }
-
-    CalcMagWndRect(hwnd, rcMagWnd, ptCur, cxOffset, cyOffset, ERC_LT, width, height);
 }
+} // namespace -
