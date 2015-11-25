@@ -4,7 +4,6 @@
 #include "Common.h"
 #include "Noncopyable.h"
 
-#include <cassert>
 
 namespace Mag
 {

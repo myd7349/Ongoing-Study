@@ -7,12 +7,7 @@ namespace Mag
 {
 class MagDynamic : public MagInstance
 {
-public:
-    ~MagDynamic();
-    
-    virtual void Draw(Gdiplus::Graphics &graphics, const POINT &ptCur);
-
-private:
-
+public:    
+    virtual void Draw(HDC hdc, const RECT &rcDest, const RECT &rcMag);
 };
 } // namespace Mag

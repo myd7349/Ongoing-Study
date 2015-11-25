@@ -114,8 +114,8 @@ HWND InitInstance(HINSTANCE hInstance, LPCTSTR lpcszWindowClass, LPCTSTR lpcszTi
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	switch (message)
-	{
+    switch (message)
+    {
     HANDLE_MSG(hWnd, WM_CREATE, Cls_OnCreate);
     HANDLE_MSG(hWnd, WM_COMMAND, Cls_OnCommand);
     HANDLE_MSG(hWnd, WM_PAINT, Cls_OnPaint);
@@ -125,9 +125,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     HANDLE_MSG(hWnd, WM_DESTROY, Cls_OnDestroy);
     default:
 	    return DefWindowProc(hWnd, message, wParam, lParam);
-	}
+    }
 
-	return 0;
+    return 0;
 }
 
 

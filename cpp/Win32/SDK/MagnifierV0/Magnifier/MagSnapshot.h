@@ -3,15 +3,20 @@
 
 #include "MagInstance.h"
 
+#include <memory>
+
 namespace Mag
 {
+namespace Utility { class Canvas; }
+
 class MagSnapshot : public MagInstance
 {
 public:
-    ~MagSnapshot();
+    MagSnapshot();
 
-    virtual void Draw(Gdiplus::Graphics &graphics, const POINT &ptCur);
+    virtual void Draw(HDC hdc, const RECT &rcDest, const RECT &rcMag);
 
 private:
+    std::unique_ptr<Utility::Canvas> m_ScreenCache;
 };
 } // namespace Mag

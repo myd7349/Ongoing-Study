@@ -10,6 +10,6 @@ class MagInstance : private Utility::GdiplusConsumer
 public:
     virtual ~MagInstance() {}
 
-    virtual void Draw(Gdiplus::Graphics &graphics, const POINT &ptCur) = 0;
+    virtual void Draw(HDC hdc, const RECT &rcDest, const RECT &rcMag) = 0;
 };
 } // namespace Mag

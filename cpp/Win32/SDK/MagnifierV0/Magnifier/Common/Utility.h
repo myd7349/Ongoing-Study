@@ -31,10 +31,16 @@ inline LONG RCHeight(const RECT &rc)
     return rc.bottom - rc.top;
 }
 
-inline SIZE RCSIZE(const RECT &rc)
+inline SIZE RECTToSIZE(const RECT &rc)
 {
     SIZE size = { RCWidth(rc), RCHeight(rc) };
     return size;
+}
+
+inline RECT SIZEToRECT(const SIZE &size)
+{
+    RECT rc = { 0, 0, size.cx, size.cy };
+    return rc;
 }
 
 } // namespace Utility

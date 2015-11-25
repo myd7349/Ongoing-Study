@@ -13,7 +13,7 @@ void Options::Reset(Options &options)
     options.dwExStyle = WS_EX_TOOLWINDOW | WS_EX_TOPMOST | WS_EX_STATICEDGE;
     options.dwStyle = WS_POPUP;
     options.style = MAGS_TRACKCUR;
-    options.mode = MAGM_DYNAMIC;
+    options.mode = MAGM_SNAPSHOT;
     options.clrFocus = RGB(0, 255, 128);
     options.clrBkgnd = RGB(0, 0, 0);
     options.clrText = RGB(0, 255, 0);

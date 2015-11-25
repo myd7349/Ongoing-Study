@@ -12,3 +12,5 @@
 #include <GdiPlus.h>
 #include <tchar.h>
 
+#include <cassert>
+

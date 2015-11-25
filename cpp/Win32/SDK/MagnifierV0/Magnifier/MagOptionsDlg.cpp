@@ -42,12 +42,10 @@ void Cls_OnCommand(HWND hDlg, int id, HWND hwndCtl, UINT codeNotify)
 
 INT_PTR CALLBACK OptionsDlgProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    UNREFERENCED_PARAMETER(lParam);
-
     switch (message)
     {
-        HANDLE_DLGMSG(hDlg, WM_INITDIALOG, Cls_OnInitDialog);
-        HANDLE_DLGMSG(hDlg, WM_COMMAND, Cls_OnCommand);
+    HANDLE_DLGMSG(hDlg, WM_INITDIALOG, Cls_OnInitDialog);
+    HANDLE_DLGMSG(hDlg, WM_COMMAND, Cls_OnCommand);
     }
 
     return (INT_PTR)FALSE;
