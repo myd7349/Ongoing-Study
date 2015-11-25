@@ -95,7 +95,7 @@ HWND InitInstance(HINSTANCE hInstance, LPCTSTR lpcszWindowClass, LPCTSTR lpcszTi
     hInst = hInstance;
 
     hWnd = CreateWindowEx(WS_EX_STATICEDGE | WS_EX_TOPMOST | WS_EX_TOOLWINDOW, lpcszWindowClass, lpcszTitle,
-        WS_POPUP | WS_CAPTION | WS_SYSMENU, CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, NULL, NULL, hInstance, NULL);
+        WS_POPUP | WS_CAPTION | WS_SYSMENU, 0, 0, 200, 200, NULL, NULL, hInstance, NULL);
 
     if (!hWnd)
     {
