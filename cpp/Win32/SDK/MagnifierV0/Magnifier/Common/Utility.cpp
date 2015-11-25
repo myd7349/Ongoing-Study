@@ -14,8 +14,8 @@ void SetClientSize(HWND hwnd, int width, int height)
     RECT rcWindow;
     RECT rcClient;
 
-    GetWindowRect(hwnd, &rcWindow);
-    GetClientRect(hwnd, &rcClient);
+    VERIFY(GetWindowRect(hwnd, &rcWindow));
+    VERIFY(GetClientRect(hwnd, &rcClient));
 
     int cx = (rcWindow.right - rcWindow.left) - (rcClient.right - rcClient.left);
     int cy = (rcWindow.bottom - rcWindow.top) - (rcClient.bottom - rcClient.top);
@@ -24,6 +24,7 @@ void SetClientSize(HWND hwnd, int width, int height)
     height += cy;
 
     SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, width, height, SWP_NOMOVE | SWP_NOACTIVATE | SWP_NOZORDER);
+    FORWARD_WM_SIZE(hwnd, SIZE_RESTORED, width, height, SendMessage);
 }
 
 } // namespace Utility

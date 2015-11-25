@@ -21,5 +21,21 @@ namespace Utility
 
 void SetClientSize(HWND hwnd, int width, int height);
 
+inline LONG RCWidth(const RECT &rc)
+{
+    return rc.right - rc.left;
+}
+
+inline LONG RCHeight(const RECT &rc)
+{
+    return rc.bottom - rc.top;
+}
+
+inline SIZE RCSIZE(const RECT &rc)
+{
+    SIZE size = { RCWidth(rc), RCHeight(rc) };
+    return size;
+}
+
 } // namespace Utility
 } // namespace Mag

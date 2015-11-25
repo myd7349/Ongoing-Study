@@ -40,9 +40,6 @@ private:
 private:
     Singleton();
     ~Singleton();
-
-    Singleton(const Singleton &);
-    Singleton &operator=(const Singleton &);
 };
 
 template <typename T>

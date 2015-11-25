@@ -3,6 +3,7 @@
 #include "MagFocus.h"
 #include "Magnifier.h"
 #include "MagSnapshot.h"
+#include "Common/Canvas.h"
 #include "Common/Utility.h"
 
 
@@ -54,6 +55,10 @@ Magnifier::~Magnifier()
 BOOL Magnifier::OnCreate(HWND hwnd, LPCREATESTRUCT lpCreateStruct)
 {
     assert(IsWindow(hwnd));
+    UNREFERENCED_PARAMETER(lpCreateStruct);
+
+    SetWindowLongPtr(hwnd, GWL_STYLE, m_Options.dwStyle);
+    SetWindowLongPtr(hwnd, GWL_EXSTYLE, m_Options.dwExStyle);
 
     if (m_Options.bIsClientSize)
     {
@@ -66,9 +71,6 @@ BOOL Magnifier::OnCreate(HWND hwnd, LPCREATESTRUCT lpCreateStruct)
             SWP_NOMOVE | SWP_NOACTIVATE | SWP_NOZORDER);
     }
 
-    SetWindowLongPtr(hwnd, GWL_STYLE, m_Options.dwStyle);
-    SetWindowLongPtr(hwnd, GWL_EXSTYLE, m_Options.dwExStyle);
-
     return TRUE;
 }
 
@@ -76,6 +78,7 @@ BOOL Magnifier::OnCreate(HWND hwnd, LPCREATESTRUCT lpCreateStruct)
 void Magnifier::OnPaint(HWND hwnd)
 {
     assert(IsWindow(hwnd));
+    assert(m_Canvas != nullptr);
 
     PAINTSTRUCT ps;
     HDC hdc = BeginPaint(hwnd, &ps);
@@ -83,16 +86,12 @@ void Magnifier::OnPaint(HWND hwnd)
     POINT pt;
     GetCursorPos(&pt);
 
-    RECT rcClient;
-    GetClientRect(hwnd, &rcClient);
-    int cxClient = rcClient.right - rcClient.left;
-    int cyClient = rcClient.bottom - rcClient.top;
-
     RECT rcMagWnd;
     RECT rcMagArea;
     POINT ptFocus;
 
-    CalcMagParam(rcMagWnd, rcMagArea, ptFocus, hwnd, pt, cxClient, cyClient, m_Options.dFactor);
+    CalcMagParam(rcMagWnd, rcMagArea, ptFocus, hwnd, pt, 
+        m_szClient.cx, m_szClient.cy, m_Options.dFactor);
     SetWindowPos(hwnd, HWND_TOPMOST, 
         rcMagWnd.left, rcMagWnd.top, rcMagWnd.right - rcMagWnd.left, rcMagWnd.bottom - rcMagWnd.top, 
         SWP_NOACTIVATE | SWP_NOSIZE);
@@ -101,17 +100,32 @@ void Magnifier::OnPaint(HWND hwnd)
         // GetWindowDC(GetDesktopWindow());
         // GetDC(NULL);
         HDC hdcScreen = CreateDC(_T("DISPLAY"), NULL, NULL, NULL);
-        StretchBlt(hdc, 0, 0, cxClient, cyClient, hdcScreen, rcMagArea.left, rcMagArea.top,
+        StretchBlt(m_Canvas->GetHDC(), 0, 0, m_szClient.cx, m_szClient.cy, hdcScreen, rcMagArea.left, rcMagArea.top,
             rcMagArea.right - rcMagArea.left, rcMagArea.bottom - rcMagArea.top, SRCCOPY);
         DeleteDC(hdcScreen);
 
-        Gdiplus::Graphics graphics(hdc);
+        Gdiplus::Graphics canvas(m_Canvas->GetHDC());
+        m_Mag->Draw(canvas, pt);
+        m_Focus->Draw(canvas, Utility::POINTToPointF(ptFocus));
 
-        m_Mag->Draw(graphics);
-        m_Focus->Draw(graphics, Utility::POINTToPointF(ptFocus));
+        BitBlt(hdc, 0, 0, m_szClient.cx, m_szClient.cy, m_Canvas->GetHDC(), 0, 0, SRCCOPY);
     }
 
     EndPaint(hwnd, &ps);
+}
+
+
+void Magnifier::OnSize(HWND hwnd, UINT state, int cx, int cy)
+{
+    m_szClient.cx = cx;
+    m_szClient.cy = cy;
+
+    if (cx > 0 && cy > 0)
+    {
+        HDC hdc = GetDC(hwnd);
+        m_Canvas.reset(new Utility::Canvas(hdc, cx, cy));
+        ReleaseDC(hwnd, hdc);
+    }
 }
 
 

@@ -10,7 +10,7 @@ class MagDynamic : public MagInstance
 public:
     ~MagDynamic();
     
-    virtual void Draw(Gdiplus::Graphics &graphics);
+    virtual void Draw(Gdiplus::Graphics &graphics, const POINT &ptCur);
 
 private:
 

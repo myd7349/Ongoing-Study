@@ -8,7 +8,7 @@ MagDynamic::~MagDynamic()
 }
 
 
-void MagDynamic::Draw(Gdiplus::Graphics &graphics)
+void MagDynamic::Draw(Gdiplus::Graphics &graphics, const POINT &ptCur)
 {
 }
 } // namespace Mag

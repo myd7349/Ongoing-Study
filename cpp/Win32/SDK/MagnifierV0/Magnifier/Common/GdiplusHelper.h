@@ -2,6 +2,7 @@
 #pragma once
 
 #include "Common.h"
+#include "Noncopyable.h"
 
 #include <memory>
 
@@ -10,7 +11,7 @@ namespace Mag
 namespace Utility
 {
 
-class GdiplusInitializer
+class GdiplusInitializer : private Noncopyable
 {
 public:
     GdiplusInitializer();
@@ -21,15 +22,12 @@ public:
     void Release();
 
 private:
-    GdiplusInitializer(const GdiplusInitializer &);
-    GdiplusInitializer &operator=(const GdiplusInitializer &);
-
     BOOL m_bInitialized;
     Gdiplus::GdiplusStartupInput m_gdiplusStartupInput;
     ULONG_PTR m_ulpGdiplusToken;
 };
 
-class GdiplusConsumer
+class GdiplusConsumer : private Noncopyable
 {
 protected:
     GdiplusConsumer();

@@ -7,7 +7,7 @@ MagSnapshot::~MagSnapshot()
 {
 }
 
-void MagSnapshot::Draw(Gdiplus::Graphics &graphics)
+void MagSnapshot::Draw(Gdiplus::Graphics &graphics, const POINT &ptCur)
 {
 }
 } // namespace Mag

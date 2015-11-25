@@ -3,7 +3,6 @@
 
 #include "MagInstance.h"
 
-
 namespace Mag
 {
 class MagSnapshot : public MagInstance
@@ -11,7 +10,7 @@ class MagSnapshot : public MagInstance
 public:
     ~MagSnapshot();
 
-    virtual void Draw(Gdiplus::Graphics &graphics);
+    virtual void Draw(Gdiplus::Graphics &graphics, const POINT &ptCur);
 
 private:
 };

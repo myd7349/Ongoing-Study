@@ -12,6 +12,9 @@ LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 BOOL Cls_OnCreate(HWND hwnd, LPCREATESTRUCT lpCreateStruct);
 void Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify);
 void Cls_OnPaint(HWND hwnd);
+BOOL Cls_OnEraseBkgnd(HWND hwnd, HDC hdc);
+UINT Cls_OnNCHitTest(HWND hwnd, int x, int y);
+void Cls_OnSize(HWND hwnd, UINT state, int cx, int cy);
 void Cls_OnDestroy(HWND hwnd);
 
 
@@ -80,7 +83,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance, LPCTSTR lpcszWindowClass)
     wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_MAGNIFIER));
     wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
     wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
-    wcex.lpszMenuName = MAKEINTRESOURCE(IDC_MAGNIFIER);
+    wcex.lpszMenuName = NULL; //MAKEINTRESOURCE(IDC_MAGNIFIER);
     wcex.lpszClassName = lpcszWindowClass;
     wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -116,6 +119,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     HANDLE_MSG(hWnd, WM_CREATE, Cls_OnCreate);
     HANDLE_MSG(hWnd, WM_COMMAND, Cls_OnCommand);
     HANDLE_MSG(hWnd, WM_PAINT, Cls_OnPaint);
+    HANDLE_MSG(hWnd, WM_ERASEBKGND, Cls_OnEraseBkgnd);
+    HANDLE_MSG(hWnd, WM_NCHITTEST, Cls_OnNCHitTest);
+    HANDLE_MSG(hWnd, WM_SIZE, Cls_OnSize);
     HANDLE_MSG(hWnd, WM_DESTROY, Cls_OnDestroy);
     default:
 	    return DefWindowProc(hWnd, message, wParam, lParam);
@@ -150,6 +156,24 @@ void Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
 void Cls_OnPaint(HWND hwnd)
 {
     g_Mag.OnPaint(hwnd);
+}
+
+
+BOOL Cls_OnEraseBkgnd(HWND hwnd, HDC hdc)
+{
+    return TRUE;
+}
+
+
+UINT Cls_OnNCHitTest(HWND hwnd, int x, int y)
+{
+    return 0;
+}
+
+
+void Cls_OnSize(HWND hwnd, UINT state, int cx, int cy)
+{
+    g_Mag.OnSize(hwnd, state, cx, cy);
 }
 
 
