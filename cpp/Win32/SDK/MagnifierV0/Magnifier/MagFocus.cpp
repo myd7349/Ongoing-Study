@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "MagFocus.h"
-#include "Common/GdiplusHelper.h"
 #include "Common/Utility.h"
 
 
@@ -27,7 +26,7 @@ COLORREF Focus::GetColor() const
 }
 
 
-void FocusCross::Draw(Gdiplus::Graphics &graphics, const Gdiplus::PointF &ptCenter)
+void CrossFocus::Draw(Gdiplus::Graphics &graphics, const Gdiplus::PointF &ptCenter)
 {
     float fHalfSize = m_nSize / 2.0f;
 
@@ -38,7 +37,7 @@ void FocusCross::Draw(Gdiplus::Graphics &graphics, const Gdiplus::PointF &ptCent
 }
 
 
-void FocusX::Draw(Gdiplus::Graphics &graphics, const Gdiplus::PointF &ptCenter)
+void XFocus::Draw(Gdiplus::Graphics &graphics, const Gdiplus::PointF &ptCenter)
 {
     Gdiplus::REAL fHalfSize = std::sqrt(m_nSize * m_nSize / 2.0f);
 
@@ -51,7 +50,7 @@ void FocusX::Draw(Gdiplus::Graphics &graphics, const Gdiplus::PointF &ptCenter)
 }
 
 
-void FocusRect::Draw(Gdiplus::Graphics &graphics, const Gdiplus::PointF &ptCenter)
+void RectFocus::Draw(Gdiplus::Graphics &graphics, const Gdiplus::PointF &ptCenter)
 {
     Gdiplus::REAL fHalfSize = m_nSize / 2.0f;
 

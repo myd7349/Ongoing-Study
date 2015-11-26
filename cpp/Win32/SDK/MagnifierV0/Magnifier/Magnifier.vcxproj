@@ -76,23 +76,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="MagDef.h" />
-    <ClInclude Include="MagDynamic.h" />
-    <ClInclude Include="MagInstance.h" />
+    <ClInclude Include="Common\Canvas.h" />
+    <ClInclude Include="Common\Common.h" />
+    <ClInclude Include="Common\GdiplusHelper.h" />
+    <ClInclude Include="Common\Noncopyable.h" />
+    <ClInclude Include="Common\Singleton.h" />
+    <ClInclude Include="Common\targetver.h" />
+    <ClInclude Include="Common\Utility.h" />
+    <ClInclude Include="MagFocus.h" />
     <ClInclude Include="Magnifier.h" />
     <ClInclude Include="MagOptions.h" />
     <ClInclude Include="MagOptionsDlg.h" />
-    <ClInclude Include="MagSnapshot.h" />
+    <ClInclude Include="MagRegion.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MagDynamic.cpp" />
+    <ClCompile Include="Common\Canvas.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Common\GdiplusHelper.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Common\Utility.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="MagFocus.cpp" />
     <ClCompile Include="Magnifier.cpp" />
     <ClCompile Include="MagOptions.cpp" />
     <ClCompile Include="MagOptionsDlg.cpp" />
-    <ClCompile Include="MagSnapshot.cpp" />
+    <ClCompile Include="MagRegion.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -36,12 +36,6 @@
     <ClCompile Include="Magnifier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MagDynamic.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MagSnapshot.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MagFocus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -53,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="Common\Canvas.cpp">
       <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="MagRegion.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -66,15 +63,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MagOptionsDlg.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MagInstance.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MagDynamic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MagSnapshot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Magnifier.h">
@@ -103,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="Common\Canvas.h">
       <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="MagRegion.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

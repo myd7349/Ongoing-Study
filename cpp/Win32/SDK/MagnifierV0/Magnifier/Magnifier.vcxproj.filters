@@ -13,24 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Common">
+      <UniqueIdentifier>{a0f48ff0-972d-4d72-a06c-25d1623435dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common">
+      <UniqueIdentifier>{417dc4fc-c85f-487d-ad0d-40fa94d8e62e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MagDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MagDynamic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MagInstance.h">
+    <ClInclude Include="MagFocus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Magnifier.h">
@@ -42,15 +39,39 @@
     <ClInclude Include="MagOptionsDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MagSnapshot.h">
+    <ClInclude Include="MagRegion.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Canvas.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Common.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\GdiplusHelper.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Noncopyable.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Singleton.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\targetver.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Utility.h">
+      <Filter>Header Files\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MagDynamic.cpp">
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MagFocus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Magnifier.cpp">
@@ -62,11 +83,17 @@
     <ClCompile Include="MagOptionsDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MagSnapshot.cpp">
+    <ClCompile Include="MagRegion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Common\Canvas.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\GdiplusHelper.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Utility.cpp">
+      <Filter>Source Files\Common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

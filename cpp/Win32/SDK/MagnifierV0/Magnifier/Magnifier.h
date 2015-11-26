@@ -6,10 +6,13 @@
 
 #define MAGNIFIER_WNDCLASS _T("MagnifierByMYD")
 
+namespace Gdiplus { class Graphics; }
+
 namespace Mag
 {
-class MagInstance;
+
 class Focus;
+class Region;
 namespace Utility { class Canvas; }
 
 class Magnifier
@@ -28,11 +31,12 @@ public:
 
 private:
     Options m_Options;
-    std::unique_ptr<MagInstance> m_Mag;
+    std::unique_ptr<Region> m_Region;
     std::unique_ptr<Focus> m_Focus;
 
-private:
-    std::unique_ptr<Utility::Canvas> m_Canvas;
     SIZE m_szClient;
+    std::unique_ptr<Utility::Canvas> m_Canvas;
+    std::unique_ptr<Gdiplus::Graphics> m_Graphics;
 };
+
 } // -- namespace Mag

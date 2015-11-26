@@ -23,10 +23,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="MagDynamic.cpp" />
     <ClCompile Include="MagFocus.cpp" />
     <ClCompile Include="Magnifier.cpp" />
-    <ClCompile Include="MagSnapshot.cpp" />
+    <ClCompile Include="MagRegion.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MagOptions.cpp" />
     <ClCompile Include="MagOptionsDlg.cpp" />
@@ -43,14 +42,12 @@
     <ClInclude Include="Common\Singleton.h" />
     <ClInclude Include="Common\targetver.h" />
     <ClInclude Include="Common\Utility.h" />
-    <ClInclude Include="MagDynamic.h" />
     <ClInclude Include="MagFocus.h" />
     <ClInclude Include="Magnifier.h" />
-    <ClInclude Include="MagInstance.h" />
     <ClInclude Include="MagOptions.h" />
     <ClInclude Include="MagOptionsDlg.h" />
+    <ClInclude Include="MagRegion.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="MagSnapshot.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

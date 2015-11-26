@@ -6,6 +6,7 @@
 
 namespace Mag
 {
+
 class Focus : private Utility::GdiplusConsumer
 {
 public:
@@ -26,26 +27,30 @@ protected:
 };
 
 
-class FocusCross : public Focus
+class CrossFocus : public Focus
 {
 public:
-    FocusCross(int nSize, COLORREF rgb) : Focus(nSize, rgb) {}
+    CrossFocus(int nSize, COLORREF rgb) : Focus(nSize, rgb) {}
+
     void Draw(Gdiplus::Graphics &graphics, const Gdiplus::PointF &ptCenter);
 };
 
 
-class FocusX : public Focus
+class XFocus : public Focus
 {
 public:
-    FocusX(int nSize, COLORREF rgb) : Focus(nSize, rgb) {}
+    XFocus(int nSize, COLORREF rgb) : Focus(nSize, rgb) {}
+
     void Draw(Gdiplus::Graphics &graphics, const Gdiplus::PointF &ptCenter);
 };
 
 
-class FocusRect : public Focus
+class RectFocus : public Focus
 {
 public:
-    FocusRect(int nSize, COLORREF rgb) : Focus(nSize, rgb) {}
+    RectFocus(int nSize, COLORREF rgb) : Focus(nSize, rgb) {}
+
     void Draw(Gdiplus::Graphics &graphics, const Gdiplus::PointF &ptCenter);
 };
+
 } // namespace Mag

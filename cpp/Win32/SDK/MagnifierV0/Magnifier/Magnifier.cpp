@@ -1,8 +1,7 @@
 #include "stdafx.h"
-#include "MagDynamic.h"
 #include "MagFocus.h"
 #include "Magnifier.h"
-#include "MagSnapshot.h"
+#include "MagRegion.h"
 #include "Common/Canvas.h"
 #include "Common/Utility.h"
 
@@ -23,6 +22,27 @@ namespace Mag
 Magnifier::Magnifier()
 {
     Options::LoadEx(m_Options);
+
+    switch (m_Options.focus)
+    {
+    case MAGF_CROSS:
+        m_Focus.reset(new CrossFocus(m_Options.nFocusHalfLen, m_Options.clrFocus));
+        break;
+    case MAGF_X:
+        m_Focus.reset(new XFocus(m_Options.nFocusHalfLen, m_Options.clrFocus));
+        break;
+    case MAGF_RECT:
+        m_Focus.reset(new RectFocus(m_Options.nFocusHalfLen, m_Options.clrFocus));
+        break;
+    default: assert(FALSE); break;
+    }
+
+    switch (m_Options.mode)
+    {
+    case MAGM_DYNAMIC: m_Region.reset(new DynamicRegion); break;
+    case MAGM_SNAPSHOT: m_Region.reset(new SnapshotRegion); break;
+    default: assert(FALSE); break;
+    }
 }
 
 
@@ -50,27 +70,6 @@ BOOL Magnifier::OnCreate(HWND hwnd, LPCREATESTRUCT lpCreateStruct)
             SWP_NOMOVE | SWP_NOACTIVATE | SWP_NOZORDER);
     }
 
-    switch (m_Options.mode)
-    {
-    case MAGM_DYNAMIC: m_Mag.reset(new MagDynamic); break;
-    case MAGM_SNAPSHOT: m_Mag.reset(new MagSnapshot); break;
-    default: assert(FALSE); break;
-    }
-
-    switch (m_Options.focus)
-    {
-    case MAGF_CROSS:
-        m_Focus.reset(new FocusCross(m_Options.nFocusHalfLen, m_Options.clrFocus));
-        break;
-    case MAGF_X:
-        m_Focus.reset(new FocusX(m_Options.nFocusHalfLen, m_Options.clrFocus));
-        break;
-    case MAGF_RECT:
-        m_Focus.reset(new FocusRect(m_Options.nFocusHalfLen, m_Options.clrFocus));
-        break;
-    default: assert(FALSE); break;
-    }
-
     return TRUE;
 }
 
@@ -96,10 +95,8 @@ void Magnifier::OnPaint(HWND hwnd)
         rcMagWnd.left, rcMagWnd.top, rcMagWnd.right - rcMagWnd.left, rcMagWnd.bottom - rcMagWnd.top, 
         SWP_NOACTIVATE | SWP_NOSIZE);
     
-    m_Mag->Draw(m_Canvas->GetHDC(), Utility::SIZEToRECT(m_szClient), rcMagArea);
-
-    Gdiplus::Graphics canvas(m_Canvas->GetHDC());
-    m_Focus->Draw(canvas, Utility::POINTToPointF(ptFocus));
+    m_Region->Draw(m_Canvas->GetHDC(), Utility::SIZEToRECT(m_szClient), rcMagArea);
+    m_Focus->Draw(*m_Graphics, Utility::POINTToPointF(ptFocus));
 
     BitBlt(hdc, 0, 0, m_szClient.cx, m_szClient.cy, m_Canvas->GetHDC(), 0, 0, SRCCOPY);
 
@@ -117,6 +114,8 @@ void Magnifier::OnSize(HWND hwnd, UINT state, int cx, int cy)
         HDC hdc = GetDC(hwnd);
         m_Canvas.reset(new Utility::Canvas(hdc, cx, cy));
         ReleaseDC(hwnd, hdc);
+
+        m_Graphics.reset(Gdiplus::Graphics::FromHDC(m_Canvas->GetHDC()));
     }
 }
 
