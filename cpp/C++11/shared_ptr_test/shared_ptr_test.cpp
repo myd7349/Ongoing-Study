@@ -70,3 +70,4 @@ int main()
 // [Why isn't there a std::shared_ptr<T[]> specialisation?](http://stackoverflow.com/questions/8947579/why-isnt-there-a-stdshared-ptrt-specialisation)
 // [TR1 not working with gcc and Cmake](http://stackoverflow.com/questions/10205292/tr1-not-working-with-gcc-and-cmake)
 // Ongoing-study/cpp/Pimpl/Pimpl_v1
+// [Smart Pointer Programming Techniques](http://www.boost.org/doc/libs/master/libs/smart_ptr/sp_techniques.html)
