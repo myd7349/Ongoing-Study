@@ -6,6 +6,9 @@
 
 class WidgetBase;
 
+// Try to uncomment this line below and see what happens.
+//#define DEFINE_MAINWINDOW_DESTRUCTOR (0)
+
 #ifndef DEFINE_MAINWINDOW_DESTRUCTOR
 # define DEFINE_MAINWINDOW_DESTRUCTOR (1)
 #endif
@@ -21,6 +24,8 @@ public:
     void print_size();
 
 private:
+    // 1. What if we use a std::shared_ptr here?
+    // 2. Is MainWindow copyable?
     std::unique_ptr<WidgetBase> central_widget_;
 };
 
