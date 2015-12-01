@@ -15,8 +15,11 @@ void Cls_OnPaint(HWND hwnd);
 BOOL Cls_OnEraseBkgnd(HWND hwnd, HDC hdc);
 UINT Cls_OnNCHitTest(HWND hwnd, int x, int y);
 void Cls_OnSize(HWND hwnd, UINT state, int cx, int cy);
+void Cls_OnTimer(HWND hwnd, UINT id);
 void Cls_OnDestroy(HWND hwnd);
 
+const UINT_PTR TIMER_ID = 0x1001;
+#define UM_UPDATE (WM_APP + WM_PAINT)
 
 namespace
 {
@@ -34,6 +37,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCm
     HACCEL hAccelTable;
 
     HWND hWnd = NULL;
+    BOOL bRet;
 
     MyRegisterClass(hInstance, MAGNIFIER_WNDCLASS);
 
@@ -43,6 +47,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCm
     }
 
     hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_MAGNIFIER));
+
+#if 0
+    UNUSED(bRet);
 
     while (TRUE)
     {
@@ -64,6 +71,20 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCm
             Sleep(16);
         }
     }
+#else
+    while ((bRet = GetMessage(&msg, NULL, 0, 0)) != 0)
+    {
+        if (-1 == bRet)
+        {
+            break;
+        }
+        else if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        {
+            TranslateMessage(&msg);
+            DispatchMessage(&msg);
+        }
+    }
+#endif
 
     return (int)msg.wParam;
 }
@@ -122,6 +143,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     HANDLE_MSG(hWnd, WM_ERASEBKGND, Cls_OnEraseBkgnd);
     HANDLE_MSG(hWnd, WM_NCHITTEST, Cls_OnNCHitTest);
     HANDLE_MSG(hWnd, WM_SIZE, Cls_OnSize);
+    HANDLE_MSG(hWnd, WM_TIMER, Cls_OnTimer);
     HANDLE_MSG(hWnd, WM_DESTROY, Cls_OnDestroy);
     default:
 	    return DefWindowProc(hWnd, message, wParam, lParam);
@@ -133,6 +155,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 BOOL Cls_OnCreate(HWND hwnd, LPCREATESTRUCT lpCreateStruct)
 {
+    SetTimer(hwnd, TIMER_ID, 16, NULL);
     return g_Mag.OnCreate(hwnd, lpCreateStruct);
 }
 
@@ -167,7 +190,7 @@ BOOL Cls_OnEraseBkgnd(HWND hwnd, HDC hdc)
 
 UINT Cls_OnNCHitTest(HWND hwnd, int x, int y)
 {
-    return 0;
+    return g_Mag.OnNCHitTest(hwnd, x, y);
 }
 
 
@@ -177,7 +200,17 @@ void Cls_OnSize(HWND hwnd, UINT state, int cx, int cy)
 }
 
 
+void Cls_OnTimer(HWND hwnd, UINT id)
+{
+    if (TIMER_ID == id)
+    {
+        g_Mag.OnTimer(hwnd, id);
+    }
+}
+
+
 void Cls_OnDestroy(HWND hwnd)
 {
-    g_Mag.OnDestroy(hwnd);
+    KillTimer(hwnd, TIMER_ID);
+    PostQuitMessage(0);
 }

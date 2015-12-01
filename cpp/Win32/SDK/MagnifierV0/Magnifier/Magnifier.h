@@ -23,8 +23,9 @@ public:
 
     BOOL OnCreate(HWND hwnd, LPCREATESTRUCT lpCreateStruct);
     void OnPaint(HWND hwnd);
+    UINT OnNCHitTest(HWND hwnd, int x, int y);
     void OnSize(HWND hwnd, UINT state, int cx, int cy);
-    void OnDestroy(HWND hwnd);
+    void OnTimer(HWND hwnd, UINT id);
 
     LPCTSTR GetTitle() const { return m_Options.szTitle; }
     LPCTSTR GetClass() const { return MAGNIFIER_WNDCLASS; }

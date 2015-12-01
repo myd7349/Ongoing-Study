@@ -1,7 +1,7 @@
 // 2015-11-24T15:19+08:00
 #pragma once
 
-#include "targetver.h"
+#include "../targetver.h"
 
 #define STRICT 1
 #define VC_EXTRALEAN

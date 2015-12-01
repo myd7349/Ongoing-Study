@@ -1,14 +1,12 @@
 // 2015-11-11T11:39+08:00
 #pragma once
 
-#include "Common/GdiplusHelper.h"
-
 #include <memory>
 
 namespace Mag
 {
 
-class Region : private Utility::GdiplusConsumer
+class Region
 {
 public:
     virtual ~Region() {}

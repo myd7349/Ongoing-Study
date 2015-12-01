@@ -26,15 +26,20 @@ Magnifier::Magnifier()
     switch (m_Options.focus)
     {
     case MAGF_CROSS:
-        m_Focus.reset(new CrossFocus(m_Options.nFocusHalfLen, m_Options.clrFocus));
+        m_Focus.reset(new CrossFocus(m_Options.nFocusSize, m_Options.clrFocus));
         break;
     case MAGF_X:
-        m_Focus.reset(new XFocus(m_Options.nFocusHalfLen, m_Options.clrFocus));
+        m_Focus.reset(new XFocus(m_Options.nFocusSize, m_Options.clrFocus));
         break;
     case MAGF_RECT:
-        m_Focus.reset(new RectFocus(m_Options.nFocusHalfLen, m_Options.clrFocus));
+        m_Focus.reset(new RectFocus(m_Options.nFocusSize, m_Options.clrFocus));
         break;
     default: assert(FALSE); break;
+    }
+
+    if (m_Options.style != MAGS_TRACKCUR && MAGM_DYNAMIC == m_Options.mode)
+    {
+        m_Options.mode = MAGM_SNAPSHOT;
     }
 
     switch (m_Options.mode)
@@ -78,6 +83,7 @@ void Magnifier::OnPaint(HWND hwnd)
 {
     assert(IsWindow(hwnd));
     assert(m_Canvas != nullptr);
+    assert(m_Graphics != nullptr);
 
     PAINTSTRUCT ps;
     HDC hdc = BeginPaint(hwnd, &ps);
@@ -91,9 +97,12 @@ void Magnifier::OnPaint(HWND hwnd)
 
     CalcMagParam(rcMagWnd, rcMagArea, ptFocus, hwnd, pt, 
         m_szClient.cx, m_szClient.cy, m_Options.dFactor);
-    SetWindowPos(hwnd, HWND_TOPMOST, 
-        rcMagWnd.left, rcMagWnd.top, rcMagWnd.right - rcMagWnd.left, rcMagWnd.bottom - rcMagWnd.top, 
-        SWP_NOACTIVATE | SWP_NOSIZE);
+    if (MAGS_TRACKCUR == m_Options.style)
+    {
+        SetWindowPos(hwnd, HWND_TOPMOST, 
+            rcMagWnd.left, rcMagWnd.top, rcMagWnd.right - rcMagWnd.left, rcMagWnd.bottom - rcMagWnd.top, 
+            SWP_NOACTIVATE | SWP_NOSIZE);
+    }
     
     m_Region->Draw(m_Canvas->GetHDC(), Utility::SIZEToRECT(m_szClient), rcMagArea);
     m_Focus->Draw(*m_Graphics, Utility::POINTToPointF(ptFocus));
@@ -101,6 +110,26 @@ void Magnifier::OnPaint(HWND hwnd)
     BitBlt(hdc, 0, 0, m_szClient.cx, m_szClient.cy, m_Canvas->GetHDC(), 0, 0, SRCCOPY);
 
     EndPaint(hwnd, &ps);
+}
+
+
+UINT Magnifier::OnNCHitTest(HWND hwnd, int x, int y)
+{
+    assert(IsWindow(hwnd));
+    
+    POINT pt = { x, y };
+    ScreenToClient(hwnd, &pt);
+
+    RECT rcClient = { 0, 0, m_szClient.cx, m_szClient.cy };
+
+    if (MAGS_STATIC == m_Options.style && PtInRect(&rcClient, pt))
+    {
+        return HTCAPTION;
+    }
+    else
+    {
+        return FORWARD_WM_NCHITTEST(hwnd, x, y, DefWindowProc);
+    }
 }
 
 
@@ -120,9 +149,9 @@ void Magnifier::OnSize(HWND hwnd, UINT state, int cx, int cy)
 }
 
 
-void Magnifier::OnDestroy(HWND hwnd)
+void Magnifier::OnTimer(HWND hwnd, UINT id)
 {
-    PostQuitMessage(0);
+    InvalidateRect(hwnd, NULL, TRUE);
 }
 } // namespace Mag
 
@@ -191,7 +220,7 @@ void CalcMagWndRect(HWND hwnd, RECT &rcMag, const POINT &ptCur,
     int cxScreen = GetSystemMetrics(SM_CXSCREEN);
     int cyScreen = GetSystemMetrics(SM_CYSCREEN);
 
-    assert(width < cxScreen && height < cyScreen);
+    assert(width <= cxScreen && height <= cyScreen);
 
     SetRect(&rcMag, 0, 0, width, height);
 

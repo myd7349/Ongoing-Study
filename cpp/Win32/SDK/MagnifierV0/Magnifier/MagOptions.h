@@ -5,11 +5,12 @@
 
 namespace Mag
 {
+
 enum MAG_STYLE
 {
     MAGS_STATIC,
-    MAGS_TRACKCUR,
     MAGS_DRAGABLE,
+    MAGS_TRACKCUR,
 };
 
 enum MAG_MODE
@@ -44,7 +45,7 @@ struct Options
     int nWidth;
     int nHeight;
     MAG_FOCUS focus;
-    int nFocusHalfLen;
+    int nFocusSize;
     double dFactor;
     double dFactorMin;
     double dFactorMax;

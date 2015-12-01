@@ -10,9 +10,9 @@ const char *CONFIG_FILE = "Magnifier.dat";
 
 void Options::Reset(Options &options)
 {
-    options.dwExStyle = WS_EX_TOOLWINDOW | WS_EX_TOPMOST | WS_EX_STATICEDGE;
-    options.dwStyle = WS_POPUP;
-    options.style = MAGS_TRACKCUR;
+    options.dwExStyle = 0; //WS_EX_TOOLWINDOW | WS_EX_TOPMOST | WS_EX_STATICEDGE;
+    options.dwStyle = WS_OVERLAPPEDWINDOW; //WS_POPUP/* | WS_BORDER*/;
+    options.style = MAGS_STATIC;
     options.mode = MAGM_DYNAMIC;
     options.clrFocus = RGB(0, 255, 128);
     options.clrBkgnd = RGB(0, 0, 0);
@@ -27,7 +27,7 @@ void Options::Reset(Options &options)
     options.nWidth = 400;
     options.nHeight = 250;
     options.focus = MAGF_CROSS;
-    options.nFocusHalfLen = 10;
+    options.nFocusSize = 10;
     options.dFactor = 2.0;
     options.dFactorMin = 0.2;
     options.dFactorMax = 5.0;

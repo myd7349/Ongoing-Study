@@ -80,9 +80,6 @@
     <ClInclude Include="Common\Singleton.h">
       <Filter>Header Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="Common\targetver.h">
-      <Filter>Header Files\Common</Filter>
-    </ClInclude>
     <ClInclude Include="Common\Utility.h">
       <Filter>Header Files\Common</Filter>
     </ClInclude>
@@ -93,6 +90,12 @@
       <Filter>Header Files\Common</Filter>
     </ClInclude>
     <ClInclude Include="MagRegion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MagHostWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
