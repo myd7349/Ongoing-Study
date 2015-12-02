@@ -31,6 +31,7 @@ Canvas::~Canvas()
     {
         assert(m_hMemDC != NULL);
         SelectBitmap(m_hMemDC, m_hBmpOld);
+        DeleteObject(m_hBmpCanvas);
     }
 
     if (m_hMemDC != NULL)
