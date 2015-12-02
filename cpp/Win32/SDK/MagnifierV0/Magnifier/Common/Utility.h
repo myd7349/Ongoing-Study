@@ -1,15 +1,25 @@
 // 2015-11-20T09:10+08:00
 #pragma once
 
+#include <cassert>
+
 #include <WinDef.h>
 
-#include <cassert>
+#include "Validate.h"
+
+#ifndef ASSERT
+# define ASSERT(expr) assert(expr)
+#endif
+
+#ifndef ASSERT_VALID
+# define ASSERT_VALID(v) ASSERT(Mag::Utility::Validate(v))
+#endif
 
 #ifndef VERIFY
 # ifdef NDEBUG
 #  define VERIFY(expr) ((void)(expr))
 # else
-#  define VERIFY(expr) assert(expr)
+#  define VERIFY(expr) ASSERT(expr)
 # endif
 #endif
 

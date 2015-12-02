@@ -41,6 +41,7 @@
     <ClInclude Include="Common\Noncopyable.h" />
     <ClInclude Include="Common\Singleton.h" />
     <ClInclude Include="Common\Utility.h" />
+    <ClInclude Include="Common\Validate.h" />
     <ClInclude Include="MagFocus.h" />
     <ClInclude Include="MagHostWnd.h" />
     <ClInclude Include="Magnifier.h" />

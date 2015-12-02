@@ -39,7 +39,7 @@ void CrossFocus::Draw(Gdiplus::Graphics &graphics, const Gdiplus::PointF &ptCent
 
 void XFocus::Draw(Gdiplus::Graphics &graphics, const Gdiplus::PointF &ptCenter)
 {
-    Gdiplus::REAL fHalfSize = std::sqrt(m_nSize * m_nSize / 2.0f);
+    Gdiplus::REAL fHalfSize = std::sqrt(m_nSize * m_nSize / 2.0f) / 2.0f;
 
     graphics.DrawLine(&m_Pen, 
         ptCenter.X - fHalfSize, ptCenter.Y - fHalfSize, 

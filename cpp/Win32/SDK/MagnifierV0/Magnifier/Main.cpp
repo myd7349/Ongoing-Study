@@ -12,14 +12,13 @@ LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 BOOL Cls_OnCreate(HWND hwnd, LPCREATESTRUCT lpCreateStruct);
 void Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify);
 void Cls_OnPaint(HWND hwnd);
-BOOL Cls_OnEraseBkgnd(HWND hwnd, HDC hdc);
 UINT Cls_OnNCHitTest(HWND hwnd, int x, int y);
 void Cls_OnSize(HWND hwnd, UINT state, int cx, int cy);
 void Cls_OnTimer(HWND hwnd, UINT id);
+void Cls_OnMagnify(HWND hwnd);
 void Cls_OnDestroy(HWND hwnd);
 
 const UINT_PTR TIMER_ID = 0x1001;
-#define UM_UPDATE (WM_APP + WM_PAINT)
 
 namespace
 {
@@ -49,7 +48,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCm
     hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_MAGNIFIER));
 
 #if 0
-    UNUSED(bRet);
+    UNREFERENCED_PARAMETER(bRet);
 
     while (TRUE)
     {
@@ -67,7 +66,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCm
         }
         else
         {
-            InvalidateRect(hWnd, NULL, FALSE);
+            Cls_OnMagnify(hWnd);
             Sleep(16);
         }
     }
@@ -140,10 +139,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     HANDLE_MSG(hWnd, WM_CREATE, Cls_OnCreate);
     HANDLE_MSG(hWnd, WM_COMMAND, Cls_OnCommand);
     HANDLE_MSG(hWnd, WM_PAINT, Cls_OnPaint);
-    HANDLE_MSG(hWnd, WM_ERASEBKGND, Cls_OnEraseBkgnd);
     HANDLE_MSG(hWnd, WM_NCHITTEST, Cls_OnNCHitTest);
     HANDLE_MSG(hWnd, WM_SIZE, Cls_OnSize);
     HANDLE_MSG(hWnd, WM_TIMER, Cls_OnTimer);
+    HANDLE_MSG(hWnd, UM_MAGNIFY, Cls_OnMagnify);
     HANDLE_MSG(hWnd, WM_DESTROY, Cls_OnDestroy);
     default:
 	    return DefWindowProc(hWnd, message, wParam, lParam);
@@ -182,12 +181,6 @@ void Cls_OnPaint(HWND hwnd)
 }
 
 
-BOOL Cls_OnEraseBkgnd(HWND hwnd, HDC hdc)
-{
-    return TRUE;
-}
-
-
 UINT Cls_OnNCHitTest(HWND hwnd, int x, int y)
 {
     return g_Mag.OnNCHitTest(hwnd, x, y);
@@ -206,6 +199,12 @@ void Cls_OnTimer(HWND hwnd, UINT id)
     {
         g_Mag.OnTimer(hwnd, id);
     }
+}
+
+
+void Cls_OnMagnify(HWND hwnd)
+{
+    g_Mag.OnMagnify(hwnd);
 }
 
 

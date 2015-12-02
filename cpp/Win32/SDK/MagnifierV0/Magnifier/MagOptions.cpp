@@ -28,7 +28,7 @@ void Options::Reset(Options &options)
     options.nHeight = 250;
     options.focus = MAGF_CROSS;
     options.nFocusSize = 10;
-    options.dFactor = 2.0;
+    options.dFactor = 1.5;
     options.dFactorMin = 0.2;
     options.dFactorMax = 5.0;
     _tcsncpy_s(options.szTitle, ARRAYSIZE(options.szTitle), 

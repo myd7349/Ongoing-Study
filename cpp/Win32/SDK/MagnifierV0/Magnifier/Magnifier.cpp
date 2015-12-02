@@ -8,12 +8,13 @@
 
 #define MAX_FACTOR (5.0)
 #define MIN_FACTOR (0.5)
-#define DYNAMIC_MODE (TRUE)
 
 
 namespace
 {
-void CalcMagParam(RECT &rcMagWnd, RECT &rcMagArea, POINT &ptFocus, HWND hwnd, const POINT &ptCur, int width, int height, double factor);
+void CalcMagParamImpl(RECT &rcMagWnd, RECT &rcMagArea, POINT &ptFocus, 
+    HWND hwnd, const POINT &ptCur, int width, int height, double factor, 
+    Mag::MAG_MODE mode);
 } // namespace -
 
 
@@ -34,7 +35,7 @@ Magnifier::Magnifier()
     case MAGF_RECT:
         m_Focus.reset(new RectFocus(m_Options.nFocusSize, m_Options.clrFocus));
         break;
-    default: assert(FALSE); break;
+    default: ASSERT(FALSE); break;
     }
 
     if (m_Options.style != MAGS_TRACKCUR && MAGM_DYNAMIC == m_Options.mode)
@@ -46,7 +47,7 @@ Magnifier::Magnifier()
     {
     case MAGM_DYNAMIC: m_Region.reset(new DynamicRegion); break;
     case MAGM_SNAPSHOT: m_Region.reset(new SnapshotRegion); break;
-    default: assert(FALSE); break;
+    default: ASSERT(FALSE); break;
     }
 }
 
@@ -58,7 +59,7 @@ Magnifier::~Magnifier()
 
 BOOL Magnifier::OnCreate(HWND hwnd, LPCREATESTRUCT lpCreateStruct)
 {
-    assert(IsWindow(hwnd));
+    ASSERT_VALID(hwnd);
     UNREFERENCED_PARAMETER(lpCreateStruct);
 
     SetWindowLongPtr(hwnd, GWL_STYLE, m_Options.dwStyle);
@@ -81,33 +82,12 @@ BOOL Magnifier::OnCreate(HWND hwnd, LPCREATESTRUCT lpCreateStruct)
 
 void Magnifier::OnPaint(HWND hwnd)
 {
-    assert(IsWindow(hwnd));
-    assert(m_Canvas != nullptr);
-    assert(m_Graphics != nullptr);
+    ASSERT_VALID(hwnd);
 
     PAINTSTRUCT ps;
     HDC hdc = BeginPaint(hwnd, &ps);
 
-    POINT pt;
-    GetCursorPos(&pt);
-
-    RECT rcMagWnd;
-    RECT rcMagArea;
-    POINT ptFocus;
-
-    CalcMagParam(rcMagWnd, rcMagArea, ptFocus, hwnd, pt, 
-        m_szClient.cx, m_szClient.cy, m_Options.dFactor);
-    if (MAGS_TRACKCUR == m_Options.style)
-    {
-        SetWindowPos(hwnd, HWND_TOPMOST, 
-            rcMagWnd.left, rcMagWnd.top, rcMagWnd.right - rcMagWnd.left, rcMagWnd.bottom - rcMagWnd.top, 
-            SWP_NOACTIVATE | SWP_NOSIZE);
-    }
-    
-    m_Region->Draw(m_Canvas->GetHDC(), Utility::SIZEToRECT(m_szClient), rcMagArea);
-    m_Focus->Draw(*m_Graphics, Utility::POINTToPointF(ptFocus));
-
-    BitBlt(hdc, 0, 0, m_szClient.cx, m_szClient.cy, m_Canvas->GetHDC(), 0, 0, SRCCOPY);
+    Update(hwnd, hdc);
 
     EndPaint(hwnd, &ps);
 }
@@ -115,12 +95,12 @@ void Magnifier::OnPaint(HWND hwnd)
 
 UINT Magnifier::OnNCHitTest(HWND hwnd, int x, int y)
 {
-    assert(IsWindow(hwnd));
+    ASSERT_VALID(hwnd);
     
     POINT pt = { x, y };
     ScreenToClient(hwnd, &pt);
 
-    RECT rcClient = { 0, 0, m_szClient.cx, m_szClient.cy };
+    RECT rcClient = Utility::SIZEToRECT(m_szClient);
 
     if (MAGS_STATIC == m_Options.style && PtInRect(&rcClient, pt))
     {
@@ -135,6 +115,8 @@ UINT Magnifier::OnNCHitTest(HWND hwnd, int x, int y)
 
 void Magnifier::OnSize(HWND hwnd, UINT state, int cx, int cy)
 {
+    ASSERT_VALID(hwnd);
+
     m_szClient.cx = cx;
     m_szClient.cy = cy;
 
@@ -151,7 +133,58 @@ void Magnifier::OnSize(HWND hwnd, UINT state, int cx, int cy)
 
 void Magnifier::OnTimer(HWND hwnd, UINT id)
 {
-    InvalidateRect(hwnd, NULL, TRUE);
+    ASSERT_VALID(hwnd);
+
+    OnMagnify(hwnd);
+}
+
+void Magnifier::OnMagnify(HWND hwnd)
+{
+    ASSERT_VALID(hwnd);
+    
+    HDC hdc = GetDC(hwnd);
+    ASSERT_VALID(hdc);
+
+    Update(hwnd, hdc);
+
+    ReleaseDC(hwnd, hdc);
+}
+
+void Magnifier::CalcMagParam(RECT &rcMagWnd, RECT &rcMagArea, POINT &ptFocus, HWND hwnd)
+{
+    ASSERT_VALID(hwnd);
+
+    POINT pt;
+    GetCursorPos(&pt);
+
+    CalcMagParamImpl(rcMagWnd, rcMagArea, ptFocus, hwnd, pt, 
+        m_szClient.cx, m_szClient.cy, m_Options.dFactor, m_Options.mode);
+}
+
+void Magnifier::Update(HWND hwnd, HDC hdc)
+{
+    ASSERT_VALID(hwnd);
+    ASSERT_VALID(hdc);
+    ASSERT(m_Canvas != nullptr);
+    ASSERT(m_Graphics != nullptr);
+
+    RECT rcMagWnd;
+    RECT rcMagArea;
+    POINT ptFocus;
+
+    CalcMagParam(rcMagWnd, rcMagArea, ptFocus, hwnd);
+
+    if (MAGS_TRACKCUR == m_Options.style)
+    {
+        SetWindowPos(hwnd, HWND_TOPMOST, 
+            rcMagWnd.left, rcMagWnd.top, rcMagWnd.right - rcMagWnd.left, rcMagWnd.bottom - rcMagWnd.top, 
+            SWP_NOACTIVATE | SWP_NOSIZE);
+    }
+
+    m_Region->Draw(m_Canvas->GetHDC(), Utility::SIZEToRECT(m_szClient), rcMagArea);
+    m_Focus->Draw(*m_Graphics, Utility::POINTToPointF(ptFocus));
+
+    BitBlt(hdc, 0, 0, m_szClient.cx, m_szClient.cy, m_Canvas->GetHDC(), 0, 0, SRCCOPY);
 }
 } // namespace Mag
 
@@ -281,14 +314,15 @@ void CalcMagWndRect(HWND hwnd, RECT &rcMag, const POINT &ptCur,
 }
 
 
-void CalcMagParam(RECT &rcMagWnd, RECT &rcMagArea, POINT &ptFocus, 
-    HWND hwnd, const POINT &ptCur, int width, int height, double factor)
+void CalcMagParamImpl(RECT &rcMagWnd, RECT &rcMagArea, POINT &ptFocus, 
+    HWND hwnd, const POINT &ptCur, int width, int height, double factor, 
+    Mag::MAG_MODE mode)
 {
     AdjustFactor(factor);
 
     CalcMagAreaRect(rcMagArea, ptFocus, ptCur, width, height, factor);
 
-    if (DYNAMIC_MODE)
+    if (Mag::MAGM_DYNAMIC == mode)
     {
         int cxOffset = (int)(max(width - ptFocus.x, ptFocus.x) / factor) + 2;
         int cyOffset = (int)(max(height - ptFocus.y, ptFocus.y) / factor) + 2;

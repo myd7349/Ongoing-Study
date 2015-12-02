@@ -8,8 +8,8 @@ namespace Utility
 
 void SetClientSize(HWND hwnd, int width, int height)
 {
-    assert(IsWindow(hwnd));
-    assert(width > 32 && height > 32);
+    ASSERT_VALID(hwnd);
+    ASSERT(width > 32 && height > 32);
 
     RECT rcWindow;
     RECT rcClient;
