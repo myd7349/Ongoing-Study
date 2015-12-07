@@ -5,6 +5,7 @@
 #include <WinUser.h>
 
 #include "MagOptions.h"
+#include "Common/GdiplusHelper.h"
 
 #define MAGNIFIER_WNDCLASS _T("MagnifierByMYD")
 
@@ -24,7 +25,7 @@ class Focus;
 class Region;
 namespace Utility { class Canvas; }
 
-class Magnifier
+class Magnifier : private Utility::GdiplusConsumer
 {
 public:
     Magnifier();

@@ -3,6 +3,7 @@
 #include "Magnifier.h"
 #include "MagOptionsDlg.h"
 #include "resource.h"
+#include "Common/Window.h"
 
 
 ATOM MyRegisterClass(HINSTANCE, LPCTSTR);
@@ -32,13 +33,16 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCm
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
+    //Mag::Utility::Window win;
+    //win.X = 10;
+
     MSG msg;
     HACCEL hAccelTable;
 
     HWND hWnd = NULL;
     BOOL bRet;
 
-    MyRegisterClass(hInstance, MAGNIFIER_WNDCLASS);
+    MyRegisterClass(hInstance, g_Mag.GetClass());
 
     if ((hWnd = InitInstance(hInstance, g_Mag.GetClass(), g_Mag.GetTitle(), nCmdShow)) == NULL)
     {

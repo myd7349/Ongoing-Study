@@ -28,11 +28,11 @@ void Options::Reset(Options &options)
     options.nHeight = 250;
     options.focus = MAGF_CROSS;
     options.nFocusSize = 10;
-    options.dFactor = 1.5;
+    options.dFactor = 2.0;
     options.dFactorMin = 0.2;
     options.dFactorMax = 5.0;
     _tcsncpy_s(options.szTitle, ARRAYSIZE(options.szTitle), 
-        _T("Magnifier"), _tcslen(_T("Magnifier")));
+        _T("放大镜"), _tcslen(_T("放大镜")));
 }
 
 

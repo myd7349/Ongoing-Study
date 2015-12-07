@@ -23,6 +23,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Common\Window.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="MagFocus.cpp" />
     <ClCompile Include="Magnifier.cpp" />
     <ClCompile Include="MagRegion.cpp" />
@@ -39,9 +43,11 @@
     <ClInclude Include="Common\Common.h" />
     <ClInclude Include="Common\GdiplusHelper.h" />
     <ClInclude Include="Common\Noncopyable.h" />
+    <ClInclude Include="Common\Property.h" />
     <ClInclude Include="Common\Singleton.h" />
     <ClInclude Include="Common\Utility.h" />
     <ClInclude Include="Common\Validate.h" />
+    <ClInclude Include="Common\Window.h" />
     <ClInclude Include="MagFocus.h" />
     <ClInclude Include="MagHostWnd.h" />
     <ClInclude Include="Magnifier.h" />

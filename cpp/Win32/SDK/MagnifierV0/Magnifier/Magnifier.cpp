@@ -253,7 +253,7 @@ void CalcMagWndRect(HWND hwnd, RECT &rcMag, const POINT &ptCur,
     int cxScreen = GetSystemMetrics(SM_CXSCREEN);
     int cyScreen = GetSystemMetrics(SM_CYSCREEN);
 
-    assert(width <= cxScreen && height <= cyScreen);
+    ASSERT(width <= cxScreen && height <= cyScreen);
 
     SetRect(&rcMag, 0, 0, width, height);
 
@@ -271,7 +271,7 @@ void CalcMagWndRect(HWND hwnd, RECT &rcMag, const POINT &ptCur,
     case ERC_CENTER: cxOffset -= cxHalf; cyOffset -= cyHalf; break;
     case ERC_LB: cyOffset -= cyHalf * 2; break;
     case ERC_RB: cxOffset -= cxHalf * 2; cyOffset -= cyHalf * 2; break;
-    default: assert(FALSE); break;
+    default: ASSERT(FALSE); break;
     }
 
     OffsetRect(&rcMag, (int)ptCur.x + cxOffset, (int)ptCur.y + cyOffset);
