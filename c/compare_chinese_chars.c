@@ -1,5 +1,5 @@
 // 2015-12-24T17:17+08:00
-// Marry Christmas Eve!
+// Merry Christmas Eve!
 #include <assert.h>
 #include <locale.h>
 #include <stdio.h>
@@ -21,10 +21,10 @@ int main(void)
 {
     int i = 0;
     const char *names[] = {
-        "ÕÔ",
-        "Ç®",
-        "Ëï",
-        "Àî",
+        "Ã•Ã”",
+        "Ã‡Â®",
+        "Ã‹Ã¯",
+        "Ã€Ã®",
     };
 
     setlocale(LC_COLLATE, "");
