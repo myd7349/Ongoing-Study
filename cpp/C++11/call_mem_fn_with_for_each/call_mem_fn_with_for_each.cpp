@@ -85,10 +85,21 @@ int main()
     // nested bind
     std::for_each(std::begin(safe_shapes), std::end(safe_shapes),
         std::bind(&Shape::draw,
-                  std::bind(&ShapePtr::operator->, std::placeholders::_1),
-                  std::ref(std::cout)
+            std::bind(&ShapePtr::operator->, std::placeholders::_1),
+            std::ref(std::cout)
             )
         );
+
+    std::for_each(std::begin(safe_shapes), std::end(safe_shapes),
+        [](ShapePtr &shape_ptr)
+        {
+            shape_ptr->draw(std::cout);
+        }
+        );
+
+    for (auto shape_ptr : safe_shapes) {
+        shape_ptr->draw(std::cout);
+    }
 
     return 0;
 }
