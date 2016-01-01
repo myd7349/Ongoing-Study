@@ -12,20 +12,17 @@ import bs4
 import requests
 
 
-class BTDloadError(Exception): pass
-
-
 class MovieItem:
-    def __init__(self, litpic_url, bt_url, title, other, info, star):
-        self._litpic_url = litpic_url
-        self._bt_url = bt_url
-        self._title = title
-        self._other = other
-        self._info = info
-        self._star = star
+    def __init__(self, litpic_url, subject_url, title, other, info, star):
+        self.litpic_url = litpic_url
+        self.subject_url = subject_url
+        self.title = title
+        self.other = other
+        self.info = info
+        self.star = star
 
     def __str__(self):
-        return '{self._title}\n{self._other}\n{self._info}\n{self._star}'.format(self=self)
+        return '{self.title}\n{self.other}\n{self.info}\n{self.star}'.format(self=self)
 
 
 _root_url = 'http://www.bttiantang.com/'
@@ -38,16 +35,16 @@ def _movie_item(item_soup: bs4.element.Tag) -> MovieItem:
     title_p_soups = title_soup.find_all('p')
 
     litpic_url = litpic_soup.a.img['src']
-    bt_url = urllib.parse.urljoin(_root_url, litpic_soup.a['href'])
+    subject_url = urllib.parse.urljoin(_root_url, litpic_soup.a['href'])
     title = title_p_soups[0].b.getText()
     other = title_p_soups[1].a.getText()
     info = title_p_soups[2].getText()
     star = title_p_soups[3].getText()
 
-    return MovieItem(litpic_url, bt_url, title, other, info, star)
+    return MovieItem(litpic_url, subject_url, title, other, info, star)
 
 
-def search_bt(title: str) -> str:
+def search_movie(title: str): # ?? type hints for generator function?
     query_url = urllib.parse.urljoin(_root_url, 's.php')
     
     r = requests.get(query_url, params={'q': title})
@@ -59,25 +56,35 @@ def search_bt(title: str) -> str:
     statistic = ml_soup.find('ul', attrs={'class': 'pagelist cl'})
     pages, items = re.findall(r'\d+', statistic.getText())
 
-    if items == 0:
-        raise BTDloadError('No BTs found for "{}"'.format(title))
-    else:
+    if int(items) > 0:
         for item_soup in ml_soup.find_all('div', attrs={'class': 'item cl'}):
             if item_soup.find('div', 'title'):
-                item = _movie_item(item_soup)
-                print(item)
-
-    return r.url
+                yield _movie_item(item_soup)
     
 
-def get_bt(title):
-    search_bt(title)
+def retrieve_bt_urls(movie_item: MovieItem):
+    r = requests.get(movie_item.subject_url)
+    r.raise_for_status()
+
+    soup = bs4.BeautifulSoup(r.content, 'html.parser')
+    for bt_soup in soup.find_all('div', attrs={'class': 'tinfo'}):
+        yield urllib.parse.urljoin(_root_url, bt_soup.a['href'])
+        
+
+
+def dload_bt(movie_item: MovieItem, target_path: str):
+    for bt_url in retrieve_bt_urls(movie_item):
+        r = requests.post(bt_url, data={'action': '/download1.php'})
+        print(r.text)
+        input()
 
 
 def main():
-    sys.argv.append('窃听风暴')
+    sys.argv.append('心灵捕手')
     for movie_title in sys.argv[1:]:
-        get_bt(movie_title)
+        for movie_item in search_movie(movie_title):
+            print(movie_item)
+            dload_bt(movie_item, '')
 
 
 if __name__ == '__main__':
