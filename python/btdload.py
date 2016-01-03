@@ -82,12 +82,11 @@ def _page_list(title: str):
         # 心灵捕手
         # 心灵ad捕手
         # 大镖客
-        items, pages = map(int, re.findall(r'\d+', statistic))
+        pages, items = map(int, re.findall(r'\d+', statistic))
         print('Found {} items in {} pages.'.format(items, pages))
         
-        assert items in (0, 1)
-        if items == 1:
-            yield (1, r.url)
+        assert pages in (0, 1)
+        yield (1, r.url)
     else:
         # 蝙蝠侠
         # 爱情
@@ -147,7 +146,7 @@ def dload_bt(movie_item: MovieItem, target_path: str):
 
 def main():
     pred = SearchPred(count_pred=lambda c: c<=50)
-    sys.argv.append('心灵捕手')
+    sys.argv.append('大镖客')
     for movie_title in sys.argv[1:]:
         for page_no, count, movie_item in search_movie(movie_title, pred):
             print(page_no, count, movie_item)
