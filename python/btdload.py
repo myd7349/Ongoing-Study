@@ -4,12 +4,14 @@
 # 2016-01-01T14:56+08:00
 # Happy New Year!
 
+import functools
 import re
 import sys
 import urllib.parse
 
 import bs4
-import requests
+
+import bshelper
 
 
 class MovieItem:
@@ -25,7 +27,17 @@ class MovieItem:
         return '{self.title}\n{self.other}\n{self.info}\n{self.star}'.format(self=self)
 
 
-_root_url = 'http://www.bttiantang.com/'
+class SearchPred:
+    def __init__(self,
+                 page_no_pred=None,
+                 count_pred=None,
+                 movie_item_pred=None):
+        self.page_no_pred = page_no_pred
+        self.count_pred = count_pred
+        self.movie_item_pred = movie_item_pred
+
+
+_url = functools.partial(urllib.parse.urljoin, 'http://www.bttiantang.com/')
 
 
 def _movie_item(item_soup: bs4.element.Tag) -> MovieItem:  
@@ -35,7 +47,7 @@ def _movie_item(item_soup: bs4.element.Tag) -> MovieItem:
     title_p_soups = title_soup.find_all('p')
 
     litpic_url = litpic_soup.a.img['src']
-    subject_url = urllib.parse.urljoin(_root_url, litpic_soup.a['href'])
+    subject_url = _url(litpic_soup.a['href'])
     title = title_p_soups[0].b.getText()
     other = title_p_soups[1].a.getText()
     info = title_p_soups[2].getText()
@@ -44,47 +56,103 @@ def _movie_item(item_soup: bs4.element.Tag) -> MovieItem:
     return MovieItem(litpic_url, subject_url, title, other, info, star)
 
 
-def search_movie(title: str): # ?? type hints for generator function?
-    query_url = urllib.parse.urljoin(_root_url, 's.php')
-    
-    r = requests.get(query_url, params={'q': title})
-    r.raise_for_status()
+def _get_ml_soup(*args, **kwargs):
+    r, soup = bshelper.get_r_soup(*args, **kwargs)
+    return r, soup.find('div', attrs={'class': 'ml'})
 
-    soup = bs4.BeautifulSoup(r.content, 'html.parser')
-    ml_soup = soup.find('div', attrs={'class': 'ml'})
-    
-    statistic = ml_soup.find('ul', attrs={'class': 'pagelist cl'})
-    pages, items = re.findall(r'\d+', statistic.getText())
 
-    if int(items) > 0:
-        for item_soup in ml_soup.find_all('div', attrs={'class': 'item cl'}):
-            if item_soup.find('div', 'title'):
-                yield _movie_item(item_soup)
+def _page_list(title: str):
+    r, ml_soup = _get_ml_soup(_url('/s.php'), params={'q': title})
     
+    # When searching with some big words like "爱情", the html content we
+    # see in the Chrome Developer Tools may be looked like this:
+    #     <ul class="pagelist cl">
+    #       <form action="/s.php" name="pagelist">
+    #         ...
+    #       </form>
+    #     </ul>
+    # However, the case is that what BeautifulSoup4 got is:
+    #     <ul class="pagelist cl"></ul>
+    #     <form action="/s.php" name="pagelist">
+    #       ...
+    #     </form>
+    statistic = ml_soup.find('ul', attrs={'class': 'pagelist cl'}).getText().strip()
+    
+    if statistic:
+        # 心灵捕手
+        # 心灵ad捕手
+        # 大镖客
+        items, pages = map(int, re.findall(r'\d+', statistic))
+        print('Found {} items in {} pages.'.format(items, pages))
+        
+        assert items in (0, 1)
+        if items == 1:
+            yield (1, r.url)
+    else:
+        # 蝙蝠侠
+        # 爱情
+        page_list_soup = ml_soup.find('form', attrs={'action': '/s.php', 'name': 'pagelist'})
+        items, pages = map(int, re.findall(r'\d+', page_list_soup.li.getText()))
+        print('Found {} items in {} pages.'.format(items, pages))
+
+        li_soups = page_list_soup.find_all('li')
+        first_href_with_qs = next(
+            (li.a['href'] for li in page_list_soup.find_all('li') if li.find('a'))
+            )
+        pr = urllib.parse.urlparse(first_href_with_qs)
+        qsl = urllib.parse.parse_qsl(pr.query)
+
+        pr0 = urllib.parse.urlparse(_url(''))
+
+        for page_no in range(1, pages+1):
+            new_qsl = (qsl[0], (qsl[1][0], page_no))
+            qs = urllib.parse.urlencode(new_qsl)
+            new_pr = urllib.parse.ParseResult(pr0.scheme,
+                                              pr0.netloc,
+                                              pr.path,
+                                              '',
+                                              qs,
+                                              '')
+            yield (page_no, new_pr.geturl())
+
+
+def search_movie(title: str, pred: SearchPred=SearchPred()): # ?? type hints for generator function?
+    count = 0
+    
+    for page_no, page_url in _page_list(title):
+        if not pred.page_no_pred or pred.page_no_pred(page_no):
+            *_, ml_soup = _get_ml_soup(page_url)
+            for item_soup in ml_soup.find_all('div', attrs={'class': 'item cl'}):
+                if item_soup.find('div', 'title'):
+                    count += 1
+                    movie_item = _movie_item(item_soup)
+
+                    if (not pred.count_pred or pred.count_pred(count)) and \
+                       (not pred.movie_item_pred or pred.movie_item_pred(movie_item)):
+                        yield (page_no, count, movie_item)
+
 
 def retrieve_bt_urls(movie_item: MovieItem):
-    r = requests.get(movie_item.subject_url)
-    r.raise_for_status()
-
-    soup = bs4.BeautifulSoup(r.content, 'html.parser')
+    *_, soup = bshelper.get_soup(movie_item.subject_url)
     for bt_soup in soup.find_all('div', attrs={'class': 'tinfo'}):
-        yield urllib.parse.urljoin(_root_url, bt_soup.a['href'])
+        yield _url(bt_soup.a['href'])
         
 
 
 def dload_bt(movie_item: MovieItem, target_path: str):
     for bt_url in retrieve_bt_urls(movie_item):
-        r = requests.post(bt_url, data={'action': '/download1.php'})
-        print(r.text)
-        input()
+        #r = requests.post(bt_url, data={'action': '/download1.php'})
+        pass
 
 
 def main():
+    pred = SearchPred(count_pred=lambda c: c<=50)
     sys.argv.append('心灵捕手')
     for movie_title in sys.argv[1:]:
-        for movie_item in search_movie(movie_title):
-            print(movie_item)
-            dload_bt(movie_item, '')
+        for page_no, count, movie_item in search_movie(movie_title, pred):
+            print(page_no, count, movie_item)
+            #dload_bt(movie_item, '')
+            pass
 
 
 if __name__ == '__main__':
