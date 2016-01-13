@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "conditional_operator_test_vs2010", "conditional_operator_test_vs2010.vcxproj", "{EA7D2AD3-5D2F-4F62-8835-936B1DCFCC68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA7D2AD3-5D2F-4F62-8835-936B1DCFCC68}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EA7D2AD3-5D2F-4F62-8835-936B1DCFCC68}.Debug|Win32.Build.0 = Debug|Win32
+		{EA7D2AD3-5D2F-4F62-8835-936B1DCFCC68}.Release|Win32.ActiveCfg = Release|Win32
+		{EA7D2AD3-5D2F-4F62-8835-936B1DCFCC68}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
