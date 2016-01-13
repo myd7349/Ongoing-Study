@@ -22,3 +22,8 @@ int main()
 
     return 0;
 }
+
+// References:
+// https://www.zhihu.com/question/35172141
+// https://stackoverflow.com/questions/9371238/why-is-reading-lines-from-stdin-much-slower-in-c-than-python?rq=1
+
