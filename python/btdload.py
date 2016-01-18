@@ -10,6 +10,7 @@ import sys
 import urllib.parse
 
 import bs4
+import requests
 
 import bshelper
 
@@ -86,10 +87,12 @@ def _page_list(title: str):
         print('Found {} items in {} pages.'.format(items, pages))
         
         assert pages in (0, 1)
-        yield (1, r.url)
+        if pages == 1:
+            yield (1, r.url)
     else:
         # 蝙蝠侠
         # 爱情
+        # 往事
         page_list_soup = ml_soup.find('form', attrs={'action': '/s.php', 'name': 'pagelist'})
         items, pages = map(int, re.findall(r'\d+', page_list_soup.li.getText()))
         print('Found {} items in {} pages.'.format(items, pages))
@@ -132,26 +135,36 @@ def search_movie(title: str, pred: SearchPred=SearchPred()): # ?? type hints for
 
 
 def retrieve_bt_urls(movie_item: MovieItem):
-    *_, soup = bshelper.get_soup(movie_item.subject_url)
+    *_, soup = bshelper.get_r_soup(movie_item.subject_url)
     for bt_soup in soup.find_all('div', attrs={'class': 'tinfo'}):
         yield _url(bt_soup.a['href'])
-        
 
 
 def dload_bt(movie_item: MovieItem, target_path: str):
+    headers = {
+        'host': 'www.bttiantang.com',
+        'origin': _url(''),
+        'user-agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36',
+        }
     for bt_url in retrieve_bt_urls(movie_item):
-        #r = requests.post(bt_url, data={'action': '/download1.php'})
-        pass
+        r, soup = bshelper.get_r_soup(bt_url)
+        post_url = _url(soup.find('form', attrs={'method': 'post'})['action'])
+
+        headers['referer'] = bt_url
+
+        post_r = requests.post(post_url, headers=headers)
+        print(post_r.headers)
+        print(post_r.text)
+        input()
 
 
 def main():
     pred = SearchPred(count_pred=lambda c: c<=50)
-    sys.argv.append('大镖客')
+    sys.argv.append('控方证人')
     for movie_title in sys.argv[1:]:
         for page_no, count, movie_item in search_movie(movie_title, pred):
             print(page_no, count, movie_item)
-            #dload_bt(movie_item, '')
-            pass
+            dload_bt(movie_item, '')
 
 
 if __name__ == '__main__':
