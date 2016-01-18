@@ -17,13 +17,25 @@
 #define WO_PROPERTY_ACCESSORIES_(T, declarator) void Set##declarator(T val)
 #define RW_PROPERTY_ACCESSORIES_(T, declarator) T Get##declarator(); void Set##declarator(T val)
 
+#define V_RO_PROPERTY_ACCESSORIES_(T, declarator) virtual T Get##declarator()
+#define V_WO_PROPERTY_ACCESSORIES_(T, declarator) virtual void Set##declarator(T val)
+#define V_RW_PROPERTY_ACCESSORIES_(T, declarator) virtual T Get##declarator(); virtual void Set##declarator(T val)
+
 #define PROPERTY_IMPL_(attr, T, declarator) \
     attr##_PROPERTY_DEF_(T, declarator); \
     attr##_PROPERTY_ACCESSORIES_(T, declarator);
 
+#define V_PROPERTY_IMPL_(attr, T, declarator) \
+    attr##_PROPERTY_DEF_(T, declarator); \
+    V_##attr##_PROPERTY_ACCESSORIES_(T, declarator);
+
 #define RO_PROPERTY(T, declarator) PROPERTY_IMPL_(RO, T, declarator)
 #define WO_PROPERTY(T, declarator) PROPERTY_IMPL_(WO, T, declarator)
 #define RW_PROPERTY(T, declarator) PROPERTY_IMPL_(RW, T, declarator)
+
+#define V_RO_PROPERTY(T, declarator) V_PROPERTY_IMPL_(RO, T, declarator)
+#define V_WO_PROPERTY(T, declarator) V_PROPERTY_IMPL_(WO, T, declarator)
+#define V_RW_PROPERTY(T, declarator) V_PROPERTY_IMPL_(RW, T, declarator)
 
 #define PROPERTY_GETTER(cls, T, declarator) T cls::Get##declarator()
 #define PROPERTY_SETTER(cls, T, declarator, v) void cls::Set##declarator(T v)
