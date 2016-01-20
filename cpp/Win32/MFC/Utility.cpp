@@ -92,13 +92,14 @@ LPTSTR TransformPathSep(LPTSTR lpszPath)
     return lpszPath;
 }
 
-CString &TransformPathSep(CString &strPath)
+CString TransformPathSep(const CString &strPath)
 {
-    LPTSTR lpszBuf = strPath.GetBuffer();
+    CString strPathCopy = strPath;
+    LPTSTR lpszBuf = strPathCopy.GetBuffer();
     TransformPathSep(lpszBuf);
-    strPath.ReleaseBuffer();
+    strPathCopy.ReleaseBuffer();
 
-    return strPath;
+    return strPathCopy;
 }
 
 // 2015-05-07T09:33+08:00
@@ -442,4 +443,69 @@ void TraceException(CException *e, LPCTSTR lpcszPrefix)
     CString strError = ExceptionToString(e, lpcszPrefix);
     if (!strError.IsEmpty())
         ATLTRACE(_T("%s\n"), strError.GetString());
+}
+
+// 2016-01-20T10:42+08:00
+CString GetSerialPort(LPCTSTR lpcszName)
+{
+    ASSERT(lpcszName != NULL);
+
+    CRegKey hKey;
+    if (hKey.Open(HKEY_LOCAL_MACHINE, _T("HARDWARE\\DEVICEMAP\\SERIALCOMM"), KEY_READ) != ERROR_SUCCESS)
+    {
+        return _T("");
+    }
+
+    TCHAR szValue[16];
+    ULONG ulChars = ARRAYSIZE(szValue);
+    if (hKey.QueryStringValue(lpcszName, szValue, &ulChars) != ERROR_SUCCESS)
+    {
+        return _T("");
+    }
+
+    return szValue;
+}
+
+int GetSerialPortNumber(LPCTSTR lpcszName)
+{
+    CString strPort = GetSerialPort(lpcszName);
+    if (strPort.IsEmpty())
+    {
+        return -1;
+    }
+
+    if (strPort.Left(3).MakeUpper() == _T("COM"))
+    {
+        return _ttoi(strPort.Mid(3));
+    }
+
+    return -1;
+}
+
+DWORD Execute(LPCTSTR lpcszCmdline)
+{
+    STARTUPINFOW si = { sizeof(STARTUPINFOW) };
+    si.lpTitle = L"";
+    si.dwFlags = STARTF_USESHOWWINDOW;   
+    si.wShowWindow = SW_HIDE;
+
+    PROCESS_INFORMATION pi = { NULL };
+    wchar_t szCmdLine[1024];
+
+    lstrcpynW(szCmdLine, lpcszCmdline, _countof(szCmdLine));
+
+    if (CreateProcessW(NULL, szCmdLine, NULL, NULL, 
+        FALSE, CREATE_NEW_CONSOLE, NULL, NULL, &si, &pi))
+    {
+        CloseHandle(pi.hThread);
+
+        WaitForSingleObject(pi.hProcess, INFINITE);
+        DWORD dwExitCode;
+        GetExitCodeProcess(pi.hProcess, &dwExitCode);
+
+        CloseHandle(pi.hProcess);
+        return dwExitCode;
+    }
+
+    return 1;
 }

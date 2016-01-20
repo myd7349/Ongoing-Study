@@ -10,6 +10,7 @@ extern "C"
 {
 #endif
 
+// GetSerialPortNumber("Silicon Labs CP210x USB to UART Bridge")
 SERIAL_API int GetSerialPortNumber(const char *desc);
 
 #ifdef __cplusplus

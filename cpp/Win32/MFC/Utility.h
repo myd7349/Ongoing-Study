@@ -10,7 +10,7 @@ CString GetModulePath(HMODULE hModule = NULL);
 // TODO: A new version that accepts variant arguments.
 CString JoinPath(LPCTSTR lpszBaseDir, LPCTSTR lpszSubDir);
 LPTSTR TransformPathSep(LPTSTR lpszPath);
-CString &TransformPathSep(CString &strPath);
+CString TransformPathSep(const CString &strPath);
 
 BOOL HasLastPathSep(const CString &strPath);
 CString AddLastPathSep(const CString &strPath);
@@ -78,3 +78,7 @@ inline CString VariantToCString(const _variant_t &varIn)
 
 CString ExceptionToString(CException *e, LPCTSTR lpcszPrefix = NULL);
 void TraceException(CException *e, LPCTSTR lpcszPrefix = NULL);
+
+CString GetSerialPort(LPCTSTR lpcszName = _T("\\Device\\Silabser0"));
+int GetSerialPortNumber(LPCTSTR lpcszName = _T("\\Device\\Silabser0"));
+DWORD Execute(LPCTSTR lpcszCmdline);
