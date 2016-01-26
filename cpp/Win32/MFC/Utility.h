@@ -24,6 +24,8 @@ BOOL MakeFullPath(const CString &strPath);
 #endif
 
 CString GetDirName(const CString &strPath);
+
+__declspec(deprecated("Deprecated, use theApp.GetShellManager()->BrowseForFolder instead."))
 CString BrowseForFolder(const CString &strTitle = _T(""),
     HWND hParent = NULL, BOOL bShowFile = FALSE, const CString &strRoot = _T(""));
 
