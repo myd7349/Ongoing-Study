@@ -29,8 +29,7 @@ namespace SysAdminApp
 
             for (char name = 'A'; name <= 'Z'; name++)
             {
-                string driveName = name + @":\";
-                noDrivesDict[name + @":\"] = mask;
+                noDrivesDict[name+@":\"] = mask;
                 mask <<= 1;
             }
  
@@ -39,15 +38,7 @@ namespace SysAdminApp
 
         public static SortedDictionary<string, bool> GetDriveVisibilityDict()
         {
-            Int32 noDrivesValue = 0;
-            try
-            {
-                object value = Registry.GetValue(explorerSubKey, "NoDrives", 0);
-                noDrivesValue = value != null ? (Int32)value : 0;
-            }
-            catch (Exception)
-            {
-            }
+            Int32 noDrivesValue = GetInt32Value(explorerSubKey, "NoDrives", 0);
 
             var dict = new SortedDictionary<string, bool>();
             foreach (var driveInfo in System.IO.DriveInfo.GetDrives())
@@ -60,29 +51,82 @@ namespace SysAdminApp
             return dict;
         }
 
-        public static void NoDrives(SortedDictionary<string, bool> driveVisibilityDict)
+        public static void SetDriveVisibility(SortedDictionary<string, bool> driveVisibilityDict)
         {
             Registry.SetValue(explorerSubKey, "NoDrives", 
-                GetNoDrivesValueFromDriveVisibilityDict(driveVisibilityDict), 
-                RegistryValueKind.DWord);
+                GetNoDrivesValue(driveVisibilityDict), RegistryValueKind.DWord);
         }
 
-        private static Int32 GetNoDrivesValueFromDriveVisibilityDict(SortedDictionary<string, bool> driveVisibilityDict)
+        public static void SetNoDispCPL(bool noDispCPL)
+        {
+            OpenOption(systemSubKey, "NoDispCPL", noDispCPL);
+        }
+
+        public static bool GetNoDispCPL()
+        {
+            return IsOptionOpened(systemSubKey, "NoDispCPL");
+        }
+
+        public static bool GetNoSetFolders()
+        {
+            return IsOptionOpened(explorerSubKey, "NoSetFolders");
+        }
+
+        public static void SetNoSetFolders(bool noSetFolders)
+        {
+            OpenOption(explorerSubKey, "NoSetFolders", noSetFolders);
+        }
+
+        public static bool GetDisableRegistryTools()
+        {
+            return IsOptionOpened(systemSubKey, "DisableRegistryTools");
+        }
+
+        public static void SetDisableRegistryTools(bool disableRegistryTools)
+        {
+            OpenOption(systemSubKey, "DisableRegistryTools", disableRegistryTools);
+        }
+
+        private static Int32 GetNoDrivesValue(SortedDictionary<string, bool> driveVisibilityDict)
         {
             Int32 value = 0;
 
             foreach (var item in driveVisibilityDict)
             {
-                if (!noDrivesDict.ContainsKey(item.Key))
-                    continue;
-
-                if (item.Value)
-                    value &= ~noDrivesDict[item.Key];
-                else
-                    value |= noDrivesDict[item.Key];
+                if (noDrivesDict.ContainsKey(item.Key))
+                {
+                    IntUtil.TriggleBits(ref value, noDrivesDict[item.Key], !item.Value);
+                }
             }
 
             return value;
+        }
+
+        private static Int32 GetInt32Value(string keyName, string valueName, Int32 defaultValue)
+        {
+            try
+            {
+                object value = Registry.GetValue(keyName, valueName, defaultValue);
+                return value != null ? (Int32)value : defaultValue;
+            }
+            catch (Exception)
+            {
+                return defaultValue;
+            }
+        }
+
+        private static bool IsOptionOpened(string keyName, string valueName)
+        {
+            Int32 value = GetInt32Value(keyName, valueName, 0);
+            return IntUtil.IsBitsSet(value, 0x00000001);
+        }
+
+        private static void OpenOption(string keyName, string valueName, bool open)
+        {
+            Int32 value = GetInt32Value(keyName, valueName, 0);
+            IntUtil.TriggleBits(ref value, 0x00000001, open);
+
+            Registry.SetValue(keyName, valueName, value, RegistryValueKind.DWord);
         }
     }
 }

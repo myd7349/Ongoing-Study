@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IntUtil.cs" />
     <Compile Include="SysAdmin.cs" />
     <Compile Include="SysAdminForm.cs">
       <SubType>Form</SubType>

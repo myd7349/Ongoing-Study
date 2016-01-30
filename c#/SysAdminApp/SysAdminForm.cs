@@ -21,6 +21,10 @@ namespace SysAdminApp
             driveVisibilityDict = SysAdmin.GetDriveVisibilityDict();
             PopulateDrivesListBox();
 
+            noDispCPLCheckBox.CheckState = GetCheckedState(SysAdmin.GetNoDispCPL());
+            noSetFoldersCheckBox.CheckState = GetCheckedState(SysAdmin.GetNoSetFolders());
+            disableRegistryToolsCheckBox.CheckState = GetCheckedState(SysAdmin.GetDisableRegistryTools());
+
             isInitialized = true;
         }
 
@@ -30,6 +34,16 @@ namespace SysAdminApp
             {
                 drivesCheckedListBox.Items.Add(item.Key, !item.Value);
             }
+        }
+
+        private CheckState GetCheckedState(bool isChecked)
+        {
+            return isChecked ? CheckState.Checked : CheckState.Unchecked;
+        }
+
+        private bool IsChecked(CheckBox checkBox)
+        {
+            return checkBox.CheckState == CheckState.Checked;
         }
 
         private void okButton_Click(object sender, EventArgs e)
@@ -45,7 +59,10 @@ namespace SysAdminApp
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            SysAdmin.NoDrives(driveVisibilityDict);
+            SysAdmin.SetDriveVisibility(driveVisibilityDict);
+            SysAdmin.SetNoDispCPL(IsChecked(noDispCPLCheckBox));
+            SysAdmin.SetNoSetFolders(IsChecked(noSetFoldersCheckBox));
+            SysAdmin.SetDisableRegistryTools(IsChecked(disableRegistryToolsCheckBox));
         }
 
         private void drivesCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
