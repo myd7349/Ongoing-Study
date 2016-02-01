@@ -44,6 +44,7 @@
             // 
             // okButton
             // 
+            this.okButton.AutoSize = true;
             this.okButton.Location = new System.Drawing.Point(3, 3);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
@@ -54,6 +55,7 @@
             // 
             // cancelButton
             // 
+            this.cancelButton.AutoSize = true;
             this.cancelButton.Location = new System.Drawing.Point(84, 3);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
@@ -64,6 +66,7 @@
             // 
             // applyButton
             // 
+            this.applyButton.AutoSize = true;
             this.applyButton.Location = new System.Drawing.Point(165, 3);
             this.applyButton.Name = "applyButton";
             this.applyButton.Size = new System.Drawing.Size(75, 23);
@@ -104,7 +107,7 @@
             this.vertFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.vertFlowLayoutPanel.Location = new System.Drawing.Point(12, 12);
             this.vertFlowLayoutPanel.Name = "vertFlowLayoutPanel";
-            this.vertFlowLayoutPanel.Size = new System.Drawing.Size(404, 308);
+            this.vertFlowLayoutPanel.Size = new System.Drawing.Size(249, 235);
             this.vertFlowLayoutPanel.TabIndex = 7;
             // 
             // noDrivesLabel
@@ -150,12 +153,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 332);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(278, 257);
             this.Controls.Add(this.vertFlowLayoutPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SysAdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "System Administration";
+            this.TopMost = true;
             this.horzLayoutPanel.ResumeLayout(false);
+            this.horzLayoutPanel.PerformLayout();
             this.vertFlowLayoutPanel.ResumeLayout(false);
             this.vertFlowLayoutPanel.PerformLayout();
             this.ResumeLayout(false);

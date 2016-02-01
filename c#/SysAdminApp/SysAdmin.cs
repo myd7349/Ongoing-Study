@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 using Microsoft.Win32;
@@ -34,6 +33,12 @@ namespace SysAdminApp
             }
  
             noDrivesDict["All"] = 0x03FFFFFF;
+        }
+
+        public static bool IsWinVistaOrHigher()
+        {
+            OperatingSystem os = Environment.OSVersion;
+            return os.Platform == PlatformID.Win32NT && os.Version.Major >= 6; 
         }
 
         public static SortedDictionary<string, bool> GetDriveVisibilityDict()

@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SysAdminApp
@@ -21,9 +16,15 @@ namespace SysAdminApp
             driveVisibilityDict = SysAdmin.GetDriveVisibilityDict();
             PopulateDrivesListBox();
 
-            noDispCPLCheckBox.CheckState = GetCheckedState(SysAdmin.GetNoDispCPL());
-            noSetFoldersCheckBox.CheckState = GetCheckedState(SysAdmin.GetNoSetFolders());
-            disableRegistryToolsCheckBox.CheckState = GetCheckedState(SysAdmin.GetDisableRegistryTools());
+            noDispCPLCheckBox.CheckState = GetCheckState(SysAdmin.GetNoDispCPL());
+            noSetFoldersCheckBox.CheckState = GetCheckState(SysAdmin.GetNoSetFolders());
+            disableRegistryToolsCheckBox.CheckState = GetCheckState(SysAdmin.GetDisableRegistryTools());
+
+            if (SysAdmin.IsWinVistaOrHigher())
+            {
+                noSetFoldersCheckBox.Hide();
+                disableRegistryToolsCheckBox.Hide();
+            }
 
             isInitialized = true;
         }
@@ -34,16 +35,6 @@ namespace SysAdminApp
             {
                 drivesCheckedListBox.Items.Add(item.Key, !item.Value);
             }
-        }
-
-        private CheckState GetCheckedState(bool isChecked)
-        {
-            return isChecked ? CheckState.Checked : CheckState.Unchecked;
-        }
-
-        private bool IsChecked(CheckBox checkBox)
-        {
-            return checkBox.CheckState == CheckState.Checked;
         }
 
         private void okButton_Click(object sender, EventArgs e)
@@ -72,6 +63,16 @@ namespace SysAdminApp
 
             string driveName = drivesCheckedListBox.Items[e.Index].ToString();
             driveVisibilityDict[driveName] = (e.NewValue == CheckState.Unchecked);
+        }
+
+        private static CheckState GetCheckState(bool isChecked)
+        {
+            return isChecked ? CheckState.Checked : CheckState.Unchecked;
+        }
+
+        private static bool IsChecked(CheckBox checkBox)
+        {
+            return checkBox.CheckState == CheckState.Checked;
         }
     }
 }
