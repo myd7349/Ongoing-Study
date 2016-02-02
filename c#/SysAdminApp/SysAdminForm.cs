@@ -67,7 +67,17 @@ namespace SysAdminApp
 
             langComboBox.Items.Add(Properties.Resources.zh_CN);
             langComboBox.Items.Add(Properties.Resources.en_US);
-            langComboBox.SelectedText = uiLangDict[Properties.Settings.Default.UILang]; 
+
+            string uiLang = Properties.Settings.Default.UILang;
+            if (uiLangDict.ContainsKey(uiLang))
+            {
+                langComboBox.SelectedText = uiLangDict[uiLang];
+            }
+            else
+            {
+                langComboBox.SelectedText = uiLangDict["en-US"];
+            }
+             
 
             PopulateDrivesListBox();
 
