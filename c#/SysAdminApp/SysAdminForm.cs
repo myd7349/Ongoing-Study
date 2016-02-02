@@ -61,6 +61,7 @@ namespace SysAdminApp
             noDrivesLabel.Text = Properties.Resources.NoDrives;
             noDispCPLCheckBox.Text = Properties.Resources.NoDispCPL;
             noSetFoldersCheckBox.Text = Properties.Resources.NoSetFolders;
+            disableRegistryToolsCheckBox.Text = Properties.Resources.DisableRegistryTools;
             okButton.Text = Properties.Resources.Ok;
             cancelButton.Text = Properties.Resources.Cancel;
             applyButton.Text = Properties.Resources.Apply;
