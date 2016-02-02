@@ -59,5 +59,104 @@ namespace SysAdminApp.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apply.
+        /// </summary>
+        internal static string Apply {
+            get {
+                return ResourceManager.GetString("Apply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System Administration.
+        /// </summary>
+        internal static string DialogTitle {
+            get {
+                return ResourceManager.GetString("DialogTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Registry Tools.
+        /// </summary>
+        internal static string DisableRegistryTools {
+            get {
+                return ResourceManager.GetString("DisableRegistryTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English(American).
+        /// </summary>
+        internal static string en_US {
+            get {
+                return ResourceManager.GetString("en_US", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Display CPL.
+        /// </summary>
+        internal static string NoDispCPL {
+            get {
+                return ResourceManager.GetString("NoDispCPL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check the drives you want to hide:.
+        /// </summary>
+        internal static string NoDrives {
+            get {
+                return ResourceManager.GetString("NoDrives", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Set Folders.
+        /// </summary>
+        internal static string NoSetFolders {
+            get {
+                return ResourceManager.GetString("NoSetFolders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string Ok {
+            get {
+                return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UI Language:.
+        /// </summary>
+        internal static string UILang {
+            get {
+                return ResourceManager.GetString("UILang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 中文（简体）.
+        /// </summary>
+        internal static string zh_CN {
+            get {
+                return ResourceManager.GetString("zh_CN", resourceCulture);
+            }
+        }
     }
 }

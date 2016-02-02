@@ -118,34 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Apply" xml:space="preserve">
-    <value>Apply</value>
+    <value>应用</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>取消</value>
   </data>
   <data name="DialogTitle" xml:space="preserve">
-    <value>System Administration</value>
+    <value>系统管理</value>
   </data>
   <data name="DisableRegistryTools" xml:space="preserve">
-    <value>Disable Registry Tools</value>
+    <value>禁用注册表工具</value>
   </data>
   <data name="en_US" xml:space="preserve">
     <value>English(American)</value>
   </data>
   <data name="NoDispCPL" xml:space="preserve">
-    <value>No Display CPL</value>
+    <value>禁用显示设置</value>
   </data>
   <data name="NoDrives" xml:space="preserve">
-    <value>Check the drives you want to hide:</value>
+    <value>勾选想要隐藏的分区：</value>
   </data>
   <data name="NoSetFolders" xml:space="preserve">
-    <value>No Set Folders</value>
+    <value>禁用 Win+E</value>
   </data>
   <data name="Ok" xml:space="preserve">
-    <value>OK</value>
+    <value>确定</value>
   </data>
   <data name="UILang" xml:space="preserve">
-    <value>UI Language:</value>
+    <value>界面语言：</value>
   </data>
   <data name="zh_CN" xml:space="preserve">
     <value>中文（简体）</value>
