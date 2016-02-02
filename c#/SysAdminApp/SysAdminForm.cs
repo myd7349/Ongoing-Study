@@ -78,7 +78,6 @@ namespace SysAdminApp
             {
                 langComboBox.SelectedText = uiLangDict["en-US"];
             }
-             
 
             PopulateDrivesListBox();
 
@@ -93,7 +92,7 @@ namespace SysAdminApp
             }
 
             ResumeLayout();
-            
+
             isFormLoaded = true;
         }
 
@@ -121,13 +120,30 @@ namespace SysAdminApp
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            SysAdmin.SetDriveVisibility(driveVisibilityDict);
-            SysAdmin.SetNoDispCPL(IsChecked(noDispCPLCheckBox));
-
-            if (!SysAdmin.IsWinVistaOrHigher())
+            try
             {
-                SysAdmin.SetNoSetFolders(IsChecked(noSetFoldersCheckBox));
-                SysAdmin.SetDisableRegistryTools(IsChecked(disableRegistryToolsCheckBox));
+                SysAdmin.SetDriveVisibility(driveVisibilityDict);
+                SysAdmin.SetNoDispCPL(IsChecked(noDispCPLCheckBox));
+
+                if (!SysAdmin.IsWinVistaOrHigher())
+                {
+                    SysAdmin.SetNoSetFolders(IsChecked(noSetFoldersCheckBox));
+                    SysAdmin.SetDisableRegistryTools(IsChecked(disableRegistryToolsCheckBox));
+                }
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show(
+                    ex.Message + "\n" + Properties.Resources.AdminstratorPrivilegesRequired, 
+                    Properties.Resources.OperationFailed, 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    Properties.Resources.UnknownError,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

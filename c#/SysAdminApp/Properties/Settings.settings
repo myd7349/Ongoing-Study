@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="UILang" Type="System.String" Scope="User">
-      <Value Profile="(Default)">zh-CHS</Value>
+      <Value Profile="(Default)">zh-CN</Value>
     </Setting>
   </Settings>
 </SettingsFile>

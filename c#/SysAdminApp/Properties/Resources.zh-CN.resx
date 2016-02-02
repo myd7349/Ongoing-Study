@@ -150,4 +150,13 @@
   <data name="zh_CN" xml:space="preserve">
     <value>中文（简体）</value>
   </data>
+  <data name="AdminstratorPrivilegesRequired" xml:space="preserve">
+    <value>请以管理员权限重新运行该软件！</value>
+  </data>
+  <data name="OperationFailed" xml:space="preserve">
+    <value>操作失败！</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>未知错误！</value>
+  </data>
 </root>

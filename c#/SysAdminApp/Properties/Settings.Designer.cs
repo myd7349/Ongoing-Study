@@ -25,7 +25,7 @@ namespace SysAdminApp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("zh-CHS")]
+        [global::System.Configuration.DefaultSettingValueAttribute("zh-CN")]
         public string UILang {
             get {
                 return ((string)(this["UILang"]));

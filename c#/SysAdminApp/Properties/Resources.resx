@@ -150,4 +150,13 @@
   <data name="zh_CN" xml:space="preserve">
     <value>中文（简体）</value>
   </data>
+  <data name="AdminstratorPrivilegesRequired" xml:space="preserve">
+    <value>Administrator privileges are required.</value>
+  </data>
+  <data name="OperationFailed" xml:space="preserve">
+    <value>Operation Failed!</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>Unknown error!</value>
+  </data>
 </root>

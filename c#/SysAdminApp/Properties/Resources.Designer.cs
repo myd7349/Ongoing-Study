@@ -61,6 +61,15 @@ namespace SysAdminApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Administrator privileges are required..
+        /// </summary>
+        internal static string AdminstratorPrivilegesRequired {
+            get {
+                return ResourceManager.GetString("AdminstratorPrivilegesRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Apply.
         /// </summary>
         internal static string Apply {
@@ -142,11 +151,29 @@ namespace SysAdminApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Operation Failed!.
+        /// </summary>
+        internal static string OperationFailed {
+            get {
+                return ResourceManager.GetString("OperationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UI Language:.
         /// </summary>
         internal static string UILang {
             get {
                 return ResourceManager.GetString("UILang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown error!.
+        /// </summary>
+        internal static string UnknownError {
+            get {
+                return ResourceManager.GetString("UnknownError", resourceCulture);
             }
         }
         
