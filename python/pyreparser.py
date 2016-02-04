@@ -6,10 +6,11 @@
 
 # 2015-04-19T11:20+08:00
 
+import re
+
 
 def parse_re(str_re = ''):
     from os import name as os_name
-    from re import compile as re_compile
     from subprocess import check_output
     
     args = ['python' if os_name == 'nt' else 'python3', '-c',
@@ -25,7 +26,7 @@ def parse_re(str_re = ''):
     # literal_re = r'(?<=[\t ]*literal[\t ]+)(?P<{0}>[0-9]+)'.format(literal_group)
     # This one is simple but enough for use.
     literal_re = r'(?<=literal )(?P<{0}>[0-9]+)'.format(literal_group)
-    literal_pat = re_compile(literal_re)
+    literal_pat = re.compile(literal_re, re.IGNORECASE)
     
     repl_callback = lambda match_ret: \
                     chr(int(match_ret.group(literal_group))) + \
@@ -39,7 +40,7 @@ def parse_re(str_re = ''):
     range_up_group = 'RANGE_UP'
     range_re = r'(?<=range )\((?P<{0}>[0-9]+), (?P<{1}>[0-9]+)\)' \
                .format(range_down_group, range_up_group)
-    range_pat = re_compile(range_re)
+    range_pat = re.compile(range_re)
 
     def range_repl_callback(match_ret):
         down = int(match_ret.group(range_down_group))
