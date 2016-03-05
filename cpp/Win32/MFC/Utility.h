@@ -83,4 +83,10 @@ void TraceException(CException *e, LPCTSTR lpcszPrefix = NULL);
 
 CString GetSerialPort(LPCTSTR lpcszName = _T("\\Device\\Silabser0"));
 int GetSerialPortNumber(LPCTSTR lpcszName = _T("\\Device\\Silabser0"));
-DWORD Execute(LPCTSTR lpcszCmdline);
+
+DWORD Execute(LPCTSTR lpcszCmdline, WORD wShowWindow, BOOL bSync);
+
+#define ExecDaemonSync(lpcszCmdline)  Execute((lpcszCmdline), SW_HIDE, TRUE)
+#define ExecDaemonAsync(lpcszCmdline) Execute((lpcszCmdline), SW_HIDE, FALSE)
+#define ExecAppSync(lpcszCmdline)     Execute((lpcszCmdline), SW_SHOW, TRUE)
+#define ExecAppAsync(lpcszCmdline)    Execute((lpcszCmdline), SW_SHOW, FALSE)
