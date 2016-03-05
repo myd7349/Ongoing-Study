@@ -517,3 +517,40 @@ DWORD Execute(LPCTSTR lpcszCmdline, WORD wShowWindow, BOOL bSync)
 
     return 1;
 }
+
+// 2016-03-05T15:37+08:00
+int FindFiles(CStringArray &arrstrFiles, const CString &strFileNamePattern, 
+    const CString &strPath, BOOL bFullPath, int nLimit)
+{
+    arrstrFiles.RemoveAll();
+
+    int nTotal = 0;
+
+    CFileFind fileFinder;
+    BOOL bSearching = fileFinder.FindFile(JoinPath(strPath, strFileNamePattern));
+
+    CString (CFileFind::*pFunc)() const = bFullPath ? &CFileFind::GetFilePath : &CFileFind::GetFileName;
+
+    while (bSearching && (nLimit == -1 || nTotal < nLimit))
+    {
+        bSearching = fileFinder.FindNextFile();
+        nTotal += 1;
+
+        arrstrFiles.Add((fileFinder.*pFunc)());
+    }
+
+    return nTotal;
+}
+
+CString FindFirstFileWithName(const CString &strFileName, const CString &strPath, BOOL bFullPath)
+{
+    CStringArray arrstrFiles;
+    FindFiles(arrstrFiles, strFileName + + _T(".*"), strPath, bFullPath, 1);
+
+    if (arrstrFiles.GetSize() == 1)
+    {
+        return arrstrFiles[0];
+    }
+
+    return _T("");
+}

@@ -90,3 +90,7 @@ DWORD Execute(LPCTSTR lpcszCmdline, WORD wShowWindow, BOOL bSync);
 #define ExecDaemonAsync(lpcszCmdline) Execute((lpcszCmdline), SW_HIDE, FALSE)
 #define ExecAppSync(lpcszCmdline)     Execute((lpcszCmdline), SW_SHOW, TRUE)
 #define ExecAppAsync(lpcszCmdline)    Execute((lpcszCmdline), SW_SHOW, FALSE)
+
+int FindFiles(CStringArray &arrstrFiles, const CString &strFileNamePattern, 
+    const CString &strPath, BOOL bFullPath, int nLimit = -1);
+CString FindFirstFileWithName(const CString &strFileName, const CString &strPath, BOOL bFullPath);
