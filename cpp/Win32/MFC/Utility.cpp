@@ -482,30 +482,75 @@ int GetSerialPortNumber(LPCTSTR lpcszName)
     return -1;
 }
 
-DWORD Execute(LPCTSTR lpcszCmdline)
+DWORD Execute(LPCTSTR lpcszCmdline, WORD wShowWindow, BOOL bSync)
 {
-    STARTUPINFOW si = { sizeof(STARTUPINFOW) };
-    si.lpTitle = L"";
+    STARTUPINFO si = { sizeof(STARTUPINFO) };
+    si.lpTitle = TEXT("");
     si.dwFlags = STARTF_USESHOWWINDOW;   
-    si.wShowWindow = SW_HIDE;
+    si.wShowWindow = wShowWindow;
 
     PROCESS_INFORMATION pi = { NULL };
-    wchar_t szCmdLine[1024];
+    TCHAR szCmdLine[1024];
 
-    lstrcpynW(szCmdLine, lpcszCmdline, _countof(szCmdLine));
+    lstrcpyn(szCmdLine, lpcszCmdline, _countof(szCmdLine));
 
-    if (CreateProcessW(NULL, szCmdLine, NULL, NULL, 
+    if (CreateProcess(NULL, szCmdLine, NULL, NULL, 
         FALSE, CREATE_NEW_CONSOLE, NULL, NULL, &si, &pi))
     {
         CloseHandle(pi.hThread);
 
-        WaitForSingleObject(pi.hProcess, INFINITE);
-        DWORD dwExitCode;
-        GetExitCodeProcess(pi.hProcess, &dwExitCode);
+        if (bSync)
+        {
+            WaitForSingleObject(pi.hProcess, INFINITE);
+            DWORD dwExitCode;
+            GetExitCodeProcess(pi.hProcess, &dwExitCode);
 
-        CloseHandle(pi.hProcess);
-        return dwExitCode;
+            CloseHandle(pi.hProcess);
+            return dwExitCode;
+        }
+        else
+        {
+            CloseHandle(pi.hProcess);
+            return 0;
+        }
     }
 
     return 1;
+}
+
+// 2016-03-05T15:37+08:00
+int FindFiles(CStringArray &arrstrFiles, const CString &strFileNamePattern, 
+    const CString &strPath, BOOL bFullPath, int nLimit)
+{
+    arrstrFiles.RemoveAll();
+
+    int nTotal = 0;
+
+    CFileFind fileFinder;
+    BOOL bSearching = fileFinder.FindFile(JoinPath(strPath, strFileNamePattern));
+
+    CString (CFileFind::*pFunc)() const = bFullPath ? &CFileFind::GetFilePath : &CFileFind::GetFileName;
+
+    while (bSearching && (nLimit == -1 || nTotal < nLimit))
+    {
+        bSearching = fileFinder.FindNextFile();
+        nTotal += 1;
+
+        arrstrFiles.Add((fileFinder.*pFunc)());
+    }
+
+    return nTotal;
+}
+
+CString FindFirstFileWithName(const CString &strFileName, const CString &strPath, BOOL bFullPath)
+{
+    CStringArray arrstrFiles;
+    FindFiles(arrstrFiles, strFileName + + _T(".*"), strPath, bFullPath, 1);
+
+    if (arrstrFiles.GetSize() == 1)
+    {
+        return arrstrFiles[0];
+    }
+
+    return _T("");
 }
