@@ -15,3 +15,6 @@ namespace Common
         public static Action PauseNul = () => Pause("");
     }
 }
+
+// References:
+// [Func vs. Action vs. Predicate](http://stackoverflow.com/questions/4317479/func-vs-action-vs-predicate)
