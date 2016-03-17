@@ -6,7 +6,6 @@
 #ifndef DATA_SEQUENCE_PRIVATE_H_
 #define DATA_SEQUENCE_PRIVATE_H_
 
-#include <new>
 #include <vector>
 
 using DataSequenceImpl = std::vector<double>;

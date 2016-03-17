@@ -4,6 +4,8 @@
 
 #include <cassert>
 #include <cstdio>
+#include <new>
+#include <stdexcept>
 
 
 Error DataSeq_Create(DataSequence *dataSeqPtr, Size size)
@@ -70,16 +72,12 @@ Error DataSeq_GetAt(DataSequence dataSeq, Size i, double *v)
     if (nullptr == dataSeq || nullptr == v)
         return InvalidParameter;
 
-    Size size;
-    if (Error error = DataSeq_Size(dataSeq, &size))
-        return error;
-
-    if (i >= size)
+    try {
+        *v = static_cast<DataSequenceImpl *>(dataSeq)->at(i);
+        return NoError;
+    } catch (const std::out_of_range &) {
         return IndexOutOfRange;
-
-    *v = static_cast<DataSequenceImpl *>(dataSeq)->at(i);
-
-    return NoError;
+    }
 }
 
 Error DataSeq_SetAt(DataSequence dataSeq, Size i, double v)
