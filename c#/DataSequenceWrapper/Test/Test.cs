@@ -22,6 +22,10 @@ class Test
 
             dataSeq[0] = 2.71828;
             Console.WriteLine(dataSeq[0]);
+
+            double[] data = dataSeq.GetData();
+            foreach (double v in data)
+                Console.WriteLine(v);
         }
 
         DataSequence dataSeq2 = new DataSequence(10);

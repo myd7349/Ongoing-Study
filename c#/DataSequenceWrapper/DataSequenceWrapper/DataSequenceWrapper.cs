@@ -37,6 +37,9 @@ internal sealed class DataSeq
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_SetAt")]
     public static extern Error SetAt(IntPtr dataSeq, UInt32 i, double v);
 
+    [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_Data")]
+    public static extern Error Data(IntPtr dataSeq, ref IntPtr pData);
+
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_Free")]
     public static extern void Free(IntPtr dataSeq);
 };
@@ -85,6 +88,20 @@ public sealed class DataSequence : IDisposable, IEnumerable
         {
             Validate(DataSeq.SetAt(dataSeqHandle, i, value));
         }
+    }
+
+    public double[] GetData()
+    {
+        UInt32 size = Size;
+        if (size == 0)
+            return null;
+
+        IntPtr unmanagedDataPtr = IntPtr.Zero;
+        Validate(DataSeq.Data(dataSeqHandle, ref unmanagedDataPtr));
+
+        double[] managedDataBuf = new double[Size];
+        Marshal.Copy(unmanagedDataPtr, managedDataBuf, 0, managedDataBuf.Length);
+        return managedDataBuf;
     }
 
     public void Dispose()
@@ -138,4 +155,8 @@ public sealed class DataSequence : IDisposable, IEnumerable
 };
 
 // References:
+// [PInvoke Interop Assistant](http://clrinterop.codeplex.com/releases/view/14120)
 // [How to import void * C API into C#?](http://stackoverflow.com/questions/521774/how-to-import-void-c-api-into-c)
+// [Using Platform Invoke](http://www.codeproject.com/Articles/4965/Using-Platform-Invoke)
+// [PInvoke - How to convert IntPtr to double[]?](https://social.msdn.microsoft.com/Forums/vstudio/en-US/2fa0c961-45f2-474f-9eeb-8cb73ece6eb5/pinvoke-how-to-convert-intptr-to-double?forum=netfxbcl)
+// [Marshal.Copy Method](https://msdn.microsoft.com/library/ms146633%28v=vs.100%29.aspx)
