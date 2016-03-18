@@ -7,64 +7,83 @@ using System.Runtime.InteropServices;
 
 // A wrapper class for DataSequence.dll.
 
-public sealed class DataSequence
+internal sealed class DataSeq
 {
     public enum Error
     {
         NoError          = 0,
         IndexOutOfRange  = 1,
         InvalidParameter = 2,
-        MemoryError      = 3,
-        UnknownError     = 4,
+        InvalidOperation = 3,
+        MemoryError      = 4,
+        UnknownError     = 5,
     };
 
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_Create")]
-    public static extern Error DataSeq_Create(ref IntPtr dataSeq, UInt32 size);
+    public static extern Error Create(ref IntPtr dataSeq, UInt32 size);
 
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_PushBack")]
-    public static extern Error DataSeq_PushBack(IntPtr dataSeq, double v);
+    public static extern Error PushBack(IntPtr dataSeq, double v);
 
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_PopBack")]
-    public static extern Error DataSeq_PopBack(IntPtr dataSeq, ref double v);
+    public static extern Error PopBack(IntPtr dataSeq, ref double v);
 
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_Size")]
-    public static extern Error DataSeq_Size(IntPtr dataSeq, ref UInt32 size);
+    public static extern Error Size(IntPtr dataSeq, ref UInt32 size);
 
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_GetAt")]
-    public static extern Error DataSeq_GetAt(IntPtr dataSeq, UInt32 i, ref double v);
+    public static extern Error GetAt(IntPtr dataSeq, UInt32 i, ref double v);
 
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_SetAt")]
-    public static extern Error DataSeq_SetAt(IntPtr dataSeq, UInt32 i, double v);
+    public static extern Error SetAt(IntPtr dataSeq, UInt32 i, double v);
 
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_Free")]
-    public static extern void DataSeq_Free(IntPtr dataSeq);
+    public static extern void Free(IntPtr dataSeq);
 };
 
-public sealed class DataSeq : IDisposable, IEnumerable
+public sealed class DataSequence : IDisposable, IEnumerable
 {
-    private IntPtr dataSeq;
+    private IntPtr dataSeqHandle;
 
-    public DataSeq(UInt32 size = 0)
+    public DataSequence(UInt32 size = 0)
     {
-        DataSequence.Error error = DataSequence.DataSeq_Create(ref dataSeq, size);
+        DataSeq.Error error = DataSeq.Create(ref dataSeqHandle, size);
+        Validate(error, false);
     }
 
     public void PushBack(double v)
     {
-        if (dataSeq != IntPtr.Zero)
-        {
-            DataSequence.Error error = DataSequence.DataSeq_PushBack(dataSeq, v);
-            Debug.Assert(error == DataSequence.Error.NoError);
-        }
+        Validate(DataSeq.PushBack(dataSeqHandle, v));
     }
 
     public void PopBack()
     {
-        if (dataSeq != IntPtr.Zero)
+        double v = 0.0;
+        Validate(DataSeq.PopBack(dataSeqHandle, ref v));
+    }
+
+    public UInt32 Size
+    {
+        get
+        {
+            UInt32 size = 0;
+            Validate(DataSeq.Size(dataSeqHandle, ref size));
+            return size;
+        }
+    }
+
+    public double this [UInt32 i]
+    {
+        get
         {
             double v = 0.0;
-            DataSequence.Error error = DataSequence.DataSeq_PopBack(dataSeq, ref v);
-            Debug.Assert(error == DataSequence.Error.NoError);
+            Validate(DataSeq.GetAt(dataSeqHandle, i, ref v));
+            return v;
+        }
+
+        set
+        {
+            Validate(DataSeq.SetAt(dataSeqHandle, i, value));
         }
     }
 
@@ -72,25 +91,47 @@ public sealed class DataSeq : IDisposable, IEnumerable
     {
         Debug.WriteLine("Calling DataSeq_Free...");
 
-        if (dataSeq != IntPtr.Zero)
-            DataSequence.DataSeq_Free(dataSeq);
+        if (IsValid)
+            DataSeq.Free(dataSeqHandle);
     }
 
     public IEnumerator GetEnumerator()
     {
-        if (dataSeq != IntPtr.Zero)
+        UInt32 size = 0;
+        Validate(DataSeq.Size(dataSeqHandle, ref size));
+
+        for (UInt32 i = 0; i < size; i++)
         {
-            UInt32 size = 0;
-            DataSequence.Error error = DataSequence.DataSeq_Size(dataSeq, ref size);
-            if (error == DataSequence.Error.NoError)
+            double v = 0.0;
+            Validate(DataSeq.GetAt(dataSeqHandle, i, ref v));
+            yield return v;
+        }
+    }
+
+    private bool IsValid
+    {
+        get { return dataSeqHandle != IntPtr.Zero; }
+    }
+
+    private void Validate(DataSeq.Error error, bool throwException = true)
+    {
+        Debug.Assert(error == DataSeq.Error.NoError);
+
+        if (throwException && error != DataSeq.Error.NoError)
+        {
+            switch (error)
             {
-                for (UInt32 i = 0; i < size; i++)
-                {
-                    double v = 0.0;
-                    error = DataSequence.DataSeq_GetAt(dataSeq, i, ref v);
-                    if (error == DataSequence.Error.NoError)
-                        yield return v;
-                }
+                case DataSeq.Error.IndexOutOfRange:
+                    throw new IndexOutOfRangeException();
+                case DataSeq.Error.InvalidParameter:
+                    throw new Exception("DataSeq.Error.InvalidParameter");
+                case DataSeq.Error.InvalidOperation:
+                    throw new Exception("DataSeq.Error.InvalidOperation");
+                case DataSeq.Error.MemoryError:
+                    throw new OutOfMemoryException();
+                case DataSeq.Error.UnknownError:
+                    throw new Exception("DataSeq.Error.UnknownError");
+                default: Debug.Assert(false);  break;
             }
         }
     }

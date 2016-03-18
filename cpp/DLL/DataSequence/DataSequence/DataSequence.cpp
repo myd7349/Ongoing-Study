@@ -48,6 +48,10 @@ Error DataSeq_PopBack(DataSequence dataSeq, double *v)
         return InvalidParameter;
 
     DataSequenceImpl *dataSeqImpl = static_cast<DataSequenceImpl *>(dataSeq);
+    
+    if (dataSeqImpl->empty())
+        return InvalidOperation;
+
     if (v != nullptr)
         *v = dataSeqImpl->back();
     dataSeqImpl->pop_back();

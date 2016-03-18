@@ -19,8 +19,9 @@ typedef enum {
     NoError          = 0,
     IndexOutOfRange  = 1,
     InvalidParameter = 2,
-    MemoryError      = 3,
-    UnknownError     = 4,
+    InvalidOperation = 3,
+    MemoryError      = 4,
+    UnknownError     = 5,
 } Error;
 
 #define INVALID_SIZE ((Size)-1)
