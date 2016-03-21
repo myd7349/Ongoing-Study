@@ -29,7 +29,7 @@ internal sealed class DataSeq
     public static extern Error PopBack(IntPtr dataSeq, ref double v);
 
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_GetSize")]
-    public static extern Error Size(IntPtr dataSeq, ref UInt32 size);
+    public static extern Error GetSize(IntPtr dataSeq, ref UInt32 size);
 
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_GetAt")]
     public static extern Error GetAt(IntPtr dataSeq, UInt32 i, ref double v);
@@ -38,7 +38,7 @@ internal sealed class DataSeq
     public static extern Error SetAt(IntPtr dataSeq, UInt32 i, double v);
 
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_GetData")]
-    public static extern Error Data(IntPtr dataSeq, ref IntPtr pData);
+    public static extern Error GetData(IntPtr dataSeq, ref IntPtr pData);
 
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_Free")]
     public static extern void Free(IntPtr dataSeq);
@@ -70,7 +70,7 @@ public sealed class DataSequence : IDisposable, IEnumerable
         get
         {
             UInt32 size = 0;
-            Validate(DataSeq.Size(dataSeqHandle, ref size));
+            Validate(DataSeq.GetSize(dataSeqHandle, ref size));
             return size;
         }
     }
@@ -97,19 +97,11 @@ public sealed class DataSequence : IDisposable, IEnumerable
             return null;
 
         IntPtr unmanagedDataPtr = IntPtr.Zero;
-        Validate(DataSeq.Data(dataSeqHandle, ref unmanagedDataPtr));
+        Validate(DataSeq.GetData(dataSeqHandle, ref unmanagedDataPtr));
 
         double[] managedDataBuf = new double[Size];
         Marshal.Copy(unmanagedDataPtr, managedDataBuf, 0, managedDataBuf.Length);
         return managedDataBuf;
-    }
-
-    public void Dispose()
-    {
-        Debug.WriteLine("Calling DataSeq_Free...");
-
-        if (IsValid)
-            DataSeq.Free(dataSeqHandle);
     }
 
     public IEnumerator GetEnumerator()
@@ -120,6 +112,14 @@ public sealed class DataSequence : IDisposable, IEnumerable
 
         foreach (var v in data)
             yield return v;
+    }
+
+    public void Dispose()
+    {
+        Debug.WriteLine("Calling DataSeq_Free...");
+
+        if (IsValid)
+            DataSeq.Free(dataSeqHandle);
     }
 
     private bool IsValid
