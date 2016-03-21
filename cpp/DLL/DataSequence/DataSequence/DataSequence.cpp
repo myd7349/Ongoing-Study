@@ -59,7 +59,7 @@ Error DataSeq_PopBack(DataSequence dataSeq, double *v)
     return NoError;
 }
 
-Error DataSeq_Size(DataSequence dataSeq, Size *size)
+Error DataSeq_GetSize(DataSequence dataSeq, Size *size)
 {
     assert(dataSeq != nullptr && size != nullptr);
     if (nullptr == dataSeq || nullptr == size)
@@ -91,7 +91,7 @@ Error DataSeq_SetAt(DataSequence dataSeq, Size i, double v)
         return InvalidParameter;
 
     Size size;
-    if (Error error = DataSeq_Size(dataSeq, &size))
+    if (Error error = DataSeq_GetSize(dataSeq, &size))
         return error;
 
     if (i >= size)
@@ -102,7 +102,7 @@ Error DataSeq_SetAt(DataSequence dataSeq, Size i, double v)
     return NoError;
 }
 
-Error DataSeq_Data(DataSequence dataSeq, const double **pData)
+Error DataSeq_GetData(DataSequence dataSeq, const double **pData)
 {
     assert(dataSeq != nullptr && pData != nullptr);
     if (nullptr == dataSeq || nullptr == pData)
@@ -120,7 +120,7 @@ Error DataSeq_Dump(DataSequence dataSeq, FILE *stream)
         return InvalidParameter;
 
     Size size;
-    if (Error error = DataSeq_Size(dataSeq, &size))
+    if (Error error = DataSeq_GetSize(dataSeq, &size))
         return error;
 
     if (0 == size)

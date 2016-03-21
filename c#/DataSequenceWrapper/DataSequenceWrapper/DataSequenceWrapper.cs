@@ -28,7 +28,7 @@ internal sealed class DataSeq
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_PopBack")]
     public static extern Error PopBack(IntPtr dataSeq, ref double v);
 
-    [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_Size")]
+    [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_GetSize")]
     public static extern Error Size(IntPtr dataSeq, ref UInt32 size);
 
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_GetAt")]
@@ -37,7 +37,7 @@ internal sealed class DataSeq
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_SetAt")]
     public static extern Error SetAt(IntPtr dataSeq, UInt32 i, double v);
 
-    [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_Data")]
+    [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_GetData")]
     public static extern Error Data(IntPtr dataSeq, ref IntPtr pData);
 
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_Free")]
@@ -114,15 +114,12 @@ public sealed class DataSequence : IDisposable, IEnumerable
 
     public IEnumerator GetEnumerator()
     {
-        UInt32 size = 0;
-        Validate(DataSeq.Size(dataSeqHandle, ref size));
+        var data = GetData();
+        if (data == null)
+            throw new Exception("Invalid data sequence handle.");
 
-        for (UInt32 i = 0; i < size; i++)
-        {
-            double v = 0.0;
-            Validate(DataSeq.GetAt(dataSeqHandle, i, ref v));
+        foreach (var v in data)
             yield return v;
-        }
     }
 
     private bool IsValid

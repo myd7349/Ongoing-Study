@@ -29,10 +29,10 @@ typedef enum {
 DATASEQ_API Error DataSeq_Create(DataSequence *dataSeqPtr, Size size);
 DATASEQ_API Error DataSeq_PushBack(DataSequence dataSeq, double v);
 DATASEQ_API Error DataSeq_PopBack(DataSequence dataSeq, double *v);
-DATASEQ_API Error DataSeq_Size(DataSequence dataSeq, Size *size);
+DATASEQ_API Error DataSeq_GetSize(DataSequence dataSeq, Size *size);
 DATASEQ_API Error DataSeq_GetAt(DataSequence dataSeq, Size i, double *v);
 DATASEQ_API Error DataSeq_SetAt(DataSequence dataSeq, Size i, double v);
-DATASEQ_API Error DataSeq_Data(DataSequence dataSeq, const double **pData);
+DATASEQ_API Error DataSeq_GetData(DataSequence dataSeq, const double **pData);
 DATASEQ_API Error DataSeq_Dump(DataSequence dataSeq, FILE *stream);
 DATASEQ_API void  DataSeq_Free(DataSequence dataSeq);
 
