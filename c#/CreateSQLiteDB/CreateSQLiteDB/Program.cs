@@ -40,4 +40,3 @@ class Program
 // References:
 // [Create SQLite Database and table](http://stackoverflow.com/questions/15292880/create-sqlite-database-and-table)
 // [SQLite connection strings](http://www.connectionstrings.com/sqlite/)
-
