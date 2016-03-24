@@ -1,11 +1,14 @@
 ﻿// 2016-03-03T15:17+08:00
 
 using System;
+using System.Diagnostics;
+using System.IO;
 
 namespace Common
 {
-    public sealed class Common
+    public sealed class Util
     {
+        [Conditional("DEBUG")]
         public static void Pause(string prompt = "Press any key to quit!")
         {
             Console.Write(prompt);
@@ -13,6 +16,22 @@ namespace Common
         }
 
         public static Action PauseNul = () => Pause("");
+
+        public static string GetProgName(string defaultName = "")
+        {
+            string progName = defaultName;
+
+            var args = Environment.GetCommandLineArgs();
+            if (args.Length >= 1)
+            {
+                progName = Path.GetFileNameWithoutExtension(args[0]);
+
+                if (progName.EndsWith(".vshost"))
+                    progName = Path.GetFileNameWithoutExtension(progName);
+            }
+
+            return progName;
+        }
     }
 }
 
