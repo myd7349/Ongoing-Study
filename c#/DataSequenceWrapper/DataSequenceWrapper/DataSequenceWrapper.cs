@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security;
 
 
 // A wrapper class for DataSequence.dll.
@@ -19,27 +20,35 @@ internal sealed class DataSeq
         UnknownError     = 5,
     };
 
+    [SuppressUnmanagedCodeSecurity]
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_Create")]
     public static extern Error Create(ref IntPtr dataSeq, UInt32 size);
 
+    [SuppressUnmanagedCodeSecurity]
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_PushBack")]
     public static extern Error PushBack(IntPtr dataSeq, double v);
 
+    [SuppressUnmanagedCodeSecurity]
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_PopBack")]
     public static extern Error PopBack(IntPtr dataSeq, ref double v);
 
+    [SuppressUnmanagedCodeSecurity]
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_GetSize")]
     public static extern Error GetSize(IntPtr dataSeq, ref UInt32 size);
 
+    [SuppressUnmanagedCodeSecurity]
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_GetAt")]
     public static extern Error GetAt(IntPtr dataSeq, UInt32 i, ref double v);
 
+    [SuppressUnmanagedCodeSecurity]
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_SetAt")]
     public static extern Error SetAt(IntPtr dataSeq, UInt32 i, double v);
 
+    [SuppressUnmanagedCodeSecurity]
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_GetData")]
     public static extern Error GetData(IntPtr dataSeq, ref IntPtr pData);
 
+    [SuppressUnmanagedCodeSecurity]
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_Free")]
     public static extern void Free(IntPtr dataSeq);
 };
@@ -157,3 +166,5 @@ public sealed class DataSequence : IDisposable, IEnumerable
 // [Using Platform Invoke](http://www.codeproject.com/Articles/4965/Using-Platform-Invoke)
 // [PInvoke - How to convert IntPtr to double[]?](https://social.msdn.microsoft.com/Forums/vstudio/en-US/2fa0c961-45f2-474f-9eeb-8cb73ece6eb5/pinvoke-how-to-convert-intptr-to-double?forum=netfxbcl)
 // [Marshal.Copy Method](https://msdn.microsoft.com/library/ms146633%28v=vs.100%29.aspx)
+// [C# 6.0 in a Nutshell, Chapter 25]
+// [CppSharp](https://github.com/mono/CppSharp/blob/master/docs/GeneratingBindings.md)
