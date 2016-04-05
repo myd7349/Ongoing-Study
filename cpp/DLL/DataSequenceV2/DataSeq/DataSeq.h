@@ -5,8 +5,13 @@
 #include <stdio.h>
 
 #ifndef DATASEQ_API
-# define DATASEQ_API __declspec(dllimport)
+# ifndef SWIG
+#  define DATASEQ_API __declspec(dllimport)
+# else
+#  define DATASEQ_API // Ongoing-study/python/SWIG/DataSeq/DataSeq.i
+# endif
 #endif
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -33,6 +38,7 @@ typedef enum {
     UnknownError     = 5,
 } Error;
 
+
 DATASEQ_API Error DataSeq_Create(DataSeqHandle *dataSeqPtr, Size size);
 DATASEQ_API Error DataSeq_PushBack(DataSeqHandle dataSeq, double v);
 DATASEQ_API Error DataSeq_PopBack(DataSeqHandle dataSeq, double *v);
@@ -42,6 +48,10 @@ DATASEQ_API Error DataSeq_SetAt(DataSeqHandle dataSeq, Size i, double v);
 DATASEQ_API Error DataSeq_GetData(DataSeqHandle dataSeq, const double **pData);
 DATASEQ_API Error DataSeq_Dump(DataSeqHandle dataSeq, FILE *stream);
 DATASEQ_API void  DataSeq_Free(DataSeqHandle dataSeq);
+
+DATASEQ_API DataSeqHandle DataSeq_CreateV2(Size size);
+DATASEQ_API Size DataSeq_GetSizeV2(DataSeqHandle dataSeq);
+DATASEQ_API const double *DataSeq_GetDataV2(DataSeqHandle dataSeq);
 
 #ifdef __cplusplus
 }

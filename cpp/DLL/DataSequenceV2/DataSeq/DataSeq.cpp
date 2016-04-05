@@ -13,6 +13,7 @@ struct DataSeq {
 
 const Size INVALID_SIZE = ((Size)-1);
 
+
 Error DataSeq_Create(DataSeqHandle *dataSeqPtr, Size size)
 {
     assert(dataSeqPtr != nullptr && size != INVALID_SIZE);
@@ -142,4 +143,41 @@ void DataSeq_Free(DataSeqHandle dataSeq)
     if (dataSeq != nullptr) {
         delete dataSeq;
     }
+}
+
+
+DataSeqHandle DataSeq_CreateV2(Size size)
+{
+    assert(size != INVALID_SIZE);
+    if (INVALID_SIZE == size)
+        return nullptr;
+
+    DataSeqHandle dataSeq = nullptr;
+
+    try {
+        dataSeq = new DataSeq();
+        dataSeq->data.resize(size);
+    } catch (const std::bad_alloc &) {
+        return nullptr;
+    }
+
+    return dataSeq;
+}
+
+Size DataSeq_GetSizeV2(DataSeqHandle dataSeq)
+{
+    assert(dataSeq != nullptr);
+    if (nullptr == dataSeq)
+        return INVALID_SIZE;
+
+    return dataSeq->data.size();
+}
+
+const double *DataSeq_GetDataV2(DataSeqHandle dataSeq)
+{
+    assert(dataSeq != nullptr);
+    if (nullptr == dataSeq)
+        return nullptr;
+
+    return dataSeq->data.data();
 }
