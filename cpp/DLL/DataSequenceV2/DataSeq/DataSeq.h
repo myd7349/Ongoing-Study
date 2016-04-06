@@ -45,13 +45,13 @@ DATASEQ_API Error DataSeq_PopBack(DataSeqHandle dataSeq, double *v);
 DATASEQ_API Error DataSeq_GetSize(DataSeqHandle dataSeq, Size *size);
 DATASEQ_API Error DataSeq_GetAt(DataSeqHandle dataSeq, Size i, double *v);
 DATASEQ_API Error DataSeq_SetAt(DataSeqHandle dataSeq, Size i, double v);
-DATASEQ_API Error DataSeq_GetData(DataSeqHandle dataSeq, const double **pData);
+DATASEQ_API Error DataSeq_GetData(DataSeqHandle dataSeq, double **pData);
 DATASEQ_API Error DataSeq_Dump(DataSeqHandle dataSeq, FILE *stream);
 DATASEQ_API void  DataSeq_Free(DataSeqHandle dataSeq);
 
 DATASEQ_API DataSeqHandle DataSeq_CreateV2(Size size);
 DATASEQ_API Size DataSeq_GetSizeV2(DataSeqHandle dataSeq);
-DATASEQ_API const double *DataSeq_GetDataV2(DataSeqHandle dataSeq);
+DATASEQ_API double *DataSeq_GetDataV2(DataSeqHandle dataSeq);
 
 #ifdef __cplusplus
 }

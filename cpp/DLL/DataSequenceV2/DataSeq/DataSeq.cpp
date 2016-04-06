@@ -104,7 +104,7 @@ Error DataSeq_SetAt(DataSeqHandle dataSeq, Size i, double v)
     return NoError;
 }
 
-Error DataSeq_GetData(DataSeqHandle dataSeq, const double **pData)
+Error DataSeq_GetData(DataSeqHandle dataSeq, double **pData)
 {
     assert(dataSeq != nullptr && pData != nullptr);
     if (nullptr == dataSeq || nullptr == pData)
@@ -173,7 +173,7 @@ Size DataSeq_GetSizeV2(DataSeqHandle dataSeq)
     return dataSeq->data.size();
 }
 
-const double *DataSeq_GetDataV2(DataSeqHandle dataSeq)
+double *DataSeq_GetDataV2(DataSeqHandle dataSeq)
 {
     assert(dataSeq != nullptr);
     if (nullptr == dataSeq)
