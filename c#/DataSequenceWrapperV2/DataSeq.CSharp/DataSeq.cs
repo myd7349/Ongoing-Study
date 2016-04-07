@@ -20,7 +20,7 @@ namespace DataSeq.CSharp
             InvalidOperation = 3,
             MemoryError = 4,
             UnknownError = 5,
-        };
+        }
 
         [SuppressUnmanagedCodeSecurity]
         [DllImport("DataSeq.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_Create")]
@@ -53,7 +53,7 @@ namespace DataSeq.CSharp
         [SuppressUnmanagedCodeSecurity]
         [DllImport("DataSeq.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_Free")]
         public static extern void Free(DataSeqHandle dataSeq);
-    };
+    }
 
     public sealed class DataSequence : IDisposable, IEnumerable
     {
@@ -159,7 +159,7 @@ namespace DataSeq.CSharp
                 }
             }
         }
-    };
+    }
 }
 
 // References:

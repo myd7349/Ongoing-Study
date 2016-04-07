@@ -18,7 +18,7 @@ internal sealed class DataSeq
         InvalidOperation = 3,
         MemoryError      = 4,
         UnknownError     = 5,
-    };
+    }
 
     [SuppressUnmanagedCodeSecurity]
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_Create")]
@@ -51,7 +51,7 @@ internal sealed class DataSeq
     [SuppressUnmanagedCodeSecurity]
     [DllImport("DataSequence.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DataSeq_Free")]
     public static extern void Free(IntPtr dataSeq);
-};
+}
 
 public sealed class DataSequence : IDisposable, IEnumerable
 {
@@ -158,7 +158,7 @@ public sealed class DataSequence : IDisposable, IEnumerable
             }
         }
     }
-};
+}
 
 // References:
 // [PInvoke Interop Assistant](http://clrinterop.codeplex.com/releases/view/14120)
