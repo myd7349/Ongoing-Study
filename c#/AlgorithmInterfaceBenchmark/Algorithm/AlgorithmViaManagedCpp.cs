@@ -5,7 +5,12 @@ namespace Algorithm
 {
     public sealed class AlgorithmViaManagedCpp : IAlgorithm
     {
-        public void ZeroMemory(double[] data)
+        public void CopyArray(int[] destArray, int[] srcArray)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ZeroArray(double[] data)
         {
             throw new NotImplementedException();
         }

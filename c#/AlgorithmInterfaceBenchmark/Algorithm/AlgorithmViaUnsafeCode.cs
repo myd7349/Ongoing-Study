@@ -6,12 +6,30 @@ namespace Algorithm
 {
     public sealed class AlgorithmViaUnsafeCode : IAlgorithm
     {
-        public unsafe void ZeroMemory(double[] data)
+        public unsafe void CopyArray(int[] destArray, int[] srcArray)
+        {
+            int length = Math.Min(destArray.Length, srcArray.Length);
+            fixed (int *dest = destArray)
+            {
+                fixed (int *src = srcArray)
+                {
+                    int *p = dest;
+                    int* end = p + length;
+                    int* q = src;
+                    while (p < end)
+                        *p++ = *q++; 
+                }
+            }
+        }
+
+        public unsafe void ZeroArray(double[] data)
         {
             fixed (double *p = data)
             {
-                for (int i = 0; i < data.Length; ++i)
-                    p[i] = 0;
+                double* pos = p;
+                double* end = p + data.Length;
+                while (pos < end)
+                    *pos++ = 0;
             }
         }
     }

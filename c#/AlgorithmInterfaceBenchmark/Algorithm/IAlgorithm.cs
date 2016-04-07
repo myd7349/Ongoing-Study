@@ -4,6 +4,7 @@ namespace Algorithm
 {
     public interface IAlgorithm
     {
-        void ZeroMemory(double[] data);
+        void CopyArray(int[] destArray, int[] srcArray);
+        void ZeroArray(double[] data);
     }
 }

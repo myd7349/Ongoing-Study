@@ -39,12 +39,18 @@ namespace AlgorithmInterfaceBenchmark
             };
 
             double[] data = new double[240];
+            int[] src = new int[1024];
+            int[] dest = new int[src.Length];
+
             foreach (var algo in algorithms)
             {
                 Console.WriteLine(new string('-', 79));
 
-                BenchmarkHelper(algo.GetType().Name + "::ZeroMemory",
-                    () => algo.ZeroMemory(data), 100000);
+                BenchmarkHelper(algo.GetType().Name + "::ZeroArray",
+                    () => algo.ZeroArray(data), 100000);
+
+                BenchmarkHelper(algo.GetType().Name + "::CopyArray",
+                    () => algo.CopyArray(dest, src), 100000);
             }
 
             Console.ReadKey();
