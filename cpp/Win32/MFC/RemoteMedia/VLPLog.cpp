@@ -7,8 +7,6 @@
 #include <cstdarg>
 #include <clocale>
 
-#ifdef _VLPLOG_ON
-
 // CVLPLog
 CStdioFile       CVLPLog::ms_hLogFile;
 CCriticalSection CVLPLog::ms_cs;
@@ -101,5 +99,3 @@ void CVLPLog::Shutdown()
         singleLock.Unlock();
     }
 }
-
-#endif // _VLPLOG_ON
