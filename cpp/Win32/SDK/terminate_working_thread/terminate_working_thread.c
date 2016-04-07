@@ -56,4 +56,5 @@ int _tmain(int argc, _TCHAR **argv)
 /*
 References:
 [Can I call CloseHandle() immediately after _beginthreadex() succeeded?](http://stackoverflow.com/questions/8241712/can-i-call-closehandle-immediately-after-beginthreadex-succeeded)
+https://www.zhihu.com/question/31490495
 */
