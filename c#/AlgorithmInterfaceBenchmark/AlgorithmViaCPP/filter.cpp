@@ -1,5 +1,6 @@
 #include "filter.h"
 
+#include <algorithm>
 #include <cassert>
 #include <new>
 
@@ -29,6 +30,8 @@ double Filter::Run(double v)
         buffer_[i - 1] = buffer_[i];
     buffer_[bufferLength_ - 1] = v;
 
+    std::copy(buffer_, buffer_ + bufferLength_, sortedBuffer_);
+    std::sort(sortedBuffer_, sortedBuffer_ + bufferLength_);
 
-    return 0.0;
+    return sortedBuffer_[bufferLength_ / 2];
 }
