@@ -5,6 +5,7 @@ namespace Algorithm
     public interface IAlgorithm
     {
         void CopyArray(int[] destArray, int[] srcArray);
+        double MagicFilter(double v);
         void ZeroArray(double[] data);
     }
 }

@@ -10,6 +10,11 @@ namespace Algorithm
             throw new NotImplementedException();
         }
 
+        public double MagicFilter(double v)
+        {
+            throw new NotImplementedException();
+        }
+
         public void ZeroArray(double[] data)
         {
             throw new NotImplementedException();

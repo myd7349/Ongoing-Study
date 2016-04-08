@@ -42,10 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlgorithmViaCPP.cs" />
+    <Compile Include="AlgorithmViaCPPPINVOKE.cs" />
     <Compile Include="AlgorithmViaCS.cs" />
     <Compile Include="AlgorithmViaManagedCpp.cs" />
     <Compile Include="AlgorithmViaPInvoke.cs" />
     <Compile Include="AlgorithmViaUnsafeCode.cs" />
+    <Compile Include="Filter.cs" />
     <Compile Include="IAlgorithm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

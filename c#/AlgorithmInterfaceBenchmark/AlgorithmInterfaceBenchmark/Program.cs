@@ -2,7 +2,7 @@
 // Algorithm interface benchmark for:
 // 1. C# safe code;
 // 2. C# unsafe code;
-// 3. C++/CLI interface;
+// 3. C++/CLI interface(TODO);
 // 4. C/C++ interface via PInvoke;
 using System;
 using System.Diagnostics;
@@ -23,7 +23,7 @@ namespace AlgorithmInterfaceBenchmark
             return stopWatch.ElapsedMilliseconds;
         }
 
-        static void BenchmarkHelper(string name, Action action, int repeat = 10)
+        static void BenchmarkHelper(string name, Action action, int repeat)
         {
             long elapsedMS = Benchmark(action, repeat);
             Console.WriteLine("Running for {0} times:\n{1}: {2}ms", repeat, name, elapsedMS);
@@ -31,26 +31,27 @@ namespace AlgorithmInterfaceBenchmark
 
         static void Main(string[] args)
         {
+            const int BufferLength = 500;
             IAlgorithm[] algorithms =
             {
-                new AlgorithmViaCS(),
-                new AlgorithmViaUnsafeCode(),
-                new AlgorithmViaPInvoke()
+                new AlgorithmViaCS(BufferLength, false),
+                new AlgorithmViaCS(BufferLength, true),
+                new AlgorithmViaUnsafeCode(BufferLength),
+                new AlgorithmViaPInvoke(BufferLength)
             };
 
             double[] data = new double[240];
             int[] src = new int[1024];
             int[] dest = new int[src.Length];
+            const int Repeat = 100000;
 
             foreach (var algo in algorithms)
             {
                 Console.WriteLine(new string('-', 79));
 
-                BenchmarkHelper(algo.GetType().Name + "::ZeroArray",
-                    () => algo.ZeroArray(data), 100000);
-
-                BenchmarkHelper(algo.GetType().Name + "::CopyArray",
-                    () => algo.CopyArray(dest, src), 100000);
+                BenchmarkHelper(algo.ToString() + "::ZeroArray", () => algo.ZeroArray(data), Repeat);
+                BenchmarkHelper(algo.ToString() + "::MagicFilter", () => algo.MagicFilter(3.1415926), Repeat);
+                BenchmarkHelper(algo.ToString() + "::CopyArray", () => algo.CopyArray(dest, src), Repeat);
             }
 
             Console.ReadKey();
