@@ -17,5 +17,10 @@ int main()
     std::cout << std::min<int>(-1, 456U) << std::endl; // -1
     std::cout << std::min<unsigned int>(-1, 456U) << std::endl; // 456
 
+    double this_is_an_array[] = { 42, 42 };
+    // error: ISO C++ forbids comparison between pointer and integer
+    //std::cout << MIN(this_is_an_array, 100) << std::endl; // Oops!
+    // In VS2010, however, ...
+
     return 0;
 }
