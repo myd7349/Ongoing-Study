@@ -26,6 +26,8 @@ public:
     unsigned int size() const;
     double at(unsigned int i) const;
     double &at(unsigned int i);
+    double operator[](unsigned int i) const;
+    double &operator[](unsigned int i);
     const double *data() const;
     double *data();
 

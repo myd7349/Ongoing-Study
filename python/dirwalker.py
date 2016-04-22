@@ -21,7 +21,7 @@ import os
 #     New in Python v3.5. The README at:
 #         https://github.com/benhoyt/scandir/blob/master/README.rst
 #     says that it is faster than the previous version of `os.walk`.
-#     In Python 3.5, `os.walk` calls `os.scandir` instead of `os.listdir`. 
+#     In Python 3.5, `os.walk` calls `os.scandir` instead of `os.listdir`.
 # (4) This one is cool.
 #     https://github.com/eliben/pss/blob/master/psslib/filefinder.py
 
@@ -37,9 +37,9 @@ def _walk_recursively_impl(top, topdown=True, onerror=None, followlinks=False):
         return
 
     fullpath = functools.partial(os.path.join, top)
-    
+
     for item in items:
-        item_fullpath = fullpath(item) 
+        item_fullpath = fullpath(item)
         if topdown:
             yield item_fullpath
         if os.path.isdir(item_fullpath) and (followlinks or not os.path.islink(item_fullpath)):
@@ -85,13 +85,13 @@ if __name__ == '__main__':
 
     for recursively in (True, False):
         print('-' * 79)
-        
+
         how_many_files = length(ifile(rootdir, recursively))
         how_many_subdirs = length(isubdir(rootdir, recursively))
         total = length(walk(rootdir, recursively))
-        
+
         assert total == how_many_files + how_many_subdirs
-        
+
         print('How many files?', how_many_files)
         print('How many directories?', how_many_subdirs)
         print('Totally:', total)

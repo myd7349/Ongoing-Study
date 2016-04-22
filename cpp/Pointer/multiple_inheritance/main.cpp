@@ -16,6 +16,7 @@
 // converted to a A * or B * . However, this adjustment does not occur if you are
 // converting from a void * .
 
+#include <cassert>
 #include <iostream>
 
 class A {
@@ -59,10 +60,17 @@ void test_1()
     B_function((B *)p);
 }
 
+void test_2() // error prone
+{
+    assert(static_cast<A *>(&c) == &c);
+    assert(static_cast<B *>(&c) == &c);
+}
+
 int main()
 {
     test_0();
     test_1();
+    test_2();
 
     return 0;
 }

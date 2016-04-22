@@ -132,6 +132,16 @@ double &DataSequence::at(unsigned int i)
     return impl_->at(i);
 }
 
+double DataSequence::operator[](unsigned int i) const
+{
+    return at(i);
+}
+
+double &DataSequence::operator[](unsigned int i)
+{
+    return at(i);
+}
+
 const double *DataSequence::data() const
 {
     validate_and_throw_();
