@@ -5,6 +5,7 @@
 #include <new>
 #include <sstream>
 #include <stdexcept>
+#include <vector>
 
 #include "../../../cpp/DLL/DataSeqPP/DataSeqPP/DataSeqPP.h"  
 %}
@@ -14,12 +15,22 @@
 %catches(std::invalid_argument, std::runtime_error) DataSequence::size;
 %catches(std::invalid_argument, std::out_of_range, std::runtime_error) DataSequence::at;
 %ignore DataSequence::data;
+%ignore DataSequence::operator[];
 
 %include "exception.i"
 %include "std_string.i"
+%include "std_vector.i"
+
 %include "../../../cpp/DLL/DataSeqPP/DataSeqPP/DataSeqPP.h"
 
 %extend DataSequence {
+    DataSequence(const std::vector<double> &elems) {
+        DataSequence *ds = new DataSequence(elems.size());
+        for (std::vector<double>::size_type i = 0; i < elems.size(); ++i)
+            ds->at(i) = elems[i];
+        return ds;
+    }
+
     std::string __repr__() const {
         unsigned int size = 0;
         try {
