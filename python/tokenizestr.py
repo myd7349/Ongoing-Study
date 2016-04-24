@@ -4,7 +4,9 @@
 # 2015-08-02T00:26+08:00
 
 import io
+import token
 import tokenize
+
 
 # How to tokenize a code snippet that stored in a str object?
 

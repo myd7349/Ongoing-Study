@@ -9,7 +9,13 @@ __version__ = '0.0.3'
 import collections
 import configparser
 import contextlib
-import odbc
+try:
+    import odbc
+except ImportError:
+    # Since Python 3.5, the builtin module `odbc` is removed.
+    # Thanks to PEP 0249, I can use a 3rdparty library `pyodbc`
+    # here without touching the original code.
+    import pyodbc as odbc
 import re
 import string
 import sys
@@ -20,7 +26,7 @@ try:
 except ImportError:
     _chardet_available = False
 
-import dicom  # [pydicom](http://www.pydicom.org/)
+#import dicom  # [pydicom](http://www.pydicom.org/)
 
 db_section = 'DB'
 db_options = ('DRIVER', 'SERVER', 'PORT', 'DATABASE', 'DBQ', 'UID', 'PWD')

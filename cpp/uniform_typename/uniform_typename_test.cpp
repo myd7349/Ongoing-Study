@@ -35,10 +35,15 @@ int main()
     std::cout << TYPE_NAME(int) << std::endl;
     std::cout << TYPE_NAME(int &) << std::endl;
     std::cout << (typeid(int) == typeid(int &)) << std::endl;
-    // (2) In all cases, cv-qualifiers are ignored by typeid 
-    //     (that is, typeid(T)==typeid(const T)) 
+    // (2) In all cases, cv-qualifiers are ignored by typeid
+    //     (that is, typeid(T)==typeid(const T))
     std::cout << TYPE_NAME(const int) << std::endl;
     std::cout << (typeid(int) == typeid(const int)) << std::endl;
+
+    //
+    std::cout << TYPE_NAME(const double **) << std::endl;
+    typedef const double *PCDouble;
+    std::cout << TYPE_NAME(PCDouble *) << std::endl;
 
     PAUSE();
     return 0;
