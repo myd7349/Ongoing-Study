@@ -21,9 +21,19 @@
 %include "std_string.i"
 %include "std_vector.i"
 
-%include "../../../cpp/DLL/DataSeqPP/DataSeqPP/DataSeqPP.h"
+// If we put this file inclusion here instead of the end of this file, then
+// import dataseqpp; ds = dataseqpp.DataSequence([1.0, 2.0, 3.0])
+// will not work.
+//%include "../../../cpp/DLL/DataSeqPP/DataSeqPP/DataSeqPP.h"
+
+namespace std {
+    %template(DoubleVector) vector<double>;
+}
 
 %extend DataSequence {
+    // In the target Python module, you may:
+    // import dataseqpp
+    // ds = dataseqpp.DataSequence([1, 2, 3])
     DataSequence(const std::vector<double> &elems) {
         DataSequence *ds = new DataSequence(elems.size());
         for (std::vector<double>::size_type i = 0; i < elems.size(); ++i)
@@ -74,4 +84,17 @@
     unsigned __len__() const {
         return $self->size();
     }
+
+    // You may:
+    // ds.push_back([42.0, 3.14])
+    void push_back(const std::vector<double> &elems) {
+        for (std::vector<double>::size_type i = 0; i < elems.size(); ++i)
+            $self->push_back(elems[i]);
+    }
 };
+
+%include "../../../cpp/DLL/DataSeqPP/DataSeqPP/DataSeqPP.h"
+
+// References:
+// SWIGDocumentation.pdf
+//  -- 9.4.2 std::vector
