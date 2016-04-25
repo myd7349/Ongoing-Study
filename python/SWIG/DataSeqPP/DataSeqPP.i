@@ -14,8 +14,10 @@
 %catches(std::invalid_argument, std::runtime_error) DataSequence::pop_back;
 %catches(std::invalid_argument, std::runtime_error) DataSequence::size;
 %catches(std::invalid_argument, std::out_of_range, std::runtime_error) DataSequence::at;
+
 %ignore DataSequence::data;
-%ignore DataSequence::operator[];
+%ignore DataSequence::operator[](unsigned int);
+%rename(__getitem__) DataSequence::operator[](unsigned int) const;
 
 %include "exception.i"
 %include "std_string.i"
@@ -28,6 +30,14 @@
 
 namespace std {
     %template(DoubleVector) vector<double>;
+}
+
+%exception DataSequence::__getitem__ {
+    try {
+        $action
+    } catch (std::exception &e) {
+        SWIG_exception(SWIG_IndexError, e.what());
+    }
 }
 
 %extend DataSequence {
@@ -61,23 +71,7 @@ namespace std {
         return oss.str();
     }
 
-    double __getitem__(unsigned i) const { // TODO: for i in ds: print(i)
-        bool indexError = false;
-        double v = 0.0;
-
-        try {
-            v = $self->at(i);
-        } catch (std::exception &e) {
-            indexError = true;
-        }
-
-        if (indexError)
-            SWIG_Error(SWIG_IndexError, "IndexError");
-
-        return v;
-    }
-
-    void __setitem__(unsigned i, double v) {
+    void __setitem__(unsigned int i, double v) {
         $self->operator[](i) = v;
     }
 
