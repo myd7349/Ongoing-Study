@@ -32,7 +32,7 @@ namespace std {
     %template(DoubleVector) vector<double>;
 }
 
-%exception DataSequence::__getitem__ {
+%exception DataSequence::__getitem__(unsigned int) const {
     try {
         $action
     } catch (std::exception &e) {
