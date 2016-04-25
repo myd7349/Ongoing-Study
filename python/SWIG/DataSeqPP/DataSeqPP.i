@@ -16,7 +16,8 @@
 %catches(std::invalid_argument, std::out_of_range, std::runtime_error) DataSequence::at;
 
 %ignore DataSequence::data;
-%ignore DataSequence::operator[];
+%ignore DataSequence::operator[](unsigned int);
+%rename(__getitem__) DataSequence::operator[](unsigned int) const;
 
 %include "exception.i"
 %include "std_string.i"
@@ -31,7 +32,7 @@ namespace std {
     %template(DoubleVector) vector<double>;
 }
 
-%exception DataSequence::__getitem__(unsigned int) const {
+%exception DataSequence::operator[](unsigned int) const {
     try {
         $action
     } catch (std::exception &e) {
@@ -70,10 +71,6 @@ namespace std {
         return oss.str();
     }
 
-    double __getitem__(unsigned int i) const {
-        return $self->operator[](i);
-    }
-    
     void __setitem__(unsigned int i, double v) {
         $self->operator[](i) = v;
     }
