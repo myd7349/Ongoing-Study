@@ -32,6 +32,22 @@ namespace Common
 
             return progName;
         }
+
+        public static long Benchmark(Action action, int repeat)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            for (int i = 0; i < repeat; ++i)
+                action();
+            stopWatch.Stop();
+            return stopWatch.ElapsedMilliseconds;
+        }
+
+        public static void BenchmarkHelper(string name, Action action, int repeat)
+        {
+            long elapsedMS = Benchmark(action, repeat);
+            Console.WriteLine("Running for {0} times:\n{1}: {2}ms", repeat, name, elapsedMS);
+        }
     }
 }
 

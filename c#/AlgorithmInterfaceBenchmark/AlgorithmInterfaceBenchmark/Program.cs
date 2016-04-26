@@ -5,30 +5,14 @@
 // 3. C++/CLI interface(TODO);
 // 4. C/C++ interface via PInvoke;
 using System;
-using System.Diagnostics;
 
 using Algorithm;
+using Common;
 
 namespace AlgorithmInterfaceBenchmark
 {
     static class Program
     {
-        static long Benchmark(Action action, int repeat)
-        {
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-            for (int i = 0; i < repeat; ++i)
-                action();
-            stopWatch.Stop();
-            return stopWatch.ElapsedMilliseconds;
-        }
-
-        static void BenchmarkHelper(string name, Action action, int repeat)
-        {
-            long elapsedMS = Benchmark(action, repeat);
-            Console.WriteLine("Running for {0} times:\n{1}: {2}ms", repeat, name, elapsedMS);
-        }
-
         static void Main(string[] args)
         {
             const int BufferLength = 500;
@@ -49,12 +33,12 @@ namespace AlgorithmInterfaceBenchmark
             {
                 Console.WriteLine(new string('-', 79));
 
-                BenchmarkHelper(algo.ToString() + "::ZeroArray", () => algo.ZeroArray(data), Repeat);
-                BenchmarkHelper(algo.ToString() + "::MagicFilter", () => algo.MagicFilter(3.1415926), Repeat);
-                BenchmarkHelper(algo.ToString() + "::CopyArray", () => algo.CopyArray(dest, src), Repeat);
+                Util.BenchmarkHelper(algo.ToString() + "::ZeroArray", () => algo.ZeroArray(data), Repeat);
+                Util.BenchmarkHelper(algo.ToString() + "::MagicFilter", () => algo.MagicFilter(3.1415926), Repeat);
+                Util.BenchmarkHelper(algo.ToString() + "::CopyArray", () => algo.CopyArray(dest, src), Repeat);
             }
 
-            Console.ReadKey();
+            Util.Pause();
         }
     }
 }
