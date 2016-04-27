@@ -16,6 +16,7 @@ except ImportError:
     # Thanks to PEP 0249, I can use a 3rdparty library `pyodbc`
     # here without touching the original code.
     import pyodbc as odbc
+    odbc.odbc = odbc.connect
 import re
 import string
 import sys
@@ -26,7 +27,7 @@ try:
 except ImportError:
     _chardet_available = False
 
-#import dicom  # [pydicom](http://www.pydicom.org/)
+import dicom  # [pydicom](http://www.pydicom.org/)
 
 db_section = 'DB'
 db_options = ('DRIVER', 'SERVER', 'PORT', 'DATABASE', 'DBQ', 'UID', 'PWD')
