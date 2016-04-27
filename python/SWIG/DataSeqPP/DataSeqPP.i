@@ -32,6 +32,10 @@ namespace std {
     %template(DoubleVector) vector<double>;
 }
 
+// You may:
+// import dataseqpp
+// ds = dataseqpp.DataSequence([1, 2, 3])
+// for i in ds: print(i)
 %exception DataSequence::operator[](unsigned int) const {
     try {
         $action
@@ -92,3 +96,4 @@ namespace std {
 // References:
 // SWIGDocumentation.pdf
 //  -- 9.4.2 std::vector
+//  -- 12.1.7 Using The SWIG exception library

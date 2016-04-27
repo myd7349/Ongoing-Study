@@ -61,3 +61,4 @@ DATASEQ_API double *DataSeq_GetDataV2(DataSeqHandle dataSeq);
 
 // References:
 // https://www.zhihu.com/question/41106231
+// http://www.codeproject.com/Articles/28969/HowTo-Export-C-classes-from-a-DLL
