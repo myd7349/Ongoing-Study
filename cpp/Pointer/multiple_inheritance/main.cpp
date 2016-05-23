@@ -79,4 +79,5 @@ int main()
 // SWIGDocumentation.pdf
 //   -- 6.14 A brief discussion of multiple inheritance, pointers, and type checking
 // https://www.zhihu.com/question/30418880
+// https://www.zhihu.com/question/46470823
 // [When to use reinterpret_cast?](http://stackoverflow.com/questions/573294/when-to-use-reinterpret-cast)
