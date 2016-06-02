@@ -45,6 +45,9 @@ namespace ECGLeads
             Console.WriteLine("{0}", Lead.II.ToString());
             Console.WriteLine((Lead)1);
 
+            foreach (var kv in Common.EnumHelper<Lead>.EnumNamesDict)
+                Console.WriteLine("{0,2}: {1,3}", (int)kv.Key, kv.Value);
+
             Common.Util.Pause();
         }
     }

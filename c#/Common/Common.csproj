@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Common.cs" />
     <Compile Include="DrawingExtensions.cs" />
+    <Compile Include="EnumHelper.cs" />
     <Compile Include="IntegerHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
