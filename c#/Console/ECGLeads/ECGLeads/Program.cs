@@ -20,6 +20,14 @@ namespace ECGLeads
         V6,
     }
 
+    static class LeadExtension
+    {
+        public static string Name(this Lead lead)
+        {
+            return Enum.GetName(typeof(Lead), lead);
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -32,6 +40,10 @@ namespace ECGLeads
 
             foreach (var kv in leadNamesMap)
                 Console.WriteLine("{0,3}: {1:X}", kv.Value, (int)kv.Key);
+
+            Console.WriteLine("{0} {1} {2}", (int)Lead.II, Lead.II, Lead.II.Name());
+            Console.WriteLine("{0}", Lead.II.ToString());
+            Console.WriteLine((Lead)1);
 
             Common.Util.Pause();
         }
