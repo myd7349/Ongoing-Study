@@ -5,19 +5,27 @@
 #include "../../../cpp/DLL/DataSequenceV2/DataSeq/DataSeq.h"  
 %}
 
-//%rename(Create) DataSeq_CreateV2;
-//%rename(GetSize) DataSeq_GetSizeV2;
 %rename("%(strip:[DataSeq_])s") "";
 /* %rename("%(lower)s", %$isfunction) ""; */
+%rename(DSMemoryError) MemoryError;
+%feature("except") DataSeq_Create(DataSeqHandle *, Size size = 0);
+%feature("except") DataSeq_CreateV2(Size size = 0);
 
-%include "cpointer.i"
+%include <cpointer.i>
+%include <typemaps.i>
 
-%include "../../../cpp/DLL/DataSequenceV2/DataSeq/DataSeq.h"
-
-//%pointer_functions(void, DataSeqPtr); // TODO: So that we can call DataSeq_Create
+//%pointer_functions(DataSeqHandle, DataSeqHandlePtr); // So that we can call DataSeq_Create. Not work yet!
 %pointer_functions(double, DoublePtr); // So that we can call DataSeq_PopBack, DataSeq_GetAt
 %pointer_functions(unsigned, UIntPtr); // So that we can call DataSeq_GetSize
+
+//%apply DataSeqHandle *OUTPUT { DataSeqHandle *dataSeqPtr };
+
+%newobject DataSeq_CreateV2;
+%delobject DataSeq_Free;
+
+%include "../../../cpp/DLL/DataSequenceV2/DataSeq/DataSeq.h"
 
 // References:
 // SWIGDocumentation.pdf
 //   -- 9. SWIG library
+//   -- 12.2 Object ownership and %newobject
