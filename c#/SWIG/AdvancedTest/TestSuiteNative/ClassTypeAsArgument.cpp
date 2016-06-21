@@ -1,8 +1,5 @@
 #include "ClassTypeAsArgument.h"
-
-#define WIN32_LEAN_AND_MEAN
-#define STRICT 1
-#include <Windows.h>
+#include "Win32Common.h"
 
 void Person::Say(const std::wstring &what) const
 {

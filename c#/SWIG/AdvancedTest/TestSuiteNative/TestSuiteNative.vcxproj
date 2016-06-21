@@ -148,11 +148,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArrayMember.cpp" />
+    <ClCompile Include="BooleanArray.cpp" />
     <ClCompile Include="ClassTypeAsArgument.cpp" />
     <ClCompile Include="TestSuite_wrap.cxx" />
     <ClCompile Include="WindowsIntegralTypes.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ArrayMember.i" />
     <None Include="ClassTypeAsArgument.i" />
     <CustomBuild Include="TestSuite.i">
       <FileType>Document</FileType>
@@ -161,10 +164,14 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_wrap.cxx;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)_wrap.cxx;%(Outputs)</Outputs>
     </CustomBuild>
+    <None Include="BooleanArray.i" />
     <None Include="WindowsIntegralTypes.i" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BooleanArray.h" />
     <ClInclude Include="ClassTypeAsArgument.h" />
+    <ClInclude Include="ArrayMember.h" />
+    <ClInclude Include="Win32Common.h" />
     <ClInclude Include="WindowsIntegralTypes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

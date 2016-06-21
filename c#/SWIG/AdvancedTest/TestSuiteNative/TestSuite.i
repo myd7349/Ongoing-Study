@@ -3,5 +3,7 @@
 
 %include <windows.i>
 
+%include "ArrayMember.i"
+%include "BooleanArray.i"
 %include "ClassTypeAsArgument.i"
 %include "WindowsIntegralTypes.i"

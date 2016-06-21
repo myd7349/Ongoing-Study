@@ -25,12 +25,27 @@
     <None Include="WindowsIntegralTypes.i">
       <Filter>SWIG Interface Files</Filter>
     </None>
+    <None Include="ArrayMember.i">
+      <Filter>SWIG Interface Files</Filter>
+    </None>
+    <None Include="BooleanArray.i">
+      <Filter>SWIG Interface Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassTypeAsArgument.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WindowsIntegralTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayMember.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BooleanArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -42,6 +57,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TestSuite_wrap.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrayMember.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BooleanArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
