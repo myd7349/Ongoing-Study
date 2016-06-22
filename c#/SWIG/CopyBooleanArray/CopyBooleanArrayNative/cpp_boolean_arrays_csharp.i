@@ -39,26 +39,6 @@
 CSHARP_ARRAYS(bool, bool)
 
 
-%define CSHARP_ARRAYS_FIXED( CTYPE, CSTYPE )
-
-%typemap(ctype)   CTYPE FIXED[] "CTYPE*"
-%typemap(imtype)  CTYPE FIXED[] "global::System.IntPtr"
-%typemap(cstype)  CTYPE FIXED[] "CSTYPE[]"
-%typemap(csin,
-           pre=       "    fixed ( CSTYPE* swig_ptrTo_$csinput = $csinput ) {",
-           terminator="    }") 
-                  CTYPE FIXED[] "(global::System.IntPtr)swig_ptrTo_$csinput"
-
-%typemap(in)      CTYPE FIXED[] "$1 = $input;"
-%typemap(freearg) CTYPE FIXED[] ""
-%typemap(argout)  CTYPE FIXED[] ""
-
-
-%enddef // CSHARP_ARRAYS_FIXED
-
-
-CSHARP_ARRAYS_FIXED(bool, bool)
-
 // References:
 // https://github.com/swig/swig/issues/616
 // [Passing Array of Bool to C++ Code from C#](http://stackoverflow.com/questions/31410324/passing-array-of-bool-to-c-code-from-c-sharp)
