@@ -26,6 +26,11 @@
 // If we put this file inclusion here instead of the end of this file, then
 // import dataseqpp; ds = dataseqpp.DataSequence([1.0, 2.0, 3.0])
 // will not work.
+// SWIG 3.0 Documentation 11.2.2 Typemap scope
+// >One exception to the typemap scoping rules pertains to the %extend declaration. 
+//  %extend is used to attach new declarations to a class or structure definition.
+//  Because of this, all of the declarations in an %extend block are subject to the 
+//  typemap rules that are in effect at the point where the class itself is defined.
 //%include "../../../cpp/DLL/DataSeqPP/DataSeqPP/DataSeqPP.h"
 
 namespace std {
