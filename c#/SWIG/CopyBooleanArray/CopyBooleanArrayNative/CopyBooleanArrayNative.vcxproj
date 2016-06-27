@@ -161,9 +161,9 @@
   <ItemGroup>
     <CustomBuild Include="CopyBooleanArrayNative.i">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">swig -c++ -csharp -outdir $(SolutionDir)Test -outfile %(Filename).cs %(Fullpath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">swig -c++ -csharp -debug-tmsearch -debug-tmused -outdir $(SolutionDir)Test -outfile %(Filename).cs %(Fullpath)</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_wrap.cxx;%(Outputs)</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">swig -c++ -csharp -outdir $(SolutionDir)Test -outfile %(Filename).cs %(Fullpath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">swig -c++ -csharp -debug-tmsearch -debug-tmused -outdir $(SolutionDir)Test -outfile %(Filename).cs %(Fullpath)</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)_wrap.cxx;%(Outputs)</Outputs>
     </CustomBuild>
     <None Include="cpp_boolean_arrays_csharp.i" />
