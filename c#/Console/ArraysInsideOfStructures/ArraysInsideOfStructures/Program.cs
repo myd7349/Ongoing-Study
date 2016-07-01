@@ -78,7 +78,3 @@ namespace ArraysInsideOfStructures
         }
     }
 }
-
-// References:
-// [Arrays inside of structures](https://blogs.msdn.microsoft.com/ericgu/2004/08/12/arrays-inside-of-structures/)
-
