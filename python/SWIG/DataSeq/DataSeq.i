@@ -23,9 +23,14 @@
 %newobject DataSeq_CreateV2;
 %delobject DataSeq_Free;
 
+
+
 %include "../../../cpp/DLL/DataSequenceV2/DataSeq/DataSeq.h"
 
 // References:
 // SWIGDocumentation.pdf
 //   -- 9. SWIG library
+//   -- 11.5.7 "argout" typemap
+//   -- 11.5.9 "newfree" typemap
+//   -- 11.6.2 Implementing constraints with typemaps
 //   -- 12.2 Object ownership and %newobject
