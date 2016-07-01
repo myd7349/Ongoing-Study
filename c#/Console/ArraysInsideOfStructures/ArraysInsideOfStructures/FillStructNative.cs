@@ -65,3 +65,4 @@ namespace ArraysInsideOfStructures
 
 // References:
 // [Arrays inside of structures](https://blogs.msdn.microsoft.com/ericgu/2004/08/12/arrays-inside-of-structures/)
+// C# 6.0 in a Nutshell/Chapter 4. Advanced C#/Unsafe Code and Pointers/Arrays/Fixed-size buffers

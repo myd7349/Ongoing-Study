@@ -53,7 +53,9 @@ namespace ArraysInsideOfStructures
         {
             var data = new Data3();
             //data.data = new int[10];
+            Console.WriteLine(data.data == null);
             FillStructNative.FillStruct3(ref data);
+            Console.WriteLine(data.data == null);
             fixed (int* p = data.data)
             {
                 PrintData<Data3>(data.header, p);
