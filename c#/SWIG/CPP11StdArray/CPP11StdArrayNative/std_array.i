@@ -3,8 +3,53 @@
  *
  * SWIG typemaps for std::array<T, N>
  * C# implementation
- * The C# wrapper is made to look and feel like a fixed size C# System.Collections.Generic.List<> collection.
+ * The C# wrapper is made to look and feel like a C# System.Collections.Generic.IReadOnlyList<> collection.
  * ----------------------------------------------------------------------------- */
+
+// Most of the code in this file is borrowed from the implementation of std_vector.i for C#.
+// However, I decided to make it a litter more simpler.
+// 1. C# 6.0 in a Nutshell/Chapter 7. Collections/IList<T> and IList
+//    >C# arrays also implement both the generic and nongeneric ILists (although the methods 
+//    >that add or remove elements are hidden via explicit interface implementation and throw
+//    >a NotSupportedException if called).
+//    
+//    So as you saw before, the previous version of this file makes the wrapper class of std::array
+//    derive from IList<T>. For those methods that it will not support(Add, Remove, etc.), a 
+//    NotSupportedException is thrown, to make it behaves like a fixed size IList<>.
+//    
+//    But wait, even when you decided to use IList<> as the base class, there are some tricks you have
+//    to play. Take a look at how Lib/csharp/std_vector.i makes those tricks work out. For std::array<T, N>,
+//    it is even harder to implement these tricks. Thought of std::array is just a smaller container than
+//    std::vector, I prefer not to waste my time on the "operator==" stuff. 
+// 
+// 2. C# 6.0 in a Nutshell/Chapter 7. Collections/IList<T> and IList
+//    >IReadOnlyList<T>
+//    >In order to interoperate with read-only Windows Runtime collections, Framework 4.5 
+//    >introduced a new collection interface called IReadOnlyList<T>. This interface is useful 
+//    >in and of itself and can be considered a cut-down version of IList<T>, exposing just the 
+//    >members required for read-only operations on lists:
+//         public interface IReadOnlyList<out T> : IEnumerable<T>, IEnumerable
+//         {
+//             int Count { get; }
+//             T this[int index] { get; }
+//         }
+//    IReadOnlyList<> looks better than IList<>. It needs .NET 4.5 or newer, however.
+//
+// 3. IList, IList<T>, ICollection, ICollection<T>, ... what a disaster? So, just forget about them.
+//
+// 4. >SWIG 3.0 Documentation
+//    >6.18 Templates
+//    >Note the use of a vararg macro for the type T. If this wasn't used, the comma in the templated type in 
+//    >the last example would not be possible.
+//    
+//     In my test, it seems that SWIG is smart enough to recognise template instantiation like this:
+//         array<pair<int, int>, 10>
+//     So, no more vararg macro either.
+// 
+//  ......
+//
+// At last, we got here. 
+
 
 %{
 #include <algorithm>
@@ -16,18 +61,23 @@
 
 
 %define SWIG_STD_ARRAY_INTERNAL(T, N)
-
-%typemap(csinterfaces) std::array< T, N > "global::System.IDisposable, global::System.Collections.IEnumerable\n    , global::System.Collections.Generic.IList<$typemap(cstype, T)>\n";
+%typemap(csinterfaces) std::array< T, N > "global::System.IDisposable, global::System.Collections.IEnumerable\n    , global::System.Collections.Generic.IEnumerable<$typemap(cstype, T)>\n";
 %typemap(cscode) std::array< T, N > %{
-  public bool IsFixedSize {
-    get {
-      return true;
+  public $csclassname(global::System.Collections.ICollection c) : this() {
+    if (c == null)
+      throw new global::System.ArgumentNullException("c");
+    int end = global::System.Math.Min(this.Count, c.Count);
+    int i = 0;
+    foreach ($typemap(cstype, T) elem in c) {
+      if (i >= end)
+        break;
+      this[i++] = elem;
     }
   }
 
-  public bool IsReadOnly {
+  public int Count {
     get {
-      return false;
+      return (int)size();
     }
   }
 
@@ -40,21 +90,9 @@
     }
   }
 
-  public int Count {
-    get {
-      return (int)size();
-    }
-  }
-
   public bool IsEmpty {
     get {
       return empty();
-    }
-  }
-
-  public bool IsSynchronized {
-    get {
-      return false;
     }
   }
 
@@ -163,25 +201,6 @@
         currentObject = null;
     }
   }
-
-  // Not supported operations
-  // ICollection<T> interfaces:
-  public void Add($typemap(cstype, T) item) {
-    throw new global::System.NotSupportedException("Add");
-  }
-  public bool Remove($typemap(cstype, T) item) {
-    throw new global::System.NotSupportedException("Remove");
-  }
-  public void Clear() {
-    throw new global::System.NotSupportedException("Clear");
-  }
-  // IList<T> interfaces:
-  public void Insert(int index, $typemap(cstype, T) val) {
-    throw new global::System.NotSupportedException("Insert");
-  }
-  public void RemoveAt(int index) {
-    throw new global::System.NotSupportedException("RemoveAt"); 
-  }
 %}
 
   public:
@@ -197,18 +216,13 @@
     array(const array &other);
 
     size_type size() const;
-    //size_type max_size() const;
     bool empty() const;
-
-    //const_reference front() const;
-    //const_reference back() const;
-    //const_reference at(size_type n) const;
 
     %rename(Fill) fill;
     void fill(const value_type& val);
 
     %rename(Swap) swap;
-    void swap (array& other);
+    void swap(array& other);
 
     %extend {
       T getitemcopy(int index) throw (std::out_of_range) {
@@ -241,25 +255,7 @@
           throw std::invalid_argument("invalid range");
         std::reverse($self->begin()+index, $self->begin()+index+count);
       }
-      bool Contains(const_reference value) {
-        return std::find($self->begin(), $self->end(), value) != $self->end();
-      }
-      int IndexOf(const_reference value) {
-        int index = -1;
-        std::array< T, N >::iterator it = std::find($self->begin(), $self->end(), value);
-        if (it != $self->end())
-          index = (int)(it - $self->begin());
-        return index;
-      }
-      int LastIndexOf(const_reference value) {
-        int index = -1;
-        std::array< T, N >::reverse_iterator rit = std::find($self->rbegin(), $self->rend(), value);
-        if (rit != $self->rend())
-          index = (int)($self->rend() - 1 - rit);
-        return index;
-      }
     }
-
 %enddef
 
 
@@ -274,3 +270,7 @@ namespace std {
     SWIG_STD_ARRAY_INTERNAL(T, N)
   };
 }
+
+// References:
+// SWIG 3.0 Documentation
+//   -- 6.18 Templates

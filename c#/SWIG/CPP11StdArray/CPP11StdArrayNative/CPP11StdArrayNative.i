@@ -2,10 +2,13 @@
 %module CPP11StdArrayNative
 
 %include "std_array.i"
+%include <std_pair.i>
 %include <std_wstring.i>
 
 namespace std {
     %template(Bytes1024) array<unsigned char, 1024>;
 	%template(EmptyBuffer) array<unsigned char, 0>;
 	%template(GoF) array<wstring, 4>;
+	%template(IntPair) pair<int, int>;
+	%template(IntPairArray) array<pair<int, int>, 10>;
 }

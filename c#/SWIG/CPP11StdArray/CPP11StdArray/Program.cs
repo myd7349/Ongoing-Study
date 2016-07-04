@@ -28,9 +28,6 @@ namespace CPP11StdArray
 
             // IsEmpty
             Debug.Assert(!fixedSizeBuffer.IsEmpty);
-
-            // IsFixedSize
-            Debug.Assert(fixedSizeBuffer.IsFixedSize);
         }
 
         static void TestEmptyBuffer()
