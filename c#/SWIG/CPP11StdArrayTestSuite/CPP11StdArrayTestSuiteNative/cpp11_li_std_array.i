@@ -60,3 +60,6 @@ void arrayInPtr(std::array<int, 6> * myarray) {
 %}
 
 #endif
+
+// References:
+// https://github.com/swig/swig/issues/739

@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cpp11_li_std_array.cs" />
+    <Compile Include="cpp11_li_std_arrayNative.cs" />
     <Compile Include="cpp11_li_std_array_runme.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

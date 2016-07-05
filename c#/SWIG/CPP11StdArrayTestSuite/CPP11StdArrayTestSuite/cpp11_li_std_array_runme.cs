@@ -66,13 +66,17 @@ public class cpp11_li_std_array_runme
         {
             ai[ai.Count] = 0;
             throw new Exception("Out of range exception not caught");
-        } catch (ArgumentOutOfRangeException e) {
+        }
+        catch (ArgumentOutOfRangeException e)
+        {
         }
         try
         {
             ai[-1] = 0;
             throw new Exception("Out of range exception not caught");
-        } catch (ArgumentOutOfRangeException e) {
+        }
+        catch (ArgumentOutOfRangeException e)
+        {
         }
     }
 }
