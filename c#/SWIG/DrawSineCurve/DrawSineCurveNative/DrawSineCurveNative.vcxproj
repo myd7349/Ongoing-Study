@@ -163,13 +163,13 @@
   <ItemGroup>
     <CustomBuild Include="DrawSineCurveNative.i">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">SWIGHelper.bat DrawSineCurve DrawSineCurve %(Fullpath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">SWIGHelper.bat DrawSineCurve DrawSineCurveNative %(Fullpath)</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_wrap.cxx;%(Outputs)</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">SWIGHelper.bat DrawSineCurve DrawSineCurve %(Fullpath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">SWIGHelper.bat DrawSineCurve DrawSineCurveNative %(Fullpath)</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)_wrap.cxx;%(Outputs)</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SWIGHelper.bat DrawSineCurve DrawSineCurve %(Fullpath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SWIGHelper.bat DrawSineCurve DrawSineCurveNative %(Fullpath)</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)_wrap.cxx;%(Outputs)</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SWIGHelper.bat DrawSineCurve DrawSineCurve %(Fullpath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SWIGHelper.bat DrawSineCurve DrawSineCurveNative %(Fullpath)</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)_wrap.cxx;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>

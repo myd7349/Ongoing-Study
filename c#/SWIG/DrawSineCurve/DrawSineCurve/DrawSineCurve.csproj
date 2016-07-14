@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DrawSineCurve.cs" />
+    <Compile Include="DrawSineCurveNative.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
