@@ -41,6 +41,7 @@ CSHARP_ARRAYS(bool, bool)
 
 // References:
 // https://github.com/swig/swig/issues/616
+// [Interop with Native Libraries](http://www.mono-project.com/docs/advanced/pinvoke/#boolean-members)
 // [Passing Array of Bool to C++ Code from C#](http://stackoverflow.com/questions/31410324/passing-array-of-bool-to-c-code-from-c-sharp)
 // [CA1414: Mark boolean P/Invoke arguments with MarshalAs](https://msdn.microsoft.com/en-us/library/ms182206.aspx)
 // [Marshaling with C# ¨C Chapter 2: Marshaling Simple Types](http://www.codeproject.com/Articles/66244/Marshaling-with-Csharp-Chapter-2-Marshaling-Simple.aspx)
