@@ -8,18 +8,18 @@
 
 enum PenStyle
 {
-	Solid = 0, //PS_SOLID,
-	Dash = 1, //PS_DASH,
-	Dot = 2, //PS_DOT,
-	DashDot = 3, //PS_DASHDOT,
-	DashDotDot = 4, //PS_DASHDOTDOT,
+    Solid = 0, //PS_SOLID, // TODO: What if: Solid = PS_SOLID?
+    Dash = 1, //PS_DASH,
+    Dot = 2, //PS_DOT,
+    DashDot = 3, //PS_DASHDOT,
+    DashDotDot = 4, //PS_DASHDOTDOT,
 };
 
 struct PenProperty
 {
-	COLORREF Color;
-	int Width;
-	PenStyle Style;
+    COLORREF Color;
+    int Width;
+    PenStyle Style;
 };
 
 void DrawSineCurve(HDC hdc, const RECT &rc, const PenProperty &pen, int xTicksCount = 1000);

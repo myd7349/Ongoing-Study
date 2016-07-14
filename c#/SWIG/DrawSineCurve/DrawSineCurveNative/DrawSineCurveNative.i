@@ -19,6 +19,11 @@
 	}
 }
 
+%ignore STRICT; // [1]
+
 %include "DrawSineCurve.h"
 
+// References:
+// SWIG 3.0 Documentation
+// [1] 8.4 Macro Expansion
 
