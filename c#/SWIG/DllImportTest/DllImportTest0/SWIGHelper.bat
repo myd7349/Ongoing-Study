@@ -14,10 +14,6 @@ echo Invoking SWIG...
 :: Windows won’t automatically append .dll, resulting in a DllNotFoundException. Consequently you should 
 :: either avoid periods in library names or always use the full filename (including the .dll extension) and
 :: rely on Mono’s <dllmap/> mechanism. [1]
-::
-:: In VS2015, this `DllNotFoundException` will be solved if the `.dll` extension is appended manually.
-:: In VS2010, however, the problem is still there. What's worse, there is not a `dllmap` mechanism right
-:: here for you in Visual Studio. 
 swig -c++ -csharp -namespace %1 -dllimport %1.Native.dll -outdir "%~dp0%2" -outfile %3.cs "%4"
 goto Finish
 
