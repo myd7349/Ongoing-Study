@@ -24,4 +24,5 @@ echo Command 'swig' not found.
 echo on
 
 :: References:
-:: http://www.mono-project.com/docs/advanced/pinvoke/
+:: [1] http://www.mono-project.com/docs/advanced/pinvoke/
+:: [2] [BUG: LoadLibrary and LoadLibraryEx Functions Fail If Directory Name Contains a Period](https://support.microsoft.com/en-us/kb/324468)
