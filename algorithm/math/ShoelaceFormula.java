@@ -71,3 +71,4 @@ class Point2D {
 // [Algorithms, 4th Edition, Exercise 1.2.1](https://github.com/kevin-wayne/algs4/blob/master/src/main/java/edu/princeton/cs/algs4/Point2D.java)
 // [Curve orientation](https://en.wikipedia.org/wiki/Curve_orientation)
 // [Ploygon Area](http://mathworld.wolfram.com/PolygonArea.html)
+// GRAPHICS GEMS II/2D GEOMETRY AND ALGORITHMS/I.1 THE AREA OF A SIMPLE POLYGON
