@@ -212,3 +212,4 @@ _Pvt_Extensions/
 ModelManifest.xml
 *.opendb
 c#/AlgorithmInterfaceBenchmark/AlgorithmInterfaceBenchmark.VC.db
+.vscode/
