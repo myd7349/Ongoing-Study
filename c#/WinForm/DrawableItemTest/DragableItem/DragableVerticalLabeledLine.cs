@@ -59,12 +59,39 @@ namespace DragableItem
 
             set
             {
+                int xOffset = value.X - position.X;
+                int yOffset = value.Y - position.Y;
                 position = value;
-                labelBounds = new Rectangle();
+                if (labelBounds.HasValue)
+                {
+#if false
+                    Debug.WriteLine("{0}, {1}", xOffset, yOffset);
+                    Debug.WriteLine("Before: {0}, {1}", labelBounds?.X, labelBounds?.Y);
+
+                    labelBounds?.Offset(xOffset, yOffset); // Execuse me???
+
+                    Debug.WriteLine("After: {0}, {1}", labelBounds?.X, labelBounds?.Y);
+#else
+                    var bounds = labelBounds.Value;
+                    bounds.Offset(xOffset, yOffset);
+                    labelBounds = bounds;
+#endif
+                }
             }
         }
         public int Length { get; set; }
-        public string Label { get; set; }
+        public string Label
+        {
+            get
+            {
+                return label;
+            }
+            set
+            {
+                label = value;
+                labelBounds = null;
+            }
+        }
         public int LabelYStart
         {
             get
@@ -75,12 +102,14 @@ namespace DragableItem
             set
             {
                 labelYStartFromTop = value;
-                labelBounds = new Rectangle();
+                labelBounds = null;
             }
         }
-        public Rectangle LabelBounds { get { return labelBounds; } }
+        public Rectangle? LabelBounds { get { return labelBounds; } }
         public Brush LabelBackgroundBrush { get; set; }
         public Brush LabelBrush { get; set; }
+        public Brush FocusedLabelBackgroundBrush { get; set; }
+        public Brush FocusedLabelBrush { get; set; }
         public Pen LabelEdgePen { get; set; }
         public Font LabelFont { get; set; }
         public Pen LinePen { get; set; }
@@ -107,34 +136,40 @@ namespace DragableItem
             Debug.Assert(graphics != null);
             Debug.Assert(LinePen != null);
             Debug.Assert(LabelEdgePen != null);
-            Debug.Assert(LabelBackgroundBrush != null);
             Debug.Assert(LabelFont != null);
+            Debug.Assert(LabelBackgroundBrush != null);
             Debug.Assert(LabelBrush != null);
+            Debug.Assert(FocusedLabelBackgroundBrush != null);
+            Debug.Assert(FocusedLabelBrush != null);
 
-            if (labelBounds.IsEmpty)
+            if (!LabelBounds.HasValue)
             {
                 var labelSize = graphics.MeasureString(Label, LabelFont);
-                labelBounds = new Rectangle(new Point(), labelSize.ToSize());
-                labelBounds.Width += (int)(LabelEdgePen.Width * 2);
-                labelBounds.Height += (int)(LabelEdgePen.Width * 2);
-                labelBounds.Offset(Position.X, Position.Y + LabelYStart);
-                labelBounds.Offset(-labelBounds.Width / 2, 0);
+                var bounds = new Rectangle(new Point(), labelSize.ToSize());
+                bounds.Width += (int)(LabelEdgePen.Width * 2);
+                bounds.Height += (int)(LabelEdgePen.Width * 2);
+                bounds.Offset(Position.X, Position.Y + LabelYStart);
+                bounds.Offset(-bounds.Width / 2, 0);
+                labelBounds = bounds;
             }
 
             Point end = Position;
             end.Y += Length;
             graphics.DrawLine(LinePen, Position, end);
-            graphics.FillRectangle(LabelBackgroundBrush, LabelBounds);
-            graphics.DrawRectangle(LabelEdgePen, LabelBounds);
+            graphics.FillRectangle(isMoving ? FocusedLabelBackgroundBrush : LabelBackgroundBrush, LabelBounds.Value);
+            graphics.DrawRectangle(LabelEdgePen, LabelBounds.Value);
 
-            var rect = LabelBounds;
+            var rect = LabelBounds.Value;
             rect.Offset((int)(LabelEdgePen.Width / 2), (int)(LabelEdgePen.Width / 2));
-            graphics.DrawString(Label, LabelFont, LabelBrush, rect);
+            graphics.DrawString(Label, LabelFont, isMoving ? FocusedLabelBrush : LabelBrush, rect);
+
+            //graphics.FillRectangle(new SolidBrush(Color.White), Bounds);
+            //graphics.FillRectangle(new SolidBrush(Color.White), LabelBounds.Value);
         }
 
         public void OnMouseDown(object sender, MouseEventArgs e)
         {
-            if (!LabelBounds.Contains(e.X, e.Y))
+            if (!LabelBounds.HasValue || !LabelBounds.Value.Contains(e.X, e.Y))
                 return;
 
             if (!isMoving)
@@ -150,7 +185,7 @@ namespace DragableItem
         {
             Debug.Assert(parent != null);
 
-            if (LabelBounds.Contains(e.X, e.Y))
+            if (LabelBounds.HasValue && LabelBounds.Value.Contains(e.X, e.Y))
             {
                 if (!isHoving)
                 {
@@ -183,15 +218,13 @@ namespace DragableItem
 
             if (isMoving)
             {
-                Point oldPosition = Position;
+                Point newPosition = Position;
+                Point pt = Position;
                 // Try to move
                 bool canMove = true;
-                Point pt = Position;
 
-                int leftMost = Math.Min(Position.X, e.X);
-                int rightMost = Math.Max(Position.X, e.X);
-                int newXPos = e.X;
-                for (int i = leftMost; i <= rightMost; ++i)
+                int xStep = Position.X <= e.X ? 1 : -1;
+                for (int i = Position.X; i != e.X; i += xStep)
                 {
                     pt.X = i;
                     Position = pt;
@@ -199,7 +232,6 @@ namespace DragableItem
                     {
                         if (DoCollisonDetection(item))
                         {
-                            Position = oldPosition;
                             canMove = false;
                             break;
                         }
@@ -207,13 +239,11 @@ namespace DragableItem
 
                     if (!canMove)
                         break;
+
+                    newPosition.X = i;
                 }
 
-                if (canMove)
-                {
-                    pt.X = e.X;
-                    Position = pt;
-                }
+                Position = newPosition;
             }
 
             return isMoving;
@@ -241,25 +271,33 @@ namespace DragableItem
             var anotherVerticalLabeledLine = dragable as DragableVerticalLabeledLine;
             if (anotherVerticalLabeledLine != null)
             {
+                if (!anotherVerticalLabeledLine.LabelBounds.HasValue || !LabelBounds.HasValue)
+                    return false;
+
                 if (anotherVerticalLabeledLine == this)
                     return false;
 
                 return anotherVerticalLabeledLine.Bounds.IntersectsWith(Bounds)
-                    || anotherVerticalLabeledLine.Bounds.IntersectsWith(labelBounds)
-                    || anotherVerticalLabeledLine.LabelBounds.IntersectsWith(Bounds)
-                    || anotherVerticalLabeledLine.LabelBounds.IntersectsWith(LabelBounds);
+                    || anotherVerticalLabeledLine.Bounds.IntersectsWith(LabelBounds.Value)
+                    || anotherVerticalLabeledLine.LabelBounds.Value.IntersectsWith(Bounds)
+                    || anotherVerticalLabeledLine.LabelBounds.Value.IntersectsWith(LabelBounds.Value);
             }
 
             return false;
         }
 
+        private Control parent;
+        private Cursor controlCursor;
+
         private Point position;
         private int labelYStartFromTop;
-        private Rectangle labelBounds;
-        private Cursor controlCursor;
+
+        private string label;
+        private Rectangle? labelBounds;
+
         private bool isHoving = false;
         private bool isMoving = false;
-        private Control parent = null;
+        
     }
 }
 

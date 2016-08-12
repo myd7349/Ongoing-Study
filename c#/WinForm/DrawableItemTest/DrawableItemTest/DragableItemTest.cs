@@ -14,11 +14,13 @@ namespace DrawableItemTest
 
             Pen linePen = new Pen(Color.Blue, 2.0f);
             Brush labelBackgroundBrush = new SolidBrush(Color.LightBlue);
-            Font labelFont = new Font("Arial", 12.0f);
             Brush labelBrush = new SolidBrush(Color.Black);
+            Brush focusedLabelBackgroundBrush = new SolidBrush(Color.Green);
+            Brush focusedLabelBrush = new SolidBrush(Color.White);
+            Font labelFont = new Font("Arial", 14.0f);
 
-            labeledLines = new DragableVerticalLabeledLine[2];
-            string[] labels = { "Hello", "world" };
+            labeledLines = new DragableVerticalLabeledLine[4];
+            string[] labels = { "Hello", "world", "myd", "Pink Floyd" };
             for (int i = 0; i < labeledLines.Length; ++i)
             {
                 labeledLines[i] = new DragableVerticalLabeledLine(this);
@@ -26,8 +28,10 @@ namespace DrawableItemTest
                 labeledLines[i].LinePen = linePen;
                 labeledLines[i].LabelEdgePen = linePen;
                 labeledLines[i].LabelBackgroundBrush = labelBackgroundBrush;
-                labeledLines[i].LabelFont = labelFont;
                 labeledLines[i].LabelBrush = labelBrush;
+                labeledLines[i].FocusedLabelBrush = focusedLabelBrush;
+                labeledLines[i].FocusedLabelBackgroundBrush = focusedLabelBackgroundBrush;
+                labeledLines[i].LabelFont = labelFont;
                 labeledLines[i].HoverCursor = Cursors.SizeWE;
             }
 
