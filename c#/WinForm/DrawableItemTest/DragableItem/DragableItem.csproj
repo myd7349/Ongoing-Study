@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="DragableVerticalLabeledLine.cs" />
     <Compile Include="IDragable.cs" />
-    <Compile Include="IDragableItemsHostControl.cs" />
+    <Compile Include="DragableItemsCollection.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

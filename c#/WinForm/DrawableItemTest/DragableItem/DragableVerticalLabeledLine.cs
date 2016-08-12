@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 
@@ -11,8 +12,15 @@ namespace DragableItem
     // TODO:
     // Rectangle: TopLeft, BottomRight, Normalize
     // Make one element enumerable
+    // Swap<T>
     public class DragableVerticalLabeledLine : IDragable, IDrawable
     {
+        [DllImport("user32.dll")]
+        private static extern IntPtr SetCapture(IntPtr hwnd);
+
+        [DllImport("user32.dll")]
+        private static extern bool ReleaseCapture();
+
         public DragableVerticalLabeledLine(Control parent)
         {
             this.parent = parent;
@@ -23,52 +31,59 @@ namespace DragableItem
         {
             get
             {
-                throw new NotImplementedException();
+                int penWidth = LinePen == null ? 1 : (int)LinePen.Width;
+                Rectangle rect = new Rectangle();
+                rect.X = Position.X;
+                rect.Y = Position.Y;
+                rect.Width = penWidth;
+                rect.Height = Length;
+                return rect; 
             }
 
             set
             {
-                throw new NotImplementedException();
+                Point pt = Position;
+                pt.X = value.X;
+                pt.Y = value.Y;
+                Position = pt;
+                Length = value.Height;
             }
         }
 
-        public Rectangle LabelBounds { get; set; }
+        public Point Position
+        {
+            get
+            {
+                return position;
+            }
 
-        public Point Position { get; set; }
+            set
+            {
+                position = value;
+                labelBounds = new Rectangle();
+            }
+        }
+        public int Length { get; set; }
         public string Label { get; set; }
-        public Point Start
+        public int LabelYStart
         {
             get
             {
-                return Position;
+                return labelYStartFromTop;
             }
 
             set
             {
-                Position = value;
-                height = End.Y - value.Y;
-                LabelBounds = new Rectangle();
+                labelYStartFromTop = value;
+                labelBounds = new Rectangle();
             }
         }
-        public Point End
-        {
-            get
-            {
-                return new Point(Position.X, Position.Y + height);
-            }
-
-            set
-            {
-                height = value.Y - Start.Y;
-                LabelBounds = new Rectangle();
-            }
-        }
-
-        public Pen LinePen { get; set; }
+        public Rectangle LabelBounds { get { return labelBounds; } }
         public Brush LabelBackgroundBrush { get; set; }
         public Brush LabelBrush { get; set; }
         public Pen LabelEdgePen { get; set; }
         public Font LabelFont { get; set; }
+        public Pen LinePen { get; set; }
 
         public IEnumerable<Rectangle> HotRectangles
         {
@@ -85,18 +100,7 @@ namespace DragableItem
 
         public Cursor HoverCursor { get; set; }
 
-        public Cursor DragCursor
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public Cursor DragCursor { get; set; }
 
         public void Draw(Graphics graphics)
         {
@@ -107,18 +111,19 @@ namespace DragableItem
             Debug.Assert(LabelFont != null);
             Debug.Assert(LabelBrush != null);
 
-            if (LabelBounds.IsEmpty)
+            if (labelBounds.IsEmpty)
             {
                 var labelSize = graphics.MeasureString(Label, LabelFont);
-                Rectangle bounds = new Rectangle(new Point(), labelSize.ToSize());
-                bounds.Width += (int)(LabelEdgePen.Width * 2);
-                bounds.Height += (int)(LabelEdgePen.Width * 2);
-                bounds.Offset(Start.X, Start.Y + height / 2);
-                bounds.Offset(-bounds.Width / 2, -bounds.Height / 2);
-                LabelBounds = bounds;
+                labelBounds = new Rectangle(new Point(), labelSize.ToSize());
+                labelBounds.Width += (int)(LabelEdgePen.Width * 2);
+                labelBounds.Height += (int)(LabelEdgePen.Width * 2);
+                labelBounds.Offset(Position.X, Position.Y + LabelYStart);
+                labelBounds.Offset(-labelBounds.Width / 2, 0);
             }
 
-            graphics.DrawLine(LinePen, Start, End);
+            Point end = Position;
+            end.Y += Length;
+            graphics.DrawLine(LinePen, Position, end);
             graphics.FillRectangle(LabelBackgroundBrush, LabelBounds);
             graphics.DrawRectangle(LabelEdgePen, LabelBounds);
 
@@ -133,10 +138,15 @@ namespace DragableItem
                 return;
 
             if (!isMoving)
+            {
                 isMoving = true;
+
+                Debug.Assert(parent != null);
+                SetCapture(parent.Handle);
+            }
         }
 
-        public bool OnMouseMove(object sender, MouseEventArgs e)
+        public bool OnMouseMove(object sender, MouseEventArgs e, IEnumerable<IDragable> coll)
         {
             Debug.Assert(parent != null);
 
@@ -173,12 +183,40 @@ namespace DragableItem
 
             if (isMoving)
             {
+                Point oldPosition = Position;
+                // Try to move
+                bool canMove = true;
                 Point pt = Position;
-                pt.X = e.X;
-                Start = pt;
+
+                int leftMost = Math.Min(Position.X, e.X);
+                int rightMost = Math.Max(Position.X, e.X);
+                int newXPos = e.X;
+                for (int i = leftMost; i <= rightMost; ++i)
+                {
+                    pt.X = i;
+                    Position = pt;
+                    foreach (var item in coll)
+                    {
+                        if (DoCollisonDetection(item))
+                        {
+                            Position = oldPosition;
+                            canMove = false;
+                            break;
+                        }
+                    }
+
+                    if (!canMove)
+                        break;
+                }
+
+                if (canMove)
+                {
+                    pt.X = e.X;
+                    Position = pt;
+                }
             }
 
-            return true;
+            return isMoving;
         }
 
         public void OnMouseUp(object sender, MouseEventArgs e)
@@ -191,15 +229,33 @@ namespace DragableItem
 
                 // At [1], we didn't restore the parent control's original cursor, so
                 // let's finish this work here.
-                if (controlCursor != null && parent.Cursor != controlCursor)
+                if (!isHoving && controlCursor != null && parent.Cursor != controlCursor)
                     parent.Cursor = controlCursor;
-            }
 
-            if (!LabelBounds.Contains(e.X, e.Y))
-                return;
+                ReleaseCapture();
+            }
         }
 
-        private int height;
+        public bool DoCollisonDetection(IDragable dragable)
+        {
+            var anotherVerticalLabeledLine = dragable as DragableVerticalLabeledLine;
+            if (anotherVerticalLabeledLine != null)
+            {
+                if (anotherVerticalLabeledLine == this)
+                    return false;
+
+                return anotherVerticalLabeledLine.Bounds.IntersectsWith(Bounds)
+                    || anotherVerticalLabeledLine.Bounds.IntersectsWith(labelBounds)
+                    || anotherVerticalLabeledLine.LabelBounds.IntersectsWith(Bounds)
+                    || anotherVerticalLabeledLine.LabelBounds.IntersectsWith(LabelBounds);
+            }
+
+            return false;
+        }
+
+        private Point position;
+        private int labelYStartFromTop;
+        private Rectangle labelBounds;
         private Cursor controlCursor;
         private bool isHoving = false;
         private bool isMoving = false;

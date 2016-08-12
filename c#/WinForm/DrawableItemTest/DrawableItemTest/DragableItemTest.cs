@@ -30,9 +30,12 @@ namespace DrawableItemTest
                 labeledLines[i].LabelBrush = labelBrush;
                 labeledLines[i].HoverCursor = Cursors.SizeWE;
             }
+
+            dragableItemColl = new DragableItemsCollection(labeledLines);
         }
 
         private DragableVerticalLabeledLine[] labeledLines;
+        private DragableItemsCollection dragableItemColl;
         private Brush backgroundBrush = new SolidBrush(Color.SkyBlue);
         private Bitmap canvas;
 
@@ -53,10 +56,9 @@ namespace DrawableItemTest
             for (int i = 0; i < labeledLines.Length; ++i)
             {
                 pt.X = ClientRectangle.Width / labeledLines.Length * i + 40;
-                pt.Y = 20;
-                labeledLines[i].Start = pt;
-                pt.Y = ClientRectangle.Height - 20;
-                labeledLines[i].End = pt;
+                labeledLines[i].Position = pt;
+                labeledLines[i].Length = ClientRectangle.Height - 40;
+                labeledLines[i].LabelYStart = labeledLines[i].Length / 2 - 40 * i;
             }
 
             canvas = new Bitmap(ClientRectangle.Width, ClientRectangle.Height);
@@ -74,29 +76,21 @@ namespace DrawableItemTest
 
         private void DragableItemTest_MouseDown(object sender, MouseEventArgs e)
         {
-            for (int i = 0; i < labeledLines.Length; ++i)
-                labeledLines[i].OnMouseDown(sender, e);
+            dragableItemColl.OnMouseDown(sender, e);
         }
 
         private void DragableItemTest_MouseMove(object sender, MouseEventArgs e)
         {
             using (var g = CreateGraphics())
             {
-                for (int i = 0; i < labeledLines.Length; ++i)
-                {
-                    if (labeledLines[i].OnMouseMove(sender, e))
-                    {
-                        DrawAll(g);
-                    }
-                }
+                if (dragableItemColl.OnMouseMove(sender, e))
+                    DrawAll(g);
             }
         }
 
         private void DragableItemTest_MouseUp(object sender, MouseEventArgs e)
         {
-            for (int i = 0; i < labeledLines.Length; ++i)
-                labeledLines[i].OnMouseUp(sender, e);
+            dragableItemColl.OnMouseUp(sender, e);
         }
-
     }
 }
