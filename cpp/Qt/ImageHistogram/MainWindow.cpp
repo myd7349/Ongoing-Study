@@ -107,8 +107,12 @@ void MainWindow::initializeChartView()
     if (chartView != nullptr)
         return;
 
+    QFont titleFont(tr("Arial"), 12);
+
     auto *chart = new QtCharts::QChart;
     chart->setTitle(tr("Histogram of image"));
+    chart->setMargins(QMargins(5, 2, 5, 5));
+    chart->setTitleFont(titleFont);
 
     chartView = new QtCharts::QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
@@ -137,14 +141,14 @@ void MainWindow::openImage(const QString &fileName)
     }
 }
 
-void MainWindow::processImage(const QImage &image)
+void MainWindow::processImage(QImage &image)
 {
     Q_ASSERT(chartView != nullptr);
-    Q_ASSERT(chartView->chart() != nullptr);
     if (chartView == nullptr)
         return;
 
     auto chart = chartView->chart();
+    Q_ASSERT(chart != nullptr);
     if (chart == nullptr)
         return;
 
@@ -153,6 +157,9 @@ void MainWindow::processImage(const QImage &image)
     int greens[ARRAYSIZE(reds)] = {0};
     int blues[ARRAYSIZE(reds)] = {0};
 
+#if 0
+    // `pixel` says itself is expensive, and you poor guys just
+    // can not afford it.
     auto imageWidth = image.width();
     auto imageHeight = image.height();
 
@@ -166,6 +173,43 @@ void MainWindow::processImage(const QImage &image)
             ++blues[qBlue(rgb)];
         }
     }
+#elif 0
+    auto format = image.format();
+    if (format != QImage::Format_RGB32 && format != QImage::Format_ARGB32)
+        image.convertToFormat(QImage::Format_ARGB32); // 0xAARRGGBB
+
+    auto imageWidth = image.width();
+    auto imageHeight = image.height();
+
+    for (int y = 0; y < imageHeight; ++y)
+    {
+        auto scanLineRGBs = reinterpret_cast<const QRgb *>(image.scanLine(y));
+        auto scanLineRGBsEnd = scanLineRGBs + imageWidth;
+        for (auto px = scanLineRGBs; px < scanLineRGBsEnd; ++px)
+        {
+            ++reds[qRed(*px)];
+            ++greens[qGreen(*px)];
+            ++blues[qBlue(*px)];
+        }
+    }
+#else
+    auto format = image.format();
+    if (format != QImage::Format_RGB32 && format != QImage::Format_ARGB32)
+        image.convertToFormat(QImage::Format_ARGB32); // 0xAARRGGBB
+
+    auto byteCount = image.byteCount();
+    Q_ASSERT(byteCount % 4 == 0);
+    auto pixelCount = byteCount / 4;
+
+    auto pixelBegin = reinterpret_cast<const QRgb *>(image.constBits());
+    auto pixelEnd = pixelBegin + pixelCount;
+    for (auto px = pixelBegin; px < pixelEnd; ++px)
+    {
+        ++reds[qRed(*px)];
+        ++greens[qGreen(*px)];
+        ++blues[qBlue(*px)];
+    }
+#endif
 
     auto redLine = new QtCharts::QSplineSeries;
     redLine->setColor(Qt::GlobalColor::red);
@@ -189,6 +233,15 @@ void MainWindow::processImage(const QImage &image)
     chart->addSeries(blueLine);
 
     chart->createDefaultAxes();
+
+    // X axis
+    auto axisX = chart->axisX();
+    axisX->setRange(-10, 260);
+    axisX->setTitleText(tr("Color [0...255]"));
+
+    // Y axis
+    auto axisY = chart->axisY();
+    axisY->setTitleText(tr("Distribution of pixels' color"));
 }
 
 void MainWindow::refreshPictureBox()

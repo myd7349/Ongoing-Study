@@ -35,7 +35,7 @@ private:
     void initializeChartView();
 
     void openImage(const QString &fileName);
-    void processImage(const QImage &image);
+    void processImage(QImage &image);
     void refreshPictureBox();
 
     QImage currentImage;
