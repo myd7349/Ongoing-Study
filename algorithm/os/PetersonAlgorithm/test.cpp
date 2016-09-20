@@ -47,3 +47,4 @@ int main()
 // References:
 // Modern Operating System 4th Edition P125
 // https://en.wikipedia.org/wiki/Peterson%27s_algorithm
+// http://stackoverflow.com/questions/11588514/a-tested-implementation-of-peterson-lock-algorithm
