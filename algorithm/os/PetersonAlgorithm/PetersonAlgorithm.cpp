@@ -1,11 +1,12 @@
 #include "PetersonAlgorithm.h"
 
+#include <atomic>
 #include <cassert>
 
 namespace {
 const int N = 2; // number of processes(workers)
-bool flags[N];
-int turn;
+std::atomic_bool flags[N];
+std::atomic_int turn;
 }
 
 void EnterRegion(int workerId)
