@@ -24,7 +24,7 @@ print("Type of '1e6':", type(1e6))
 print('integrate:', elapsed_seconds)
 print('integrate2:', elapsed_seconds_2, ', and it gives a {:.2f}x speedup.'.format(elapsed_seconds / elapsed_seconds_2))
 print('integrate3:', elapsed_seconds_3, ', and it gives a {:.2f}x speedup.'.format(elapsed_seconds / elapsed_seconds_3))
-print('integrate4:', elapsed_seconds_3, ', and it gives a {:.2f}x speedup.'.format(elapsed_seconds / elapsed_seconds_4))
+print('integrate4:', elapsed_seconds_4, ', and it gives a {:.2f}x speedup.'.format(elapsed_seconds / elapsed_seconds_4))
 
 
 # References:
