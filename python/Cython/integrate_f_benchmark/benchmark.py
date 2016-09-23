@@ -17,8 +17,8 @@ elapsed_seconds_3 = timeit.timeit('integrate_f(0, 10, int(1e6))', number=10, set
 
 print("Type of '1e6':", type(1e6))
 print('integrate:', elapsed_seconds)
-print('integrate2:', elapsed_seconds_2, ', and it gives a {:.2f}% speedup.'.format((elapsed_seconds-elapsed_seconds_2) / elapsed_seconds * 100))
-print('integrate2:', elapsed_seconds_3, ', and it gives a {:.2f}% speedup.'.format((elapsed_seconds-elapsed_seconds_3) / elapsed_seconds * 100))
+print('integrate2:', elapsed_seconds_2, ', and it gives a {:.2f}x speedup.'.format(elapsed_seconds / elapsed_seconds_2))
+print('integrate2:', elapsed_seconds_3, ', and it gives a {:.2f}x speedup.'.format(elapsed_seconds / elapsed_seconds_3))
 
 # References:
 # [Cython online documentations: Faster code via static typing](http://docs.cython.org/en/latest/src/quickstart/cythonize.html)
