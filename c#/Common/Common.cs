@@ -3,6 +3,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 
 namespace Common
 {
@@ -33,6 +34,11 @@ namespace Common
             return progName;
         }
 
+        public static string GetAppPath()
+        {
+            return Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+        }
+
         public static long Benchmark(Action action, int repeat)
         {
             Stopwatch stopWatch = new Stopwatch();
@@ -53,3 +59,4 @@ namespace Common
 
 // References:
 // [Func vs. Action vs. Predicate](http://stackoverflow.com/questions/4317479/func-vs-action-vs-predicate)
+// [OngoingStudy/c#/Console/GetApplicationPath]
