@@ -9,10 +9,16 @@ namespace Common
         static EnumHelper()
         {
             EnumNamesDict = new Dictionary<T, string>();
+            EnumValuesDict = new Dictionary<string, T>();
+
             foreach (var value in Enum.GetValues(typeof(T)))
+            {
                 EnumNamesDict[(T)value] = value.ToString();
+                EnumValuesDict[value.ToString()] = (T)value;
+            }
         }
 
         public static readonly Dictionary<T, string> EnumNamesDict;
+        public static readonly Dictionary<string, T> EnumValuesDict;
     }
 }
