@@ -10,6 +10,7 @@
 #pragma comment(lib, "propsys.lib")
 #pragma comment(lib, "shlwapi.lib")
 #pragma comment(lib, "strsafe.lib")
+#pragma comment(lib, "Version.lib")
 
 CString GetModulePath(HMODULE hModule)
 {
@@ -553,4 +554,68 @@ CString FindFirstFileWithName(const CString &strFileName, const CString &strPath
     }
 
     return _T("");
+}
+
+// 2016-10-19T17:20+08:00
+// http://stackoverflow.com/questions/940707/how-do-i-programatically-get-the-version-of-a-dll-or-exe-file
+BOOL GetPEFixedFileVersion(const CString &strExeOrDllFilePath, VS_FIXEDFILEINFO &ffi)
+{
+    DWORD dwHandle = NULL;
+    DWORD dwFileVerInfoSize = GetFileVersionInfoSize(strExeOrDllFilePath, &dwHandle);
+    if (dwFileVerInfoSize == 0)
+        return FALSE;
+
+    CArray<unsigned char> arrVersionData;
+    arrVersionData.SetSize(dwFileVerInfoSize);
+
+    if (!GetFileVersionInfo(strExeOrDllFilePath, 0, dwFileVerInfoSize, arrVersionData.GetData()))
+        return FALSE;
+
+    LPBYTE lpBuffer = NULL;
+    UINT uSize = 0;
+    if (!VerQueryValue(arrVersionData.GetData(), _T("\\"), (LPVOID *)&lpBuffer, &uSize) || lpBuffer == NULL || uSize == 0)
+        return FALSE;
+
+    ffi = *(VS_FIXEDFILEINFO *)lpBuffer;
+    return ffi.dwSignature == 0xFEEF04BD;
+}
+
+CString GetPEFileVersion(const CString &strExeOrDllFilePath)
+{
+    VS_FIXEDFILEINFO ffi;
+    if (!GetPEFixedFileVersion(strExeOrDllFilePath, ffi))
+        return _T("");
+
+    CString strFileVersion;
+    strFileVersion.Format(_T("%d.%d.%d.%d"),
+        HIWORD(ffi.dwFileVersionMS),
+        LOWORD(ffi.dwFileVersionMS),
+        HIWORD(ffi.dwFileVersionLS),
+        LOWORD(ffi.dwFileVersionLS));
+    return strFileVersion;
+}
+
+CString GetPEProductVersion(const CString &strExeOrDllFilePath)
+{
+    VS_FIXEDFILEINFO ffi;
+    if (!GetPEFixedFileVersion(strExeOrDllFilePath, ffi))
+        return _T("");
+
+    CString strProductVersion;
+    strProductVersion.Format(_T("%d.%d.%d.%d"),
+        HIWORD(ffi.dwProductVersionMS),
+        LOWORD(ffi.dwProductVersionMS),
+        HIWORD(ffi.dwProductVersionLS),
+        LOWORD(ffi.dwProductVersionLS));
+
+    return strProductVersion;
+}
+
+CString GetModuleFilePath(HMODULE hModule)
+{
+    TCHAR szBuffer[MAX_PATH] = _T("");
+    if (GetModuleFileName(hModule, szBuffer, ARRAYSIZE(szBuffer)) == 0)
+        return _T("");
+
+    return szBuffer;
 }

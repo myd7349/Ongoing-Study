@@ -94,3 +94,8 @@ DWORD Execute(LPCTSTR lpcszCmdline, WORD wShowWindow, BOOL bSync);
 int FindFiles(CStringArray &arrstrFiles, const CString &strFileNamePattern, 
     const CString &strPath, BOOL bFullPath, int nLimit = -1);
 CString FindFirstFileWithName(const CString &strFileName, const CString &strPath, BOOL bFullPath);
+
+BOOL GetPEFixedFileVersion(const CString &strExeOrDllFilePath, VS_FIXEDFILEINFO &ffi);
+CString GetPEFileVersion(const CString &strExeOrDllFilePath);
+CString GetPEProductVersion(const CString &strExeOrDllFilePath);
+CString GetModuleFilePath(HMODULE hModule = NULL);
