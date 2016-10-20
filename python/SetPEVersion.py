@@ -66,18 +66,17 @@ def _get_full_path(candidate_path, file_name):
 def main():
     """
     Usage:
-      SetPEVersion.py (--module=<FILE> | --module-dir=<FILE>) [--changelog=FILE] [--stampver=FILE] [--debug]
+      SetPEVersion.py (--module-path=<PATH>) [--changelog=FILE] [--stampver=FILE] [--debug]
       SetPEVersion.py -h | --help
       SetPEVersion.py -v | --version
 
     Options:
-      -c FILE --changelog=FILE  Specify the full path of "Changelog.txt"
-      -s FILE --stampver=FILE   Specify the full path of "StampVer.exe"
-      -m FILE --module=FILE     Specify the module file(DLL or EXE) to be processed
-      --module-dir=DIR          Specify the module directory
-      -d --debug                Show more messages for debug propose
-      -h --help                 Show this help message
-      -v --version              Show version message
+      -c FILE --changelog=FILE    Specify the full path of "Changelog.txt"
+      -s FILE --stampver=FILE     Specify the full path of "StampVer.exe"
+      -m PATH --module-path=PATH  Specify a single module file(DLL or EXE) or a directory that contains module files
+      -d --debug                  Show more messages for debug propose
+      -h --help                   Show this help message
+      -v --version                Show version message
     """
 
     import docopt
@@ -97,24 +96,20 @@ def main():
         perror('StampVer.exe not found at "{0}".'.format(changelog))
 
     modules = []
-    if args['--module']:
-        if not os.path.isfile(args['--module']):
-            perror('Specified module file "{0}" doesn\'t exist.\n'.format(module))
-        else:
-            modules.append(args['--module'])
-    elif args['--module-dir']:
-        if not os.path.isdir(args['--module-dir']):
-            perror('"{0}" is not a valid directory.'.format(args['--module-dir']))
-        else:
+    if args['--module-path']:
+        if os.path.isfile(args['--module-path']):
+            modules.append(args['--module-path'])
+        elif os.path.isdir(args['--module-path']):
             for file in filter(os.path.isfile,
-                               map(lambda item_name: os.path.join(args['--module-dir'], item_name),
+                               map(lambda item_name: os.path.join(args['--module-path'], item_name),
                                    map(lambda item: item.name,
-                                       os.scandir(args['--module-dir'])))):
-                print(file)
+                                       os.scandir(args['--module-path'])))):
                 if fnmatch.fnmatch(file, '*.dll') or fnmatch.fnmatch(file, '*.exe'):
                     modules.append(file)
+        else:
+            perror('Invalid module path "{0}": Neither an existing file nor an existing directory.'.format(args['--module-path']))
     else:
-        perror('"--module"/"--module-dir" option is required.')
+        perror('"--module-path" option is required.')
 
     # Get the topmost line which contains a valid version number from Changelog.txt
     topmost_version_line = get_topmost_version_line(changelog)
