@@ -3,6 +3,9 @@
 # 2016-10-20T16:00+08:00
 
 
+import fnmatch
+import glob
+import itertools
 import os
 import re
 import sys
@@ -51,6 +54,11 @@ def quote_path(path):
     return '"{0}"'.format(path)
 
 
+def is_dll_or_exe(file):
+    assert os.path.isfile(file)
+    return fnmatch.fnmatch(file, '*.dll') or fnmatch.fnmatch(file, '*.exe')
+
+    
 def _get_full_path(candidate_path, file_name):
     if candidate_path is None:
         candidate_path = ''
@@ -61,6 +69,48 @@ def _get_full_path(candidate_path, file_name):
         return os.path.join(candidate_path, file_name)
     else:
         return os.path.join(os.path.dirname(sys.argv[0]), file_name)
+
+
+def _iterate_module_files_legacy(module_path):
+    assert os.path.isdir(module_path)
+    yield from filter(is_dll_or_exe,
+                      map(lambda item: os.path.join(module_path, item),
+                          os.listdir(module_path)))
+
+
+def _iterate_module_files_new(module_path):
+    assert os.path.isdir(module_path)
+    yield from filter(is_dll_or_exe,
+                      filter(os.path.isfile,
+                             map(lambda item_name: os.path.join(module_path, item_name),
+                                 map(lambda item: item.name,
+                                     os.scandir(module_path)))))
+
+
+def iterate_module_files(module_path):
+    # `os.scandir` is new in Python 3.5, and Python 3.5 needs Windows Vista or higher. 
+    if sys.version_info >= (3, 5):
+        yield from _iterate_module_files_new(module_path)
+    else:
+        yield from _iterate_module_files_legacy(module_path)
+
+
+_module_patterns = '*.dll', '*.exe'
+
+
+def iterate_module_files_v2(module_path):
+    assert os.path.isdir(module_path)
+
+    for pattern in _module_patterns:
+        pattern = os.path.join(module_path, pattern)
+        yield from glob.iglob(pattern)
+
+
+def iterate_module_files_v3(module_path):
+    assert os.path.isdir(module_path)
+
+    yield from itertools.chain.from_iterable(
+        glob.iglob(pattern) for pattern in map(lambda pattern: os.path.join(module_path, pattern), _module_patterns))
 
 
 def main():
@@ -80,7 +130,6 @@ def main():
     """
 
     import docopt
-    import fnmatch
     import pprint
     import subprocess
 
@@ -100,12 +149,7 @@ def main():
         if os.path.isfile(args['--module-path']):
             modules.append(args['--module-path'])
         elif os.path.isdir(args['--module-path']):
-            for file in filter(os.path.isfile,
-                               map(lambda item_name: os.path.join(args['--module-path'], item_name),
-                                   map(lambda item: item.name,
-                                       os.scandir(args['--module-path'])))):
-                if fnmatch.fnmatch(file, '*.dll') or fnmatch.fnmatch(file, '*.exe'):
-                    modules.append(file)
+            modules.extend(iterate_module_files_v3(args['--module-path']))
         else:
             perror('Invalid module path "{0}": Neither an existing file nor an existing directory.'.format(args['--module-path']))
     else:
@@ -140,4 +184,5 @@ if __name__ == '__main__':
 
 # References:
 #  Ongoing-Study/cpp/msvc_cmdline_args/msvc_cmdline_args.cpp
+# [Python glob multiple filetypes](http://stackoverflow.com/questions/4568580/python-glob-multiple-filetypes)
 
