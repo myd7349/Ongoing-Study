@@ -90,10 +90,10 @@ def _iterate_module_files_new(module_path):
 
 # `os.scandir` is new in Python 3.5, and Python 3.5 needs Windows Vista or higher. 
 if sys.version_info >= (3, 5):
-    iterate_module_files_v1 = _iterate_module_files_new(module_path)
+    iterate_module_files_v1 = _iterate_module_files_new
     run_subprocess = subprocess.run
 else:
-    iterate_module_files_v1 = _iterate_module_files_legacy(module_path)
+    iterate_module_files_v1 = _iterate_module_files_legacy
     run_subprocess = subprocess.call
 
 
