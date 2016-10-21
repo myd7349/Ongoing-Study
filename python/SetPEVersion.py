@@ -125,9 +125,19 @@ def main():
         print('-' * 79)
 
     for module in modules:
-        cmd_args = [stampver, '-k', '-f"{0}"'.format(version_number), '-p"{0}"'.format(version_number), module]
+        # Code below does work for `StampVer.exe`.
+        #cmd_args = (stampver, '-k', '-f"{0}"'.format(version_number), '-p"{0}"'.format(version_number), module)
+        #subprocess.run(cmd_args)
+        #
+        # so I have to quote those arguments all by myself
+        cmd_args = ' '.join((quote_path(stampver), '-k', '-f"{0}"'.format(version_number), '-p"{0}"'.format(version_number), quote_path(module)))
         subprocess.run(cmd_args)
 
 
 if __name__ == '__main__':
     main()
+
+
+# References:
+#  Ongoing-Study/cpp/msvc_cmdline_args/msvc_cmdline_args.cpp
+
