@@ -8,6 +8,7 @@ import glob
 import itertools
 import os
 import re
+import subprocess
 import sys
 
 
@@ -87,12 +88,13 @@ def _iterate_module_files_new(module_path):
                                      os.scandir(module_path)))))
 
 
-def iterate_module_files(module_path):
-    # `os.scandir` is new in Python 3.5, and Python 3.5 needs Windows Vista or higher. 
-    if sys.version_info >= (3, 5):
-        yield from _iterate_module_files_new(module_path)
-    else:
-        yield from _iterate_module_files_legacy(module_path)
+# `os.scandir` is new in Python 3.5, and Python 3.5 needs Windows Vista or higher. 
+if sys.version_info >= (3, 5):
+    iterate_module_files_v1 = _iterate_module_files_new(module_path)
+    run_subprocess = subprocess.run
+else:
+    iterate_module_files_v1 = _iterate_module_files_legacy(module_path)
+    run_subprocess = subprocess.call
 
 
 _module_patterns = '*.dll', '*.exe'
@@ -131,7 +133,6 @@ def main():
 
     import docopt
     import pprint
-    import subprocess
 
 
     args = docopt.docopt(main.__doc__, version='SetPEVersion v0.1.0')
@@ -175,7 +176,7 @@ def main():
         #
         # so I have to quote those arguments all by myself
         cmd_args = ' '.join((quote_path(stampver), '-k', '-f"{0}"'.format(version_number), '-p"{0}"'.format(version_number), quote_path(module)))
-        subprocess.run(cmd_args)
+        run_subprocess(cmd_args)
 
 
 if __name__ == '__main__':
