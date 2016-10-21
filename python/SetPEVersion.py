@@ -126,7 +126,7 @@ def main():
       -c FILE --changelog=FILE    Specify the full path of "Changelog.txt"
       -s FILE --stampver=FILE     Specify the full path of "StampVer.exe"
       -m PATH --module-path=PATH  Specify a single module file(DLL or EXE) or a directory that contains module files
-      -d --debug                  Show more messages for debug propose
+      -d --debug                  Show more messages for debug purpose
       -h --help                   Show this help message
       -v --version                Show version message
     """
