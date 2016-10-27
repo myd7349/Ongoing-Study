@@ -134,3 +134,7 @@ if __name__ == '__main__':
             self._test_impl(weekday2, ever_failed_dates) 
     
     unittest.main()
+
+
+# References:
+# https://www.zhihu.com/question/51789552
