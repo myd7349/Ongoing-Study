@@ -24,6 +24,9 @@ OGlobalConfigHelper::OGlobalConfigHelper()
         m_strConfDir = JoinPath(LPCTSTR(m_strBaseDir), CONF_SUB_DIR);
         m_strDataDir = JoinPath(LPCTSTR(m_strBaseDir), DATA_SUB_DIR);
         m_strDBFileName = JoinPath(m_strBaseDir, DB_FILE_NAME);
+        
+        if (!PathFileExists(m_strConfDir))
+            MakeFullPath(m_strConfDir);
     }
     ATLTRACE2(_T("Base Dir: %s\nConf Dir: %s\nData Dir: %s\nDB File: %s\n"), 
         m_strBaseDir, m_strConfDir, m_strDataDir, m_strDBFileName);
