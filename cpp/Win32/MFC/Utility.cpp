@@ -78,6 +78,11 @@ CString JoinPath(LPCTSTR lpszBaseDir, LPCTSTR lpszSubDir)
     }
 }
 
+CString JoinPath(LPCTSTR lpszBaseDir, LPCTSTR lpszSubDir, LPCTSTR lpcszFileName)
+{
+    return JoinPath(JoinPath(lpszBaseDir, lpszSubDir), lpcszFileName);
+}
+
 LPTSTR TransformPathSep(LPTSTR lpszPath)
 {
     if (NULL == lpszPath)

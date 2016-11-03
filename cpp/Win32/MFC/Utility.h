@@ -9,6 +9,7 @@
 CString GetModulePath(HMODULE hModule = NULL);
 // TODO: A new version that accepts variant arguments.
 CString JoinPath(LPCTSTR lpszBaseDir, LPCTSTR lpszSubDir);
+CString JoinPath(LPCTSTR lpszBaseDir, LPCTSTR lpszSubDir, LPCTSTR lpcszFileName);
 LPTSTR TransformPathSep(LPTSTR lpszPath);
 CString TransformPathSep(const CString &strPath);
 
