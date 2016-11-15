@@ -41,6 +41,14 @@ namespace Common.IO
         {
             return Path.IsPathRooted(path);
         }
+
+        public static string GetRelativePath(string fullPath, string startPath)
+        {
+            var fullPathUri = new Uri(fullPath);
+            var startPathUri = new Uri(startPath);
+
+            return startPathUri.MakeRelativeUri(fullPathUri).ToString();
+        }
     }
 
     public static class DirUtils
@@ -104,3 +112,4 @@ namespace Common.IO
 // [Walk a directory/Recursively](http://rosettacode.org/wiki/Walk_a_directory/Recursively#C.23)
 // [Better way to check if Path is a File or a Directory?](http://stackoverflow.com/questions/1395205/better-way-to-check-if-path-is-a-file-or-a-directory)
 // [Check if full path given](http://stackoverflow.com/questions/5565029/check-if-full-path-given)
+// [How to Convert Absolute File Path To Relative Path in C#?](https://social.msdn.microsoft.com/Forums/zh-CN/954346c8-cbe8-448c-80d0-d3fc27796e9c/how-to-convert-absolute-file-path-to-relative-path-in-c?forum=csharpgeneral)
