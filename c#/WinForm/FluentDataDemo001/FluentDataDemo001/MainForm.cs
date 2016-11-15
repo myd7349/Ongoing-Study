@@ -82,6 +82,12 @@ namespace FluentDataDemo001
             return addElement.Attribute("connectionString").Value;
         }
 
+        private void FetchData()
+        {
+            var dataTable = Context.Sql("select * from Students").QuerySingle<DataTable>();
+            dataGridView.DataSource = dataTable;
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             var dbFile = GetConnectionString().Split(';').Single(x => x.StartsWith("Data Source")).Split('=').Last();
@@ -90,10 +96,29 @@ namespace FluentDataDemo001
             if (!File.Exists(dbFile) && !CreateDatabase())
                 Close();
 
-            var dataTable = Context.Sql("select * from Students").QuerySingle<DataTable>();
-
             dataGridView.AutoGenerateColumns = true;
-            dataGridView.DataSource = dataTable;
+
+            FetchData();
+        }
+
+        private void addToolStripButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteToolStripButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editToolStripButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void queryToolStripButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
