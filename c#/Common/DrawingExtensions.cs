@@ -121,7 +121,7 @@ namespace Common.Auxiliary.Drawing
             return true;
         }
 
-        public static void DrawStringInRect(Graphics g, Font font, Brush brush, Rectangle rect, string text, bool clip = true, string templateText = "ABC")
+        public static void DrawStringInRect(this Graphics g, Font font, Brush brush, Rectangle rect, string text, bool clip = true, string templateText = "ABC")
         {
             var rectF = new RectangleF(rect.X, rect.Y, rect.Width, rect.Height);
             DrawStringInRect(g, font, brush, rectF, text, clip, templateText);
