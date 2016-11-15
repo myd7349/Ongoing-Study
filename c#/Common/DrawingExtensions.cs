@@ -151,12 +151,12 @@ namespace Common.Auxiliary.Drawing
                     textHeight, line, clip))
                     break;
 
+                y += textHeight;
+
 #if DEBUG // [3]
                 var pen = new Pen(Color.Black, 1);
                 g.DrawLine(pen, rect.X, y, rect.Right, y);
 #endif
-
-                y += textHeight;
             }
         }
     }
