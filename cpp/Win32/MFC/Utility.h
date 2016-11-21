@@ -97,6 +97,6 @@ int FindFiles(CStringArray &arrstrFiles, const CString &strFileNamePattern,
 CString FindFirstFileWithName(const CString &strFileName, const CString &strPath, BOOL bFullPath);
 
 BOOL GetPEFixedFileVersion(const CString &strExeOrDllFilePath, VS_FIXEDFILEINFO &ffi);
-CString GetPEFileVersion(const CString &strExeOrDllFilePath);
-CString GetPEProductVersion(const CString &strExeOrDllFilePath);
+CString GetPEFileVersion(const CString &strExeOrDllFilePath, BOOL bCompact = TRUE, BOOL bMoreCompact = FALSE);
+CString GetPEProductVersion(const CString &strExeOrDllFilePath, BOOL bCompact = TRUE, BOOL bMoreCompact = FALSE);
 CString GetModuleFilePath(HMODULE hModule = NULL);

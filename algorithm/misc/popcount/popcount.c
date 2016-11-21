@@ -30,3 +30,5 @@ int main()
 // GCC/Clang: __builtin_popcount(unsigned int) / __builtin_popcountl(unsigned long)
 // MSVC: __popcnt(unsigned int)
 // ICC: _mm_popcnt_u32(unsigned int)
+//
+// https://www.zhihu.com/question/52726115

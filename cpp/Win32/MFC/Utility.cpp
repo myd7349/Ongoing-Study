@@ -585,35 +585,68 @@ BOOL GetPEFixedFileVersion(const CString &strExeOrDllFilePath, VS_FIXEDFILEINFO 
     return ffi.dwSignature == 0xFEEF04BD;
 }
 
-CString GetPEFileVersion(const CString &strExeOrDllFilePath)
+// Q1: 
+// Will:
+//   printf("%d", 1, 2, 3, 4, 5);
+// be OK?
+//
+// (1) http://stackoverflow.com/questions/3578970/passing-too-many-arguments-to-printf
+//
+// (2) cplusplus:cstdio:printf:
+// There should be at least as many of these arguments as the number of values specified
+// in the format specifiers. Additional arguments are ignored by the function.
+//
+// (3) ISO IEC 9899 2011 (C11)/7.21.6/2
+// If the format is exhausted while arguments remain, the excess arguments are
+// evaluated (as always) but are otherwise ignored.
+//
+// Q2:
+// Will:
+//   printf("%d %d", (short)1, (short)2);
+// be OK?
+//
+// http://www.stackoverflow.com/questions/1255775/default-argument-promotions-in-c-function-calls
+// http://www.stackoverflow.com/questions/8699812/what-is-the-format-specifier-for-unsigned-short-int
+// 
+CString VersionToString(DWORD dwVersionMS, DWORD dwVersionLS, BOOL bCompact, BOOL bMoreCompact)
 {
-    VS_FIXEDFILEINFO ffi;
-    if (!GetPEFixedFileVersion(strExeOrDllFilePath, ffi))
-        return _T("");
+    WORD wVersionLSHIWORD = HIWORD(dwVersionLS);
+    WORD wVersionLSLOWORD = LOWORD(dwVersionLS);
+    
+    LPCTSTR lpcszVersionFormatString = _T("%hu.%hu.%hu.%hu"); // Will _T("%u.%u.%u.%u") be OK here?
+    if (bCompact && 0 == wVersionLSLOWORD)
+    {
+        if (bMoreCompact && 0 == wVersionLSHIWORD)
+            lpcszVersionFormatString = _T("%hu.%hu");
+        else
+            lpcszVersionFormatString = _T("%hu.%hu.%hu");
+    }
 
-    CString strFileVersion;
-    strFileVersion.Format(_T("%d.%d.%d.%d"),
-        HIWORD(ffi.dwFileVersionMS),
-        LOWORD(ffi.dwFileVersionMS),
-        HIWORD(ffi.dwFileVersionLS),
-        LOWORD(ffi.dwFileVersionLS));
-    return strFileVersion;
+    CString strVersion;
+    strVersion.Format(lpcszVersionFormatString,
+        HIWORD(dwVersionMS),
+        LOWORD(dwVersionMS),
+        wVersionLSHIWORD,
+        wVersionLSLOWORD);
+    return strVersion;
 }
 
-CString GetPEProductVersion(const CString &strExeOrDllFilePath)
+CString GetPEFileVersion(const CString &strExeOrDllFilePath, BOOL bCompact, BOOL bMoreCompact)
 {
     VS_FIXEDFILEINFO ffi;
     if (!GetPEFixedFileVersion(strExeOrDllFilePath, ffi))
         return _T("");
 
-    CString strProductVersion;
-    strProductVersion.Format(_T("%d.%d.%d.%d"),
-        HIWORD(ffi.dwProductVersionMS),
-        LOWORD(ffi.dwProductVersionMS),
-        HIWORD(ffi.dwProductVersionLS),
-        LOWORD(ffi.dwProductVersionLS));
+    return VersionToString(ffi.dwFileVersionMS, ffi.dwFileVersionLS, bCompact, bMoreCompact);
+}
 
-    return strProductVersion;
+CString GetPEProductVersion(const CString &strExeOrDllFilePath, BOOL bCompact, BOOL bMoreCompact)
+{
+    VS_FIXEDFILEINFO ffi;
+    if (!GetPEFixedFileVersion(strExeOrDllFilePath, ffi))
+        return _T("");
+
+    return VersionToString(ffi.dwProductVersionMS, ffi.dwProductVersionLS, bCompact, bMoreCompact);
 }
 
 CString GetModuleFilePath(HMODULE hModule)
