@@ -425,6 +425,33 @@ CString VariantToCString(REFVARIANT varIn)
 // http://www.codeproject.com/Articles/542/CString-Management
 #endif
 
+
+VARIANT CStringToVariant(const CString &strValue, VARTYPE vt)
+{
+    VARIANT v;
+    v.vt = vt;
+
+    switch (vt)
+    {
+    case VT_I1: v.cVal = (signed char)_ttoi(strValue); break;
+    case VT_I2: v.iVal = (short)_ttoi(strValue); break;
+    case VT_I4: v.lVal = _ttoi(strValue); break;
+    case VT_I8: v.llVal = _ttoi64(strValue); break;
+    case VT_UI1: v.bVal = (BYTE)_ttoi(strValue); break;
+    case VT_UI2: v.uiVal = (USHORT)_ttoi(strValue); break;
+    case VT_UI4: v.ulVal = _tcstoul(strValue, NULL, 10); break;
+    case VT_UI8: v.ulVal = _tcstoul(strValue, NULL, 10); break;
+    case VT_INT: v.intVal = _ttoi(strValue); break;
+    case VT_UINT: v.uintVal = _tcstoul(strValue, NULL, 10); break;
+    case VT_R4: v.fltVal = (float)_tcstod(strValue, NULL); break;
+    case VT_R8: v.dblVal = _tcstod(strValue, NULL); break;
+    case VT_BSTR: v.bstrVal = strValue.AllocSysString(); break;
+    default: v.vt = VT_EMPTY; break;
+    }
+
+    return v;
+}
+
 // 2015-09-10T12:27+08:00
 CString ExceptionToString(CException *e, LPCTSTR lpcszPrefix)
 {
