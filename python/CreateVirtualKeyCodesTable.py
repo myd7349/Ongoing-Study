@@ -4,14 +4,19 @@
 # 2016-11-24T15:41+08:00
 
 
+import functools
 import re
 import tokenize
 
 
+quote = lambda exp: r'\({0}\)'.format(exp)
+make_group = lambda exp: r'({0})'.format(exp)
+
 vkcode_re = r'[0-9A-Fa-f]{2}'
-vkcode_rng_re = '-'.join((vkcode_re, vkcode_re))
-quoted_vkcode_re = r'\({0}\)'.format(vkcode_re)
-quoted_vkcode_rng_re = r'\({0}\)'.format(vkcode_rng_re)
+quoted_vkcode_re = quote(vkcode_re)
+
+vkcode_rng_re = '-'.join((make_group(vkcode_re), make_group(vkcode_re)))
+quoted_vkcode_rng_re = quote(vkcode_rng_re)
 
 vkcode_symbol_re = r'VK_[A-Z0-9_]+'
 vkcode_line_re = ''.join((
@@ -22,13 +27,22 @@ vkcode_line_re = ''.join((
     '$',
     ))
 
+alphanumeric_description_re = r'^([^ ]+) key$'
+
 
 class VkCodeEntry:
-    def __init__(self, symbol='', id_=0, is_defined=False, comment=''):
-        self.symbol = symbol
+    def __init__(self, id_=0, symbol='', descriptions=None):
         self.id = id_
-        self.is_defined = is_defined
-        self.comment = comment
+        self.symbol = symbol
+        self.descriptions = descriptions
+        if self.descriptions is None:
+            self.descriptions = []
+
+    def generate_code(self, indent=4):
+        pass
+
+    def __str__(self):
+        return '{0}\t{1}'.format(self.id, self.symbol)
 
 
 class VkCodeSection:
@@ -36,7 +50,7 @@ class VkCodeSection:
         self.reset()
 
     def __bool__(self):
-        return bool(self.vkcode_line)
+        return bool(re.match(vkcode_line_re, self.vkcode_line))
 
     def __str__(self):
         return ''.join((self.vkcode_line, *self.descriptions))
@@ -47,11 +61,11 @@ class VkCodeSection:
         self.in_section = False
 
     def is_multiline_description(self):
-        assert len(self.descriptions) > 0, 'Doesn\' MSDN tell you what the meaning of this virtual-key code is???'
+        assert len(self.descriptions) > 0, 'Didn\'t MSDN tell you what the meaning of this virtual-key code is???'
         return len(self.descriptions) > 1
 
     def is_singleline_description(self):
-        assert len(self.descriptions) > 0, 'Doesn\' MSDN tell you what the meaning of this virtual-key code is???'
+        assert len(self.descriptions) > 0, 'Didn\'t MSDN tell you what the meaning of this virtual-key code is???'
         return len(self.descriptions) == 1
 
     def is_range(self):
@@ -62,7 +76,7 @@ class VkCodeSection:
         return self.is_singleline_description() and self.descriptions[0].strip() == 'Reserved'
 
     def is_undefined(self):
-        return self.is_singleline_description() and self.descriptions[0].strip() == 'Unassigned'
+        return self.is_singleline_description() and self.descriptions[0].strip() in ('Unassigned', 'Undefined')
 
     def feed_line(self, line):
         striped_line = line.rstrip()
@@ -83,12 +97,28 @@ class VkCodeSection:
     def parse(self):
         assert self, 'Invalid section!'
         
-        vkcode_entries = []
+        symbol = '0'
         
         if self.is_range():
-            pass
+            res = re.search(quoted_vkcode_rng_re, self.vkcode_line)
+            assert res, 'Pardon me???'
+            start_id, end_id = map(functools.partial(int, base=16), res.groups())
+            
+            for id_ in range(start_id, end_id+1):
+                yield VkCodeEntry(id_, symbol, self.descriptions)
         else:
-            entry = VkCodeEntry()
+            res = re.search(vkcode_symbol_re, self.vkcode_line)
+            if res:
+                symbol = res.group(0)
+            else:
+                if not self.is_reserved() and not self.is_undefined():
+                    res = re.search(alphanumeric_description_re, self.descriptions[0])
+                    if res:
+                        symbol = r"'{0}'".format(res.group(1))
+
+            id_ = int(re.search(quoted_vkcode_re, self.vkcode_line).group(0)[1:-1], base=16)
+
+            yield VkCodeEntry(id_, symbol, self.descriptions)
 
 
 def main():
@@ -107,8 +137,6 @@ def main():
             
             if not is_section_continuing:
                 vkcode_sections.append(section)
-                if __debug__:
-                    print(section.is_reserved(), section.vkcode_line, end='')
                 
                 section = VkCodeSection()
                 is_section_continuing = section.feed_line(lines[i])
@@ -120,8 +148,14 @@ def main():
         if section:
             vkcode_sections.append(section)
 
+    print(len(vkcode_sections))
+    
     # 2. Parse all sections
-    vkcode_entries = []
+    for section in vkcode_sections:
+        for entry in section.parse():
+            print(entry)
+
+    # 3. Generate Virtual-Key Codes Table
 
 
 
