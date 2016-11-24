@@ -8,11 +8,13 @@ import functools
 import re
 import tokenize
 
+import tabulate
+
 
 quote = lambda exp: r'\({0}\)'.format(exp)
 make_group = lambda exp: r'({0})'.format(exp)
 
-vkcode_re = r'[0-9A-Fa-f]{2}'
+vkcode_re = r'[0-9A-Fa-f]{2}H?'
 quoted_vkcode_re = quote(vkcode_re)
 
 vkcode_rng_re = '-'.join((make_group(vkcode_re), make_group(vkcode_re)))
@@ -31,18 +33,31 @@ alphanumeric_description_re = r'^([^ ]+) key$'
 
 
 class VkCodeEntry:
-    def __init__(self, id_=0, symbol='', descriptions=None):
+    def __init__(self, id_=0, symbol='0', descriptions=None):
         self.id = id_
         self.symbol = symbol
         self.descriptions = descriptions
         if self.descriptions is None:
             self.descriptions = []
 
-    def generate_code(self, indent=4):
-        pass
+    def generate_code(self, indent=4, defined=False):
+        assert len(self.descriptions) >= 1, 'Didn\'t MSDN tell you what the meaning of this virtual-key code is???'
 
+        code_lines = [('{0}{1},'.format('//' if defined else '', self.symbol),
+                       '// {0}: {1}'.format(self.id, self.descriptions[0]))]
+        for additional_desc in self.descriptions[1:]:
+            code_lines.append((' ', '// ' + additional_desc))
+
+        return code_lines
+
+    def __lt__(self, entry):
+        return self.id < entry.id
+
+    def __eq__(self, entry):
+        return self.id == entry.id
+        
     def __str__(self):
-        return '{0}\t{1}'.format(self.id, self.symbol)
+        return tabulate.tabulate(self.generate_code(), tablefmt='plain')
 
 
 class VkCodeSection:
@@ -116,7 +131,7 @@ class VkCodeSection:
                     if res:
                         symbol = r"'{0}'".format(res.group(1))
 
-            id_ = int(re.search(quoted_vkcode_re, self.vkcode_line).group(0)[1:-1], base=16)
+            id_ = int(re.search(quoted_vkcode_re, self.vkcode_line).group(0)[1:3], base=16)
 
             yield VkCodeEntry(id_, symbol, self.descriptions)
 
@@ -147,16 +162,28 @@ def main():
         # The last section
         if section:
             vkcode_sections.append(section)
-
-    print(len(vkcode_sections))
     
     # 2. Parse all sections
-    for section in vkcode_sections:
-        for entry in section.parse():
-            print(entry)
-
+    vkcode_entries = [VkCodeEntry(descriptions=['-'])]
+    vkcode_entries.extend(entry
+                          for section in vkcode_sections
+                          for entry in section.parse()
+                          )
+    
     # 3. Generate Virtual-Key Codes Table
+    code_lines = []
+    already_defined_vkcodes = set()
 
+    for entry in vkcode_entries:
+        code_lines.extend(entry.generate_code(defined=entry.id in already_defined_vkcodes))
+        already_defined_vkcodes.add(entry.id)
+
+    # 4. At last...
+    print('static unsigned char VkCodesTable[] = {')
+    indent = ' ' * 4
+    for line in tabulate.tabulate(code_lines, tablefmt='plain').splitlines():
+        print(indent + line)
+    print('};')
 
 
 if __name__ == '__main__':
