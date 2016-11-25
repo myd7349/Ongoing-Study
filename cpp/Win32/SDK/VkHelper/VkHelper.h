@@ -11,10 +11,12 @@
 namespace VkUtils {
     typedef WORD vk_t;
 
+    const vk_t InvalidVkCode = 0;
+
     bool IsKnownVkCode(vk_t vkcode);
 
     std::wstring GetVkName(vk_t vkcode, bool isExtended = false);
-    vk_t GetVkCode(std::wstring keyName);
+    vk_t GetVkCode(const std::wstring &keyName);
 }
 
 #endif // VKHELPER_H_
