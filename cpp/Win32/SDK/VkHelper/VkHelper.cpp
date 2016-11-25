@@ -38,7 +38,7 @@ namespace {
 
             for (size_t i = 0; i < ARRAYSIZE(VkCodesTable); ++i) {
                 if (VkUtils::IsKnownVkCode(VkCodesTable[i])) {
-                    keyName = VkUtils::GetVkName(VkCodesTable[i]);
+                    keyName = VkUtils::Detail::GetVkName(VkCodesTable[i]);
                     if (!keyName.empty()) {
                         ToLowerInPlace(keyName);
                         vkcode_map_[keyName] = static_cast<VkUtils::vk_t>(VkCodesTable[i]);
@@ -64,28 +64,7 @@ namespace VkUtils {
 
     std::wstring GetVkName(vk_t vkcode, bool isExtended)
     {
-        bool isKnownVkCode = IsKnownVkCode(vkcode);
-        if (!isKnownVkCode)
-            return std::wstring();
-
-        // MFC: CHotKeyCtrl::GetKeyName
-        LONG lScan = MapVirtualKey(vkcode, 0) << 16;
-
-        if (isExtended)
-            lScan |= 0x01000000L;
-
-        size_t bufferLength = 64;
-        std::vector<wchar_t> stringBuffer;
-        size_t length = 0;
-
-        do {
-            bufferLength *= 2;
-            stringBuffer.resize(bufferLength);
-            LPWSTR psz = stringBuffer.data();
-            length = ::GetKeyNameTextW(lScan, psz, bufferLength);
-        } while (length == bufferLength);
-
-        return std::wstring(stringBuffer.cbegin(), stringBuffer.cbegin() + length);
+        return Detail::GetVkName(vkcode, isExtended);
     }
 
     // I didn't find the counterpart of GetKeyNameTextW which can get the virtual
@@ -93,5 +72,33 @@ namespace VkUtils {
     vk_t GetVkCode(const std::wstring &keyName)
     {
         return VkCodeMap_[keyName];
+    }
+
+    namespace Detail {
+        std::wstring GetVkName(vk_t vkcode, bool isExtended)
+        {
+            bool isKnownVkCode = IsKnownVkCode(vkcode);
+            if (!isKnownVkCode)
+                return std::wstring();
+
+            // MFC: CHotKeyCtrl::GetKeyName
+            LONG lScan = ::MapVirtualKey(vkcode, 0) << 16;
+
+            if (isExtended)
+                lScan |= 0x01000000L;
+
+            size_t bufferLength = 64;
+            std::vector<wchar_t> stringBuffer;
+            size_t length = 0;
+
+            do {
+                bufferLength *= 2;
+                stringBuffer.resize(bufferLength);
+                LPWSTR psz = stringBuffer.data();
+                length = ::GetKeyNameTextW(lScan, psz, bufferLength);
+            } while (length == bufferLength);
+
+            return std::wstring(stringBuffer.cbegin(), stringBuffer.cbegin() + length);
+        }
     }
 }

@@ -25,5 +25,10 @@ int main()
     PRINT_VK_NAME(VkUtils::GetVkCode(L"num 0"));
     PRINT_VK_NAME(VkUtils::GetVkCode(L"0"));
 
+    DIVIDING_LINE_1('+');
+
+    PRINT_VK_NAME(VkUtils::GetVkCode(L" a "));
+    PRINT_VK_NAME(VkUtils::GetVkCode(L" B "));
+
     return 0;
 }

@@ -14,9 +14,12 @@ namespace VkUtils {
     const vk_t InvalidVkCode = 0;
 
     bool IsKnownVkCode(vk_t vkcode);
-
     std::wstring GetVkName(vk_t vkcode, bool isExtended = false);
     vk_t GetVkCode(const std::wstring &keyName);
+
+    namespace Detail {
+        std::wstring GetVkName(vk_t vkcode, bool isExtended = false);
+    }
 }
 
 #endif // VKHELPER_H_
