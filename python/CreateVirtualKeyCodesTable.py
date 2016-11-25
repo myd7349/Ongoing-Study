@@ -13,12 +13,12 @@ import tabulate
 
 
 quote = lambda exp: r'\({0}\)'.format(exp)
-make_group = lambda exp: r'({0})'.format(exp)
+group = tokenize.group
 
 vkcode_re = r'[0-9A-Fa-f]{2}H?'
 quoted_vkcode_re = quote(vkcode_re)
 
-vkcode_rng_re = '-'.join((make_group(vkcode_re), make_group(vkcode_re)))
+vkcode_rng_re = '-'.join((group(vkcode_re), group(vkcode_re)))
 quoted_vkcode_rng_re = quote(vkcode_rng_re)
 
 vkcode_symbol_re = r'VK_[A-Z0-9_]+'
@@ -26,7 +26,7 @@ vkcode_line_re = ''.join((
     '^'
     '.*',
     ' ',
-    tokenize.group(quoted_vkcode_re, quoted_vkcode_rng_re),
+    group(quoted_vkcode_re, quoted_vkcode_rng_re),
     '$',
     ))
 
