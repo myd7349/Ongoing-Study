@@ -4,11 +4,10 @@
 #include "../../../common.h"
 #include "../../../dividing_lines.h"
 
-#include "Vkhelper.h"
+#include "VkHelper.h"
 
-#define PRINT_VK_NAME(vk) std::wcout << #vk << ": " << VkUtils::GetVkName(vk) << std::endl
+#define PRINT_VK_NAME(vk) std::wcout << #vk << "(" << vk << "): " << VkUtils::GetVkName(vk) << std::endl
 
-#include "../../../strutils.hpp"
 
 int main()
 {
@@ -32,6 +31,7 @@ int main()
     PRINT_VK_NAME(VkUtils::GetVkCode(L" a "));
     PRINT_VK_NAME(VkUtils::GetVkCode(L" B "));
     PRINT_VK_NAME(VkUtils::GetVkCode(L" cTrL "));
+    PRINT_VK_NAME(VkUtils::GetVkCode(L" myd "));
 
     return 0;
 }
