@@ -32,7 +32,7 @@ namespace {
     typedef std::unordered_map<std::wstring,
                                VkUtils::vk_t,
                                VkNameHashFunctor,
-                               std::pointer_to_binary_function<const std::wstring &, const std::wstring &, bool>> VkNameToCodeMap;
+                               VkNameEqualFunctor> VkNameToCodeMap;
     typedef std::unordered_map<VkUtils::vk_t, std::wstring> VkCodeToNameMap;
 
     class VkCodeHelper_ {
@@ -40,7 +40,7 @@ namespace {
         VkCodeHelper_() : vkname_map_(
             static_cast<VkNameToCodeMap::size_type>(0),
             VkNameToCodeMap::hasher(),
-            std::ptr_fun(StringICompare<wchar_t>)
+            VkNameToCodeMap::key_equal()
         ) {
             InitializeVkCodeMap();
         }

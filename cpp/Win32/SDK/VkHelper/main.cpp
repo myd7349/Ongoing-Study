@@ -31,11 +31,7 @@ int main()
 
     PRINT_VK_NAME(VkUtils::GetVkCode(L" a "));
     PRINT_VK_NAME(VkUtils::GetVkCode(L" B "));
-
-    std::string a = " abc ";
-    TrimInPlace(a);
-    std::cout << "1" << a << "2" << std::endl;
-    PAUSE();
+    PRINT_VK_NAME(VkUtils::GetVkCode(L" cTrL "));
 
     return 0;
 }
