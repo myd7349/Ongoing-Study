@@ -1,6 +1,8 @@
 #include "VkHelper.h"
 
 #include <cassert>
+#include <functional>
+#include <memory>
 #include <stddef.h>
 #include <unordered_map>
 #include <vector>
@@ -12,12 +14,33 @@
 #include "VkCodesTable.inl"
 
 namespace {
-    typedef std::unordered_map<std::wstring, VkUtils::vk_t> VkNameToCodeMap;
+    struct WStringIHash {
+        size_t operator()(const std::wstring &key) const {
+            return hash_(ToLower(key));
+        }
+
+    private:
+        std::hash<std::wstring> hash_;
+    };
+
+    struct WStringICompareFunctor : std::binary_function<std::wstring, std::wstring, bool> {
+        bool operator() (const std::wstring &lhs, const std::wstring &rhs) const {
+            return StringICompare(lhs, rhs);
+        }
+    };
+
+    typedef std::unordered_map<std::wstring,
+                               VkUtils::vk_t,
+                               WStringIHash,
+                               WStringICompareFunctor> VkNameToCodeMap;
     typedef std::unordered_map<VkUtils::vk_t, std::wstring> VkCodeToNameMap;
 
     class VkCodeHelper_ {
     public:
-        VkCodeHelper_() {
+        VkCodeHelper_()
+            : vkname_map_(static_cast<VkNameToCodeMap::size_type>(0U),
+                          VkNameToCodeMap::hasher(),
+                          VkNameToCodeMap::key_equal()) {
             InitializeVkCodeMap();
         }
 
@@ -25,8 +48,7 @@ namespace {
             if (keyName.empty())
                 return VkUtils::InvalidVkCode;
 
-            std::wstring key = ToLower(keyName);
-            VkNameToCodeMap::const_iterator it = vkname_map_.find(key);
+            VkNameToCodeMap::const_iterator it = vkname_map_.find(keyName);
             if (it != vkname_map_.cend())
                 return it->second;
 
@@ -43,20 +65,21 @@ namespace {
 
     private:
         void InitializeVkCodeMap() {
-            // 1. Build Name=>Code Map;
             std::wstring keyName;
 
             for (size_t i = 0; i < ARRAYSIZE(VkCodesTable); ++i) {
                 if (VkUtils::IsKnownVkCode(VkCodesTable[i])) {
                     keyName = VkUtils::Detail::GetVkName(VkCodesTable[i]);
-                    if (!keyName.empty())
-                        vkname_map_[keyName] = static_cast<VkUtils::vk_t>(VkCodesTable[i]);
+                    if (!keyName.empty()) {
+                        // 1. Build Name=>Code Map;
+                        if (vkname_map_.find(keyName) == vkname_map_.cend()) // VK_CONTROL, VK_LCONTROL, VK_RCONTROL => VK_CONTROL
+                            vkname_map_[keyName] = VkCodesTable[i];
+
+                        // 2. Build Code=>Name Map;
+                        vkcode_map_[VkCodesTable[i]] = keyName;
+                    }
                 }
             }
-
-            // 2. Build Code=>Name Map;
-            for (VkNameToCodeMap::const_iterator it = vkname_map_.cbegin(); it != vkname_map_.cend(); ++it)
-                vkcode_map_[it->second] = it->first;
         }
 
         VkNameToCodeMap vkname_map_;
