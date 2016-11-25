@@ -14,7 +14,7 @@
 #include "VkCodesTable.inl"
 
 namespace {
-    struct WStringIHash {
+    struct WStringIHashFunctor {
         size_t operator()(const std::wstring &key) const {
             return hash_(ToLower(key));
         }
@@ -23,7 +23,7 @@ namespace {
         std::hash<std::wstring> hash_;
     };
 
-    struct WStringICompareFunctor : std::binary_function<std::wstring, std::wstring, bool> {
+    struct WStringICompareFunctor {
         bool operator() (const std::wstring &lhs, const std::wstring &rhs) const {
             return StringICompare(lhs, rhs);
         }
@@ -31,16 +31,13 @@ namespace {
 
     typedef std::unordered_map<std::wstring,
                                VkUtils::vk_t,
-                               WStringIHash,
+                               WStringIHashFunctor,
                                WStringICompareFunctor> VkNameToCodeMap;
     typedef std::unordered_map<VkUtils::vk_t, std::wstring> VkCodeToNameMap;
 
     class VkCodeHelper_ {
     public:
-        VkCodeHelper_()
-            : vkname_map_(static_cast<VkNameToCodeMap::size_type>(0U),
-                          VkNameToCodeMap::hasher(),
-                          VkNameToCodeMap::key_equal()) {
+        VkCodeHelper_() {
             InitializeVkCodeMap();
         }
 
