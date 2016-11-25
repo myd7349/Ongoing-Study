@@ -37,11 +37,7 @@ namespace {
 
     class VkCodeHelper_ {
     public:
-        VkCodeHelper_() : vkname_map_(
-            static_cast<VkNameToCodeMap::size_type>(0),
-            VkNameToCodeMap::hasher(),
-            VkNameToCodeMap::key_equal()
-        ) {
+        VkCodeHelper_() {
             InitializeVkCodeMap();
         }
 
