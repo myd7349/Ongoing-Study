@@ -40,7 +40,7 @@ class VkCodeEntry:
         if self.descriptions is None:
             self.descriptions = []
 
-    def generate_code(self, indent=4, defined=False):
+    def generate_code(self, defined=False):
         assert len(self.descriptions) >= 1, 'Didn\'t MSDN tell you what the meaning of this virtual-key code is???'
 
         code_lines = [('{0}{1},'.format('//' if defined else '', self.symbol),
