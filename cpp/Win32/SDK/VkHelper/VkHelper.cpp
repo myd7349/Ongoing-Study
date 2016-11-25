@@ -2,7 +2,6 @@
 
 #include <cassert>
 #include <functional>
-#include <memory>
 #include <stddef.h>
 #include <unordered_map>
 #include <vector>
@@ -13,31 +12,36 @@
 
 #include "VkCodesTable.inl"
 
+
 namespace {
-    struct WStringIHashFunctor {
+    struct VkNameHashFunctor {
         size_t operator()(const std::wstring &key) const {
-            return hash_(ToLower(key));
+            return hash_(Trim(ToLower(key)));
         }
 
     private:
         std::hash<std::wstring> hash_;
     };
 
-    struct WStringICompareFunctor {
-        bool operator() (const std::wstring &lhs, const std::wstring &rhs) const {
-            return StringICompare(lhs, rhs);
+    struct VkNameEqualFunctor {
+        bool operator()(const std::wstring &lhs, const std::wstring &rhs) const {
+            return StringICompare(Trim(lhs), Trim(rhs));
         }
     };
 
     typedef std::unordered_map<std::wstring,
                                VkUtils::vk_t,
-                               WStringIHashFunctor,
-                               WStringICompareFunctor> VkNameToCodeMap;
+                               VkNameHashFunctor,
+                               std::pointer_to_binary_function<const std::wstring &, const std::wstring &, bool>> VkNameToCodeMap;
     typedef std::unordered_map<VkUtils::vk_t, std::wstring> VkCodeToNameMap;
 
     class VkCodeHelper_ {
     public:
-        VkCodeHelper_() {
+        VkCodeHelper_() : vkname_map_(
+            static_cast<VkNameToCodeMap::size_type>(0),
+            VkNameToCodeMap::hasher(),
+            std::ptr_fun(StringICompare<wchar_t>)
+        ) {
             InitializeVkCodeMap();
         }
 

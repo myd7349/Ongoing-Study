@@ -8,6 +8,8 @@
 
 #define PRINT_VK_NAME(vk) std::wcout << #vk << ": " << VkUtils::GetVkName(vk) << std::endl
 
+#include "../../../strutils.hpp"
+
 int main()
 {
     PRINT_VK_NAME(VK_F1);
@@ -30,6 +32,9 @@ int main()
     PRINT_VK_NAME(VkUtils::GetVkCode(L" a "));
     PRINT_VK_NAME(VkUtils::GetVkCode(L" B "));
 
+    std::string a = " abc ";
+    TrimInPlace(a);
+    std::cout << "1" << a << "2" << std::endl;
     PAUSE();
 
     return 0;
