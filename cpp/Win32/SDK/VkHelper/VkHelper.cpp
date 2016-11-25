@@ -13,6 +13,7 @@
 
 namespace {
     typedef std::unordered_map<std::wstring, VkUtils::vk_t> VkNameToCodeMap;
+    typedef std::unordered_map<VkUtils::vk_t, std::wstring> VkCodeToNameMap;
 
     class VkCodeHelper_ {
     public:
@@ -25,29 +26,43 @@ namespace {
                 return VkUtils::InvalidVkCode;
 
             std::wstring key = ToLower(keyName);
-            VkNameToCodeMap::const_iterator it = vkcode_map_.find(key);
-            if (it != vkcode_map_.cend())
+            VkNameToCodeMap::const_iterator it = vkname_map_.find(key);
+            if (it != vkname_map_.cend())
                 return it->second;
 
             return VkUtils::InvalidVkCode;
         }
 
+        const std::wstring &operator[](VkUtils::vk_t vk) {
+            VkCodeToNameMap::const_iterator it = vkcode_map_.find(vk);
+            if (it != vkcode_map_.cend())
+                return it->second;
+
+            return dummy_;
+        }
+
     private:
         void InitializeVkCodeMap() {
+            // 1. Build Name=>Code Map;
             std::wstring keyName;
 
             for (size_t i = 0; i < ARRAYSIZE(VkCodesTable); ++i) {
                 if (VkUtils::IsKnownVkCode(VkCodesTable[i])) {
                     keyName = VkUtils::Detail::GetVkName(VkCodesTable[i]);
-                    if (!keyName.empty()) {
-                        ToLowerInPlace(keyName);
-                        vkcode_map_[keyName] = static_cast<VkUtils::vk_t>(VkCodesTable[i]);
-                    }
+                    if (!keyName.empty())
+                        vkname_map_[keyName] = static_cast<VkUtils::vk_t>(VkCodesTable[i]);
                 }
             }
+
+            // 2. Build Code=>Name Map;
+            for (VkNameToCodeMap::const_iterator it = vkname_map_.cbegin(); it != vkname_map_.cend(); ++it)
+                vkcode_map_[it->second] = it->first;
         }
 
-        VkNameToCodeMap vkcode_map_;
+        VkNameToCodeMap vkname_map_;
+        VkCodeToNameMap vkcode_map_;
+
+        std::wstring dummy_;
     } VkCodeMap_;
 }
 
@@ -64,7 +79,7 @@ namespace VkUtils {
 
     std::wstring GetVkName(vk_t vkcode, bool isExtended)
     {
-        return Detail::GetVkName(vkcode, isExtended);
+        return VkCodeMap_[vkcode];
     }
 
     // I didn't find the counterpart of GetKeyNameTextW which can get the virtual
@@ -79,7 +94,7 @@ namespace VkUtils {
         {
             bool isKnownVkCode = IsKnownVkCode(vkcode);
             if (!isKnownVkCode)
-                return std::wstring();
+                return L"";
 
             // MFC: CHotKeyCtrl::GetKeyName
             LONG lScan = ::MapVirtualKey(vkcode, 0) << 16;
