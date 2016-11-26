@@ -6,11 +6,8 @@
 
 bool IsValidAccelModifiers(WORD wAccelModifiers)
 {
-    ClearBits(wAccelModifiers, (WORD)FVIRTKEY);
-    ClearBits(wAccelModifiers, (WORD)FCONTROL);
-    ClearBits(wAccelModifiers, (WORD)FSHIFT);
-    ClearBits(wAccelModifiers, (WORD)FALT);
-    return wAccelModifiers == 0;
+    return ClearBits(wAccelModifiers,
+        static_cast<WORD>(FVIRTKEY | FCONTROL | FSHIFT | FALT)) == 0;
 }
 
 bool IsValidAccel(ACCEL accel)

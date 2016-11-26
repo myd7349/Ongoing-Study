@@ -105,6 +105,7 @@ inline string_list split(const CharT *s, CharT ch)
     return split(std::basic_string<CharT>(s), ch);
 }
 
+#undef string_list
 
 #endif // SPLIT_HPP_
 

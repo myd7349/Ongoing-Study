@@ -32,9 +32,16 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="AccelHelper.cpp" />
+		<Unit filename="AccelHelper.h" />
+		<Unit filename="HotKeyHelper.cpp" />
+		<Unit filename="HotKeyHelper.h" />
+		<Unit filename="KeySequence.cpp" />
+		<Unit filename="KeySequence.h" />
 		<Unit filename="VkCodesTable.inl" />
 		<Unit filename="VkHelper.cpp" />
 		<Unit filename="VkHelper.h" />
+		<Unit filename="Win32Cmn.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

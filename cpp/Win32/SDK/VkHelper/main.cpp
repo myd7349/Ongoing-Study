@@ -38,6 +38,18 @@ int main()
     PRINT_KEY_SEQ(KeySequence(VK_F1));
     PRINT_KEY_SEQ(KeySequence('A', HOTKEYF_CONTROL));
     PRINT_KEY_SEQ(KeySequence('F', HOTKEYF_CONTROL | HOTKEYF_SHIFT | HOTKEYF_ALT));
+    PRINT_KEY_SEQ(KeySequence());
+
+    DIVIDING_LINE_1('.');
+    PRINT_KEY_SEQ(KeySequence(L"f12"));
+    PRINT_KEY_SEQ(KeySequence(L"ctrl+s"));
+    PRINT_KEY_SEQ(KeySequence(L"alt+ctrl+shift+1"));
+    PRINT_KEY_SEQ(KeySequence(L"ctrl/shift/alt/F12", L"/"));
+    PRINT_KEY_SEQ(KeySequence(L"ctrl+ctrl+s"));
+    PRINT_KEY_SEQ(KeySequence(L"ctrl"));
+    PRINT_KEY_SEQ(KeySequence(L"ctrl+s+"));
+    PRINT_KEY_SEQ(KeySequence(L" cTrL + f "));
+    PRINT_KEY_SEQ(KeySequence(L"ctrl+s+s"));
 
     return 0;
 }

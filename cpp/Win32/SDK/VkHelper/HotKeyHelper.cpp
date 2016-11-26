@@ -6,11 +6,8 @@
 
 bool IsValidHotKeyModifiers(WORD wHotKeyModifiers)
 {
-    ClearBits(wHotKeyModifiers, (WORD)HOTKEYF_CONTROL);
-    ClearBits(wHotKeyModifiers, (WORD)HOTKEYF_ALT);
-    ClearBits(wHotKeyModifiers, (WORD)HOTKEYF_SHIFT);
-    ClearBits(wHotKeyModifiers, (WORD)HOTKEYF_EXT);
-    return wHotKeyModifiers == 0;
+    return ClearBits(wHotKeyModifiers,
+        static_cast<WORD>(HOTKEYF_CONTROL | HOTKEYF_ALT | HOTKEYF_SHIFT | HOTKEYF_EXT)) == 0;
 }
 
 bool IsValidHotKey(WORD wVk, WORD wModifiers)
