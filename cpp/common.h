@@ -151,6 +151,14 @@ inline void Println(const Container &c)
     std::cout << std::endl;
 }
 
+#define Assert(expr, msg) assert(((void)msg, expr))
+
+#ifdef NDEBUG
+# define Verify(exp) (exp)
+#else
+# define Verify(exp) assert(exp)
+#endif
+
 // To be continued...
 
 #endif // COMMON_H_
