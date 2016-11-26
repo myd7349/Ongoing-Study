@@ -3,8 +3,7 @@
 #define SPLIT_HPP_
 
 #include <cassert>
-#include <cstring>
-#include <stddef.h>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -24,19 +23,16 @@ string_list split_by_tokens(const std::basic_string<CharT> &s, const std::basic_
 {
     string_list slist;
 
-    size_t start = 0;
-    size_t pos;
+    typename std::basic_string<CharT>::size_type start = 0;
+    typename std::basic_string<CharT>::size_type pos;
 
-    while (start < s.length()) {
-        pos = s.find_first_of(tokens, start);
-        if (pos != s.npos) {
-            slist.push_back(s.substr(start, pos - start));
-            start = pos + 1;
-        } else {
-            slist.push_back(s.substr(start));
-            break;
-        }
+    while ((pos = s.find_first_of(tokens, start)) != s.npos) {
+        slist.push_back(s.substr(start, pos - start));
+        start = pos + 1;
     }
+
+    if (start < s.length())
+        slist.push_back(s.substr(start));
 
     return slist;
 }
@@ -55,27 +51,62 @@ inline string_list split_by_tokens(const CharT *s, const CharT *tokens)
     return split_by_tokens(std::basic_string<CharT>(s), tokens);
 }
 
+// Use strstr/wcsstr instead?
 template <typename CharT>
 string_list split(const std::basic_string<CharT> &s, const std::basic_string<CharT> &delimiter)
 {
+    string_list slist;
 
+    typename std::basic_string<CharT>::size_type start = 0;
+    typename std::basic_string<CharT>::size_type pos;
+
+    while ((pos = s.find(delimiter, start)) != s.npos) {
+        slist.push_back(s.substr(start, pos - start));
+        start = pos + delimiter.length();
+    }
+
+    if (start < s.length())
+        slist.push_back(s.substr(start));
+
+    return slist;
 }
 
 template <typename CharT>
 inline string_list split(const std::basic_string<CharT> &s, const CharT *delimiter)
 {
+    assert(delimiter != nullptr);
     return split(s, std::basic_string<CharT>(delimiter));
 }
 
+template <typename CharT>
+inline string_list split(const CharT *s, const CharT *delimiter)
+{
+    assert(s != nullptr);
+    return split(std::basic_string<CharT>(s), delimiter);
+}
+
+// Use strchr/wcschr instead?
 template <typename CharT>
 string_list split(const std::basic_string<CharT> &s, CharT ch)
 {
     string_list slist;
 
-
+    std::basic_istringstream<CharT> ss(s);
+    std::basic_string<CharT> item;
+    while (std::getline(ss, item, ch))
+        slist.push_back(item);
 
     return slist;
 }
 
+template <typename CharT>
+inline string_list split(const CharT *s, CharT ch)
+{
+    return split(std::basic_string<CharT>(s), ch);
+}
+
 
 #endif // SPLIT_HPP_
+
+// References:
+// [Split a string in C++?](http://stackoverflow.com/questions/236129/split-a-string-in-c)
