@@ -1,6 +1,5 @@
 #include "VkHelper.h"
 
-#include <cassert>
 #include <functional>
 #include <stddef.h>
 #include <unordered_map>
@@ -95,6 +94,28 @@ namespace VkUtils {
             return false;
 
         return VkCodesTable[static_cast<int>(vkcode)] == static_cast<unsigned char>(vkcode);
+    }
+
+    bool IsModifier(vk_t vkcode)
+    {
+        switch (vkcode)
+        {
+        case VK_CONTROL:
+        case VK_LCONTROL:
+        case VK_RCONTROL:
+        case VK_SHIFT:
+        case VK_LSHIFT:
+        case VK_RSHIFT:
+        case VK_MENU:
+        case VK_LMENU:
+        case VK_RMENU:
+            return true;
+            break;
+        default:
+            break;
+        }
+
+        return false;
     }
 
     std::wstring GetVkName(vk_t vkcode, bool isExtended)

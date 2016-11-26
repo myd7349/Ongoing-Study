@@ -3,11 +3,11 @@
 
 #include "../../../common.h"
 #include "../../../dividing_lines.h"
+#include "KeySequence.h"
 
-#include "VkHelper.h"
+#define PRINT_VK_NAME(vk) std::wcout << #vk << L"(" << vk << L"): " << VkUtils::GetVkName(vk) << std::endl
 
-#define PRINT_VK_NAME(vk) std::wcout << #vk << "(" << vk << "): " << VkUtils::GetVkName(vk) << std::endl
-
+#define PRINT_KEY_SEQ(keySeq) std::wcout << #keySeq << L": " << keySeq.ToString() << std::endl
 
 int main()
 {
@@ -32,6 +32,12 @@ int main()
     PRINT_VK_NAME(VkUtils::GetVkCode(L" B "));
     PRINT_VK_NAME(VkUtils::GetVkCode(L" cTrL "));
     PRINT_VK_NAME(VkUtils::GetVkCode(L" myd "));
+
+    DIVIDING_LINE_1('>');
+
+    PRINT_KEY_SEQ(KeySequence(VK_F1));
+    PRINT_KEY_SEQ(KeySequence('A', HOTKEYF_CONTROL));
+    PRINT_KEY_SEQ(KeySequence('F', HOTKEYF_CONTROL | HOTKEYF_SHIFT | HOTKEYF_ALT));
 
     return 0;
 }

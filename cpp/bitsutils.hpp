@@ -5,19 +5,21 @@
 // TODO: Concepts
 
 template <typename T>
-inline T SetBits(T value, T bits)
+inline T SetBits(T &value, T bits)
 {
-    return value | bits;
+    value |= bits;
+    return value;
 }
 
 template <typename T>
-inline T ClearBits(T value, T bits)
+inline T ClearBits(T &value, T bits)
 {
-    return value & (~bits);
+    value &= (~bits);
+    return value;
 }
 
 template <typename T>
-inline T TriggleBits(T value, T bits, bool set)
+inline T TriggleBits(T &value, T bits, bool set)
 {
     return set ? SetBits(value, bits) : ClearBits(value, bits);
 }
