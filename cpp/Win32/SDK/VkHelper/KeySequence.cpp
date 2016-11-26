@@ -56,7 +56,7 @@ bool KeySequence::IsValid() const
     return VkUtils::IsKnownVkCode(vk_) && !VkUtils::IsModifier(vk_);
 }
 
-std::wstring KeySequence::ToString() const
+std::wstring KeySequence::ToString(const std::wstring &delimiter) const
 {
     if (!IsValid())
         return L"";
@@ -73,7 +73,7 @@ std::wstring KeySequence::ToString() const
 
     keys.push_back(VkUtils::GetVkName(vk_));
 
-    return join(keys.cbegin(), keys.cend(), plus_);
+    return join(keys.cbegin(), keys.cend(), delimiter.empty() ? plus_ : delimiter);
 }
 
 ACCEL KeySequence::ToAccel() const
@@ -126,6 +126,8 @@ void KeySequence::CreateFromString(const std::wstring &keySequence, const std::w
 
     for (std::vector<std::wstring>::const_iterator it = keys.cbegin(); it != keys.cend(); ++it) {
         code = VkUtils::GetVkCode(*it);
+        if (!VkUtils::IsKnownVkCode(code))
+            return;
 
         switch (code) {
         case VK_CONTROL:

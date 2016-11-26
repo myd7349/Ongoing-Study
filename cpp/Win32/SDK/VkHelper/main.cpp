@@ -7,7 +7,7 @@
 
 #define PRINT_VK_NAME(vk) std::wcout << #vk << L"(" << vk << L"): " << VkUtils::GetVkName(vk) << std::endl
 
-#define PRINT_KEY_SEQ(keySeq) std::wcout << #keySeq << L": " << keySeq.ToString() << std::endl
+#define PRINT_KEY_SEQ(keySeq) std::wcout << #keySeq << L": " << keySeq.ToString(L"_") << std::endl
 
 int main()
 {

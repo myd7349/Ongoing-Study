@@ -15,7 +15,7 @@ public:
     KeySequence(WORD wVirtualKey, WORD wHotKeyModifiers);
 
     bool IsValid() const;
-    std::wstring ToString() const;
+    std::wstring ToString(const std::wstring &delimiter = L"") const;
     ACCEL ToAccel() const;
     HotKey ToHotKey() const;
 
