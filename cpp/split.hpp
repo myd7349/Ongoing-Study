@@ -7,14 +7,8 @@
 #include <string>
 #include <vector>
 
-#define USE_CXX11_FEATURES (0)
 
-#if USE_CXX11_FEATURES
-template <CharT>
-using string_list = std::vector<std::basic_string<CharT>>;
-#else
-# define string_list std::vector<std::basic_string<CharT>>
-#endif // USE_CXX11_FEATURES
+#define string_list std::vector<std::basic_string<CharT>>
 
 
 // Behaves like strtok
