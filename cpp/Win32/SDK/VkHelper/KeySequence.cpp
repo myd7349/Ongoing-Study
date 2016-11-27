@@ -11,23 +11,27 @@
 std::wstring KeySequence::plus_ = L"+";
 
 
-KeySequence::KeySequence(VkUtils::vk_t vk)
-    : ctrl_(false), shift_(false), alt_(false), vk_(0)
+KeySequence::KeySequence(VkUtils::vk_t vk, bool ctrl, bool shift, bool alt)
+    : vk_(0), ctrl_(false), shift_(false), alt_(false)
 {
     bool ok = VkUtils::IsKnownVkCode(vk) && !VkUtils::IsModifier(vk);
     //Assert(ok, "Invalid virtual key code!");
-    if (ok)
+    if (ok) {
         vk_ = vk;
+        ctrl_ = ctrl;
+        shift_ = shift;
+        alt_ = alt;
+    }
 }
 
 KeySequence::KeySequence(const std::wstring &keySequence, const std::wstring &delimiter)
-    : ctrl_(false), shift_(false), alt_(false), vk_(0)
+    : vk_(0), ctrl_(false), shift_(false), alt_(false)
 {
     CreateFromString(keySequence, delimiter);
 }
 
 KeySequence::KeySequence(ACCEL accel)
-    : ctrl_(false), shift_(false), alt_(false), vk_(0)
+    : vk_(0), ctrl_(false), shift_(false), alt_(false)
 {
     bool ok = IsValidAccel(accel);
     Assert(ok, "Invalid ACCEL!");
@@ -40,13 +44,13 @@ KeySequence::KeySequence(ACCEL accel)
 }
 
 KeySequence::KeySequence(HotKey hotKey)
-    : ctrl_(false), shift_(false), alt_(false), vk_(0)
+    : vk_(0), ctrl_(false), shift_(false), alt_(false)
 {
     CreateFromHotKey(hotKey.wVk, hotKey.wModifiers);
 }
 
 KeySequence::KeySequence(WORD wVirtualKey, WORD wHotKeyModifiers)
-    : ctrl_(false), shift_(false), alt_(false), vk_(0)
+    : vk_(0), ctrl_(false), shift_(false), alt_(false)
 {
     CreateFromHotKey(wVirtualKey, wHotKeyModifiers);
 }
@@ -171,7 +175,7 @@ void KeySequence::CreateFromString(const std::wstring &keySequence, const std::w
 void KeySequence::CreateFromHotKey(WORD wVirtualKey, WORD wHotKeyModifiers)
 {
     bool ok = IsValidHotKey(wVirtualKey, wHotKeyModifiers);
-    Assert(ok, "Invalid hot key!");
+    //Assert(ok, "Invalid hot key!");
     if (ok) {
         vk_ = wVirtualKey;
         ctrl_ = IsBitsSet<int>(wHotKeyModifiers, HOTKEYF_CONTROL);

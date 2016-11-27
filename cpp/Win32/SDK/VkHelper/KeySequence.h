@@ -8,11 +8,11 @@
 
 class KeySequence {
 public:
-    explicit KeySequence(VkUtils::vk_t vk = 0);
+    KeySequence(VkUtils::vk_t vk, bool ctrl, bool shift, bool alt);
     explicit KeySequence(const std::wstring &keySequence, const std::wstring &delimiter = L"");
     explicit KeySequence(ACCEL accel);
     explicit KeySequence(HotKey hotKey);
-    KeySequence(WORD wVirtualKey, WORD wHotKeyModifiers);
+    explicit KeySequence(WORD wVirtualKey = 0, WORD wHotKeyModifiers = 0);
 
     bool IsValid() const;
     std::wstring ToString(const std::wstring &delimiter = L"") const;
@@ -23,10 +23,10 @@ private:
     void CreateFromString(const std::wstring &keySequence, const std::wstring &delimiter);
     void CreateFromHotKey(WORD wVirtualKey, WORD wHotKeyModifiers);
 
+    VkUtils::vk_t vk_;
     bool ctrl_;
     bool shift_;
     bool alt_;
-    VkUtils::vk_t vk_;
 
     static std::wstring plus_;
 };

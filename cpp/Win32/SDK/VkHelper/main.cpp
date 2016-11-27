@@ -7,7 +7,7 @@
 
 #define PRINT_VK_NAME(vk) std::wcout << #vk << L"(" << vk << L"): " << VkUtils::GetVkName(vk) << std::endl
 
-#define PRINT_KEY_SEQ(keySeq) std::wcout << #keySeq << L": " << keySeq.ToString(L"_") << std::endl
+#define PRINT_KEY_SEQ(keySeq) std::wcout << #keySeq << L": " << keySeq.ToString(L" + ") << std::endl
 
 int main()
 {
@@ -37,10 +37,12 @@ int main()
 
     PRINT_KEY_SEQ(KeySequence(VK_F1));
     PRINT_KEY_SEQ(KeySequence('A', HOTKEYF_CONTROL));
-    PRINT_KEY_SEQ(KeySequence('F', HOTKEYF_CONTROL | HOTKEYF_SHIFT | HOTKEYF_ALT));
+    PRINT_KEY_SEQ(KeySequence(L'F', HOTKEYF_CONTROL | HOTKEYF_SHIFT | HOTKEYF_ALT));
     PRINT_KEY_SEQ(KeySequence());
+    PRINT_KEY_SEQ(KeySequence(VK_F4, false, false, true));
 
     DIVIDING_LINE_1('.');
+
     PRINT_KEY_SEQ(KeySequence(L"f12"));
     PRINT_KEY_SEQ(KeySequence(L"ctrl+s"));
     PRINT_KEY_SEQ(KeySequence(L"alt+ctrl+shift+1"));
