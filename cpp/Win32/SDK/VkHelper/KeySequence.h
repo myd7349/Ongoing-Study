@@ -14,14 +14,20 @@ public:
     explicit KeySequence(HotKey hotKey);
     explicit KeySequence(WORD wVirtualKey = 0, WORD wHotKeyModifiers = 0);
 
+    void Clear();
+    bool Set(VkUtils::vk_t vk, bool ctrl, bool shift, bool alt);
+    bool Set(const std::wstring &keySequence, const std::wstring &delimiter = L"");
+    bool Set(ACCEL accel);
+    bool Set(HotKey hotKey);
+    bool Set(WORD wVirtualKey, WORD wHotKeyModifiers);
+
     bool IsValid() const;
     std::wstring ToString(const std::wstring &delimiter = L"") const;
     ACCEL ToAccel() const;
     HotKey ToHotKey() const;
 
 private:
-    void CreateFromString(const std::wstring &keySequence, const std::wstring &delimiter);
-    void CreateFromHotKey(WORD wVirtualKey, WORD wHotKeyModifiers);
+    bool CreateFromString(const std::wstring &keySequence, const std::wstring &delimiter);
 
     VkUtils::vk_t vk_;
     bool ctrl_;
