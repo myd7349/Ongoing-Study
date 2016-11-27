@@ -1,5 +1,6 @@
 // 2016-11-25T09:52+08:00
 #include <iostream>
+#include <unordered_set>
 
 #include "../../../common.h"
 #include "../../../dividing_lines.h"
@@ -55,8 +56,17 @@ int main()
 
     DIVIDING_LINE_1('#');
 
-    PRINT_KEY_SEQ(KeySequence(KeySequence(L"F1").ToHotKey()));
-    PRINT_KEY_SEQ(KeySequence(KeySequence(L"F1").ToAccel()));
+    PRINT_KEY_SEQ(KeySequence(KeySequence(L"Ctrl+F1").ToHotKey()));
+    PRINT_KEY_SEQ(KeySequence(KeySequence(L"Alt+S").ToAccel()));
+
+    DIVIDING_LINE_1('~');
+
+    std::unordered_set<KeySequence> keySequenceSet;
+    KeySequence ctrlS(L"Ctrl+S");
+    KeySequence ctrlS2(L'S', HOTKEYF_CONTROL);
+    keySequenceSet.insert(ctrlS);
+    if (keySequenceSet.find(ctrlS2) != keySequenceSet.cend())
+        std::cout << "Duplicated key sequence!\n";
 
     return 0;
 }

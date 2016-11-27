@@ -109,6 +109,11 @@ bool KeySequence::Set(WORD wVirtualKey, WORD wHotKeyModifiers)
     return ok;
 }
 
+bool KeySequence::IsEmpty() const
+{
+    return vk_ == 0 && !ctrl_ && !shift_ && !alt_;
+}
+
 bool KeySequence::IsValid() const
 {
     return VkUtils::IsKnownVkCode(vk_) && !VkUtils::IsModifier(vk_);
