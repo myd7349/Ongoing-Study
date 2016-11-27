@@ -136,10 +136,12 @@ std::wstring KeySequence::ToString(const std::wstring &delimiter) const
 
 ACCEL KeySequence::ToAccel() const
 {
-    ACCEL accel;
+    ACCEL accel = {};
 
     if (IsValid()) {
         accel.key = vk_;
+
+        SetBits(accel.fVirt, static_cast<BYTE>(FVIRTKEY));
 
         if (ctrl_)
             SetBits(accel.fVirt, static_cast<BYTE>(FCONTROL));
@@ -154,7 +156,7 @@ ACCEL KeySequence::ToAccel() const
 
 HotKey KeySequence::ToHotKey() const
 {
-    HotKey hotKey;
+    HotKey hotKey = {};
 
     if (IsValid()) {
         hotKey.wVk = vk_;

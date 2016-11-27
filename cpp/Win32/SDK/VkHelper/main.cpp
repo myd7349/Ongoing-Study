@@ -53,5 +53,10 @@ int main()
     PRINT_KEY_SEQ(KeySequence(L" cTrL + f "));
     PRINT_KEY_SEQ(KeySequence(L"ctrl+s+s"));
 
+    DIVIDING_LINE_1('#');
+
+    PRINT_KEY_SEQ(KeySequence(KeySequence(L"F1").ToHotKey()));
+    PRINT_KEY_SEQ(KeySequence(KeySequence(L"F1").ToAccel()));
+
     return 0;
 }
