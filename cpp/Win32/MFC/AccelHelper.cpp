@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "AccelHelper.h"
 
+#include "BitHelper.h"
+#include "VkHelper.h"
+
 // MSDN:
 // WM_SETHOTKEY
 // wParam
@@ -34,10 +37,7 @@ void DWORDToHotKey(DWORD dwHotKey, WORD &wVk, WORD &wModifiers)
 ACCEL HotKeyToACCEL(WORD wVk, WORD wModifiers)
 {
     ACCEL accel;
-    accel.fVirt = FVIRTKEY 
-        | ((wModifiers & HOTKEYF_ALT) ? FALT : 0)
-        | ((wModifiers & HOTKEYF_CONTROL) ? FCONTROL : 0)
-        | ((wModifiers & HOTKEYF_SHIFT) ? FSHIFT : 0);
+    accel.fVirt = (BYTE)HotKeyModifiersToACCELModifiers(wModifiers);
     accel.key = wVk;
 
     return accel;
@@ -48,9 +48,7 @@ void ACCELToHotKey(const ACCEL &accel, WORD &wVk, WORD &wModifiers)
     ASSERT(accel.fVirt & FVIRTKEY);
 
     wVk = accel.key;
-    wModifiers = ((accel.fVirt & FALT) ? HOTKEYF_ALT : 0)
-        | ((accel.fVirt & FCONTROL) ? HOTKEYF_CONTROL : 0)
-        | ((accel.fVirt & FSHIFT) ? HOTKEYF_SHIFT : 0);
+    wModifiers = HotKeyModifiersToACCELModifiers(accel.fVirt);
 }
 
 
@@ -136,4 +134,50 @@ CString HotKeyToKeyName(WORD &wVk, WORD &wModifiers)
     }
 
     return strKeyName;
+}
+
+
+BOOL IsValidACCELModifiers(WORD wACCELModifiers)
+{
+    ClearBits(wACCELModifiers, (WORD)FVIRTKEY);
+    ClearBits(wACCELModifiers, (WORD)FCONTROL);
+    ClearBits(wACCELModifiers, (WORD)FSHIFT);
+    ClearBits(wACCELModifiers, (WORD)FALT);
+    return wACCELModifiers == 0;
+}
+
+BOOL IsValidHotKeyModifiers(WORD wHotKeyModifiers)
+{
+    ClearBits(wHotKeyModifiers, (WORD)HOTKEYF_CONTROL);
+    ClearBits(wHotKeyModifiers, (WORD)HOTKEYF_ALT);
+    ClearBits(wHotKeyModifiers, (WORD)HOTKEYF_SHIFT);
+    ClearBits(wHotKeyModifiers, (WORD)HOTKEYF_EXT);
+    return wHotKeyModifiers == 0;
+}
+
+BOOL IsValidACCEL(ACCEL accel)
+{
+    return IsValidACCELModifiers(accel.fVirt) && IsKnownVkCode(accel.key);
+}
+
+BOOL IsValidHotKey(WORD wVk, WORD wModifiers)
+{
+    return IsValidHotKeyModifiers(wModifiers) && IsKnownVkCode(wVk);
+}
+
+WORD HotKeyModifiersToACCELModifiers(WORD wModifiers)
+{
+    ASSERT(IsValidHotKeyModifiers(wModifiers));
+    return FVIRTKEY 
+        | ((wModifiers & HOTKEYF_CONTROL) ? FCONTROL : 0)
+        | ((wModifiers & HOTKEYF_ALT) ? FALT : 0)
+        | ((wModifiers & HOTKEYF_SHIFT) ? FSHIFT : 0);
+}
+
+WORD ACCELModifiersToHotKeyModifiers(WORD wModifiers)
+{
+    ASSERT(IsValidACCELModifiers(wModifiers));
+    return ((wModifiers & FCONTROL) ? HOTKEYF_CONTROL : 0)
+        | ((wModifiers & FALT) ? HOTKEYF_ALT : 0)
+        | ((wModifiers & FSHIFT) ? HOTKEYF_SHIFT : 0);
 }
