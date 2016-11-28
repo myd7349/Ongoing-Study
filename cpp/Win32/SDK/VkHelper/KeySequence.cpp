@@ -179,7 +179,7 @@ HotKey KeySequence::ToHotKey() const
 
 bool KeySequence::CreateFromString(const std::wstring &keySequence, const std::wstring &delimiter)
 {
-    std::vector<std::wstring> keys = split(keySequence, delimiter.empty() ? plus_ : delimiter);
+    std::vector<std::wstring> keys = split<std::vector<std::wstring>>(keySequence, delimiter.empty() ? plus_ : delimiter);
     if (keys.empty() || keys.size() > 4)
         return false;
 
