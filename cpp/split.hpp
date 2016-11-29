@@ -9,14 +9,23 @@
 
 // split("a,b,,c,", ",", true) -> <a><b><><c><>
 // split("a,b,,c,", ",", false) -> <a><b><c>
+// split("", "") -> <> | QString().split("") -> <><>
+// split("", "abc") -> <>
+// split("abc", "") -> <abc> | QString("abc").split("") -> <><abc><>
 template <typename ResultList, typename CharT>
 ResultList split(const std::basic_string<CharT> &s,
     const std::basic_string<CharT> &delimiter, bool keepEmptyParts = true)
 {
     ResultList slist;
 
-    if (delimiter.empty())
+    // If delimiter.empty():
+    //   pos = s.find(delimiter, start);
+    // pos will be 0.
+    if (delimiter.empty()) {
+        slist.push_back(s);
         return slist;
+    }
+
 
     typename std::basic_string<CharT>::size_type start = 0;
     typename std::basic_string<CharT>::size_type pos;
@@ -109,14 +118,14 @@ ResultList split_by_tokens(const std::basic_string<CharT> &s,
 
     ResultList slist;
 
-    if (tokens.empty())
-        return slist;
-
     typename std::basic_string<CharT>::size_type start = 0;
     typename std::basic_string<CharT>::size_type pos;
 
     std::basic_string<CharT> part;
 
+    // If delimiter.empty():
+    //   pos = s.find_first_of(delimiter, start);
+    // pos will be s.npos.
     while ((pos = s.find_first_of(tokens, start)) != s.npos) { // strtok
         part = s.substr(start, pos - start);
 
