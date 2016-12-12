@@ -151,6 +151,9 @@ inline void Println(const Container &c)
     std::cout << std::endl;
 }
 
+// lichray's idea:
+// https://github.com/lichray/xrangexx/blob/master/xrange.h
+// assert(0 <= b && "invalid range");
 #define Assert(expr, msg) assert(((void)msg, expr))
 
 #ifdef NDEBUG
