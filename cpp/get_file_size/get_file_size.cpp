@@ -13,6 +13,12 @@
 //    The answer is NO.
 //    Please refer to this page:
 //    http://stackoverflow.com/questions/23329382/function-and-struct-having-the-same-name-in-c
+//    2016-12-12T19:02+08:00
+//    The C++ Programming Language, Third Edition/5.7 Structures [ptr.struct]
+//    >For reasons that reach into the pre-history of C, it is possible to declare a struct and a 
+//     non-structure with the same name in the same scope.
+//     In that case, the plain name (stat) is the name of the non-structure, and the structure must 
+//     be referred to with the prefix struct.
 // -------------------------------------------------------------------------------
 // 2. Explaining clause 6.4/3 in ISO C++98/11
 //    Please refer to this page:
