@@ -2,7 +2,7 @@
 
 # Calculate your BMI(Body Mass Index).
 
-require 'ruby_units'
+require 'ruby-units'
 
 
 puts """BMI table:
