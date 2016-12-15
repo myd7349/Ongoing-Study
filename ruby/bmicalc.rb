@@ -17,27 +17,26 @@ puts """BMI table:
 """
 puts '-' * 55
 
+
 # Get the height and convert it to m
-while true
+begin
     print 'Your height: '
-    begin
-        height = Unit.new(gets.chomp).convert_to("m").to_s("%0.2f")
-        break
-    rescue ArgumentError
-        $stderr.puts "Invalid height. Working examples: 180cm/72inches/1.8m"
-    end
+    height = Unit.new(gets.chomp).convert_to("m").to_s("%0.2f")
+rescue ArgumentError
+    $stderr.puts "Invalid height. Working examples: 180cm/72inches/1.8m"
+    retry
 end
 
+
 # Get the weight and convert it to kg
-while true
+begin
     print 'Your weight: '
-    begin
-        mass = Unit.new(gets.chomp).convert_to("kg").to_s("%0.2f")
-        break
-    rescue ArgumentError
-        $stderr.puts "Invalid weight. Working examples: 70kg/150pounds"
-    end
+    mass = Unit.new(gets.chomp).convert_to("kg").to_s("%0.2f")
+rescue ArgumentError
+    $stderr.puts "Invalid weight. Working examples: 70kg/150pounds"
+    retry
 end
+
 
 puts '-' * 55
 bmi = mass.to_f / (height.to_f ** 2)
