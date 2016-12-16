@@ -10,3 +10,4 @@ Return
 
 ; References:
 ; [Trying to output a plus (+) sign](https://autohotkey.com/board/topic/57114-trying-to-output-a-plus-sign/)
+; [Send plus sign as text](https://autohotkey.com/board/topic/81964-send-plus-sign-as-text/)
