@@ -3,8 +3,9 @@
 
 ; Insert the current date time when I tell her "Ctrl+T"
 ^T::
-    FormatTime, CurrentDateTime, , yyyy-MM-ddThh:mm:ss{+}08:00
-    Send, %CurrentDateTime%{Return}
+    FormatTime, CurrentDateTime, , yyyy-MM-ddThh:mm:ss+08:00
+    Clipboard = %CurrentDateTime%
+    SendInput ^V{Return}
 Return
 
 
