@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# encoding: GBK
 # frozen_string_literal: true
 #
 # = SetPEVersion.rb
@@ -110,7 +110,7 @@ class VersionTool
         end
 
         search_paths << '.'
-        search_paths << File.dirname($0)
+        search_paths << File.dirname(Process.argv0)
         search_paths += ENV['path'].split(/;/)
 
         search_paths.each { |path|
@@ -129,11 +129,158 @@ class VersionTool
     end
 
     def run(target_pe_file, canonized_version_string)
-        Process.exec(*build_cli(target_pe_file, canonized_version_string))
+        if !system(*build_cli(target_pe_file, canonized_version_string))
+            puts("Failed to set the version of \"#{target_pe_file}\".")
+        end
     end
 end
 
 
+# TODO: require 'optparse'
+class CLI
+    def parse(args)
+        if !args.is_a?(Array)
+            raise ArgumentError, '"args" is supposed to be an "Array"'
+        end
+
+        @args = args
+
+        @parse_result = {
+            :help => @args.empty?,
+            :version => false,
+        }
+
+        done = false
+        assign_value = nil
+        @args.each { |argv|
+            case argv
+            when '-c', '--changelog'
+                if !@parse_result.has_key?(:changelog)
+                    @parse_result[:changelog] = nil
+                    assign_value = ->(value) { @parse_result[:changelog] = value }
+                else
+                    raise RuntimeError, 'Duplicate "--changelog" arugment'
+                end
+            when '-t', '--tool-path'
+                if !@parse_result.has_key?(:tool)
+                    @parse_result[:tool] = nil
+                    assign_value = ->(value) { @parse_result[:tool] = value }
+                else
+                    raise RuntimeError, 'Duplicate "--tool-path" arugment'
+                end                
+            when '-m', '--module-path'
+                if !@parse_result.has_key?(:modules)
+                    @parse_result[:modules] = []
+                end
+
+                assign_value = ->(value) { @parse_result[:modules] << value }
+            when '-h', '--help'
+                @parse_result[:help] = true
+                done = true
+            when '-v', '--version'
+                @parse_result[:version] = true
+                done = true
+            else
+                if argv[0] == '-'
+                    raise RuntimeError, "Unknown option \"#{argv}\""
+                end
+
+                if assign_value
+                    assign_value.call(argv)
+                end
+            end
+
+            if done then break end
+        }
+
+        if !@parse_result[:help] && !@parse_result[:version]
+            if !@parse_result.has_key?(:modules)
+                raise RuntimeError, 'Missing "-m"/"--module-path" option'
+            elsif @parse_result[:modules].empty?
+                raise RuntimeError, 'At least one module should be specified'
+            else
+                modules = []
+                @parse_result[:modules].each { |item|
+                    if !File.exist?(item)
+                        raise RuntimeError, "Module \"#{item}\" not found"
+                    end
+
+                    if File.directory?(item)
+                        Dir.foreach(item) { |entry|
+                            entry = File.join(item, entry)
+                            if !File.directory?(entry) && File.fnmatch('*.{dll,exe}', entry, File::FNM_EXTGLOB | File::FNM_CASEFOLD)
+                                modules << entry
+                            end
+                        }
+                    else
+                        modules << item
+                    end
+                }
+                @parse_result[:modules] = modules
+            end
+
+            if !@parse_result.has_key?(:tool)
+                @parse_result[:tool] = nil
+            elsif !@parse_result[:tool]
+                raise RuntimeError, 'Missing argument for "-t"/"--tool-path" option'
+            end
+
+            if !@parse_result.has_key?(:changelog)
+                @parse_result[:changelog] = 'Changelog.txt'
+            elsif !@parse_result[:changelog]
+                raise RuntimeError, 'Missing argument for "-c"/"--changelog" option'
+            else
+                if File.directory?(@parse_result[:changelog])
+                    @parse_result[:changelog] = File.join(@parse_result[:changelog], "Changelog.txt")
+                end
+
+                if !File.exist?(@parse_result[:changelog])
+                    raise RuntimeError, "Changelog file \"#{@parse_result[:changelog]}\" not found"
+                end
+            end
+        end
+    end
+
+    def run(args)
+        parse(args)
+
+        if @parse_result[:help]
+            puts(usage)
+            return
+        elsif @parse_result[:version]
+            puts("SetPEVersion v0.1.0")
+            return
+        end
+
+        version_tool = VersionTool.new(@parse_result[:tool])
+        changelog_source = ChangelogSource.new(@parse_result[:changelog])
+        version_number = VersionNumberSource.canonize_version_string(changelog_source.version_string)
+
+        @parse_result[:modules].each { |pe|
+            version_tool.run(pe, version_number)
+        }
+    end
+
+    def usage
+        'Usage:
+  SetPEVersion (--module-path=<PATH>) [--changelog=FILE] [--tool-path=FILE]
+  SetPEVersion -h | --help
+  SetPEVersion -v | --version
+
+  Options:
+    -c FILE --changelog=FILE    Specify the full path of "Changelog.txt"
+    -t FILE --tool-path=FILE    Specify the search path of "rcedit.exe"/"StampVer.exe"
+    -m PATH --module-path=PATH  Specify a single module file(DLL or EXE) or a directory that contains module files
+    -h --help                   Show this help message
+    -v --version                Show version message'
+    end
+end
+
+
+CLI.new.run(ARGV)
+
 
 # References:
-# 
+# [What's the point of ARGV in Ruby?](http://stackoverflow.com/questions/13329132/whats-the-point-of-argv-in-ruby)
+# Ongoing-Study/python/SetPEVersion.py
+# https://github.com/ryangreenberg/urban_dictionary
