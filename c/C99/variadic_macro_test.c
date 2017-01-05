@@ -22,6 +22,9 @@ int main()
 }
 
 // References:
+// [Is it possible to prevent the removal of the comma with empty __VA_ARGS__ in Visual C++?](http://stackoverflow.com/questions/7103824/is-it-possible-to-prevent-the-removal-of-the-comma-with-empty-va-args-in-vis)
+// [3.6 Variadic Macros](https://gcc.gnu.org/onlinedocs/cpp/Variadic-Macros.html)
+// [Variadic macros with zero arguments](http://stackoverflow.com/questions/5891221/variadic-macros-with-zero-arguments)
 // pybind11.pdf 7.2 Combining virtual functions and inheritance
 
 // The implementation of PYBIND11_OVERLOAD uses __VA_ARGS__.
