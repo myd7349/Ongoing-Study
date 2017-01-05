@@ -21,6 +21,19 @@ int main()
     return 0;
 }
 
+// Uncomment line 19 and:
+// 1. gcc v5.3.0: gcc -E variadic_macro_test.c
+// 2. VS2015: cl.exe /E variadic_macro_test.c
+// both give us:
+/*
+    foo();
+    foo();
+
+
+    printf("Hello, world!\n");
+    printf("Hello, world!\n",);
+*/
+
 // References:
 // [Is it possible to prevent the removal of the comma with empty __VA_ARGS__ in Visual C++?](http://stackoverflow.com/questions/7103824/is-it-possible-to-prevent-the-removal-of-the-comma-with-empty-va-args-in-vis)
 // [3.6 Variadic Macros](https://gcc.gnu.org/onlinedocs/cpp/Variadic-Macros.html)
