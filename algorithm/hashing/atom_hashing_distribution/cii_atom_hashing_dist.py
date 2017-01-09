@@ -7,6 +7,7 @@
 # Exercise 3.1
 
 import distutils.core
+import os.path
 import string
 import sys
 
@@ -54,8 +55,11 @@ def bucket_size_benchmark():
 
         m = __import__(module_name)
 
-        for i in range(200000):
-            m.Atom_new_from_int(i)
+        #for i in range(200000): m.Atom_new_from_int(i)
+        with open('wordlist', encoding='utf-8') as f:
+            for word in f:
+                if word:
+                    m.Atom_new_from_string(word)
 
         buckets_hist = tuple(map(m.Atom_bench_bucket_len, range(m.Atom_bench_buckets_size())))
         plt.subplot(len(bucket_size_list), 1, plot_number+1)
@@ -66,6 +70,10 @@ def bucket_size_benchmark():
 
 
 if __name__ == '__main__':
+    if not os.path.isfile('wordlist'):
+        print('Please download the wordlist from: http://www-personal.umich.edu/~jlawler/wordlist')
+        sys.exit(0)
+    
     bucket_size_benchmark()
 
 
