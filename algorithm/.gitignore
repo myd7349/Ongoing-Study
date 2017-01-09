@@ -50,3 +50,7 @@
 *.cfg
 *.config
 
+# Python
+__pycache__/
+*.py[cod]
+build/
