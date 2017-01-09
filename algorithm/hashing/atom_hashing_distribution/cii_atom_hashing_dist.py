@@ -41,7 +41,7 @@ def bucket_size_benchmark():
     
     bucket_size_list = 2048, 2039
 
-    fig = plt.figure("Atom buckets size")
+    fig = plt.figure("Atom string hashing distribution")
         
     for plot_number, size in enumerate(bucket_size_list):
         module_name = module_name_template.substitute(bucket_size=size)
@@ -54,12 +54,12 @@ def bucket_size_benchmark():
 
         m = __import__(module_name)
 
-        for i in range(10000):
+        for i in range(200000):
             m.Atom_new_from_int(i)
 
         buckets_hist = tuple(map(m.Atom_bench_bucket_len, range(m.Atom_bench_buckets_size())))
         plt.subplot(len(bucket_size_list), 1, plot_number+1)
-        plt.plot(buckets_hist)
+        plt.bar(tuple(range(size)), buckets_hist)
         plt.title('bucket size: {}'.format(size))
 
     plt.show()
