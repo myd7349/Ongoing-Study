@@ -95,13 +95,22 @@ const char *Atom_new(const char *str, int len) {
 	assert(len >= 0);
 	for (h = 0, i = 0; i < len; i++)
 		h = (h<<1) + scatter[(unsigned char)str[i]];
+#if 0
 	h &= NELEMS(buckets)-1;
+#else
+    h %= NELEMS(buckets);
+#endif
 	for (p = buckets[h]; p; p = p->link)
 		if (len == p->len) {
+#if 0
 			for (i = 0; i < len && p->str[i] == str[i]; )
 				i++;
 			if (i == len)
 				return p->str;
+#else
+            if (memcmp(p->str, str, len))
+                return p->str;
+#endif
 		}
 	p = ALLOC(sizeof (*p) + len + 1);
 	p->len = len;
