@@ -3,6 +3,7 @@
 
 #include <assert.h>
 #include <limits.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -126,7 +127,7 @@ const char *Atom_new(const char *str, int len) {
 				return p->str;
 #else
             UNUSED(i);
-            if (memcmp(p->str, str, len))
+            if (memcmp(p->str, str, len) == 0)
                 return p->str;
 #endif
 		}
@@ -142,33 +143,32 @@ const char *Atom_new(const char *str, int len) {
 	return p->str;
 }
 
-// Find specified atom
+
 typedef struct atom_pos_t {
     struct atom **bucket;
     struct atom *prev;
     struct atom *pos; // atom position
 } atom_pos_t;
 
+
+// Find specified atom
 atom_pos_t Atom_find(const char *str)
 {
-    struct atom **bucket;
     struct atom *p;
     struct atom *prev;
     atom_pos_t pos = { NULL, NULL, NULL };
     unsigned long h;
 
     assert(str);
-    assert(len >= 0);
 
     h = HASH_STR(str, (int)strlen(str));
 
-    bucket = buckets + h;
     prev = NULL;
     p = buckets[h];
 
     while (p != NULL) {
         if (p->str == str) {
-            pos.bucket = bucket;
+            pos.bucket = buckets + h;
             pos.prev = prev;
             pos.pos = p;
             return pos;
@@ -181,7 +181,7 @@ atom_pos_t Atom_find(const char *str)
     return pos;
 }
 
-// Get the length of input atom
+
 int Atom_length(const char *str) {
 	struct atom *p = Atom_find(str).pos;
     if (p != NULL)
@@ -191,10 +191,12 @@ int Atom_length(const char *str) {
 	return 0;
 }
 
+
 int Atom_contains(const char *str)
 {
     return Atom_find(str).pos != NULL;
 }
+
 
 void Atom_free(const char *str)
 {
@@ -216,8 +218,27 @@ void Atom_free(const char *str)
     FREE(p.pos);
 }
 
+void Atom_free_bucket(size_t bucket_no)
+{
+    struct atom *p, *q;
+
+    assert(bucket_no < NELEMS(buckets));
+
+    p = buckets[bucket_no];
+
+    while (p) {
+        q = p;
+        p = p->link;
+        FREE(q);
+    }
+
+    buckets[bucket_no] = NULL;
+}
+
 void Atom_reset(void)
 {
+    for (size_t i = 0; i < NELEMS(buckets); ++i)
+        Atom_free_bucket(i);
 }
 
 size_t Atom_bench_buckets_size(void)

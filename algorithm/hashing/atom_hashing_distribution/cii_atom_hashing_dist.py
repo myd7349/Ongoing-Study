@@ -6,7 +6,9 @@
 # C Interfaces and Implementations
 # Exercise 3.1
 
+
 import distutils.core
+import os
 import os.path
 import string
 import sys
@@ -15,14 +17,19 @@ import matplotlib.pyplot as plt
 import pybind11
 
 
+same_dir = lambda entry: os.path.join(os.path.dirname(__file__), entry)
+
+sys.path.append(os.getcwd())
+
+
 def build_c_extension(module_name):
     print(module_name)
     
     ext_modules = [
         distutils.core.Extension(
             module_name,
-            ['cii_atom.c', 'cii_atom_pybind11.cpp'],
-            include_dirs=[pybind11.get_include(True), pybind11.get_include(False)],
+            [same_dir('cii_atom.c'), same_dir('cii_atom_pybind11.cpp')],
+            include_dirs=[pybind11.get_include(True), pybind11.get_include(False), os.getcwd()],
             )
         ]
 
@@ -56,8 +63,9 @@ def bucket_size_benchmark():
         m = __import__(module_name)
 
         #for i in range(200000): m.Atom_new_from_int(i)
-        with open('wordlist', encoding='utf-8') as f:
+        with open(same_dir('wordlist'), encoding='utf-8') as f:
             for word in f:
+                word = word.strip()
                 if word:
                     m.Atom_new_from_string(word)
 
@@ -70,7 +78,7 @@ def bucket_size_benchmark():
 
 
 if __name__ == '__main__':
-    if not os.path.isfile('wordlist'):
+    if not os.path.isfile(same_dir('wordlist')):
         print('Please download the wordlist from: http://www-personal.umich.edu/~jlawler/wordlist')
         sys.exit(0)
     
