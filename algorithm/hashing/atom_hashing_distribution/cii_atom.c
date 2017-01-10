@@ -10,7 +10,9 @@
 
 
 #define NELEMS(x) ((sizeof (x))/(sizeof ((x)[0])))
-#define ALLOC(nbytes) malloc(nbytes)
+#define ALLOC(nbytes) malloc((nbytes))
+#define FREE(p) free((p))
+#define UNUSED(arg) ((void)(arg))
 
 static struct atom {
 	struct atom *link;
@@ -87,19 +89,34 @@ const char *Atom_int(long n) {
 	return Atom_new(s, (int)((str + sizeof str) - s));
 }
 
+unsigned long Atom_hash(const char *str, int len) {
+    unsigned long h;
+    int i;
+
+    assert(str);
+    assert(len >= 0);
+
+    for (h = 0, i = 0; i < len; i++)
+        h = (h<<1) + scatter[(unsigned char)str[i]];
+
+    return h;    
+}
+
+#if 0
+# define HASH_STR(str, len) (Atom_hash((str), (len)) & (NELEMS(buckets) - 1))
+#else
+# define HASH_STR(str, len) (Atom_hash((str), (len)) % NELEMS(buckets))
+#endif
+
 const char *Atom_new(const char *str, int len) {
 	unsigned long h;
 	int i;
 	struct atom *p;
 	assert(str);
 	assert(len >= 0);
-	for (h = 0, i = 0; i < len; i++)
-		h = (h<<1) + scatter[(unsigned char)str[i]];
-#if 0
-	h &= NELEMS(buckets)-1;
-#else
-    h %= NELEMS(buckets);
-#endif
+
+    h = HASH_STR(str, len);
+
 	for (p = buckets[h]; p; p = p->link)
 		if (len == p->len) {
 #if 0
@@ -108,10 +125,12 @@ const char *Atom_new(const char *str, int len) {
 			if (i == len)
 				return p->str;
 #else
+            UNUSED(i);
             if (memcmp(p->str, str, len))
                 return p->str;
 #endif
 		}
+
 	p = ALLOC(sizeof (*p) + len + 1);
 	p->len = len;
 	p->str = (char *)(p + 1);
@@ -123,16 +142,82 @@ const char *Atom_new(const char *str, int len) {
 	return p->str;
 }
 
+// Find specified atom
+typedef struct atom_pos_t {
+    struct atom **bucket;
+    struct atom *prev;
+    struct atom *pos; // atom position
+} atom_pos_t;
+
+atom_pos_t Atom_find(const char *str)
+{
+    struct atom **bucket;
+    struct atom *p;
+    struct atom *prev;
+    atom_pos_t pos = { NULL, NULL, NULL };
+    unsigned long h;
+
+    assert(str);
+    assert(len >= 0);
+
+    h = HASH_STR(str, (int)strlen(str));
+
+    bucket = buckets + h;
+    prev = NULL;
+    p = buckets[h];
+
+    while (p != NULL) {
+        if (p->str == str) {
+            pos.bucket = bucket;
+            pos.prev = prev;
+            pos.pos = p;
+            return pos;
+        }
+
+        prev = p;
+        p = p->link;
+    }
+
+    return pos;
+}
+
+// Get the length of input atom
 int Atom_length(const char *str) {
-	struct atom *p;
-	int i;
-	assert(str);
-	for (i = 0; i < NELEMS(buckets); i++)
-		for (p = buckets[i]; p; p = p->link)
-			if (p->str == str)
-				return p->len;
+	struct atom *p = Atom_find(str).pos;
+    if (p != NULL)
+        return p->len;
+
 	assert(0);
 	return 0;
+}
+
+int Atom_contains(const char *str)
+{
+    return Atom_find(str).pos != NULL;
+}
+
+void Atom_free(const char *str)
+{
+    atom_pos_t p = Atom_find(str);
+
+    if (p.pos == NULL) {
+        assert(p.bucket = NULL);
+        assert(p.prev == NULL);
+        assert(0);
+        return;
+    }
+
+    assert(p.bucket != NULL);
+
+    if (p.prev == NULL)
+        *p.bucket = p.pos->link;
+    else
+        p.prev->link = p.pos->link;
+    FREE(p.pos);
+}
+
+void Atom_reset(void)
+{
 }
 
 size_t Atom_bench_buckets_size(void)

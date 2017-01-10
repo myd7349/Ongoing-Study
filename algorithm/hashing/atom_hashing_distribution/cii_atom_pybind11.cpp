@@ -15,6 +15,10 @@ PYBIND11_PLUGIN(CII_ATOM_MODULE) {
     m.def("Atom_new_from_string", &Atom_string);
     m.def("Atom_new_from_int", &Atom_int);
 
+    m.def("Atom_contains", &Atom_contains);
+    m.def("Atom_free", &Atom_free);
+    m.def("Atom_reset", &Atom_reset);
+
     m.def("Atom_bench_buckets_size", &Atom_bench_buckets_size);
     m.def("Atom_bench_bucket_len", &Atom_bench_bucket_len);
 
