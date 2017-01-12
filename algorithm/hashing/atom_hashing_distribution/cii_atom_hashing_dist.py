@@ -33,11 +33,7 @@ def build_c_extension(module_name):
             )
         ]
 
-    sys.argv.append('build_ext')
-    sys.argv.append('--inplace')
-    distutils.core.setup(name=module_name, ext_modules=ext_modules)
-    sys.argv.remove('build_ext')
-    sys.argv.remove('--inplace')
+    distutils.core.setup(name=module_name, ext_modules=ext_modules, script_args=['build_ext', '--inplace'])
 
 
 def bucket_size_benchmark():
