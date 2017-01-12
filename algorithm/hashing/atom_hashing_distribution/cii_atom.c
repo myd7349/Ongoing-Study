@@ -7,8 +7,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "cii_atom_config.h"
 
+#ifndef BUCKET_SIZE
+# include "cii_atom_config.h"
+#endif
 
 #define NELEMS(x) ((sizeof (x))/(sizeof ((x)[0])))
 #define ALLOC(nbytes) malloc((nbytes))
