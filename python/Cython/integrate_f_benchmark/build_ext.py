@@ -1,8 +1,7 @@
 from distutils.core import setup
-from Cython.Build import cythonize
-
 import os.path
-import sys
+
+from Cython.Build import cythonize
 
 
 def build_ext(module_name):
@@ -13,10 +12,12 @@ def build_ext(module_name):
     if not os.path.isfile(pyx_file):
         raise ValueError('Could not find: {}'.format(pyx_file))
 
-    sys.argv.append('build_ext')
-    sys.argv.append('--inplace')
-
     setup(
         name=module_name,
         ext_modules=cythonize(pyx_file),
+        script_args=['build_ext', '--inplace'],
         )
+
+
+# References:
+# cppimport.build_module
