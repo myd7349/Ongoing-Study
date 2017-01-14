@@ -1,1 +1,4 @@
 wordlist
+*.cppimporthash
+*.rendered.*.cpp
+*.rendered.*.c
