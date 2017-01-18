@@ -143,9 +143,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Fill.h" />
+    <ClInclude Include="Pwd.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Fill.cpp" />
+    <ClCompile Include="Pwd.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
