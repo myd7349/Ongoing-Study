@@ -69,12 +69,20 @@ namespace ArraysInsideOfStructures
             PrintData<Data4>(data.header, data.data);
         }
 
+        static void TestGetCwd()
+        {
+            var cwd = new Cwd();
+            FillStructNative.GetCwd(cwd);
+            Console.WriteLine(cwd.cwd);
+        }
+
         static void Main(string[] args)
         {
             TestData1();
             TestData2();
             TestData3();
             TestData4();
+            TestGetCwd();
 
             Util.Pause();
         }

@@ -2,6 +2,9 @@
 #ifndef FILL_STRUCT_H_
 #define FILL_STRUCT_H_
 
+#include <stdlib.h>
+
+
 #ifndef FILL_STRUCT_EXPORTS
 # define FILL_STRUCT_API __declspec(dllimport)
 #else
@@ -19,6 +22,13 @@ struct Data
 };
 
 FILL_STRUCT_API void FillStruct(struct Data *data);
+
+struct Cwd
+{
+    char cwd[_MAX_PATH];
+};
+
+FILL_STRUCT_API void GetCwd(struct Cwd *cwd);
 
 #ifdef __cplusplus
 }

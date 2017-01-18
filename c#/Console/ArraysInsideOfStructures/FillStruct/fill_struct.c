@@ -3,7 +3,9 @@
 
 #include <assert.h>
 #include <stdio.h>
-#include <stdlib.h>
+
+#include <direct.h>
+
 
 void FillStruct(struct Data *data)
 {
@@ -12,4 +14,10 @@ void FillStruct(struct Data *data)
     data->header = 42;
     for (int i = 0; i < _countof(data->data); ++i)
         data->data[i] = _countof(data->data) - i;
+}
+
+void GetCwd(struct Cwd *cwd)
+{
+    assert(cwd != NULL);
+    _getcwd(cwd->cwd, _countof(cwd->cwd));
 }
