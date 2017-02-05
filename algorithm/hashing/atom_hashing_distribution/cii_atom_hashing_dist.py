@@ -12,6 +12,7 @@ import os
 import os.path
 import string
 import sys
+import urllib.request
 
 import matplotlib.pyplot as plt
 import pybind11
@@ -75,8 +76,7 @@ def bucket_size_benchmark():
 
 if __name__ == '__main__':
     if not os.path.isfile(same_dir('wordlist')):
-        print('Please download the wordlist from: http://www-personal.umich.edu/~jlawler/wordlist')
-        sys.exit(0)
+        urllib.request.urlretrieve('http://www-personal.umich.edu/~jlawler/wordlist', same_dir('wordlist'))
     
     bucket_size_benchmark()
 
@@ -84,3 +84,7 @@ if __name__ == '__main__':
 # References:
 # [GitHub: pybind/python_example](https://github.com/pybind/python_example)
 # Matplotlib documentation
+# 
+# Download a file over HTTP:
+# [How do I download a file over HTTP using Python?](http://stackoverflow.com/questions/22676/how-do-i-download-a-file-over-http-using-python)
+# https://github.com/HostsTools/Windows-python/blob/master/crowall.py
