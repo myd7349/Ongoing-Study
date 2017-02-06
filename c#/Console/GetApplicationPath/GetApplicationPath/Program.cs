@@ -25,3 +25,4 @@ namespace GetApplicationPath
 // References:
 // [Get current folder path](http://stackoverflow.com/questions/15653921/get-current-folder-path)
 // [mono c# get application path](http://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path/18562036#18562036)
+// C# 6.0 in a Nutshell, P631

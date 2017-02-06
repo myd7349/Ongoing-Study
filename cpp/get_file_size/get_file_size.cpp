@@ -19,6 +19,8 @@
 //     non-structure with the same name in the same scope.
 //     In that case, the plain name (stat) is the name of the non-structure, and the structure must 
 //     be referred to with the prefix struct.
+//    2017-01-19T13:39:49+08:00
+//    https://www.zhihu.com/question/54725226
 // -------------------------------------------------------------------------------
 // 2. Explaining clause 6.4/3 in ISO C++98/11
 //    Please refer to this page:
