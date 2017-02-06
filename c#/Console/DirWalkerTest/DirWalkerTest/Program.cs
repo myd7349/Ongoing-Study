@@ -19,6 +19,10 @@ namespace DirWalkerTest
             foreach (var entry in DirUtils.Walk(dir, true, false).Select(toRelativePath))
                 Console.WriteLine(entry);
 
+            Console.WriteLine("-------------------- Using Directory.EnumerateFileSystemEntries --------------------");
+            foreach (var entry in Directory.EnumerateFileSystemEntries(dir, "*.*", SearchOption.AllDirectories))
+                Console.WriteLine(entry);
+
             // All sub-directories
             Console.WriteLine("-------------------- Sub-directories --------------------");
             foreach (var entry in DirUtils.Walk(dir, true, false).Where(PathUtils.IsDirectory))
@@ -29,10 +33,19 @@ namespace DirWalkerTest
             Func<string, bool> isCSharpSourceCodeFile = path => PathUtils.IsFile(path) && path.EndsWith(".cs");
             foreach (var entry in DirUtils.Walk(dir, true, false)
                 .Where(isCSharpSourceCodeFile)
-                .Select(toRelativePath))
+                //.Select(toRelativePath)
+                )
+                Console.WriteLine(entry);
+
+            Console.WriteLine("-------------------- C# source code files --------------------");
+            Console.WriteLine("--------------- (Using Directory.EnumerateFiles) -------------");
+            foreach (var entry in Directory.EnumerateFiles(dir, "*.cs", SearchOption.AllDirectories))
                 Console.WriteLine(entry);
 
             Util.Pause();
         }
     }
 }
+
+// References:
+// C# 6.0 in a Nutshell, P654
