@@ -113,3 +113,10 @@ namespace Common.IO
 // [Better way to check if Path is a File or a Directory?](http://stackoverflow.com/questions/1395205/better-way-to-check-if-path-is-a-file-or-a-directory)
 // [Check if full path given](http://stackoverflow.com/questions/5565029/check-if-full-path-given)
 // [How to Convert Absolute File Path To Relative Path in C#?](https://social.msdn.microsoft.com/Forums/zh-CN/954346c8-cbe8-448c-80d0-d3fc27796e9c/how-to-convert-absolute-file-path-to-relative-path-in-c?forum=csharpgeneral)
+//
+// C# 6.0 in a Nutshell, P654
+//   IEnumerable<string> EnumerateFiles (string path);
+//   IEnumerable<string> EnumerateDirectories (string path);
+//   IEnumerable<string> EnumerateFileSystemEntries (string path);
+// These three methods were added in Framework 4.0.
+//
