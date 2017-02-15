@@ -5,6 +5,7 @@
 // 2015-01-16T15:12+08:00
 // This example also demonstrates two elegant ways to parse boolean options.
 
+#include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>

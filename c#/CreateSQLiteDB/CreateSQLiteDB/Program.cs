@@ -1,7 +1,7 @@
 ﻿// 2016-03-24T11:58+08:00
 using System;
-using System.IO;
 using System.Data.SQLite;
+using System.IO;
 
 using Common;
 using SQLiteHelper;
@@ -23,6 +23,10 @@ class Program
 
         string sqlScriptFile = args[0];
         string targetDBFile = args[1];
+
+        string targetDBDir = Path.GetDirectoryName(targetDBFile);
+        if (!Directory.Exists(targetDBDir))
+            Directory.CreateDirectory(targetDBDir);
 
         string connectionStr = $"Data Source={targetDBFile};Version=3;";
 
