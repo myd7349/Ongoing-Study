@@ -43,10 +43,12 @@
   <ItemGroup>
     <Compile Include="ArrayHelper.cs" />
     <Compile Include="Common.cs" />
+    <Compile Include="ConvertEx.cs" />
     <Compile Include="DrawingExtensions.cs" />
     <Compile Include="EnumHelper.cs" />
     <Compile Include="IntegerHelper.cs" />
     <Compile Include="IOHelper.cs" />
+    <Compile Include="MSVCRTHelper.cs" />
     <Compile Include="ObservableCollectionEx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
