@@ -5,3 +5,5 @@
 *.exe.manifest
 *.cache
 *.csproj.FileListAbsolute.txt
+
+*.VC.db
