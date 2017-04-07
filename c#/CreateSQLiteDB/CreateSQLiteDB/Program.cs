@@ -25,7 +25,7 @@ class Program
         string targetDBFile = args[1];
 
         string targetDBDir = Path.GetDirectoryName(targetDBFile);
-        if (!Directory.Exists(targetDBDir))
+        if (!string.IsNullOrEmpty(targetDBDir) && !Directory.Exists(targetDBDir))
             Directory.CreateDirectory(targetDBDir);
 
         string connectionStr = $"Data Source={targetDBFile};Version=3;";
