@@ -51,6 +51,7 @@
     <Compile Include="MSVCRTHelper.cs" />
     <Compile Include="NotifyProperty.cs" />
     <Compile Include="ObservableCollectionEx.cs" />
+    <Compile Include="Pair.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
