@@ -44,8 +44,9 @@
     <Compile Include="ArrayHelper.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="ConvertEx.cs" />
-    <Compile Include="DrawingExtensions.cs" />
+    <Compile Include="GDI32Helper.cs" />
     <Compile Include="EnumHelper.cs" />
+    <Compile Include="GraphicsExtension.cs" />
     <Compile Include="IntegerHelper.cs" />
     <Compile Include="IOHelper.cs" />
     <Compile Include="MSVCRTHelper.cs" />
