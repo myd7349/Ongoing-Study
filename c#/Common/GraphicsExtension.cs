@@ -121,6 +121,17 @@ namespace Common.Auxiliary.Drawing
 #endif
             }
         }
+
+        public static void DrawStringInRect(this Graphics g, string text, Font font, Brush brush, RectangleF rect, bool clip = true)
+        {
+            Debug.Assert(g != null);
+            Debug.Assert(font != null);
+            Debug.Assert(brush != null);
+
+            var format = new StringFormat();
+            format.FormatFlags |= clip ? 0 : StringFormatFlags.NoClip;
+            g.DrawString(text, font, brush, rect, format);
+        }
     }
 }
 

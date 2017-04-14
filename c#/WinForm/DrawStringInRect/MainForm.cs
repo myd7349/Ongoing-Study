@@ -47,7 +47,7 @@ int main(void)
 }
 "; // [1]
 
-                canvas.DrawStringInRect(textFont_, textBrush_, drawingArea_, code);
+                canvas.DrawStringInRect(code, textFont_, textBrush_, drawingArea_);
             }
 
             g.DrawImageUnscaledAndClipped(canvas_, ClientRectangle);
