@@ -18,7 +18,7 @@ namespace MaxMinTest
 
             const int REPEAT = 1000;
             Util.BenchmarkHelper("Using MinMax", () => array.MinMax(), REPEAT);
-            Util.BenchmarkHelper("Using Min, Max", () => new Pair<int, int>(array.Min(), array.Max()), REPEAT);
+            Util.BenchmarkHelper("Using Min, Max", () => { array.Min(); array.Max(); }, REPEAT);
 
             Console.ReadKey();
         }

@@ -5,6 +5,12 @@ namespace Common
         //where TFirst : struct
         //where TSecond : struct
     {
+        public Pair(Pair<TFirst, TSecond> other)
+        {
+            First = other.First;
+            Second = other.Second;
+        }
+
         public Pair(TFirst first = default(TFirst), TSecond second = default(TSecond))
         {
             First = first;
