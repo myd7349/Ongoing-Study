@@ -18,9 +18,9 @@
 #define UNUSED(arg) ((void)(arg))
 
 static struct atom {
-	struct atom *link;
-	int len;
-	char *str;
+    struct atom *link;
+    int len;
+    char *str;
 } *buckets[BUCKET_SIZE];
 
 static unsigned long scatter[] = {
@@ -70,26 +70,26 @@ static unsigned long scatter[] = {
 };
 
 const char *Atom_string(const char *str) {
-	assert(str);
-	return Atom_new(str, (int)strlen(str));
+    assert(str);
+    return Atom_new(str, (int)strlen(str));
 }
 
 const char *Atom_int(long n) {
-	char str[43];
-	char *s = str + sizeof str;
-	unsigned long m;
-	if (n == LONG_MIN)
-		m = LONG_MAX + 1UL;
-	else if (n < 0)
-		m = -n;
-	else
-		m = n;
-	do
-		*--s = m%10 + '0';
-	while ((m /= 10) > 0);
-	if (n < 0)
-		*--s = '-';
-	return Atom_new(s, (int)((str + sizeof str) - s));
+    char str[43];
+    char *s = str + sizeof str;
+    unsigned long m;
+    if (n == LONG_MIN)
+        m = LONG_MAX + 1UL;
+    else if (n < 0)
+        m = -n;
+    else
+        m = n;
+    do
+        *--s = m%10 + '0';
+    while ((m /= 10) > 0);
+    if (n < 0)
+        *--s = '-';
+    return Atom_new(s, (int)((str + sizeof str) - s));
 }
 
 unsigned long Atom_hash(const char *str, int len) {
@@ -112,37 +112,37 @@ unsigned long Atom_hash(const char *str, int len) {
 #endif
 
 const char *Atom_new(const char *str, int len) {
-	unsigned long h;
-	int i;
-	struct atom *p;
-	assert(str);
-	assert(len >= 0);
+    unsigned long h;
+    int i;
+    struct atom *p;
+    assert(str);
+    assert(len >= 0);
 
     h = HASH_STR(str, len);
 
-	for (p = buckets[h]; p; p = p->link)
-		if (len == p->len) {
+    for (p = buckets[h]; p; p = p->link)
+        if (len == p->len) {
 #if 0
-			for (i = 0; i < len && p->str[i] == str[i]; )
-				i++;
-			if (i == len)
-				return p->str;
+            for (i = 0; i < len && p->str[i] == str[i]; )
+                i++;
+            if (i == len)
+                return p->str;
 #else
             UNUSED(i);
             if (memcmp(p->str, str, len) == 0)
                 return p->str;
 #endif
-		}
+        }
 
-	p = ALLOC(sizeof (*p) + len + 1);
-	p->len = len;
-	p->str = (char *)(p + 1);
-	if (len > 0)
-		memcpy(p->str, str, len);
-	p->str[len] = '\0';
-	p->link = buckets[h];
-	buckets[h] = p;
-	return p->str;
+    p = ALLOC(sizeof (*p) + len + 1);
+    p->len = len;
+    p->str = (char *)(p + 1);
+    if (len > 0)
+        memcpy(p->str, str, len);
+    p->str[len] = '\0';
+    p->link = buckets[h];
+    buckets[h] = p;
+    return p->str;
 }
 
 
@@ -185,12 +185,12 @@ atom_pos_t Atom_find(const char *str)
 
 
 int Atom_length(const char *str) {
-	struct atom *p = Atom_find(str).pos;
+    struct atom *p = Atom_find(str).pos;
     if (p != NULL)
         return p->len;
 
-	assert(0);
-	return 0;
+    assert(0);
+    return 0;
 }
 
 
@@ -245,7 +245,7 @@ void Atom_reset(void)
 
 size_t Atom_bench_buckets_size(void)
 {
-	return BUCKET_SIZE;
+    return BUCKET_SIZE;
 }
 
 int Atom_bench_bucket_len(size_t bucket_no)
@@ -253,9 +253,9 @@ int Atom_bench_bucket_len(size_t bucket_no)
     struct atom *p = NULL;
     int len = 0;
 
-	assert(bucket_no < BUCKET_SIZE);
-	if (bucket_no >= BUCKET_SIZE)
-		return -1;
+    assert(bucket_no < BUCKET_SIZE);
+    if (bucket_no >= BUCKET_SIZE)
+        return -1;
 
     p = buckets[bucket_no];
     while (p != NULL) {
