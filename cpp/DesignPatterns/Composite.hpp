@@ -127,22 +127,46 @@ public:
         
         virtual void First()
         {
+            // clear the stack
+            std::stack<ComponentIterator> emptyStack;
+            unvisited_.swap(emptyStack);
+
+            current_ = composite_.CreateIterator();
+            current_->First();
+
+            unvisited_.push(current_);
         }
         
         virtual void MoveNext()
         {
+            if (!current_->IsDone())
+            {
+                unvisited_.push(current_->Current()->CreateIterator());
+            }
+            else if (!unvisited_.empty())
+            {
+                current_ = unvisited_.top();
+                unvisited_.pop();
+            }
         }
         
         virtual bool IsDone()
         {
+            return !current_ && current_->IsDone();
         }
         
         virtual SharedComponentPtr Current()
         {
+            if (!current_ || current_->IsDone())
+                throw StopIterationError();
+
+            return current_->Current();
         }
 
     private:
         Composite &composite_;
+        std::stack<ComponentIterator> unvisited_;
+        ComponentIterator current_;
     };
 
     virtual void Add(SharedComponentPtr child)
@@ -202,4 +226,5 @@ private:
 
 // References:
 // [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
+// [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search)
 // [How do I clear the std::queue efficiently?](http://stackoverflow.com/questions/709146/how-do-i-clear-the-stdqueue-efficiently)
