@@ -79,7 +79,7 @@ public:
             }
             else if (!queue_.empty())
             {
-                current_ = queue_.front()->CreateIterator();
+                UpdateCurrentIterator(*queue_.front());
                 queue_.pop();
             }
         }
