@@ -3,6 +3,8 @@
 
 #include <cassert>
 #include <deque>
+#include <queue>
+#include <stack>
 
 #include "Component.hpp"
 
@@ -12,7 +14,7 @@ public:
     typedef std::deque<SharedComponentPtr> Children;
 
     // ??
-    class CompositeElementIterator : Iterator<SharedComponentPtr>
+    class CompositeElementIterator : public Iterator<SharedComponentPtr>
     {
     public:
         CompositeElementIterator(Composite &composite)
@@ -54,7 +56,7 @@ public:
         bool isDone_;
     };
 
-    class CompositeElementRecursiveBFSIterator : Iterator<SharedComponentPtr>
+    class CompositeElementRecursiveBFSIterator : public Iterator<SharedComponentPtr>
     {
     public:
         CompositeElementRecursiveBFSIterator(Composite &composite)
@@ -77,7 +79,9 @@ public:
             {
                 current_->MoveNext();
             }
-            else if (!queue_.empty())
+
+
+            while (!queue_.empty() && current_->IsDone())
             {
                 UpdateCurrentIterator(*queue_.front());
                 queue_.pop();
@@ -86,7 +90,7 @@ public:
         
         virtual bool IsDone()
         {
-            return !current_ && current_->IsDone();
+            return !current_ || current_->IsDone();
         }
         
         virtual SharedComponentPtr Current()
@@ -98,18 +102,18 @@ public:
         }
 
     private:
-        void UpdateCurrentIterator(Component &component)
+        bool UpdateCurrentIterator(Component &component)
         {
             assert(!current_ || current_->IsDone());
-            
-            current_ = component.CreateIterator();
 
             // the first shoot
-            current_ = composite_.CreateIterator();
+            current_ = component.CreateIterator(None);
             for (current_->First(); !current_->IsDone(); current_->MoveNext())
                 queue_.push(current_->Current());
 
             current_->First(); // reset iterator
+
+            return current_->IsDone();
         }
 
         Composite &composite_;
@@ -117,7 +121,7 @@ public:
         ComponentIterator current_;
     };
 
-    class CompositeElementRecursiveDFSIterator : Iterator<SharedComponentPtr>
+    class CompositeElementRecursiveDFSIterator : public Iterator<SharedComponentPtr>
     {
     public:
         CompositeElementRecursiveDFSIterator(Composite &composite)
@@ -131,7 +135,7 @@ public:
             std::stack<ComponentIterator> emptyStack;
             unvisited_.swap(emptyStack);
 
-            current_ = composite_.CreateIterator();
+            current_ = composite_.CreateIterator(DFS);
             current_->First();
 
             unvisited_.push(current_);
@@ -152,7 +156,7 @@ public:
         
         virtual bool IsDone()
         {
-            return !current_ && current_->IsDone();
+            return !current_ || current_->IsDone();
         }
         
         virtual SharedComponentPtr Current()
@@ -208,16 +212,16 @@ public:
         switch (traversalKind)
         {
         case BFS:
-            return std::make_shared<CompositeElementRecursiveBFSIterator>(this);
+            return std::make_shared<CompositeElementRecursiveBFSIterator>(*this);
             break;
         case DFS:
-            return std::make_shared<CompositeElementRecursiveDFSIterator>(this);
+            return std::make_shared<CompositeElementRecursiveDFSIterator>(*this);
             break;
         default:
             break;
         }
 
-        return std::make_shared<CompositeElementIterator>(this);
+        return std::make_shared<CompositeElementIterator>(*this);
     }
 
 private:
