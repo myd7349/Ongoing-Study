@@ -64,22 +64,57 @@ public:
         
         virtual void First()
         {
+            // clear the queue
+            std::queue<SharedComponentPtr> emptyQueue;
+            queue_.swap(emptyQueue);
+            
+            UpdateCurrentIterator(composite_);
         }
         
         virtual void MoveNext()
         {
+            if (!current_->IsDone())
+            {
+                current_->MoveNext();
+            }
+            else if (!queue_.empty())
+            {
+                current_ = queue_.front()->CreateIterator();
+                queue_.pop();
+            }
         }
         
         virtual bool IsDone()
         {
+            return !current_ && current_->IsDone();
         }
         
         virtual SharedComponentPtr Current()
         {
+            if (IsDone())
+                throw StopIterationError();
+
+            return current_->Current();
         }
 
     private:
+        void UpdateCurrentIterator(Component &component)
+        {
+            assert(!current_ || current_->IsDone());
+            
+            current_ = component.CreateIterator();
+
+            // the first shoot
+            current_ = composite_.CreateIterator();
+            for (current_->First(); !current_->IsDone(); current_->MoveNext())
+                queue_.push(current_->Current());
+
+            current_->First(); // reset iterator
+        }
+
         Composite &composite_;
+        std::queue<SharedComponentPtr> queue_;
+        ComponentIterator current_;
     };
 
     class CompositeElementRecursiveDFSIterator : Iterator<SharedComponentPtr>
@@ -128,6 +163,7 @@ public:
     virtual void RemoveIf(SharedComponentPtr child, std::function<bool(SharedComponentPtr)> pred)
     {
         assert(child);
+        assert(pred);
 
         for (Children::iterator it = children_.begin(); it != children_.end(); )
         {
@@ -163,3 +199,7 @@ public:
 private:
     Children children_;
 };
+
+// References:
+// [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
+// [How do I clear the std::queue efficiently?](http://stackoverflow.com/questions/709146/how-do-i-clear-the-stdqueue-efficiently)
