@@ -179,7 +179,7 @@ public:
     class CompositeElementSelectorIterator : public Iterator<SharedComponentPtr>
     {
     public:
-        CompositeElementSelectorIterator(ComponentIterator iterator, std::function<bool(SharedComponentPtr)> selector)
+        CompositeElementSelectorIterator(ComponentIterator iterator, ComponentSelector selector)
             : iterator_(iterator), selector_(selector)
         {
         }
@@ -222,7 +222,7 @@ public:
         }
 
         ComponentIterator iterator_;
-        std::function<bool(SharedComponentPtr)> selector_;
+        ComponentSelector selector_;
     };
 
     virtual void Add(SharedComponentPtr child)
@@ -268,6 +268,7 @@ public:
             return iterator;
     }
 
+private:
     ComponentIterator CreateIteratorInternal(TraversalKind traversalKind)
     {
         switch (traversalKind)
@@ -285,7 +286,6 @@ public:
         return std::make_shared<CompositeElementIterator>(*this);
     }
 
-private:
     Children children_;
 };
 
