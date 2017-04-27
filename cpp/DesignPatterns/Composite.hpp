@@ -80,7 +80,6 @@ public:
                 current_->MoveNext();
             }
 
-
             while (!queue_.empty() && current_->IsDone())
             {
                 UpdateCurrentIterator(*queue_.front());
@@ -102,7 +101,7 @@ public:
         }
 
     private:
-        bool UpdateCurrentIterator(Component &component)
+        void UpdateCurrentIterator(Component &component)
         {
             assert(!current_ || current_->IsDone());
 
@@ -112,8 +111,6 @@ public:
                 queue_.push(current_->Current());
 
             current_->First(); // reset iterator
-
-            return current_->IsDone();
         }
 
         Composite &composite_;
@@ -135,42 +132,46 @@ public:
             std::stack<ComponentIterator> emptyStack;
             unvisited_.swap(emptyStack);
 
-            current_ = composite_.CreateIterator(DFS);
-            current_->First();
+            ComponentIterator iterator = composite_.CreateIterator(None);
+            iterator->First();
 
-            unvisited_.push(current_);
+            unvisited_.push(iterator);
         }
         
         virtual void MoveNext()
         {
-            if (!current_->IsDone())
+            if (!unvisited_.empty())
             {
-                unvisited_.push(current_->Current()->CreateIterator());
+                ComponentIterator topIterator = unvisited_.top();
+                ComponentIterator iterator = topIterator->Current()->CreateIterator();
+                iterator->First();
+                if (!iterator->IsDone())
+                    unvisited_.push(iterator);
+                topIterator->MoveNext();
             }
-            else if (!unvisited_.empty())
+
+            while (!unvisited_.empty() && unvisited_.top()->IsDone())
             {
-                current_ = unvisited_.top();
                 unvisited_.pop();
             }
         }
         
         virtual bool IsDone()
         {
-            return !current_ || current_->IsDone();
+            return unvisited_.empty() || (unvisited_.size() == 1 && unvisited_.top()->IsDone());
         }
         
         virtual SharedComponentPtr Current()
         {
-            if (!current_ || current_->IsDone())
+            if (IsDone())
                 throw StopIterationError();
 
-            return current_->Current();
+            return unvisited_.top()->Current();
         }
 
     private:
         Composite &composite_;
         std::stack<ComponentIterator> unvisited_;
-        ComponentIterator current_;
     };
 
     virtual void Add(SharedComponentPtr child)
