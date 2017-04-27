@@ -143,11 +143,13 @@ public:
             if (!unvisited_.empty())
             {
                 ComponentIterator topIterator = unvisited_.top();
-                ComponentIterator iterator = topIterator->Current()->CreateIterator();
-                iterator->First();
-                if (!iterator->IsDone())
+                if (!topIterator->IsDone())
+                {
+                    ComponentIterator iterator = topIterator->Current()->CreateIterator();
+                    iterator->First();
                     unvisited_.push(iterator);
-                topIterator->MoveNext();
+                    topIterator->MoveNext();
+                }
             }
 
             while (!unvisited_.empty() && unvisited_.top()->IsDone())
@@ -174,6 +176,55 @@ public:
         std::stack<ComponentIterator> unvisited_;
     };
 
+    class CompositeElementSelectorIterator : public Iterator<SharedComponentPtr>
+    {
+    public:
+        CompositeElementSelectorIterator(ComponentIterator iterator, std::function<bool(SharedComponentPtr)> selector)
+            : iterator_(iterator), selector_(selector)
+        {
+        }
+
+        virtual void First()
+        {
+            iterator_->First();
+            SkipUntile();
+        }
+
+        virtual void MoveNext()
+        {
+            iterator_->MoveNext();
+            SkipUntile();
+        }
+
+        virtual bool IsDone()
+        {
+            return iterator_->IsDone();
+        }
+
+        virtual SharedComponentPtr Current()
+        {
+            return iterator_->Current();
+        }
+
+    private:
+        void SkipUntile()
+        {
+            if (selector_)
+            {
+                while (!iterator_->IsDone())
+                {
+                    if (selector_(iterator_->Current()))
+                        break;
+
+                    iterator_->MoveNext();
+                }
+            }
+        }
+
+        ComponentIterator iterator_;
+        std::function<bool(SharedComponentPtr)> selector_;
+    };
+
     virtual void Add(SharedComponentPtr child)
     {
         assert(child);
@@ -189,14 +240,14 @@ public:
         RemoveIf(child, [child](SharedComponentPtr e) { return e == child; });
     }
 
-    virtual void RemoveIf(SharedComponentPtr child, std::function<bool(SharedComponentPtr)> pred)
+    virtual void RemoveIf(SharedComponentPtr child, ComponentSelector selector)
     {
         assert(child);
-        assert(pred);
+        assert(selector);
 
         for (Children::iterator it = children_.begin(); it != children_.end(); )
         {
-            if (pred(*it))
+            if (selector(*it))
                 children_.erase(it++);
             else
                 ++it;
@@ -208,7 +259,16 @@ public:
         children_.clear();
     }
 
-    virtual ComponentIterator CreateIterator(TraversalKind traversalKind = None)
+    virtual ComponentIterator CreateIterator(TraversalKind traversalKind = None, ComponentSelector selector = ComponentSelector())
+    {
+        ComponentIterator iterator = CreateIteratorInternal(traversalKind);
+        if (selector)
+            return std::make_shared<CompositeElementSelectorIterator>(iterator, selector);
+        else
+            return iterator;
+    }
+
+    ComponentIterator CreateIteratorInternal(TraversalKind traversalKind)
     {
         switch (traversalKind)
         {

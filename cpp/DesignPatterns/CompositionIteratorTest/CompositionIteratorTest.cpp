@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 
+#include "../../common.h"
 #include "../Composite.hpp"
 
 class Leaf : public Composite
@@ -49,9 +50,19 @@ int main()
             leaf4->Add(leaf7);
             leaf4->Add(std::make_shared<Leaf>(8));
 
+#if 1
+    ComponentSelector evenLeafSelector = [](SharedComponentPtr component)
+    {
+        assert(component);
+        Leaf *leaf = dynamic_cast<Leaf *>(component.get());
+        return std::stoi(leaf->GetText()) % 2 == 0;
+    };
+#else
+    ComponentSelector evenLeafSelector;
+#endif
     
     // None test
-    auto iterator = root.CreateIterator(None);
+    auto iterator = root.CreateIterator(None, evenLeafSelector);
     for (iterator->First(); !iterator->IsDone(); iterator->MoveNext())
     {
         Leaf *leaf = dynamic_cast<Leaf *>(iterator->Current().get());
@@ -60,7 +71,7 @@ int main()
     std::cout << std::endl;
 
     // BFS test
-    iterator = root.CreateIterator(BFS);
+    iterator = root.CreateIterator(BFS, evenLeafSelector);
     for (iterator->First(); !iterator->IsDone(); iterator->MoveNext())
     {
         Leaf *leaf = dynamic_cast<Leaf *>(iterator->Current().get());
@@ -69,7 +80,7 @@ int main()
     std::cout << std::endl;
 
     // DFS test
-    iterator = root.CreateIterator(DFS);
+    iterator = root.CreateIterator(DFS, evenLeafSelector);
     for (iterator->First(); !iterator->IsDone(); iterator->MoveNext())
     {
         Leaf *leaf = dynamic_cast<Leaf *>(iterator->Current().get());
@@ -77,6 +88,6 @@ int main()
     }
     std::cout << std::endl;
 
-    std::cin.get();
+    PAUSE();
     return 0;
 }

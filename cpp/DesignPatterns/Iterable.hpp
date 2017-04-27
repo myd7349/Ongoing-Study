@@ -1,6 +1,7 @@
 // 2017-04-26T17:45+08:00
 #pragma once
 
+#include <functional>
 #include <memory>
 
 #include "Iterator.hpp"
@@ -16,5 +17,5 @@ template <typename T>
 class Iterable
 {
 public:
-    virtual std::shared_ptr<Iterator<T>> CreateIterator(TraversalKind traversalKind) = 0;
+    virtual std::shared_ptr<Iterator<T>> CreateIterator(TraversalKind traversalKind, std::function<bool(T t)> selector) = 0;
 };
