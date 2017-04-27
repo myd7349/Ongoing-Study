@@ -11,10 +11,10 @@ typedef std::shared_ptr<Iterator<SharedComponentPtr>> ComponentIterator;
 
 typedef std::function<bool(SharedComponentPtr t)> ComponentSelector;
 
-class Component : Iterable<SharedComponentPtr>
+class Component : public Iterable<SharedComponentPtr>
 {
 public:
-    virtual ~Component() {};
+    virtual ~Component() {}
 
     virtual void Add(SharedComponentPtr child) {}
     virtual void Remove(SharedComponentPtr child) {}
