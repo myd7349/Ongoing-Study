@@ -18,7 +18,7 @@ public:
 
     virtual void Add(SharedComponentPtr child) {}
     virtual void Remove(SharedComponentPtr child) {}
-    virtual void RemoveIf(SharedComponentPtr child, ComponentSelector selector) {}
+    virtual void RemoveIf(ComponentSelector selector) {}
     virtual void Clear() {}
     virtual ComponentIterator CreateIterator(TraversalKind traversalKind = None, ComponentSelector selector = ComponentSelector()) { return std::make_shared<NullIterator<SharedComponentPtr>>(); }
 };

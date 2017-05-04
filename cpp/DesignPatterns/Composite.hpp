@@ -237,12 +237,11 @@ public:
 
     virtual void Remove(SharedComponentPtr child)
     {
-        RemoveIf(child, [child](SharedComponentPtr e) { return e == child; });
+        RemoveIf([child](SharedComponentPtr e) { return e == child; });
     }
 
-    virtual void RemoveIf(SharedComponentPtr child, ComponentSelector selector)
+    virtual void RemoveIf(ComponentSelector selector)
     {
-        assert(child);
         assert(selector);
 
         for (Children::iterator it = children_.begin(); it != children_.end(); )
