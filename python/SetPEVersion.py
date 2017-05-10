@@ -11,6 +11,8 @@ import re
 import subprocess
 import sys
 
+import fileutil
+
 
 # Match version numbers of these formats:
 # 1.2.3
@@ -24,8 +26,8 @@ incomplete_version_number_re = r'^[0-9]+(?:.[0-9]+){2}$'
 version_line_re = r'^### v{0}.*$'.format(version_number_re)
 
 
-def get_topmost_version_line(changelog_file, encoding='utf-8'):
-    with open(changelog_file, 'r', encoding=encoding) as fp:
+def get_topmost_version_line(changelog_file):
+    with open(changelog_file, 'r', encoding=fileutil.get_file_encoding(changelog_file, 'utf-8')) as fp:
         return next(filter(lambda line: re.match(version_line_re, line), fp.readlines()))
 
 
