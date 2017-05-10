@@ -19,15 +19,11 @@ except ImportError:
     odbc.odbc = odbc.connect
 import re
 import string
-import sys
-
-try:
-    import chardet.universaldetector
-    _chardet_available = True
-except ImportError:
-    _chardet_available = False
 
 import dicom  # [pydicom](http://www.pydicom.org/)
+
+import fileutil
+
 
 db_section = 'DB'
 db_options = ('DRIVER', 'SERVER', 'PORT', 'DATABASE', 'DBQ', 'UID', 'PWD')
@@ -56,23 +52,6 @@ query_options = ('Criteria', 'CriteriaWithOneArg')
 
 table_field_re = re.compile(r'(?P<table>\w+).(?P<field>\w+)')
 table_field_re_strict = re.compile(r'^(?P<table>\w+).(?P<field>\w+)$')
-
-def _get_file_encoding(filename):
-    if _chardet_available:
-        detector = chardet.universaldetector.UniversalDetector()
-        with open(filename, 'rb') as fp:
-            for line in fp:
-                detector.feed(line)
-                if detector.done:
-                    break
-        detector.close()
-        
-        if detector.result['confidence'] > 0.95:
-            return detector.result['encoding']
-        else:
-            return sys.getfilesystemencoding()
-    else:
-        return sys.getfilesystemencoding()
 
 
 def _create_connection_string(config):
@@ -170,7 +149,7 @@ def _read_config_file(config_file, config_dict=None, extra_elems_dict=None):
 
     config = configparser.ConfigParser()
     config.optionxform = str
-    encoding = _get_file_encoding(config_file)
+    encoding = fileutil.get_file_encoding(config_file)
     # Load configuration information from specified file.
     config.read(config_file, encoding=encoding)
 
@@ -253,7 +232,7 @@ def fetch_patient_info(config_file, config_dict=None, extra_elems_dict=None, cri
         if file not in cached_cfg_parsers:
             config_parser = configparser.ConfigParser()
             config_parser.optionxform = str
-            config_parser.read(file, encoding=encoding if encoding else _get_file_encoding(file))
+            config_parser.read(file, encoding=encoding if encoding else fileutil.get_file_encoding(file))
             cached_cfg_parsers[file] = config_parser
         return cached_cfg_parsers[file][section][option]
     

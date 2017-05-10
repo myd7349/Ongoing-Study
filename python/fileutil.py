@@ -8,9 +8,17 @@ import contextlib
 import functools
 import io
 import os
+import sys
+
+try:
+    import chardet.universaldetector
+    _chardet_available = True
+except ImportError:
+    _chardet_available = False
+
 
 __all__ = ['is_file_obj', 'file_size', 'file_name', 'file_title', 'replace_ext',
-           'open_file']
+           'open_file', 'get_file_encoding']
 
 
 def is_file_obj(f):
@@ -117,6 +125,23 @@ def open_file(file, *args, **kwargs):
     finally:
         if is_file_name:
             fp.close()
+
+
+# TODO: unittest
+def get_file_encoding(filename, guess=None):
+    if _chardet_available:
+        detector = chardet.universaldetector.UniversalDetector()
+        with open(filename, 'rb') as fp:
+            for line in fp:
+                detector.feed(line)
+                if detector.done:
+                    break
+        detector.close()
+        
+        if detector.result['confidence'] > 0.95:
+            return detector.result['encoding']
+
+    return guess if guess else sys.getfilesystemencoding()
 
 
 if __name__ == '__main__':
