@@ -51,40 +51,45 @@ int main()
             leaf4->Add(std::make_shared<Leaf>(8));
 
 #if 1
-    ComponentSelector evenLeafSelector = [](SharedComponentPtr component)
+#if 0
+    /*
+    error C2672: 'Component::CreateTypedIterator': no matching overloaded function found
+    error C2784: 'std::shared_ptr<Iterator<std::shared_ptr<_Ty>>> Component::CreateTypedIterator(TraversalKind,std::function<bool(std::shared_ptr<_Ty>)>)': could not deduce template argument for 'std::function<bool(std::shared_ptr<_Ty>)>' from 'main::<lambda_f7c688ea1e2e6188dc61a2174eb968b6>'
+    */
+    auto
+#else
+    std::function<bool(std::shared_ptr<Leaf>)>
+#endif
+        selector = [](std::shared_ptr<Leaf> leaf)
     {
-        assert(component);
-        Leaf *leaf = dynamic_cast<Leaf *>(component.get());
+        assert(leaf);
         return std::stoi(leaf->GetText()) % 2 == 0;
     };
 #else
-    ComponentSelector evenLeafSelector;
+    std::function<bool(std::shared_ptr<Leaf>)> selector;
 #endif
-    
+
     // None test
-    auto iterator = root.CreateIterator(None, evenLeafSelector);
+    auto iterator = root.CreateTypedIterator<Leaf>(None, selector);
     for (iterator->First(); !iterator->IsDone(); iterator->MoveNext())
     {
-        Leaf *leaf = dynamic_cast<Leaf *>(iterator->Current().get());
-        std::cout << leaf->GetText() << " ";
+        std::cout << iterator->Current()->GetText() << " ";
     }
     std::cout << std::endl;
 
     // BFS test
-    iterator = root.CreateIterator(BFS, evenLeafSelector);
+    iterator = root.CreateTypedIterator(BFS, selector);
     for (iterator->First(); !iterator->IsDone(); iterator->MoveNext())
     {
-        Leaf *leaf = dynamic_cast<Leaf *>(iterator->Current().get());
-        std::cout << leaf->GetText() << " ";
+        std::cout << iterator->Current()->GetText() << " ";
     }
     std::cout << std::endl;
 
     // DFS test
-    iterator = root.CreateIterator(DFS, evenLeafSelector);
+    iterator = root.CreateTypedIterator(DFS, selector);
     for (iterator->First(); !iterator->IsDone(); iterator->MoveNext())
     {
-        Leaf *leaf = dynamic_cast<Leaf *>(iterator->Current().get());
-        std::cout << leaf->GetText() << " ";
+        std::cout << iterator->Current()->GetText() << " ";
     }
     std::cout << std::endl;
 

@@ -30,3 +30,41 @@ public:
     virtual bool IsDone() { return true; }
     virtual T Current() { throw StopIterationError(); }
 };
+
+template <typename Container, typename T>
+class ContainerIterator : public Iterator<T>
+{
+public:
+    ContainerIterator(Container c) : container_(c) {} // TODO: The container is copied
+
+    virtual void First()
+    {
+        it_ = container_.begin();
+    }
+
+    virtual void MoveNext()
+    {
+        ++it_;
+    }
+
+    virtual bool IsDone()
+    {
+        return it_ == container_.end();
+    }
+
+    virtual T Current()
+    {
+        try
+        {
+            return *it_;
+        }
+        catch (...)
+        {
+            throw StopIterationError();
+        }
+    }
+
+private:
+    Container container_;
+    typename Container::iterator it_;
+};
