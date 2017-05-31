@@ -125,4 +125,5 @@ private:
 // [Case insensitive standard string comparison in C++ [duplicate]](http://stackoverflow.com/questions/23943728/case-insensitive-standard-string-comparison-in-c)
 // [Remove spaces from std::string in C++](http://stackoverflow.com/questions/83439/remove-spaces-from-stdstring-in-c)
 // [What's the best way to trim std::string?](http://stackoverflow.com/questions/216823/whats-the-best-way-to-trim-stdstring)
+// https://github.com/nu774/qaac/blob/master/strutil.h
 

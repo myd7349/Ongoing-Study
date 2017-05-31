@@ -85,3 +85,7 @@ int main()
 
     return 0;
 }
+
+// References:
+// [Passing shared_ptr<Derived> as shared_ptr<Base>](http://stackoverflow.com/questions/13403490/passing-shared-ptrderived-as-shared-ptrbase)
+// [std::shared_ptr upcasting to base class - best method?](http://stackoverflow.com/questions/21018774/stdshared-ptr-upcasting-to-base-class-best-method)
