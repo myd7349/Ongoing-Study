@@ -11,6 +11,9 @@
 template <typename BidIt, typename CharT>
 std::basic_string<CharT> join(BidIt first, BidIt last, const std::basic_string<CharT> &s)
 {
+    if (first == last)
+        return std::basic_string<CharT>();
+    
     using value_t = typename std::iterator_traits<BidIt>::value_type;
 
     std::basic_ostringstream<CharT> oss;
