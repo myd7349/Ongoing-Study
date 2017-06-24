@@ -1,3 +1,4 @@
+% 2012-10-11T13:10+08:00
 function [imgDataDst, imgClrMapDst, imgDataSrc, imgClrMapSrc] = ...
     ColorReplace(imgName, clrSrc, clrDst)
 % ColorReplace - Replace one color in an image with another color.
