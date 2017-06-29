@@ -3,6 +3,7 @@
 #define STRUTILS_H_
 
 #include <algorithm>
+#include <cassert>
 #include <cctype>
 #include <functional>
 #include <string>
@@ -115,6 +116,52 @@ struct StringIHash {
 private:
     std::hash<std::basic_string<CharT>> hash_;
 };
+
+template <typename CharT>
+bool EndsWith(const std::basic_string<CharT> &lhs, const std::basic_string<CharT> &rhs)
+{
+    if (rhs.empty())
+        return true;
+
+    if (lhs.length() < rhs.length())
+        return false;
+
+    return lhs.substr(lhs.length() - rhs.length()) == rhs;
+}
+
+template <typename CharT>
+bool EndsWith(const std::basic_string<CharT> &lhs, const CharT *rhs)
+{
+    assert(rhs != nullptr);
+    return EndsWith(lhs, std::basic_string<CharT>(rhs));
+}
+
+template <typename CharT>
+bool EndsWith(const std::basic_string<CharT> &lhs, CharT ch)
+{
+    return EndsWith(lhs, std::basic_string<CharT>(ch, 1));
+}
+
+template <typename CharT>
+bool EndsWith(const CharT *str, const std::basic_string<CharT> &rhs)
+{
+    assert(str != nullptr);
+    return EndsWith(std::basic_string<CharT>(str), rhs);
+}
+
+template <typename CharT>
+bool EndsWith(const CharT *str, const CharT *rhs)
+{
+    assert(str != nullptr);
+    return EndsWith(std::basic_string<CharT>(str), rhs);
+}
+
+template <typename CharT>
+bool EndsWith(const CharT *str, CharT ch)
+{
+    assert(str != nullptr);
+    return EndsWith(std::basic_string<CharT>(str), ch);
+}
 
 
 #endif // STRUTILS_H_
