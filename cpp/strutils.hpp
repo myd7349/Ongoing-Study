@@ -5,7 +5,9 @@
 #include <algorithm>
 #include <cassert>
 #include <cctype>
+#include <codecvt>
 #include <functional>
+#include <locale>
 #include <string>
 
 
@@ -163,6 +165,10 @@ bool EndsWith(const CharT *str, CharT ch)
     return EndsWith(std::basic_string<CharT>(str), ch);
 }
 
+std::string ws2s(const std::wstring &str)
+{
+    return (std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t>()).to_bytes(str);
+}
 
 #endif // STRUTILS_H_
 
@@ -173,4 +179,4 @@ bool EndsWith(const CharT *str, CharT ch)
 // [Remove spaces from std::string in C++](http://stackoverflow.com/questions/83439/remove-spaces-from-stdstring-in-c)
 // [What's the best way to trim std::string?](http://stackoverflow.com/questions/216823/whats-the-best-way-to-trim-stdstring)
 // https://github.com/nu774/qaac/blob/master/strutil.h
-
+// [How to convert wstring into string?](https://stackoverflow.com/questions/4804298/how-to-convert-wstring-into-string)
