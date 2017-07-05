@@ -12,6 +12,8 @@ namespace DrawableItemTest
         {
             InitializeComponent();
 
+            DoubleBuffered = true;
+
             Pen linePen = new Pen(Color.Blue, 2.0f);
             Brush labelBackgroundBrush = new SolidBrush(Color.LightBlue);
             Brush labelBrush = new SolidBrush(Color.Black);
@@ -43,17 +45,13 @@ namespace DrawableItemTest
         private DragableVerticalLabeledLine[] labeledLines;
         private AdjustLineAction adjustLineAction;
         private Brush backgroundBrush = new SolidBrush(Color.SkyBlue);
-        private Bitmap canvas;
 
         private void DrawAll(Graphics graphics)
         {
-            Graphics g = Graphics.FromImage(canvas);
-            g.FillRectangle(backgroundBrush, ClientRectangle);
+            graphics.FillRectangle(backgroundBrush, ClientRectangle);
 
             for (int i = 0; i < labeledLines.Length; ++i)
-                labeledLines[i].Draw(g);
-
-            graphics.DrawImage(canvas, ClientRectangle);
+                labeledLines[i].Draw(graphics);
         }
 
         private void DragableItemTest_Layout(object sender, LayoutEventArgs e)
@@ -67,12 +65,7 @@ namespace DrawableItemTest
                 labeledLines[i].LabelYStart = labeledLines[i].Length / 2 - 40 * i;
             }
 
-            canvas = new Bitmap(ClientRectangle.Width, ClientRectangle.Height);
-
-            using (var g = CreateGraphics())
-            {
-                DrawAll(g);
-            }
+            Invalidate();
         }
 
         private void DragableItemTest_Paint(object sender, PaintEventArgs e)
@@ -82,29 +75,20 @@ namespace DrawableItemTest
 
         private void DragableItemTest_MouseDown(object sender, MouseEventArgs e)
         {
-            using (var g = CreateGraphics())
-            {
-                if (adjustLineAction.OnMouseDown(sender, e))
-                    DrawAll(g);
-            }
+            if (adjustLineAction.OnMouseDown(sender, e))
+                Invalidate();
         }
 
         private void DragableItemTest_MouseMove(object sender, MouseEventArgs e)
         {
-            using (var g = CreateGraphics())
-            {
-                if (adjustLineAction.OnMouseMove(sender, e))
-                    DrawAll(g);
-            }
+            if (adjustLineAction.OnMouseMove(sender, e))
+                Invalidate();
         }
 
         private void DragableItemTest_MouseUp(object sender, MouseEventArgs e)
         {
-            using (var g = CreateGraphics())
-            {
-                if (adjustLineAction.OnMouseUp(sender, e))
-                    DrawAll(g);
-            }
+            if (adjustLineAction.OnMouseUp(sender, e))
+                Invalidate();
         }
     }
 }
