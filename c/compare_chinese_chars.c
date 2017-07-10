@@ -21,10 +21,10 @@ int main(void)
 {
     int i = 0;
     const char *names[] = {
-        "ÕÔ",
-        "Ç®",
-        "Ëï",
-        "Àî",
+        "赵",
+        "钱",
+        "孙",
+        "李",
     };
 
     setlocale(LC_COLLATE, "");
