@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +45,9 @@
     <Compile Include="ArrayHelper.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="ConvertEx.cs" />
+    <Compile Include="DataGridViewEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GDI32Helper.cs" />
     <Compile Include="EnumHelper.cs" />
     <Compile Include="GraphicsExtension.cs" />
