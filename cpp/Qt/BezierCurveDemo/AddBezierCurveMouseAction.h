@@ -7,11 +7,7 @@
 class AddBezierCurveMouseAction : public MouseActionBase
 {
 public:
-    virtual bool mousePressEvent(QObject *sender, QMouseEvent *event);
-
-    virtual bool mouseReleaseEvent(QObject *sender, QMouseEvent *event);
-
-    virtual bool mouseMoveEvent(QObject *sender, QMouseEvent *event);
+    virtual bool mouseDoubleClickEvent(QObject *sender, QMouseEvent *event);
 };
 
 #endif

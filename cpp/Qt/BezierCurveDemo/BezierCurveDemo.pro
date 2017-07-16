@@ -29,10 +29,13 @@ SOURCES += \
         main.cpp \
         widget.cpp \
         BezierCurve.cpp \
-    AddBezierCurveMouseAction.cpp
+        AddBezierCurveMouseAction.cpp \
+    AdjustBezierCurveMouseAction.cpp
 
 HEADERS += \
         widget.h \
         MouseActionBase.hpp \
         AddBezierCurveMouseAction.h \
-        BezierCurve.h
+        BezierCurve.h \
+        ../../DesignPatterns/Singleton.h \
+    AdjustBezierCurveMouseAction.h

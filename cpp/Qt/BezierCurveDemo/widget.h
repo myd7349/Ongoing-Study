@@ -5,7 +5,6 @@
 #include <QtGui/QPixmap>
 #include <QtWidgets/QWidget>
 
-#include "BezierCurve.h"
 #include "MouseActionBase.hpp"
 
 
@@ -20,13 +19,13 @@ public:
 protected:
     virtual void paintEvent(QPaintEvent *event);
     virtual void mousePressEvent(QMouseEvent *event);
+    virtual void mouseDoubleClickEvent(QMouseEvent *event);
     virtual void mouseReleaseEvent(QMouseEvent *event);
     virtual void mouseMoveEvent(QMouseEvent *event);
 
 private:
     QPixmap render();
 
-    BezierCurveSafePtr bezierCurve;
     MouseActionList mouseActionList;
 };
 

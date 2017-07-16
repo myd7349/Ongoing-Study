@@ -3,13 +3,17 @@
 #include <QtGui/QPixmapCache>
 #include <QtWidgets/QStylePainter>
 
+#include "../../DesignPatterns/Singleton.h"
 #include "AddBezierCurveMouseAction.h"
+#include "AdjustBezierCurveMouseAction.h"
+#include "BezierCurve.h"
 
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
 {
     mouseActionList.pushBack(QSharedPointer<AddBezierCurveMouseAction>::create());
+    mouseActionList.pushBack(QSharedPointer<AdjustBezierCurveMouseAction>::create());
 }
 
 Widget::~Widget()
@@ -27,6 +31,12 @@ void Widget::paintEvent(QPaintEvent *event)
 void Widget::mousePressEvent(QMouseEvent *event)
 {
     if (mouseActionList.mousePressEvent(this, event))
+        repaint();
+}
+
+void Widget::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    if (mouseActionList.mouseDoubleClickEvent(this, event))
         repaint();
 }
 
@@ -61,6 +71,7 @@ QPixmap Widget::render()
     QStylePainter painter(&pixmap, this);
     painter.setRenderHint(QPainter::Antialiasing);
     painter.fillRect(rect, Qt::white);
+    Singleton<DecoratedBezierCurve>::GetInstancePtr()->draw(painter);
 
     return pixmap;
 }

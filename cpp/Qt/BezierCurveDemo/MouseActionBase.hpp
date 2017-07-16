@@ -18,6 +18,13 @@ public:
         return false;
     }
 
+    virtual bool mouseDoubleClickEvent(QObject *sender, QMouseEvent *event)
+    {
+        Q_UNUSED(sender);
+        Q_UNUSED(event);
+        return false;
+    }
+
     virtual bool mouseReleaseEvent(QObject *sender, QMouseEvent *event)
     {
         Q_UNUSED(sender);
@@ -66,6 +73,12 @@ public:
     {
         return dispatchMouseEvent(sender, event,
             std::mem_fn(&MouseActionBase::mousePressEvent));
+    }
+
+    bool mouseDoubleClickEvent(QObject *sender, QMouseEvent *event)
+    {
+        return dispatchMouseEvent(sender, event,
+            std::mem_fn(&MouseActionBase::mouseDoubleClickEvent));
     }
 
     bool mouseReleaseEvent(QObject *sender, QMouseEvent *event)
