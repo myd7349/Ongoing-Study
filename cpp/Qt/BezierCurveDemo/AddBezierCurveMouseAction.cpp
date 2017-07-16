@@ -9,18 +9,27 @@ bool AddBezierCurveMouseAction::mouseDoubleClickEvent(QObject *sender, QMouseEve
     Q_UNUSED(sender);
 
     Q_ASSERT(event != nullptr);
-    if (event->button() != Qt::LeftButton)
-        return false;
 
     auto bezierCurve = Singleton<DecoratedBezierCurve>::GetInstancePtr();
 
-    if (bezierCurve->hitTest(event->pos()))
+    if (event->button() == Qt::LeftButton)
     {
-        bezierCurve->removePoint(event->pos());
-        return true;
+        if (bezierCurve->hitTest(event->pos()))
+        {
+            bezierCurve->removePoint(event->pos());
+            return true;
+        }
+        else
+        {
+            return bezierCurve->addPoint(event->pos());
+        }
+    }
+    else if (event->button() == Qt::RightButton)
+    {
+        return bezierCurve->removePoint();
     }
     else
     {
-        return bezierCurve->addPoint(event->pos());
+        return false;
     }
 }
