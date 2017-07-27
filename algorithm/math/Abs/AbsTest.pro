@@ -5,6 +5,3 @@ CONFIG -= qt
 
 SOURCES += \
     AbsTest.cpp
-
-HEADERS += \
-    Abs.hpp

@@ -7,7 +7,7 @@
 
 
 template <typename T>
-T AbsNotSoCool(T x)
+inline T AbsNotSoCool(T x)
 {
     if (x <= T())
         return -x;

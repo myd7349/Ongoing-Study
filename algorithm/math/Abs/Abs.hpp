@@ -3,7 +3,7 @@
 #define ABS_HPP_
 
 template <typename T>
-T Abs(T x)
+inline T Abs(T x)
 {
     if (x < T())
         return -x;
