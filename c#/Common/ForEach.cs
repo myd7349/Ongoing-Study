@@ -1,5 +1,5 @@
 // 2017-07-13T10:32+08:00
-// LINQ-style ForEach to consume a enumerable object.
+// LINQ-style ForEach to consume an enumerable object.
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
