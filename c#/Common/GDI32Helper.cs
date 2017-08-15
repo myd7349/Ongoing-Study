@@ -44,7 +44,7 @@ namespace Common.Auxiliary.Drawing
         }
     }
 
-    public static class ColorExtension
+    public static partial class ColorExtension
     {
         //public static Color FromCOLORREF(this Color color, COLORREF clr) [2]
         public static Color FromCOLORREF(COLORREF clr)
