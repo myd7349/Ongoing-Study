@@ -1,5 +1,18 @@
 // 2017-08-16T12:23+08:00
-// mex primeFactors.cpp
+/*
+>> mex primeFactors.cpp
+>> primeFactors(4)
+
+ans =
+
+     2     2
+
+>> factors = primeFactors(10)
+
+factors =
+
+     2     5
+*/
 
 #include <algorithm>
 #include <list>
@@ -33,11 +46,16 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) {
         mexErrMsgTxt("Input upper-bound must be a scalar.");
     }
 
-    if (nlhs != 1) {
+    if (nlhs != 0 && // `ans` 
+        nlhs != 1) {
         mexErrMsgTxt("One output required.");
     }
 
     int n = (int)mxGetScalar(prhs[0]);
+    if (n <= 0) {
+        mexErrMsgTxt("The input should be non-negative.");
+    }
+
     std::list<int> factors = primeFactors(n);
 
     plhs[0] = mxCreateDoubleMatrix(1, (mwSize)factors.size(), mxREAL);
@@ -49,3 +67,4 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) {
 // References:
 // doc mex
 // doc factors
+// [Return variable number of outputs from mex function](https://stackoverflow.com/questions/26460963/return-variable-number-of-outputs-from-mex-function)
