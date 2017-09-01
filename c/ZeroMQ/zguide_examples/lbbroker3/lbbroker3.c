@@ -1,3 +1,8 @@
+// 2017-09-01T16:00+08:00
+// Note:
+// This version does work with czmq 4.x. If you are using czmq 4.x, please
+// refer https://github.com/myd7349/Ongoing-Study/blob/master/c/ZeroMQ/czmq/lbbroker3_with_raw_libzmq_socket.c
+
 // 2015-05-13T17:57+08:00
 // Load-balancing broker
 // Demonstrates use of the CZMQ API and reactor style
