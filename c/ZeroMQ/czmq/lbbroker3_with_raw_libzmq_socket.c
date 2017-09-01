@@ -60,15 +60,15 @@ static void *
 client_task(void *args)
 {
     void *ctx = zmq_ctx_new();
-	void *client = zmq_socket(ctx, ZMQ_REQ);
+    void *client = zmq_socket(ctx, ZMQ_REQ);
 
 #if (defined (WIN32))
     zmq_connect(client, "tcp://localhost:5672");
 #else
-	zmq_connect(client, "ipc://frontend.ipc");
+    zmq_connect(client, "ipc://frontend.ipc");
 #endif
 
-	// Send request, get reply
+    // Send request, get reply
     zstr_send(client, "HELLO");
     char *reply = zstr_recv(client);
     if (reply) {
@@ -79,7 +79,7 @@ client_task(void *args)
     zmq_close(client);
     zmq_ctx_term(ctx);
 
-	return NULL;
+    return NULL;
 }
 
 
@@ -89,22 +89,22 @@ static void *
 worker_task(void *args)
 {
     void *ctx = zmq_ctx_new();
-	void *worker = zmq_socket(ctx, ZMQ_REQ);
+    void *worker = zmq_socket(ctx, ZMQ_REQ);
 
 #if (defined (WIN32))
-	zmq_connect(worker, "tcp://localhost:5673"); // backend
+    zmq_connect(worker, "tcp://localhost:5673"); // backend
 #else
-	zmq_connect(worker, "ipc://backend.ipc");
+    zmq_connect(worker, "ipc://backend.ipc");
 #endif
 
-	// Tell broker we're ready for work
+    // Tell broker we're ready for work
     zstr_send(worker, WORKER_READY);
 
-	// Process messages as they arrive
-	while (1) {
-		zmsg_t *msg = zmsg_recv(worker);
-		if (!msg)
-			break;
+    // Process messages as they arrive
+    while (1) {
+        zmsg_t *msg = zmsg_recv(worker);
+        if (!msg)
+            break;
 
         if (zmsg_size(msg) == 3) {
             zframe_dump(zmsg_last(msg), "Worker: ", "\n");
@@ -113,21 +113,21 @@ worker_task(void *args)
         } else {
             assert(false);
         }
-	}
+    }
 
     zmq_close(worker);
     zmq_ctx_term(ctx);
 
-	return NULL;
+    return NULL;
 }
 
 
 // .until
 // Our load-balancing structure, passed to reactor handlers
 typedef struct {
-	void *frontend; // Listen to clients
-	void *backend; // Listen to workers
-	zlist_t *workers_at_rest; // List of ready workers
+    void *frontend; // Listen to clients
+    void *backend; // Listen to workers
+    zlist_t *workers_at_rest; // List of ready workers
 } lbbroker_t;
 
 
@@ -140,49 +140,49 @@ typedef struct {
 // Handle input from client, on frontend
 int s_handle_frontend(zloop_t *loop, zmq_pollitem_t *poller, void *arg)
 {
-	lbbroker_t *self = (lbbroker_t *)arg;
-	zmsg_t *msg = zmsg_recv(self->frontend);
-	if (msg) {
-		zmsg_wrap(msg, (zframe_t *)zlist_pop(self->workers_at_rest));
-		zmsg_send(&msg, self->backend);
+    lbbroker_t *self = (lbbroker_t *)arg;
+    zmsg_t *msg = zmsg_recv(self->frontend);
+    if (msg) {
+        zmsg_wrap(msg, (zframe_t *)zlist_pop(self->workers_at_rest));
+        zmsg_send(&msg, self->backend);
 
-		// Cancel reader on frontend if we went from 1 to 0 workers
-		if (zlist_size(self->workers_at_rest) == 0) {
-			zmq_pollitem_t poller = { self->frontend, 0, ZMQ_POLLIN };
-			zloop_poller_end(loop, &poller);
-		}
-	}
+        // Cancel reader on frontend if we went from 1 to 0 workers
+        if (zlist_size(self->workers_at_rest) == 0) {
+            zmq_pollitem_t poller = { self->frontend, 0, ZMQ_POLLIN };
+            zloop_poller_end(loop, &poller);
+        }
+    }
 
-	return 0;
+    return 0;
 }
 
 
 // Handle input from worker, on backend
 int s_handle_backend(zloop_t *loop, zmq_pollitem_t *poller, void *arg)
 {
-	// Use worker identity for load-balancing
-	lbbroker_t *self = (lbbroker_t *)arg;
-	zmsg_t *msg = zmsg_recv(self->backend);
-	if (msg) {
-		zframe_t *identity = zmsg_unwrap(msg);
-		zlist_append(self->workers_at_rest, identity);
+    // Use worker identity for load-balancing
+    lbbroker_t *self = (lbbroker_t *)arg;
+    zmsg_t *msg = zmsg_recv(self->backend);
+    if (msg) {
+        zframe_t *identity = zmsg_unwrap(msg);
+        zlist_append(self->workers_at_rest, identity);
 
-		// Enable reader on frontend if we went from 0 to 1 workers
-		if (zlist_size(self->workers_at_rest) == 1) {
-			zmq_pollitem_t poller = { self->frontend, 0, ZMQ_POLLIN };
-			zloop_poller(loop, &poller, s_handle_frontend, self);
-		}
+        // Enable reader on frontend if we went from 0 to 1 workers
+        if (zlist_size(self->workers_at_rest) == 1) {
+            zmq_pollitem_t poller = { self->frontend, 0, ZMQ_POLLIN };
+            zloop_poller(loop, &poller, s_handle_frontend, self);
+        }
 
-		// Forward message to client if it's not a READY
-		zframe_t *frame = zmsg_first(msg);
-		if (zframe_streq(frame, WORKER_READY)) {
-			zmsg_destroy(&msg);
-		} else {
-			zmsg_send(&msg, self->frontend);
-		}
-	}
+        // Forward message to client if it's not a READY
+        zframe_t *frame = zmsg_first(msg);
+        if (zframe_streq(frame, WORKER_READY)) {
+            zmsg_destroy(&msg);
+        } else {
+            zmsg_send(&msg, self->frontend);
+        }
+    }
 
-	return 0;
+    return 0;
 }
 
 
@@ -198,55 +198,55 @@ int main(void)
 
     void *ctx = zmq_ctx_new();
 
-	lbbroker_t *self = (lbbroker_t *)zmalloc(sizeof(lbbroker_t));
-	self->frontend = zmq_socket(ctx, ZMQ_ROUTER);
-	self->backend = zmq_socket(ctx, ZMQ_ROUTER);
+    lbbroker_t *self = (lbbroker_t *)zmalloc(sizeof(lbbroker_t));
+    self->frontend = zmq_socket(ctx, ZMQ_ROUTER);
+    self->backend = zmq_socket(ctx, ZMQ_ROUTER);
 
 #if (defined (WIN32))
-	zmq_bind(self->frontend, "tcp://*:5672"); // frontend
-	zmq_bind(self->backend, "tcp://*:5673"); // backend
+    zmq_bind(self->frontend, "tcp://*:5672"); // frontend
+    zmq_bind(self->backend, "tcp://*:5673"); // backend
 #else
-	zmq_bind(self->frontend, "ipc://frontend.ipc");
-	zmq_bind(self->backend, "ipc://backend.ipc");
+    zmq_bind(self->frontend, "ipc://frontend.ipc");
+    zmq_bind(self->backend, "ipc://backend.ipc");
 #endif
 
-	int client_nbr;
+    int client_nbr;
     for (client_nbr = 0; client_nbr < NBR_CLIENTS; client_nbr++) {
         pthread_t client;
         pthread_create(&client, NULL, client_task, NULL);
         //zthread_new(client_task, NULL);
     }
 
-	int worker_nbr;
+    int worker_nbr;
     for (worker_nbr = 0; worker_nbr < NBR_WORKERS; worker_nbr++) {
         pthread_t worker;
         pthread_create(&worker, NULL, worker_task, NULL);
         //zthread_new(worker_task, NULL);
     }
 
-	// Queue of available workers
-	self->workers_at_rest = zlist_new();
+    // Queue of available workers
+    self->workers_at_rest = zlist_new();
 
-	// Prepare reactor and fire it up
-	zloop_t *reactor = zloop_new();
-	zmq_pollitem_t poller = { self->backend, 0, ZMQ_POLLIN };
-	rc = zloop_poller(reactor, &poller, s_handle_backend, self);
+    // Prepare reactor and fire it up
+    zloop_t *reactor = zloop_new();
+    zmq_pollitem_t poller = { self->backend, 0, ZMQ_POLLIN };
+    rc = zloop_poller(reactor, &poller, s_handle_backend, self);
     assert(rc == 0);
-	zloop_start(reactor);
-	zloop_destroy(&reactor);
+    zloop_start(reactor);
+    zloop_destroy(&reactor);
 
-	// When we're done, clean up properly
-	while (zlist_size(self->workers_at_rest)) {
-		zframe_t *frame = (zframe_t *)zlist_pop(self->workers_at_rest);
-		zframe_destroy(&frame);
-	}
-	zlist_destroy(&self->workers_at_rest);
+    // When we're done, clean up properly
+    while (zlist_size(self->workers_at_rest)) {
+        zframe_t *frame = (zframe_t *)zlist_pop(self->workers_at_rest);
+        zframe_destroy(&frame);
+    }
+    zlist_destroy(&self->workers_at_rest);
 
     zmq_close(self->frontend);
     zmq_close(self->backend);
     zmq_ctx_destroy(ctx);
 
-	free(self);
+    free(self);
 
-	return 0;
+    return 0;
 }
