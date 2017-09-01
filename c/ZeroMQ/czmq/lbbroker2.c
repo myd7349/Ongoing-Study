@@ -29,35 +29,35 @@
 static void
 zframe_dump(zframe_t *frame, const char *prefix, const char *suffix)
 {
-	assert(frame);
-	assert(zframe_is(frame));
+    assert(frame);
+    assert(zframe_is(frame));
 
-	byte *data = zframe_data(frame);
-	size_t size = zframe_size(frame);
+    byte *data = zframe_data(frame);
+    size_t size = zframe_size(frame);
 
-	//  Probe data to check if it looks like unprintable binary
-	int is_bin = 0;
-	uint char_nbr;
-	for (char_nbr = 0; char_nbr < size; char_nbr++)
-		if (data[char_nbr] < 9 || data[char_nbr] > 127)
-			is_bin = 1;
+    //  Probe data to check if it looks like unprintable binary
+    int is_bin = 0;
+    uint char_nbr;
+    for (char_nbr = 0; char_nbr < size; char_nbr++)
+        if (data[char_nbr] < 9 || data[char_nbr] > 127)
+            is_bin = 1;
 
-	char buffer[256] = "";
-	size_t max_size = is_bin ? 35 : 70;
-	const char *ellipsis = "";
-	if (size > max_size) {
-		size = max_size;
-		ellipsis = "...";
-	}
-	for (char_nbr = 0; char_nbr < size; char_nbr++) {
-		if (is_bin)
-			sprintf(buffer + strlen(buffer), "%02X", (unsigned char)data[char_nbr]);
-		else
-			sprintf(buffer + strlen(buffer), "%c", data[char_nbr]);
-	}
-	strcat(buffer, ellipsis);
+    char buffer[256] = "";
+    size_t max_size = is_bin ? 35 : 70;
+    const char *ellipsis = "";
+    if (size > max_size) {
+        size = max_size;
+        ellipsis = "...";
+    }
+    for (char_nbr = 0; char_nbr < size; char_nbr++) {
+        if (is_bin)
+            sprintf(buffer + strlen(buffer), "%02X", (unsigned char)data[char_nbr]);
+        else
+            sprintf(buffer + strlen(buffer), "%c", data[char_nbr]);
+    }
+    strcat(buffer, ellipsis);
 
-	printf("%s%s%s", prefix ? prefix : "", buffer, suffix ? suffix : "");
+    printf("%s%s%s", prefix ? prefix : "", buffer, suffix ? suffix : "");
 }
 
 
@@ -74,12 +74,12 @@ client_task(void *args)
     zsock_connect(client, "ipc://frontend.ipc");
 #endif
 
-	zstr_send(client, "HELLO");
-	char *reply = zstr_recv(client);
-	if (reply) {
-		printf("Client: %s\n", reply);
-		free(reply);
-	}
+    zstr_send(client, "HELLO");
+    char *reply = zstr_recv(client);
+    if (reply) {
+        printf("Client: %s\n", reply);
+        free(reply);
+    }
 
     zsock_destroy(&client);
 
@@ -151,9 +151,9 @@ int main(void)
     assert(streq(zsock_type_str(backend), "ROUTER"));
 
 #if (defined (WIN32))
-	rc = zsock_bind(frontend, "tcp://*:5672");
+    rc = zsock_bind(frontend, "tcp://*:5672");
     assert(rc == 5672);
-	rc = zsock_bind(backend, "tcp://*:5673");
+    rc = zsock_bind(backend, "tcp://*:5673");
     assert(rc == 5673);
 #else
     (void)rc;
@@ -199,13 +199,13 @@ int main(void)
             if (!msg)
                 break; // Interrupted
 
-			zframe_t *identity = zmsg_pop(msg);
+            zframe_t *identity = zmsg_pop(msg);
 
-			zframe_t *delimiter = zmsg_first(msg);
-			if (delimiter != NULL && zframe_size(delimiter) == 0) {
-				delimiter = zmsg_pop(msg);
-				zframe_destroy(&delimiter);
-			}
+            zframe_t *delimiter = zmsg_first(msg);
+            if (delimiter != NULL && zframe_size(delimiter) == 0) {
+                delimiter = zmsg_pop(msg);
+                zframe_destroy(&delimiter);
+            }
 
             zlist_append(workers_at_rest, identity);
 
