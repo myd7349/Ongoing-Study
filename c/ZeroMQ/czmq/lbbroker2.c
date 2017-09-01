@@ -3,6 +3,12 @@
 // https://github.com/booksbyus/zguide/blob/master/examples/C/lbbroker2.c
 // with CZMQ 4.x API.
 
+// In czmq 4.x:
+// (1) No more `zctx`;
+// (2) Use `zsock` instead of `zsocket`;
+// (3) No more `zthread`;
+
+
 #include <czmq.h>
 
 #include <pthread.h>
