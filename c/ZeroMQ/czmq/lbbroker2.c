@@ -7,6 +7,9 @@
 // (1) No more `zctx`;
 // (2) Use `zsock` instead of `zsocket`;
 // (3) No more `zthread`;
+//     https://github.com/zeromq/czmq
+//     The zactor class provides a simple actor framework. It replaces the CZMQ 
+//     zthread class, which had a complex API that did not fit the CLASS standard.
 
 
 #include <czmq.h>
@@ -275,6 +278,7 @@ int main(void)
 
 // References:
 // https://github.com/sappo/czmq_zguide_examples/blob/master/src/lpclient.c
+// [czmq#1704](https://github.com/zeromq/czmq/issues/1704)
 // [czmq#1751](https://github.com/zeromq/czmq/issues/1751)
 // [zguide#701](https://github.com/booksbyus/zguide/issues/701)
 // [zmsg](http://czmq.zeromq.org/czmq4-0:zmsg)
