@@ -4,7 +4,7 @@
 
 #include <czmq.h>
 
-
+// Deprecated! Use zsys_set_logstream + zframe_print instead.
 // Based on those code in zframe_print
 static void
 zframe_dump(zframe_t *frame, const char *prefix, const char *suffix)
@@ -38,6 +38,31 @@ zframe_dump(zframe_t *frame, const char *prefix, const char *suffix)
     strcat(buffer, ellipsis);
 
     printf("%s%s%s", prefix ? prefix : "", buffer, suffix ? suffix : "");
+}
+
+
+
+// Deprecated! Use zsys_set_logstream + zmsg_print instead.
+static void
+zmsg_dump_ex(zmsg_t *msg, const char *prefix, const char *delimiter, const char *suffix)
+{
+    zframe_t *frame = NULL;
+
+    assert(msg);
+    assert(zmsg_is(msg));
+
+    if (!delimiter)
+        delimiter = "|";
+
+    printf("%s", prefix ? prefix : "");
+
+    frame = zmsg_first(msg);
+    while (frame != NULL) {
+        zframe_dump(frame, NULL, delimiter);
+        frame = zmsg_next(msg);
+    }
+
+    printf("%s", suffix ? suffix : "");
 }
 
 #endif // CZMQ_HELPERS_H_
