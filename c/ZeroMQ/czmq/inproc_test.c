@@ -129,5 +129,5 @@ int main(void)
     zsys_shutdown();
 #endif
 
-	return 0;
+    return 0;
 }

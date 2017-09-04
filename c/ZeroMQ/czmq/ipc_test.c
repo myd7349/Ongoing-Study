@@ -15,42 +15,42 @@
 
 int main(void)
 {
-	zsock_t *req = zsock_new(ZMQ_REQ);
-	zsock_t *rep = zsock_new(ZMQ_REP);
+    zsock_t *req = zsock_new(ZMQ_REQ);
+    zsock_t *rep = zsock_new(ZMQ_REP);
 
-	int port;
+    int port;
 #if TEST_IPC
-	port = zsock_bind(req, "ipc://reqvsrep.ipc");
-	printf("%d\n", port);
-	port = zsock_connect(rep, "ipc://reqvsrep.ipc");
-	printf("%d\n", port);
+    port = zsock_bind(req, "ipc://reqvsrep.ipc");
+    printf("%d\n", port);
+    port = zsock_connect(rep, "ipc://reqvsrep.ipc");
+    printf("%d\n", port);
 #elif TEST_INPROC
     port = zsock_bind(req, "inproc://backend");
     printf("%d\n", port);
     port = zsock_connect(rep, "inproc://backend");
     printf("%d\n", port);
 #else
-	port = zsock_bind(req, "tcp://*:5678");
-	printf("%d\n", port);
-	port = zsock_connect(rep, "tcp://localhost:5678");
-	printf("%d\n", port);
+    port = zsock_bind(req, "tcp://*:5678");
+    printf("%d\n", port);
+    port = zsock_connect(rep, "tcp://localhost:5678");
+    printf("%d\n", port);
 #endif
 
-	zstr_send(req, "Hello");
-	
-	char *request = zstr_recv(rep);
-	if (request != NULL) {
-		printf("%s\n", request);
-		free(request);
-	}
+    zstr_send(req, "Hello");
+    
+    char *request = zstr_recv(rep);
+    if (request != NULL) {
+        printf("%s\n", request);
+        free(request);
+    }
 
-	zstr_send(rep, "World");
+    zstr_send(rep, "World");
 
-	char *reply = zstr_recv(req);
-	if (reply != NULL) {
-		printf("%s\n", reply);
-		free(reply);
-	}
+    char *reply = zstr_recv(req);
+    if (reply != NULL) {
+        printf("%s\n", reply);
+        free(reply);
+    }
 
     zsock_destroy(&req);
     zsock_destroy(&rep);
@@ -59,7 +59,7 @@ int main(void)
     zsys_shutdown();
 #endif
 
-	return 0;
+    return 0;
 }
 
 // References:
