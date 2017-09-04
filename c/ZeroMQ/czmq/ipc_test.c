@@ -1,34 +1,38 @@
 // 2017-09-04T09:30+08:00
-// Note:
-// This version does work with czmq 4.x. If you are using czmq 4.x, please
-// refer https://github.com/myd7349/Ongoing-Study/blob/master/c/ZeroMQ/czmq/ipc_test.c
-
-
-// 2015-05-16T16:53+08:00
 // Test if IPC works on windows.
 #include "czmq.h"
+
 
 #ifndef TEST_IPC
 # define TEST_IPC (1)
 #endif
 
+
+#ifndef TEST_INPROC
+# define TEST_INPROC (0)
+#endif
+
+
 int main(void)
 {
-	zctx_t *ctx = zctx_new();
-
-	void *req = zsocket_new(ctx, ZMQ_REQ);
-	void *rep = zsocket_new(ctx, ZMQ_REP);
+	zsock_t *req = zsock_new(ZMQ_REQ);
+	zsock_t *rep = zsock_new(ZMQ_REP);
 
 	int port;
 #if TEST_IPC
-	port = zsocket_bind(req, "ipc://reqvsrep.ipc");
+	port = zsock_bind(req, "ipc://reqvsrep.ipc");
 	printf("%d\n", port);
-	port = zsocket_connect(rep, "ipc://reqvsrep.ipc");
+	port = zsock_connect(rep, "ipc://reqvsrep.ipc");
 	printf("%d\n", port);
+#elif TEST_INPROC
+    port = zsock_bind(req, "inproc://backend");
+    printf("%d\n", port);
+    port = zsock_connect(rep, "inproc://backend");
+    printf("%d\n", port);
 #else
-	port = zsocket_bind(req, "tcp://*:5678");
+	port = zsock_bind(req, "tcp://*:5678");
 	printf("%d\n", port);
-	port = zsocket_connect(rep, "tcp://localhost:5678");
+	port = zsock_connect(rep, "tcp://localhost:5678");
 	printf("%d\n", port);
 #endif
 
@@ -48,11 +52,16 @@ int main(void)
 		free(reply);
 	}
 
-	zctx_destroy(&ctx);
+    zsock_destroy(&req);
+    zsock_destroy(&rep);
 
-	system("pause");
+#if defined __WINDOWS__
+    zsys_shutdown();
+#endif
+
 	return 0;
 }
+
 // References:
 // [Does zeromq support IPC as a transport channel on windows?](http://stackoverflow.com/questions/15386121/does-zeromq-support-ipc-as-a-transport-channel-on-windows)
 // [IPC not supported on windows](https://zeromq.jira.com/browse/LIBZMQ-153)
