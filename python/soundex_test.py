@@ -6,6 +6,7 @@
 import contextlib
 import sqlite3
 
+import fuzzywuzzy.fuzz as fuzz  # pip install fuzzywuzzy
 import jellyfish  # pip install jellyfish
 
 
@@ -33,9 +34,16 @@ with contextlib.closing(sqlite3.connect(':memory:')) as connection:
     # the `SOUNDEX` function(May be the `SQLITE_SOUNDEX` option was
     # not enabled when the module was compiled).
     connection.create_function('soundex', 1, jellyfish.soundex)
+    connection.create_function('fuzzy_match', 2, lambda x, y: fuzz.partial_ratio(x, y) >= 75)
     
     with contextlib.closing(connection.executescript(sql)) as cursor:
         cursor.execute("SELECT id, name FROM users WHERE SOUNDEX(name) = SOUNDEX('Michael Green')")
+        print(cursor.fetchall())
+
+        cursor.execute("SELECT id, name FROM users WHERE SOUNDEX(name) = SOUNDEX('Doctor Zhang')")
+        print(cursor.fetchall())
+
+        cursor.execute("SELECT id, name FROM users WHERE fuzzy_match(name, 'Doctor Zhang')")
         print(cursor.fetchall())
 
 
