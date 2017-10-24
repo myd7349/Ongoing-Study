@@ -3,6 +3,7 @@
 #include "Utility.h"
 
 #include <algorithm>
+#include <vector>
 
 #include <propvarutil.h>
 #include <shlwapi.h>
@@ -683,4 +684,51 @@ CString GetModuleFilePath(HMODULE hModule)
         return _T("");
 
     return szBuffer;
+}
+
+CString GetFullPath(LPCTSTR lpcszPath)
+{
+    ASSERT(lpcszPath != NULL);
+    if (lpcszPath == NULL)
+        return _T("");
+
+    CString strFullPath(_T('\0'), MAX_PATH);
+    TCHAR *lpPart[MAX_PATH] = { NULL };
+    DWORD dwRetval = GetFullPathName(lpcszPath, strFullPath.GetLength(), strFullPath.GetBuffer(), lpPart);
+    strFullPath.ReleaseBuffer();
+    
+    if (dwRetval == 0)
+        return _T("");
+
+    if ((int)dwRetval < strFullPath.GetLength())
+        return strFullPath;
+
+    dwRetval = GetFullPathName(lpcszPath, strFullPath.GetLength(), strFullPath.GetBufferSetLength((int)dwRetval), lpPart);
+    strFullPath.ReleaseBuffer();
+    return dwRetval != 0 ? strFullPath : _T("");
+}
+
+BOOL RemoveDirectoryEx(LPCTSTR lpcszDir, BOOL bToRecycleBin)
+{
+    ASSERT(lpcszDir != NULL);
+    if (lpcszDir == NULL)
+        return FALSE;
+
+    if (!PathFileExists(lpcszDir))
+        return TRUE;
+
+    CString strFullPath = PathIsRelative(lpcszDir) ? GetFullPath(lpcszDir) : lpcszDir;
+    std::vector<TCHAR> vPath(strFullPath.GetLength() + 2);
+    memcpy(vPath.data(), strFullPath.GetString(), strFullPath.GetLength() * sizeof(TCHAR));
+    vPath[strFullPath.GetLength()] = vPath[strFullPath.GetLength() + 1] = _T('\0');
+
+    // TODO: Use IFileOperation instead.
+    SHFILEOPSTRUCT shfo = 
+    {
+        NULL, FO_DELETE, vPath.data(), NULL,
+        FOF_SILENT | FOF_NOERRORUI | FOF_NOCONFIRMATION | (bToRecycleBin ? FOF_ALLOWUNDO : 0),
+        FALSE, NULL, NULL
+    };
+
+    return SHFileOperation(&shfo) == 0;
 }

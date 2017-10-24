@@ -101,3 +101,8 @@ BOOL GetPEFixedFileVersion(const CString &strExeOrDllFilePath, VS_FIXEDFILEINFO 
 CString GetPEFileVersion(const CString &strExeOrDllFilePath, BOOL bCompact = TRUE, BOOL bMoreCompact = FALSE);
 CString GetPEProductVersion(const CString &strExeOrDllFilePath, BOOL bCompact = TRUE, BOOL bMoreCompact = FALSE);
 CString GetModuleFilePath(HMODULE hModule = NULL);
+
+CString GetFullPath(LPCTSTR lpcszPath);
+
+// boost::filesystem::remove_all
+BOOL RemoveDirectoryEx(LPCTSTR lpcszDir, BOOL bToRecycleBin = FALSE);
