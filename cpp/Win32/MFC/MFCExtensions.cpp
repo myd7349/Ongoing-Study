@@ -49,6 +49,7 @@ CString CComboBox_GetSelectedString(const CComboBox &ctrlComboBox)
     return strSelectedItem;
 }
 
+// http://www.stackoverflow.com/questions/1480873/cedit-control-mfc-placing-cursor-to-end-of-string-after-setwindowtext
 void CEdit_MoveToEnd(CEdit &ctrlEdit)
 {
     ASSERT(ctrlEdit.GetSafeHwnd() != NULL);
