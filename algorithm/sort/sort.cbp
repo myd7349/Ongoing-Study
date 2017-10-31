@@ -38,6 +38,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="merge_sort.hpp" />
 		<Unit filename="print_seq.hpp" />
+		<Unit filename="quick_sort.hpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
