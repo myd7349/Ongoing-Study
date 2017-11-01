@@ -3,20 +3,21 @@
 #define BITUTILS_H_
 
 #include <assert.h>
+#include <limits.h>
 #include <stdio.h>
 
 
 #define SET_BIT(v, p) \
     do \
     { \
-        assert((p) >= 0 && (p) < sizeof(v) * 8); \
+        assert((p) >= 0 && (p) < sizeof(v) * CHAR_BIT); \
         ((v) |= 0x1 << (p)); \
     } while (0)
 
 
 #define IS_BIT_SET(v, p) \
     ( \
-        assert((p) >= 0 && (p) < sizeof(v) * 8), \
+        assert((p) >= 0 && (p) < sizeof(v) * CHAR_BIT), \
         ((0x1 << (p)) & (v)) \
     )
 
@@ -27,7 +28,7 @@
 #define CLEAR_BIT(v, p) \
     do \
     { \
-        assert((p) >= 0 && (p) < sizeof(v) * 8); \
+        assert((p) >= 0 && (p) < sizeof(v) * CHAR_BIT); \
         ((v) &= ~(0x1 << (p))); \
     } while (0)
 
@@ -59,7 +60,7 @@
     do \
     { \
         int i; \
-        for (i = sizeof(v) * 8 - 1; i >= 0; --i) \
+        for (i = sizeof(v) * CHAR_BIT - 1; i >= 0; --i) \
             putchar(IS_BIT_SET((v), i) ? '1' : '0'); \
     } while (0)
 
