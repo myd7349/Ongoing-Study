@@ -3,6 +3,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 #define ELEM_AT(data, elem_size, i) ((char *)(data) + (i) * (elem_size))
@@ -16,6 +17,22 @@ int insert_sort_impl(void *data, unsigned size, unsigned elem_size, cmp_fn_t cmp
              j > 0 && cmp_fn(ELEM_AT(data, elem_size, j - 1), ELEM_AT(data, elem_size, j)) > 0;
              --j)
             swap(ELEM_AT(data, elem_size, j - 1), ELEM_AT(data, elem_size, j), elem_size, temp_elem);
+    }
+
+    return 0;
+}
+
+int insert_sort_impl_v2(void *data, unsigned size, unsigned elem_size, cmp_fn_t cmp_fn, void *temp_elem)
+{
+    for (unsigned i = 1; i < size; ++i)
+    {
+        memcpy(temp_elem, ELEM_AT(data, elem_size, i), elem_size);
+
+        unsigned j = i - 1;
+        for (; j + 1 > 0 && cmp_fn(ELEM_AT(data, elem_size, j), temp_elem) > 0; --j)
+            memcpy(ELEM_AT(data, elem_size, j + 1), ELEM_AT(data, elem_size, j), elem_size);
+
+        memcpy(ELEM_AT(data, elem_size, j + 1), temp_elem, elem_size);
     }
 
     return 0;
@@ -40,7 +57,7 @@ int insert_sort(void *data, unsigned size, unsigned elem_size, cmp_fn_t cmp_fn)
     if (temp_elem == NULL)
         return 1;
 
-    int res = insert_sort_impl(data, size, elem_size, cmp_fn, temp_elem);
+    int res = insert_sort_impl_v2(data, size, elem_size, cmp_fn, temp_elem);
 
     free(temp_elem);
 
