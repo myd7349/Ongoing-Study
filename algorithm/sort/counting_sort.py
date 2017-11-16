@@ -42,7 +42,7 @@ def counting_sort_v2(data):
 
     count_hist = list(itertools.accumulate(count))
 
-    # copy to output array, preserving order of inputs with equal keys:
+    # copy to output array, not stable:
     output = data[:]
     for x in data:
         output[count_hist[key(x)] - 1] = x
