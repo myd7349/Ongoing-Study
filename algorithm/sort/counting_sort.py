@@ -63,3 +63,4 @@ print(counting_sort_v2([0, -1, 4, 0, 2, -3, 8]))
 # References:
 # https://en.wikipedia.org/wiki/Counting_sort
 # https://www.quora.com/How-do-you-preallocate-space-for-lists-in-Python
+# Mastering Algorithms with C, Kyle London, 1999
