@@ -36,10 +36,6 @@ T fn(T *data, unsigned size) \
 }
 
 
-#define GT(x, y) ((x) > (y))
-#define LT(x, y) ((x) < (y))
-
-
 MOST_T(maxi, int, GT)
 MOST_T(maxu, unsigned, GT)
 
@@ -61,10 +57,82 @@ void fn(T *data, unsigned size) \
     \
     printf("[%" STR(fmt), data[0]); \
     for (i = 1; i < size; ++i) \
-        printf(",%d", data[i]); \
+        printf(",%" STR(fmt), data[i]); \
     printf("]\n"); \
 }
 
 
 PRINTV_T(printvi, int, d)
 PRINTV_T(printvu, unsigned, u)
+
+
+#define REVERSE_T(fn, T) \
+void fn(T *data, unsigned size) \
+{ \
+    unsigned i; \
+    unsigned stop = size / 2; \
+    \
+    assert(data != NULL && size >= 0); \
+    for (i = 0; i < stop; ++i) \
+        SWAP_T(T, data[i], data[size - 1 - i]); \
+}
+
+
+REVERSE_T(reversei, int)
+REVERSE_T(reverseu, unsigned)
+
+
+// [1]
+#define ROTATE_T(fn, T) \
+void fn(T *data, unsigned size, int shift) \
+{ \
+    unsigned start = 0; \
+    unsigned count = 0; \
+    \
+    assert(data != NULL && size >= 0); \
+    if (size == 0) \
+        return; \
+    \
+    if (shift > 0) \
+    { \
+        shift = size - shift % size; \
+    } \
+    else if (shift < 0) \
+    { \
+        shift = -shift; \
+        shift %= size; \
+    } \
+    \
+    if (shift == 0) \
+        return; \
+    \
+    while (count < size) \
+    { \
+        T tmp = data[start]; \
+        unsigned i = start; \
+        unsigned j; \
+        \
+        while (1) \
+        { \
+            count += 1; \
+            j = (i + shift) % size; \
+            if (j == start) \
+            { \
+               data[i] = tmp; \
+               break; \
+            } \
+            \
+            data[i] = data[j]; \
+            i = (i + shift) % size; \
+        } \
+        \
+        start += 1; \
+    } \
+}
+
+
+ROTATE_T(rotatei, int)
+ROTATE_T(rotateu, unsigned)
+
+
+// [1] Programming Pearls, 2nd Edition, Jon Bentley, 2.3
