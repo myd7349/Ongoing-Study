@@ -106,3 +106,5 @@ int radix_sorti(int *data, unsigned size, unsigned radix)
 
 // References:
 // https://stackoverflow.com/questions/15306665/radix-sort-for-negative-integers
+// https://en.wikipedia.org/wiki/Radix_sort
+// Mastering Algorithms with C, Kyle London, 1999
