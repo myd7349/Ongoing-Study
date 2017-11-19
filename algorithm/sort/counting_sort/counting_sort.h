@@ -5,7 +5,7 @@
 
 typedef unsigned key_fn(int);
 
-int counting_sorti(int *data, unsigned size, unsigned k, key_fn key);
+int counting_sorti(int *data, unsigned size, unsigned k, key_fn key, unsigned *counts, int *output);
 
 int counting_sorti_simple(int *data, unsigned size);
 
