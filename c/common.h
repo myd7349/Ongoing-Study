@@ -29,6 +29,10 @@
 /* ARRAYSIZE */
 #define ARRAYSIZE(arr) (sizeof(arr) / sizeof(arr[0]))
 
+/* STR */
+#define STR_IMPL(c) #c
+#define STR(c) STR_IMPL(c)
+
 /* To be continued... */
 
 #endif /* COMMON_H_ */
