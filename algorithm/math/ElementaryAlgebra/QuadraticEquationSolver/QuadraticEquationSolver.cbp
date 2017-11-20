@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="QuadraticEquationSolver.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="QuadraticEquationSolver.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
