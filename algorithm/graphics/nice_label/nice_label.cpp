@@ -73,3 +73,4 @@ void loose_label(double rng_min, double rng_max,
 
 // References:
 // Graphics Gems(Vol.1), Edited by ANDREW S. GLASSNER, 2.2 Nice Numbers for Graph Labels
+// https://github.com/erich666/GraphicsGems/blob/master/gems/Label.c
