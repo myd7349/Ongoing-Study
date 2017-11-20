@@ -1,7 +1,7 @@
 #include "BezierCurve.h"
 
-#include <QtGui/QPainterPath>
 #include <QtGui/QPen>
+#include <QtMath>
 #include <QtWidgets/QStylePainter>
 
 
@@ -26,6 +26,32 @@ void BezierCurve::draw(QStylePainter &painter)
 
     painter.drawPath(path);
 }
+
+
+// I think the control point shown in:
+// https://www.zhihu.com/question/64330190
+// looks nice!
+void DecoratedBezierCurve::drawPointMarker(QStylePainter &painter, const QPointF &pt)
+{
+    painter.save();
+
+    QPen pen(QBrush(Qt::red), 1.0f);
+    painter.setPen(pen);
+
+    qreal sideLength = qSqrt(R * R + R * R);
+    QRectF rect(-sideLength / 2, -sideLength / 2, sideLength, sideLength);
+
+    painter.translate(pt); // [1]
+    painter.rotate(45.0f);
+
+    painter.drawRect(rect);
+    painter.fillRect(rect, QBrush(QColor(255, 255, 100, 200)));
+
+    //painter.resetTransform();
+
+    painter.restore();
+}
+
 
 void DecoratedBezierCurve::draw(QStylePainter &painter)
 {
@@ -64,12 +90,16 @@ void DecoratedBezierCurve::draw(QStylePainter &painter)
     if (end() != nullptr)
         painter.drawEllipse(*end(), R, R);
 
-    pen.setColor(Qt::red);
-    painter.setPen(pen);
+    if (c1() != nullptr) {
+        painter.drawLine(*start(), *c1());
+        drawPointMarker(painter, *c1());
+    }
 
-    if (c1() != nullptr)
-        painter.drawEllipse(*c1(), R, R);
-
-    if (c2() != nullptr)
-        painter.drawEllipse(*c2(), R, R);
+    if (c2() != nullptr) {
+        painter.drawLine(*end(), *c2());
+        drawPointMarker(painter, *c2());
+    }
 }
+
+// References:
+// [1][Rotate rectangle around its center](https://stackoverflow.com/questions/8586088/rotate-rectangle-around-its-center)

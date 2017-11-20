@@ -150,6 +150,9 @@ private:
 struct DecoratedBezierCurve : public BezierCurve
 {
     virtual void draw(QStylePainter &painter);
+
+private:
+    void drawPointMarker(QStylePainter &painter, const QPointF &pt);
 };
 
 #endif
