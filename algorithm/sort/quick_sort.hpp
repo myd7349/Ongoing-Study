@@ -18,8 +18,17 @@ void QuickSort(ForwardIt first, ForwardIt last, BinaryPredicate p)
     if (first == last)
         return;
 
+    // Several ways to get `pivot`:
+    // 1. 
     //auto pivot = *std::next(first, std::distance(first, last) / 2);
     auto pivot = *first;
+    // 2.
+    //auto pivot = *(first + randint(0, last - first));
+    // 3.
+    //auto pivot1 = *(first + randint(0, last - first));
+    //auto pivot2 = *(first + randint(0, last - first));
+    //auto pivot3 = *(first + randint(0, last - first));
+    //auto pivot = middle of pivot1, pivot2, pivot3.
 
     using ValueT = typename std::iterator_traits<ForwardIt>::value_type;
     ForwardIt middle1 = std::partition(first, last, [pivot](const ValueT &elem){ return elem < pivot; });
@@ -65,3 +74,4 @@ void QuickSort(ForwardIt first, ForwardIt last)
 // References:
 // Algorithms, 4th Edition, by Robert Sedgewick and Kevin Wayne
 // http://en.cppreference.com/w/cpp/algorithm/partition
+// Mastering Algorithms with C, Kyle London, 1999
