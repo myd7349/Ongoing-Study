@@ -8,22 +8,28 @@
 void DividedDifferences(const double *x, const double *fx, int n, double *slopes)
 {
     int i, j;
-    int offset = 1;
 
-    assert(x != NULL && fx != NULL && n > 0 && x[0] < x[n-1]);
+    assert(x != NULL && fx != NULL && n > 1 && x[0] < x[n-1]);
     assert(slopes != NULL);
 
     memcpy(slopes, fx, sizeof(double) * n);
 
-    for (i = 0; i < n; ++i)
+    // Suppose we got:
+    // x: x0, x1, x2, x3
+    // fx: f(x0), f(x1), f(x2), f(x3)
+    // After the first inner loop we got:
+    // slopes: { f(x0), f(x1,x0), f(x2,x1), f(x3,x2) }
+    // After the second inner loop we got:
+    // slopes: { f(x0), f(x1,x0), f(x2,x1,x0), f(x3,x2,x1) }
+    // After the third inner loop:
+    // slopes: { f(x0), f(x1,x0), f(x2,x1,x0), f(x3,x2,x1,x0) }
+    for (i = 0; i < n - 1; ++i)
     {
         for (j = n - 1; j > i; --j)
         {
             assert(x[j] - x[j-1] > 0.0);
-            slopes[j] = (slopes[j] - slopes[j-1]) / (x[j] - x[j-offset]);
+            slopes[j] = (slopes[j] - slopes[j-1]) / (x[j] - x[j-i-1]);
         }
-
-        offset += 1;
     }
 }
 
@@ -33,14 +39,12 @@ void NewtonPolynomialInterpolation(const double *x, const double *slopes, int n,
 {
     int i, j;
 
-    assert(x != NULL && slopes != NULL && n > 0 && x[0] < x[n-1]);
+    assert(x != NULL && slopes != NULL && n > 1 && x[0] < x[n-1]);
     assert(z != NULL && pz != NULL && m > 0);
 
     for (i = 0; i < m; ++i)
     {
         double temp = 1.0;
-
-        assert(z[i] >= x[0] && z[i] <= x[n-1]);
         pz[i] = slopes[0];
 
         for (j = 1; j < n; ++j)
@@ -74,3 +78,4 @@ int SimpleNewtonPolynomialInterpolation(const double *x, const double *fx, int n
 // References:
 // https://en.wikipedia.org/wiki/Divided_differences
 // https://en.wikipedia.org/wiki/Newton_polynomial
+// Mastering Algorithms with C, Kyle London, 1999
