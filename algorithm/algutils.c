@@ -64,6 +64,7 @@ void fn(T *data, unsigned size) \
 
 PRINTV_T(printvi, int, d)
 PRINTV_T(printvu, unsigned, u)
+PRINTV_T(printvd, double, f)
 
 
 #define REVERSE_T(fn, T) \

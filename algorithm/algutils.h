@@ -33,6 +33,7 @@ unsigned minu(unsigned *data, unsigned size);
 
 void printvi(int *data, unsigned size);
 void printvu(unsigned *data, unsigned size);
+void printvd(double *data, unsigned size);
 
 void reversei(int *data, unsigned size);
 void reverseu(unsigned *data, unsigned size);
