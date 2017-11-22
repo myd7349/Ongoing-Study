@@ -91,3 +91,17 @@ T fn(const T *x, const T *y, unsigned n) \
 
 COV_T(covd, meand, double)
 
+
+#define SQUARE_T(fn, T) \
+void fn(const T *x, unsigned n, T *x2) \
+{ \
+    unsigned i; \
+    \
+    assert(x != NULL && n > 0 && x2 != NULL); \
+    \
+    for (i = 0; i < n; ++i) \
+        x2[i] = x[i] * x[i]; \
+}
+
+
+SQUARE_T(squared, double)
