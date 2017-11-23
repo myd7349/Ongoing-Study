@@ -39,7 +39,7 @@ public static IEnumerable<TSource> Cast <TSource> (IEnumerable source)
 
 2017-11-23T09:27+08:00
 
-corefx:Take.cs
+[corefx:Take.cs](https://github.com/dotnet/corefx/blob/master/src/System.Linq/src/System/Linq/Take.cs)
 
 ```csharp
 namespace System.Linq
@@ -104,3 +104,5 @@ public static IEnumerable<TSource> OfType <TSource> (IEnumerable source)
             yield return target;
 }
 ```
+
+By the way, the implementation of `IPartition`, `ListPartition` can be found in [corefx::Partition.cs](https://github.com/dotnet/corefx/blob/master/src/System.Linq/src/System/Linq/Partition.cs).
