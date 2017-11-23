@@ -93,3 +93,14 @@ if (a is int b)
     Console.WriteLine(b + 1); // 2
 }
 ```
+
+We can simplify the implementation of `OfType` now:
+
+```csharp
+public static IEnumerable<TSource> OfType <TSource> (IEnumerable source)
+{
+    foreach (object element in source)
+        if (element is TSource target)
+            yield return target;
+}
+```
