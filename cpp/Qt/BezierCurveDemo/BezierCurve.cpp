@@ -4,6 +4,8 @@
 #include <QtMath>
 #include <QtWidgets/QStylePainter>
 
+#include "../../../algorithm/graphics/lerp/lerp.h"
+
 
 void BezierCurve::draw(QStylePainter &painter)
 {
@@ -11,7 +13,10 @@ void BezierCurve::draw(QStylePainter &painter)
     if (type == Invalid)
         return;
 
-    QPen pen(QBrush(Qt::blue), 4.0f);
+    QColor penColor(Qt::blue);
+    penColor.setAlpha(100);
+
+    QPen pen(penColor, 8.0f);
     painter.setPen(pen);
 
     QPainterPath path;
@@ -25,6 +30,95 @@ void BezierCurve::draw(QStylePainter &painter)
     }
 
     painter.drawPath(path);
+
+    pen.setColor(Qt::red);
+    pen.setWidthF(1.0);
+    painter.setPen(pen);
+
+    const QVector<QPointF> &pointsOnCurve_ = points(10000);
+    for (QVector<QPointF>::size_type i = 1; i < pointsOnCurve_.size(); ++i)
+        painter.drawLine(pointsOnCurve_[i - 1], pointsOnCurve_[i]);
+}
+
+
+const QVector<QPointF> &BezierCurve::points(int maxPoints)
+{
+    pointsOnCurve.clear();
+
+    Type type = getType();
+    if (type == Invalid)
+        return pointsOnCurve;
+
+    if (maxPoints == -1)
+        maxPoints = static_cast<int>(distance(*start(), *end()));
+
+    if (maxPoints <= 0)
+        maxPoints = 2;
+
+    if (maxPoints > 0)
+        pointsOnCurve.resize(maxPoints);
+
+    qreal t = 0.0;
+    qreal tStep = 1.0 / maxPoints;
+
+    switch (type) {
+    case Linear:
+    {
+        QPointF P0 = *start();
+        QPointF P1 = *end();
+
+        for (int i = 0; i < maxPoints; ++i)
+        {
+            pointsOnCurve[i].setX(flerp(P0.x(), P1.x(), t));
+            pointsOnCurve[i].setY(flerp(P0.y(), P1.y(), t));
+            t += tStep;
+        }
+    }
+        break;
+    case Quadratic:
+    {
+        QPointF P0 = *start();
+        QPointF P1 = c1() == nullptr ? *c2() : *c1();
+        QPointF P2 = *end();
+
+        for (int i = 0; i < maxPoints; ++i)
+        {
+            qreal term0 = qPow(1.0 - t, 2.0);
+            qreal term1 = 2.0 * (1.0 - t) * t;
+            qreal term2 = t * t;
+
+            pointsOnCurve[i].setX(term0 * P0.x() + term1 * P1.x() + term2 * P2.x());
+            pointsOnCurve[i].setY(term0 * P0.y() + term1 * P1.y() + term2 * P2.y());
+
+            t += tStep;
+        }
+    }
+        break;
+    case Cubic:
+    {
+        QPointF P0 = *start();
+        QPointF P1 = *c1();
+        QPointF P2 = *c2();
+        QPointF P3 = *end();
+
+        for (int i = 0; i < maxPoints; ++i)
+        {
+            qreal term0 = qPow(1.0 - t, 3.0);
+            qreal term1 = 3.0 * qPow(1.0 - t, 2.0) * t;
+            qreal term2 = 3.0 * (1.0 - t) * t * t;
+            qreal term3 = qPow(t, 3.0);
+
+            pointsOnCurve[i].setX(term0 * P0.x() + term1 * P1.x() + term2 * P2.x() + term3 * P3.x());
+            pointsOnCurve[i].setY(term0 * P0.y() + term1 * P1.y() + term2 * P2.y() + term3 * P3.y());
+
+            t += tStep;
+        }
+    }
+        break;
+    default: Q_ASSERT(false); break;
+    }
+
+    return pointsOnCurve;
 }
 
 
@@ -70,7 +164,7 @@ void DecoratedBezierCurve::draw(QStylePainter &painter)
     const char *tips[] = {
         "Double click in the drawing area to add the [Start] point...",
         "Good! Now add the [End] point in the same way...\n"
-        "You can remove a point by double clicking on it.\n"
+        "You can remove a point by double clicking the right mouse button.\n"
         "You can drag a point by holding the left mouse button.\n",
         "Congratulations! You have just created a linear Bézier curve.\n"
         "You can also add at most 2 control points in the same way.",

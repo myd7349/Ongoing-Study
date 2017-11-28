@@ -2,6 +2,10 @@
 #ifndef LERP_H_
 #define LERP_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 float flerpf(float v0, float v1, float t);
 double flerp(double v0, double v1, double t);
 long double flerpl(long double v0, long double v1, long double t);
@@ -9,6 +13,10 @@ long double flerpl(long double v0, long double v1, long double t);
 int lerp(int v0, int v1, int t);
 long llerp(long v0, long v1, long t);
 long long lllerp(long long v0, long long v1, long long t);
+
+#ifdef __cplusplus
+}
+#endif
 
 #define lerp_fn_1(x) _Generic((x), \
     long double: flerpl, \

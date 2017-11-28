@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++11 c11
 
 TARGET = BeizerCurveDemo
 TEMPLATE = app
@@ -30,7 +30,8 @@ SOURCES += \
         widget.cpp \
         BezierCurve.cpp \
         AddBezierCurveMouseAction.cpp \
-    AdjustBezierCurveMouseAction.cpp
+    AdjustBezierCurveMouseAction.cpp \
+    ../../../algorithm/graphics/lerp/lerp.c
 
 HEADERS += \
         widget.h \
@@ -38,4 +39,5 @@ HEADERS += \
         AddBezierCurveMouseAction.h \
         BezierCurve.h \
         ../../DesignPatterns/Singleton.h \
-    AdjustBezierCurveMouseAction.h
+    AdjustBezierCurveMouseAction.h \
+    ../../../algorithm/graphics/lerp/lerp.h
