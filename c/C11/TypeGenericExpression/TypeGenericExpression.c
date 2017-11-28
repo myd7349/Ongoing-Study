@@ -6,6 +6,7 @@
 #include <stdio.h>
 
 #include "../../../algorithm/graphics/lerp/lerp.h"
+#include "../../common.h"
 
 
 // See [3]
@@ -43,14 +44,21 @@
 
 int main()
 {
+
     // Generic selection is a primary expression.
     //decltype(0) x;
 
-    println(lerp(0, 10, 5));
-    println(lerp_fn((int)0)(1.0, 1.0, 0.0));
-    println(lerp(0.0f, 1.0f, 0.5f));
+    println(lerp(0, 1, 0));
+    println(lerp(0, 1, 0L));
+    println(lerp(0, 1, 0LL));
+    println(lerp(0, 1, 0.5f));
+    println(lerp(0, 1LL, 0.5f));
+    println(lerp(0, 1.0, 0.5f));
+    println(lerp(0, 1, 0.5));
+    println(lerp(0, 1, 0.5L));
 
-    //lerp_fn(int)(1.0, 1.0, 0.0);
+    println(lerp_fn_1((float)0)(1.0, 1.0, 0.0));
+    //lerp_fn_1(int)(1.0, 1.0, 0.0);
 
     return 0;
 }

@@ -33,6 +33,10 @@
 #define STR_IMPL(c) #c
 #define STR(c) STR_IMPL(c)
 
+/* CONCAT */
+#define CONCAT_IMPL(c1, c2) c1 ## c2
+#define CONCAT(c1, c2) CONCAT_IMPL(c1, c2)
+
 /* To be continued... */
 
 #endif /* COMMON_H_ */
