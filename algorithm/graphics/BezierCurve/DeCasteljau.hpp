@@ -92,7 +92,7 @@ void RecursiveSubdivisionCubicBezierImpl(const PointT &P0, const PointT &P1,
 
 
 // In GDI/GDI+, the PolyBezier/DrawBezier functions draw cubic Bézier curves
-// by using the endpoints and control points specified by the lppt parameter.
+// by using the endpoints and control points specified by the parameters.
 // The first curve is drawn from the first point to the fourth point by using the
 // second and third points as control points. Each subsequent curve in the
 // sequence needs exactly three more points: the ending point of the previous
@@ -130,6 +130,8 @@ void RecursiveSubdivisionQuadraticBezierImpl(const PointT &P0, const PointT &P1,
     CP2 = QP2 + 2/3 *(QP1-QP2)
     */
     // See [4] for detail.
+    // Or you may take a look at:
+    // Ongoing-Study/python/pythonnet/DrawQuadraticBezierCurve.pyw
 }
 
 
