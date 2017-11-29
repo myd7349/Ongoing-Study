@@ -40,4 +40,5 @@ HEADERS += \
         BezierCurve.h \
         ../../DesignPatterns/Singleton.h \
     AdjustBezierCurveMouseAction.h \
-    ../../../algorithm/graphics/lerp/lerp.h
+    ../../../algorithm/graphics/lerp/lerp.h \
+    ../../../algorithm/graphics/BezierCurve/DeCasteljau.hpp

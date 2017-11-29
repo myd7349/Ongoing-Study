@@ -1,9 +1,12 @@
 #include "BezierCurve.h"
 
+#include <algorithm>
+
 #include <QtGui/QPen>
 #include <QtMath>
 #include <QtWidgets/QStylePainter>
 
+#include "../../../algorithm/graphics/BezierCurve/DeCasteljau.hpp"
 #include "../../../algorithm/graphics/lerp/lerp.h"
 
 
@@ -13,10 +16,12 @@ void BezierCurve::draw(QStylePainter &painter)
     if (type == Invalid)
         return;
 
+    painter.save();
+
     QColor penColor(Qt::blue);
     penColor.setAlpha(100);
 
-    QPen pen(penColor, 8.0f);
+    QPen pen(penColor, 10.0f);
     painter.setPen(pen);
 
     QPainterPath path;
@@ -35,12 +40,15 @@ void BezierCurve::draw(QStylePainter &painter)
     pen.setWidthF(1.0);
     painter.setPen(pen);
 
-    const QVector<QPointF> &pointsOnCurve_ = points(10000);
+    const QVector<QPointF> &pointsOnCurve_ = points();
     for (QVector<QPointF>::size_type i = 1; i < pointsOnCurve_.size(); ++i)
         painter.drawLine(pointsOnCurve_[i - 1], pointsOnCurve_[i]);
+
+    painter.restore();
 }
 
 
+#if 0
 const QVector<QPointF> &BezierCurve::points(int maxPoints)
 {
     pointsOnCurve.clear();
@@ -120,6 +128,67 @@ const QVector<QPointF> &BezierCurve::points(int maxPoints)
 
     return pointsOnCurve;
 }
+#else
+template <typename T>
+inline Point<T> QPointFToPoint(const QPointF &point)
+{
+    return Point<T>(static_cast<T>(point.x()), static_cast<T>(point.y()));
+}
+
+
+template <typename T>
+inline QPointF PointToQPointF(const Point<T> &point)
+{
+    return QPointF(static_cast<qreal>(point.x), static_cast<qreal>(point.y));
+}
+
+
+void RecursiveSubdivisionBezier(const QVector<QPointF> &controlPoints, QVector<QPointF> &points)
+{
+    QVector<Point<qreal>> Ps(controlPoints.size());
+    std::transform(controlPoints.cbegin(), controlPoints.cend(), Ps.begin(), QPointFToPoint<qreal>);
+
+    QVector<Point<qreal>> bezierCurve;
+    RecursiveSubdivisionBezier(Ps, bezierCurve);
+
+    points.resize(bezierCurve.size());
+    std::transform(bezierCurve.cbegin(), bezierCurve.cend(), points.begin(), PointToQPointF<qreal>);
+}
+
+
+const QVector<QPointF> &BezierCurve::points(int maxPoints)
+{
+    Q_UNUSED(maxPoints);
+
+    pointsOnCurve.clear();
+
+    Type type = getType();
+    if (type == Invalid)
+        return pointsOnCurve;
+
+    QVector<QPointF> Ps = controlPoints;
+
+    switch (type)
+    {
+    case Quadratic:
+        // controlPoints: start, end, P1
+        // Ps: start, P1, end
+        std::swap(Ps[1], Ps[2]);
+        break;
+    case Cubic:
+        // controlPoints: start, end, P1, P2
+        // Ps: start, P1, P2, end
+        std::swap(Ps[1], Ps[2]);
+        std::swap(Ps[2], Ps[3]);
+        break;
+    default: break;
+    }
+
+    RecursiveSubdivisionBezier(Ps, pointsOnCurve);
+
+    return pointsOnCurve;
+}
+#endif
 
 
 // I think the control point shown in:
@@ -197,3 +266,5 @@ void DecoratedBezierCurve::draw(QStylePainter &painter)
 
 // References:
 // [1][Rotate rectangle around its center](https://stackoverflow.com/questions/8586088/rotate-rectangle-around-its-center)
+// [2][Subdividing a Bézier Curve](https://pages.mtu.edu/~shene/COURSES/cs3621/NOTES/spline/Bezier/bezier-sub.html)
+// [3][Adaptive Subdivision of Bezier Curves](http://antigrain.com/research/adaptive_bezier/index.html)
