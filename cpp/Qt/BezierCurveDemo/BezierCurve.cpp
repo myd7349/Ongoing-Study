@@ -29,7 +29,23 @@ void BezierCurve::draw(QStylePainter &painter)
 
     switch (type) {
     case Linear: path.lineTo(*end()); break;
-    case Quadratic: path.quadTo(c1() == nullptr ? *c2() : *c1(), *end()); break;
+    case Quadratic:
+        // Can we simply implement RecursiveSubdivisionQuadraticBezierImpl like this?
+        //RecursiveSubdivisionCubicBezierImpl(P0, P1, P1, P2, points, distanceTolerance);
+        // No! We can't.
+        // When P1 and P2 are the same point, we can not get:
+        // B(t) = (1-t)^2*P0 + 2*(1-t)*t*P1 + t^2*P2
+        // from:
+        // B(t) = (1-t)^3*P0 + 3*(1-t)^2*t*P1 + 3*(1-t)*t^2*P2 + t^3*P3
+        // Or you may confirm it by uncommenting line 42, 43 below:
+        path.quadTo(c1() == nullptr ? *c2() : *c1(), *end());
+        //path.moveTo(*start());
+        //path.cubicTo(c1() == nullptr ? *c2() : *c1(), c1() == nullptr ? *c2() : *c1(), *end());
+        //
+        // Wait! If you really want to draw quadratic Bezier curve with a function
+        // that draws Cubic Bezier curve, you have to do some convert manually.
+        // See [4] in DeCasteljau.hpp for detail.
+        break;
     case Cubic: path.cubicTo(*c1(), *c2(), *end()); break;
     default: Q_ASSERT(false); break;
     }
@@ -255,11 +271,17 @@ void DecoratedBezierCurve::draw(QStylePainter &painter)
 
     if (c1() != nullptr) {
         painter.drawLine(*start(), *c1());
+        if (c2() == nullptr)
+            painter.drawLine(*end(), *c1());
+
         drawPointMarker(painter, *c1());
     }
 
     if (c2() != nullptr) {
+        if (c1() == nullptr)
+            painter.drawLine(*start(), *c2());
         painter.drawLine(*end(), *c2());
+
         drawPointMarker(painter, *c2());
     }
 }
