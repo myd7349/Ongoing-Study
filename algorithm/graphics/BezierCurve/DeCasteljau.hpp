@@ -5,7 +5,8 @@
 #define DE_CASTELJAU_H_
 
 #include <cassert>
-#include <ctgmath>
+
+#include "../../math/EuclideanDistance.hpp"
 
 
 template <typename T>
@@ -22,32 +23,149 @@ struct Point
 };
 
 
-const int CurveRecursionLimit = 32;
-
-
 template <typename PointT>
+struct Line
+{
+    typedef PointT point_type;
+
+    Line(PointT p1_ = PointT(), PointT p2_ = PointT()) : p1(p1_), p2(p2_)
+    {
+    }
+
+    point_type p1;
+    point_type p2;
+};
+
+
+// See [1]
+const int CurveRecursionLimit = 32;
+const double DistanceToleranceSquare = 0.5 * 0.5;
+const double CurveDistanceEpsilon = 1e-30;
+const double CurveCollinearityEpsilon = 1e-30;
+const double CurveAngleToleranceEpsilon = 0.01;
+
+
+template <typename PointT, typename T = typename PointT::value_type>
 inline PointT MidPoint(const PointT &p1, const PointT &p2)
 {
-    using T = typename PointT::value_type;
     return PointT(static_cast<T>((p1.x + p2.x) / 2.0), static_cast<T>((p1.y + p2.y) / 2.0));
 }
 
 
-template <typename PointT, typename PointContainer>
+template <typename PointT>
+inline void MidPoints(const PointT &P0, const PointT &P1, const PointT &P2,
+    PointT &P01, PointT &P12, PointT &P012)
+{
+    P01 = MidPoint(P0, P1);
+    P12 = MidPoint(P1, P2);
+    P012 = MidPoint(P01, P12);
+}
+
+
+template <typename PointT>
+inline void MidPoints(const PointT &P0, const PointT &P1, const PointT &P2, const PointT &P3,
+    PointT &P01, PointT &P12, PointT &P23, PointT &P012, PointT &P123, PointT &P0123)
+{
+    P01 = MidPoint(P0, P1);
+    P12 = MidPoint(P1, P2);
+    P23 = MidPoint(P2, P3);
+    P012 = MidPoint(P01, P12);
+    P123 = MidPoint(P12, P23);
+    P0123 = MidPoint(P012, P123);
+}
+
+
+// In GDI/GDI+, the PolyBezier/DrawBezier functions draw cubic Bézier curves
+// by using the endpoints and control points specified by the parameters.
+// The first curve is drawn from the first point to the fourth point by using the
+// second and third points as control points. Each subsequent curve in the
+// sequence needs exactly three more points: the ending point of the previous
+// curve is used as the starting point, the next two points in the sequence
+// are control points, and the third is the ending point.
+// See also: PolyDraw, PolyBezierTo
+
+// In WPF, there is a QuadraticBezierTo method.
+
+template <typename PointT, typename PointContainer, typename LineContainer>
+void RecursiveSubdivisionQuadraticBezierImpl(const PointT &P0, const PointT &P1, const PointT &P2,
+    PointContainer &points, LineContainer &tangents, unsigned level = 0)
+{
+    // Can we simply implement RecursiveSubdivisionQuadraticBezierImpl like this?
+    //RecursiveSubdivisionCubicBezierImpl(P0, P1, P1, P2, points, distanceTolerance);
+    // No! We can't.
+    // When P1 and P2 are the same point, we can not get:
+    // B(t) = (1-t)^2*P0 + 2*(1-t)*t*P1 + t^2*P2
+    // from:
+    // B(t) = (1-t)^3*P0 + 3*(1-t)^2*t*P1 + 3*(1-t)*t^2*P2 + t^3*P3
+    // Or you may confirm it by uncommenting line 62, 63 in BezierCurve.cpp.
+    //
+    // Wait! If you really want to draw quadratic Bezier curve with a function
+    // that draws Cubic Bezier curve, you have to do some convert manually.
+    /*
+    >Any quadratic spline can be expressed as a cubic (where the cubic term is zero).
+    The end points of the cubic will be the same as the quadratic's.
+
+    CP0 = QP0
+    CP3 = QP2
+
+    The two control points for the cubic are:
+
+    CP1 = QP0 + 2/3 *(QP1-QP0)
+    CP2 = QP2 + 2/3 *(QP1-QP2)
+    */
+    // See [4] for detail.
+    // Or you may take a look at:
+    // Ongoing-Study/python/pythonnet/DrawQuadraticBezierCurve.pyw
+
+    if (level > CurveRecursionLimit)
+        return;
+
+    // Calculate all the mid-points of the line segments
+    PointT P01;
+    PointT P12;
+    PointT P012;
+    MidPoints(P0, P1, P2, P01, P12, P012);
+
+    double dx = P2.x - P0.x;
+    double dy = P2.y - P0.y;
+    double d = std::fabs((P1.x - P2.x) * dy - (P1.y - P2.y) * dx);
+    double da;
+
+    if (d > CurveCollinearityEpsilon)
+    {
+        if (d * d <= DistanceToleranceSquare * (dx * dx + dy * dy))
+        {
+            points.push_back(P012);
+            tangents.push_back(typename LineContainer::value_type(P01, P12));
+            return;
+        }
+    }
+    else
+    {
+
+    }
+
+    RecursiveSubdivisionQuadraticBezierImpl(P0, P01, P012, points, tangents, level + 1);
+    RecursiveSubdivisionQuadraticBezierImpl(P012, P12, P2, points, tangents, level + 1);
+}
+
+
+template <typename PointT, typename PointContainer, typename LineContainer>
 void RecursiveSubdivisionCubicBezierImpl(const PointT &P0, const PointT &P1,
-    const PointT &P2, const PointT &P3, PointContainer &points,
-    double distanceTolerance, unsigned level = 0)
+    const PointT &P2, const PointT &P3, PointContainer &points, LineContainer &tangents,
+    unsigned level = 0)
 {
     if (level > CurveRecursionLimit)
         return;
 
     // Calculate all the mid-points of the line segments
-    PointT P01 = MidPoint(P0, P1);
-    PointT P12 = MidPoint(P1, P2);
-    PointT P23 = MidPoint(P2, P3);
-    PointT P012 = MidPoint(P01, P12);
-    PointT P123 = MidPoint(P12, P23);
-    PointT P0123 = MidPoint(P012, P123);
+    PointT P01;
+    PointT P12;
+    PointT P23;
+    PointT P012;
+    PointT P123;
+    PointT P0123;
+    MidPoints(P0, P1, P2, P3, P01, P12, P23, P012, P123, P0123);
 
     // Suppose we have:
     // A point specified by (x0, y0)
@@ -78,80 +196,32 @@ void RecursiveSubdivisionCubicBezierImpl(const PointT &P0, const PointT &P1,
     double d1 = std::fabs((P1.x - P3.x) * dy - (P1.y - P3.y) * dx);
     double d2 = std::fabs((P2.x - P3.x) * dy - (P2.y - P3.y) * dx);
 
-    if ((d1 + d2) * (d1 + d2) < distanceTolerance * (dx * dx + dy * dy))
+    if ((d1 + d2) * (d1 + d2) <= DistanceToleranceSquare * (dx * dx + dy * dy))
     {
         points.push_back(P0123);
+        tangents.push_back(typename LineContainer::value_type(P012, P123));
         return;
     }
 
-    RecursiveSubdivisionCubicBezierImpl(P0, P01, P012, P0123, points, distanceTolerance,
-        level + 1);
-    RecursiveSubdivisionCubicBezierImpl(P0123, P123, P23, P3, points, distanceTolerance,
-        level + 1);
+    RecursiveSubdivisionCubicBezierImpl(P0, P01, P012, P0123, points, tangents, level + 1);
+    RecursiveSubdivisionCubicBezierImpl(P0123, P123, P23, P3, points, tangents, level + 1);
 }
 
 
-// In GDI/GDI+, the PolyBezier/DrawBezier functions draw cubic Bézier curves
-// by using the endpoints and control points specified by the parameters.
-// The first curve is drawn from the first point to the fourth point by using the
-// second and third points as control points. Each subsequent curve in the
-// sequence needs exactly three more points: the ending point of the previous
-// curve is used as the starting point, the next two points in the sequence
-// are control points, and the third is the ending point.
-// See also: PolyDraw, PolyBezierTo
-
-// In WPF, there is a QuadraticBezierTo method.
-
-template <typename PointT, typename PointContainer>
-void RecursiveSubdivisionQuadraticBezierImpl(const PointT &P0, const PointT &P1, const PointT &P2,
-    PointContainer &points, double distanceTolerance)
-{
-    // Can we simply implement RecursiveSubdivisionQuadraticBezierImpl like this?
-    //RecursiveSubdivisionCubicBezierImpl(P0, P1, P1, P2, points, distanceTolerance);
-    // No! We can't.
-    // When P1 and P2 are the same point, we can not get:
-    // B(t) = (1-t)^2*P0 + 2*(1-t)*t*P1 + t^2*P2
-    // from:
-    // B(t) = (1-t)^3*P0 + 3*(1-t)^2*t*P1 + 3*(1-t)*t^2*P2 + t^3*P3
-    // Or you may confirm it by uncommenting line 42, 43 in BezierCurve.cpp.
-    //
-    // Wait! If you really want to draw quadratic Bezier curve with a function
-    // that draws Cubic Bezier curve, you have to do some convert manually.
-    /*
-    >Any quadratic spline can be expressed as a cubic (where the cubic term is zero).
-    The end points of the cubic will be the same as the quadratic's.
-
-    CP0 = QP0
-    CP3 = QP2
-
-    The two control points for the cubic are:
-
-    CP1 = QP0 + 2/3 *(QP1-QP0)
-    CP2 = QP2 + 2/3 *(QP1-QP2)
-    */
-    // See [4] for detail.
-    // Or you may take a look at:
-    // Ongoing-Study/python/pythonnet/DrawQuadraticBezierCurve.pyw
-}
-
-
-template <typename PointContainer>
-inline void RecursiveSubdivisionBezier(const PointContainer &controlPoints, PointContainer &points,
-    double distanceTolerance = 0.5 * 0.5 // See [1]
-    )
+template <typename PointContainer, typename LineContainer>
+inline void RecursiveSubdivisionBezier(const PointContainer &controlPoints,
+    PointContainer &points, LineContainer &tangents)
 {
     using PointT = typename PointContainer::value_type;
 
     points.clear();
+    tangents.clear();
 
     switch (controlPoints.size())
     {
     case 2:
-    {
-        points.resize(2);
-        points[0] = controlPoints[0];
-        points[1] = controlPoints[1];
-    }
+        points = controlPoints;
+        tangents.push_back(typename LineContainer::value_type(controlPoints[0], controlPoints[1]));
         break;
     case 3:
     {
@@ -160,7 +230,7 @@ inline void RecursiveSubdivisionBezier(const PointContainer &controlPoints, Poin
         const PointT &P2 = controlPoints[2];
 
         points.push_back(P0);
-        RecursiveSubdivisionQuadraticBezierImpl<PointT, PointContainer>(P0, P1, P2, points, distanceTolerance);
+        RecursiveSubdivisionQuadraticBezierImpl<PointT, PointContainer>(P0, P1, P2, points, tangents);
         points.push_back(P2);
     }
         break;
@@ -172,7 +242,7 @@ inline void RecursiveSubdivisionBezier(const PointContainer &controlPoints, Poin
         const PointT &P3 = controlPoints[3];
 
         points.push_back(P0);
-        RecursiveSubdivisionCubicBezierImpl<PointT, PointContainer>(P0, P1, P2, P3, points, distanceTolerance);
+        RecursiveSubdivisionCubicBezierImpl<PointT, PointContainer>(P0, P1, P2, P3, points, tangents);
         points.push_back(P3);
     }
         break;

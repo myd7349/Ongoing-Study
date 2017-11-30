@@ -1,22 +1,15 @@
 #ifndef BEZIER_CURVE_H
 #define BEZIER_CURVE_H
 
-#include <cmath>
-
 #include <QtCore/QPointF>
 #include <QtCore/QVector>
+
+#include "../../../algorithm/graphics/BezierCurve/DeCasteljau.hpp"
+
 
 
 class QStylePainter;
 
-
-inline qreal distance(const QPointF &p1, const QPointF &p2)
-{
-    qreal xd = p2.x() - p1.x();
-    qreal yd = p2.y() - p1.y();
-
-    return std::sqrt(xd*xd + yd*yd);
-}
 
 struct BezierCurve
 {
@@ -28,9 +21,16 @@ struct BezierCurve
         Cubic = 4,
     };
 
+    enum RasterizationMethod
+    {
+        Incremental = 0,
+        AdaptiveRecursiveSubdivision = 1, // De Casteljau's algorithm
+    };
+
     BezierCurve()
     {
         controlPoints.reserve(4);
+        method = AdaptiveRecursiveSubdivision;
     }
 
     virtual ~BezierCurve()
@@ -97,27 +97,7 @@ struct BezierCurve
         return true;
     }
 
-    QPointF *hitTest(const QPointF &pt)
-    {
-        if (controlPoints.empty())
-            return nullptr;
-
-        QPointF *p = &controlPoints[0];
-        qreal d = distance(controlPoints[0], pt);
-
-        for (int i = 1; i < controlPoints.size(); ++i)
-        {
-            qreal temp = distance(controlPoints[i], pt);
-
-            if (d > temp)
-            {
-                d = temp;
-                p = &controlPoints[i];
-            }
-        }
-
-        return d <= R ? p : nullptr;
-    }
+    QPointF *hitTest(const QPointF &pt);
 
     QPointF *start()
     {
@@ -139,16 +119,50 @@ struct BezierCurve
         return controlPoints.size() != 4 ? nullptr : &controlPoints[3];
     }
 
-    const QVector<QPointF> &points(int maxPoints = -1);
+    RasterizationMethod rasterizationMethod() const
+    {
+        return method;
+    }
+
+    void rasterizationMethod(RasterizationMethod method_)
+    {
+        method = method_;
+    }
+
+    void switchRasterizationMethod()
+    {
+        method = static_cast<RasterizationMethod>(static_cast<int>(method) ^ 1);
+    }
+
+    void rasterize(QVector<QPointF> &points, QVector<Line<QPointF>> &tangents)
+    {
+        switch (method) {
+        case Incremental:
+            rasterizeInc(points, tangents);
+            break;
+        case AdaptiveRecursiveSubdivision:
+            rasterizeSubDiv(points, tangents);
+            break;
+        default: Q_ASSERT(false); break;
+        }
+    }
 
     virtual void draw(QStylePainter &painter);
 
     static constexpr qreal R = 12.0f;
 
-private:
-    QVector<QPointF> controlPoints; // start, end, c1, c2
+protected:
     QVector<QPointF> pointsOnCurve;
+    QVector<Line<QPointF>> tangents;
+
+private:
+    void rasterizeInc(QVector<QPointF> &points, QVector<Line<QPointF>> &tangents);
+    void rasterizeSubDiv(QVector<QPointF> &points, QVector<Line<QPointF>> &tangents);
+
+    QVector<QPointF> controlPoints; // start, end, c1, c2
+    RasterizationMethod method;
 };
+
 
 struct DecoratedBezierCurve : public BezierCurve
 {

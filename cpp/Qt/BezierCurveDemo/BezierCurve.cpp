@@ -2,12 +2,34 @@
 
 #include <algorithm>
 
+#include <QtCore/QtMath>
 #include <QtGui/QPen>
-#include <QtMath>
 #include <QtWidgets/QStylePainter>
 
-#include "../../../algorithm/graphics/BezierCurve/DeCasteljau.hpp"
 #include "../../../algorithm/graphics/lerp/lerp.h"
+
+
+QPointF *BezierCurve::hitTest(const QPointF &pt)
+{
+    if (controlPoints.empty())
+        return nullptr;
+
+    QPointF *p = &controlPoints[0];
+    qreal d = Distance2<QPointF, qreal>(controlPoints[0], pt);
+
+    for (int i = 1; i < controlPoints.size(); ++i)
+    {
+        qreal temp = Distance2<QPointF, qreal>(controlPoints[i], pt);
+
+        if (d > temp)
+        {
+            d = temp;
+            p = &controlPoints[i];
+        }
+    }
+
+    return d <= R ? p : nullptr;
+}
 
 
 void BezierCurve::draw(QStylePainter &painter)
@@ -18,10 +40,7 @@ void BezierCurve::draw(QStylePainter &painter)
 
     painter.save();
 
-    QColor penColor(Qt::blue);
-    penColor.setAlpha(100);
-
-    QPen pen(penColor, 10.0f);
+    QPen pen(QColor(0, 0, 0, 128), 2.0f);
     painter.setPen(pen);
 
     QPainterPath path;
@@ -52,35 +71,60 @@ void BezierCurve::draw(QStylePainter &painter)
 
     painter.drawPath(path);
 
-    pen.setColor(Qt::red);
-    pen.setWidthF(1.0);
-    painter.setPen(pen);
+    rasterize(pointsOnCurve, tangents);
 
-    const QVector<QPointF> &pointsOnCurve_ = points();
-    for (QVector<QPointF>::size_type i = 1; i < pointsOnCurve_.size(); ++i)
-        painter.drawLine(pointsOnCurve_[i - 1], pointsOnCurve_[i]);
+    QColor lineColor(0, 128, 0, 128);
+
+    QPainterPath lineSegmentsPath;
+    const qreal r = R / 2.5f;
+    for (QVector<QPointF>::size_type i = 0; i < pointsOnCurve.size(); ++i)
+        lineSegmentsPath.addEllipse(pointsOnCurve[i], r, r);
+
+    lineSegmentsPath.setFillRule(Qt::WindingFill);
+    painter.fillPath(lineSegmentsPath, QBrush(lineColor));
 
     painter.restore();
 }
 
 
-#if 0
-const QVector<QPointF> &BezierCurve::points(int maxPoints)
+void BezierCurve::rasterizeInc(QVector<QPointF> &points, QVector<Line<QPointF>> &tangents)
 {
-    pointsOnCurve.clear();
+    points.clear();
+    tangents.clear();
 
     Type type = getType();
     if (type == Invalid)
-        return pointsOnCurve;
+        return;
 
-    if (maxPoints == -1)
-        maxPoints = static_cast<int>(distance(*start(), *end()));
+    int maxPoints = 2;
 
-    if (maxPoints <= 0)
-        maxPoints = 2;
+    switch (type)
+    {
+    case Quadratic:
+    {
+        // See [1] in DeCasteljau.hpp
+        QPointF P0 = *start();
+        QPointF P1 = c1() == nullptr ? *c2() : *c1();
+        QPointF P2 = *end();
+        qreal len = Distance2<QPointF, qreal>(P0, P1) + Distance2<QPointF, qreal>(P1, P2);
+        maxPoints = static_cast<int>(len * 0.25);
+    }
+        break;
+    case Cubic:
+    {
+        // See [1] in DeCasteljau.hpp
+        QPointF P0 = *start();
+        QPointF P1 = *c1();
+        QPointF P2 = *c2();
+        QPointF P3 = *end();
+        qreal len = Distance2<QPointF, qreal>(P0, P1) + Distance2<QPointF, qreal>(P1, P2) + Distance2<QPointF, qreal>(P2, P3);
+        maxPoints = static_cast<int>(len * 0.25);
+    }
+        break;
+    default: break;
+    }
 
-    if (maxPoints > 0)
-        pointsOnCurve.resize(maxPoints);
+    points.resize(maxPoints);
 
     qreal t = 0.0;
     qreal tStep = 1.0 / maxPoints;
@@ -93,8 +137,8 @@ const QVector<QPointF> &BezierCurve::points(int maxPoints)
 
         for (int i = 0; i < maxPoints; ++i)
         {
-            pointsOnCurve[i].setX(flerp(P0.x(), P1.x(), t));
-            pointsOnCurve[i].setY(flerp(P0.y(), P1.y(), t));
+            points[i].setX(flerp(P0.x(), P1.x(), t));
+            points[i].setY(flerp(P0.y(), P1.y(), t));
             t += tStep;
         }
     }
@@ -111,8 +155,8 @@ const QVector<QPointF> &BezierCurve::points(int maxPoints)
             qreal term1 = 2.0 * (1.0 - t) * t;
             qreal term2 = t * t;
 
-            pointsOnCurve[i].setX(term0 * P0.x() + term1 * P1.x() + term2 * P2.x());
-            pointsOnCurve[i].setY(term0 * P0.y() + term1 * P1.y() + term2 * P2.y());
+            points[i].setX(term0 * P0.x() + term1 * P1.x() + term2 * P2.x());
+            points[i].setY(term0 * P0.y() + term1 * P1.y() + term2 * P2.y());
 
             t += tStep;
         }
@@ -132,8 +176,8 @@ const QVector<QPointF> &BezierCurve::points(int maxPoints)
             qreal term2 = 3.0 * (1.0 - t) * t * t;
             qreal term3 = qPow(t, 3.0);
 
-            pointsOnCurve[i].setX(term0 * P0.x() + term1 * P1.x() + term2 * P2.x() + term3 * P3.x());
-            pointsOnCurve[i].setY(term0 * P0.y() + term1 * P1.y() + term2 * P2.y() + term3 * P3.y());
+            points[i].setX(term0 * P0.x() + term1 * P1.x() + term2 * P2.x() + term3 * P3.x());
+            points[i].setY(term0 * P0.y() + term1 * P1.y() + term2 * P2.y() + term3 * P3.y());
 
             t += tStep;
         }
@@ -142,9 +186,10 @@ const QVector<QPointF> &BezierCurve::points(int maxPoints)
     default: Q_ASSERT(false); break;
     }
 
-    return pointsOnCurve;
+    points.push_back(*end());
 }
-#else
+
+
 template <typename T>
 inline Point<T> QPointFToPoint(const QPointF &point)
 {
@@ -159,28 +204,38 @@ inline QPointF PointToQPointF(const Point<T> &point)
 }
 
 
-void RecursiveSubdivisionBezier(const QVector<QPointF> &controlPoints, QVector<QPointF> &points)
+template <typename T>
+inline Line<QPointF> PointLineToQPointFLine(const Line<Point<T>> &line)
+{
+    return Line<QPointF>(PointToQPointF(line.p1), PointToQPointF(line.p2));
+}
+
+
+void RecursiveSubdivisionBezier(const QVector<QPointF> &controlPoints, QVector<QPointF> &points, QVector<Line<QPointF>> &tangents)
 {
     QVector<Point<qreal>> Ps(controlPoints.size());
     std::transform(controlPoints.cbegin(), controlPoints.cend(), Ps.begin(), QPointFToPoint<qreal>);
 
     QVector<Point<qreal>> bezierCurve;
-    RecursiveSubdivisionBezier(Ps, bezierCurve);
+    QVector<Line<Point<qreal>>> lines;
+    RecursiveSubdivisionBezier(Ps, bezierCurve, lines);
 
     points.resize(bezierCurve.size());
     std::transform(bezierCurve.cbegin(), bezierCurve.cend(), points.begin(), PointToQPointF<qreal>);
+
+    tangents.resize(lines.size());
+    std::transform(lines.cbegin(), lines.cend(), tangents.begin(), PointLineToQPointFLine<qreal>);
 }
 
 
-const QVector<QPointF> &BezierCurve::points(int maxPoints)
+void BezierCurve::rasterizeSubDiv(QVector<QPointF> &points, QVector<Line<QPointF>> &tangents)
 {
-    Q_UNUSED(maxPoints);
-
-    pointsOnCurve.clear();
+    points.clear();
+    tangents.clear();
 
     Type type = getType();
     if (type == Invalid)
-        return pointsOnCurve;
+        return;
 
     QVector<QPointF> Ps = controlPoints;
 
@@ -200,11 +255,8 @@ const QVector<QPointF> &BezierCurve::points(int maxPoints)
     default: break;
     }
 
-    RecursiveSubdivisionBezier(Ps, pointsOnCurve);
-
-    return pointsOnCurve;
+    RecursiveSubdivisionBezier(Ps, points, tangents);
 }
-#endif
 
 
 // I think the control point shown in:
@@ -258,7 +310,16 @@ void DecoratedBezierCurve::draw(QStylePainter &painter)
     };
 
     painter.drawText(QRectF(10.0f, 22.0f, 800.0f, 200.0f),
-        Qt::TextWordWrap | Qt::TextDontClip, tips[pointsCount]);
+        Qt::TextWordWrap | Qt::TextDontClip,
+        tips[pointsCount] + (pointsCount >= 2 ?
+            QString(
+                "\nCurrent rasterization method is %1."
+                "\nYou may switch the rasterization method by pressing the SpaceBar."
+                "\nNow we have a curve approximated with %2 line segments(%3 points)!")
+                .arg(rasterizationMethod() == Incremental ? "Incremental Method" : "Recursive Subdivision Method")
+                .arg(pointsOnCurve.size() - 1)
+                .arg(pointsOnCurve.size()) :
+            QString()));
 
     QPen pen(QBrush(Qt::black), 1.0f);
     painter.setPen(pen);

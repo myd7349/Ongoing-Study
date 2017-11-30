@@ -1,6 +1,8 @@
 #include "widget.h"
 
 #include <QtGui/QPixmapCache>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QDesktopWidget>
 #include <QtWidgets/QStylePainter>
 
 #include "../../DesignPatterns/Singleton.h"
@@ -14,6 +16,15 @@ Widget::Widget(QWidget *parent)
 {
     mouseActionList.pushBack(QSharedPointer<AddBezierCurveMouseAction>::create());
     mouseActionList.pushBack(QSharedPointer<AdjustBezierCurveMouseAction>::create());
+
+    setGeometry(
+        QStyle::alignedRect(
+            Qt::LeftToRight,
+            Qt::AlignCenter,
+            QSize(800, 640),
+            qApp->desktop()->availableGeometry()
+        )
+    );
 }
 
 Widget::~Widget()
@@ -52,6 +63,17 @@ void Widget::mouseMoveEvent(QMouseEvent *event)
         repaint();
 }
 
+void Widget::keyPressEvent(QKeyEvent *event)
+{
+    Q_ASSERT(event != nullptr);
+
+    if (event->key() == Qt::Key_Space)
+    {
+        Singleton<DecoratedBezierCurve>::GetInstancePtr()->switchRasterizationMethod();
+        repaint();
+    }
+}
+
 QPixmap Widget::render()
 {
     int w = geometry().width();
@@ -80,3 +102,4 @@ QPixmap Widget::render()
 // [Fast and Flicker-Free](https://doc.qt.io/archives/qq/qq06-flicker-free.html)
 // [Optimizing with QPixmapCache](http://doc.qt.io/archives/qq/qq12-qpixmapcache.html)
 // [When does a Qt widget get a paintEvent?](https://stackoverflow.com/questions/11645667/when-does-a-qt-widget-get-a-paintevent)
+// [How to Center a Window on the Screen](https://wiki.qt.io/How_to_Center_a_Window_on_the_Screen)

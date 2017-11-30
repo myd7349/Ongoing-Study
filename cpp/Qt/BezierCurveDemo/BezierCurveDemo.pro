@@ -41,4 +41,5 @@ HEADERS += \
         ../../DesignPatterns/Singleton.h \
     AdjustBezierCurveMouseAction.h \
     ../../../algorithm/graphics/lerp/lerp.h \
+    ../../../algorithm/math/EuclideanDistance.hpp \
     ../../../algorithm/graphics/BezierCurve/DeCasteljau.hpp
