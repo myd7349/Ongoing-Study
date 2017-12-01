@@ -134,7 +134,7 @@ struct BezierCurve
         method = static_cast<RasterizationMethod>(static_cast<int>(method) ^ 1);
     }
 
-    void rasterize(QVector<QPointF> &points, QVector<Line<QPointF>> &tangents)
+    void rasterize(QVector<QPointF> &points, QVector<Line<QPointF, qreal>> &tangents)
     {
         switch (method) {
         case Incremental:
@@ -153,11 +153,11 @@ struct BezierCurve
 
 protected:
     QVector<QPointF> pointsOnCurve;
-    QVector<Line<QPointF>> tangents;
+    QVector<Line<QPointF, qreal>> tangents;
 
 private:
-    void rasterizeInc(QVector<QPointF> &points, QVector<Line<QPointF>> &tangents);
-    void rasterizeSubDiv(QVector<QPointF> &points, QVector<Line<QPointF>> &tangents);
+    void rasterizeInc(QVector<QPointF> &points, QVector<Line<QPointF, qreal>> &tangents);
+    void rasterizeSubDiv(QVector<QPointF> &points, QVector<Line<QPointF, qreal>> &tangents);
 
     QVector<QPointF> controlPoints; // start, end, c1, c2
     RasterizationMethod method;

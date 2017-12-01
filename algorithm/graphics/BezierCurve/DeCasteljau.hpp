@@ -1,12 +1,16 @@
 // 2017-11-29T08:54+08:00
 // A recursive subdivision method for rasterizing a Bézier curve.
+// Note that this implementation aims to keep things simple, so
+// it ignores every corner cases described in [1].
+// If you are looking for a full implementation that covers all
+// those corner cases, take a look at `agg_curves.h`, `agg_curves.cpp`
+// from AGG project.
 
 #ifndef DE_CASTELJAU_H_
 #define DE_CASTELJAU_H_
 
 #include <cassert>
-
-#include "../../math/EuclideanDistance.hpp"
+#include <cmath>
 
 
 template <typename T>
@@ -23,13 +27,33 @@ struct Point
 };
 
 
-template <typename PointT>
+template <typename PointT, typename T = typename PointT::value_type>
 struct Line
 {
     typedef PointT point_type;
 
     Line(PointT p1_ = PointT(), PointT p2_ = PointT()) : p1(p1_), p2(p2_)
     {
+    }
+
+    Line(PointT p, double slope)
+    {
+        assert(slope != NAN);
+
+        p1 = p2 = p;
+        if (slope == INFINITY || slope == -INFINITY)
+        {
+            p2.y += 1;
+        }
+        else if (slope == 0)
+        {
+            p2.x += 1;
+        }
+        else
+        {
+            p2.x += 1;
+            p2.y = static_cast<T>(slope * (p2.x - p1.x) + p1.y);
+        }
     }
 
     point_type p1;
@@ -40,9 +64,6 @@ struct Line
 // See [1]
 const int CurveRecursionLimit = 32;
 const double DistanceToleranceSquare = 0.5 * 0.5;
-const double CurveDistanceEpsilon = 1e-30;
-const double CurveCollinearityEpsilon = 1e-30;
-const double CurveAngleToleranceEpsilon = 0.01;
 
 
 template <typename PointT, typename T = typename PointT::value_type>
@@ -129,20 +150,12 @@ void RecursiveSubdivisionQuadraticBezierImpl(const PointT &P0, const PointT &P1,
     double dx = P2.x - P0.x;
     double dy = P2.y - P0.y;
     double d = std::fabs((P1.x - P2.x) * dy - (P1.y - P2.y) * dx);
-    double da;
 
-    if (d > CurveCollinearityEpsilon)
+    if (d * d <= DistanceToleranceSquare * (dx * dx + dy * dy))
     {
-        if (d * d <= DistanceToleranceSquare * (dx * dx + dy * dy))
-        {
-            points.push_back(P012);
-            tangents.push_back(typename LineContainer::value_type(P01, P12));
-            return;
-        }
-    }
-    else
-    {
-
+        points.push_back(P012);
+        tangents.push_back(typename LineContainer::value_type(P01, P12));
+        return;
     }
 
     RecursiveSubdivisionQuadraticBezierImpl(P0, P01, P012, points, tangents, level + 1);
@@ -230,8 +243,20 @@ inline void RecursiveSubdivisionBezier(const PointContainer &controlPoints,
         const PointT &P2 = controlPoints[2];
 
         points.push_back(P0);
+        tangents.push_back(typename LineContainer::value_type(controlPoints[0], controlPoints[0]));
+
         RecursiveSubdivisionQuadraticBezierImpl<PointT, PointContainer>(P0, P1, P2, points, tangents);
+
         points.push_back(P2);
+        if (tangents.size() > 1)
+        {
+            tangents[0] = tangents[1];
+            tangents.push_back(tangents.last());
+        }
+        else
+        {
+            tangents.push_back(typename LineContainer::value_type(controlPoints.last(), controlPoints.last()));
+        }
     }
         break;
     case 4:
@@ -242,8 +267,21 @@ inline void RecursiveSubdivisionBezier(const PointContainer &controlPoints,
         const PointT &P3 = controlPoints[3];
 
         points.push_back(P0);
+        tangents.push_back(typename LineContainer::value_type(controlPoints[0], controlPoints[0]));
+
         RecursiveSubdivisionCubicBezierImpl<PointT, PointContainer>(P0, P1, P2, P3, points, tangents);
+
         points.push_back(P3);
+        if (tangents.size() > 1)
+        {
+            tangents[0] = tangents[1];
+            tangents.push_back(tangents.last());
+        }
+        else
+        {
+            tangents.push_back(typename LineContainer::value_type(controlPoints.last(), controlPoints.last()));
+        }
+
     }
         break;
     default: assert(false); break;

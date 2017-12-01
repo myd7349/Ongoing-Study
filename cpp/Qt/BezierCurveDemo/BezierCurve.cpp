@@ -6,6 +6,7 @@
 #include <QtGui/QPen>
 #include <QtWidgets/QStylePainter>
 
+#include "../../../algorithm/math/EuclideanDistance.hpp"
 #include "../../../algorithm/graphics/lerp/lerp.h"
 
 
@@ -87,7 +88,7 @@ void BezierCurve::draw(QStylePainter &painter)
 }
 
 
-void BezierCurve::rasterizeInc(QVector<QPointF> &points, QVector<Line<QPointF>> &tangents)
+void BezierCurve::rasterizeInc(QVector<QPointF> &points, QVector<Line<QPointF, qreal>> &tangents)
 {
     points.clear();
     tangents.clear();
@@ -205,13 +206,13 @@ inline QPointF PointToQPointF(const Point<T> &point)
 
 
 template <typename T>
-inline Line<QPointF> PointLineToQPointFLine(const Line<Point<T>> &line)
+inline Line<QPointF, qreal> PointLineToQPointFLine(const Line<Point<T>> &line)
 {
-    return Line<QPointF>(PointToQPointF(line.p1), PointToQPointF(line.p2));
+    return Line<QPointF, qreal>(PointToQPointF(line.p1), PointToQPointF(line.p2));
 }
 
 
-void RecursiveSubdivisionBezier(const QVector<QPointF> &controlPoints, QVector<QPointF> &points, QVector<Line<QPointF>> &tangents)
+void RecursiveSubdivisionBezier(const QVector<QPointF> &controlPoints, QVector<QPointF> &points, QVector<Line<QPointF, qreal>> &tangents)
 {
     QVector<Point<qreal>> Ps(controlPoints.size());
     std::transform(controlPoints.cbegin(), controlPoints.cend(), Ps.begin(), QPointFToPoint<qreal>);
@@ -228,7 +229,7 @@ void RecursiveSubdivisionBezier(const QVector<QPointF> &controlPoints, QVector<Q
 }
 
 
-void BezierCurve::rasterizeSubDiv(QVector<QPointF> &points, QVector<Line<QPointF>> &tangents)
+void BezierCurve::rasterizeSubDiv(QVector<QPointF> &points, QVector<Line<QPointF, qreal>> &tangents)
 {
     points.clear();
     tangents.clear();
