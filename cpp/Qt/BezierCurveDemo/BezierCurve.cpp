@@ -4,6 +4,7 @@
 
 #include <QtCore/QtMath>
 #include <QtGui/QPen>
+#include <QtGui/QPainterPath>
 #include <QtWidgets/QStylePainter>
 
 #include "../../../algorithm/math/EuclideanDistance.hpp"
@@ -30,6 +31,37 @@ QPointF *BezierCurve::hitTest(const QPointF &pt)
     }
 
     return d <= R ? p : nullptr;
+}
+
+
+bool BezierCurve::isOnCurve(const QPointF &pt, double tolerance)
+{
+    for (QVector<QPointF>::size_type i = 0; i < pointsOnCurve.size(); ++i)
+    {
+        if (Distance2<QPointF, qreal>(pointsOnCurve[i], pt) <= tolerance)
+            return true;
+    }
+
+#if 0
+    QPainterPath path;
+
+    switch (getType()) {
+    case Linear: path.lineTo(*end()); break;
+    case Quadratic: path.quadTo(c1() == nullptr ? *c2() : *c1(), *end());
+    case Cubic: path.cubicTo(*c1(), *c2(), *end()); break;
+    default: Q_ASSERT(false); break;
+    }
+
+    return path.contains(pt);
+#else
+    return false;
+#endif
+}
+
+
+void BezierCurve::offset(const QPointF &xy)
+{
+    std::for_each(controlPoints.begin(), controlPoints.end(), [xy](QPointF &pt) { pt += xy; });
 }
 
 

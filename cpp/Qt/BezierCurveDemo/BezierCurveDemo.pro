@@ -31,7 +31,8 @@ SOURCES += \
         BezierCurve.cpp \
         AddBezierCurveMouseAction.cpp \
     AdjustBezierCurveMouseAction.cpp \
-    ../../../algorithm/graphics/lerp/lerp.c
+    ../../../algorithm/graphics/lerp/lerp.c \
+    MoveBezierCurveMouseAction.cpp
 
 HEADERS += \
         widget.h \
@@ -42,4 +43,5 @@ HEADERS += \
     AdjustBezierCurveMouseAction.h \
     ../../../algorithm/graphics/lerp/lerp.h \
     ../../../algorithm/math/EuclideanDistance.hpp \
-    ../../../algorithm/graphics/BezierCurve/DeCasteljau.hpp
+    ../../../algorithm/graphics/BezierCurve/DeCasteljau.hpp \
+    MoveBezierCurveMouseAction.h

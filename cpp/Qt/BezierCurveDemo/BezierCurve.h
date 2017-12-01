@@ -99,6 +99,10 @@ struct BezierCurve
 
     QPointF *hitTest(const QPointF &pt);
 
+    bool isOnCurve(const QPointF &pt, double tolerance = 4.0);
+
+    void offset(const QPointF &xy);
+
     QPointF *start()
     {
         return controlPoints.empty() ? nullptr : &controlPoints[0];

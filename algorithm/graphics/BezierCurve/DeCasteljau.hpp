@@ -56,9 +56,64 @@ struct Line
         }
     }
 
+    bool hitTest(const PointT &pt, T tolerance) const
+    {
+        T dx = p2.x - p1.x;
+        T dy = p2.y - p1.y;
+
+        T cross = (pt.x - p1.x) * dy - (pt.y - p1.y) * dx;
+
+        if (std::fabs(cross) > tolerance)
+            return false;
+
+        if (std::fabs(dx) >= std::fabs(dy))
+        {
+            return dx > 0 ?
+                pt.x >= p1.x && pt.x <= p2.x :
+                pt.x >= p2.x && pt.x <= p1.x;
+        }
+        else
+        {
+            return dy > 0 ?
+                pt.y >= p1.y && pt.y <= p2.y :
+                pt.y >= p2.y && pt.y <= p1.y;
+        }
+    }
+
     point_type p1;
     point_type p2;
 };
+
+
+#ifdef QT_VERSION
+#include <QtCore/QPointF>
+
+template <>
+inline bool Line<QPointF, qreal>::hitTest(const QPointF &pt, qreal tolerance) const
+{
+    qreal dx = p2.x() - p1.x();
+    qreal dy = p2.y() - p1.y();
+
+    qreal cross = (pt.x() - p1.x()) * dy - (pt.y() - p1.y()) * dx;
+    qDebug("%f\n", cross);
+
+    if (std::fabs(cross) > tolerance)
+        return false;
+
+    if (std::fabs(dx) >= std::fabs(dy))
+    {
+        return dx > 0 ?
+            pt.x() >= p1.x() && pt.x() <= p2.x() :
+            pt.x() >= p2.x() && pt.x() <= p1.x();
+    }
+    else
+    {
+        return dy > 0 ?
+            pt.y() >= p1.y() && pt.y() <= p2.y() :
+            pt.y() >= p2.y() && pt.y() <= p1.y();
+    }
+}
+#endif
 
 
 // See [1]
@@ -308,3 +363,4 @@ small tolerance. If not, the curve is subdivided parametrically into two segment
 // [2] https://pages.mtu.edu/~shene/COURSES/cs3621/NOTES/spline/Bezier/bezier-sub.html
 // [3] http://mathworld.wolfram.com/Point-LineDistance2-Dimensional.html
 // [4] https://stackoverflow.com/questions/3162645/convert-a-quadratic-bezier-to-a-cubic
+// [5] https://stackoverflow.com/questions/11907947/how-to-check-if-a-point-lies-on-a-line-between-2-other-points

@@ -8,6 +8,7 @@
 #include "../../DesignPatterns/Singleton.h"
 #include "AddBezierCurveMouseAction.h"
 #include "AdjustBezierCurveMouseAction.h"
+#include "MoveBezierCurveMouseAction.h"
 #include "BezierCurve.h"
 
 
@@ -16,6 +17,7 @@ Widget::Widget(QWidget *parent)
 {
     mouseActionList.pushBack(QSharedPointer<AddBezierCurveMouseAction>::create());
     mouseActionList.pushBack(QSharedPointer<AdjustBezierCurveMouseAction>::create());
+    mouseActionList.pushBack(QSharedPointer<MoveBezierCurveMouseAction>::create());
 
     setGeometry(
         QStyle::alignedRect(
