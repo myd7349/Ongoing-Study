@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <stdio.h>
 
-#include "../../../c/common.h"
+#include "../../algutils.h"
 #include "insert_sort.h"
 
 
@@ -17,11 +17,10 @@ int main(void)
 {
     int arr[] = { 5, 1, 3, 0, 2, -1, 42, 20 };
 
-    int res = insert_sort(arr, ARRAYSIZE(arr), sizeof(arr[0]), cmp_int);
+    int res = insert_sort(ARRAY(arr), sizeof(arr[0]), cmp_int);
     assert(res == 0);
 
-    for (int i = 0; i < ARRAYSIZE(arr); ++i)
-        printf("%d\n", arr[i]);
+    printvinl(ARRAY(arr));
 
     return 0;
 }

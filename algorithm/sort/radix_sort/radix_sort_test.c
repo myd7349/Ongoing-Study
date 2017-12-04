@@ -12,16 +12,16 @@ int main()
     int d[] = { 257, INT_MIN, 30, 65535, -1, -42, 42 };
 
     radix_sortu(ARRAY(a), 10);
-    printvu(ARRAY(a));
+    printvunl(ARRAY(a));
 
     radix_sortu(ARRAY(b), 2);
-    printvu(ARRAY(b));
+    printvunl(ARRAY(b));
 
     radix_sortu(ARRAY(c), 256);
-    printvu(ARRAY(c));
+    printvunl(ARRAY(c));
 
     radix_sorti(ARRAY(d), 10);
-    printvi(ARRAY(d));
+    printvinl(ARRAY(d));
 
     return 0;
 }

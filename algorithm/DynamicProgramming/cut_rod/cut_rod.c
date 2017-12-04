@@ -176,7 +176,7 @@ void print_cut_rod_solution(int p[], int n, int s[])
 
     printf("-------------------------------------------------------------------------------\n");
     printf("Rot prices: ");
-    printvi(p, n);
+    printvinl(p, n);
     printf("Cut a rot of length %d like this:", n);
 
     while (n > 0)

@@ -17,7 +17,7 @@ int main()
     else \
         printf("Couldn't found " STR(value) " in array "); \
     \
-    printvi(ARRAY(x)); \
+    printvinl(ARRAY(x)); \
 }
 
     TEST_CASE(11);

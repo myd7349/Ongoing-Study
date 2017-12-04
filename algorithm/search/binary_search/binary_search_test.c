@@ -26,7 +26,7 @@ int main()
     int *res;
 
     qsort(ARRAY(a), sizeof(a[0]), cmpi);
-    printvi(ARRAY(a));
+    printvinl(ARRAY(a));
 
     res = binary_search(a, &b, ARRAYSIZE(a), sizeof(a[0]), cmpi);
 

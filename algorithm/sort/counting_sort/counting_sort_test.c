@@ -11,16 +11,16 @@ int main()
     unsigned d[] = { 1, 2, 3, 0 };
 
     counting_sorti_simple(ARRAY(a));
-    printvi(ARRAY(a));
+    printvinl(ARRAY(a));
 
     counting_sorti_simple(ARRAY(b));
-    printvi(ARRAY(b));
+    printvinl(ARRAY(b));
 
     counting_sorti_simple(ARRAY(c));
-    printvi(ARRAY(c));
+    printvinl(ARRAY(c));
 
     counting_sortu_simple(ARRAY(d));
-    printvu(ARRAY(d));
+    printvunl(ARRAY(d));
 
     return 0;
 }

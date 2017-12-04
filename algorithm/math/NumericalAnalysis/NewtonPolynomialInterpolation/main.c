@@ -33,19 +33,19 @@ int main()
     double pz5[ARRAYSIZE(z5)];
 
     DividedDifferences(x1, ARRAY(fx1), slopes1);
-    printvd(ARRAY(slopes1));
+    printvdnl(ARRAY(slopes1));
 
     SimpleNewtonPolynomialInterpolation(x2, ARRAY(fx2), z2, ARRAY(pz2));
-    printvd(ARRAY(pz2));
+    printvdnl(ARRAY(pz2));
 
     SimpleNewtonPolynomialInterpolation(x3, ARRAY(fx3), z3, ARRAY(pz3));
-    printvd(ARRAY(pz3));
+    printvdnl(ARRAY(pz3));
 
     SimpleNewtonPolynomialInterpolation(x4, ARRAY(fx4), z4, ARRAY(pz4));
-    printvd(ARRAY(pz4));
+    printvdnl(ARRAY(pz4));
 
     SimpleNewtonPolynomialInterpolation(x5, ARRAY(fx5), z5, ARRAY(pz5));
-    printvd(ARRAY(pz5));
+    printvdnl(ARRAY(pz5));
 
     return 0;
 }
