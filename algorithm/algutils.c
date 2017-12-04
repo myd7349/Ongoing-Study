@@ -43,7 +43,7 @@ MOST_T(mini, int, LT)
 MOST_T(minu, unsigned, LT)
 
 
-#define PRINTV_T(fn, T, fmt) \
+#define PRINTV_T(fn, T, fmt, nl) \
 void fn(T *data, unsigned size) \
 { \
     unsigned i; \
@@ -58,13 +58,18 @@ void fn(T *data, unsigned size) \
     printf("[%" STR(fmt), data[0]); \
     for (i = 1; i < size; ++i) \
         printf(",%" STR(fmt), data[i]); \
-    printf("]\n"); \
+    printf("]"); \
+    if (nl) printf("\n"); \
 }
 
 
-PRINTV_T(printvi, int, d)
-PRINTV_T(printvu, unsigned, u)
-PRINTV_T(printvd, double, f)
+PRINTV_T(printvi, int, d, 0)
+PRINTV_T(printvu, unsigned, u, 0)
+PRINTV_T(printvd, double, f, 0)
+
+PRINTV_T(printvinl, int, d, 1)
+PRINTV_T(printvunl, unsigned, u, 1)
+PRINTV_T(printvdnl, double, f, 1)
 
 
 #define REVERSE_T(fn, T) \
