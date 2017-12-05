@@ -31,13 +31,13 @@ void top_down_merge_sorti_impl(int arr[], int lb, int ub, int temp[], int level)
     top_down_merge_sorti_impl(temp, mid, ub, arr, level + 1);
 
 #ifndef NDEBUG
-    INDENT4(level); printf("Merge: "); printvi(arr + lb, mid - lb); printf(" + "); printvinl(arr + mid, ub - mid);
+    INDENT4(level); printf("Merge: "); printvi(arr + lb, mid - lb); printf(" + "); printvi(arr + mid, ub - mid);
 #endif
 
     mergei(arr, lb, mid, ub, temp);
 
 #ifndef NDEBUG
-    INDENT4(level); printf("After Merge: "); printvinl(temp + lb, ub - lb);
+    printf(" -> "); printvinl(temp + lb, ub - lb);
 #endif
 }
 

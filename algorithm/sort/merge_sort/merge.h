@@ -6,4 +6,6 @@ void merge2i(const int *x, int m, const int *y, int n, int output[]);
 
 void mergei(int arr[], int lb, int mid, int ub, int output[]);
 
+int mergei_v2(int arr[], int lb, int mid, int ub);
+
 #endif // MERGE_H_

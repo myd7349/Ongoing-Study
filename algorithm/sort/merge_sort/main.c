@@ -28,5 +28,8 @@ int main()
     simple_top_down_merge_sorti(ARRAY(arr2));
     printvinl(ARRAY(arr2));
 
+    mergei_v2(arr, 0, ARRAYSIZE(arr) / 2, ARRAYSIZE(arr));
+    printvinl(ARRAY(arr));
+
     return 0;
 }
