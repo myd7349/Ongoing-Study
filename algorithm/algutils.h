@@ -47,4 +47,13 @@ void reverseu(unsigned *data, unsigned size);
 void rotatei(int *data, unsigned size, int n);
 void rotateu(unsigned *data, unsigned size, int n);
 
+#define INDENT(level, spaces) \
+{ \
+    int i; \
+    for (i = 0; i < level * spaces; i++) \
+        putchar(' '); \
+}
+
+#define INDENT4(level) INDENT(level, 4)
+
 #endif // ALGUTILS_H_
