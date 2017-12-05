@@ -6,5 +6,6 @@ void top_down_merge_sorti(int arr[], int n, int temp[]);
 
 int simple_top_down_merge_sorti(int arr[], int n);
 
+int simple_top_down_merge_sorti_v2(int arr[], int n);
 
 #endif // MERGE_SORT_H_

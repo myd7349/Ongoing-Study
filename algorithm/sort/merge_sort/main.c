@@ -7,6 +7,7 @@ int main()
 {
     int arr[] = { 3, 4, 5, -1, 0, 1 };
     int arr2[] = { 5, 4, 3, 1, 0, -1 };
+    int arr3[] = { 5, 4, 3, 1, 0, -1, 99, 72, 42, 2 };
     int output[ARRAYSIZE(arr)];
 
     int a[] = { 3, 4, 5, 6 };
@@ -30,6 +31,9 @@ int main()
 
     mergei_v2(arr, 0, ARRAYSIZE(arr) / 2, ARRAYSIZE(arr));
     printvinl(ARRAY(arr));
+
+    simple_top_down_merge_sorti_v2(ARRAY(arr3));
+    printvinl(ARRAY(arr3));
 
     return 0;
 }
