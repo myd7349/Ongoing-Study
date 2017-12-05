@@ -35,7 +35,7 @@ void merge2i(const int *x, int m, const int *y, int n, int output[])
 
 void mergei(int arr[], int lb, int mid, int ub, int output[])
 {
-    merge2i(arr + lb, mid - lb, arr + mid, ub - mid, output);
+    merge2i(arr + lb, mid - lb, arr + mid, ub - mid, output + lb);
 }
 
 
