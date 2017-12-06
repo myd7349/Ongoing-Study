@@ -141,7 +141,7 @@ bool StartsWith(const std::basic_string<CharT> &lhs, const CharT *rhs)
 template <typename CharT>
 bool StartsWith(const std::basic_string<CharT> &lhs, CharT ch)
 {
-    return StartsWith(lhs, std::basic_string<CharT>(ch, 1));
+    return StartsWith(lhs, std::basic_string<CharT>(1, ch));
 }
 
 template <typename CharT>
@@ -187,7 +187,7 @@ bool EndsWith(const std::basic_string<CharT> &lhs, const CharT *rhs)
 template <typename CharT>
 bool EndsWith(const std::basic_string<CharT> &lhs, CharT ch)
 {
-    return EndsWith(lhs, std::basic_string<CharT>(ch, 1));
+    return EndsWith(lhs, std::basic_string<CharT>(1, ch));
 }
 
 template <typename CharT>
