@@ -120,6 +120,52 @@ private:
 };
 
 template <typename CharT>
+bool StartsWith(const std::basic_string<CharT> &lhs, const std::basic_string<CharT> &rhs)
+{
+    if (rhs.empty())
+        return true;
+
+    if (lhs.length() < rhs.length())
+        return false;
+
+    return lhs.substr(0, rhs.length()) == rhs;
+}
+
+template <typename CharT>
+bool StartsWith(const std::basic_string<CharT> &lhs, const CharT *rhs)
+{
+    assert(rhs != nullptr);
+    return StartsWith(lhs, std::basic_string<CharT>(rhs));
+}
+
+template <typename CharT>
+bool StartsWith(const std::basic_string<CharT> &lhs, CharT ch)
+{
+    return StartsWith(lhs, std::basic_string<CharT>(ch, 1));
+}
+
+template <typename CharT>
+bool StartsWith(const CharT *str, const std::basic_string<CharT> &rhs)
+{
+    assert(str != nullptr);
+    return StartsWith(std::basic_string<CharT>(str), rhs);
+}
+
+template <typename CharT>
+bool StartsWith(const CharT *str, const CharT *rhs)
+{
+    assert(str != nullptr);
+    return StartsWith(std::basic_string<CharT>(str), rhs);
+}
+
+template <typename CharT>
+bool StartsWith(const CharT *str, CharT ch)
+{
+    assert(str != nullptr);
+    return StartsWith(std::basic_string<CharT>(str), ch);
+}
+
+template <typename CharT>
 bool EndsWith(const std::basic_string<CharT> &lhs, const std::basic_string<CharT> &rhs)
 {
     if (rhs.empty())
