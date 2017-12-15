@@ -9,6 +9,7 @@
 # pragma warning(disable: 4005)
 #endif
 
+#include <assert.h>
 #include <stdlib.h>
 
 /* FREE */
@@ -36,6 +37,13 @@
 /* CONCAT */
 #define CONCAT_IMPL(c1, c2) c1 ## c2
 #define CONCAT(c1, c2) CONCAT_IMPL(c1, c2)
+
+/* RANDOF */
+/* Generate a random number from [0...num-1] */
+#define RANDOF(num) ((int)((float)(num) * rand() / (RAND_MAX + 1.0)))
+
+/* RANDINT */
+#define RANDINT(lo, hi) (RANDOF((hi) - (lo)) + (lo))
 
 /* To be continued... */
 
