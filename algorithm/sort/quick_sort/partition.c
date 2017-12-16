@@ -6,15 +6,20 @@
 #include "../../algutils.h"
 
 
-int lomuto_partitioni(int arr[], int lb, int ub)
+int lomuto_partitioni(int arr[], int lb, int ub, pivot_chooser_fn_t choose_pivot)
 {
     int i;
     int j;
+    int pivot_pos;
     int pivot;
 
-    assert(arr != NULL && lb <= ub);
-    if (lb >= ub)
+    assert(arr != NULL && lb <= ub && choose_pivot != NULL);
+    pivot_pos = choose_pivot(arr, lb, ub);
+    if (pivot_pos == -1)
         return -1;
+
+    if (arr[ub - 1] != arr[pivot_pos])
+        SWAP_T(int, arr[ub - 1], arr[pivot_pos]);
 
     pivot = arr[ub - 1];
 
@@ -76,18 +81,21 @@ int hoare_partitioni_v0(int arr[], int lb, int ub)
 #endif
 
 
-int hoare_partitioni(int arr[], int lb, int ub)
+int hoare_partitioni(int arr[], int lb, int ub, pivot_chooser_fn_t choose_pivot)
 {
     int pivot_pos;
     int pivot;
 
-    assert(arr != NULL && lb <= ub);
-    if (lb >= ub)
+    assert(arr != NULL && lb <= ub && choose_pivot != NULL);
+    pivot_pos = choose_pivot(arr, lb, ub);
+    if (pivot_pos == -1)
         return -1;
+
+    if (arr[lb] != arr[pivot_pos])
+        SWAP_T(int, arr[lb], arr[pivot_pos]);
 
     pivot_pos = lb;
     pivot = arr[pivot_pos];
-
 
     while (lb < ub)
     {

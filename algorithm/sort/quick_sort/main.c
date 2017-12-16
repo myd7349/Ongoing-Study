@@ -13,22 +13,22 @@ int main()
 
     printf("------------ Lomuto partition ------------\n");
     memcpy(arr, raw, sizeof(int) * ARRAYSIZE(arr));
-    lomuto_partition_quick_sorti(ARRAY(arr));
+    lomuto_partition_quick_sorti(ARRAY(arr), last);
     printvinl(ARRAY(arr));
 
     printf("------------ Hoare partition ------------\n");
     memcpy(arr, raw, sizeof(int) * ARRAYSIZE(arr));
-    hoare_partition_quick_sorti(ARRAY(arr));
+    hoare_partition_quick_sorti(ARRAY(arr), first);
     printvinl(ARRAY(arr));
 
     printf("------------ Lomuto partition ------------\n");
     memcpy(arr, raw2, sizeof(int) * ARRAYSIZE(arr));
-    lomuto_partition_quick_sorti(ARRAY(arr));
+    lomuto_partition_quick_sorti(ARRAY(arr), random_chooser);
     printvinl(ARRAY(arr));
 
     printf("------------ Hoare partition ------------\n");
     memcpy(arr, raw2, sizeof(int) * ARRAYSIZE(arr));
-    hoare_partition_quick_sorti(ARRAY(arr));
+    hoare_partition_quick_sorti(ARRAY(arr), random_chooser);
     printvinl(ARRAY(arr));
 
     return 0;

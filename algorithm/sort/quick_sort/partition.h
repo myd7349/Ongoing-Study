@@ -2,6 +2,8 @@
 #ifndef PARTITION_H_
 #define PARTITION_H_
 
+#include "pivot.h"
+
 /*
 From wikipedia:
 Partitioning: reorder the array so that all elements with values less than
@@ -11,10 +13,10 @@ After this partitioning, the pivot is in its final position. This is called
 the partition operation.
 */
 
-typedef int partitioni_fn_t(int [], int, int);
+typedef int partitioni_fn_t(int [], int, int, pivot_chooser_fn_t);
 
-int lomuto_partitioni(int arr[], int lb, int ub);
+int lomuto_partitioni(int arr[], int lb, int ub, pivot_chooser_fn_t choose_pivot);
 
-int hoare_partitioni(int arr[], int lb, int ub);
+int hoare_partitioni(int arr[], int lb, int ub, pivot_chooser_fn_t choose_pivot);
 
 #endif // PARTITION_H_

@@ -42,6 +42,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="partition.h" />
+		<Unit filename="pivot.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pivot.h" />
 		<Unit filename="quick_sort.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -10,7 +10,7 @@
 #include "partition.h"
 
 
-void quick_sorti_impl(int arr[], int lb, int ub, partitioni_fn_t partitioni, int level)
+void quick_sorti_impl(int arr[], int lb, int ub, partitioni_fn_t partitioni, pivot_chooser_fn_t choose_pivot, int level)
 {
     int pivot;
 
@@ -24,7 +24,7 @@ void quick_sorti_impl(int arr[], int lb, int ub, partitioni_fn_t partitioni, int
         printvinl(arr + lb, ub - lb);
 #endif
 
-        pivot = partitioni(arr, lb, ub);
+        pivot = partitioni(arr, lb, ub, choose_pivot);
 
 #ifndef NDEBUG
         INDENT4(level);
@@ -34,21 +34,21 @@ void quick_sorti_impl(int arr[], int lb, int ub, partitioni_fn_t partitioni, int
         printvinl(arr + pivot + 1, ub - pivot - 1);
 #endif
 
-        quick_sorti_impl(arr, lb, pivot, partitioni, level + 1);
-        quick_sorti_impl(arr, pivot + 1, ub, partitioni, level + 1);
+        quick_sorti_impl(arr, lb, pivot, partitioni, choose_pivot, level + 1);
+        quick_sorti_impl(arr, pivot + 1, ub, partitioni, choose_pivot, level + 1);
     }
 }
 
 
-void lomuto_partition_quick_sorti(int arr[], int size)
+void lomuto_partition_quick_sorti(int arr[], int size, pivot_chooser_fn_t choose_pivot)
 {
-    quick_sorti_impl(arr, 0, size, lomuto_partitioni, 0);
+    quick_sorti_impl(arr, 0, size, lomuto_partitioni, choose_pivot, 0);
 }
 
 
-void hoare_partition_quick_sorti(int arr[], int size)
+void hoare_partition_quick_sorti(int arr[], int size, pivot_chooser_fn_t choose_pivot)
 {
-    quick_sorti_impl(arr, 0, size, hoare_partitioni, 0);
+    quick_sorti_impl(arr, 0, size, hoare_partitioni, choose_pivot, 0);
 }
 
 
