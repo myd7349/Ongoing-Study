@@ -51,7 +51,7 @@ void fn(T *data, unsigned size) \
     assert(data != NULL && size >= 0); \
     if (size == 0) \
     { \
-        printf("[]\n"); \
+        nl ? printf("[]\n") : printf("[]"); \
         return; \
     } \
     \
