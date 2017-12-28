@@ -11,23 +11,24 @@ namespace UDPServer
     {
         static void Main(string[] args)
         {
-            using (var serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp))
+            using (var serverSocket = new UdpClient(12000))
             {
-                serverSocket.Bind(new IPEndPoint(IPAddress.Any, 12000));
-
-                const int BufferLength = 1024;
-                var buffer = new byte[BufferLength];
-
                 while (true)
                 {
-                    var byteCount = serverSocket.Receive(buffer);
-                    var sentence = Encoding.UTF8.GetString(buffer, 0, byteCount);
+                    var remoteHost = new IPEndPoint(IPAddress.Any, 12000);
+                    var bytes = serverSocket.Receive(ref remoteHost);
+                    var sentence = Encoding.UTF8.GetString(bytes);
 
-                    Console.WriteLine("Received [{0}] from [{1}].", sentence, serverSocket.RemoteEndPoint);
+                    Console.WriteLine("Received [{0}] from [{1}].", sentence, remoteHost);
 
-                    serverSocket.SendTo(Encoding.UTF8.GetBytes(sentence.ToUpper()), serverSocket.RemoteEndPoint);
+                    bytes = Encoding.UTF8.GetBytes(sentence.ToUpper());
+                    serverSocket.Send(bytes, bytes.Length, remoteHost);
                 }
             }
         }
     }
 }
+
+
+// References:
+// https://stackoverflow.com/questions/20038943/simple-udp-example-to-send-and-receive-data-from-same-socket
