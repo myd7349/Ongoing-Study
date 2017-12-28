@@ -11,6 +11,26 @@ namespace UDPServer
     {
         static void Main(string[] args)
         {
+#if false
+            using (var serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp))
+            {
+                serverSocket.Bind(new IPEndPoint(IPAddress.Any, 12000));
+
+                const int BufferLength = 1024;
+                var buffer = new byte[BufferLength];
+
+                while (true)
+                {
+                    EndPoint clientHost = new IPEndPoint(IPAddress.Any, 12000);
+                    var byteCount = serverSocket.ReceiveFrom(buffer, ref clientHost);
+                    var sentence = Encoding.UTF8.GetString(buffer, 0, byteCount);
+
+                    Console.WriteLine("Received [{0}] from [{1}].", sentence, clientHost);
+
+                    serverSocket.SendTo(Encoding.UTF8.GetBytes(sentence.ToUpper()), clientHost);
+                }
+            }
+#else
             using (var serverSocket = new UdpClient(12000))
             {
                 while (true)
@@ -25,6 +45,7 @@ namespace UDPServer
                     serverSocket.Send(bytes, bytes.Length, remoteHost);
                 }
             }
+#endif
         }
     }
 }
