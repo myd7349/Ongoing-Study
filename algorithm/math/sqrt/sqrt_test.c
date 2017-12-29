@@ -1,3 +1,4 @@
+#include <math.h>
 #include <stdio.h>
 
 #include "../../algutils.h"
@@ -17,6 +18,9 @@ int main()
     TEST(4.0);
     TEST(100.0);
     TEST(-1.0);
+    TEST(NAN);
+    TEST(INFINITY);
+    TEST(-INFINITY);
 
     return 0;
 }
