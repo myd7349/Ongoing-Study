@@ -23,6 +23,8 @@
 
 typedef int (*cmp_fn_t)(const void *, const void *);
 
+typedef void (*del_fn_t)(void *);
+
 void swap(void *p, void *q, unsigned elem_size, void *temp_elem);
 
 int maxi(int *data, unsigned size);
