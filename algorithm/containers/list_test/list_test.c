@@ -21,7 +21,7 @@ int main()
 
     printf("List size: %u.\n", slist_size(list));
 
-    slist_foreach(list, node)
+    slist_for_each(list, node)
     {
         printf("%d\n", (int)snode_data(node));
     }

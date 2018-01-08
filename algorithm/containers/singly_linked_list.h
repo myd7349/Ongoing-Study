@@ -38,7 +38,7 @@ snode_t slist_find_if(slist_t list, equal_fn_t equal_fn, void *equal_fn_rhs, sno
 
 #define slist_empty(list) (slist_size((list)) == 0)
 #define slist_tail(list) (slist_empty(list) ? NULL : slist_at((list), slist_size((list)) - 1))
-#define slist_foreach(list, node) for(snode_t node = slist_head(list); node != NULL; node = snode_next(node))
+#define slist_for_each(list, node) for(snode_t node = slist_head(list); node != NULL; node = snode_next(node))
 
 C_API_END
 

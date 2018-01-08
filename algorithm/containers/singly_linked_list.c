@@ -30,7 +30,7 @@ slist_t slist_copy(slist_t list)
 
     if (list != NULL)
     {
-        slist_foreach(list, node)
+        slist_for_each(list, node)
         {
             slist_push_back(newlist, snode_data(node));
         }
@@ -111,7 +111,7 @@ void slist_extend(slist_t list, slist_t list2)
     if (list2 == NULL)
         return;
 
-    slist_foreach(list2, node)
+    slist_for_each(list2, node)
     {
         slist_push_back(list, node);
     }
@@ -134,7 +134,7 @@ snode_t slist_at(slist_t list, size_t i)
     if (i >= list->size)
         return NULL;
 
-    slist_foreach(list, node)
+    slist_for_each(list, node)
     {
         if (j++ == i)
             return node;
