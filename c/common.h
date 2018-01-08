@@ -45,6 +45,16 @@
 /* RANDINT */
 #define RANDINT(lo, hi) (RANDOF((hi) - (lo)) + (lo))
 
+/* C_API_* */
+#ifdef __cplusplus
+# define C_API_BEGIN extern "C" {
+# define C_API_END extern }
+#else
+# define C_API_BEGIN
+# define C_API_END
+#endif
+
+
 /* To be continued... */
 
 #endif /* COMMON_H_ */
