@@ -21,9 +21,15 @@
 // radix_sortu10(ARRAY(a)); // oops
 #define ARRAY(a) a, ARRAYSIZE(a)
 
-typedef int (*cmp_fn_t)(const void *, const void *);
+typedef int (cmp_fn_t)(const void *, const void *);
 
-typedef void (*del_fn_t)(void *);
+typedef void *(new_fn_t)(size_t);
+
+typedef void (del_fn_t)(void *);
+
+typedef void *(closure_fn_t)(void *arg, void *ctx);
+
+typedef int (equal_fn_t)(void *, void *);
 
 void swap(void *p, void *q, unsigned elem_size, void *temp_elem);
 
