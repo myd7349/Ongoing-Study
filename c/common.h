@@ -48,7 +48,7 @@
 /* C_API_* */
 #ifdef __cplusplus
 # define C_API_BEGIN extern "C" {
-# define C_API_END extern }
+# define C_API_END   }
 #else
 # define C_API_BEGIN
 # define C_API_END
