@@ -5,62 +5,29 @@
 
 __version__ = 'v0.1.0'
 
-
-import os
 import os.path
-import re
-import urllib.request
 
-import docopt  # pip install docopt
-
-import uriutils
+import rescrawler
 
 
-__doc__ = """MIT-BIH Arrhythmia Database downloader.
-
-Usage:
-    {0} -d=<PATH>
-    {0} -h | --help
-    {0} -v | --version
-
-Options:
-    -d=<PATH>     Specify target directory.
-    -h --help     Show this usage.
-    -v --version  Show version.
-
-""".format(os.path.basename(__file__))
+class MITBITDBCrawler(rescrawler.ResourceCrawler):
+    def __init__(self, prog, ver):
+        super().__init__(prog, ver)
+    
+    def get_description(self):
+        return 'MIT-BIH Arrhythmia Database downloader.'
+    
+    def get_url(self):
+        return 'https://physionet.org/physiobank/database/mitdb/'
+    
+    def get_re(self):
+        return r'\d{3}\.((atr)|(dat)|(hea))' 
 
 
 def main():
-    args = docopt.docopt(__doc__, version=__version__)
-    target_dir = args['-d']
+    prog = os.path.basename(__file__)
+    MITBITDBCrawler(prog, __version__).run()
     
-    if os.path.isfile(target_dir):
-        raise SystemExit("'{0}' is supposed to be a directory.")
-        
-    if not os.path.isabs(target_dir):
-        target_dir = os.path.join(os.getcwd(), target_dir)
-        
-    if not os.path.exists(target_dir):
-        os.makedirs(target_dir)
     
-    mitdb_url = 'https://physionet.org/physiobank/database/mitdb/'
-    record_name_re = r'\d{3}\.((atr)|(dat)|(hea))'
-    
-    page_contents = uriutils.fetch_page_contents(mitdb_url)
-    records = (rn for rn in uriutils.iurl(page_contents) if re.match(record_name_re, rn))
-    record_urls = {rn: mitdb_url + rn for rn in records}
-    
-    for rn, rurl in record_urls.items():
-        print("Downloading '{0}' from {1} ...".format(rn, rurl))
-        target_file = os.path.join(target_dir, rn)
-        urllib.request.urlretrieve(rurl, target_file)
-        print("File '{0}' is saved as '{1}'.".format(rn, target_file))
-
-
 if __name__ == '__main__':
     main()
-
-
-# References:
-# https://stackoverflow.com/questions/273192/how-can-i-create-a-directory-if-it-does-not-exist
