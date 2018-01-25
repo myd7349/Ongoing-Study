@@ -1,0 +1,1 @@
+mgmtclassgen Win32_NetworkAdapter /L CS -p NetworkAdapter.cs
