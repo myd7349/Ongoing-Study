@@ -37,7 +37,7 @@ namespace FastMemberDemo
                 dataTable.Load(reader);
             }
 
-            dataGridView1.DataSource = dataTable;
+            dataGridView.DataSource = dataTable;
         }
     }
 }
