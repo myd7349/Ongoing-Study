@@ -31,6 +31,17 @@
 #define ARRAYSIZE(arr) (sizeof(arr) / sizeof(arr[0]))
 
 /* STR */
+/*
+TODO:
+typedef enum {
+    CRC_32 = 32
+} crc_type_t;
+
+#define CRC_HEX_CHARS(crc_type) ((crc_type) / 4 + 1)
+#define CRC32_HEX_CHARS CRC_HEX_CHARS(CRC_32)
+printf("%s\n", STR(CRC32_HEX_CHARS));
+
+*/
 #define STR_IMPL(c) #c
 #define STR(c) STR_IMPL(c)
 
