@@ -40,7 +40,7 @@ typedef enum {
 #define CRC_HEX_CHARS(crc_type) ((crc_type) / 4 + 1)
 #define CRC32_HEX_CHARS CRC_HEX_CHARS(CRC_32)
 printf("%s\n", STR(CRC32_HEX_CHARS));
-
+printf("%s\n", STR(CRC_HEX_CHARS(32)));
 */
 #define STR_IMPL(c) #c
 #define STR(c) STR_IMPL(c)
