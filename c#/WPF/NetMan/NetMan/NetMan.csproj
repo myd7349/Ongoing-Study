@@ -107,6 +107,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NetworkAdapterEventWatcher.cs" />
     <Compile Include="NetworkAdaptersModel.cs" />
     <Compile Include="NetworkAdapter.cs">
       <SubType>Component</SubType>

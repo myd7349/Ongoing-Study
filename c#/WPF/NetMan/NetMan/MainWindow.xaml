@@ -20,7 +20,7 @@
     </Controls:MetroWindow.Resources>
     
     <Grid Margin="10">
-        <ListView Name="networkAdaptersDataGrid" Controls:ControlsHelper.ContentCharacterCasing="Normal" ItemsSource="{Binding}">
+        <ListView Name="networkAdaptersListView" Controls:ControlsHelper.ContentCharacterCasing="Normal" ItemsSource="{Binding}">
             <ListView.View>
                 <GridView AllowsColumnReorder="true">
                     <GridViewColumn Header="Index" DisplayMemberBinding="{Binding Index}"></GridViewColumn>
