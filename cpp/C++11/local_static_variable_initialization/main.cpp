@@ -43,3 +43,5 @@ int main()
 // References:
 // https://www.zhihu.com/question/267013757
 // https://stackoverflow.com/questions/1661529/is-meyers-implementation-of-the-singleton-pattern-thread-safe
+// https://gcc.gnu.org/ml/gcc-patches/2004-09/msg00265.html
+// https://stackoverflow.com/questions/12186857/on-local-and-global-static-variables-in-c
