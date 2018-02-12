@@ -19,8 +19,19 @@ struct MyClass
 const MyClass &CreateMyClass()
 {
     ENTER_FUNC();
+
+    // https://stackoverflow.com/questions/7422081/does-clang-do-threadsafe-initialisation-of-local-static-variables
+    // metions the `-fno-threadsafe-statics` option.
+    //
+    // https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Dialect-Options.html
+    // -fno-threadsafe-statics
+    //     Do not emit the extra code to use the routines specified in the C++ ABI for thread-safe initialization of local statics.
+    //     You can use this option to reduce code size slightly in code that doesn’t need to be thread-safe.
+
     static MyClass myClass;
+
     LEAVE_FUNC();
+
     return myClass;
 }
 
@@ -40,8 +51,10 @@ int main()
     return 0;
 }
 
+
 // References:
 // https://www.zhihu.com/question/267013757
 // https://stackoverflow.com/questions/1661529/is-meyers-implementation-of-the-singleton-pattern-thread-safe
-// https://gcc.gnu.org/ml/gcc-patches/2004-09/msg00265.html
 // https://stackoverflow.com/questions/12186857/on-local-and-global-static-variables-in-c
+// http://clang.llvm.org/docs/ThreadSafetyAnalysis.html
+// https://github.com/llvm-mirror/clang/commit/4ea46f54b3ccd6d1e9f305058ae8b8664033131a
