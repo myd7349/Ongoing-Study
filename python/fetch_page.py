@@ -5,7 +5,6 @@
 
 import os
 import os.path
-import shutil
 import sys
 import urllib.error
 import urllib.parse
@@ -94,7 +93,7 @@ def fetch_page(url, target_dir, html_only=True):
 
     # Save other resources
     for res in ires(html, img='src'):
-        res_subdir, res_fname = res.rsplit('/', maxsplit=2)[-2:]
+        res_subdir, res_fname = res.rsplit('/', maxsplit=1)[-2:]
         res_dir = os.path.normpath(os.path.join(html_dir, res_subdir))
 
         if _make_dirs(res_dir):
