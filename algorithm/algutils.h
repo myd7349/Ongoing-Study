@@ -18,6 +18,9 @@
 
 #define CMP(x, y) (((x) > (y)) - ((x) < (y)))
 
+#define MAX(x, y) ((x) < (y) ? (y) : (x))
+#define MIN(x, y) ((x) < (y) ? (x) : (y))
+
 // radix_sortu10(ARRAY(a)); // oops
 #define ARRAY(a) a, ARRAYSIZE(a)
 
