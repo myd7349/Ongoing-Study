@@ -9,12 +9,13 @@ import sys
 import urllib.parse
 import urllib.request
 
-import requests_html  # pip install requests_html
+import requests_html  # pip install requests-html
 
 
 class PageCrawler:
     def __init__(self, url):
-        self.response = requests_html.session.get(url)
+        self.session = requests_html.HTMLSession()
+        self.response = self.session.get(url)
 
     @property
     def html(self):
