@@ -89,6 +89,7 @@ REVERSE_T(reverseu, unsigned)
 
 
 // [1]
+// TODO: https://github.com/python/cpython/blob/master/Modules/_collectionsmodule.c#L791
 #define ROTATE_T(fn, T) \
 void fn(T *data, unsigned size, int shift) \
 { \
