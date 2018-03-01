@@ -4,6 +4,7 @@
 # 2018-02-28T15:11+08:00
 
 import ctypes
+import ctypes.util
 import math
 import sys
 
@@ -37,13 +38,14 @@ import sys
 # | C++(ISO 2011) |    div   |          Dividend        |
 # -------------------------------------------------------
 # We can also find a well-defined modulo function in [3]. 
-
 if sys.platform == 'win32':
-    libc = ctypes.cdll.msvcrt
+    libc = ctypes.CDLL(ctypes.util.find_library('msvcrt'))
+    # Or:
+    #libc = ctypes.cdll.msvcrt
 else:
-    raise NotImplementedError('Not tested yet!')
+    libc = ctypes.CDLL(ctypes.util.find_library('c'))
 
-print(libc.div(-3, 2))
+print(libc.div(-13, 10))
 
 
 # 2. Modulo operation in Python
@@ -54,9 +56,9 @@ print(libc.div(-3, 2))
 # | %, divmod |          Divisor         |
 # | math.fmod |          Dividend        |
 # ----------------------------------------
-print(-3 % 2)
-print(divmod(-3, 2)[1])
-print(math.fmod(-3, 2))
+print(-13 % 10)
+print(divmod(-13, 10)[1])
+print(math.fmod(-13, 10))
 
 # References:
 # [1] https://en.wikipedia.org/wiki/Modulo_operation
