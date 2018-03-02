@@ -9,25 +9,43 @@ extern const char *reverse(char *); // See `reverse.c`
 
 const char *itoa(int n, int base, char *buffer, size_t size)
 {
-    char *p = buffer;
-    int negative = n < 0;
+    size_t i = 0;
+    size_t max_digits;
+    div_t quot_rem = { n, 0 };
 
     assert(base > 1 && base <= 36);
-    assert(buffer != NULL && size > 1);
+
+    if (buffer == NULL || size == 0)
+        return "";
+
+    if (size == 1 || (n < 0 && size == 2))
+    {
+        buffer[0] = '\0';
+        return "";
+    }
+
+    max_digits = size - 1 - (n < 0 ? 1 : 0);
 
     do
     {
-        int rem = n % base;
-        *p++ = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"[abs(rem)];
-        n /= base;
-    } while (n != 0);
+        quot_rem = div(quot_rem.quot, base);
+        buffer[i++] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"[abs(quot_rem.rem)];
+    } while (quot_rem.quot != 0 && i < max_digits);
 
-    if (negative)
-        *p++ = '-';
+    if (quot_rem.quot == 0)
+    {
+        if (n < 0)
+            buffer[i++] = '-';
 
-    *p = '\0';
+        buffer[i] = '\0';
 
-    return reverse(buffer);
+        return reverse(buffer);
+    }
+    else
+    {
+        buffer[0] = '\0';
+        return "";
+    }
 }
 
 
