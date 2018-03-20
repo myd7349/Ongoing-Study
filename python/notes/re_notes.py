@@ -19,3 +19,9 @@ ipv4_re = '^' + tokenize.group(int_0_255_re + '.') + r'{3}' + int_0_255_re + '$'
 # Sams Teach Yourself Regular Expressions in 10 Minutes
 def ValidateIPv4(ip_addr):
     return (re.match(ipv4_re, ip_addr) is not None)
+
+
+# References:
+# https://github.com/Microsoft/vcpkg/blob/master/toolsrc/src/vcpkg/base/files.cpp#L9
+def ValidateFileName(filename):
+    return (re.match(r'[^\[\/:*?"<>|\]]+', filename) is not None)
