@@ -274,6 +274,7 @@ snode_t slist_find_if(slist_t list, equal_fn_t equal_fn, void *equal_fn_rhs, sno
 
 // References:
 // C Interfaces and Implementations, Chapter 7
+// https://github.com/zeromq/czmq/blob/master/include/zlist.h
 // https://en.wikipedia.org/wiki/Linked_list
 // https://github.com/torvalds/linux/blob/master/include/linux/list.h
 // https://github.com/torvalds/linux/blob/master/lib/llist.c
