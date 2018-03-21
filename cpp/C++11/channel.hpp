@@ -73,4 +73,5 @@ private:
 
 // References:
 // C Interfaces and Implementations: Techniques for Creating Reusable Software, by David R. Hanson, Chapter 20
+// https://github.com/drh/cii/blob/master/src/chan.c
 // https://codereview.stackexchange.com/questions/32500/golang-channel-in-c

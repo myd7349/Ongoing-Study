@@ -93,6 +93,7 @@ private:
 
 // References:
 // QtCore/QSemaphore
+// https://github.com/drh/cii/blob/master/include/sem.h
 // https://stackoverflow.com/questions/4792449/c0x-has-no-semaphores-how-to-synchronize-threads
 // https://github.com/preshing/cpp11-on-multicore/blob/master/common/sema.h
 // https://gist.github.com/sguzman/9594227
