@@ -1,11 +1,13 @@
 // 2018-03-20T14:49+08:00
 // A C++11 clone of [0].
+#include <cassert>
 #include <cstdlib>
 #include <iostream>
 #include <memory>
 #include <thread>
 
 #include "../../../cpp/C++11/channel.hpp"
+#include "is_prime.h"
 
 
 const int MAX_SINK_SIZE = 256;
@@ -80,6 +82,7 @@ void Sink(Args &args)
             if (x > args.limit)
                 break;
 
+            assert(is_prime(x));
             std::cout << x << ' ';
             primes[i++] = x;
             primes[i] = 0;
