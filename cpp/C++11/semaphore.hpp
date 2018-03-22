@@ -103,3 +103,16 @@ private:
 // https://stackoverflow.com/questions/16323032/why-cant-i-capture-this-by-reference-this-in-lambda
 // https://stackoverflow.com/questions/32922053/c-lambda-capture-member-variable
 // https://stackoverflow.com/questions/7895879/using-member-variable-in-lambda-capture-list-inside-a-member-function
+
+// About `Spurious wakeup`:
+// C++ Concurrency in Action
+// https://en.wikipedia.org/wiki/Spurious_wakeup
+// https://blogs.msdn.microsoft.com/oldnewthing/20180201-00/?p=97946
+// https://www.douban.com/note/309639829/
+// https://stackoverflow.com/questions/8594591/why-does-pthread-cond-wait-have-spurious-wakeups
+// https://stackoverflow.com/questions/31871267/how-does-condition-variablewait-for-deal-with-spurious-wakeups
+// http://en.cppreference.com/w/cpp/thread/condition_variable
+// >When the condition variable is notified, a timeout expires, or a spurious 
+//  wakeup occurs, the thread is awakened, and the mutex is atomically reacquired. 
+//  The thread should then check the condition and resume waiting if the wake up was spurious. 
+// 
