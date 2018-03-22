@@ -115,4 +115,22 @@ private:
 // >When the condition variable is notified, a timeout expires, or a spurious 
 //  wakeup occurs, the thread is awakened, and the mutex is atomically reacquired. 
 //  The thread should then check the condition and resume waiting if the wake up was spurious. 
-// 
+// http://www.modernescpp.com/index.php/condition-variables
+// The implementation of:
+//   1. wait(lock);
+//   2. wait(lock, pred);
+// in VS2017:
+/*
+    void wait(unique_lock<mutex>& _Lck)
+        {   // wait for signal
+        // Nothing to do to comply with LWG 2135 because std::mutex lock/unlock are nothrow
+        _Cnd_waitX(_Mycnd(), _Lck.mutex()->_Mymtx());
+        }
+
+    template<class _Predicate>
+        void wait(unique_lock<mutex>& _Lck, _Predicate _Pred)
+        {   // wait for signal and test predicate
+        while (!_Pred())
+            wait(_Lck);
+        }
+*/
