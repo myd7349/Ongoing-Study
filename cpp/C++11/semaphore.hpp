@@ -115,6 +115,12 @@ private:
 // >When the condition variable is notified, a timeout expires, or a spurious 
 //  wakeup occurs, the thread is awakened, and the mutex is atomically reacquired. 
 //  The thread should then check the condition and resume waiting if the wake up was spurious. 
+// >template< class Predicate >
+//  void wait( std::unique_lock<std::mutex>& lock, Predicate pred );
+//  Equivalent to
+//  while (!pred()) {
+//      wait(lock);
+//  }
 // http://www.modernescpp.com/index.php/condition-variables
 // The implementation of:
 //   1. wait(lock);
