@@ -68,7 +68,7 @@ class ResourceCrawler:
         res_urls = {rn: urllib.parse.urljoin(root_url, rn) for rn in res}
     
         for rn, rurl in res_urls.items():
-            rn_parse_res = urllib.parse.urlparse(rn)
+            rn_parse_res = urllib.parse.urlparse(rurl)
             
             netloc_dir = os.path.join(target_dir, rn_parse_res.netloc)
             self.mkdir(netloc_dir)
