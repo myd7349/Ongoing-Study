@@ -6,8 +6,12 @@
 __version__ = 'v0.1.0'
 
 import os.path
+import re
+
+import pyquery
 
 import rescrawler
+import uriutils
 
 
 class Tanenbaum5eVideoNotesCrawler(rescrawler.ResourceCrawler):
@@ -22,6 +26,14 @@ class Tanenbaum5eVideoNotesCrawler(rescrawler.ResourceCrawler):
     
     def get_re(self):
         return r'.+\.m4v'
+
+    def get_entity(self, rurl):
+        page_contents = uriutils.fetch_page_contents(rurl)
+        pq = pyquery.PyQuery(page_contents)
+        video_source_re = r"\{'file':\s*'(?P<url>[^']+)'"
+        match_res = re.search(video_source_re, pq('script').text())
+        url = match_res.group('url')
+        return super().get_entity(url)
 
 
 def main():
