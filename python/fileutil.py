@@ -6,6 +6,7 @@
 
 import contextlib
 import functools
+import hashlib
 import io
 import os
 import sys
@@ -142,6 +143,26 @@ def get_file_encoding(filename, guess=None):
             return detector.result['encoding']
 
     return guess if guess else sys.getfilesystemencoding()
+
+
+# TODO: unittest
+def get_md5(filename, block_size=1024*1024):
+    """Calculate the MD5 digest of given file."""
+    with open(filename, 'rb') as fp:
+        md5 = hashlib.md5()
+
+        # Read a binary file elegantly:
+        # http://stackoverflow.com/questions/1035340/reading-binary-file-in-python
+        # or you want to make a binary file object iterable?
+        # http://stackoverflow.com/questions/4566498/python-file-iterator-over-a-binary-file-with-newer-idiom
+        data = fp.read(block_size)
+        while data:
+            md5.update(data)
+            data = fp.read(block_size)
+
+        return md5.hexdigest()
+
+    return ''
 
 
 if __name__ == '__main__':
