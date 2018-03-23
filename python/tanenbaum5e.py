@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# 2018-01-19T16:50+08:00
+# 2018-03-23T11:26+08:00
 
 __version__ = 'v0.1.0'
 
@@ -10,7 +10,7 @@ import os.path
 import rescrawler
 
 
-class Algs4LecturesCrawler(rescrawler.ResourceCrawler):
+class Tanenbaum5eVideoNotesCrawler(rescrawler.ResourceCrawler):
     def __init__(self, prog, ver):
         super().__init__(prog, ver)
     
@@ -26,7 +26,7 @@ class Algs4LecturesCrawler(rescrawler.ResourceCrawler):
 
 def main():
     prog = os.path.basename(__file__)
-    Algs4LecturesCrawler(prog, __version__).run()
+    Tanenbaum5eVideoNotesCrawler(prog, __version__).run()
 
     
 if __name__ == '__main__':
