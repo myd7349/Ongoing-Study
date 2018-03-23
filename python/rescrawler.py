@@ -7,6 +7,7 @@
 import os
 import os.path
 import re
+import urllib.parse
 import urllib.request
 
 import docopt  # pip install docopt
@@ -60,19 +61,35 @@ class ResourceCrawler:
         if not os.path.isabs(target_dir):
             target_dir = os.path.join(os.getcwd(), target_dir)
         
-        if not os.path.exists(target_dir):
-            os.makedirs(target_dir)
+        self.mkdir(target_dir)
     
         page_contents = uriutils.fetch_page_contents(root_url)
         res = (rn for rn in uriutils.iurl(page_contents) if re.match(res_name_re, rn))
-        res_urls = {rn: root_url + rn for rn in res}
+        res_urls = {rn: urllib.parse.urljoin(root_url, rn) for rn in res}
     
         for rn, rurl in res_urls.items():
-            print("Downloading '{0}' from {1} ...".format(rn, rurl))
-            target_file = os.path.join(target_dir, rn)
+            rn_parse_res = urllib.parse.urlparse(rn)
+            
+            netloc_dir = os.path.join(target_dir, rn_parse_res.netloc)
+            self.mkdir(netloc_dir)
+
+            res_subdir, res_fn = os.path.split(rn_parse_res.path)
+            res_dir = os.path.join(netloc_dir, res_subdir[1:] if res_subdir.startswith('/') else res_subdir)
+            self.mkdir(res_dir)
+
+            print("Downloading '{0}' from '{1}' ...".format(res_fn, rurl))
+            target_file = os.path.join(res_dir, res_fn)
             urllib.request.urlretrieve(rurl, target_file)
-            print("File '{0}' is saved as '{1}'.".format(rn, target_file))
+            print("File '{0}' is saved as '{1}'.".format(res_fn, target_file))
+
+    @staticmethod
+    def mkdir(path):
+        if not os.path.exists(path):
+            print("Creating directory '{0}'...".format(path))
+            os.makedirs(path)
 
 
 # References:
 # https://stackoverflow.com/questions/273192/how-can-i-create-a-directory-if-it-does-not-exist
+# https://stackoverflow.com/questions/8357098/how-can-i-check-if-a-url-is-absolute-using-python
+# Ongoing-Study/python/notes/os.path.ipynb
