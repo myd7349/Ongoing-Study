@@ -4,6 +4,7 @@
 # 2018-01-19T16:16+08:00
 
 
+import collections
 import os
 import os.path
 import re
@@ -11,6 +12,7 @@ import urllib.parse
 import urllib.request
 
 import docopt  # pip install docopt
+import progressbar  # pip install progressbar2
 
 import uriutils
 
@@ -30,6 +32,31 @@ Options:
 """
 
 
+# path = join(subdir, filename)
+ResourceEntity = collections.namedtuple('ResourceEntity', ['url', 'netloc', 'path', 'subdir', 'filename'])
+
+
+def _mkdir(path):
+    if not os.path.exists(path):
+        print("Creating directory '{0}'...".format(path))
+        os.makedirs(path)
+
+
+_progress_bar = None
+
+def _show_progress(block_num, block_size, total_size):
+    global _progress_bar
+    if _progress_bar is None:
+        _progress_bar = progressbar.ProgressBar(maxval=total_size)
+
+    downloaded = block_num * block_size
+    if downloaded < total_size:
+        _progress_bar.update(downloaded)
+    else:
+        _progress_bar.finish()
+        _progress_bar = None
+
+
 class ResourceCrawler:
     def __init__(self, prog, ver):
         self.prog = prog
@@ -43,6 +70,10 @@ class ResourceCrawler:
     
     def get_re(self):
         pass
+
+    def get_entity(self, rurl):
+        rurl_parse_res = urllib.parse.urlparse(rurl)
+        return ResourceEntity(rurl, rurl_parse_res.netloc, rurl_parse_res.path, *os.path.split(rurl_parse_res.path))
     
     def run(self):
         doc = doc_temp.format(desc=self.get_description(), prog=self.prog)
@@ -61,35 +92,30 @@ class ResourceCrawler:
         if not os.path.isabs(target_dir):
             target_dir = os.path.join(os.getcwd(), target_dir)
         
-        self.mkdir(target_dir)
+        _mkdir(target_dir)
     
         page_contents = uriutils.fetch_page_contents(root_url)
         res = (rn for rn in uriutils.iurl(page_contents) if re.match(res_name_re, rn))
         res_urls = {rn: urllib.parse.urljoin(root_url, rn) for rn in res}
     
-        for rn, rurl in res_urls.items():
-            rn_parse_res = urllib.parse.urlparse(rurl)
+        for rurl in res_urls.values():
+            entity = self.get_entity(rurl)
             
-            netloc_dir = os.path.join(target_dir, rn_parse_res.netloc)
-            self.mkdir(netloc_dir)
+            netloc_dir = os.path.join(target_dir, entity.netloc)
+            _mkdir(netloc_dir)
 
-            res_subdir, res_fn = os.path.split(rn_parse_res.path)
-            res_dir = os.path.join(netloc_dir, res_subdir[1:] if res_subdir.startswith('/') else res_subdir)
-            self.mkdir(res_dir)
+            res_subdir = entity.subdir[1:] if entity.subdir.startswith('/') else entity.subdir
+            res_dir = os.path.join(netloc_dir, res_subdir)
+            _mkdir(res_dir)
 
-            print("Downloading '{0}' from '{1}' ...".format(res_fn, rurl))
-            target_file = os.path.join(res_dir, res_fn)
-            urllib.request.urlretrieve(rurl, target_file)
-            print("File '{0}' is saved as '{1}'.".format(res_fn, target_file))
-
-    @staticmethod
-    def mkdir(path):
-        if not os.path.exists(path):
-            print("Creating directory '{0}'...".format(path))
-            os.makedirs(path)
+            print("Downloading '{0}' from '{1}' ...".format(entity.filename, entity.url))
+            target_file = os.path.join(res_dir, entity.filename)
+            urllib.request.urlretrieve(entity.url, target_file, _show_progress)
+            print("File '{0}' is saved as '{1}'.".format(entity.filename, target_file))
 
 
 # References:
 # https://stackoverflow.com/questions/273192/how-can-i-create-a-directory-if-it-does-not-exist
 # https://stackoverflow.com/questions/8357098/how-can-i-check-if-a-url-is-absolute-using-python
 # Ongoing-Study/python/notes/os.path.ipynb
+# https://stackoverflow.com/questions/37748105/how-to-use-progressbar-module-with-urlretrieve
