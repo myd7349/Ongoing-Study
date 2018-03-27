@@ -40,7 +40,7 @@ def parse_re(str_re = ''):
     range_up_group = 'RANGE_UP'
     range_re = r'(?<=range )\((?P<{0}>[0-9]+), (?P<{1}>[0-9]+)\)' \
                .format(range_down_group, range_up_group)
-    range_pat = re.compile(range_re)
+    range_pat = re.compile(range_re, re.IGNORECASE)
 
     def range_repl_callback(match_ret):
         down = int(match_ret.group(range_down_group))
