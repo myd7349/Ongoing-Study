@@ -17,6 +17,7 @@ inline bool IsLeapYear(int year)
 inline int DaysBeforeYear(int year)
 {
     assert(year > 0);
+
     year -= 1;
     return year * 365 + (year / 4 - year / 100) + year / 400;
 }
@@ -27,10 +28,7 @@ inline int DaysInMonth(int year, int month)
     assert(year > 0);
     assert(month >= 1 && month <= 12);
 
-    if (month == 2 && IsLeapYear(year))
-        return 29;
-
-    return DAYS_IN_MONTH[month];
+    return DAYS_IN_MONTH[month] + (month == 2 && IsLeapYear(year));
 }
 
 
@@ -48,14 +46,16 @@ inline int Ymd2Ordinal(int year, int month, int day)
     assert(year > 0);
     assert(month >= 1 && month <= 12);
     assert(day >= 1 && day <= DaysInMonth(year, month));
+
     return DaysBeforeYear(year) + DaysBeforeMonth(year, month) + day;
 }
 
 
 int main()
 {
-    assert(Ymd2Ordinal(2018, 3, 27) - Ymd2Ordinal(2000, 1, 1) == 6660);
+    std::cout << Ymd2Ordinal(2018, 3, 27) - Ymd2Ordinal(2000, 1, 1) << std::endl;
     std::cout << Ymd2Ordinal(2016, 3, 1) - Ymd2Ordinal(2016, 2, 29) << std::endl;
+
     return 0;
 }
 
