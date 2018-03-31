@@ -14,6 +14,9 @@ int main()
     double x[] = { -4.0, -3.0, -2.0, -1.5, -0.5, 1.0, 2.0, 3.5, 4.0 };
     double y[] = { -3.0, -1.0, -2.0, -0.5, 1.0, 0.0, 1.5, 1.0, 2.5 };
 
+    double year[] = { 1980, 1982, 1984, 1986, 1988, 1990, 1992, 1994, 1996, 1998, 2000, 2002, 2004, 2006, 2008 };
+    double CO2_level[] = { 338.7, 341.2, 344.4, 347.2, 351.5, 354.2, 356.3, 358.6, 362.4, 366.5, 369.4, 373.2, 377.5, 381.9, 385.6 };
+
     LeastSquaresLinearFit(height, ARRAY(mass), &slope, &intercept);
     printf("Slope: %f, Intercept: %f\n", slope, intercept);
 
@@ -21,6 +24,9 @@ int main()
     printf("Slope via Cov(X,Y)/Var(X): %f\n", slope);\
 
     LeastSquaresLinearFit(x, ARRAY(y), &slope, &intercept);
+    printf("Slope: %f, Intercept: %f\n", slope, intercept);
+
+    LeastSquaresLinearFit(year, ARRAY(CO2_level), &slope, &intercept);
     printf("Slope: %f, Intercept: %f\n", slope, intercept);
 
     return 0;
