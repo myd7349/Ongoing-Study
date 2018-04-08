@@ -1,0 +1,2 @@
+Discrete-Time Signal Processing, 3rd Edition, Oppenheim, Preface, xx
+>As discussed in chapter 9, while the FFT is more efficient in terms of the required multiplications than the Goertzel algorithm or the direct computation of the DFT, it is less efficient than either if the dominant metric is communication cycles since direct computation or the Goertzel algorithm can be much more highly parallelized than the FFT.
