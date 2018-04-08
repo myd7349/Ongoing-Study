@@ -31,6 +31,8 @@ void *snode_data(snode_t node);
 
 snode_t slist_find_if(slist_t list, equal_fn_t equal_fn, void *equal_fn_rhs, snode_t pos);
 
+void slist_reverse(slist_t list);
+
 //void slist_insert_at(slist_t list, size_t i, void *data);
 //void slist_remove_at(slist_t list, size_t i, void **data);
 //void slist_reverse

@@ -31,6 +31,12 @@ int main()
     assert((int)head == 10);
     assert(slist_size(list) == 9);
 
+    slist_reverse(list);
+    slist_for_each(list, node)
+    {
+        printf("%d\n", (int)snode_data(node));
+    }
+
     slist_clear(list);
     assert(slist_empty(list));
 

@@ -272,6 +272,25 @@ snode_t slist_find_if(slist_t list, equal_fn_t equal_fn, void *equal_fn_rhs, sno
 }
 
 
+
+void slist_reverse(slist_t list)
+{
+    snode_t prev = NULL;
+
+    assert(list != NULL);
+
+    for (snode_t current = slist_head(list), next = NULL;
+         current != NULL;
+         prev = current, current = next)
+    {
+        next = current->next;
+        current->next = prev;
+    }
+
+    list->first = prev;
+}
+
+
 // References:
 // C Interfaces and Implementations, Chapter 7
 // https://github.com/zeromq/czmq/blob/master/include/zlist.h
@@ -281,3 +300,4 @@ snode_t slist_find_if(slist_t list, equal_fn_t equal_fn, void *equal_fn_rhs, sno
 // https://github.com/PeterRK/DSGO/blob/master/LinkedList/list/list.go
 // https://coolshell.cn/articles/8990.html
 // http://wordaligned.org/articles/two-star-programming
+// https://www.zhihu.com/question/271003130/answer/361367751
