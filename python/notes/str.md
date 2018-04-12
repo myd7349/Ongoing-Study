@@ -16,3 +16,9 @@ print(caution.strip('* '))
 
 print(caution.strip(string.punctuation))
 ```
+
+
+```python
+tang = '烫烫烫'.encode('cp936')
+print(str(tang, 'cp936'))
+```
