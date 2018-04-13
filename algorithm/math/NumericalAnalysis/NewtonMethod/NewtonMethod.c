@@ -44,3 +44,4 @@ int NewtonMethod(math_fn_t f, math_fn_t fprime,
 // References:
 // https://en.wikipedia.org/wiki/Newton%27s_method
 // Mastering Algorithms with C, Kyle London, 1999
+// Calculus, 7ed, James Stewart, P263
