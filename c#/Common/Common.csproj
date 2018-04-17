@@ -49,6 +49,7 @@
     <Compile Include="DataGridViewEx.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DictionaryExtension.cs" />
     <Compile Include="ForEach.cs" />
     <Compile Include="GDI32Helper.cs" />
     <Compile Include="EnumHelper.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="PropertyChangedExEventArgs.cs" />
     <Compile Include="PropertyChangedExEventHandler.cs" />
     <Compile Include="RegistryKeyExtension.cs" />
+    <Compile Include="StringExtension.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
