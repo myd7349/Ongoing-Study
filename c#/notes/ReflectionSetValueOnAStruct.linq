@@ -12,25 +12,25 @@ struct DataPack<T> where T : struct
 void Main()
 {
     Type typeObj = typeof(DataPack<double>); // Or `GetType`
-	FieldInfo[] fields = typeObj.GetFields(BindingFlags.Instance | BindingFlags.Public);
-	
-	DataPack<double> dataPack = new DataPack<double>();
-	
-	// SetValue doesn't work on a struct
-	foreach (FieldInfo field in fields)
-	{
-	    field.SetValue(dataPack, 3.14);
-	    Console.WriteLine($"Field: {field.Name} = {field.GetValue(dataPack)}");
-	}
-	
-	//
-	var boxedDataPack = (object)dataPack;
-	foreach (FieldInfo field in fields)
-	{
-	    field.SetValue(boxedDataPack, 3.14);
-		dataPack = (DataPack<double>)boxedDataPack;
-	    Console.WriteLine($"Field: {field.Name} = {field.GetValue(dataPack)}");
-	}
+    FieldInfo[] fields = typeObj.GetFields(BindingFlags.Instance | BindingFlags.Public);
+    
+    DataPack<double> dataPack = new DataPack<double>();
+    
+    // SetValue doesn't work on a struct
+    foreach (FieldInfo field in fields)
+    {
+        field.SetValue(dataPack, 3.14);
+        Console.WriteLine($"Field: {field.Name} = {field.GetValue(dataPack)}");
+    }
+    
+    //
+    var boxedDataPack = (object)dataPack;
+    foreach (FieldInfo field in fields)
+    {
+        field.SetValue(boxedDataPack, 3.14);
+        dataPack = (DataPack<double>)boxedDataPack;
+        Console.WriteLine($"Field: {field.Name} = {field.GetValue(dataPack)}");
+    }
 }
 
 

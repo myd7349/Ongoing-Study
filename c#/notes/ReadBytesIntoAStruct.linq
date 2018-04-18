@@ -18,24 +18,24 @@ public static T BytesToStruct<T>(byte[] bytes) where T : struct
     return structure;
 }
 
-	
+    
 void Main()
 {
-	var rawData = new double[] { 1.0, 3.14, 2.71 };
-	var buffer = new byte[rawData.Length * sizeof(double)];
+    var rawData = new double[] { 1.0, 3.14, 2.71 };
+    var buffer = new byte[rawData.Length * sizeof(double)];
 
     using (var memoryStream = new MemoryStream(buffer, 0, buffer.Length, true, true))
     using (var binaryWriter = new BinaryWriter(memoryStream))
-	using (var binaryReader = new BinaryReader(memoryStream))
+    using (var binaryReader = new BinaryReader(memoryStream))
     {
         for (int i = 0; i < rawData.Length; ++i)
-	        binaryWriter.Write(rawData[i]);
-			
-		var data = memoryStream.GetBuffer();
-		Console.WriteLine(data);
-		
-		var dataPack = BytesToStruct<DataPack>(data);
-		Console.WriteLine($"DataPack: {{ {dataPack.X}, {dataPack.Y}, {dataPack.Z} }}");
+            binaryWriter.Write(rawData[i]);
+            
+        var data = memoryStream.GetBuffer();
+        Console.WriteLine(data);
+        
+        var dataPack = BytesToStruct<DataPack>(data);
+        Console.WriteLine($"DataPack: {{ {dataPack.X}, {dataPack.Y}, {dataPack.Z} }}");
     }
 }
 
