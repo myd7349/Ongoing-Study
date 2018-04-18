@@ -1,9 +1,18 @@
 [Generics syntax for multiple type parameter constraints](https://stackoverflow.com/questions/965580/c-sharp-generics-syntax-for-multiple-type-parameter-constraints)
 ```csharp
-class Foo<T1, T2>
-    where T1 : struct
-    where T2 : struct
+struct DataPack<T> where T : struct
 {
+    T X, Y, Z;
+}
+
+class DataUnpacker<T, TDataPack>
+    where T : struct
+    where TDataPack : struct
+{
+    public T[] Unpack(TDataPack)
+    {
+        ...
+    }
 }
 ```
 
