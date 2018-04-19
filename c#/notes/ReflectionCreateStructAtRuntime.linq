@@ -7,40 +7,40 @@
 Type CreateStruct(string fieldType, string[] fields)
 {
     AssemblyName assembly = new AssemblyName("DataPacks");
-	AppDomain appDomain = Thread.GetDomain();
-	AssemblyBuilder assemblyBuilder = appDomain.DefineDynamicAssembly(assembly, AssemblyBuilderAccess.Run);
-	ModuleBuilder moduleBuilder = assemblyBuilder.DefineDynamicModule(assembly.Name);
-	var typeName = "DataPack_" + fieldType + string.Join("_", fields);
-	TypeBuilder typeBuilder = moduleBuilder.DefineType(typeName, TypeAttributes.Public | TypeAttributes.SequentialLayout | TypeAttributes.AnsiClass |
+    AppDomain appDomain = Thread.GetDomain();
+    AssemblyBuilder assemblyBuilder = appDomain.DefineDynamicAssembly(assembly, AssemblyBuilderAccess.Run);
+    ModuleBuilder moduleBuilder = assemblyBuilder.DefineDynamicModule(assembly.Name);
+    var typeName = "DataPack_" + fieldType + string.Join("_", fields);
+    TypeBuilder typeBuilder = moduleBuilder.DefineType(typeName, TypeAttributes.Public | TypeAttributes.SequentialLayout | TypeAttributes.AnsiClass |
         TypeAttributes.BeforeFieldInit, typeof(System.Object));
 
-	foreach (var fieldName in fields)
-	    typeBuilder.DefineField(fieldName, Type.GetType(fieldType), FieldAttributes.Public);
-	
-	return typeBuilder.CreateType();
+    foreach (var fieldName in fields)
+        typeBuilder.DefineField(fieldName, Type.GetType(fieldType), FieldAttributes.Public);
+    
+    return typeBuilder.CreateType();
 }
 
 void DumpFields(Type type)
 {
-	FieldInfo[] fields = type.GetFields(BindingFlags.Instance | BindingFlags.Public);
-	
-	object dataPack = Activator.CreateInstance(type);
-	
-	foreach (FieldInfo field in fields)
-	{
-	    field.SetValue(dataPack, 3.14);
-	    Console.WriteLine($"Field: {field.Name} = {field.GetValue(dataPack)}");
-	}
+    FieldInfo[] fields = type.GetFields(BindingFlags.Instance | BindingFlags.Public);
+    
+    object dataPack = Activator.CreateInstance(type);
+    
+    foreach (FieldInfo field in fields)
+    {
+        field.SetValue(dataPack, 3.14);
+        Console.WriteLine($"Field: {field.Name} = {field.GetValue(dataPack)}");
+    }
 }
 
 
 void Main()
 {
     Type dataPackTypeObj = CreateStruct("System.Double", new string[] { "X", "Y", "Z" });
-	DumpFields(dataPackTypeObj);
-	
+    DumpFields(dataPackTypeObj);
+    
     Type dataPackTypeObj2 = CreateStruct("System.Double", new string[] { "X", "Y", "Z", "A", "B", "C" });
-	DumpFields(dataPackTypeObj2);
+    DumpFields(dataPackTypeObj2);
 }
 
 // References:

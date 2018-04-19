@@ -23,7 +23,7 @@ void Bar<T>(T x)
 void Main()
 {
     Bar(3.14);
-	Bar((short)12);
+    Bar((short)12);
 }
 
 // References:

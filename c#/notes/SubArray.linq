@@ -9,14 +9,14 @@ var array = new int[] { 1, 1, 2, 3, 5, 8, 13 };
 var subArray = new ArraySegment<int>(array, 2, 3);
 foreach (var i in subArray)
     Console.WriteLine(i);
-	
+    
 
 // 2.
 Console.WriteLine("----------");
 
 foreach (var i in array.Skip(2).Take(3))
     Console.WriteLine(i);
-	
+    
 // 3.
 Console.WriteLine("----------");
 
@@ -33,9 +33,9 @@ unsafe void PrintSubArray(int[] arr, int start, int length)
 {
     fixed (int *ptr = array)
     {
-	    int *pStart = ptr + start;
-	    for (int i = 0; i < length; ++i)
-		    Console.WriteLine(pStart[i]);
+        int *pStart = ptr + start;
+        for (int i = 0; i < length; ++i)
+            Console.WriteLine(pStart[i]);
     }
 }
 
