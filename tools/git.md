@@ -8,3 +8,9 @@ clone from SVN repo:
 ```bash
 git svn clone --stdlayout <SVN repo link>
 ```
+
+
+[Revert the most recent commit:](https://stackoverflow.com/questions/927358/how-to-undo-the-most-recent-commits-in-git)
+```
+git reset HEAD~
+```
