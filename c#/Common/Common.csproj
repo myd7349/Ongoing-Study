@@ -54,6 +54,7 @@
     <Compile Include="GDI32Helper.cs" />
     <Compile Include="EnumHelper.cs" />
     <Compile Include="GraphicsExtension.cs" />
+    <Compile Include="Imaging.cs" />
     <Compile Include="INotifyPropertyChangedEx.cs" />
     <Compile Include="IntegerHelper.cs" />
     <Compile Include="IOHelper.cs" />
