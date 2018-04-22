@@ -1,8 +1,14 @@
 #include <assert.h>
+#include <math.h>
 #include <stdio.h>
 
 #include "../../../algutils.h"
 #include "approximate_integration.h"
+
+
+#ifndef M_E
+# define M_E		2.7182818284590452354
+#endif
 
 
 double rational_func_x_1(double x, void *params)
@@ -39,6 +45,13 @@ double data_traffic_func(double x, void *params)
     assert(hour >= 0 && hour < ARRAYSIZE(traffic));
 
     return traffic[hour];
+}
+
+
+double example_7(double x, void *params)
+{
+    (void)params;
+    return pow(M_E, x * x);
 }
 
 
@@ -82,6 +95,11 @@ int main()
     // [1] P537 EXAMPLE 5
     func.func = data_traffic_func;
     simpson_rule_sum(&func, 0, 43200, 12, &result);
+    printf("%.6f\n", result);
+
+    // [1] P539 EXAMPLE 7
+    func.func = example_7;
+    simpson_rule_sum(&func, 0.0, 1.0, 10, &result);
     printf("%.6f\n", result);
 
     return 0;
