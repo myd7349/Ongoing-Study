@@ -153,3 +153,5 @@ int simpson_rule_sum(math_fn_t *func, double a, double b, int n, double *result)
 // https://stackoverflow.com/questions/16512817/numerical-integration-in-c
 // Ongoing-Study/cpp/gsl/finite_integration_of_x_1.cpp
 // Calculus, 7ed, James.Stewart, P530, Chapter 7.7
+// https://stackoverflow.com/questions/16512817/numerical-integration-in-c
+// https://www.codeproject.com/Articles/31550/Fast-Numerical-Integration

@@ -6,11 +6,6 @@
 #include "approximate_integration.h"
 
 
-#ifndef M_E
-# define M_E		2.7182818284590452354
-#endif
-
-
 double rational_func_x_1(double x, void *params)
 {
     (void)params;
@@ -51,7 +46,8 @@ double data_traffic_func(double x, void *params)
 double example_7(double x, void *params)
 {
     (void)params;
-    return pow(M_E, x * x);
+    //return pow(M_E, x * x);
+    return exp(x * x);
 }
 
 
