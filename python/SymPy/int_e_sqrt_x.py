@@ -12,6 +12,8 @@ from sympy import sqrt, log, exp, E, integrate, simplify
 from sympy.abc import x
 
 print(integrate(E ** sqrt(x)))
+print(simplify(log(E)))
+print(simplify(E ** log(E)))
 
 
 # References:
