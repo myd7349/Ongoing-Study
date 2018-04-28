@@ -14,3 +14,6 @@ git svn clone --stdlayout <SVN repo link>
 ```
 git reset HEAD~
 ```
+
+
+[Change the author and committer name and e-mail of multiple commits in Git](https://stackoverflow.com/questions/750172/change-the-author-and-committer-name-and-e-mail-of-multiple-commits-in-git)
