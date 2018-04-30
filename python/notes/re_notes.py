@@ -25,3 +25,10 @@ def ValidateIPv4(ip_addr):
 # https://github.com/Microsoft/vcpkg/blob/master/toolsrc/src/vcpkg/base/files.cpp#L9
 def ValidateFileName(filename):
     return (re.match(r'[^\[\/:*?"<>|\]]+', filename) is not None)
+
+
+# References:
+# https://github.com/kevva/base64-regex/blob/master/index.js
+def ValidateBase64(text):
+    pass
+
