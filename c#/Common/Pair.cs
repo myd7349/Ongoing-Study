@@ -1,9 +1,9 @@
 ﻿// 2017-04-06T10:43:54+08:00
 namespace Common
 {
-    public struct Pair<TFirst, TSecond>
-        //where TFirst : struct
-        //where TSecond : struct
+    using System;
+
+    public struct Pair<TFirst, TSecond> : IEquatable<Pair<TFirst, TSecond>>
     {
         public Pair(Pair<TFirst, TSecond> other)
         {
@@ -15,6 +15,16 @@ namespace Common
         {
             First = first;
             Second = second;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashHelpers.CombineHash(First.GetHashCode(), Second.GetHashCode());
+        }
+
+        public bool Equals(Pair<TFirst, TSecond> other)
+        {
+            return First.Equals(other.First) && Second.Equals(other.Second);
         }
 
         public TFirst First;
