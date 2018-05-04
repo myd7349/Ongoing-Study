@@ -17,3 +17,10 @@ git reset HEAD~
 
 
 [Change the author and committer name and e-mail of multiple commits in Git](https://stackoverflow.com/questions/750172/change-the-author-and-committer-name-and-e-mail-of-multiple-commits-in-git)
+
+
+[Undo the most recent push:](http://christoph.ruegg.name/blog/git-howto-revert-a-commit-already-pushed-to-a-remote-reposit.html)
+```
+git reset HEAD^ --hard
+git push -f
+```
