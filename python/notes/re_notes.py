@@ -32,3 +32,7 @@ def ValidateFileName(filename):
 def ValidateBase64(text):
     pass
 
+
+# References:
+# https://github.com/vinniefalco/Amalgamate/blob/master/Amalgamate.cpp
+
