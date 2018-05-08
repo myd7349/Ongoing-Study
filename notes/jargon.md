@@ -6,3 +6,6 @@
 >## Example:
 >* [sqlite-amalgamation-3230100.zip](http://sqlite.org/2018/sqlite-amalgamation-3230100.zip)
 >* [JuceAmalgam](https://github.com/vinniefalco/DSPFilters/tree/master/shared/JuceAmalgam)
+>
+>## Tools:
+>* [Amalgamate](https://github.com/vinniefalco/Amalgamate)
