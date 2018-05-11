@@ -119,20 +119,20 @@ namespace DataModel
     using System.Diagnostics;
     using System.IO;
 
-    public class FileDataSinkProvider<TDest> : IDisposable, IDataSinkProvider<double>
-        where TDest : struct
+    public class FileDataSinkProvider<TSource, short> : IDisposable, IDataSinkProvider<TSource>
+        where TSource : struct
     {
-        public FileDataSinkProvider(string fileName, DataConverter<TDest> convert)
+        public FileDataSinkProvider(string fileName, DataConverter<TSource, short> convert)
         {
             ...
         }
 
-        public void DataSink(double[][] data)
+        public void DataSink(TSource[][] data)
         {
             ...
         }
 
-        private DataConverter<TSource, double> convert;
+        private DataConverter<TSource, short> convert;
     }
 }
 ```
