@@ -1,4 +1,8 @@
 ﻿// 2017-04-06T10:43:54+08:00
+
+// Another Pair implementation by wj32:
+// https://github.com/wj32/Wj.Math/blob/master/Wj.Math/Pair.cs
+
 namespace Common
 {
     using System;
