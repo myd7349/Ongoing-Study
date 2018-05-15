@@ -24,3 +24,13 @@ git reset HEAD~
 git reset HEAD^ --hard
 git push -f
 ```
+
+
+[Remove a submodule](https://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule)
+```bash
+mv <submodule_path> <submodule_path>_tmp  # Rename the submodule path
+git submodule deinit -f -- <submodule_path>
+rm -rf .git/modules/<submodule_path>
+git rm -f <submodule_path>
+rm -rf <submodule_path>_tmp
+```
