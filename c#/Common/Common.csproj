@@ -69,6 +69,7 @@
     <Compile Include="PropertyChangedExEventHandler.cs" />
     <Compile Include="RegistryKeyExtension.cs" />
     <Compile Include="StringExtension.cs" />
+    <Compile Include="StructHelpers.cs" />
     <Compile Include="ValueWithDefault.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
