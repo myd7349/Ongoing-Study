@@ -106,3 +106,10 @@ CString GetFullPath(LPCTSTR lpcszPath);
 
 // boost::filesystem::remove_all
 BOOL RemoveDirectoryEx(LPCTSTR lpcszDir, BOOL bToRecycleBin = FALSE);
+
+// References:
+// https://stackoverflow.com/questions/51949/how-to-get-file-extension-from-string-in-c
+inline CString GetFileExt(CString strFileName)
+{
+    return PathFindExtension(strFileName);
+}
