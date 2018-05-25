@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TREE_NODE_HPP_
+#define TREE_NODE_HPP_
 
 #include <algorithm>
 #include <cassert>
@@ -15,9 +16,14 @@ typedef std::deque<TreeNodePtr>   NodePtrList;
 
 struct TreeNode : public std::enable_shared_from_this<TreeNode>
 {
-    TreeNodePtr Create(const std::wstring &text, TreeNodePtr parent = nullptr)
+    static TreeNodePtr Create(const std::wstring &text)
     {
-        return std::make_shared<TreeNode>(text, parent);
+        return std::make_shared<TreeNode>(text);
+    }
+
+    explicit TreeNode(const std::wstring &text)
+        : level_(0), visible_(true), index_(-1), text_(text)
+    {
     }
 
     bool IsVisible() const
@@ -33,6 +39,19 @@ struct TreeNode : public std::enable_shared_from_this<TreeNode>
     const std::wstring &GetText() const
     {
         return text_;
+    }
+
+    std::wstring GetParentPath() const
+    {
+        if (parent_)
+            return parent_->GetParentPath() + parent_->GetText();
+        else
+            return L"";
+    }
+
+    std::wstring GetFullPath() const
+    {
+        return GetParentPath() + GetText();
     }
 
     const std::wstring &SetText(const std::wstring &text)
@@ -199,13 +218,6 @@ struct TreeNode : public std::enable_shared_from_this<TreeNode>
         CollapseExpandImpl(true);
     }
 
-    TreeNode(const std::wstring &text, TreeNodePtr parent = nullptr)
-        : level_(0), visible_(true), index_(-1), text_(text)
-    {
-        if (parent)
-            parent->AddNode(shared_from_this());
-    }
-
 private:
     void CollapseExpandImpl(bool expand)
     {
@@ -221,5 +233,8 @@ private:
     NodePtrList children_;
 };
 
+#endif // TREE_NODE_HPP_
+
 // References:
 // System.Windows.Forms.TreeNode
+// https://stackoverflow.com/questions/31924396/why-shared-from-this-cant-be-used-in-constructor-from-technical-standpoint
