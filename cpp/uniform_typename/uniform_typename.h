@@ -15,6 +15,7 @@
 // http://stackoverflow.com/questions/4465872/why-typeid-name-returns-weird-characters-using-gcc
 // https://gcc.gnu.org/onlinedocs/libstdc++/manual/ext_demangling.html
 # include <cassert>
+# include <cstdlib>
 # include <string>
 # include <cxxabi.h>
 
@@ -27,7 +28,7 @@ std::string demangle(const char *mangledName)
 
     if (demangledName != nullptr) {
         std::string realName = demangledName;
-        delete demangledName;
+        std::free(demangledName);
         return realName;
     } else {
         return mangledName;
@@ -40,3 +41,7 @@ std::string demangle(const char *mangledName)
 #endif
 
 #endif // UNIFORM_TYPENAME_H_INCLUDED
+
+
+// References:
+// https://www.zhihu.com/question/278587865
