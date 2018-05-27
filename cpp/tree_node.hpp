@@ -1,6 +1,9 @@
 #ifndef TREE_NODE_HPP_
 #define TREE_NODE_HPP_
 
+#ifndef TREE_NODE_HPP_
+#define TREE_NODE_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <deque>
@@ -16,24 +19,45 @@ typedef std::deque<TreeNodePtr>   NodePtrList;
 
 struct TreeNode : public std::enable_shared_from_this<TreeNode>
 {
-    static TreeNodePtr Create(const std::wstring &text)
+    static TreeNodePtr Create(const std::wstring &text, bool collapsed = false)
     {
-        return std::make_shared<TreeNode>(text);
+        return std::make_shared<TreeNode>(text, collapsed);
     }
 
-    explicit TreeNode(const std::wstring &text)
-        : level_(0), visible_(true), index_(-1), text_(text)
+    explicit TreeNode(const std::wstring &text, bool collapsed = false)
+        : level_(0), collapsed_(collapsed), index_(-1), item_(-1), text_(text)
     {
+    }
+
+    int GetItem() const
+    {
+        return item_;
+    }
+
+    void SetItem(int item)
+    {
+        item_ = item;
     }
 
     bool IsVisible() const
     {
-        return visible_;
+        if (!parent_)
+            return true;
+
+        if (parent_->IsCollapsed())
+            return false;
+
+        return parent_->IsVisible();
     }
 
-    bool SetVisibility(bool visible)
+    bool IsCollapsed() const
     {
-        return visible_ = visible;
+        return collapsed_;
+    }
+
+    bool IsExpanded() const
+    {
+        return !collapsed_;
     }
 
     const std::wstring &GetText() const
@@ -65,6 +89,11 @@ struct TreeNode : public std::enable_shared_from_this<TreeNode>
     }
 
     const NodePtrList &GetChildren() const
+    {
+        return children_;
+    }
+
+    NodePtrList &GetChildren()
     {
         return children_;
     }
@@ -210,24 +239,19 @@ struct TreeNode : public std::enable_shared_from_this<TreeNode>
 
     void Collapse()
     {
-        CollapseExpandImpl(false);
+        collapsed_ = true;
     }
 
     void Expand()
     {
-        CollapseExpandImpl(true);
+        collapsed_ = false;
     }
 
 private:
-    void CollapseExpandImpl(bool expand)
-    {
-        std::for_each(children_.begin(), children_.end(),
-            [expand](TreeNodePtr node) { node->visible_ = expand; });
-    }
-
     int level_;
-    bool visible_;
+    bool collapsed_;
     int index_;
+    int item_;
     std::wstring text_;
     TreeNodePtr parent_;
     NodePtrList children_;
