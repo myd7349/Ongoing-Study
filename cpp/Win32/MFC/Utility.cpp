@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <vector>
 
+#include <Ole2.h>
 #include <propvarutil.h>
 #include <shlwapi.h>
 #include <strsafe.h>
@@ -732,3 +733,51 @@ BOOL RemoveDirectoryEx(LPCTSTR lpcszDir, BOOL bToRecycleBin)
 
     return SHFileOperation(&shfo) == 0;
 }
+
+
+BOOL BytesToImage(CImage &image, LPBYTE pBytes, DWORD dwSize)
+{
+    ASSERT(pBytes != NULL && dwSize > 0);
+
+    HGLOBAL hMem = GlobalAlloc(GMEM_FIXED, dwSize);
+    if (NULL == hMem)
+        return FALSE;
+
+    IStream* pStream = NULL;
+    if (FAILED(CreateStreamOnHGlobal(hMem, TRUE, &pStream)))
+    {
+        GlobalFree(hMem);
+        return FALSE;
+    }
+
+    ULONG ulWritten;
+    if (FAILED(pStream->Write(pBytes, dwSize, &ulWritten)))
+    {
+        pStream->Release();
+        GlobalFree(hMem);
+        return FALSE;
+    }
+
+    LARGE_INTEGER dlibMove;
+    dlibMove.QuadPart = 0;
+    if (FAILED(pStream->Seek(dlibMove, STREAM_SEEK_SET, NULL)))
+    {
+        pStream->Release();
+        GlobalFree(hMem);
+        return FALSE;
+    }
+
+    if (FAILED(image.Load(pStream)))
+    {
+        pStream->Release();
+        GlobalFree(hMem);
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+
+// References:
+// https://www.codeproject.com/tips/139345/embracing-istream-as-just-a-stream-of-bytes
+// https://stackoverflow.com/questions/7014623/cbitmap-and-cimage-interchangeable

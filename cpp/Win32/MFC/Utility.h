@@ -113,3 +113,5 @@ inline CString GetFileExt(CString strFileName)
 {
     return PathFindExtension(strFileName);
 }
+
+BOOL BytesToImage(CImage &image, LPBYTE pBytes, DWORD dwSize);
