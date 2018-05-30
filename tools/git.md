@@ -34,3 +34,11 @@ rm -rf .git/modules/<submodule_path>
 git rm -f <submodule_path>
 rm -rf <submodule_path>_tmp
 ```
+
+
+[Check out a specific commit of a submodule](https://stackoverflow.com/questions/10914022/how-to-check-out-specific-version-of-a-submodule-using-git-submodule)
+```bash
+git submodule add git://some_repository.git <some_repository_local_name>
+cd <some_repository_local_name>
+git checkout <some_commit>
+```
