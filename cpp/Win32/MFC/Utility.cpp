@@ -652,9 +652,9 @@ CString VersionToString(DWORD dwVersionMS, DWORD dwVersionLS, BOOL bCompact, BOO
     WORD wVersionLSLOWORD = LOWORD(dwVersionLS);
     
     LPCTSTR lpcszVersionFormatString = _T("%hu.%hu.%hu.%hu"); // Will _T("%u.%u.%u.%u") be OK here?
-    if (bCompact && 0 == wVersionLSLOWORD)
+    if (bCompact || 0 == wVersionLSLOWORD)
     {
-        if (bMoreCompact && 0 == wVersionLSHIWORD)
+        if (bMoreCompact || 0 == wVersionLSHIWORD)
             lpcszVersionFormatString = _T("%hu.%hu");
         else
             lpcszVersionFormatString = _T("%hu.%hu.%hu");
