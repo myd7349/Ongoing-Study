@@ -6,6 +6,7 @@
 
 #define RES_STR(id) CString(MAKEINTRESOURCE(id))
 
+CString GetModuleFileName(HMODULE hModule = NULL);
 CString GetModulePath(HMODULE hModule = NULL);
 // TODO: A new version that accepts variant arguments.
 CString JoinPath(LPCTSTR lpszBaseDir, LPCTSTR lpszSubDir);

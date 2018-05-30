@@ -14,7 +14,8 @@
 #pragma comment(lib, "strsafe.lib")
 #pragma comment(lib, "Version.lib")
 
-CString GetModulePath(HMODULE hModule)
+
+CString GetModuleFileName(HMODULE hModule)
 {
     CString strDir;
 
@@ -28,6 +29,14 @@ CString GetModulePath(HMODULE hModule)
     {
         return _T("");
     }
+
+    return strDir;
+}
+
+
+CString GetModulePath(HMODULE hModule)
+{
+    CString strDir = GetModuleFileName(hModule);
 
     TransformPathSep(strDir);
 
