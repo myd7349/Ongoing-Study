@@ -30,7 +30,7 @@ typedef enum
     WINDOWS_10_RS2      = 103,
     WINDOWS_10_RS3      = 104,
     WINDOWS_10_RS4      = 105,
-    WINDOWS_NEW         = 0x7fffffff
+    WINDOWS_NEW         = MAXLONG
 } WindowsVersion;
 
 NTSYSAPI NTSTATUS NTAPI RtlGetVersion(__out PRTL_OSVERSIONINFOW lpVersionInformation);

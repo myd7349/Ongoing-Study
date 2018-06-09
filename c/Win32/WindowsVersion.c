@@ -99,3 +99,5 @@ WindowsVersion GetWindowsVersion(void)
 // https://msdn.microsoft.com/en-us/library/windows/desktop/ms724429(v=vs.85).aspx
 // https://stackoverflow.com/questions/457872/how-do-you-check-the-windows-version-in-win32-at-runtime
 // https://stackoverflow.com/questions/34235151/get-windows-version
+// https://github.com/wixtoolset/issues/issues/4061/
+// https://stackoverflow.com/questions/27246562/how-to-get-the-os-version-in-win8-1-as-getversion-getversionex-are-deprecated
