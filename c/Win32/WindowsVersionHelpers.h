@@ -37,7 +37,7 @@ BOOL IsWindows10OrGreater();
 
 BOOL IsWindowsServer();
 
-#define WINDOWS_HAS_UAC (IsWindowsVistaOrGreater() >= WINDOWS_VISTA)
+#define WINDOWS_HAS_UAC (IsWindowsVistaOrGreater())
 
 #ifdef __cplusplus
 }
