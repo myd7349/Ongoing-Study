@@ -60,7 +60,6 @@ void ShowErrorMessage(HWND hWnd, LPCWSTR lpcszTitle, LPCWSTR lpcszFormat, ...)
 LPWSTR TrimRight(LPWSTR lpStr)
 {
     LPWSTR lpChar;
-    size_t cchPatternLength;
 
     assert(lpStr != NULL);
 
