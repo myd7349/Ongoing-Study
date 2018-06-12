@@ -90,7 +90,7 @@ BOOL EndsWith(LPCWSTR lpStr, LPCWSTR lpPattern)
     if (cchStrLength < cchPatternLength)
         return FALSE;
 
-    return wcscmp(lpStr + (cchStrLength - cchPatternLength), lpPattern);
+    return wcscmp(lpStr + (cchStrLength - cchPatternLength), lpPattern) == 0;
 }
 
 
@@ -109,7 +109,7 @@ BOOL EndsWithI(LPCWSTR lpStr, LPCWSTR lpPattern)
     if (cchStrLength < cchPatternLength)
         return FALSE;
 
-    return _wcsicmp(lpStr + (cchStrLength - cchPatternLength), lpPattern);
+    return _wcsicmp(lpStr + (cchStrLength - cchPatternLength), lpPattern) == 0;
 }
 
 
