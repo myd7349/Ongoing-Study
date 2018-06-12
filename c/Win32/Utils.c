@@ -26,7 +26,7 @@ BOOL GetModulePath(HMODULE hModule, LPWSTR lpFilename, DWORD dwChars)
     if (pLastPathSep == NULL)
         return FALSE;
 
-    *pLastPathSep = L'\0';
+    *(pLastPathSep + 1) = L'\0';
     return TRUE;
 }
 
