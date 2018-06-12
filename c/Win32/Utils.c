@@ -93,7 +93,7 @@ BOOL EndsWithI(LPCWSTR lpStr, LPCWSTR lpPattern)
         return FALSE;
 
     cchPatternLength = wcslen(lpPattern);
-    if (lpResult[cchPatternLength + 1] == L'\0')
+    if (lpResult[cchPatternLength] == L'\0')
         return TRUE;
 
     return FALSE;
