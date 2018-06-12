@@ -14,6 +14,7 @@ LPCWSTR JoinPath(LPWSTR lpPath, LPCWSTR lpBaseDir, LPCWSTR lpSubDir);
 void ShowErrorMessage(HWND hWnd, LPCWSTR lpcszTitle, LPCWSTR lpcszFormat, ...);
 
 LPWSTR TrimRight(LPWSTR lpStr);
+BOOL EndsWith(LPCWSTR lpStr, LPCWSTR lpPattern);
 BOOL EndsWithI(LPCWSTR lpStr, LPCWSTR lpPattern);
 
 #ifdef __cplusplus

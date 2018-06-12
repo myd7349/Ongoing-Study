@@ -75,6 +75,25 @@ LPWSTR TrimRight(LPWSTR lpStr)
 }
 
 
+BOOL EndsWith(LPCWSTR lpStr, LPCWSTR lpPattern)
+{
+    size_t cchStrLength;
+    size_t cchPatternLength;
+
+    assert(lpStr != NULL);
+    assert(lpPattern != NULL);
+    if (lpPattern[0] == L'\0')
+        return TRUE;
+
+    cchStrLength = wcslen(lpStr);
+    cchPatternLength = wcslen(lpPattern);
+    if (cchStrLength < cchPatternLength)
+        return FALSE;
+
+    return wcscmp(lpStr + (cchStrLength - cchPatternLength), lpPattern);
+}
+
+
 BOOL EndsWithI(LPCWSTR lpStr, LPCWSTR lpPattern)
 {
     LPCWSTR lpResult;
@@ -95,3 +114,7 @@ BOOL EndsWithI(LPCWSTR lpStr, LPCWSTR lpPattern)
 
     return FALSE;
 }
+
+
+// References:
+// Ongoing-Study/cpp/strutils.hpp

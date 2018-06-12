@@ -226,3 +226,4 @@ std::string ws2s(const std::wstring &str)
 // [What's the best way to trim std::string?](http://stackoverflow.com/questions/216823/whats-the-best-way-to-trim-stdstring)
 // https://github.com/nu774/qaac/blob/master/strutil.h
 // [How to convert wstring into string?](https://stackoverflow.com/questions/4804298/how-to-convert-wstring-into-string)
+// [Find if string ends with another string in C++](https://stackoverflow.com/questions/874134/find-if-string-ends-with-another-string-in-c)
