@@ -65,10 +65,13 @@ LPWSTR TrimRight(LPWSTR lpStr)
 
     lpChar = lpStr + wcslen(lpStr) - 1;
 
-    while (lpChar >= lpStr && iswspace(*lpChar))
+    if (lpChar <= lpStr)
+        return lpStr;
+
+    while (iswspace(*lpChar))
         lpChar--;
 
-    if (lpChar >= lpStr)
+    if (iswspace(*++lpChar))
         *lpChar = L'\0';
 
     return lpStr;
