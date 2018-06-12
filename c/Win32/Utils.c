@@ -96,23 +96,20 @@ BOOL EndsWith(LPCWSTR lpStr, LPCWSTR lpPattern)
 
 BOOL EndsWithI(LPCWSTR lpStr, LPCWSTR lpPattern)
 {
-    LPCWSTR lpResult;
+    size_t cchStrLength;
     size_t cchPatternLength;
 
     assert(lpStr != NULL);
-    
-    if (lpPattern == NULL || lpPattern[0] == L'\0')
+    assert(lpPattern != NULL);
+    if (lpPattern[0] == L'\0')
         return TRUE;
 
-    lpResult = StrRStrI(lpStr, NULL, lpPattern);
-    if (lpResult == NULL)
+    cchStrLength = wcslen(lpStr);
+    cchPatternLength = wcslen(lpPattern);
+    if (cchStrLength < cchPatternLength)
         return FALSE;
 
-    cchPatternLength = wcslen(lpPattern);
-    if (lpResult[cchPatternLength] == L'\0')
-        return TRUE;
-
-    return FALSE;
+    return _wcsicmp(lpStr + (cchStrLength - cchPatternLength), lpPattern);
 }
 
 
