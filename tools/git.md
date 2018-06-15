@@ -42,3 +42,8 @@ git submodule add git://some_repository.git <some_repository_local_name>
 cd <some_repository_local_name>
 git checkout <some_commit>
 ```
+
+[Undo checkout](https://stackoverflow.com/questions/3601911/how-do-i-undo-a-checkout-in-git)
+```bash
+git checkout master
+```
