@@ -17,6 +17,8 @@ LPWSTR TrimRight(LPWSTR lpStr);
 BOOL EndsWith(LPCWSTR lpStr, LPCWSTR lpPattern);
 BOOL EndsWithI(LPCWSTR lpStr, LPCWSTR lpPattern);
 
+BOOL IsFileHasExt(LPCTSTR lpcszFilename, LPCTSTR lpcszExt);
+
 #ifdef __cplusplus
 }
 #endif

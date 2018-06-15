@@ -113,5 +113,11 @@ BOOL EndsWithI(LPCWSTR lpStr, LPCWSTR lpPattern)
 }
 
 
+inline BOOL IsFileHasExt(LPCTSTR lpcszFilename, LPCTSTR lpcszExt)
+{
+    return _tcsicmp(PathFindExtension(lpcszFilename), lpcszExt) == 0;
+}
+
+
 // References:
 // Ongoing-Study/cpp/strutils.hpp
