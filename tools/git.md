@@ -47,3 +47,9 @@ git checkout <some_commit>
 ```bash
 git checkout master
 ```
+
+
+[Update submodule]
+```bash
+git submodule update --remote
+```
