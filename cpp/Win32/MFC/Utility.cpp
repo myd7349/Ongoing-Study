@@ -736,7 +736,7 @@ BOOL RemoveDirectoryEx(LPCTSTR lpcszDir, BOOL bToRecycleBin)
     SHFILEOPSTRUCT shfo = 
     {
         NULL, FO_DELETE, vPath.data(), NULL,
-        FOF_SILENT | FOF_NOERRORUI | FOF_NOCONFIRMATION | (bToRecycleBin ? FOF_ALLOWUNDO : 0),
+        static_cast<FILEOP_FLAGS>(FOF_SILENT | FOF_NOERRORUI | FOF_NOCONFIRMATION | (bToRecycleBin ? FOF_ALLOWUNDO : 0)),
         FALSE, NULL, NULL
     };
 
