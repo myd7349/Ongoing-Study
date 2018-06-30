@@ -1,5 +1,6 @@
 // 2018-06-30T16:08+08:00
 #include <assert.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -33,8 +34,8 @@ union AD_SAMPLE_T
     }
 #endif
 
-    char buffer[sizeof(int)];
-    int  value;
+    char    buffer[4];
+    int32_t value;
 };
 
 typedef union AD_SAMPLE_T AD_SAMPLE;
@@ -51,7 +52,7 @@ void unpack_v0()
         const char *channel = AD_buffer + i * (ADC_BITS / 8);
         unsigned char temp_buffer[4] = { 0 };
         unsigned char channel_buffer[4] = { 0 };
-        int data;
+        int32_t data;
 
         memcpy(temp_buffer, channel, (ADC_BITS / 8));
 
@@ -62,10 +63,10 @@ void unpack_v0()
         channel_buffer[2] = temp_buffer[1];
         channel_buffer[3] = temp_buffer[0];
 
-        data = *(int *)channel_buffer / 256;
+        data = *(int32_t *)channel_buffer / 256;
 
         // After unpacking...
-        *(int *)temp_buffer = data;
+        *(int32_t *)temp_buffer = data;
         printf("%d,%d,%d,%d (%.4f)\n",
                temp_buffer[0], temp_buffer[1], temp_buffer[2], temp_buffer[3],
                TO_mv(data));
@@ -84,7 +85,7 @@ void unpack_v1()
         const char *channel = AD_buffer + i * (ADC_BITS / 8);
         unsigned char temp_buffer[4] = { 0 };
         unsigned char channel_buffer[4] = { 0 };
-        int data;
+        int32_t data;
 
         memcpy(temp_buffer, channel, (ADC_BITS / 8));
 
@@ -95,10 +96,10 @@ void unpack_v1()
         channel_buffer[1] = temp_buffer[1];
         channel_buffer[2] = temp_buffer[0];
 
-        data = *(int *)channel_buffer;
+        data = *(int32_t *)channel_buffer;
 
         // After unpacking...
-        *(int *)temp_buffer = data;
+        *(int32_t *)temp_buffer = data;
         printf("%d,%d,%d,%d (%.4f)\n",
                temp_buffer[0], temp_buffer[1], temp_buffer[2], temp_buffer[3],
                TO_mv(data));
@@ -119,7 +120,7 @@ void unpack_v2()
         ad24.value = 0;
 
         unsigned char temp_buffer[4] = { 0 };
-        int data;
+        int32_t data;
 
         // Before unpacking...
         printf("%d,%d,%d,%d -> ", channel[0], channel[1], channel[2], 0);
@@ -131,7 +132,7 @@ void unpack_v2()
         data = ad24.value;
 
         // After unpacking...
-        *(int *)temp_buffer = data;
+        *(int32_t *)temp_buffer = data;
         printf("%d,%d,%d,%d (%.4f)\n",
                temp_buffer[0], temp_buffer[1], temp_buffer[2], temp_buffer[3],
                TO_mv(data));
@@ -141,8 +142,6 @@ void unpack_v2()
 
 int main()
 {
-    assert(sizeof(int) == 4);
-
     unpack_v0();
     unpack_v1();
     unpack_v2();
