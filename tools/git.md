@@ -1,3 +1,19 @@
+
+[Setting your Git username for every repository](https://help.github.com/articles/setting-your-username-in-git/)
+```bash
+$ git config --global user.name "Mona Lisa"
+$ git config --global user.name
+Mona Lisa
+```
+
+[Setting your Git username for a single repository](https://help.github.com/articles/setting-your-username-in-git/)
+```bash
+$ git config user.name "Mona Lisa"
+$ git config user.name
+Mona Lisa
+```
+
+
 How to ignore files from commit?
 - [Untrack files from git temporarily](https://stackoverflow.com/questions/6964297/untrack-files-from-git-temporarily/6964322)
 - [Can I 'git commit' a file and ignore its content changes?](https://stackoverflow.com/questions/3319479/can-i-git-commit-a-file-and-ignore-its-content-changes)
