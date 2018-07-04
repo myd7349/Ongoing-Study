@@ -16,6 +16,11 @@ public:
     bool Bind(int portNumber);
     bool Connect(const char *remoteIP, int portNumber);
     bool Connect(unsigned long remoteIP, int portNumber);
+    
+    bool IsValid() const
+    {
+        return socket_ != INVALID_SOCKET;        
+    }
 
     int SendTo(const char *buffer, int sizeInBytes, const SOCKADDR_IN &saRemote)
     {
@@ -58,15 +63,13 @@ public:
     template <int N>
     int Send(const char (&buffer)[N])
     {
-        return SendTo(buffer, N, saRemote_);
+        return Send(buffer, N);
     }
 
     template <int N>
     int Receive(char (&buffer)[N], int offset, int bytes)
     {
-        assert(offset >= 0 && offset < N);
-        assert(bytes > 0 && offset + bytes <= N);
-        return ReceiveFrom(buffer + offset, bytes, saRemote_);
+        return Receive(buffer + offset, bytes);
     }
 
     // TODO: SetSocketOption
