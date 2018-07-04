@@ -22,6 +22,11 @@ public:
         return socket_ != INVALID_SOCKET;        
     }
 
+    SOCKET GetSocket() const
+    {
+        return socket_;
+    }
+
     int SendTo(const char *buffer, int sizeInBytes, const SOCKADDR_IN &saRemote)
     {
         return SendTo(buffer, sizeInBytes, reinterpret_cast<const SOCKADDR *>(&saRemote), sizeof(SOCKADDR));

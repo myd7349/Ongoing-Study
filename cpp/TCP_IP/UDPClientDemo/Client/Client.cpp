@@ -7,7 +7,7 @@
 int main()
 {
     WSADATA wsaData;
-    WSAStartup(MAKEWORD(2,2), &wsaData);
+    WSAStartup(MAKEWORD(2, 2), &wsaData);
 
     UDPClient clientSocket;
     clientSocket.Connect("127.0.0.1", 12000);
@@ -25,7 +25,7 @@ int main()
         clientSocket.Send(sentence.c_str(), sentence.length());
 
         int readSizeInBytes = clientSocket.Receive(message, 0, ARRAYSIZE(message));
-        if (readSizeInBytes > 0)
+        if (readSizeInBytes >= 0)
             std::cout << "Response from server: [" << std::string(message, readSizeInBytes) << "]\n";
         else
             std::cout << "No response!\n";

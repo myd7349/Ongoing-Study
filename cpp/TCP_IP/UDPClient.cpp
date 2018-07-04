@@ -58,7 +58,7 @@ bool UDPClient::Connect(unsigned long remoteIP, int portNumber)
 
     isConnected_ = true;
 
-    return true;
+    return CreateSocket();
 }
 
 
@@ -109,9 +109,7 @@ bool UDPClient::CreateSocket()
 
 int UDPClient::SendTo(const char *buffer, int sizeInBytes, const SOCKADDR *to, int tolen)
 {
-    if (!CreateSocket())
-        return 0;
-
+    assert(IsValid());
     assert(buffer != nullptr && sizeInBytes >= 0);
     assert(to != nullptr && tolen > 0);
     
@@ -121,29 +119,11 @@ int UDPClient::SendTo(const char *buffer, int sizeInBytes, const SOCKADDR *to, i
 
 int UDPClient::ReceiveFrom(char *buffer, int sizeInBytes, SOCKADDR *from, int *fromlen)
 {
-    if (!CreateSocket())
-        return 0;
-
+    assert(IsValid());
     assert(buffer != nullptr && sizeInBytes >= 0);
     assert(from != nullptr && fromlen != nullptr);
 
-#if 0
-    char *bufferCurrentPos = buffer;
-    char *bufferEnd = buffer + sizeInBytes;
-
-    while (bufferCurrentPos < bufferEnd)
-    {
-        int receivedBytes = recvfrom(socket_, bufferCurrentPos, bufferEnd - bufferCurrentPos, 0, from, fromlen);
-        if (receivedBytes == SOCKET_ERROR)
-            break;
-
-        bufferCurrentPos += receivedBytes;
-    }
-
-    return bufferCurrentPos - buffer;
-#else
     return recvfrom(socket_, buffer, sizeInBytes, 0, from, fromlen);
-#endif
 }
 
 
