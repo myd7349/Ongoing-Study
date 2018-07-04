@@ -5,10 +5,13 @@
 #include <algorithm>
 #include <cassert>
 #include <cctype>
-#include <codecvt>
 #include <functional>
 #include <locale>
 #include <string>
+
+#ifdef HAS_CODECVT
+# include <codecvt>
+#endif
 
 
 template <typename CharT, typename Pred>
@@ -211,10 +214,12 @@ bool EndsWith(const CharT *str, CharT ch)
     return EndsWith(std::basic_string<CharT>(str), ch);
 }
 
+#ifdef HAS_CODECVT
 std::string ws2s(const std::wstring &str)
 {
     return (std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t>()).to_bytes(str);
 }
+#endif
 
 #endif // STRUTILS_H_
 
@@ -227,3 +232,4 @@ std::string ws2s(const std::wstring &str)
 // https://github.com/nu774/qaac/blob/master/strutil.h
 // [How to convert wstring into string?](https://stackoverflow.com/questions/4804298/how-to-convert-wstring-into-string)
 // [Find if string ends with another string in C++](https://stackoverflow.com/questions/874134/find-if-string-ends-with-another-string-in-c)
+// [Convert a String In C++ To Upper Case](https://stackoverflow.com/questions/735204/convert-a-string-in-c-to-upper-case)
