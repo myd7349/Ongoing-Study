@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DataProcessingBenchmark", "DataProcessingBenchmark\DataProcessingBenchmark.vcxproj", "{8CB3AFCB-35C0-4EE2-98DB-2315F8BA7D85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CB3AFCB-35C0-4EE2-98DB-2315F8BA7D85}.Debug|x86.ActiveCfg = Debug|Win32
+		{8CB3AFCB-35C0-4EE2-98DB-2315F8BA7D85}.Debug|x86.Build.0 = Debug|Win32
+		{8CB3AFCB-35C0-4EE2-98DB-2315F8BA7D85}.Release|x86.ActiveCfg = Release|Win32
+		{8CB3AFCB-35C0-4EE2-98DB-2315F8BA7D85}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6ACD6283-DF43-40F0-B98A-F1B8E582A4AB}
+	EndGlobalSection
+EndGlobal
