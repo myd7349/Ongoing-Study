@@ -23,6 +23,7 @@ int counting_sorti(int *data, unsigned size, unsigned k, key_fn key, unsigned *c
         return 1;
 
 #define FREE_COUNTS() do { if (free_counts) free(counts); } while (0)
+#define FREE_OUTPUT() do { if (free_output) free(output); } while (0)
 
     if (output == NULL)
     {
