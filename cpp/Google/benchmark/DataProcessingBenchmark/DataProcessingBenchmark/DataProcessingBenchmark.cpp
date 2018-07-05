@@ -129,39 +129,25 @@ static void BM_MultiplePassNonFuncCall(benchmark::State& state)
 BENCHMARK(BM_MultiplePassNonFuncCall);
 
 
-static void DataChunk_Zero(DataChunk &chunk)
-{
-    PROCESS_DATA_CHUNK(chunk, Zero);
+#define DEFINE_DATACHUNK_PROCESSING_FUNC(fn) \
+static BENCHMARK_ALWAYS_INLINE void DataChunk_##fn##_Inline(DataChunk &chunk) \
+{ \
+    PROCESS_DATA_CHUNK(chunk, fn); \
+} \
+\
+static void DataChunk_##fn(DataChunk &chunk) \
+{ \
+    PROCESS_DATA_CHUNK(chunk, fn); \
 }
 
 
-static void DataChunk_Random(DataChunk &chunk)
-{
-    PROCESS_DATA_CHUNK(chunk, Random);
-}
+DEFINE_DATACHUNK_PROCESSING_FUNC(Zero)
+DEFINE_DATACHUNK_PROCESSING_FUNC(Random)
+DEFINE_DATACHUNK_PROCESSING_FUNC(Double)
+DEFINE_DATACHUNK_PROCESSING_FUNC(Plus42)
+DEFINE_DATACHUNK_PROCESSING_FUNC(Sqrt)
+DEFINE_DATACHUNK_PROCESSING_FUNC(HardWork)
 
-
-static void DataChunk_Double(DataChunk &chunk)
-{
-    PROCESS_DATA_CHUNK(chunk, Double);
-}
-
-
-static void DataChunk_Plus42(DataChunk &chunk)
-{
-    PROCESS_DATA_CHUNK(chunk, Plus42);
-}
-
-
-static void DataChunk_Sqrt(DataChunk &chunk)
-{
-    PROCESS_DATA_CHUNK(chunk, Sqrt);
-}
-
-static void DataChunk_HardWork(DataChunk &chunk)
-{
-    PROCESS_DATA_CHUNK(chunk, Sqrt);
-}
 
 static void BM_MultiplePassWithFuncCall(benchmark::State& state)
 {
@@ -180,6 +166,25 @@ static void BM_MultiplePassWithFuncCall(benchmark::State& state)
 }
 
 BENCHMARK(BM_MultiplePassWithFuncCall);
+
+
+static void BM_MultiplePassWithInlineFuncCall(benchmark::State& state)
+{
+    for (auto _ : state)
+    {
+        for (int d = 0; d < Dimension; ++d)
+        {
+            DataChunk_Zero_Inline(data[d]);
+            DataChunk_Random_Inline(data[d]);
+            DataChunk_Double_Inline(data[d]);
+            DataChunk_Plus42_Inline(data[d]);
+            DataChunk_Sqrt_Inline(data[d]);
+            DataChunk_HardWork_Inline(data[d]);
+        }
+    }
+}
+
+BENCHMARK(BM_MultiplePassWithInlineFuncCall);
 
 
 BENCHMARK_MAIN()
