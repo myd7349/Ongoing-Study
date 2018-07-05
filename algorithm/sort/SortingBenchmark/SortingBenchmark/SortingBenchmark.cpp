@@ -3,6 +3,7 @@
 #include <cassert>
 #include <cstdlib>
 #include <fstream>
+#include <functional>
 #include <iterator>
 #include <random>
 
@@ -96,6 +97,12 @@ static int CompareInt(const void *x, const void *y)
 static void STLSort(std::vector<int> &data, std::vector<int> &)
 {
     std::sort(data.begin(), data.end());
+}
+
+
+static void STLSort_WithPred(std::vector<int> &data, std::vector<int> &)
+{
+    std::sort(data.begin(), data.end(), std::less<int>());
 }
 
 
@@ -275,17 +282,24 @@ static void BM_##sort(benchmark::State& state) \
     \
     for (auto _ : state) \
     { \
+        state.PauseTiming(); \
         data.Prepare(); \
+        state.ResumeTiming();\
+        \
         sort(data.data, data.temp); \
-        if (!std::is_sorted(data.data.begin(), data.data.end())) \
+        \
+        state.PauseTiming(); \
+        if (!IsSortedOf(data.data, data.raw_data)) \
         { \
             DumpData(name, data.data); \
             \
+            STLSort(data.data, data.temp); \
             if (IsSortedOf(data.data, data.raw_data)) \
                 state.SkipWithError("Opps! Not sorted."); \
             else \
                 state.SkipWithError("Opps! Data broken."); \
         } \
+        state.ResumeTiming();\
     } \
 } \
 \
@@ -293,6 +307,7 @@ BENCHMARK(BM_##sort)/*->RangeMultiplier(2)->Range(1<<10, 1<<18)->Complexity(benc
 
 
 DEFINE_SORTING_BENCHMARK(STLSort);
+DEFINE_SORTING_BENCHMARK(STLSort_WithPred);
 DEFINE_SORTING_BENCHMARK(BubbleSort);
 DEFINE_SORTING_BENCHMARK(BubbleSort_optimized);
 DEFINE_SORTING_BENCHMARK(InsertSort);
