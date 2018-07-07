@@ -132,6 +132,14 @@ static void InsertSort(std::vector<int> &data, std::vector<int> &)
 }
 
 
+static void InsertSort_old_school(std::vector<int> &data, std::vector<int> &)
+{
+    insert_sorti_old_school(
+        data.data(),
+        static_cast<unsigned>(data.size()));
+}
+
+
 static void MergeSort(std::vector<int> &data, std::vector<int> &temp)
 {
     top_down_merge_sorti(
@@ -311,6 +319,7 @@ DEFINE_SORTING_BENCHMARK(STLSort_WithPred);
 DEFINE_SORTING_BENCHMARK(BubbleSort);
 DEFINE_SORTING_BENCHMARK(BubbleSort_optimized);
 DEFINE_SORTING_BENCHMARK(InsertSort);
+DEFINE_SORTING_BENCHMARK(InsertSort_old_school);
 DEFINE_SORTING_BENCHMARK(MergeSort);
 DEFINE_SORTING_BENCHMARK(QuickSort_LomutoPartition_first);
 DEFINE_SORTING_BENCHMARK(QuickSort_LomutoPartition_last);

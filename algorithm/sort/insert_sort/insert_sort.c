@@ -64,5 +64,32 @@ int insert_sort(void *data, unsigned size, unsigned elem_size, cmp_fn_t cmp_fn)
     return res;
 }
 
+
+void insert_sorti_old_school(int arr[], int n)
+{
+    int i, j;
+    int temp;
+    (void)temp;
+
+    assert(arr != NULL && n >= 0);
+
+    for (i = 0; i < n; ++i)
+    {
+        for (j = n - 1; j > i; --j)
+        {
+            if (arr[i] > arr[j])
+            {
+#if 0
+                SWAP_T(int, arr[i], arr[j]);
+#else
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+#endif
+            }
+        }
+    }
+}
+
 // References:
 // https://en.wikipedia.org/wiki/Insertion_sort
