@@ -51,6 +51,7 @@
     </Compile>
     <Compile Include="DictionaryExtension.cs" />
     <Compile Include="ForEach.cs" />
+    <Compile Include="FormExtensions.cs" />
     <Compile Include="GDI32Helper.cs" />
     <Compile Include="EnumHelper.cs" />
     <Compile Include="GraphicsExtension.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="NotifyProperty.cs" />
     <Compile Include="ObservableCollectionEx.cs" />
     <Compile Include="Pair.cs" />
+    <Compile Include="ProcessHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyChangedExEventArgs.cs" />
     <Compile Include="PropertyChangedExEventHandler.cs" />
