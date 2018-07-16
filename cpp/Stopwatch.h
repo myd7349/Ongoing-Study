@@ -27,7 +27,7 @@ public:
         }
         else
         {
-            return GetTickCount();
+            return GetTickCount() * TicksPerMillisecond;
         }
     }
 
@@ -142,6 +142,15 @@ private:
 
     static InternalData internalData_;
 
+    // coreclr\src\mscorlib\shared\System\DateTime.cs
+    /*
+        // Returns the tick count for this DateTime. The returned value is
+        // the number of 100-nanosecond intervals that have elapsed since 1/1/0001
+        // 12:00am.
+        //
+        public long Ticks
+    */
+    // 1ms = 1000000ns = 1000000/100ticks
     static const long TicksPerMillisecond = 10000;
     static const long TicksPerSecond = TicksPerMillisecond * 1000;
 
@@ -155,3 +164,4 @@ private:
 // corefx\src\System.Runtime.Extensions\src\System\Diagnostics\Stopwatch.cs
 // https://www.zhihu.com/question/266754507
 // https://github.com/miloyip/nativejson-benchmark/blob/master/src/timer.h
+// https://docs.microsoft.com/zh-cn/windows/desktop/SysInfo/acquiring-high-resolution-time-stamps
