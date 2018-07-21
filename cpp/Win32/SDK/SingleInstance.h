@@ -69,6 +69,7 @@ private:
 
 
 // References:
+// https://www.codeproject.com/articles/4430/single-instance-application-in-c
 // https://www.codeproject.com/articles/538/avoiding-multiple-instances-of-an-application
 // https://support.microsoft.com/en-us/help/243953/how-to-limit-32-bit-applications-to-one-instance-in-visual-c
 // https://stackoverflow.com/questions/9660218/using-mutex-to-enforce-single-instance
