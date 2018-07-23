@@ -69,3 +69,10 @@ git checkout master
 ```bash
 git submodule update --remote
 ```
+
+
+[Abort a merge](https://stackoverflow.com/questions/22565184/git-how-to-revert-after-a-merge-conflict-corruption)
+```bash
+git merge --abort
+```
+
