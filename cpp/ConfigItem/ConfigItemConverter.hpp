@@ -18,7 +18,7 @@ struct ConfigItemConverter
 
 #define DEFINE_CONVERTER(T, CharT, FromStringFunc, ToStringFunc) \
 template <> \
-T ConfigItemConverter<T, CharT>::FromString(StringT s, bool &ok, T defaultValue) const \
+inline T ConfigItemConverter<T, CharT>::FromString(StringT s, bool &ok, T defaultValue) const \
 { \
     T value = FromStringFunc(s, ok); \
     if (!ok) \
@@ -28,7 +28,7 @@ T ConfigItemConverter<T, CharT>::FromString(StringT s, bool &ok, T defaultValue)
 } \
 \
 template <> \
-std::basic_string<CharT> ConfigItemConverter<T, CharT>::ToString(T value) const \
+inline std::basic_string<CharT> ConfigItemConverter<T, CharT>::ToString(T value) const \
 { \
     return ToStringFunc(value); \
 }
