@@ -16,37 +16,20 @@ struct ConfigItemConverter
 };
 
 
-#define DEFINE_CONVERTER(T, CharT, FromStringFunc, ToStringFunc) \
-template <> \
-inline T ConfigItemConverter<T, CharT>::FromString(StringT s, bool &ok, T defaultValue) const \
-{ \
-    T value = FromStringFunc(s, ok); \
-    if (!ok) \
-        return defaultValue; \
-    \
-    return value; \
-} \
-\
-template <> \
-inline std::basic_string<CharT> ConfigItemConverter<T, CharT>::ToString(T value) const \
-{ \
-    return ToStringFunc(value); \
-}
-
-
-inline int WStringToInt(const wchar_t *s, bool &ok)
+template <>
+inline int ConfigItemConverter<int, wchar_t>::FromString(StringT s, bool &ok, int defaultValue) const
 {
     if (s == nullptr)
     {
         ok = false;
-        return 0;
+        return defaultValue;
     }
 
     int value = _wtoi(s);
     if (errno == ERANGE || errno == EINVAL)
     {
         ok = false;
-        return 0;
+        return defaultValue;
     }
 
     ok = true;
@@ -54,25 +37,29 @@ inline int WStringToInt(const wchar_t *s, bool &ok)
 }
 
 
-template <typename TTarget, typename TSource>
-inline std::wstring IntegerToWString(TSource value)
+template <>
+inline std::wstring ConfigItemConverter<int, wchar_t>::ToString(int value) const
 {
-    return std::to_wstring(static_cast<TTarget>(value));
+    return std::to_wstring(static_cast<long long>(value));
 }
 
 
-inline std::wstring WStringToWString(const wchar_t *s, bool &ok)
+template <>
+inline std::wstring ConfigItemConverter<std::wstring, wchar_t>::FromString(StringT s, bool &ok, std::wstring defaultValue) const
 {
     if (s == nullptr)
     {
         ok = false;
-        return L"";
+        return defaultValue;
     }
 
     ok = true;
-    return std::wstring(s);
+    return s;
 }
 
 
-DEFINE_CONVERTER(int, wchar_t, WStringToInt, IntegerToWString<long long>)
-DEFINE_CONVERTER(std::wstring, wchar_t, WStringToWString, )
+template <>
+inline std::wstring ConfigItemConverter<std::wstring, wchar_t>::ToString(std::wstring value) const
+{
+    return value;
+}
