@@ -4,24 +4,32 @@
 #include "ConfigItemProvider.h"
 
 
-template <typename T,
-    typename CharT = wchar_t,
+template <typename T, typename CharT = wchar_t,
     typename ConverterT = ConfigItemConverter<T, CharT>>
 struct ConfigItem
 {
     typedef const CharT *StringT;
 
-    ConfigItem(StringT section, StringT name, T value = T(), T defaultValue = T(),
-        ConverterT converter = ConverterT())
-        : section_(section)
+    ConfigItem(IConfigItemProvider<CharT> &provider,
+        StringT section, StringT name, T defaultValue,
+        bool autoStore = true, ConverterT converter = ConverterT())
+        : provider_(provider)
+        , section_(section)
         , name_(name)
-        , value_(value)
+        , value_(defaultValue)
         , default_(defaultValue)
+        , autoStore_(autoStore)
         , dirty_(false)
         , converter_(converter)
     {
         assert(section != nullptr);
         assert(name != nullptr);
+    }
+
+    ~ConfigItem()
+    {
+        if (autoStore_)
+            Store();
     }
 
     const std::basic_string<CharT> &GetSection() const
@@ -32,6 +40,11 @@ struct ConfigItem
     const std::basic_string<CharT> &GetName() const
     {
         return name_;
+    }
+
+    T GetDefaultValue() const
+    {
+        return default_;
     }
 
     T GetValue() const
@@ -55,11 +68,6 @@ struct ConfigItem
         return value_;
     }
 
-    T GetDefaultValue() const
-    {
-        return default_;
-    }
-
     bool IsEmpty() const
     {
         return value_ == default_;
@@ -68,6 +76,16 @@ struct ConfigItem
     bool IsDirty() const
     {
         return dirty_;
+    }
+
+    bool IsAutoStore() const
+    {
+        return autoStore_;
+    }
+
+    bool SetAutoStore(bool autoStore)
+    {
+        autoStore_ = autoStore;
     }
 
     T FromString(StringT s, bool &ok)
@@ -84,10 +102,10 @@ struct ConfigItem
         return converter_.ToString(GetValue());
     }
 
-    bool Load(IConfigItemProvider<CharT> &provider)
+    bool Load()
     {
         bool ok;
-        std::basic_string<CharT> value = provider.Load(section_.c_str(), name_.c_str(), ok);
+        std::basic_string<CharT> value = provider_.Load(section_.c_str(), name_.c_str(), ok);
         if (ok)
         {
             FromString(value.c_str(), ok);
@@ -99,23 +117,44 @@ struct ConfigItem
         }
     }
 
-    void Store(IConfigItemProvider<CharT> &provider, bool cleanDirtyFlag = true)
+    void Store()
     {
-        std::basic_string<CharT> value = ToString();
-        provider.Store(section_.c_str(), name_.c_str(), value.c_str());
+        if (dirty_)
+        {
+            std::basic_string<CharT> value = ToString();
+            provider_.Store(section_.c_str(), name_.c_str(), value.c_str());
 
-        if (cleanDirtyFlag)
             dirty_ = false;
+        }
     }
 
 private:
+    IConfigItemProvider<CharT> &provider_;
     std::basic_string<CharT> section_;
     std::basic_string<CharT> name_;
     T default_;
     T value_;
+    bool autoStore_;
     bool dirty_;
     ConverterT converter_;
 };
+
+
+template <typename T, typename CharT>
+inline T LoadItem(IConfigItemProvider<CharT> &provider, const CharT *section, const CharT *name, T defaultValue)
+{
+    ConfigItem<T, CharT, ConfigItemConverter<T, CharT>> configItem(provider, section, name, defaultValue);
+    configItem.Load();
+    return configItem.GetValue();
+}
+
+
+template <typename T, typename CharT>
+inline void StoreItem(IConfigItemProvider<CharT> &provider, const CharT *section, const CharT *name, T value)
+{
+    ConfigItem<T, CharT, ConfigItemConverter<T, CharT>> configItem(provider, section, name, value);
+    configItem.Store();
+}
 
 
 typedef ConfigItem<int> IntItem;

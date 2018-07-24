@@ -77,6 +77,12 @@
     <ClCompile Include="..\IniConfigItemProvider.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ConfigItem.hpp" />
+    <ClInclude Include="..\ConfigItemConverter.hpp" />
+    <ClInclude Include="..\ConfigItemProvider.h" />
+    <ClInclude Include="..\IniConfigItemProvider.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

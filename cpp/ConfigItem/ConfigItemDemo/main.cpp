@@ -41,27 +41,31 @@ int wmain(int argc, wchar_t *argv[])
     std::wstring iniPath = appPath + L"Config.ini";
     IniConfigItemProvider ini(iniPath.c_str());
     
-    StringItem ipAddress(L"Server", L"IP", L"localhost");
-    IntItem portNumber(L"Server", L"Port", 2026);
+    StringItem ipAddress(ini, L"Server", L"IP", L"localhost");
+    IntItem portNumber(ini, L"Server", L"Port", 2026);
 
     if (!PathFileExists(iniPath.c_str()))
     {
-        ipAddress.Store(ini);
-        portNumber.Store(ini);
+        ipAddress.Store();
+        portNumber.Store();
     }
     else
     {
-        if (ipAddress.Load(ini))
+        if (ipAddress.Load())
             std::wcout << L"IP: " << ipAddress.GetValue() << std::endl;
 
-        if (portNumber.Load(ini))
+        if (portNumber.Load())
             std::cout << "Port: " << portNumber.GetValue() << std::endl;
     }
 
     portNumber.SetValue(portNumber.GetValue() + 1);
-    portNumber.Store(ini);
-    if (portNumber.Load(ini))
+    portNumber.Store();
+    if (portNumber.Load())
         std::cout << "Port: " << portNumber.GetValue() << std::endl;
+
+    portNumber.SetValue(2026);
+
+    std::cout << LoadItem(ini, L"Server", L"Port", 2333) << std::endl;
 
     return 0;
 }
