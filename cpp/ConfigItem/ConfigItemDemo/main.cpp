@@ -18,7 +18,6 @@ std::wstring GetCwd()
     if (buffer != NULL)
     {
         cwd = std::wstring(buffer);
-        std::wcout << L"CWD: " << cwd << std::endl;
         std::free(buffer);
         buffer = NULL;
     }
@@ -30,6 +29,7 @@ std::wstring GetCwd()
 int wmain(int argc, wchar_t *argv[])
 {
     std::wstring cwd = GetCwd();
+    std::wcout << L"CWD: " << cwd << std::endl;
 
     std::wstring appPath = argv[0];
     std::wstring::size_type lastPathSepPos = appPath.find_last_of(L"\\");
@@ -43,19 +43,22 @@ int wmain(int argc, wchar_t *argv[])
     
     StringItem ipAddress(ini, L"Server", L"IP", L"localhost");
     IntItem portNumber(ini, L"Server", L"Port", 2026);
+    DoubleItem pi(ini, L"", L"PI", 3.14159265358);
+    DoubleItem e(ini, L"", L"e", 2.71828);
 
     if (!PathFileExists(iniPath.c_str()))
     {
         ipAddress.Store();
         portNumber.Store();
+        pi.Store();
+        e.Store();
     }
     else
     {
-        if (ipAddress.Load())
-            std::wcout << L"IP: " << ipAddress.GetValue() << std::endl;
-
-        if (portNumber.Load())
-            std::cout << "Port: " << portNumber.GetValue() << std::endl;
+        std::wcout << L"IP: " << ipAddress.GetValue() << std::endl;
+        std::cout << "Port: " << portNumber.GetValue() << std::endl;
+        std::cout << "PI: " << pi.GetValue() << std::endl;
+        std::cout << "e: " << e.GetValue() << std::endl;
     }
 
     portNumber.SetValue(portNumber.GetValue() + 1);

@@ -11,8 +11,8 @@ std::wstring IniConfigItemProvider::Load(StringT section, StringT name, bool &ok
     assert(section != nullptr);
     assert(name != nullptr);
 
-    if (GetPrivateProfileStringW(section, name, L"", buffer_, ARRAYSIZE(buffer_), ini_.c_str())
-        < ARRAYSIZE(buffer_) - 1)
+    DWORD dwRes = GetPrivateProfileStringW(section, name, L"", buffer_, ARRAYSIZE(buffer_), ini_.c_str());
+    if (dwRes > 0 && dwRes < ARRAYSIZE(buffer_) - 1)
     {
         ok = true;
         return buffer_;

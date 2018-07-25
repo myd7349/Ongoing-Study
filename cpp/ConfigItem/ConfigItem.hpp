@@ -12,23 +12,26 @@ struct ConfigItem
 
     ConfigItem(IConfigItemProvider<CharT> &provider,
         StringT section, StringT name, T defaultValue,
-        bool autoStore = true, ConverterT converter = ConverterT())
+        bool autoSync = true, ConverterT converter = ConverterT())
         : provider_(provider)
         , section_(section)
         , name_(name)
         , value_(defaultValue)
         , default_(defaultValue)
-        , autoStore_(autoStore)
+        , autoSync_(autoSync)
         , dirty_(false)
         , converter_(converter)
     {
         assert(section != nullptr);
         assert(name != nullptr);
+
+        if (autoSync_)
+            Load();
     }
 
     ~ConfigItem()
     {
-        if (autoStore_)
+        if (autoSync_ && dirty_)
             Store();
     }
 
@@ -60,12 +63,15 @@ struct ConfigItem
         if (value_ != value)
         {
             value_ = value;
-
-            if (!dirty_)
-                dirty_ = true;
+            dirty_ = true;
         }
 
         return value_;
+    }
+
+    T Reset()
+    {
+        return SetValue(default_);
     }
 
     bool IsEmpty() const
@@ -78,14 +84,14 @@ struct ConfigItem
         return dirty_;
     }
 
-    bool IsAutoStore() const
+    bool IsAutoSync() const
     {
-        return autoStore_;
+        return autoSync_;
     }
 
-    bool SetAutoStore(bool autoStore)
+    bool SetAutoSync(bool autoSync)
     {
-        autoStore_ = autoStore;
+        autoSync_ = autoSync;
     }
 
     T FromString(StringT s, bool &ok)
@@ -109,6 +115,9 @@ struct ConfigItem
         if (ok)
         {
             FromString(value.c_str(), ok);
+            if (ok)
+                dirty_ = false;
+
             return ok;
         }
         else
@@ -119,13 +128,10 @@ struct ConfigItem
 
     void Store()
     {
-        if (dirty_)
-        {
-            std::basic_string<CharT> value = ToString();
-            provider_.Store(section_.c_str(), name_.c_str(), value.c_str());
+        std::basic_string<CharT> value = ToString();
+        provider_.Store(section_.c_str(), name_.c_str(), value.c_str());
 
-            dirty_ = false;
-        }
+        dirty_ = false;
     }
 
 private:
@@ -134,7 +140,7 @@ private:
     std::basic_string<CharT> name_;
     T default_;
     T value_;
-    bool autoStore_;
+    bool autoSync_;
     bool dirty_;
     ConverterT converter_;
 };
@@ -157,5 +163,6 @@ inline void StoreItem(IConfigItemProvider<CharT> &provider, const CharT *section
 }
 
 
-typedef ConfigItem<int> IntItem;
+typedef ConfigItem<int>          IntItem;
+typedef ConfigItem<double>       DoubleItem;
 typedef ConfigItem<std::wstring> StringItem;
