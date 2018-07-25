@@ -2,6 +2,7 @@
 
 #include <cassert>
 #include <cerrno>
+#include <climits>
 #include <string>
 #include <cstdlib>
 
@@ -25,15 +26,25 @@ inline int ConfigItemConverter<int, wchar_t>::FromString(StringT s, bool &ok, in
         return defaultValue;
     }
 
-    int value = _wtoi(s);
-    if (errno == ERANGE || errno == EINVAL)
+    wchar_t *endptr;
+    long value = std::wcstol(s, &endptr, 0);
+    if (errno == ERANGE || *endptr != L'\0' || s == endptr)
     {
         ok = false;
         return defaultValue;
     }
 
+#if LONG_MIN < INT_MIN || LONG_MAX > INT_MAX
+    if (value < INT_MIN || value > INT_MAX)
+    {
+        errno = ERANGE;
+        ok = false;
+        return defaultValue;
+    }
+#endif
+
     ok = true;
-    return value;
+    return static_cast<int>(value);
 }
 
 
@@ -53,8 +64,9 @@ inline double ConfigItemConverter<double, wchar_t>::FromString(StringT s, bool &
         return defaultValue;
     }
 
-    double value = wcstod(s, NULL); 
-    if (errno == ERANGE)
+    wchar_t *endptr;
+    double value = std::wcstod(s, &endptr); 
+    if (errno == ERANGE || *endptr != L'\0' || s == endptr)
     {
         ok = false;
         return defaultValue;
@@ -91,3 +103,8 @@ inline std::wstring ConfigItemConverter<std::wstring, wchar_t>::ToString(std::ws
 {
     return value;
 }
+
+
+// References:
+// https://stackoverflow.com/questions/22865622/atoi-vs-atol-vs-strtol-vs-strtoul-vs-sscanf
+// https://stackoverflow.com/questions/4308536/converting-a-string-into-a-double
