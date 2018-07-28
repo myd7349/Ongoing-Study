@@ -26,3 +26,4 @@ int main()
 
 // References:
 // https://github.com/carlomilanesi/cpp-mmf/pull/2
+// https://stackoverflow.com/questions/3501878/force-gcc-to-compile-32-bit-programs-on-64-bit-platform
