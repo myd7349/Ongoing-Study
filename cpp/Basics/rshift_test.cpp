@@ -18,7 +18,11 @@ int main()
     // VS2010/VS2017: 26728 0
     // Code::Blocks: 26728 0
     std::cout << (file_size >> 32) << " ";
-    std::cout << ((unsigned long long)file_size >> 32) << std::endl;
+    std::cout << ((uint64_t)file_size >> 32) << std::endl;
 
     return 0;
 }
+
+
+// References:
+// https://github.com/carlomilanesi/cpp-mmf/pull/2
