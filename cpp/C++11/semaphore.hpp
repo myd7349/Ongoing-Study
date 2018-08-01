@@ -140,3 +140,16 @@ private:
             wait(_Lck);
         }
 */
+
+// 2018-08-01T12:23+08:00
+// Multithreading Applications in Win32
+// >Semaphores are often used to protect fixed-size ring buffers.
+//  Programs that want to read from the ring buffer would wait on the sema-
+//  phore. The thread that writes to the ring buffer may write more than one
+//  thing to the buffer, in which case the release count would be the number of
+//  things written to the buffer.
+// >With the ring buffer example, the semaphore would usually be created
+//  with a release count of zero so that any thread waiting would block. As
+//  things are added to the buffer, the semaphore is incremented with Release-
+//  Semaphore ( ) and threads waiting would be allowed to run.
+
