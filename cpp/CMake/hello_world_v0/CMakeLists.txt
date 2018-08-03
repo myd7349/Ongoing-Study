@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 2.6)
+project(hello_world)
+set(SRC_LIST main.c)
+message(STATUS "This is BINARY dir " ${hello_world_BINARY_DIR})
+message(STATUS "This is SOURCR dir " ${hello_world_SOURCE_DIR})
+message(STATUS "This is BINARY dir " ${PROJECT_BINARY_DIR})
+message(STATUS "This is SOURCR dir " ${PROJECT_SOURCE_DIR})
+add_executable(hello_world ${SRC_LIST})
