@@ -38,10 +38,20 @@
     atexit((void(*)(void))WSACleanup); \
 }
 
+typedef ADDRINFOT addrinfo_t;
+
+#define getnameinfo GetNameInfo
+#define getaddrinfo GetAddrInfo
+#define freeaddrinfo FreeAddrInfo
+#define inet_ntop InetNtop
+#define inet_pton InetPton
+
 #else
 
+#include <arpa/inet.h>
 #include <limits.h> // HOST_NAME_MAX
 #include <netdb.h>
+#include <netinet/in.h>
 #include <unistd.h> // gethostname
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -49,8 +59,13 @@
 #define _tmain main
 #define _TCHAR char
 #define _T(x) x
+#define _istalpha isalpha
+#define _tprintf printf
+#define _ftprintf fprintf
 
 #define TCP_IP_INIT() ((void)0)
+
+typedef struct addrinfo addrinfo_t;
 
 #endif
 
