@@ -1,6 +1,7 @@
 #include "dynamic_array.h"
 
 #include <assert.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -101,6 +102,15 @@ static void dyarr_free_impl(dyarr_t *parr, bool delete_data)
         free((*parr)->data);
     free(*parr);
     *parr = NULL;
+}
+
+
+static bool dyarr_enlarge_(dyarr_t arr, size_t amount)
+{
+    if (!is_dyarr(arr))
+        return false;
+
+    return dyarr_resize(arr, arr->size + amount);
 }
 
 
@@ -378,6 +388,369 @@ bool dyarr_pop_back(dyarr_t arr, void *data)
 }
 
 
+bool dyarr_insert(dyarr_t arr, size_t pos, void *data)
+{
+    return dyarr_insert_many(arr, pos, data, 1);
+}
+
+
+bool dyarr_insert_many(dyarr_t arr, size_t pos, void *data, size_t count)
+{
+    size_t old_size;
+
+    if (!is_dyarr(arr))
+        return false;
+
+    if (pos > dyarr_size(arr))
+        return false;
+
+    assert(data != NULL && count > 0);
+    old_size = arr->size;
+
+    if (!dyarr_enlarge_(arr, count))
+        return false;
+
+    memcpy(ELEM_PTR(arr, old_size), data, count * arr->elem_size);
+    return true;
+}
+
+
+bool dyarr_remove(dyarr_t arr, size_t pos, void *data)
+{
+    if (!is_dyarr(arr))
+        return false;
+
+    if (pos >= arr->size)
+        return false;
+
+    if (data != NULL)
+        memcpy(data, ELEM_PTR(arr, pos), arr->elem_size);
+
+    memmove(ELEM_PTR(arr, pos), ELEM_PTR(arr, pos + 1), (arr->size - pos) * arr->elem_size);
+    arr->size -= 1;
+    return true;
+}
+
+
+bool dyarr_remove_many(dyarr_t arr, size_t pos, size_t count, dyarr_t *removed)
+{
+    bool move_needed = true;
+
+    if (!is_dyarr(arr))
+        return false;
+
+    if (pos >= arr->size)
+        return false;
+
+    if (pos + count > arr->size)
+    {
+        count = arr->size - pos;
+        move_needed = false;
+    }
+
+    if (removed != NULL)
+    {
+        *removed = dyarr_sized_new(arr->elem_size, count, arr->zero_terminated, true);
+        if (*removed == NULL)
+            return false;
+
+        memcpy((*removed)->data, ELEM_PTR(arr, pos), count * arr->elem_size);
+    }
+
+    if (move_needed)
+        memmove(ELEM_PTR(arr, pos), ELEM_PTR(arr, pos + count), count * arr->elem_size);
+
+    return true;
+}
+
+
+#define DEFINE_COMPARE_FUNC(T) \
+static int compare_##T(const T *lhs, const T *rhs) \
+{ \
+    assert(lhs != NULL && rhs != NULL); \
+    return CMP(*lhs, *rhs); \
+}
+
+
+DEFINE_COMPARE_FUNC(uint8_t)
+DEFINE_COMPARE_FUNC(uint16_t)
+DEFINE_COMPARE_FUNC(uint32_t)
+DEFINE_COMPARE_FUNC(uint64_t)
+
+
+size_t dyarr_index(dyarr_t arr, size_t pos, void *data)
+{
+    size_t i;
+
+    assert(is_dyarr(arr));
+    assert(data != NULL);
+
+    if (pos >= arr->size)
+        return INVALID_INDEX;
+
+    switch (arr->elem_size)
+    {
+    case 1:
+    {
+        const uint8_t *arr_data = (uint8_t *)arr->data + pos;
+        const uint8_t *rhs = data;
+
+        for (i = pos; i < arr->size; ++i)
+        {
+            if (compare_uint8_t(arr_data[i], rhs) == 0)
+                return i;
+        }
+    }
+        break;
+
+    case 2:
+    {
+        uint16_t *arr_data = (uint16_t *)arr->data + pos;
+        uint16_t *rhs = data;
+
+        for (i = pos; i < arr->size; ++i)
+        {
+            if (compare_uint16_t(arr_data[i], rhs) == 0)
+                return i;
+        }
+    }
+        break;
+
+    case 4:
+    {
+        uint32_t *arr_data = (uint32_t *)arr->data + pos;
+        uint32_t *rhs = data;
+
+        for (i = pos; i < arr->size; ++i)
+        {
+            if (compare_uint32_t(arr_data[i], rhs) == 0)
+                return i;
+        }
+    }
+        break;
+
+    case 8:
+    {
+        uint64_t *arr_data = (uint64_t *)arr->data + pos;
+        uint64_t *rhs = data;
+
+        for (i = pos; i < arr->size; ++i)
+        {
+            if (compare_uint64_t(arr_data[i], rhs) == 0)
+                return i;
+        }
+    }
+        break;
+
+    default:
+        for (i = pos; i < arr->size; ++i)
+        {
+            if (memcmp(ELEM_PTR(arr, i), data, arr->elem_size) == 0)
+                return i;
+        }
+        break;
+    }
+
+    return INVALID_INDEX;
+}
+
+
+size_t dyarr_rindex(dyarr_t arr, size_t pos, void *data)
+{
+    size_t i;
+
+    assert(is_dyarr(arr));
+    assert(data != NULL);
+
+    if (pos >= arr->size)
+        return INVALID_INDEX;
+
+    switch (arr->elem_size)
+    {
+    case 1:
+    {
+        uint8_t *arr_data = (uint8_t *)arr->data;
+        for (i = 0; i <= pos; ++i)
+        {
+            if (compare_uint8_t(arr_data[pos - i], data) == 0)
+                return pos - i;
+        }
+    }
+    break;
+
+    case 2:
+    {
+        uint16_t *arr_data = (uint16_t *)arr->data;
+        for (i = 0; i <= pos; ++i)
+        {
+            if (compare_uint16_t(arr_data[pos - i], data) == 0)
+                return pos - i;
+        }
+    }
+    break;
+
+    case 4:
+    {
+        uint32_t *arr_data = (uint32_t *)arr->data;
+        for (i = 0; i <= pos; ++i)
+        {
+            if (compare_uint32_t(arr_data[pos - i], data) == 0)
+                return pos - i;
+        }
+    }
+    break;
+
+    case 8:
+    {
+        uint64_t *arr_data = (uint64_t *)arr->data;
+        for (i = 0; i <= pos; ++i)
+        {
+            if (compare_uint64_t(arr_data[pos - i], data) == 0)
+                return pos - i;
+        }
+    }
+    break;
+
+    default:
+        for (i = 0; i <= pos; ++i)
+        {
+            if (memcmp(ELEM_PTR(arr, pos - i), data, arr->elem_size) == 0)
+                return pos - i;
+        }
+        break;
+    }
+
+    return INVALID_INDEX;
+}
+
+
+bool dyarr_reverse(dyarr_t arr)
+{
+    size_t i, j;
+
+    assert(is_dyarr(arr));
+
+    if (arr->size < 2)
+        return false;
+
+    i = 0;
+    j = arr->size - 1;
+
+    switch (arr->elem_size)
+    {
+    case 1:
+    {
+        uint8_t *data = (uint8_t *)arr->data;
+        while (i < j)
+        {
+            SWAP_T(uint8_t, data[i], data[j]);
+            i++;
+            j--;
+        }
+    }
+        break;
+
+    case 2:
+    {
+        uint16_t *data = (uint16_t *)arr->data;
+        while (i < j)
+        {
+            SWAP_T(uint16_t, data[i], data[j]);
+            i++;
+            j--;
+        }
+    }
+        break;
+
+    case 4:
+    {
+        uint32_t *data = (uint32_t *)arr->data;
+        while (i < j)
+        {
+            SWAP_T(uint32_t, data[i], data[j]);
+            i++;
+            j--;
+        }
+    }
+        break;
+
+    case 8:
+    {
+        uint64_t *data = (uint64_t *)arr->data;
+        while (i < j)
+        {
+            SWAP_T(uint64_t, data[i], data[j]);
+            i++;
+            j--;
+        }
+    }
+        break;
+
+    default:
+    {
+        uint8_t buffer[256];
+        void *temp;
+        if (arr->elem_size <= sizeof(buffer))
+        {
+            temp = buffer;
+        }
+        else
+        {
+            temp = malloc(arr->elem_size);
+            if (temp == NULL)
+                return false;
+        }
+
+        while (i < j)
+        {
+            memcpy(temp, ELEM_PTR(arr, i), arr->elem_size);
+            memcpy(ELEM_PTR(arr, i), ELEM_PTR(arr, j), arr->elem_size);
+            memcpy(ELEM_PTR(arr, j), temp, arr->elem_size);
+
+            i++;
+            j--;
+        }
+
+        if (temp != buffer)
+            free(temp);
+    }
+        break;
+    }
+
+    return true;
+}
+
+
+size_t dyarr_count(dyarr_t arr, void *data)
+{
+    size_t count = 0;
+    size_t pos = 0;
+
+    while ((pos = dyarr_index(arr, pos, data)) != INVALID_INDEX)
+    {
+        pos += 1;
+        count += 1;
+    }
+
+    return count;
+
+}
+
+
+bool dyarr_get_delete_data(dyarr_t arr)
+{
+    assert(is_dyarr(arr));
+    return arr->delete_data;
+}
+
+
+void dyarr_set_delete_data(dyarr_t arr, bool delete_data)
+{
+    assert(is_dyarr(arr));
+    arr->delete_data = delete_data;
+}
+
+
 bool dyarr_zero_terminated(dyarr_t arr)
 {
     assert(is_dyarr(arr));
@@ -406,6 +779,40 @@ size_t dyarr_capacity(dyarr_t arr)
 }
 
 
+//size_t dyarr_find_if(dyarr_t arr, equal_fn_t equal_fn, void *equal_fn_rhs, size_t offset)
+//{
+//
+//}
+//
+//
+//size_t dyarr_rfind_if(dyarr_t arr, equal_fn_t equal_fn, void *equal_fn_rhs, size_t pos)
+//{
+//
+//}
+
+
+void dyarr_sort(dyarr_t arr, cmp_fn_t cmp_fn)
+{
+    assert(is_dyarr(arr));
+    if (arr->size < 2)
+        return;
+
+    qsort(arr->data, arr->size, arr->elem_size, cmp_fn);
+}
+
+
+void dyarr_apply(dyarr_t arr, void(*apply_fn)(size_t, void *))
+{
+    size_t i;
+
+    assert(is_dyarr(arr));
+    assert(apply_fn != NULL);
+
+    for (i = 0; i < arr->size; ++i)
+        apply_fn(i, ELEM_PTR(arr, i));
+}
+
+
 // References:
 // https://en.wikipedia.org/wiki/Dynamic_array
 // https://github.com/torch/tds/blob/master/tds_vec.h
@@ -418,3 +825,7 @@ size_t dyarr_capacity(dyarr_t arr)
 // https://github.com/tboox/tbox/blob/master/src/tbox/container/vector.c
 // cprops/vector.h
 // https://segmentfault.com/a/1190000007675747
+// https://stackoverflow.com/questions/605845/do-i-cast-the-result-of-malloc
+// https://stackoverflow.com/questions/16986214/why-type-cast-a-void-pointer
+// https://stackoverflow.com/questions/20469958/c-when-is-casting-void-pointer-needed
+// https://stackoverflow.com/questions/6380981/c-c-c4047-differs-in-levels-of-indirection-from-int
