@@ -10,6 +10,12 @@
 class UDPClient
 {
 public:
+    enum ErrorCode
+    {
+        UDP_SOCKET_ERROR = SOCKET_ERROR,
+        UDP_TIME_OUT     = -2
+    };
+
     UDPClient();
     ~UDPClient();
 
@@ -27,54 +33,54 @@ public:
         return socket_;
     }
 
-    int SendTo(const char *buffer, int sizeInBytes, const SOCKADDR_IN &saRemote)
+    int SendTo(const char *buffer, int sizeInBytes, const SOCKADDR &saRemote, DWORD timeoutInMs)
     {
-        return SendTo(buffer, sizeInBytes, reinterpret_cast<const SOCKADDR *>(&saRemote), sizeof(SOCKADDR));
+        return SendTo(buffer, sizeInBytes, &saRemote, sizeof(SOCKADDR), timeoutInMs);
     }
 
-    int ReceiveFrom(char *buffer, int sizeInBytes, SOCKADDR_IN &saRemote)
+    int ReceiveFrom(char *buffer, int sizeInBytes, SOCKADDR &saRemote, DWORD timeoutInMs)
     {
         int readSizeInBytes = sizeof(SOCKADDR);
-        return ReceiveFrom(buffer, sizeInBytes, reinterpret_cast<SOCKADDR *>(&saRemote), &readSizeInBytes);
+        return ReceiveFrom(buffer, sizeInBytes, &saRemote, &readSizeInBytes, timeoutInMs);
     }
 
     template <int N>
-    int SendTo(const char (&buffer)[N], const SOCKADDR_IN &saRemote)
+    int SendTo(const char (&buffer)[N], const SOCKADDR &saRemote, DWORD timeoutInMs)
     {
-        return SendTo(buffer, N, saRemote);
+        return SendTo(buffer, N, saRemote, timeoutInMs);
     }
 
     template <int N>
-    int ReceiveFrom(char (&buffer)[N], int offset, int bytes, SOCKADDR_IN &saRemote)
+    int ReceiveFrom(char (&buffer)[N], int offset, int bytes, SOCKADDR &saRemote, DWORD timeoutInMs)
     {
         assert(offset >= 0 && offset < N);
         assert(bytes > 0 && offset + bytes <= N);
-        return ReceiveFrom(buffer + offset, bytes, saRemote);
+        return ReceiveFrom(buffer + offset, bytes, saRemote, timeoutInMs);
     }
 
-    int Send(const char *buffer, int sizeInBytes)
+    int Send(const char *buffer, int sizeInBytes, DWORD timeoutInMs)
     {
         assert(isConnected_);
-        return SendTo(buffer, sizeInBytes, reinterpret_cast<const SOCKADDR *>(&saRemote_), sizeof(SOCKADDR));
+        return SendTo(buffer, sizeInBytes, reinterpret_cast<const SOCKADDR *>(&saRemote_), sizeof(SOCKADDR), timeoutInMs);
     }
 
-    int Receive(char *buffer, int sizeInBytes)
+    int Receive(char *buffer, int sizeInBytes, DWORD timeoutInMs)
     {
         assert(isConnected_);
         int readSizeInBytes = sizeof(SOCKADDR);
-        return ReceiveFrom(buffer, sizeInBytes, reinterpret_cast<SOCKADDR *>(&saRemote_), &readSizeInBytes);
+        return ReceiveFrom(buffer, sizeInBytes, reinterpret_cast<SOCKADDR *>(&saRemote_), &readSizeInBytes, timeoutInMs);
     }
 
     template <int N>
-    int Send(const char (&buffer)[N])
+    int Send(const char (&buffer)[N], DWORD timeoutInMs)
     {
-        return Send(buffer, N);
+        return Send(buffer, N, timeoutInMs);
     }
 
     template <int N>
-    int Receive(char (&buffer)[N], int offset, int bytes)
+    int Receive(char (&buffer)[N], int offset, int bytes, DWORD timeoutInMs)
     {
-        return Receive(buffer + offset, bytes);
+        return Receive(buffer + offset, bytes, timeoutInMs);
     }
 
     // TODO: SetSocketOption
@@ -89,8 +95,8 @@ private:
 
     bool CreateSocket();
 
-    int SendTo(const char *buffer, int sizeInBytes, const SOCKADDR *to, int tolen);
-    int ReceiveFrom(char *buffer, int sizeInBytes, SOCKADDR *from, int *fromlen);
+    int SendTo(const char *buffer, int sizeInBytes, const SOCKADDR *to, int tolen, DWORD timeoutInMs);
+    int ReceiveFrom(char *buffer, int sizeInBytes, SOCKADDR *from, int *fromlen, DWORD timeoutInMs);
 
     SOCKET        socket_;
     bool          isConnected_;
