@@ -1,4 +1,420 @@
 #include "dynamic_array.h"
 
+#include <assert.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+#define DYARR_TYPEID (0xFEFDFCFB)
+
+
+struct dyarr_t
+{
+    unsigned magic;
+    size_t elem_size;
+    size_t size;
+    size_t capacity;
+    bool zero_terminated;
+    bool delete_data;
+    unsigned char *data;
+};
+
+
+// https://www.zhihu.com/question/36538542/answer/67994276
+// https://github.com/facebook/folly/blob/master/folly/FBVector.h
+// https://github.com/facebook/folly/blob/master/folly/docs/FBVector.md
+// https://github.com/facebook/folly/blob/7f721452a97937211d138f8553ae36192428e4f1/folly/FBVector.h#L1186
+// https://github.com/facebook/folly/blob/7f721452a97937211d138f8553ae36192428e4f1/folly/memory/Malloc.h#L220
+static size_t FBVector_growing_policy(size_t capacity, size_t elem_size)
+{
+    size_t jemallocMinInPlaceExpandable = 4096;
+
+    assert(elem_size > 0);
+
+    if (capacity == 0)
+        return MAX(64 / elem_size, 1);
+
+    if (capacity < jemallocMinInPlaceExpandable / elem_size)
+        return capacity * 2;
+
+    if (capacity > 4096 * 32 / elem_size)
+        return capacity * 2;
+
+    return (capacity * 3 + 1) / 2;
+}
+
+
+// https://github.com/Tencent/rapidjson/blob/73063f5002612c6bf64fe24f851cd5cc0d83eef9/include/rapidjson/document.h#L1289
+static size_t RapidJson_growing_policy(size_t capacity, size_t elem_size)
+{
+    size_t kDefaultObjectCapacity = 16;
+
+    assert(elem_size > 0);
+
+    return capacity = 0 ? kDefaultObjectCapacity : (capacity + (capacity + 1) / 2);
+}
+
+
+// https://github.com/GNOME/glib/blob/3693bc52ad7e9402bd46bcf19e2acdf699102382/glib/garray.c#L792
+static size_t GArray_growing_policy(size_t capacity, size_t elem_size)
+{
+    size_t new_capacity = 1;
+
+    assert(elem_size > 0);
+
+    while (new_capacity < capacity && new_capacity > 0)
+        new_capacity <<= 1;
+
+    return new_capacity ? new_capacity : capacity;
+}
+
+
+static size_t calc_new_capacity(size_t capacity, size_t elem_size)
+{
+    return RapidJson_growing_policy(capacity, elem_size);
+}
+
+
+static bool is_dyarr(dyarr_t arr)
+{
+    return arr != NULL && arr->magic == DYARR_TYPEID && arr->elem_size > 0;
+}
+
+
+static size_t calc_real_size(size_t new_size, bool zero_terminated)
+{
+    return new_size + (zero_terminated ? 1 : 0);
+}
+
+
+static size_t dyarr_real_size(dyarr_t arr)
+{
+    return calc_real_size(dyarr_size(arr), dyarr_zero_terminated(arr));
+}
+
+
+static void dyarr_free_impl(dyarr_t *parr, bool delete_data)
+{
+    assert(parr != NULL && is_dyarr(*parr));
+
+    if (delete_data)
+        free((*parr)->data);
+    free(*parr);
+    *parr = NULL;
+}
+
+
+#define ELEM_PTR(arr, i) ((arr)->data + (arr)->elem_size * i)
+
+
+dyarr_t dyarr_new(size_t elem_size, bool zero_terminated, bool delete_data)
+{
+    return dyarr_sized_new(elem_size, 0, zero_terminated, delete_data);
+}
+
+
+dyarr_t dyarr_sized_new(size_t elem_size, size_t size, bool zero_terminated, bool delete_data)
+{
+    dyarr_t arr;
+
+    assert(elem_size > 0);
+
+    arr = calloc(1, sizeof(struct dyarr_t));
+    if (arr == NULL)
+        return NULL;
+
+    arr->magic = DYARR_TYPEID;
+    arr->elem_size = elem_size;
+    arr->zero_terminated = zero_terminated;
+    arr->delete_data = delete_data;
+
+    if (!dyarr_resize(arr, size))
+    {
+        dyarr_free(&arr);
+        return NULL;
+    }
+
+    return arr;
+}
+
+
+dyarr_t dyarr_wrap(void *data, size_t elem_size, size_t size, bool zero_terminated, bool delete_data)
+{
+    dyarr_t arr;
+
+    assert(data != NULL && size > 0);
+    assert(elem_size > 0);
+
+    arr = calloc(1, sizeof(struct dyarr_t));
+    if (arr == NULL)
+        return NULL;
+
+    arr->magic = DYARR_TYPEID;
+    arr->elem_size = elem_size;
+    arr->size = size;
+    arr->capacity = calc_real_size(size, zero_terminated);
+    arr->data = data;
+    arr->zero_terminated = zero_terminated;
+    arr->delete_data = delete_data;
+    
+    return arr;
+}
+
+
+dyarr_t dyarr_copy(dyarr_t arr)
+{
+    dyarr_t copy;
+
+    if (arr == NULL)
+        return NULL;
+
+    assert(is_dyarr(arr));
+
+    copy = calloc(1, sizeof(struct dyarr_t));
+    if (copy == NULL)
+        return NULL;
+
+    copy->magic = DYARR_TYPEID;
+    copy->elem_size = arr->elem_size;
+    copy->zero_terminated = arr->zero_terminated;
+    copy->delete_data = true;
+
+    if (!dyarr_reserve(copy, arr->capacity))
+    {
+        dyarr_free(&copy);
+        return NULL;
+    }
+
+    memcpy(copy->data, arr->data, arr->elem_size * arr->size);
+    return copy;
+}
+
+
+void dyarr_clear(dyarr_t arr)
+{
+    dyarr_resize(arr, 0);
+}
+
+
+bool dyarr_resize(dyarr_t arr, size_t size)
+{
+    size_t real_size;
+
+    if (!is_dyarr(arr))
+        return false;
+
+    real_size = calc_real_size(size, arr->zero_terminated);
+    if (arr->capacity < real_size)
+    {
+        if (!dyarr_reserve(arr, real_size))
+            return false;
+    }
+
+    arr->size = size;
+    return true;
+}
+
+
+bool dyarr_reserve(dyarr_t arr, size_t capacity)
+{
+    void *buffer;
+
+    if (!is_dyarr(arr))
+        return false;
+
+    if (capacity < dyarr_real_size(arr))
+        return false;
+
+    buffer = realloc(arr->data, capacity * arr->elem_size);
+    if (buffer != NULL)
+    {
+        memset(ELEM_PTR(arr, arr->capacity), 0, (capacity - arr->capacity) * arr->elem_size);
+        arr->data = buffer;
+        arr->capacity = capacity;
+        return true;
+    }
+    
+    return false;
+}
+
+
+void dyarr_free(dyarr_t *parr)
+{
+    if (parr == NULL)
+        return;
+
+    assert(is_dyarr(*parr));
+
+    dyarr_free_impl(parr, (*parr)->delete_data);
+}
+
+
+bool dyarr_extend(dyarr_t arr, dyarr_t arr2)
+{
+    if (!is_dyarr(arr2))
+        return false;
+
+    if (dyarr_empty(arr2))
+        return true;
+
+    return dyarr_append(arr, arr2->data, arr2->size);
+}
+
+
+void *dyarr_data(dyarr_t arr)
+{
+    if (!is_dyarr(arr))
+        return NULL;
+
+    return arr->data;
+}
+
+
+void *dyarr_at(dyarr_t arr, size_t i)
+{
+    if (!is_dyarr(arr))
+        return NULL;
+
+    if (i > arr->size || (i == arr->size && !arr->zero_terminated))
+        return NULL;
+
+    return ELEM_PTR(arr, i);
+}
+
+
+bool dyarr_asign(dyarr_t arr, size_t pos, void *data)
+{
+    if (!is_dyarr(arr))
+        return false;
+
+    if (pos >= arr->size)
+        return false;
+
+    assert(data != NULL);
+    memcpy(ELEM_PTR(arr, pos), data, arr->elem_size);
+    return true;
+}
+
+
+bool dyarr_prepend(dyarr_t arr, void *data, size_t size)
+{
+    size_t old_size;
+
+    if (!is_dyarr(arr))
+        return false;
+
+    assert(data != NULL && size > 0);
+    old_size = arr->size;
+    if (!dyarr_resize(arr, arr->size + size))
+        return false;
+
+    memmove(ELEM_PTR(arr, size), arr->data, old_size * arr->elem_size);
+    memcpy(arr->data, data, size * arr->elem_size);
+    return true;
+}
+
+
+bool dyarr_append(dyarr_t arr, void *data, size_t size)
+{
+    size_t old_size;
+
+    if (!is_dyarr(arr))
+        return false;
+
+    assert(data != NULL && size > 0);
+    old_size = arr->size;
+    if (!dyarr_resize(arr, arr->size + size))
+        return false;
+
+    memcpy(ELEM_PTR(arr, old_size), data, size * arr->elem_size);
+    return true;
+}
+
+
+bool dyarr_push_front(dyarr_t arr, void *data)
+{
+    return dyarr_prepend(arr, data, 1);
+}
+
+
+bool dyarr_pop_front(dyarr_t arr, void *data)
+{
+    if (!is_dyarr(arr))
+        return false;
+
+    if (dyarr_empty(arr))
+        return false;
+
+    if (data != NULL)
+        memcpy(data, arr->data, arr->elem_size);
+
+    memmove(arr->data, ELEM_PTR(arr, 1), arr->elem_size);
+    arr->size -= 1;
+
+    return true;
+}
+
+
+bool dyarr_push_back(dyarr_t arr, void *data)
+{
+    return dyarr_append(arr, data, 1);
+}
+
+
+bool dyarr_pop_back(dyarr_t arr, void *data)
+{
+    if (!is_dyarr(arr))
+        return false;
+
+    if (dyarr_empty(arr))
+        return false;
+
+    if (data != NULL)
+        memcpy(data, dyarr_last(arr), arr->elem_size);
+
+    arr->size -= 1;
+
+    return true;
+}
+
+
+bool dyarr_zero_terminated(dyarr_t arr)
+{
+    assert(is_dyarr(arr));
+    return arr->zero_terminated;
+}
+
+
+size_t dyarr_elem_size(dyarr_t arr)
+{
+    assert(is_dyarr(arr));
+    return arr->elem_size;
+}
+
+
+size_t dyarr_size(dyarr_t arr)
+{
+    assert(is_dyarr(arr));
+    return arr->size;
+}
+
+
+size_t dyarr_capacity(dyarr_t arr)
+{
+    assert(is_dyarr(arr));
+    return arr->capacity;
+}
+
+
 // References:
+// https://en.wikipedia.org/wiki/Dynamic_array
 // https://github.com/torch/tds/blob/master/tds_vec.h
+// https://developer.gnome.org/glib/stable/glib-Arrays.html
+// https://github.com/GNOME/glib/blob/master/glib/garray.c
+// https://www.ibm.com/developerworks/linux/tutorials/l-glib/index.html
+// https://opensource.apple.com/source/CF/
+// https://en.wikipedia.org/wiki/Core_Foundation
+// https://opensource.apple.com/source/CF/CF-855.17/CFArray.h.auto.html
+// https://github.com/tboox/tbox/blob/master/src/tbox/container/vector.c
+// cprops/vector.h
+// https://segmentfault.com/a/1190000007675747
