@@ -788,13 +788,41 @@ size_t dyarr_capacity(dyarr_t arr)
 
 size_t dyarr_find_if(dyarr_t arr, equal_fn_t equal_fn, void *equal_fn_rhs, size_t pos)
 {
+    size_t i;
 
+    assert(is_dyarr(arr));
+    assert(equal_fn != NULL);
+
+    if (pos >= arr->size)
+        return INVALID_INDEX;
+
+    for (i = pos; i < arr->size; ++i)
+    {
+        if (equal_fn(ELEM_PTR(arr, i), equal_fn_rhs))
+            return i;
+    }
+
+    return INVALID_INDEX;
 }
 
 
 size_t dyarr_rfind_if(dyarr_t arr, equal_fn_t equal_fn, void *equal_fn_rhs, size_t pos)
 {
+    size_t i;
 
+    assert(is_dyarr(arr));
+    assert(equal_fn != NULL);
+
+    if (pos >= arr->size)
+        return INVALID_INDEX;
+
+    for (i = 0; i <= pos; ++i)
+    {
+        if (equal_fn(ELEM_PTR(arr, pos - i), equal_fn_rhs))
+            return pos - i;
+    }
+
+    return INVALID_INDEX;
 }
 
 
