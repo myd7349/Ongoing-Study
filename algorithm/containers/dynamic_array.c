@@ -12,6 +12,7 @@
 struct dyarr_t
 {
     unsigned magic;
+    size_t fixed_size;
     size_t elem_size;
     size_t size;
     size_t capacity;
@@ -134,6 +135,7 @@ dyarr_t dyarr_sized_new(size_t elem_size, size_t size, bool zero_terminated, boo
         return NULL;
 
     arr->magic = DYARR_TYPEID;
+    arr->fixed_size = false;
     arr->elem_size = elem_size;
     arr->zero_terminated = zero_terminated;
     arr->delete_data = delete_data;
@@ -148,7 +150,7 @@ dyarr_t dyarr_sized_new(size_t elem_size, size_t size, bool zero_terminated, boo
 }
 
 
-dyarr_t dyarr_wrap(void *data, size_t elem_size, size_t size, bool zero_terminated, bool delete_data)
+dyarr_t dyarr_wrap(void *data, size_t elem_size, size_t size, bool zero_terminated, bool fixed_size, bool delete_data)
 {
     dyarr_t arr;
 
@@ -160,6 +162,7 @@ dyarr_t dyarr_wrap(void *data, size_t elem_size, size_t size, bool zero_terminat
         return NULL;
 
     arr->magic = DYARR_TYPEID;
+    arr->fixed_size = fixed_size;
     arr->elem_size = elem_size;
     arr->size = size;
     arr->capacity = calc_real_size(size, zero_terminated);
@@ -232,14 +235,18 @@ bool dyarr_reserve(dyarr_t arr, size_t capacity)
     if (!is_dyarr(arr))
         return false;
 
+    if (arr->fixed_size)
+        return false;
+
     if (capacity < dyarr_real_size(arr))
         return false;
 
     buffer = realloc(arr->data, capacity * arr->elem_size);
     if (buffer != NULL)
     {
-        memset(ELEM_PTR(arr, arr->capacity), 0, (capacity - arr->capacity) * arr->elem_size);
         arr->data = buffer;
+        if (capacity > arr->capacity)
+            memset(ELEM_PTR(arr, arr->capacity), 0, (capacity - arr->capacity) * arr->elem_size);
         arr->capacity = capacity;
         return true;
     }
@@ -497,7 +504,7 @@ size_t dyarr_index(dyarr_t arr, size_t pos, void *data)
 
         for (i = pos; i < arr->size; ++i)
         {
-            if (compare_uint8_t(arr_data[i], rhs) == 0)
+            if (compare_uint8_t(arr_data + i, rhs) == 0)
                 return i;
         }
     }
@@ -510,7 +517,7 @@ size_t dyarr_index(dyarr_t arr, size_t pos, void *data)
 
         for (i = pos; i < arr->size; ++i)
         {
-            if (compare_uint16_t(arr_data[i], rhs) == 0)
+            if (compare_uint16_t(arr_data + i, rhs) == 0)
                 return i;
         }
     }
@@ -523,7 +530,7 @@ size_t dyarr_index(dyarr_t arr, size_t pos, void *data)
 
         for (i = pos; i < arr->size; ++i)
         {
-            if (compare_uint32_t(arr_data[i], rhs) == 0)
+            if (compare_uint32_t(arr_data + i, rhs) == 0)
                 return i;
         }
     }
@@ -536,7 +543,7 @@ size_t dyarr_index(dyarr_t arr, size_t pos, void *data)
 
         for (i = pos; i < arr->size; ++i)
         {
-            if (compare_uint64_t(arr_data[i], rhs) == 0)
+            if (compare_uint64_t(arr_data + i, rhs) == 0)
                 return i;
         }
     }
@@ -572,7 +579,7 @@ size_t dyarr_rindex(dyarr_t arr, size_t pos, void *data)
         uint8_t *arr_data = (uint8_t *)arr->data;
         for (i = 0; i <= pos; ++i)
         {
-            if (compare_uint8_t(arr_data[pos - i], data) == 0)
+            if (compare_uint8_t(arr_data + pos - i, data) == 0)
                 return pos - i;
         }
     }
@@ -583,7 +590,7 @@ size_t dyarr_rindex(dyarr_t arr, size_t pos, void *data)
         uint16_t *arr_data = (uint16_t *)arr->data;
         for (i = 0; i <= pos; ++i)
         {
-            if (compare_uint16_t(arr_data[pos - i], data) == 0)
+            if (compare_uint16_t(arr_data + pos - i, data) == 0)
                 return pos - i;
         }
     }
@@ -594,7 +601,7 @@ size_t dyarr_rindex(dyarr_t arr, size_t pos, void *data)
         uint32_t *arr_data = (uint32_t *)arr->data;
         for (i = 0; i <= pos; ++i)
         {
-            if (compare_uint32_t(arr_data[pos - i], data) == 0)
+            if (compare_uint32_t(arr_data + pos - i, data) == 0)
                 return pos - i;
         }
     }
@@ -605,7 +612,7 @@ size_t dyarr_rindex(dyarr_t arr, size_t pos, void *data)
         uint64_t *arr_data = (uint64_t *)arr->data;
         for (i = 0; i <= pos; ++i)
         {
-            if (compare_uint64_t(arr_data[pos - i], data) == 0)
+            if (compare_uint64_t(arr_data + pos - i, data) == 0)
                 return pos - i;
         }
     }
@@ -779,16 +786,16 @@ size_t dyarr_capacity(dyarr_t arr)
 }
 
 
-//size_t dyarr_find_if(dyarr_t arr, equal_fn_t equal_fn, void *equal_fn_rhs, size_t offset)
-//{
-//
-//}
-//
-//
-//size_t dyarr_rfind_if(dyarr_t arr, equal_fn_t equal_fn, void *equal_fn_rhs, size_t pos)
-//{
-//
-//}
+size_t dyarr_find_if(dyarr_t arr, equal_fn_t equal_fn, void *equal_fn_rhs, size_t pos)
+{
+
+}
+
+
+size_t dyarr_rfind_if(dyarr_t arr, equal_fn_t equal_fn, void *equal_fn_rhs, size_t pos)
+{
+
+}
 
 
 void dyarr_sort(dyarr_t arr, cmp_fn_t cmp_fn)

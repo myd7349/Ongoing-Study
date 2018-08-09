@@ -16,7 +16,7 @@ typedef struct dyarr_t *dyarr_t;
 
 dyarr_t dyarr_new(size_t elem_size, bool zero_terminated, bool delete_data);
 dyarr_t dyarr_sized_new(size_t elem_size, size_t size, bool zero_terminated, bool delete_data);
-dyarr_t dyarr_wrap(void *data, size_t elem_size, size_t size, bool zero_terminated, bool delete_data);
+dyarr_t dyarr_wrap(void *data, size_t elem_size, size_t size, bool zero_terminated, bool fixed_size, bool delete_data);
 dyarr_t dyarr_copy(dyarr_t arr);
 void dyarr_clear(dyarr_t arr);
 bool dyarr_resize(dyarr_t arr, size_t size);
@@ -53,7 +53,7 @@ size_t dyarr_capacity(dyarr_t arr);
 size_t dyarr_find_if(dyarr_t arr, equal_fn_t equal_fn, void *equal_fn_rhs, size_t pos);
 size_t dyarr_rfind_if(dyarr_t arr, equal_fn_t equal_fn, void *equal_fn_rhs, size_t pos);
 void dyarr_sort(dyarr_t arr, cmp_fn_t cmp_fn);
-void dyarr_apply(dyarr_t arr, void(*apply_fn)(size_t, void *));
+void dyarr_apply(dyarr_t arr, void (*apply_fn)(size_t, void *));
 
 #define dyarr_empty(arr) (dyarr_size((arr)) == 0)
 #define dyarr_first(arr) dyarr_at((arr), 0)
