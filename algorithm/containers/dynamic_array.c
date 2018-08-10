@@ -740,7 +740,24 @@ size_t dyarr_count(dyarr_t arr, void *data)
     }
 
     return count;
+}
 
+
+size_t dyarr_count_if(dyarr_t arr, equal_fn_t equal_fn, void *equal_fn_rhs)
+{
+    size_t i;
+    size_t count = 0;
+
+    assert(is_dyarr(arr));
+    assert(equal_fn != NULL);
+
+    for (i = 0; i < arr->size; ++i)
+    {
+        if (equal_fn(ELEM_PTR(arr, i), equal_fn_rhs))
+            count += 1;
+    }
+
+    return count;
 }
 
 

@@ -42,6 +42,7 @@ size_t dyarr_index(dyarr_t arr, size_t pos, void *data);
 size_t dyarr_rindex(dyarr_t arr, size_t pos, void *data);
 bool dyarr_reverse(dyarr_t arr);
 size_t dyarr_count(dyarr_t arr, void *data);
+size_t dyarr_count_if(dyarr_t arr, equal_fn_t equal_fn, void *equal_fn_rhs);
 bool dyarr_get_delete_data(dyarr_t arr);
 void dyarr_set_delete_data(dyarr_t arr, bool delete_data);
 
