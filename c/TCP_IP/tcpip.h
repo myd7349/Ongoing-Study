@@ -1,7 +1,7 @@
 #ifndef TCP_IP_H_
 #define TCP_IP_H_
 
-#ifdef WIN32
+#ifdef _WIN32
 
 #ifndef UNICODE
 #define UNICODE
@@ -39,20 +39,28 @@
 }
 
 typedef ADDRINFOT addrinfo_t;
+typedef SOCKET socket_t;
 
 #define getnameinfo GetNameInfo
 #define getaddrinfo GetAddrInfo
 #define freeaddrinfo FreeAddrInfo
 #define inet_ntop InetNtop
 #define inet_pton InetPton
+#define closesock closesocket
+
+#define print_error(func_name, error) \
+    _ftprintf(stderr, func_name _T(" failed(%d): %s\n"), (error), gai_strerror((error)))
+#define print_error_ex(func_name) print_error(func_name, WSAGetLastError())
 
 #else
 
 #include <arpa/inet.h>
+#include <errno.h>
 #include <limits.h> // HOST_NAME_MAX
 #include <netdb.h>
 #include <netinet/in.h>
 #include <unistd.h> // gethostname
+#include <stdio.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 
@@ -62,10 +70,20 @@ typedef ADDRINFOT addrinfo_t;
 #define _istalpha isalpha
 #define _tprintf printf
 #define _ftprintf fprintf
+#define _tcstol strtol
 
 #define TCP_IP_INIT() ((void)0)
 
 typedef struct addrinfo addrinfo_t;
+typedef int socket_t;
+
+#define INVALID_SOCKET (-1)
+
+#define closesock close
+
+#define print_error(func_name, error) \
+    _ftprintf(stderr, func_name _T(" failed(%d): %s\n"), (error), gai_strerror((error)))
+#define print_error_ex(func_name) print_error(func_name, errno)
 
 #endif
 
