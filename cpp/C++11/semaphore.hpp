@@ -30,7 +30,7 @@ public:
 
         std::unique_lock<std::mutex> lock(mutex_);
 
-#if 0
+#if 1
         cond_.wait(lock, [&,this] { return avail_ >= n; });
 #else
         while (avail_ < n)
