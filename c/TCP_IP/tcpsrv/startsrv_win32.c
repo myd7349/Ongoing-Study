@@ -20,16 +20,15 @@ typedef struct
 
 static unsigned int __stdcall worker_routine(worker_context_t *ctx)
 {
-    _TCHAR welcome[256];
     _TCHAR message[1024];
     int length;
     unsigned id = (unsigned)GetCurrentThreadId();
 
     assert(ctx != NULL);
 
-    _stprintf(welcome, _T("Welcome! Worker [%u] is serving you!\n"), id);
+    _stprintf(message, _T("Welcome! Worker [%u] is serving you!\n"), id);
 
-    if (send(ctx->sockfd, (const char *)welcome, (_tcslen(welcome) + 1) * sizeof(_TCHAR), 0) != SOCKET_ERROR)
+    if (send(ctx->sockfd, (const char *)message, (_tcslen(message) + 1) * sizeof(_TCHAR), 0) != SOCKET_ERROR)
     {
         while (ctx->running)
         {
@@ -163,7 +162,7 @@ static bool spawn_worker_thread(const _TCHAR *ip, socket_t sockfd, dyarr_t worke
 }
 
 
-void start_server(socket_t sockfd)
+int start_server(socket_t sockfd)
 {
     struct sockaddr_storage client_addr;
     socklen_t sin_size;
@@ -171,13 +170,14 @@ void start_server(socket_t sockfd)
     socket_t client_sockfd;
     dyarr_t workers = dyarr_new(sizeof(worker_context_t), false, true);
     size_t i;
+    int error_code = EXIT_SUCCESS;
 
     assert(sockfd != INVALID_SOCKET);
 
     if (workers == NULL)
     {
         fprintf(stderr, "No enough memory!\n");
-        return;
+        return EXIT_FAILURE;
     }
 
     while (true)
@@ -196,7 +196,10 @@ void start_server(socket_t sockfd)
         {
             _ftprintf(stdout, _T("Got connection from: %s.\n"), ipstr);
             if (!spawn_worker_thread(ipstr, client_sockfd, workers))
+            {
+                error_code = EXIT_FAILURE;
                 break;
+            }
         }
         else
         {
@@ -226,6 +229,8 @@ void start_server(socket_t sockfd)
     }
 
     dyarr_free(&workers);
+
+    return error_code;
 }
 #endif
 

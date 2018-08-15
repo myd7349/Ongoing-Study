@@ -68,9 +68,13 @@ typedef SOCKET socket_t;
 #define _TCHAR char
 #define _T(x) x
 #define _istalpha isalpha
+#define _stprintf sprintf
 #define _tprintf printf
 #define _ftprintf fprintf
 #define _tcstol strtol
+#define _tcscmp strcmp
+#define _tcslen strlen
+#define _tcsupr strupr
 
 #define TCP_IP_INIT() ((void)0)
 
@@ -78,6 +82,7 @@ typedef struct addrinfo addrinfo_t;
 typedef int socket_t;
 
 #define INVALID_SOCKET (-1)
+#define SOCKET_ERROR (-1)
 
 #define closesock close
 
