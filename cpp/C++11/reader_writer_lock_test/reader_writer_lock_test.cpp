@@ -4,6 +4,7 @@
 #include <typeinfo>
 
 #include "../../Stopwatch.h"
+#include "../../Win32/SDK/SRWLock.h"
 #include "../reader_writer_lock.hpp"
 
 
@@ -76,6 +77,34 @@ private:
 };
 
 
+class SRWLockAdapter
+{
+public:
+    void AcquireReaderLock()
+    {
+        lock_.LockShared();
+    }
+
+    void ReleaseReaderLock()
+    {
+        lock_.UnlockShared();
+    }
+
+    void AcquireWriterLock()
+    {
+        lock_.Lock();
+    }
+
+    void ReleaseWriterLock()
+    {
+        lock_.Unlock();
+    }
+
+private:
+    mutable SRWLock lock_;
+};
+
+
 template <typename RWLockT>
 int test()
 {
@@ -141,6 +170,7 @@ int main()
     test<ReaderPreferringReaderWriterLock>();
     test<WriterPreferringReaderWriterLock>();
     test<SharedMutexAdapter>();
+    test<SRWLockAdapter>();
 
     return 0;
 }
