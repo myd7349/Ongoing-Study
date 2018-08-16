@@ -24,13 +24,17 @@
 
 static unsigned int __stdcall WorkingRoutine(void *arg)
 {
+    HANDLE hEvent = arg;
     DWORD dwResult;
     DWORD dwMs = INTERVAL_DEFAULT;
 
     MSG msg;
     // We need a message queue.
-    PeekMessage(&msg, NULL, WM_USER, WM_USER, PM_NOREMOVE);
+    PeekMessage(&msg, NULL, 0, 0, PM_NOREMOVE);
 
+    SetEvent(hEvent);
+
+#if 0
     while ((dwResult = MsgWaitForMultipleObjectsEx(
         NUMBER_OF_HANDLES, NULL, 0, QS_ALLEVENTS, MWMO_ALERTABLE)) != WAIT_FAILED)
     {
@@ -78,6 +82,44 @@ static unsigned int __stdcall WorkingRoutine(void *arg)
             _tprintf(_T("[%u] No Way!!!\n"), (unsigned)GetCurrentThreadId());
         }
     }
+#else
+    UNREFERENCED_PARAMETER(dwResult);
+
+    while (TRUE)
+    {
+        if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+        {
+            _tprintf(_T("[%u] Received message %u.\n"), (unsigned)GetCurrentThreadId(), (unsigned)msg.message);
+
+            if (msg.message == UM_QUIT)
+                break;
+
+            switch (msg.message)
+            {
+            case UM_SPEED_UP:
+                dwMs = max(dwMs / 2, INTERVAL_MIN);
+                _tprintf(_T("[%u] Current interval is %ums.\n"), (unsigned)GetCurrentThreadId(), (unsigned)dwMs);
+                break;
+            case UM_SLOW_DOWN:
+                dwMs = min(dwMs * 2, INTERVAL_MAX);
+                _tprintf(_T("[%u] Current interval is %ums.\n"), (unsigned)GetCurrentThreadId(), (unsigned)dwMs);
+                break;
+            case UM_RESET:
+                dwMs = INTERVAL_DEFAULT;
+                _tprintf(_T("[%u] Current interval is %ums.\n"), (unsigned)GetCurrentThreadId(), (unsigned)dwMs);
+                break;
+            default:
+                assert(0);
+                break;
+            }
+        }
+        else
+        {
+            _puttc(_T('.'), stdout);
+            Sleep(dwMs);
+        }
+    }
+#endif
 
     return 0;
 }
@@ -87,16 +129,23 @@ int _tmain(int argc, _TCHAR **argv)
 {
     int ch;
     unsigned int uThreadId;
-    HANDLE hWorkingThread = (HANDLE)_beginthreadex(
+    HANDLE hWorkingThread;
+
+    HANDLE hEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
+    if (hEvent == NULL)
+        return 1;
+    
+    hWorkingThread = (HANDLE)_beginthreadex(
         NULL,
         0,
         WorkingRoutine,
-        NULL,
+        hEvent,
         CREATE_SUSPENDED,
         &uThreadId);
 
     if (NULL == hWorkingThread)
     {
+        CloseHandle(hEvent);
         _ftprintf(stderr, _T("Creating working thread failed!\n"));
         return EXIT_FAILURE;
     }
@@ -104,6 +153,12 @@ int _tmain(int argc, _TCHAR **argv)
     ResumeThread(hWorkingThread);
 
     SetConsoleTitle(_T("Q/Esc: Quit    >/+: Speed up    </-: Slow down    R: Reset"));
+
+    // This thread has to wait for the new thread to init
+    // its globals and msg queue.
+    WaitForSingleObject(hEvent, INFINITE);
+    CloseHandle(hEvent);
+    hEvent = NULL;
 
     while (1)
     {
@@ -135,4 +190,4 @@ int _tmain(int argc, _TCHAR **argv)
 // References:
 // [Multi-threaded Client/Server Socket Class](https://www.codeproject.com/articles/2477/multi-threaded-client-server-socket-class)
 // Ongoing-Study/c/Win32/Execute.c
-// Multithreading Applications in Win32, Chapter 05
+// Multithreading Applications in Win32, Chapter 05, Chapter 14
