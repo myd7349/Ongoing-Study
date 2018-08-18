@@ -1,45 +1,20 @@
 #include "tcpopt.h"
 
 #include <assert.h>
-#include <limits.h>
-#include <stdlib.h>
+#include <errno.h>
+#include <string.h>
 
-
-bool is_long(const _TCHAR *s, long *target)
-{
-    long value;
-    _TCHAR *endptr;
-
-    assert(s != NULL);
-
-    value = _tcstol(s, &endptr, 0);
-    if (errno == ERANGE || s == endptr || *endptr != _T('\0'))
-        return false;
-
-    if (target != NULL)
-        *target = value;
-
-    return true;
-}
+#include "../ttoi.h"
 
 
 bool is_int(const _TCHAR *s, int *target)
 {
-    long value;
-    bool res = is_long(s, &value);
-
-    if (!res)
-        return false;
-
-#if LONG_MIN < INT_MIN || LONG_MAX > INT_MAX
-    if (value < INT_MIN || value > INT_MAX)
-        return false;
-#endif
-
+    bool ok;
+    int value = ttoi(s, &ok);
     if (target != NULL)
-        *target = (int)value;
+        *target = value;
 
-    return true;
+    return ok;
 }
 
 

@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "../../common.h"
 #include "../../ttoi.h"
@@ -235,4 +236,5 @@ int _tmain(int argc, _TCHAR *argv[])
 
 
 // References:
+// Beej's Guide to Network Programming Using Internet Sockets, Ch6.2
 // https://www.gnu.org/software/libc/manual/html_node/Getopt.html

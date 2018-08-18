@@ -17,6 +17,7 @@
 #define _T(x) x
 #define _istalpha isalpha
 #define _stprintf sprintf
+#define _tscanf scanf
 #define _tprintf printf
 #define _ftprintf fprintf
 #define _tcstol strtol
