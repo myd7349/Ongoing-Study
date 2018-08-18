@@ -7,6 +7,7 @@
 // What predefined macro can I use to detect clang/gcc/msvc?
 // http://nadeausoftware.com/articles/2012/10/c_c_tip_how_detect_compiler_name_and_version_using_compiler_predefined_macros
 // http://stackoverflow.com/questions/2658461/what-predefined-macro-can-i-use-to-detect-clang
+// https://stackoverflow.com/questions/2989810/which-cross-platform-preprocessor-defines-win32-or-win32-or-win32
 #if defined(__clang__)
 //# define TYPE_NAME(exp) (typeid(exp).name())
 # error Not tested yet!
