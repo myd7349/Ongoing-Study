@@ -60,3 +60,4 @@ namespace Common
 // References:
 // [Func vs. Action vs. Predicate](http://stackoverflow.com/questions/4317479/func-vs-action-vs-predicate)
 // [OngoingStudy/c#/Console/GetApplicationPath]
+// https://stackoverflow.com/questions/616584/how-do-i-get-the-name-of-the-current-executable-in-c
