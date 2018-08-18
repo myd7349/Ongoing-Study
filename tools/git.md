@@ -76,3 +76,8 @@ git submodule update --remote
 git merge --abort
 ```
 
+
+[Revert local changes](https://stackoverflow.com/questions/1146973/how-do-i-revert-all-local-changes-in-git-managed-project-to-previous-state)
+```bash
+git checkout .
+```
