@@ -1,6 +1,8 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 
-set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_DIR}\\scripts\\buildsystems\\vcpkg.cmake")
+if(WIN32)
+    set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_DIR}/scripts/buildsystems/vcpkg.cmake")
+endif()
 
 project(isprime_unittest)
 
