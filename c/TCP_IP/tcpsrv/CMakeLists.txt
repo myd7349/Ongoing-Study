@@ -6,5 +6,6 @@ add_executable (tcpsrv
 	"startsrv_posix.c"
 	"../get_in_addr.c"
 	"../tcpopt.c"
+        "../../ttoi.c"
 	"../../../algorithm/containers/dynamic_array.c"
 	)
