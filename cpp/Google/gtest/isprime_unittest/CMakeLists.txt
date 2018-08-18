@@ -1,5 +1,7 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 
+set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_DIR}\\scripts\\buildsystems\\vcpkg.cmake")
+
 project(isprime_unittest)
 
 enable_testing()
@@ -26,3 +28,4 @@ add_test(AllTests isprime_unittest)
 
 # References:
 # FindGTest.cmake
+# https://github.com/queezythegreat/arduino-cmake/issues/38
