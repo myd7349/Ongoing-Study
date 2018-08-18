@@ -38,7 +38,10 @@ int main(int argc, char *argv[])
     }
 
     for (index = optind; index < argc; ++index)
+    {
         fprintf(stderr, "Unknown option: %s\n", argv[index]);
+        exit(EXIT_FAILURE);
+    }
 
     printf("Host: %s:%s\n", host, port);
 
