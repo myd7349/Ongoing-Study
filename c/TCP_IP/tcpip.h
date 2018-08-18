@@ -1,20 +1,13 @@
 #ifndef TCP_IP_H_
 #define TCP_IP_H_
 
+#include "../tchardef.h"
+
 #ifdef _WIN32
-
-#ifndef UNICODE
-#define UNICODE
-#endif
-
-#ifndef _UNICODE
-#define _UNICODE
-#endif
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <tchar.h>
 #include <WinSock2.h>
 #include <WS2tcpip.h>
 
@@ -64,17 +57,6 @@ typedef SOCKET socket_t;
 #include <sys/types.h>
 #include <sys/socket.h>
 
-#define _tmain main
-#define _TCHAR char
-#define _T(x) x
-#define _istalpha isalpha
-#define _stprintf sprintf
-#define _tprintf printf
-#define _ftprintf fprintf
-#define _tcstol strtol
-#define _tcscmp strcmp
-#define _tcslen strlen
-#define _tcsupr strupr
 
 #define TCP_IP_INIT() ((void)0)
 
