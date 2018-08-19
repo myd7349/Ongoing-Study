@@ -122,5 +122,4 @@ int _tmain(int argc, _TCHAR *argv[])
 
 // References:
 // Beej's Guide to Network Programming Using Internet Sockets, Ch6.1
-// https://stackoverflow.com/questions/22865622/atoi-vs-atol-vs-strtol-vs-strtoul-vs-sscanf
 // Ongoing-study/cpp/CMake/encoding_test

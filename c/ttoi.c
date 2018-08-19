@@ -44,3 +44,7 @@ int ttoi(const _TCHAR *s, bool *ok)
 
     return (int)value;
 }
+
+
+// References:
+// https://stackoverflow.com/questions/22865622/atoi-vs-atol-vs-strtol-vs-strtoul-vs-sscanf
