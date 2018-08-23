@@ -5,8 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../ttoi.h"
-#include "../get_in_addr.h"
+#include "../ttoi.h"
+#include "get_in_addr.h"
 
 #include <getopt.h>
 
@@ -170,7 +170,7 @@ int _tmain(int argc, _TCHAR *argv[])
         if (inet_ntop(aiptr->ai_family, get_in_addr(aiptr->ai_addr),
             ipstr, sizeof(ipstr) / sizeof(ipstr[0])) != NULL)
         {
-            _ftprintf(stdout, _T("Client is running on %s:%s.\n"), ipstr, options.serv);
+            _ftprintf(stdout, _T("Client connected to %s:%s.\n"), ipstr, options.serv);
         }
         else
         {
