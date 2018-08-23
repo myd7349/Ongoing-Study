@@ -4,6 +4,7 @@ project (tcpclient C)
 
 add_executable (tcpclient
     "tcpclient.c"
+    "start_client.c"
 	"../get_in_addr.c"
 	"../../ttoi.c")
 
