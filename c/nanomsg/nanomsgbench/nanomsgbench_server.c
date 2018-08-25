@@ -1,3 +1,4 @@
+#include <inttypes.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -88,8 +89,8 @@ int main()
     data_rate_Bps = bytes_sent * 1000.0L / ellapsed_ms;
 
     printf(
-        "Total sent: %lld bytes | %.2Lf KiB | %.2Lf MiB\n"
-        "Times ellipsed: %lld ms\n"
+        "Total sent: %" PRId64 " bytes | %.2Lf KiB | %.2Lf MiB\n"
+        "Times ellipsed: %" PRId64 "ms\n"
         "Data Rate: %.2Lf %s | %.2Lf %s | %.2Lf %s | %.2Lf %s\n",
         bytes_sent, bytes_sent / 1024.0L, bytes_sent / 1024.0L / 1024.0,
         ellapsed_ms,

@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <inttypes.h>
 #include <stdint.h>
 
 #include "../../../algorithm/misc/data_rate_unit.h"
@@ -46,8 +47,8 @@ void start_client(socket_t sockfd, const _TCHAR *ipstr)
     data_rate_Bps = total_bytes_received * 1000.0L / ellapsed_ms;
 
     printf(
-        "Total received: %lld bytes | %.2Lf KiB | %.2Lf MiB\n"
-        "Times ellipsed: %lld ms\n"
+        "Total received: %" PRId64 " bytes | %.2Lf KiB | %.2Lf MiB\n"
+        "Times ellipsed: %" PRId64 " ms\n"
         "Data Rate: %.2Lf %s | %.2Lf %s | %.2Lf %s | %.2Lf %s\n",
         total_bytes_received, total_bytes_received / 1024.0L, total_bytes_received / 1024.0L / 1024.0,
         ellapsed_ms,

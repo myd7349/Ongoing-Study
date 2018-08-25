@@ -65,7 +65,7 @@ int64_t high_timer_ellapsed_ms(high_timer_t *timer)
 
     if (timer->started)
     {
-        gettimeofday(stop, NULL);
+        gettimeofday(&stop, NULL);
         return (int64_t)((stop.tv_sec - timer->start_time.tv_sec) * 1000.0
             + (stop.tv_usec - timer->start_time.tv_usec) / 1000.0);
     }
