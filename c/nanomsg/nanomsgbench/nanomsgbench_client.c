@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
 
     while (1)
     {
-        if ((result = nn_send(socket, (--turns == 0 ? "Q" : "Y"), 1, 0)) < 0)
+        if ((result = nn_send(socket, (turns-- == 0 ? "Q" : "Y"), 1, 0)) < 0)
             FATAL_ERROR("nn_send");
 
         if ((result = nn_recv(socket, msg, sizeof(msg), 0)) < 0)

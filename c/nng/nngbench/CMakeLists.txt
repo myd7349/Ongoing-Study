@@ -8,6 +8,8 @@ project(nngbench C)
 
 find_package(nng CONFIG REQUIRED)
 
+option(USE_NNG_FLAG_ALLOC "Use NNG_FLAG_ALLOC flag" ON)
+
 add_executable(nngbench_client
     "nngbench_client.c"
     "../../high_timer.c"
@@ -21,6 +23,10 @@ target_link_libraries(nngbench_server PRIVATE nng::nng)
 target_link_libraries(nngbench_client PRIVATE nng::nng)
 
 add_definitions(-D_CRT_SECURE_NO_WARNINGS=1 -D_CRT_NONSTDC_NO_DEPRECATE=1)
+
+if(USE_NNG_FLAG_ALLOC)
+    add_definitions(-DUSE_NNG_FLAG_ALLOC=1)
+endif()
 
 # References:
 # https://stackoverflow.com/questions/34937671/cmake-how-to-check-if-preprocessor-is-defined

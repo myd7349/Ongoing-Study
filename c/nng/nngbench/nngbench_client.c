@@ -24,19 +24,31 @@
 
 void wait_for_the_starting_gun(nng_socket socket)
 {
+#if USE_NNG_FLAG_ALLOC
+    void *msg = NULL;
+#else
     char msg[260];
+#endif
     size_t bytes;
     int result;
 
     if ((result = nng_send(socket, READY_MSG, strlen(READY_MSG) + 1, 0)) != 0)
         FATAL_ERROR("nng_send", result);
 
+#if USE_NNG_FLAG_ALLOC
+    if ((result = nng_recv(socket, &msg, &bytes, NNG_FLAG_ALLOC)) != 0)
+#else
     bytes = sizeof(msg);
     if ((result = nng_recv(socket, msg, &bytes, 0)) != 0)
+#endif
         FATAL_ERROR("nng_recv", result);
 
     assert(bytes == strlen(READY_MSG) + 1);
     assert(strcmp(msg, READY_MSG) == 0);
+
+#if USE_NNG_FLAG_ALLOC
+    nng_free(msg, bytes);
+#endif
 
     puts(
         "And you run and you run to catch up with the sun, but it's sinking\n"
@@ -57,7 +69,13 @@ int main(int argc, char *argv[])
     long double data_rate_Bps;
     high_timer_t timer;
     char remote_endpoint[260] = "";
+
+#if USE_NNG_FLAG_ALLOC
+    void *msg = NULL;
+#else
     char msg[MAX_MSG_LEN];
+#endif
+
     size_t bytes;
 
     nng_socket socket;
@@ -108,20 +126,32 @@ int main(int argc, char *argv[])
 
     while (1)
     {
-        if ((result = nng_send(socket, (--turns == 0 ? "Q" : "Y"), 1, 0)) != 0)
+        if ((result = nng_send(socket, (turns-- == 0 ? "Q" : "Y"), 1, 0)) != 0)
             FATAL_ERROR("nng_send", result);
 
+#if USE_NNG_FLAG_ALLOC
+        if ((result = nng_recv(socket, &msg, &bytes, NNG_FLAG_ALLOC)) != 0)
+#else
         bytes = sizeof(msg);
         if ((result = nng_recv(socket, msg, &bytes, 0)) != 0)
+#endif
             FATAL_ERROR("nng_recv", result);
 
-        if (bytes == 1 && msg[0] == 'Q')
+        if (bytes == 1 && *(const char *)msg == 'Q')
         {
+#if USE_NNG_FLAG_ALLOC
+            nng_free(msg, bytes);
+#endif
+
             puts("Received 'Q' from server.");
             break;
         }
         else
         {
+#if USE_NNG_FLAG_ALLOC
+            nng_free(msg, bytes);
+#endif
+
             total_bytes_received += bytes;
         }
     }
@@ -150,3 +180,4 @@ int main(int argc, char *argv[])
 // References:
 // https://nanomsg.org/gettingstarted/nng/reqrep.html
 // https://www.cnblogs.com/fullsail/p/4285215.html
+// https://nanomsg.github.io/nng/man/v1.0.0/nng_recv.3.html

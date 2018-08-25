@@ -25,11 +25,19 @@
 void the_starting_gun(nng_socket socket)
 {
     int result;
+#if USE_NNG_FLAG_ALLOC
+    void *msg = NULL;
+#else
     char msg[256];
+#endif
     size_t bytes;
 
+#if USE_NNG_FLAG_ALLOC
+    if ((result = nng_recv(socket, &msg, &bytes, NNG_FLAG_ALLOC)) != 0)
+#else
     bytes = sizeof(msg);
     if ((result = nng_recv(socket, msg, &bytes, 0)) != 0)
+#endif
         FATAL_ERROR("nng_recv", result);
 
     assert(bytes == strlen(READY_MSG) + 1);
@@ -48,7 +56,10 @@ int main()
     int64_t ellapsed_ms;
     long double data_rate_Bps;
     high_timer_t timer;
+
+    void *request_msg = NULL;
     char reply_msg[MAX_MSG_LEN] = "";
+
     size_t size;
 
     nng_socket socket;
@@ -66,13 +77,13 @@ int main()
 
     while (1)
     {
-        size = sizeof(reply_msg);
-        if ((result = nng_recv(socket, reply_msg, &size, 0)) != 0)
+        if ((result = nng_recv(socket, &request_msg, &size, NNG_FLAG_ALLOC)) != 0)
             FATAL_ERROR("nng_recv", result);
 
-        if (size == 1 && reply_msg[0] == 'Q')
+        if (size == 1 && *(const char *)request_msg == 'Q')
         {
             puts("Received 'Q' from client.");
+            nng_free(request_msg, size);
 
             if ((result = nng_send(socket, "Q", 1, 0)) != 0)
                 FATAL_ERROR("nng_send", result);
@@ -81,6 +92,8 @@ int main()
         }
         else
         {
+            nng_free(request_msg, size);
+
             if ((result = nng_send(socket, reply_msg, sizeof(reply_msg), 0)) != 0)
                 FATAL_ERROR("nng_send", result);
 
