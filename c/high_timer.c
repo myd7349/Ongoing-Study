@@ -54,6 +54,7 @@ void high_timer_start(high_timer_t *timer)
     assert(timer != NULL);
 
     gettimeofday(&timer->start_time, NULL);
+    timer->started = true;
 }
 
 int64_t high_timer_ellapsed_ms(high_timer_t *timer)
