@@ -33,7 +33,7 @@ void the_starting_gun(int socket)
     assert(bytes == strlen(READY_MSG) + 1);
     assert(strcmp(msg, READY_MSG) == 0);
 
-    if ((bytes == nn_send(socket, msg, bytes, 0)) < 0)
+    if ((bytes = nn_send(socket, msg, bytes, 0)) < 0)
         FATAL_ERROR("nn_send");
 
     puts("Hey you! Do not help them to bury the light.");
