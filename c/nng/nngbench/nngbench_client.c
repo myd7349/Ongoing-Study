@@ -182,3 +182,4 @@ int main(int argc, char *argv[])
 // https://nanomsg.org/gettingstarted/nng/reqrep.html
 // https://www.cnblogs.com/fullsail/p/4285215.html
 // https://nanomsg.github.io/nng/man/v1.0.0/nng_recv.3.html
+// https://github.com/nanomsg/nng/issues/560

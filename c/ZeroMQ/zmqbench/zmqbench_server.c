@@ -147,3 +147,7 @@ int main()
 
     return 0;
 }
+
+
+// References:
+// https://github.com/nanomsg/nng/issues/560

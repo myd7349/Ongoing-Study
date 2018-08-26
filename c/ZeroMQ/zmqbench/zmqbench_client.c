@@ -187,3 +187,4 @@ int main(int argc, char *argv[])
 
 // References:
 // https://www.cnblogs.com/fullsail/p/4285215.html
+// https://github.com/nanomsg/nng/issues/560
