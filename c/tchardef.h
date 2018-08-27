@@ -22,8 +22,12 @@
 #define _ftprintf fprintf
 #define _tcstol strtol
 #define _tcscmp strcmp
+#define _tcscpy strcpy
+#define _tcsncpy strncpy
 #define _tcslen strlen
 #define _tcsupr strupr
+#define _tcschr strchr
+#define _tcsrchr strrchr
 
 #else
 
