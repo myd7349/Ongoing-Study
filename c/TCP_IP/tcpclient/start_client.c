@@ -6,8 +6,6 @@
 #include "../../common.h"
 #include "../get_in_addr.h"
 
-#include <getopt.h>
-
 
 #define MSG_MAX_LEN 1024
 

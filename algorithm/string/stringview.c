@@ -90,3 +90,4 @@ const _TCHAR *stringview_tostr_insitu(stringview_t view)
 
 // References:
 // http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/errno.h.html
+// cppreference:strncpy

@@ -2,11 +2,18 @@
 
 project (tcpclient C)
 
+add_definitions(-D_CRT_SECURE_NO_WARNINGS=1)
+
 add_executable (tcpclient
     "tcpclient.c"
     "start_client.c"
-	"../get_in_addr.c"
-	"../../ttoi.c")
+    "../get_in_addr.c"
+    "../options.c"
+    "../../getprogname.c"
+    "../../ttoi.c"
+    "../../../algorithm/string/stringview.c"
+    "../../../algorithm/string/substr.c"
+    )
 
 # Currently, find_package does work with `getopt-win32` when using vcpkg.
 if(WIN32)

@@ -2,13 +2,19 @@ cmake_minimum_required(VERSION 3.8)
 
 project(tcpbench C)
 
+add_definitions(-D_CRT_SECURE_NO_WARNINGS=1)
+
 add_executable(tcpbench_client
     "start_client.c"
     "../tcpclient.c"
     "../get_in_addr.c"
+    "../options.c"
     "../sendall.c"
+    "../../getprogname.c"
     "../../high_timer.c"
     "../../ttoi.c"
+    "../../../algorithm/string/stringview.c"
+    "../../../algorithm/string/substr.c"
     )
 add_executable(tcpbench_server
     "start_server.c"

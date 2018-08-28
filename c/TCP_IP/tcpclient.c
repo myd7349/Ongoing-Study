@@ -1,103 +1,14 @@
 ﻿#include <assert.h>
 #include <locale.h>
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "../ttoi.h"
 #include "get_in_addr.h"
-
-#include <getopt.h>
+#include "options.h"
 
 
 #define MSG_MAX_LEN 1024
-
-
-typedef struct
-{
-    const _TCHAR *host;
-    const _TCHAR *serv;
-    int           ipver;
-} client_option_t;
-
-
-bool parse_options(int argc, _TCHAR *argv[], client_option_t *options)
-{
-    const char *usage =
-        "Usage:\n"
-        "  tcpclient <options>\n\n"
-        "Options:\n"
-        "  --host,-H   Specify host name\n"
-        "  --serv,-S   Specify service name\n"
-        "  --ipver,-I  Specify IP version {0|4|6}\n"
-        "  --help,-h   Show help message";
-
-    struct option long_options[] =
-    {
-        { _T("host"), required_argument, NULL, _T('H') },
-        { _T("serv"), required_argument, NULL, _T('S') },
-        { _T("ipver"), required_argument, NULL, _T('I') },
-        { _T("help"), no_argument, NULL, _T('h') },
-        { NULL, 0, NULL, 0 }
-    };
-
-    int c;
-    int option_index;
-    bool ok;
-
-    assert(options != NULL);
-
-    options->host = options->serv = NULL;
-    options->ipver = AF_UNSPEC;
-
-    while ((c = getopt_long(argc, argv, _T("H:S:I:h"), long_options, &option_index)) != -1)
-    {
-        switch (c)
-        {
-        case _T('H'):
-            options->host = optarg;
-            break;
-        case _T('S'):
-            options->serv = optarg;
-            break;
-        case _T('I'):
-            options->ipver = ttoi(optarg, &ok);
-            if (!ok || options->ipver != 0 && options->ipver != 4 && options->ipver != 6)
-            {
-                _ftprintf(stderr, _T("Invalid IP version number: '%s'.\n"), optarg);
-                return false;
-            }
-
-            switch (options->ipver)
-            {
-            case 0: options->ipver = AF_UNSPEC; break;
-            case 4: options->ipver = AF_INET; break;
-            case 6: options->ipver = AF_INET6; break;
-            }
-            break;
-        case _T('h'):
-            puts(usage);
-            return false;
-            break;
-        case '?':
-            return false;
-            break;
-        default:
-            fprintf(stderr, "?? getopt_long returned character code 0%o ??\n", c);
-            return false;
-            break;
-        }
-    }
-
-    if (options->host == NULL && options->serv == NULL)
-    {
-        fprintf(stderr, "At least one of '--host', '--serv' should be specified.\n");
-        return false;
-    }
-
-    return true;
-}
 
 
 extern void start_client(socket_t sockfd, const _TCHAR *ipstr);
@@ -105,7 +16,7 @@ extern void start_client(socket_t sockfd, const _TCHAR *ipstr);
 
 int _tmain(int argc, _TCHAR *argv[])
 {
-    client_option_t options;
+    option_t options;
 
     addrinfo_t hints;
     addrinfo_t *ailist = NULL, *aiptr = NULL;
