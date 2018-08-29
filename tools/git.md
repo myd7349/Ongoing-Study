@@ -37,7 +37,7 @@ git reset HEAD~
 
 [Undo the most recent push:](http://christoph.ruegg.name/blog/git-howto-revert-a-commit-already-pushed-to-a-remote-reposit.html)
 ```
-git reset HEAD^ --hard
+git reset HEAD^ [--hard]
 git push -f
 ```
 
@@ -81,3 +81,36 @@ git merge --abort
 ```bash
 git checkout .
 ```
+
+
+[Delete a remote branch](https://makandracards.com/makandra/621-git-delete-a-branch-local-or-remote)
+```bash
+git push origin --delete <remote_branch_name>
+```
+
+
+[Specify author when committing](https://www.amazon.com/Version-Control-Git-collaborative-development/dp/1449316387)
+```bash
+git commit -m "Initial commit" --author="abc abc@def.com"
+```
+
+
+[Show difference between two commits](https://www.amazon.com/Version-Control-Git-collaborative-development/dp/1449316387)
+```bash
+git diff 34217e9 ec232cd
+```
+
+[Rename a file](https://www.amazon.com/Version-Control-Git-collaborative-development/dp/1449316387)
+
+```bash
+mv foo.html bar.html
+git rm foo.html
+git add bar.html
+```
+
+or
+
+```bash
+git mv foo.html bar.html
+```
+
