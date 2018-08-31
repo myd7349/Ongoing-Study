@@ -123,6 +123,8 @@ int main(int argc, char *argv[])
         }
     }
 
+    nn_close(socket);
+
     ellapsed_ms = high_timer_ellapsed_ms(&timer);
     data_rate_Bps = total_bytes_received * 1000.0L / ellapsed_ms;
 

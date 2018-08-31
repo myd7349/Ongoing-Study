@@ -85,6 +85,8 @@ int main()
         }
     }
 
+    nn_close(socket);
+
     ellapsed_ms = high_timer_ellapsed_ms(&timer);
     data_rate_Bps = bytes_sent * 1000.0L / ellapsed_ms;
 
