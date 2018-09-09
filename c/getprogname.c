@@ -42,3 +42,7 @@ _TCHAR *getprogname(const _TCHAR *argv0)
 
     return substr(argv0, pos, count);
 }
+
+
+// References:
+// libuv:uv_get_process_title

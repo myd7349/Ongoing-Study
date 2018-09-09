@@ -16,3 +16,14 @@ index d6f75cf..1d2cfdf 100755
         find_package(PkgConfig REQUIRED)
 
 ```
+
+
+2 [TODO List](https://github.com/itchio/capsule/blob/master/README.md)
+
+### Linux
+
+  * Control
+    * [x] X11 recording hotkey support (hardcoded to F9)
+  * Video
+    * [x] OpenGL capture
+    * [ ] Vulkan capture

@@ -114,3 +114,11 @@ or
 git mv foo.html bar.html
 ```
 
+
+[Commit changes to a new branch](https://stackoverflow.com/questions/14655816/how-to-commit-changes-to-new-branch)
+```bash
+git checkout -b your-new-branch
+git add <files>
+git commit -m <message>
+git push origin your-new-branch
+```
