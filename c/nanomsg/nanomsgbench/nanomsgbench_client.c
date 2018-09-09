@@ -1,5 +1,4 @@
 #include <inttypes.h>
-#include <limits.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,6 +9,8 @@
 
 #include "../../../algorithm/misc/data_rate_unit.h"
 #include "../../high_timer.h"
+#include "../../TCP_IP/ipv4.h"
+
 
 #define MAX_MSG_LEN (1024 * 128)
 #define READY_MSG   ("Pink Floyd: Time")
@@ -67,30 +68,18 @@ int main(int argc, char *argv[])
     }
     else if (argc == 2)
     {
-        unsigned short ip_addr[4] = { 260, 260, 260, 260 };
-        unsigned int port = 65537;
-
-        //sscanf(argv[1], "%hu%*[^.].%hu%*[^.].%hu%*[^.].%hu%*[^:]:%u",
-        sscanf(argv[1], "%hu . %hu . %hu . %hu : %u",
-            ip_addr + 0, ip_addr + 1, ip_addr + 2, ip_addr + 3, &port);
-
-        if (ip_addr[0] == 260 || ip_addr[0] == 260 || ip_addr[0] == 260 || ip_addr[0] == 260 || port > USHRT_MAX)
+        if (!ptohost(argv[1], NULL, true))
         {
-#ifndef NDEBUG
-            printf("%hu.%hu.%hu.%hu:%u\n", ip_addr[0], ip_addr[1], ip_addr[2], ip_addr[3], port);
-#endif
-            puts("Usage:\n  zmqbench_client <*.*.*.*:port>\n  (Example: zmqbench_client 127.0.0.1:5678)");
-            return 1;
+            puts("Usage:\n  nanomsgbench_client <*.*.*.*:port>\n  (Example: nanomsgbench_client 127.0.0.1:5678)");
+            return EXIT_FAILURE;
         }
 
-        sprintf(remote_endpoint, "tcp://%hu.%hu.%hu.%hu:%u",
-            ip_addr[0], ip_addr[1], ip_addr[2], ip_addr[3], port);
-
+        sprintf(remote_endpoint, "tcp://%s", argv[1]);
         printf("Remote endpoint: %s\n", remote_endpoint);
     }
     else
     {
-        puts("Usage:\n  zmqbench_client <host:port>");
+        puts("Usage:\n  nanomsgbench_client <host:port>");
         return 1;
     }
 
@@ -146,4 +135,3 @@ int main(int argc, char *argv[])
 
 // References:
 // https://nanomsg.org/gettingstarted/reqrep.html
-// https://www.cnblogs.com/fullsail/p/4285215.html

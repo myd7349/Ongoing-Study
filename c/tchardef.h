@@ -24,6 +24,7 @@
 #define _istalpha isalpha
 #define _stprintf sprintf
 #define _tscanf scanf
+#define _stscanf sscanf
 #define _fgetts fgets
 #define _tprintf printf
 #define _ftprintf fprintf
