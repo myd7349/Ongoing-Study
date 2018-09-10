@@ -101,7 +101,7 @@ int main(int argc, char *argv[])
     }
     else
     {
-        puts("Usage:\n  zmqbench_client <host:port>");
+        puts("Usage:\n  nngbench_client <host:port>");
         return 1;
     }
 

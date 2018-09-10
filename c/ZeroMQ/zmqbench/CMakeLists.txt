@@ -6,11 +6,20 @@ endif()
 
 project(zmqbench C)
 
+if(WIN32)
+    if(MSVC)
+        add_definitions(-D_CRT_SECURE_NO_WARNINGS=1 -D_CRT_NONSTDC_NO_DEPRECATE=1)
+    endif()
+
+    add_definitions(-DUSING_UNICODE=0)
+endif()
+
 find_package(ZeroMQ CONFIG REQUIRED)
 
 add_executable(zmqbench_client
     "zmqbench_client.c"
     "../../high_timer.c"
+    "../../TCP_IP/ipv4.c"
     )
 add_executable(zmqbench_server
     "zmqbench_server.c"
