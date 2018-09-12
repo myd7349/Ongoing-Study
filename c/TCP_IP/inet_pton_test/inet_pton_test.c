@@ -8,6 +8,15 @@
 #include "../tcpip.h"
 
 
+#if USE_USER_DEFINED_NTOP_PTON
+# include "../inet_ntop.h"
+# include "../inet_pton.h"
+
+# define inet_ntop inet_ntop_c
+# define inet_pton inet_pton_c
+#endif
+
+
 int _tmain(int argc, _TCHAR *argv[])
 {
     int af;
@@ -15,7 +24,7 @@ int _tmain(int argc, _TCHAR *argv[])
     unsigned char buf[sizeof(struct in6_addr)];
     _TCHAR addr[INET6_ADDRSTRLEN];
 
-    if (argc != 2)
+    if (argc > 2)
     {
         _TCHAR *prog = getprogname(argv[0]);
         _ftprintf(stdout, _T("Usage:\n  %s <host>\n"), prog);
@@ -26,8 +35,8 @@ int _tmain(int argc, _TCHAR *argv[])
 
     TCP_IP_INIT();
 
-    af = ptohost(argv[1], NULL, false) ? AF_INET : AF_INET6;
-    result = inet_pton(af, argv[1], buf);
+    af = ptohost(argc == 2 ? argv[1] : _T("127.0.0.1"), NULL, false) ? AF_INET : AF_INET6;
+    result = inet_pton(af, argc == 2 ? argv[1] : _T("127.0.0.1"), buf);
     
     if (result != 1)
     {
