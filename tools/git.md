@@ -122,3 +122,9 @@ git add <files>
 git commit -m <message>
 git push origin your-new-branch
 ```
+
+
+[Pretty git branch graphs](https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs)
+```bash
+git log --all --decorate --oneline --graph
+```
