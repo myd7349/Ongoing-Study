@@ -526,6 +526,7 @@ int GetSerialPortNumber(LPCTSTR lpcszName)
     return -1;
 }
 
+// TortoiseGit/src/Utils/CreateProcessHelper.h
 DWORD Execute(LPCTSTR lpcszCmdline, WORD wShowWindow, BOOL bSync)
 {
     STARTUPINFO si = { sizeof(STARTUPINFO) };
