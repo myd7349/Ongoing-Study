@@ -47,9 +47,7 @@ int wmain(int argc, wchar_t *argv[])
     DoubleItem pi(ini, L"", L"PI", 3.14159265358);
     DoubleItem e(ini, L"", L"e", 2.71828);
 
-    bool ok;
-    IPv4AddressItem ipv4(ini, L"Server", L"IP-2",
-        ConfigItemConverter<IN_ADDR>().FromString(L"0.0.0.0", ok));
+    IPv4AddressItem ipv4(ini, L"Server", L"IP-2", L"0.0.0.0");
 
     if (!PathFileExists(iniPath.c_str()))
     {
@@ -76,6 +74,7 @@ int wmain(int argc, wchar_t *argv[])
     portNumber.SetValue(2026);
 
     std::cout << LoadItem(ini, L"Server", L"Port", 2333) << std::endl;
+    std::wcout << ConfigItemConverter<IN_ADDR>().ToString(LoadItem<IN_ADDR>(ini, L"Server", L"IP-2", L"0.0.0.0")) << std::endl;
 
     {
         IN_ADDR inAddr = ipv4.GetValue();

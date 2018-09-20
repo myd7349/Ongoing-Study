@@ -29,6 +29,33 @@ struct ConfigItem
             Load();
     }
 
+    // When T = StringT, this form will be identical to the one above.
+    // So you are not allowed to use ConfigItem<const char *, char> or
+    // ConfigItem<const wchar_t *, wchar_t>.
+    // Given that these two kind of usages are also unsafe, I think the
+    // potential ambiguity is not a big deal. 
+    // If you really want to define a string-likely ConfigItem, use
+    // ConfigItem<std::string, char>/ConfigItem<std::wstring, wchar_t> instead.
+    ConfigItem(IConfigItemProvider<CharT> &provider,
+        StringT section, StringT name, StringT defaultValue,
+        bool autoSync = true, ConverterT converter = ConverterT())
+        : provider_(provider)
+        , section_(section)
+        , name_(name)
+        , autoSync_(autoSync)
+        , dirty_(false)
+        , converter_(converter)
+    {
+        assert(section != nullptr);
+        assert(name != nullptr);
+
+        bool ok;
+        value_ = default_ = converter_.FromString(defaultValue, ok, T());
+
+        if (autoSync_)
+            Load();
+    }
+
     ~ConfigItem()
     {
         if (autoSync_ && dirty_)
@@ -149,8 +176,15 @@ private:
 template <typename T, typename CharT>
 inline T LoadItem(IConfigItemProvider<CharT> &provider, const CharT *section, const CharT *name, T defaultValue)
 {
-    ConfigItem<T, CharT, ConfigItemConverter<T, CharT>> configItem(provider, section, name, defaultValue);
-    configItem.Load();
+    ConfigItem<T, CharT, ConfigItemConverter<T, CharT>> configItem(provider, section, name, defaultValue, true);
+    return configItem.GetValue();
+}
+
+
+template <typename T, typename CharT>
+inline T LoadItem(IConfigItemProvider<CharT> &provider, const CharT *section, const CharT *name, const CharT *defaultValue)
+{
+    ConfigItem<T, CharT, ConfigItemConverter<T, CharT>> configItem(provider, section, name, defaultValue, true);
     return configItem.GetValue();
 }
 

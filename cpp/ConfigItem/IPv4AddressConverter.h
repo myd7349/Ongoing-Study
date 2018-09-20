@@ -16,13 +16,13 @@
 #include "ConfigItemConverter.hpp"
 
 
-bool operator==(IN_ADDR lhs, IN_ADDR rhs)
+inline bool operator==(IN_ADDR lhs, IN_ADDR rhs)
 {
     return lhs.s_addr == rhs.s_addr;
 }
 
 
-bool operator!=(IN_ADDR lhs, IN_ADDR rhs)
+inline bool operator!=(IN_ADDR lhs, IN_ADDR rhs)
 {
     return !operator==(lhs, rhs);
 }
