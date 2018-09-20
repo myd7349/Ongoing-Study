@@ -38,13 +38,19 @@ inline IN_ADDR ConfigItemConverter<IN_ADDR, wchar_t>::FromString(StringT s, bool
     }
 
     IN_ADDR ip = { 0 };
+
 #if defined(RtlIpv4StringToAddress)
     ok = RtlIpv4StringToAddressW(s, FALSE, NULL, &ip) == NO_ERROR;
 #elif defined(InetPton)
     ok = InetPtonW(AF_INET, s, &ip) == 1;
 #else
-# error inet_aton
+    char ipStringA[16] = "";
+    
+    ok = WideCharToMultiByte(CP_ACP, 0, s, -1, ipStringA, ARRAYSIZE(ipStringA), NULL, NULL) != 0;
+    if (ok)
+        ip.s_addr = inet_addr(ipStringA);
 #endif
+
     return ok ? ip : defaultValue;
 }
 
@@ -63,7 +69,13 @@ inline std::wstring ConfigItemConverter<IN_ADDR, wchar_t>::ToString(IN_ADDR ip) 
     else
         return L"";
 #else
-# error inet_ntoa
+    char *ipStringA = inet_ntoa(ip);
+
+    if (ipStringA != NULL &&
+        MultiByteToWideChar(CP_ACP, 0, ipStringA, -1, ipString, ARRAYSIZE(ipString)) != 0)
+        return ipString;
+    else
+        return L"";
 #endif
 }
 
