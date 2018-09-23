@@ -128,3 +128,10 @@ git push origin your-new-branch
 ```bash
 git log --all --decorate --oneline --graph
 ```
+
+
+https://stackoverflow.com/questions/2765421/how-do-i-push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too
+
+https://stackoverflow.com/questions/67699/how-to-clone-all-remote-branches-in-git
+
+https://stackoverflow.com/questions/9537392/git-fetch-remote-branch

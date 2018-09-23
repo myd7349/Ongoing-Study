@@ -8,6 +8,10 @@
 #include <concurrentqueue.h>
 #include <readerwriterqueue.h>
 
+#ifdef HAS_BOOST
+# include <boost/thread/sync_queue.hpp>
+#endif
+
 
 static void BM_STL_queue(benchmark::State &state)
 {
@@ -152,11 +156,44 @@ static void BM_moodycamel_ReaderWriterQueue(benchmark::State &state)
 }
 
 
+static void BM_Boost_sync_queue(benchmark::State &state)
+{
+    double value;
+    boost::sync_queue<double> queue;
+
+    for (auto _ : state)
+    {
+        queue.push(3.1415926);
+        queue.push(2.71828);
+
+        queue.try_pull(value);
+
+        queue.push(3.1415926);
+
+        queue.try_pull(value);
+        queue.try_pull(value);
+        queue.try_pull(value);
+
+        queue.push(42);
+
+        queue.try_pull(value);
+
+        queue.push(0);
+
+        queue.try_pull(value);
+    }
+}
+
+
 BENCHMARK(BM_STL_queue);
 BENCHMARK(BM_MSVC_concurrent_queue);
 BENCHMARK(BM_moodycamel_BlockingConcurrentQueue);
 BENCHMARK(BM_moodycamel_ConcurrentQueue);
 BENCHMARK(BM_moodycamel_ReaderWriterQueue);
+
+#ifdef HAS_BOOST
+BENCHMARK(BM_Boost_sync_queue);
+#endif
 
 
 // References:
