@@ -2,9 +2,7 @@
 
 #include <string.h>
 
-#ifdef __linux__
-# include <strings.h>
-#endif
+#include "cmp.h"
 
 
 bool endswith(const _TCHAR *s, const _TCHAR *s2)
@@ -28,7 +26,7 @@ bool endswithex(const _TCHAR *s, const _TCHAR *s2, size_t count)
     if (slen < count)
         return false;
 
-    return _tcsncmp(s + (slen - count), s2, count) == 0;
+    return ncmp(s + (slen - count), s2, count) == 0;
 }
 
 
@@ -41,7 +39,7 @@ bool endswithiex(const _TCHAR *s, const _TCHAR *s2, size_t count)
     if (slen < count)
         return false;
 
-    return _tcsnicmp(s + (slen - count), s2, count) == 0;
+    return nicmp(s + (slen - count), s2, count) == 0;
 }
 
 

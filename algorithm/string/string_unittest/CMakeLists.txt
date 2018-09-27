@@ -18,6 +18,7 @@ add_executable(string_unittest
     "../substr.c"
 	"../startswith.c"
 	"../endswith.c"
+	"../cmp.c"
     )
 
 target_link_libraries(string_unittest GTest::GTest GTest::Main)
