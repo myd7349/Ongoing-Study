@@ -21,7 +21,9 @@ using ostream_t = std::ostream;
 
 #include "../../../cpp/C++11/circular_buffer.hpp"
 #include "../../../cpp/C++11/semaphore.hpp"
+#include "../../../cpp/common.h"
 #include "../../../cpp/dividing_lines.h"
+#undef ARRAYSIZE
 #include "../../../cpp/Stopwatch.h"
 
 
@@ -52,6 +54,17 @@ public:
         int slots = static_cast<int>(count);
         int timeout = 0;
 
+#if 0
+        while (!emptyCount_.TryAcquire(slots, timeout))
+        {
+            slots = std::min<int>(count, emptyCount_.Available());
+            if (slots == 0)
+                slots = count;
+
+            if (slots == 1)
+                timeout = -1;
+        }
+#else
         while (!emptyCount_.TryAcquire(slots, timeout))
         {
             if (slots > 1)
@@ -59,6 +72,7 @@ public:
             else
                 timeout = -1;
         }
+#endif
 
         count = static_cast<std::size_t>(slots);
 #else
@@ -87,6 +101,17 @@ public:
         int slots = static_cast<int>(count);
         int timeout = 0;
 
+#if 0
+        while (!fullCount_.TryAcquire(slots, timeout))
+        {
+            slots = std::min<int>(count, fullCount_.Available());
+            if (slots == 0)
+                slots = count;
+
+            if (slots == 1)
+                timeout = -1;
+        }
+#else
         while (!fullCount_.TryAcquire(slots, timeout))
         {
             if (slots > 1)
@@ -94,6 +119,7 @@ public:
             else
                 timeout = -1;
         }
+#endif
 
         count = static_cast<std::size_t>(slots);
 #else
@@ -327,7 +353,7 @@ void Test0()
 
     sw.Stop();
 
-    std::cout << "Test Done: " << context.IsTestPassed() << ". Ellapsed ms: " << sw.GetElapsedMilliseconds() << std::endl;
+    std::cout << "Test Done: " << context.IsTestPassed() << ". Ellapsed time: " << sw.GetElapsedMilliseconds() << "ms\n";
 }
 
 
@@ -367,18 +393,26 @@ void Test1()
         t.join();
 
     sw.Stop();
+    std::cout << "Ellapsed time: " << sw.GetElapsedMilliseconds() << "ms" << std::endl;
 
-    std::cout << "Test Done: " << context.IsTestPassed() << ". Ellapsed ms: " << sw.GetElapsedMilliseconds() << std::endl;
+    std::cout << "Checking if test is passed...\n";
 
+    sw.Restart();
+    bool ok = context.IsTestPassed();
+    sw.Stop();
+
+    std::cout << "It takes " << sw.GetElapsedMilliseconds() << "ms to figure out if test is passed." << std::endl;
+    std::cout << "Is test passed? " << std::boolalpha << ok << std::endl;
 }
 
 
 int main()
 {
     Test0();
-    Test1();
+    PAUSE();
 
-    std::getchar();
+    Test1();
+    PAUSE();
 
     return 0;
 }
@@ -394,3 +428,4 @@ int main()
 // https://github.com/PacktPublishing/Cpp-High-Performance/blob/master/Chapter10/producer_consumer.cpp
 // https://stackoverflow.com/questions/6/374264/is-cout-synchronized-thread-safe
 // Ongoing-Study/cpp/C++11/varadic_template_test
+// http://pages.cs.wisc.edu/~remzi/OSTEP/threads-cv.pdf
