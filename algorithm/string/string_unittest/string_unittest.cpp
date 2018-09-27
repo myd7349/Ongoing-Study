@@ -3,6 +3,8 @@
 #include <cstring>
 #include <memory>
 
+#include "../endswith.h"
+#include "../startswith.h"
 #include "../stringview.h"
 #include "../substr.h"
 
@@ -61,6 +63,71 @@ TEST(StringTest, Test_stringview_substr_insitu)
     EXPECT_EQ(substr_insitu(_T("datadata.txt"), 4, 7), static_cast<const _TCHAR *>(NULL));
     EXPECT_STREQ(substr_insitu(_T("datadata.txt"), 4, 8), _T("data.txt"));
     EXPECT_STREQ(substr_insitu(_T("datadata.txt"), 4, 9), _T("data.txt"));
+}
+
+
+TEST(StringTest, Test_startswith)
+{
+    EXPECT_TRUE(startswith(_T("Hello, world!"), _T("")));
+    EXPECT_TRUE(startswith(_T("Hello, world!"), _T("H")));
+    EXPECT_TRUE(startswith(_T("Hello, world!"), _T("He")));
+    EXPECT_TRUE(startswith(_T("Hello, world!"), _T("Hel")));
+    EXPECT_TRUE(startswith(_T("Hello, world!"), _T("Hell")));
+    EXPECT_TRUE(startswith(_T("Hello, world!"), _T("Hello")));
+    EXPECT_TRUE(startswith(_T("Hello, world!"), _T("Hello,")));
+    EXPECT_TRUE(startswith(_T("Hello, world!"), _T("Hello, ")));
+    EXPECT_TRUE(startswith(_T("Hello, world!"), _T("Hello, w")));
+    EXPECT_TRUE(startswith(_T("Hello, world!"), _T("Hello, wo")));
+    EXPECT_TRUE(startswith(_T("Hello, world!"), _T("Hello, wor")));
+    EXPECT_TRUE(startswith(_T("Hello, world!"), _T("Hello, worl")));
+    EXPECT_TRUE(startswith(_T("Hello, world!"), _T("Hello, world")));
+    EXPECT_TRUE(startswith(_T("Hello, world!"), _T("Hello, world!")));
+
+    EXPECT_TRUE(startswith(_T("C:\\"), _T("")));
+    EXPECT_TRUE(startswith(_T("C:\\"), _T("C")));
+    EXPECT_TRUE(startswith(_T("C:\\"), _T("C:")));
+    EXPECT_TRUE(startswith(_T("C:\\"), _T("C:\\")));
+    EXPECT_FALSE(startswith(_T("C:\\"), _T("C:\\User")));
+
+    EXPECT_TRUE(startswithex(_T("C:\\"), _T("C:\\User"), 0));
+    EXPECT_TRUE(startswithex(_T("C:\\"), _T("C:\\User"), 1));
+    EXPECT_TRUE(startswithex(_T("C:\\"), _T("C:\\User"), 2));
+    EXPECT_TRUE(startswithex(_T("C:\\"), _T("C:\\User"), 3));
+
+    EXPECT_FALSE(startswith(_T("C:\\"), _T("c")));
+    EXPECT_FALSE(startswith(_T("C:\\"), _T("c:")));
+    EXPECT_FALSE(startswith(_T("C:\\"), _T("c:\\")));
+
+    EXPECT_TRUE(startswithi(_T("C:\\"), _T("")));
+    EXPECT_TRUE(startswithi(_T("C:\\"), _T("c")));
+    EXPECT_TRUE(startswithi(_T("C:\\"), _T("c:")));
+    EXPECT_TRUE(startswithi(_T("C:\\"), _T("c:\\")));
+}
+
+
+TEST(StringTest, Test_endswith)
+{
+    EXPECT_TRUE(endswith(_T("Hello, world!"), _T("")));
+    EXPECT_TRUE(endswith(_T("Hello, world!"), _T("!")));
+    EXPECT_TRUE(endswith(_T("Hello, world!"), _T("world!")));
+
+    EXPECT_FALSE(endswith(_T("Hello, world!"), _T("World!")));
+    EXPECT_TRUE(endswithi(_T("Hello, world!"), _T("World!")));
+
+    EXPECT_TRUE(endswith(_T("/usr/home/myd/a.out"), _T("a.out")));
+    EXPECT_TRUE(endswith(_T("/usr/home/myd/a.out"), _T(".out")));
+    EXPECT_TRUE(endswith(_T("/usr/home/myd/a.out"), _T("out")));
+
+    EXPECT_FALSE(endswith(_T("/usr/home/myd/a.out"), _T("a.Out")));
+    EXPECT_FALSE(endswith(_T("/usr/home/myd/a.out"), _T(".Out")));
+    EXPECT_FALSE(endswith(_T("/usr/home/myd/a.out"), _T("Out")));
+
+    EXPECT_TRUE(endswithi(_T("/usr/home/myd/a.out"), _T("a.Out")));
+    EXPECT_TRUE(endswithi(_T("/usr/home/myd/a.out"), _T(".Out")));
+    EXPECT_TRUE(endswithi(_T("/usr/home/myd/a.out"), _T("Out")));
+
+    EXPECT_FALSE(endswithex(_T("/usr/home/myd/a.out"), _T("b.out"), 3));
+    EXPECT_TRUE(endswithex(_T("/usr/home/myd/a.out"), _T("b.out"), 0));
 }
 
 

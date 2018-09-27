@@ -30,6 +30,8 @@
 #define _ftprintf fprintf
 #define _tcstol strtol
 #define _tcscmp strcmp
+#define _tcsicmp strcasecmp
+#define _tcsnicmp strncasecmp
 #define _tcscpy strcpy
 #define _tcsncpy strncpy
 #define _tcslen strlen
