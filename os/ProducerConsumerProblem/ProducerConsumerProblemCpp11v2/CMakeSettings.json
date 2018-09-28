@@ -10,13 +10,7 @@
       "installRoot": "${env.ProgramFiles(x86)}\\${name}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
-      "ctestCommandArgs": "",
-      "variables": [
-        {
-          "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "E:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
-        }
-      ]
+      "ctestCommandArgs": ""
     },
     {
       "name": "x86-Release",
@@ -27,13 +21,7 @@
       "installRoot": "${env.ProgramFiles(x86)}\\${name}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
-      "ctestCommandArgs": "",
-      "variables": [
-        {
-          "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "E:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
-        }
-      ]
+      "ctestCommandArgs": ""
     },
     {
       "name": "x64-Debug",
@@ -44,13 +32,7 @@
       "installRoot": "${env.ProgramFiles}\\${name}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
-      "ctestCommandArgs": "",
-      "variables": [
-        {
-          "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "E:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
-        }
-      ]
+      "ctestCommandArgs": ""
     },
     {
       "name": "x64-Release",
@@ -61,13 +43,7 @@
       "installRoot": "${env.ProgramFiles}\\${name}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
-      "ctestCommandArgs": "",
-      "variables": [
-        {
-          "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "E:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
-        }
-      ]
+      "ctestCommandArgs": ""
     }
   ]
 }
@@ -75,6 +51,3 @@
 // References:
 // https://github.com/Microsoft/vcpkg/issues/1094
 // https://github.com/Microsoft/vcpkg/blob/8379a80abe5288c7c06d5b9ab16efe355d1c6f62/docs/EXAMPLES.md#example-1-2-b
-
-// Notes:
-// Update VS2017 to lastest version, otherwise it may keep generating again and again.
