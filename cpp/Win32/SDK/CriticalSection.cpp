@@ -9,7 +9,7 @@ class CriticalSectionImpl
 public:
     CriticalSectionImpl()
     {
-        InitializeCriticalSection(&cs_);
+        InitializeCriticalSectionEx(&cs_, 4000, 0);
     }
 
     ~CriticalSectionImpl()
@@ -32,11 +32,17 @@ public:
         LeaveCriticalSection(&cs_);
     }
 
+    CRITICAL_SECTION *GetHandle()
+    {
+        return &cs_;
+    }
+
 private:
     CRITICAL_SECTION cs_;
 };
 
 
+#ifndef CRITICAL_SECTION_HEADER_ONLY
 CriticalSection::CriticalSection()
     : cs_(new CriticalSectionImpl())
 {
@@ -65,6 +71,12 @@ void CriticalSection::Unlock()
     cs_->Unlock();
 }
 
+
+void *CriticalSection::GetHandle()
+{
+    return cs_->GetHandle();
+}
+#endif
 
 // References:
 // Multithreading Applications in Win32, Ch09

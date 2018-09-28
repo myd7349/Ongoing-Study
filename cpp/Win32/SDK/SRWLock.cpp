@@ -46,9 +46,17 @@ public:
         ReleaseSRWLockShared(&lock_);
     }
 
+    SRWLOCK *GetHandle()
+    {
+        return &lock_;
+    }
+
 private:
     SRWLOCK lock_;
 };
+
+
+#ifndef SRWLOCK_HEADER_ONLY
 
 
 SRWLock::SRWLock()
@@ -96,6 +104,14 @@ void SRWLock::UnlockShared()
 {
     lock_->UnlockShared();
 }
+
+
+void *SRWLock::GetHandle()
+{
+    return lock_->GetHandle();
+}
+
+#endif
 
 
 // References:
