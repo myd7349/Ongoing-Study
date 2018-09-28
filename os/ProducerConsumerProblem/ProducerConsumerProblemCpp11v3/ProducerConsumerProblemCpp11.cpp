@@ -16,6 +16,7 @@
 
 #ifdef _WIN32
 #include "ProducerConsumerContextWin32.hpp"
+#include "ProducerConsumerContextWin32V2.hpp"
 #endif
 
 #if FOUND_PTHREADS
@@ -75,6 +76,7 @@ int main()
 #ifdef _WIN32
     Test<ProducerConsumerContextWin32<CriticalSection>>();
     Test<ProducerConsumerContextWin32<SRWLock>>();
+    Test<ProducerConsumerContextWin32V2>();
 #endif
 
 #if FOUND_PTHREADS
