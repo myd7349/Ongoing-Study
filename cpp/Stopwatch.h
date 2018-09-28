@@ -165,3 +165,9 @@ private:
 // https://www.zhihu.com/question/266754507
 // https://github.com/miloyip/nativejson-benchmark/blob/master/src/timer.h
 // https://docs.microsoft.com/zh-cn/windows/desktop/SysInfo/acquiring-high-resolution-time-stamps
+// https://currentmillis.com/
+// https://gamedev.stackexchange.com/questions/26759/best-way-to-get-elapsed-time-in-miliseconds-in-windows
+// https://stackoverflow.com/questions/3729169/how-can-i-get-the-windows-system-time-with-millisecond-resolution
+// https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/ia-32-ia-64-benchmark-code-execution-paper.pdf
+// https://www.linuxquestions.org/questions/programming-9/how-to-convert-tsc-cpu-cycles-into-seconds-in-c-833190/
+// https://msdn.microsoft.com/en-us/library/twchhe95.aspx

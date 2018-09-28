@@ -162,7 +162,16 @@ inline void Println(const Container &c)
 # define Verify(exp) assert(exp)
 #endif
 
+#ifdef _MSC_VER
+# define NOVTABLE __declspec(novtable)
+#else
+# define NOVTABLE
+#endif
+
 // To be continued...
 
 #endif // COMMON_H_
 // -- The End --
+
+// References:
+// https://stackoverflow.com/questions/1787752/is-there-a-g-equivalent-to-visual-studios-declspecnovtable

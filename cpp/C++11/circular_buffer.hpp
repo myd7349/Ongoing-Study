@@ -24,7 +24,7 @@ public:
 
     SizeT Tail() const noexcept
     {
-        return (head_ + size_) % Capacity();
+        return tail_;
     }
 
     SizeT Capacity() const noexcept
