@@ -13,6 +13,7 @@
             exit(1); \
     } while (0)
 
+#define DEBUG(fmt, ...) CLOG_IMPL(D, fmt, __VA_ARGS__)
 #define INFO(fmt, ...)  CLOG_IMPL(I, fmt, __VA_ARGS__)
 #define WARN(fmt, ...)  CLOG_IMPL(W, fmt, __VA_ARGS__)
 #define ERR(fmt, ...)   CLOG_IMPL(E, fmt, __VA_ARGS__)
