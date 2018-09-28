@@ -13,12 +13,14 @@
 #include "ProducerConsumerContextV1.hpp"
 #include "ProducerConsumerContextV2.hpp"
 #include "ProducerConsumerContextV3.hpp"
+
 #ifdef _WIN32
 #include "ProducerConsumerContextWin32.hpp"
 #endif
 
-
-#define ENABLE_LOGGING (0)
+#if FOUND_PTHREADS
+#include "ProducerConsumerContextPThreads.hpp"
+#endif
 
 
 template <typename ProducerConsumerContextT>
@@ -73,6 +75,10 @@ int main()
 #ifdef _WIN32
     Test<ProducerConsumerContextWin32<CriticalSection>>();
     Test<ProducerConsumerContextWin32<SRWLock>>();
+#endif
+
+#if FOUND_PTHREADS
+    Test<ProducerConsumerContextPThreads>();
 #endif
 
 #if !ENABLE_LOGGING
