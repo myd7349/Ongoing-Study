@@ -24,9 +24,8 @@ public:
         assert(fillPtr_ < buffer_.size());
         assert(size_ < buffer_.size());
 
-        auto reserved = buffer_.size() - size_;
-        if (count > reserved)
-            count = reserved;
+        if (count > Reserve())
+            count = Reserve();
 
         if (count == 0)
             return;
@@ -85,6 +84,11 @@ public:
     SizeType Size() const
     {
         return size_;
+    }
+
+    SizeType Reserve() const
+    {
+        return Capacity() - Size();
     }
 
     SizeType Head() const
