@@ -9,6 +9,7 @@ namespace Common.IO
 {
     public static class PathUtils
     {
+        // Microsoft.VisualBasic.FileIO.FileSystem.FileExists
         public static bool IsFile(string path)
         {
             try
@@ -23,6 +24,7 @@ namespace Common.IO
             }
         }
 
+        // Microsoft.VisualBasic.FileIO.FileSystem.DirectoryExists
         public static bool IsDirectory(string path)
         {
             try
@@ -53,6 +55,7 @@ namespace Common.IO
 
     public static class DirUtils
     {
+        
         public static string[] ListDir(string path, bool silence = true)
         {
             try
