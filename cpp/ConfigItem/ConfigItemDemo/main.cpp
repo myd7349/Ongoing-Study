@@ -42,6 +42,7 @@ int wmain(int argc, wchar_t *argv[])
     std::wstring iniPath = appPath + L"Config.ini";
     IniConfigItemProvider ini(iniPath.c_str());
     
+    BoolItem useIPv6(ini, L"Server", L"UseIPv6", false);
     StringItem ipAddress(ini, L"Server", L"IP", L"localhost");
     IntItem portNumber(ini, L"Server", L"Port", 2026);
     DoubleItem pi(ini, L"", L"PI", 3.14159265358);
@@ -49,8 +50,9 @@ int wmain(int argc, wchar_t *argv[])
 
     IPv4AddressItem ipv4(ini, L"Server", L"IP-2", L"0.0.0.0");
 
-    if (!PathFileExists(iniPath.c_str()))
+    if (!PathFileExistsW(iniPath.c_str()))
     {
+        useIPv6.Store();
         ipAddress.Store();
         portNumber.Store();
         pi.Store();
@@ -59,6 +61,7 @@ int wmain(int argc, wchar_t *argv[])
     }
     else
     {
+        std::wcout << L"Use IPv6: " << std::boolalpha << useIPv6.GetValue() << std::endl;
         std::wcout << L"IP: " << ipAddress.GetValue() << std::endl;
         std::wcout << L"Port: " << portNumber.GetValue() << std::endl;
         std::wcout << L"PI: " << pi.GetValue() << std::endl;

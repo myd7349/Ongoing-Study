@@ -198,5 +198,6 @@ inline void StoreItem(IConfigItemProvider<CharT> &provider, const CharT *section
 
 
 typedef ConfigItem<int>          IntItem;
+typedef ConfigItem<bool>         BoolItem;
 typedef ConfigItem<double>       DoubleItem;
 typedef ConfigItem<std::wstring> StringItem;

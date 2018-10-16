@@ -3,8 +3,10 @@
 #include <cassert>
 #include <cerrno>
 #include <climits>
-#include <string>
 #include <cstdlib>
+#include <string>
+
+#include "StringUtility.h"
 
 
 template <typename T, typename CharT = wchar_t>
@@ -105,6 +107,65 @@ inline std::wstring ConfigItemConverter<std::wstring, wchar_t>::ToString(std::ws
 }
 
 
+template <>
+inline bool ConfigItemConverter<bool, wchar_t>::FromString(StringT s, bool &ok, bool defaultValue) const
+{
+    if (s == nullptr)
+    {
+        ok = false;
+        return defaultValue;
+    }
+
+    std::wstring value(s);
+    Trim(value);
+    ToLower(value);
+
+    if (value.empty())
+    {
+        ok = true;
+        return defaultValue;
+    }
+    else if (value == L"1" || value == L"true" || value == L"on" || value == L"yes")
+    {
+        ok = true;
+        return true;
+    }
+    else if (value == L"0" || value == L"false" || value == L"off" || value == L"no")
+    {
+        ok = true;
+        return false;
+    }
+    else
+    {
+        ok = false;
+        return defaultValue;
+    }
+}
+
+
+#ifndef TRUE_STRING_LITERAL
+# define TRUE_STRING_LITERAL "true"
+#endif
+
+
+#ifndef FALSE_STRING_LITERAL
+# define FALSE_STRING_LITERAL "false"
+#endif
+
+
+#define WIDEN_IMPL(x) L ## x
+#define WIDEN(x) WIDEN_IMPL(x)
+
+
+template <>
+inline std::wstring ConfigItemConverter<bool, wchar_t>::ToString(bool value) const
+{
+    return value ? WIDEN(TRUE_STRING_LITERAL) : WIDEN(FALSE_STRING_LITERAL);
+}
+
+
 // References:
 // https://stackoverflow.com/questions/22865622/atoi-vs-atol-vs-strtol-vs-strtoul-vs-sscanf
 // https://stackoverflow.com/questions/4308536/converting-a-string-into-a-double
+// https://www.zhihu.com/question/27873786/answer/38454577
+// https://github.com/boostorg/program_options/blob/develop/src/value_semantic.cpp#L140-L162
