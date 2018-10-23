@@ -32,3 +32,4 @@ int main()
 // ICC: _mm_popcnt_u32(unsigned int)
 //
 // https://www.zhihu.com/question/52726115
+// https://blog.csdn.net/zotin/article/details/5885131

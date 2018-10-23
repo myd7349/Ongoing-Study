@@ -5,3 +5,4 @@ References:
 * [The actor model in 10 minutes - Brian Storti](https://www.brianstorti.com/the-actor-model/)
 * C++ Concurrency in Action, Chapter 4
 * [Seven Concurrency Models in Seven Weeks: When Threads Unravel](https://pragprog.com/book/pb7con/seven-concurrency-models-in-seven-weeks), Chapter 5
+* [C++ Actor Framework Documentation](https://actor-framework.readthedocs.io/en/stable/)
