@@ -6,6 +6,7 @@
 #include "../ConfigItem.hpp"
 #include "../IniConfigItemProvider.h"
 #include "../IPv4AddressItem.h"
+#include "../../common.h"
 
 #include <shlwapi.h>
 #pragma comment(lib, "shlwapi.lib")
@@ -25,6 +26,10 @@ std::wstring GetCwd()
 
     return cwd;
 }
+
+
+// <commctrl.h>
+#define MAKEIPADDRESS(b1,b2,b3,b4)  ((LPARAM)(((DWORD)(b1)<<24)+((DWORD)(b2)<<16)+((DWORD)(b3)<<8)+((DWORD)(b4))))
 
 
 int wmain(int argc, wchar_t *argv[])
@@ -50,6 +55,10 @@ int wmain(int argc, wchar_t *argv[])
 
     IPv4AddressItem ipv4(ini, L"Server", L"IP-2", L"0.0.0.0");
 
+    IN_ADDR in_addr;
+    in_addr.s_addr = ntohl(MAKEIPADDRESS(192, 168, 10, 1));
+    IPv4AddressItem ipv4_3(ini, L"Server", L"IP-3", in_addr);
+
     if (!PathFileExistsW(iniPath.c_str()))
     {
         useIPv6.Store();
@@ -58,6 +67,7 @@ int wmain(int argc, wchar_t *argv[])
         pi.Store();
         e.Store();
         ipv4.Store();
+        ipv4_3.Store();
     }
     else
     {
@@ -67,6 +77,7 @@ int wmain(int argc, wchar_t *argv[])
         std::wcout << L"PI: " << pi.GetValue() << std::endl;
         std::wcout << L"e: " << e.GetValue() << std::endl;
         std::wcout << L"IP-2: " << ConfigItemConverter<IN_ADDR>().ToString(ipv4.GetValue()) << std::endl;
+        std::wcout << L"IP-3: " << ConfigItemConverter<IN_ADDR>().ToString(ipv4_3.GetValue()) << std::endl;
     }
 
     portNumber.SetValue(portNumber.GetValue() + 1);
@@ -87,6 +98,8 @@ int wmain(int argc, wchar_t *argv[])
         inAddr.s_impno++;
         ipv4.SetValue(inAddr);
     }
+
+    PAUSE();
 
     return 0;
 }

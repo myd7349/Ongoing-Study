@@ -192,7 +192,7 @@ inline T LoadItem(IConfigItemProvider<CharT> &provider, const CharT *section, co
 template <typename T, typename CharT>
 inline void StoreItem(IConfigItemProvider<CharT> &provider, const CharT *section, const CharT *name, T value)
 {
-    ConfigItem<T, CharT, ConfigItemConverter<T, CharT>> configItem(provider, section, name, value);
+    ConfigItem<T, CharT, ConfigItemConverter<T, CharT>> configItem(provider, section, name, value, false);
     configItem.Store();
 }
 
