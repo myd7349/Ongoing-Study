@@ -61,9 +61,9 @@ int _tmain(int argc, _TCHAR **argv)
     }
     _getch();
 
-    if (!DeleteTimerQueueEx(hTimerQueue, NULL))
+    if (!DeleteTimerQueueEx(hTimerQueue, INVALID_HANDLE_VALUE))
     {
-        _tperror(_T("Failed to delete timer queue."));
+        _tprintf(_T("Failed to delete timer queue.\n"));
         return GetLastError();
     }
 
