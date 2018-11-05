@@ -42,7 +42,7 @@ typedef SOCKET socket_t;
 #define closesock closesocket
 
 #define print_error(func_name, error) \
-    _ftprintf(stderr, (func_name) _T(" failed(%d): %s\n"), (error), gai_strerror((error)))
+    _ftprintf(stderr, func_name _T(" failed(%d): %s\n"), (error), gai_strerror((error)))
 #define print_error_ex(func_name) print_error(func_name, WSAGetLastError())
 
 #else
