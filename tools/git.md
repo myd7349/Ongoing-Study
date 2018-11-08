@@ -135,3 +135,21 @@ https://stackoverflow.com/questions/2765421/how-do-i-push-a-new-local-branch-to-
 https://stackoverflow.com/questions/67699/how-to-clone-all-remote-branches-in-git
 
 https://stackoverflow.com/questions/9537392/git-fetch-remote-branch
+
+List all authors:
+
+    - [git-authors](https://github.com/alessioalex/git-authors)
+    - [List all developers on a project in Git](https://stackoverflow.com/questions/9597410/list-all-developers-on-a-project-in-git)
+    - [List of authors in git since a given commit](https://stackoverflow.com/questions/6482436/list-of-authors-in-git-since-a-given-commit)
+    - [List all authors of a particular git project](https://www.commandlinefu.com/commands/view/4519/list-all-authors-of-a-particular-git-project)
+
+
+[How to delete a git remote tag?](https://stackoverflow.com/questions/5480258/how-to-delete-a-git-remote-tag)
+
+```bash
+git push origin :tagname
+# Or
+# git push --delete origin tagname
+# If you want to delete a local tag:
+# git tag --delete tagname
+```
