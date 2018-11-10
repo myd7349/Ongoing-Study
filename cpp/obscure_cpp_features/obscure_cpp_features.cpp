@@ -73,6 +73,51 @@ void alternate_operator_tokens()
 
 }
 
+// 3.
+class MyClass
+{
+public:
+    MyClass()
+    {
+        std::cout << __func__ << std::endl;
+    }
+
+    ~MyClass()
+    {
+        std::cout << __func__ << std::endl;
+    }
+};
+
+/* MFC CArray
+template<class TYPE, class ARG_TYPE>
+CArray<TYPE, ARG_TYPE>::~CArray()
+{
+	ASSERT_VALID(this);
+
+	if (m_pData != NULL)
+	{
+		for( int i = 0; i < m_nSize; i++ )
+			(m_pData + i)->~TYPE();
+		delete[] (BYTE*)m_pData;
+	}
+}
+*/
+
+void skip_destructor()
+{
+    JUST_GO();
+
+    MyClass *obj1 = new MyClass;
+    delete obj1;
+
+    MyClass *obj3 = new MyClass;
+    obj3->~MyClass();
+    delete (unsigned char *)obj3;
+
+    MyClass *obj2 = new MyClass;
+    delete (unsigned char *)obj2;
+}
+
 int main()
 {
     what_square_brackets_really_mean();
@@ -80,6 +125,8 @@ int main()
     most_vexing_parse();
 
     alternate_operator_tokens();
+
+    skip_destructor();
 
     return 0;
 }
