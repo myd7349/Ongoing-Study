@@ -38,6 +38,7 @@
 #define _tcsupr strupr
 #define _tcschr strchr
 #define _tcsrchr strrchr
+#define _putts puts
 
 #else
 
