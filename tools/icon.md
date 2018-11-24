@@ -3,3 +3,4 @@
 * <a href="http://tango.freedesktop.org/Tango_Desktop_Project">Tango Project</a> - ICONs used in wxMaxima.
 * <a href="https://sourceforge.net/projects/openiconlibrary/">Open Icon Library</a>
 * <a href="https://sourceforge.net/projects/toolbaricons/">Toolbar Icons</a>
+* <a href="http://p.yusukekamiyamane.com/">Fugue Icons</a> - ICONs used in [x64dbg](https://github.com/x64dbg/x64dbg)
