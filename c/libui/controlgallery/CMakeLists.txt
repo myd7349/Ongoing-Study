@@ -6,7 +6,7 @@ endif()
 
 project(controlgallery C)
 
-find_package(libui CONFIG REQUIRED)
+find_package(unofficial-libui CONFIG REQUIRED)
 
 if(WIN32)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
@@ -14,7 +14,7 @@ endif()
 
 add_executable(controlgallery "controlgallery.c")
 
-target_link_libraries(controlgallery PRIVATE libui::libui)
+target_link_libraries(controlgallery PRIVATE unofficial::libui::libui)
 
 # https://stackoverflow.com/questions/45724766/how-to-set-c-application-entry-point-to-main-on-windows-using-cmake
 # https://stackoverflow.com/questions/2753761/how-do-i-tell-cmake-not-to-create-a-console-window
