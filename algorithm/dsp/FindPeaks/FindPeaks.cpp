@@ -90,17 +90,20 @@ std::size_t FindPeaks(const double *data, std::size_t length,
         }
     }
 
+    std::deque<std::size_t>::iterator last;
+
     // Handle NaN's
     if (!peaks.empty() && !nans.empty())
     {
         // NaN's and values close to NaN's cannot be peaks
-        std::remove_if(peaks.begin(), peaks.end(), 
+        last = std::remove_if(peaks.begin(), peaks.end(),
             [&nans, &x](std::size_t index)
             {
                 return nans.find(index) != nans.cend()
                     || (index > 0 && nans.find(index - 1) != nans.cend())
                     || (index < x.size() - 1 && nans.find(index + 1) != nans.cend());
             });
+        peaks.erase(last, peaks.end());
     }
 
     // First and last values of x cannot be peaks
@@ -110,13 +113,14 @@ std::size_t FindPeaks(const double *data, std::size_t length,
         peaks.pop_back();
 
     // Remove peaks < minimum peak height
-    std::remove_if(peaks.begin(), peaks.end(), 
+    last = std::remove_if(peaks.begin(), peaks.end(),
         [&x, mph](std::size_t pos){ return x[pos] < mph; });
+    peaks.erase(last, peaks.end());
 
     // Remove peaks - neighbors < threshold
     if (!peaks.empty() && threshold > 0.0)
     {
-        std::remove_if(peaks.begin(), peaks.end(),
+        last = std::remove_if(peaks.begin(), peaks.end(),
             [&x, threshold](std::size_t index)
             {
                 double d = std::min(
@@ -125,6 +129,7 @@ std::size_t FindPeaks(const double *data, std::size_t length,
                     );
                 return d < threshold;
             });
+        peaks.erase(last, peaks.end());
     }
 
     // Detect small peaks closer than minimum peak distance
@@ -159,8 +164,9 @@ std::size_t FindPeaks(const double *data, std::size_t length,
 
         // Remove the small peaks and sort back the indices by their occurrence
         std::size_t index = 0;
-        std::remove_if(peaks.begin(), peaks.end(),
+        last = std::remove_if(peaks.begin(), peaks.end(),
             [&index, &idel](std::size_t /* pos */) { return idel[index++]; });
+        peaks.erase(last, peaks.end());
         std::sort(peaks.begin(), peaks.end());
     }
 

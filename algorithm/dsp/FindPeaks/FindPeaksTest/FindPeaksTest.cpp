@@ -1,6 +1,13 @@
+#include <algorithm>
+#include <fstream>
+#include <functional>
 #include <iostream>
+#include <iterator>
+#include <string>
+#include <vector>
 
 #include "../FindPeaks.h"
+#include "../../../../cpp/read_stream.hpp"
 
 
 int main()
@@ -12,6 +19,23 @@ int main()
 
     for (auto pos : peaks)
         std::cout << pos << ": " << data[pos] << std::endl;
+
+    std::ifstream in("data.txt");
+    if (in.is_open())
+    {
+        auto lines = read_stream(in);
+
+        auto stof = [](const std::string &s) { return std::stof(s); };
+
+        std::vector<double> data(lines.size());
+        std::transform(lines.cbegin(), lines.cend(), data.begin(), stof);
+
+        FindPeaks(data.data(), data.size(), peaks);
+
+        std::copy(peaks.cbegin(), peaks.cend(),
+            std::ostream_iterator<std::size_t>(std::cout, " "));
+        std::cout << std::endl;
+    }
 
     return 0;
 }
