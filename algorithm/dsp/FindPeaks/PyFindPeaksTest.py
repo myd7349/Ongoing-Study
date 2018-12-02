@@ -15,7 +15,13 @@ def main():
     peaks1 = PyFindPeaksEx.find_peaks(x, show=True)
     peaks2 = detect_peaks.detect_peaks(x, show=True)
     
-    print(x)
+    print(peaks1)
+    print(peaks2)
+    assert(np.array_equal(peaks1, peaks2))
+    
+    peaks1 = PyFindPeaksEx.find_peaks(x, mpd=5, valley=True, show=True)
+    peaks2 = detect_peaks.detect_peaks(x, mpd=5, valley=True, show=True)
+    
     print(peaks1)
     print(peaks2)
     assert(np.array_equal(peaks1, peaks2))
