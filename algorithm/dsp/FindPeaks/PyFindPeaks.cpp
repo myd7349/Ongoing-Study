@@ -10,7 +10,7 @@ setup_pybind11(cfg)
 #include "FindPeaks.h"
 
 
-std::deque<std::size_t> FindPeaksWrapper(
+std::vector<std::size_t> FindPeaksWrapper(
     const std::vector<double> &x,
     double mph = NAN,
     std::size_t mpd = 1,
@@ -19,10 +19,10 @@ std::deque<std::size_t> FindPeaksWrapper(
     bool kpsh = false,
     bool valley = false)
 {
-    std::deque<std::size_t> peaks;
+    std::deque<std::size_t> peaks; // https://github.com/pybind/pybind11/issues/240
     FindPeaks(x.data(), x.size(), peaks,
         mph, mpd, threshold, edge, kpsh, valley);
-    return peaks;
+    return std::vector<std::size_t>(peaks.cbegin(), peaks.cend());
 }
 
 

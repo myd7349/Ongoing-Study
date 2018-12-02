@@ -1,3 +1,4 @@
 *.cppimporthash
 .rendered.PyFindPeaks.cpp
 *.pyd
+detect_peaks.py
