@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cassert>
+#include <cstdlib>
 #include <numeric>
 #include <unordered_set>
 
@@ -144,21 +145,18 @@ std::size_t FindPeaks(const double *data, std::size_t length,
 
         std::deque<bool> idel(peaks.size());
 
-        for (std::deque<std::size_t>::size_type i = 0; i < peaks.size(); ++i)
+        for (std::deque<bool>::size_type i = 0; i < idel.size(); ++i)
         {
             if (!idel[i])
             {
-                for (std::deque<bool>::size_type j = 0; j < idel.size(); ++j)
+                for (std::deque<bool>::size_type j = i + 1; j < idel.size(); ++j)
                 {
+                    auto minmax = std::minmax(peaks[i], peaks[j]);
                     idel[j] = idel[j]
-                        || (peaks[j] >= peaks[i] - mpd)
-                        && (peaks[j] <= peaks[i] - mpd)
+                        || (minmax.second - minmax.first <= mpd)
                         // Keep peaks with the same height if kpsh is true
                         && (kpsh ? x[peaks[i]] > x[peaks[j]] : true);
                 }
-
-                // Keep current peak
-                idel[i] = false;
             }
         }
 

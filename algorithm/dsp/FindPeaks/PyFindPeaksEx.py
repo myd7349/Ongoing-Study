@@ -30,7 +30,8 @@ def find_peaks(x, mph=None, mpd=1, threshold=0, edge='rising',
         edge_type = m.EdgeFalling
     elif edge == 'both':
         edge_type = m.EdgeBoth
-        
+
+    x = np.atleast_1d(x).astype('float64')
     ind = m.FindPeaks(x.tolist(), math.nan if mph == None else mph, mpd, threshold, edge_type, kpsh, valley)
     ind = np.array(ind)
     

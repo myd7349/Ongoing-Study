@@ -20,7 +20,7 @@ int main()
     for (auto pos : peaks)
         std::cout << pos << ": " << data[pos] << std::endl;
 
-    std::ifstream in("data.txt");
+    std::ifstream in("data2.txt");
     if (in.is_open())
     {
         auto lines = read_stream(in);
@@ -30,7 +30,7 @@ int main()
         std::vector<double> data(lines.size());
         std::transform(lines.cbegin(), lines.cend(), data.begin(), stof);
 
-        FindPeaks(data.data(), data.size(), peaks);
+        FindPeaks(data.data(), data.size(), peaks, NAN, 5, 0.0, EdgeRising, false, true);
 
         std::copy(peaks.cbegin(), peaks.cend(),
             std::ostream_iterator<std::size_t>(std::cout, " "));
