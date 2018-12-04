@@ -115,4 +115,9 @@ inline CString GetFileExt(CString strFileName)
     return PathFindExtension(strFileName);
 }
 
+inline BOOL IsFileHasExt(LPCTSTR lpcszFilename, LPCTSTR lpcszExt)
+{
+    return _tcsicmp(PathFindExtension(lpcszFilename), lpcszExt) == 0;
+}
+
 BOOL BytesToImage(CImage &image, LPBYTE pBytes, DWORD dwSize);
