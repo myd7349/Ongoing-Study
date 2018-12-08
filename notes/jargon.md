@@ -9,3 +9,5 @@
 >
 >## Tools:
 >* [Amalgamate](https://github.com/vinniefalco/Amalgamate)
+>* [amalgamate.py](https://github.com/edlund/amalgamate) - [nlohmann/json](https://github.com/nlohmann/json/tree/develop/third_party/amalgamate) uses this tool to create a single header only library.
+>
