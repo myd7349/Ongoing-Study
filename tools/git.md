@@ -153,3 +153,5 @@ git push origin :tagname
 # If you want to delete a local tag:
 # git tag --delete tagname
 ```
+
+[Merge a special commit](https://stackoverflow.com/questions/881092/how-to-merge-a-specific-commit-in-git)
