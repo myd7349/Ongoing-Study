@@ -135,6 +135,7 @@ mark_as_advanced(
 ################################################################################
 
 # References:
+# https://github.com/zeromq/libzmq/issues/3318
 # https://github.com/zeromq/czmq/issues/577
 # https://stackoverflow.com/questions/31565788/cmake-find-library-with-version-number
 # https://github.com/zeromq/libzmq/issues/2333
