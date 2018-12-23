@@ -22,13 +22,15 @@ find_package(czmq CONFIG REQUIRED)
 
 add_executable(ipc_test "ipc_test.cpp")
 
-if(VCPKG_TARGET_TRIPLET MATCHES "^.+-static$" OR VCPKG_TARGET_TRIPLET STREQUAL "x64-linux")
-    message("Linked to czmq-static.")
-    target_link_libraries(ipc_test PRIVATE czmq-static)
-else()
-    message("Linked to czmq.")
-    target_link_libraries(ipc_test PRIVATE czmq)
-endif()
+#if(VCPKG_TARGET_TRIPLET MATCHES "^.+-static$" OR VCPKG_TARGET_TRIPLET STREQUAL "x64-linux")
+#    message("Linked to czmq-static.")
+#    target_link_libraries(ipc_test PRIVATE czmq-static)
+#else()
+#    message("Linked to czmq.")
+#    target_link_libraries(ipc_test PRIVATE czmq)
+#endif()
+
+target_link_libraries(ipc_test PRIVATE czmq czmq-static)
 
 # References:
 # https://github.com/Microsoft/vcpkg/blob/master/docs/users/integration.md
