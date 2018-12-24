@@ -28,10 +28,10 @@ add_executable(tcpbench_server
 
 # Currently, find_package does work with `getopt-win32` when using vcpkg.
 if(WIN32)
-    target_include_directories(tcpbench_client PRIVATE "$ENV{VCPKG_DIR}/installed/x86-windows/include")
-    target_link_libraries(tcpbench_client PRIVATE "$ENV{VCPKG_DIR}/installed/x86-windows/lib/getopt.lib")
+    target_include_directories(tcpbench_client PRIVATE "$ENV{VCPKG_ROOT}/installed/x86-windows/include")
+    target_link_libraries(tcpbench_client PRIVATE "$ENV{VCPKG_ROOT}/installed/x86-windows/lib/getopt.lib")
     add_custom_command(TARGET tcpbench_client POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "$ENV{VCPKG_DIR}/installed/x86-windows/bin/getopt.dll"
+            "$ENV{VCPKG_ROOT}/installed/x86-windows/bin/getopt.dll"
             $<TARGET_FILE_DIR:tcpbench_client>)
 endif()

@@ -27,6 +27,7 @@ struct dyarr_t
 // https://github.com/facebook/folly/blob/master/folly/docs/FBVector.md
 // https://github.com/facebook/folly/blob/7f721452a97937211d138f8553ae36192428e4f1/folly/FBVector.h#L1186
 // https://github.com/facebook/folly/blob/7f721452a97937211d138f8553ae36192428e4f1/folly/memory/Malloc.h#L220
+// C++ Primer, 5th Edition, 9.4. How a vector Grows
 static size_t FBVector_growing_policy(size_t capacity, size_t elem_size)
 {
     size_t jemallocMinInPlaceExpandable = 4096;
@@ -867,6 +868,8 @@ void dyarr_apply(dyarr_t arr, void(*apply_fn)(size_t, void *))
 
 // References:
 // https://en.wikipedia.org/wiki/Dynamic_array
+// C Interfaces and Implementations, Chapter 10
+// https://github.com/drh/cii/blob/master/src/array.c
 // https://github.com/torch/tds/blob/master/tds_vec.h
 // https://developer.gnome.org/glib/stable/glib-Arrays.html
 // https://github.com/GNOME/glib/blob/master/glib/garray.c

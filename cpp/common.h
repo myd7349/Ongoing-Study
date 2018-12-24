@@ -154,6 +154,7 @@ inline void Println(const Container &c)
 // lichray's idea:
 // https://github.com/lichray/xrangexx/blob/master/xrange.h
 // assert(0 <= b && "invalid range");
+// https://github.com/lhmouse/asteria/blob/master/asteria/src/rocket/assert.hpp
 #define Assert(expr, msg) assert(((void)msg, expr))
 
 #ifdef NDEBUG

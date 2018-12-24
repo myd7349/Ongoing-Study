@@ -100,3 +100,6 @@ int main()
 
     return 0;
 }
+
+// References:
+// https://github.com/google/googletest/blob/master/googletest/docs/primer.md
