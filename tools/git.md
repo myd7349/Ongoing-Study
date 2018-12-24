@@ -155,3 +155,13 @@ git push origin :tagname
 ```
 
 [Merge a special commit](https://stackoverflow.com/questions/881092/how-to-merge-a-specific-commit-in-git)
+
+[Create a new repo from an existing repo's subdirectory](https://stackoverflow.com/questions/6680709/create-new-git-repo-from-already-existing-repos-subdirectory)
+
+[Remove large .pack file created by git](https://stackoverflow.com/questions/11050265/remove-large-pack-file-created-by-git)
+
+[Git: Clean up commits after moving subdirectory into a new repo](https://stackoverflow.com/questions/40716681/git-clean-up-commits-after-moving-subdirectory-into-a-new-repo)
+
+[How to tear apart a repository: the Git way](https://www.atlassian.com/blog/git/tear-apart-repository-git-way)
+
+[Detach (move) subdirectory into separate Git repository](https://stackoverflow.com/questions/359424/detach-move-subdirectory-into-separate-git-repository)
