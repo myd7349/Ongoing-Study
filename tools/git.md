@@ -165,3 +165,6 @@ git push origin :tagname
 [How to tear apart a repository: the Git way](https://www.atlassian.com/blog/git/tear-apart-repository-git-way)
 
 [Detach (move) subdirectory into separate Git repository](https://stackoverflow.com/questions/359424/detach-move-subdirectory-into-separate-git-repository)
+
+[git shortlog -sn](https://github.com/mixu/distsysbook)
+
