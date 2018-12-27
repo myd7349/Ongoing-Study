@@ -8,13 +8,13 @@ if(QCustomPlot_INCLUDE_DIRS)
 
     find_library(
         _qcustomplot_libraries_debug
-        NAMES qcustomplotd2
+        NAMES qcustomplotd2 qcustomplotd
         HINTS ${_root_dir}/debug/lib
     )
 
     find_library(
         _qcustomplot_libraries_release
-        NAMES qcustomplot2
+        NAMES qcustomplot2 qcustomplot
         HINTS ${_root_dir}/lib
     )
 
