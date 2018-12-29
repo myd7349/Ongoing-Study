@@ -12,9 +12,11 @@ int main()
     auto print_deq = [](std::ostream &os, const std::deque<int> &deq) {
         os << '[';
         
-        std::copy(deq.cbegin(), deq.cend() - 1, std::ostream_iterator<int>(os, ", "));
         if (!deq.empty())
+        {
+            std::copy(deq.cbegin(), deq.cend() - 1, std::ostream_iterator<int>(os, ", "));
             os << deq.back();
+        }
 
         os << "]\n";
     };

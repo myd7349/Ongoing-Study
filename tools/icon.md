@@ -4,3 +4,4 @@
 * <a href="https://sourceforge.net/projects/openiconlibrary/">Open Icon Library</a>
 * <a href="https://sourceforge.net/projects/toolbaricons/">Toolbar Icons</a>
 * <a href="http://p.yusukekamiyamane.com/">Fugue Icons</a> - ICONs used in [x64dbg](https://github.com/x64dbg/x64dbg)
+* <a href="https://fontawesome.com/?from=io">Font Awesome</a> - Used by [mutate_cpp](https://github.com/nlohmann/mutate_cpp#used-third-party-tools)
