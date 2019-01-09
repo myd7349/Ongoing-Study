@@ -169,3 +169,5 @@ git push origin :tagname
 [git shortlog -sn](https://github.com/mixu/distsysbook)
 
 [How to clone all remote branches in Git?](https://stackoverflow.com/questions/67699/how-to-clone-all-remote-branches-in-git)
+
+[How do I list all remote refs?](https://stackoverflow.com/questions/42626068/how-do-i-list-all-remote-refs)

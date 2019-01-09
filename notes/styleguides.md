@@ -1,6 +1,7 @@
 # Awesome Style Guides
 
 - [Awesome Guidelines](https://github.com/Kristories/awesome-guidelines)
+- [awesome-styleguides](https://github.com/streamich/awesome-styleguides)
 - [Google Style Guide](https://github.com/google/styleguide) - [中文版](https://github.com/zh-google-styleguide/zh-google-styleguide)
 - [Design and development guides](https://github.com/NARKOZ/guides)
 - [fex-team/styleguide](https://github.com/fex-team/styleguide)
