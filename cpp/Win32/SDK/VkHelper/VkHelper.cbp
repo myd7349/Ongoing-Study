@@ -34,6 +34,7 @@
 		</Compiler>
 		<Unit filename="AccelHelper.cpp" />
 		<Unit filename="AccelHelper.h" />
+		<Unit filename="AccelTable.hpp" />
 		<Unit filename="HotKeyHelper.cpp" />
 		<Unit filename="HotKeyHelper.h" />
 		<Unit filename="KeySequence.cpp" />

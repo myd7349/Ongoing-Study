@@ -28,6 +28,13 @@ public:
     ACCEL ToAccel() const;
     HotKey ToHotKey() const;
 
+    static KeySequence FromString(const std::wstring &keySequenceString, const std::wstring &delimiter = L"")
+    {
+        KeySequence keySequence;
+        keySequence.CreateFromString(keySequenceString, delimiter);
+        return keySequence;
+    }
+
 private:
     bool CreateFromString(const std::wstring &keySequence, const std::wstring &delimiter);
 

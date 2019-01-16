@@ -4,11 +4,42 @@
 
 #include "../../../common.h"
 #include "../../../dividing_lines.h"
-#include "KeySequence.h"
+#include "AccelTable.hpp"
 
 #define PRINT_VK_NAME(vk) std::wcout << #vk << L"(" << vk << L"): " << VkUtils::GetVkName(vk) << std::endl
 
 #define PRINT_KEY_SEQ(keySeq) std::wcout << #keySeq << L": " << keySeq.ToString(L" + ") << std::endl
+
+
+const cmd_t ID_COPY = 0;
+const cmd_t ID_PASTE = 1;
+const cmd_t ID_CUT = 2;
+const cmd_t ID_EXIT = 3;
+
+
+struct Command
+{
+    cmd_t cmd;
+    std::wstring name;
+} commands[] =
+{
+    { ID_COPY, L"Copy" },
+    { ID_PASTE, L"Paste" },
+    { ID_CUT, L"Cut" },
+    { ID_EXIT, L"Exit" }
+};
+
+
+void PrintAccelTable(AccelTable &table)
+{
+    DIVIDING_LINE_1('~');
+
+    for (const auto &entry : table)
+        std::wcout << commands[entry.first].name << L": " << entry.second.ToString() << L'\n';
+
+    DIVIDING_LINE_1('^');
+}
+
 
 int main()
 {
@@ -67,6 +98,23 @@ int main()
     keySequenceSet.insert(ctrlS);
     if (keySequenceSet.find(ctrlS2) != keySequenceSet.cend())
         std::cout << "Duplicated key sequence!\n";
+
+    DIVIDING_LINE_1('-');
+
+    AccelTable table;
+    table[ID_COPY] = KeySequence::FromString(L"Ctrl+C", L"+");
+    table[ID_PASTE] = KeySequence(L"Ctrl+S");
+
+    PrintAccelTable(table);
+
+    HACCEL hAccel = table.CreateAcceleratorTable();
+
+    AccelTable table2(hAccel);
+    table2[ID_EXIT] = KeySequence(L"Ctrl+w");
+
+    DestroyAcceleratorTable(hAccel);
+
+    PrintAccelTable(table2);
 
     return 0;
 }

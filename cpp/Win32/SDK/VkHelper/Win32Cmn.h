@@ -2,6 +2,8 @@
 #ifndef WIN32CMN_H_
 #define WIN32CMN_H_
 
+#include "targetver.h"
+
 #define STRICT (1)
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
