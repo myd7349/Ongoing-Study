@@ -177,3 +177,4 @@ std::size_t FindPeaks(const double *data, std::size_t length,
 // https://stackoverflow.com/questions/1713335/peak-finding-algorithm-for-python-scipy/
 // http://nbviewer.jupyter.org/github/demotu/BMC/blob/master/notebooks/DetectPeaks.ipynb
 // https://ccrma.stanford.edu/~jos/sasp/Quadratic_Peak_Interpolation.html
+// https://github.com/MonsieurV/py-findpeaks
