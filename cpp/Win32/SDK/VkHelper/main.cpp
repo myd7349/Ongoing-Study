@@ -116,5 +116,12 @@ int main()
 
     PrintAccelTable(table2);
 
+    std::wcout << VkUtils::Detail::GetVkName(VK_LEFT, false) << std::endl;
+    std::wcout << VkUtils::Detail::GetVkName(VK_LEFT, true) << std::endl;
+
+    PRINT_KEY_SEQ(KeySequence(VK_LEFT));
+
     return 0;
 }
+
+// https://github.com/reactos/reactos/blob/master/dll/win32/comctl32/hotkey.c#L133-L185

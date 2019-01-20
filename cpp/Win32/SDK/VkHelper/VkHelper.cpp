@@ -118,7 +118,7 @@ namespace VkUtils {
         return false;
     }
 
-    std::wstring GetVkName(vk_t vkcode, bool isExtended)
+    std::wstring GetVkName(vk_t vkcode)
     {
         return VkCodeMap_[vkcode];
     }
@@ -138,6 +138,7 @@ namespace VkUtils {
                 return L"";
 
             // MFC: CHotKeyCtrl::GetKeyName
+            // https://github.com/reactos/reactos/blob/master/dll/win32/comctl32/hotkey.c#L208-L217
             LONG lScan = ::MapVirtualKey(vkcode, 0) << 16;
 
             if (isExtended)

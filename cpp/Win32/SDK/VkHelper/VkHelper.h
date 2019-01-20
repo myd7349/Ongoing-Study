@@ -15,7 +15,7 @@ namespace VkUtils {
 
     bool IsKnownVkCode(vk_t vkcode);
     bool IsModifier(vk_t vkcode);
-    std::wstring GetVkName(vk_t vkcode, bool isExtended = false);
+    std::wstring GetVkName(vk_t vkcode);
     vk_t GetVkCode(const std::wstring &keyName);
 
     namespace Detail {
