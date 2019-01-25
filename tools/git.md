@@ -174,3 +174,15 @@ git push origin :tagname
 
 git diff <version1>..<version2> --stat
 
+git whatchanged --since="three days ago" --oneline
+
+git grep -i <...> # ignore case
+
+git grep -l # list matched files
+
+git grep -w # match whole word
+
+git log --follow file
+
+git log --follow --name-only file
+
