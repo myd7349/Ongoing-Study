@@ -1,0 +1,4 @@
+echo_client/*
+echo_kernel/*
+!echo_client/CMakeLists.txt
+!echo_kernel/CMakeLists.txt
