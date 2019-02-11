@@ -22,15 +22,16 @@ public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    void log(const QString &msg);
+
 protected:
     bool nativeEvent(const QByteArray &eventType, void *message, long *result);
 
 private:
-    void log(const QString &msg);
-
     void onCreate();
     void onDestroy();
     void onDeviceChange(WPARAM wParam, LPARAM lParam);
+    void onDevModeChange(WPARAM wParam, LPARAM lParam);
     void onDisplayChange(WPARAM wParam, LPARAM lParam);
     void onSettingChange(WPARAM wParam, LPARAM lParam);
 

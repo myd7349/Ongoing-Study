@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 
+#include <memory>
+#include <vector>
+
 #include <QApplication>
 #include <QDesktopWidget>
 
@@ -12,6 +15,90 @@ static GUID GUID_DEVINTERFACE_MONITOR = {0xe6f07b5f, 0xee97, 0x4a90, { 0xb0, 0x7
 #endif
 
 #define IN_CASE(c) case c: msg += #c
+
+
+struct MonitorInfo : public MONITORINFOEX
+{
+    HMONITOR hMonitor = nullptr;
+};
+
+
+BOOL CALLBACK MonitorEnumProc(
+    HMONITOR hMonitor,
+    HDC hdcMonitor,
+    LPRECT lprcMonitor,
+    LPARAM dwData
+    )
+{
+    Q_UNUSED(hdcMonitor);
+    Q_UNUSED(lprcMonitor);
+
+    auto monitorInfoVector = reinterpret_cast<std::vector<MonitorInfo> *>(dwData);
+    Q_ASSERT(monitorInfoVector != nullptr);
+
+    MonitorInfo mi {};
+    mi.cbSize = sizeof(MONITORINFOEX);
+
+    GetMonitorInfo(hMonitor, &mi);
+    mi.hMonitor = hMonitor;
+
+    monitorInfoVector->push_back(std::move(mi));
+
+    return TRUE;
+}
+
+
+QString GetMonitorInformation()
+{
+    auto monitorInfoVector = std::make_shared<std::vector<MonitorInfo>>();
+
+    EnumDisplayMonitors(NULL, NULL, MonitorEnumProc, reinterpret_cast<LPARAM>(monitorInfoVector.get()));
+
+    QString info = QString(
+        "\n"
+        "        Monitors: %1\n"
+        "        CXSCREEN: %2           CYSCREEN: %3\n"
+        "        CXVIRTUALSCREEN: %4    CYVIRTUALSCREEN: %5\n"
+        "        XVIRTUALSCREEN: %6     YVIRTUALSCREEN: %7\n"
+        "--------------------------------------------------------------------------------\n"
+        )
+        .arg(GetSystemMetrics(SM_CMONITORS))
+        .arg(GetSystemMetrics(SM_CXSCREEN))
+        .arg(GetSystemMetrics(SM_CYSCREEN))
+        .arg(GetSystemMetrics(SM_CXVIRTUALSCREEN))
+        .arg(GetSystemMetrics(SM_CYVIRTUALSCREEN))
+        .arg(GetSystemMetrics(SM_XVIRTUALSCREEN))
+        .arg(GetSystemMetrics(SM_YVIRTUALSCREEN))
+        ;
+
+    const auto &miVector = *monitorInfoVector;
+    for (const auto &mi : miVector)
+    {
+        info += QString(
+            "        HMONITOR: %1\n"
+            "        rcMonitor: (%2, %3, %4, %5) Width: %6, Height: %7\n"
+            "        rcWork: (%8, %9, %10, %11) Width: %12, Height: %13\n"
+            "        Is primary? %14\n"
+            "--------------------------------------------------------------------------------\n")
+            .arg(reinterpret_cast<quintptr>(mi.hMonitor))
+            .arg(mi.rcMonitor.left)
+            .arg(mi.rcMonitor.top)
+            .arg(mi.rcMonitor.right)
+            .arg(mi.rcMonitor.bottom)
+            .arg(mi.rcMonitor.right - mi.rcMonitor.left)
+            .arg(mi.rcMonitor.bottom - mi.rcMonitor.top)
+            .arg(mi.rcWork.left)
+            .arg(mi.rcWork.top)
+            .arg(mi.rcWork.right)
+            .arg(mi.rcWork.bottom)
+            .arg(mi.rcWork.right - mi.rcWork.left)
+            .arg(mi.rcWork.bottom - mi.rcWork.top)
+            .arg(mi.dwFlags == MONITORINFOF_PRIMARY)
+            ;
+    }
+
+    return info;
+}
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -28,6 +115,8 @@ MainWindow::MainWindow(QWidget *parent)
             qApp->desktop()->availableGeometry()
         )
     );
+
+    log(GetMonitorInformation());
 }
 
 
@@ -38,7 +127,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::log(const QString &msg)
 {
-    listWidget->addItem(msg);
+    QStringList lines = msg.split('\n', QString::SkipEmptyParts);
+
+    for (QStringList::size_type i = 0; i < lines.size(); ++i)
+    {
+        QString line = (i == 0 ? "" : "        ") + lines[i];
+        listWidget->addItem(lines[i]);
+    }
+
     listWidget->scrollToBottom();
 }
 
@@ -82,16 +178,19 @@ void MainWindow::onDeviceChange(WPARAM wParam, LPARAM lParam)
         IN_CASE(DBT_DEVICEARRIVAL); break;
         IN_CASE(DBT_DEVICEREMOVECOMPLETE); break;
         IN_CASE(DBT_DEVNODES_CHANGED);
-        {
-            msg += tr(": Monitors: %1")
-                .arg(GetSystemMetrics(SM_CMONITORS));
-        }
+            msg += GetMonitorInformation();
             break;
         default: msg += tr("wParam: %1, lParam: %2").arg(wParam, lParam); break;
         }
     }
 
     log(msg);
+}
+
+
+void MainWindow::onDevModeChange(WPARAM wParam, LPARAM lParam)
+{
+    log(tr("WM_DEVMODECHANGE: wParam: %1, lParam: %2").arg(wParam, lParam));
 }
 
 
@@ -114,7 +213,9 @@ void MainWindow::onSettingChange(WPARAM wParam, LPARAM lParam)
     {
     IN_CASE(SPI_ICONVERTICALSPACING); break;
     IN_CASE(SPI_SETDESKWALLPAPER); break;
-    IN_CASE(SPI_SETWORKAREA); break;
+    IN_CASE(SPI_SETWORKAREA);
+        msg += GetMonitorInformation();
+        break;
     IN_CASE(SPI_SETLOGICALDPIOVERRIDE); break;
     default: msg += tr("wParam: %1, lParam: %2").arg(wParam, lParam); break;
     }
@@ -131,6 +232,7 @@ bool MainWindow::nativeEvent(const QByteArray &eventType, void *message, long *r
     {
     case WM_CREATE: onCreate(); break;
     case WM_DEVICECHANGE: onDeviceChange(msg->wParam, msg->lParam); break;
+    case WM_DEVMODECHANGE: onDevModeChange(msg->wParam, msg->lParam); break;
     case WM_DISPLAYCHANGE: onDisplayChange(msg->wParam, msg->lParam); break;
     case WM_SETTINGCHANGE: onSettingChange(msg->wParam, msg->lParam); break;
     case WM_DESTROY: onDestroy(); break;
@@ -151,3 +253,6 @@ bool MainWindow::nativeEvent(const QByteArray &eventType, void *message, long *r
 // https://pastebin.com/bSSWjwir
 // https://stackoverflow.com/questions/706352/use-registerdevicenotification-for-all-usb-devices
 // https://social.msdn.microsoft.com/Forums/vstudio/en-US/1efacfa6-3c8d-4d49-aa3c-752f819c451f/detecting-the-connectiondisconnection-of-a-monitor-in-vista-and-windows-7
+// https://stackoverflow.com/questions/26312505/multiple-monitors-and-handles
+// https://stackoverflow.com/questions/8881923/how-to-convert-a-pointer-value-to-qstring
+// https://www.codeproject.com/articles/2522/multiple-monitor-support
