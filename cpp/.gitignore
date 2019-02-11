@@ -53,6 +53,7 @@
 
 # QtCreator intermediate files
 *.pro.user
+*.qmake.stash
 
 # Configuration files
 *.ini

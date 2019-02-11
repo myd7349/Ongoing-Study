@@ -1,12 +1,11 @@
 #include "mainwindow.h"
 
-#include <memory>
-#include <vector>
-
 #include <QApplication>
 #include <QDesktopWidget>
 
 #include <dbt.h>
+
+#include "MultiMonitor.h"
 
 
 // https://github.com/Enlightenment/efl/blob/32cebe903d39ef212b19f040e68cd35bcfe2b21b/src/lib/ecore_win32/ecore_win32_monitor.c
@@ -17,42 +16,13 @@ static GUID GUID_DEVINTERFACE_MONITOR = {0xe6f07b5f, 0xee97, 0x4a90, { 0xb0, 0x7
 #define IN_CASE(c) case c: msg += #c
 
 
-struct MonitorInfo : public MONITORINFOEX
-{
-    HMONITOR hMonitor = nullptr;
-};
-
-
-BOOL CALLBACK MonitorEnumProc(
-    HMONITOR hMonitor,
-    HDC hdcMonitor,
-    LPRECT lprcMonitor,
-    LPARAM dwData
-    )
-{
-    Q_UNUSED(hdcMonitor);
-    Q_UNUSED(lprcMonitor);
-
-    auto monitorInfoVector = reinterpret_cast<std::vector<MonitorInfo> *>(dwData);
-    Q_ASSERT(monitorInfoVector != nullptr);
-
-    MonitorInfo mi {};
-    mi.cbSize = sizeof(MONITORINFOEX);
-
-    GetMonitorInfo(hMonitor, &mi);
-    mi.hMonitor = hMonitor;
-
-    monitorInfoVector->push_back(std::move(mi));
-
-    return TRUE;
-}
-
-
 QString GetMonitorInformation()
 {
-    auto monitorInfoVector = std::make_shared<std::vector<MonitorInfo>>();
+    std::vector<MONITORINFOEX> monitorInfoVector;
+    GetAllMonitorInfos(monitorInfoVector);
 
-    EnumDisplayMonitors(NULL, NULL, MonitorEnumProc, reinterpret_cast<LPARAM>(monitorInfoVector.get()));
+    std::map<std::wstring, DisplayDeviceInfo> devicesMap;
+    GetAllDisplayDevices(devicesMap);
 
     QString info = QString(
         "\n"
@@ -71,16 +41,20 @@ QString GetMonitorInformation()
         .arg(GetSystemMetrics(SM_YVIRTUALSCREEN))
         ;
 
-    const auto &miVector = *monitorInfoVector;
-    for (const auto &mi : miVector)
+    for (const auto &mi : monitorInfoVector)
     {
         info += QString(
             "        HMONITOR: %1\n"
             "        rcMonitor: (%2, %3, %4, %5) Width: %6, Height: %7\n"
             "        rcWork: (%8, %9, %10, %11) Width: %12, Height: %13\n"
             "        Is primary? %14\n"
+            "        Device number: %15\n"
+            "        Device name: %16\n"
+            "        Device string: %17\n"
+            "        Device ID: %18\n"
+            "        Device key: %19\n"
             "--------------------------------------------------------------------------------\n")
-            .arg(reinterpret_cast<quintptr>(mi.hMonitor))
+            .arg(reinterpret_cast<quintptr>(MonitorFromRect(&mi.rcWork, MONITOR_DEFAULTTONULL)))
             .arg(mi.rcMonitor.left)
             .arg(mi.rcMonitor.top)
             .arg(mi.rcMonitor.right)
@@ -94,6 +68,11 @@ QString GetMonitorInformation()
             .arg(mi.rcWork.right - mi.rcWork.left)
             .arg(mi.rcWork.bottom - mi.rcWork.top)
             .arg(mi.dwFlags == MONITORINFOF_PRIMARY)
+            .arg(devicesMap[mi.szDevice].dwDevNum)
+            .arg(QString::fromWCharArray(mi.szDevice))
+            .arg(QString::fromWCharArray(devicesMap[mi.szDevice].DeviceString))
+            .arg(QString::fromWCharArray(devicesMap[mi.szDevice].DeviceID))
+            .arg(QString::fromWCharArray(devicesMap[mi.szDevice].DeviceKey))
             ;
     }
 
@@ -256,3 +235,4 @@ bool MainWindow::nativeEvent(const QByteArray &eventType, void *message, long *r
 // https://stackoverflow.com/questions/26312505/multiple-monitors-and-handles
 // https://stackoverflow.com/questions/8881923/how-to-convert-a-pointer-value-to-qstring
 // https://www.codeproject.com/articles/2522/multiple-monitor-support
+// https://stackoverflow.com/questions/8040627/convert-wchar-to-qstring-in-qt

@@ -29,7 +29,9 @@ DEFINES += WINVER=0x0602 _WIN32_WINNT=0x0602
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        MultiMonitor.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+        MultiMonitor.h
