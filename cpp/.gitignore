@@ -63,3 +63,4 @@
 # Java classes
 *.class
 
+build-*/
