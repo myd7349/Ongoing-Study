@@ -7,8 +7,6 @@
 # define WIN32_LEAN_AND_MEAN
 # include <Windows.h>
 # define sleep Sleep
-
-# pragma comment(lib, "libzmq-v120-mt-4_0_4.lib")
 # include <stdlib.h>
 # define PAUSE() system("pause")
 #else

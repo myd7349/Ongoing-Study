@@ -8,8 +8,6 @@
 # define WIN32_LEAN_AND_MEAN
 # include <Windows.h>
 # define sleep Sleep
-
-# pragma comment(lib, "libzmq-v120-mt-4_0_4.lib")
 #else
 # include <unistd.h>
 #endif
@@ -31,5 +29,9 @@ int main(void)
         sleep(1);
         zmq_send(responder, "World", 5, 0);
     }
+
+    zmq_close(responder);
+    zmq_ctx_destroy(context);
+    
     return 0;
 }
