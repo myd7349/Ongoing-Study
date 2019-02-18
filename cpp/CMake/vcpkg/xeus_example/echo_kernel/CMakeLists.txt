@@ -5,7 +5,16 @@ set(ECHO_KERNEL_SOURCES
     main.cpp)
 
 add_executable(echo_kernel ${ECHO_KERNEL_SOURCES})
-target_link_libraries(echo_kernel xeus)
+
+if (TARGET xeus)
+    message("Found xeus shared library")
+    target_link_libraries(echo_kernel xeus)
+endif ()
+
+if (TARGET xeus_static)
+    message("Found xeus static library")
+    target_link_libraries(echo_kernel xeus_static)
+endif ()
 
 target_include_directories(echo_kernel PRIVATE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../echo_client>
