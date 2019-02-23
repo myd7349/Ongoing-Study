@@ -21,6 +21,8 @@ if (USE_STATIC_RTL)
     endif (MSVC)
 endif ()
 
+message("STXXL_INCLUDE_DIRS: ${STXXL_INCLUDE_DIRS}")
+
 add_executable(copy_file "copy_file.cpp")
 
 target_link_libraries(copy_file PRIVATE stxxl Threads::Threads)
