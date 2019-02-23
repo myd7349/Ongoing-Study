@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.9)
 project(copy_file CXX)
 
 find_package(stxxl CONFIG REQUIRED)
+find_package(Threads REQUIRED)
 
 file(DOWNLOAD
     "https://raw.githubusercontent.com/stxxl/stxxl/master/examples/containers/copy_file.cpp"
@@ -22,4 +23,4 @@ endif ()
 
 add_executable(copy_file "copy_file.cpp")
 
-target_link_libraries(copy_file PRIVATE stxxl)
+target_link_libraries(copy_file PRIVATE stxxl Threads::Threads)
