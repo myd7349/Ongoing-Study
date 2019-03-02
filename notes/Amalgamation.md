@@ -13,6 +13,7 @@
 >* [amalgamate](https://gitlab.com/DerManu/QCustomPlot/blob/master/amalgamate)
 >* [stitch.py](https://github.com/catchorg/Clara/blob/master/scripts/stitch.py) - [Clara](https://github.com/catchorg/Clara) uses this Python script to generate a single header library.
 >* [cnl/src/single_header](https://github.com/johnmcfarlane/cnl/blob/develop/src/single_header/CMakeLists.txt)
+>* [miniz](https://github.com/richgel999/miniz/blob/master/amalgamate.sh)
 >* [open62541](https://github.com/open62541/open62541/blob/master/CMakeLists.txt#L798-L822) also uses a [Python script](https://github.com/open62541/open62541/blob/master/tools/amalgamate.py) to do amalgamation. 
 >* [rapidjson#863](https://github.com/Tencent/rapidjson/issues/863)
 >
