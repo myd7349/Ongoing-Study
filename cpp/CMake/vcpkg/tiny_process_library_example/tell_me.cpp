@@ -5,7 +5,7 @@
 
 int main()
 {
-    TinyProcessLib::Process proc("answer");
+    TinyProcessLib::Process proc("./answer");
     auto answer = proc.get_exit_status();
     std::cout << "The answer: " << answer << std::endl;
     
