@@ -1,0 +1,4 @@
+Person.name  max_size:64
+Person.email  max_size:128
+Person.phone  max_size:32, max_count:5
+Person.PhoneNumber.number  max_size:16
