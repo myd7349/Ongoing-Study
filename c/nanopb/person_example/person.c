@@ -76,6 +76,8 @@ int main()
             {
                 fprintf(stderr, "Decoding failed: %s\n", PB_GET_ERROR(&in_stream));
             }
+
+            fclose(fp);
         }
     }
 
