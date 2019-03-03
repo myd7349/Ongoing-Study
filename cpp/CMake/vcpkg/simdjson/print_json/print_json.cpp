@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
             ParsedJson document = build_parsed_json(json);
             document.printjson(std::cout);
 
+            std::cout << '\n';
         }
         catch (const std::exception &exc)
         {
