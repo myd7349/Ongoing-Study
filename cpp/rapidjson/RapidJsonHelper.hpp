@@ -13,7 +13,8 @@
 #pragma warning(default: 4005)
 
 
-inline bool LoadJsonDocument(rapidjson::Document &document, const wchar_t *jsonFilePath)
+template <typename CharT>
+inline bool LoadJsonDocument(rapidjson::Document &document, const CharT *jsonFilePath)
 {
     assert(jsonFilePath != nullptr);
 
@@ -36,7 +37,8 @@ inline bool JsonDocumentToString(const rapidjson::Document &document, rapidjson:
 }
 
 
-inline bool StoreJsonDocument(const rapidjson::Document &document, const wchar_t *jsonFilePath)
+template <typename CharT>
+inline bool StoreJsonDocument(const rapidjson::Document &document, const CharT *jsonFilePath)
 {
     rapidjson::StringBuffer buffer;
     if (!JsonDocumentToString(document, buffer))
