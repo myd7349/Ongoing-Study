@@ -30,7 +30,6 @@ int main(int argc, char *argv[])
         {
             std::cerr << "Failed to load \"" << argv[i] << "\": " << exc.what() << '\n';
         }
-
     }
     
     return 0;

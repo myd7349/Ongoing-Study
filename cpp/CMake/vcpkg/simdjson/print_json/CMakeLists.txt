@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 project(print_json CXX)
 
-find_package(unofficial-simdjson CONFIG REQUIRED)
+find_package(simdjson CONFIG REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -29,7 +29,7 @@ endif ()
 
 add_executable(print_json print_json.cpp)
 target_compile_features(print_json INTERFACE cxx_std_17)
-target_link_libraries(print_json PRIVATE unofficial::simdjson::simdjson)
+target_link_libraries(print_json PRIVATE simdjson::simdjson)
 
 # References:
 # https://stackoverflow.com/questions/45688522/how-to-enable-c17-in-cmake
