@@ -37,5 +37,5 @@ foreach (test_src_file
             ${CMOCKA_LIBRARIES}
     )
 
-    add_test(RoaringBitmapsTests ${test_name})
+    add_test(${test_name} ${test_name})
 endforeach ()

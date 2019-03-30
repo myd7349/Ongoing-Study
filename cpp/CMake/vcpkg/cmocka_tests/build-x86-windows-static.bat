@@ -12,7 +12,10 @@ for /F %%x in ('dir /A:-D /B *.exe') do (
   %%x
 )
 
-cd ..\..\
+cd ..
+ctest
+
+cd ..
 pause
 
 :: References:
