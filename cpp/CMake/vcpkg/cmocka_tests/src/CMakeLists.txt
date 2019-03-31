@@ -19,7 +19,7 @@ foreach (test_src_file
         "${CMAKE_BINARY_DIR}/${test_src_file}"
     )
 
-    get_filename_component(test_name ${test_src_file} NAME)
+    get_filename_component(test_name ${test_src_file} NAME_WE)
 
     add_executable(${test_name} "${CMAKE_BINARY_DIR}/${test_src_file}")
 
