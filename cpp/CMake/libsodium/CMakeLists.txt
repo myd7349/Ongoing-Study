@@ -75,6 +75,8 @@ add_library(${PROJECT_NAME}
     ${sodium_sources}
 )
 
+set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
+
 test_big_endian(IS_BIG_ENDIAN)
 
 if (IS_BIG_ENDIAN)
@@ -712,3 +714,4 @@ install(EXPORT ${PROJECT_NAME}-config
 # https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html
 # https://stackoverflow.com/questions/15132185/mixing-c-and-assembly-sources-and-build-with-cmake
 # https://stackoverflow.com/questions/647892/how-to-check-header-files-and-library-functions-in-cmake-like-it-is-done-in-auto
+# https://stackoverflow.com/questions/31038963/how-do-you-rename-a-library-filename-in-cmake
