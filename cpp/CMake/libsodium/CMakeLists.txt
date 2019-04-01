@@ -14,7 +14,7 @@ message("VERSION: ${VERSION}")
 message("SODIUM_LIBRARY_VERSION_MAJOR: ${SODIUM_LIBRARY_VERSION_MAJOR}")
 message("SODIUM_LIBRARY_VERSION_MINOR: ${SODIUM_LIBRARY_VERSION_MINOR}")
 
-project(libsodium VERSION ${VERSION} LANGUAGES C ASM)
+project(sodium VERSION ${VERSION} LANGUAGES C ASM)
 
 include(CheckCSourceCompiles)
 include(CheckFunctionExists)
@@ -75,7 +75,11 @@ add_library(${PROJECT_NAME}
     ${sodium_sources}
 )
 
-set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
+set_target_properties(${PROJECT_NAME}
+    PROPERTIES
+        PREFIX ""
+        OUTPUT_NAME "lib${PROJECT_NAME}"
+)
 
 test_big_endian(IS_BIG_ENDIAN)
 
