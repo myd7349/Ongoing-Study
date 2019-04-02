@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.9)
+
+project(libsodium_download)
+
+include(ExternalProject)
+
+ExternalProject_Add(libsodium
+    GIT_REPOSITORY    https://github.com/jedisct1/libsodium.git
+    GIT_TAG           1.0.17
+    SOURCE_DIR        "${CMAKE_CURRENT_SOURCE_DIR}/libsodium"
+    BINARY_DIR        "${CMAKE_CURRENT_SOURCE_DIR}/libsodium"
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND     ""
+    INSTALL_COMMAND   ""
+    TEST_COMMAND      ""
+)
+
+# References:
+# https://github.com/QuantStack/xeus/blob/master/test/downloadGTest.cmake.in
