@@ -186,3 +186,8 @@ git log --follow file
 
 git log --follow --name-only file
 
+[Is there a way to represent a directory tree in a Github README.md?](https://stackoverflow.com/questions/23989232/is-there-a-way-to-represent-a-directory-tree-in-a-github-readme-md)
+
+[Squash all my commits into one for GitHub pull request](https://stackoverflow.com/questions/14534397/squash-all-my-commits-into-one-for-github-pull-request)
+
+[Closing multiple issues in Github with a commit message](https://stackoverflow.com/questions/3547445/closing-multiple-issues-in-github-with-a-commit-message)

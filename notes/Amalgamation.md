@@ -15,8 +15,12 @@
 >* [cnl/src/single_header](https://github.com/johnmcfarlane/cnl/blob/develop/src/single_header/CMakeLists.txt)
 >* [miniz](https://github.com/richgel999/miniz/blob/master/amalgamate.sh)
 >* [open62541](https://github.com/open62541/open62541/blob/master/CMakeLists.txt#L798-L822) also uses a [Python script](https://github.com/open62541/open62541/blob/master/tools/amalgamate.py) to do amalgamation. 
+>* [Outcome](https://github.com/ned14/outcome/blob/develop/CMakeLists.txt#L50) defines a CMake function named `make_single_header`.
 >* [rapidjson#863](https://github.com/Tencent/rapidjson/issues/863)
 >* [simdjson/amalgamation.sh](https://github.com/lemire/simdjson/blob/master/amalgamation.sh)
+>
+>## Ideas:
+>* [The single-header code should be a build artifact](https://github.com/lemire/simdjson/issues/106)
 >
 
 >## References:
