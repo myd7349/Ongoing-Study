@@ -66,8 +66,6 @@ endif ()
 
 file(GLOB test_sources ${CMAKE_CURRENT_LIST_DIR}/libsodium/test/default/*.c)
 
-enable_testing()
-
 set(BANG ON)
 
 foreach (test_src ${test_sources})
@@ -105,3 +103,7 @@ foreach (test_src ${test_sources})
         WORKING_DIRECTORY $<TARGET_FILE_DIR:${test_name}>
     )
 endforeach ()
+
+
+# References:
+# https://stackoverflow.com/questions/50468620/what-does-enable-testing-do-in-cmake

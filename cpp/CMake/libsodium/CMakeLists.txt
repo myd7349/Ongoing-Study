@@ -641,8 +641,6 @@ target_include_directories(${PROJECT_NAME}
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
-enable_testing()
-
 if (BUILD_TESTING)
     file(GLOB sodium_test_sources ${PROJECT_SOURCE_DIR}/test/default/*.c)
 
@@ -743,3 +741,4 @@ install(
 # https://stackoverflow.com/questions/15132185/mixing-c-and-assembly-sources-and-build-with-cmake
 # https://stackoverflow.com/questions/647892/how-to-check-header-files-and-library-functions-in-cmake-like-it-is-done-in-auto
 # https://stackoverflow.com/questions/31038963/how-do-you-rename-a-library-filename-in-cmake
+# https://stackoverflow.com/questions/50468620/what-does-enable-testing-do-in-cmake
