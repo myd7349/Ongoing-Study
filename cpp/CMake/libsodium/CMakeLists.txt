@@ -16,7 +16,6 @@ message("SODIUM_LIBRARY_VERSION_MINOR: ${SODIUM_LIBRARY_VERSION_MINOR}")
 
 project(sodium VERSION ${VERSION} LANGUAGES C ASM)
 
-include(CheckCCompilerFlag)
 include(CheckCSourceCompiles)
 include(CheckFunctionExists)
 include(CheckIncludeFile)
@@ -91,21 +90,12 @@ else ()
     target_compile_definitions(${PROJECT_NAME} PRIVATE NATIVE_LITTLE_ENDIAN)
 endif ()
 
-macro(sodium_check_func func var)
+macro (sodium_check_func func var)
     check_function_exists(${func} ${var})
     if (${var})
         target_compile_definitions(${PROJECT_NAME} PRIVATE ${var}=1)
     endif ()
-endmacro()
-
-function(sodium_check_compiler_flag flag)
-    check_c_compiler_flag(${flag} flag_supported)
-    if (flag_supported)
-        target_compile_options(${PROJECT_NAME} PRIVATE ${flag})
-    else ()
-        message(STATUS "Unknown compiler flag: ${flag}")
-    endif ()
-endfunction()
+endmacro ()
 
 if (MSVC)
     target_compile_options(${PROJECT_NAME}
@@ -151,43 +141,53 @@ else ()
         )
     endif ()
 
-    sodium_check_compiler_flag(-flax-vector-conversions)
-    sodium_check_compiler_flag(-fvisibility=hidden)
-    sodium_check_compiler_flag(-fPIC)
-    sodium_check_compiler_flag(-fwrapv)
-    sodium_check_compiler_flag(-Wall)
-    sodium_check_compiler_flag(-Wextra)
-    sodium_check_compiler_flag(-Wbad-function-cast)
-    sodium_check_compiler_flag(-Wcast-qual)
-    sodium_check_compiler_flag(-Wdiv-by-zero)
-    sodium_check_compiler_flag(-Wduplicated-branches)
-    sodium_check_compiler_flag(-Wduplicated-cond)
-    sodium_check_compiler_flag(-Wfloat-equal)
-    sodium_check_compiler_flag(-Wformat=2)
-    sodium_check_compiler_flag(-Wlogical-op)
-    sodium_check_compiler_flag(-Wmaybe-uninitialized)
-    sodium_check_compiler_flag(-Wmisleading-indentation)
-    sodium_check_compiler_flag(-Wmissing-declarations)
-    sodium_check_compiler_flag(-Wmissing-prototypes)
-    sodium_check_compiler_flag(-Wnested-externs)
-    sodium_check_compiler_flag(-Wno-type-limits)
-    sodium_check_compiler_flag(-Wno-unknown-pragmas)
-    sodium_check_compiler_flag(-Wnormalized=id)
-    sodium_check_compiler_flag(-Wnull-dereference)
-    sodium_check_compiler_flag(-Wold-style-declaration)
-    sodium_check_compiler_flag(-Wpointer-arith)
-    sodium_check_compiler_flag(-Wredundant-decls)
-    sodium_check_compiler_flag(-Wrestrict)
-    sodium_check_compiler_flag(-Wsometimes-uninitialized)
-    sodium_check_compiler_flag(-Wstrict-prototypes)
-    sodium_check_compiler_flag(-Wswitch-enum)
-    sodium_check_compiler_flag(-Wvariable-decl)
-    sodium_check_compiler_flag(-Wwrite-strings)
-    sodium_check_compiler_flag(-Wl,-z,relro)
-    sodium_check_compiler_flag(-Wl,-z,now)
-    sodium_check_compiler_flag(-Wl,-z,noexecstack)
-    sodium_check_compiler_flag(-Wno-unknown-warning-option)
-    sodium_check_compiler_flag(-Wshorten-64-to-32)
+    target_compile_options(${PROJECT_NAME}
+        PRIVATE
+            -flax-vector-conversions
+            -fvisibility=hidden
+            -fPIC
+            -fwrapv
+            -Wall
+            -Wextra
+            -Wbad-function-cast
+            -Wcast-qual
+            #-Wdiv-by-zero
+            -Wduplicated-branches
+            -Wduplicated-cond
+            -Wfloat-equal
+            -Wformat=2
+            -Wlogical-op
+            -Wmaybe-uninitialized
+            -Wmisleading-indentation
+            -Wmissing-declarations
+            -Wmissing-prototypes
+            -Wnested-externs
+            #-Wno-type-limits
+            #-Wno-unknown-pragmas
+            -Wnormalized=id
+            -Wnull-dereference
+            -Wold-style-declaration
+            -Wpointer-arith
+            -Wredundant-decls
+            -Wrestrict
+            #-Wsometimes-uninitialized
+            -Wstrict-prototypes
+            -Wswitch-enum
+            #-Wvariable-decl
+            -Wwrite-strings
+            -Wl,-z,relro
+            -Wl,-z,now
+            -Wl,-z,noexecstack
+    )
+
+    if (CMAKE_C_COMPILER_ID STREQUAL "Clang" OR
+        CMAKE_C_COMPILER_ID STREQUAL "AppleClang")
+        target_compile_options(${PROJECT_NAME}
+            PRIVATE
+                -Wno-unknown-warning-option
+                -Wshorten-64-to-32
+        )
+    endif ()
 
     check_include_file(sys/mman.h HAVE_SYS_MMAN_H)
     if (HAVE_SYS_MMAN_H)
@@ -742,4 +742,3 @@ install(
 # https://stackoverflow.com/questions/647892/how-to-check-header-files-and-library-functions-in-cmake-like-it-is-done-in-auto
 # https://stackoverflow.com/questions/31038963/how-do-you-rename-a-library-filename-in-cmake
 # https://stackoverflow.com/questions/50468620/what-does-enable-testing-do-in-cmake
-# https://github.com/raysan5/raylib/blob/master/cmake/AddIfFlagCompiles.cmake
