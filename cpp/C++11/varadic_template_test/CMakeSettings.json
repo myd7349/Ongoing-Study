@@ -14,7 +14,7 @@
       "variables": [
         {
           "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "E:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
+          "value": "${env.VCPKG_ROOT}\\scripts\\buildsystems\\vcpkg.cmake"
         }
       ]
     },
@@ -31,7 +31,7 @@
       "variables": [
         {
           "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "E:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
+          "value": "${env.VCPKG_ROOT}\\scripts\\buildsystems\\vcpkg.cmake"
         }
       ]
     },
@@ -40,7 +40,7 @@
       "generator": "Ninja",
       "configurationType": "Debug",
       "inheritEnvironments": [ "msvc_x64" ],
-      "buildRoot": "${projectDir}\\build\\Release_x64",
+      "buildRoot": "${projectDir}\\build\\Debug_x64",
       "installRoot": "${env.ProgramFiles}\\${name}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
@@ -48,7 +48,7 @@
       "variables": [
         {
           "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "E:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
+          "value": "${env.VCPKG_ROOT}\\scripts\\buildsystems\\vcpkg.cmake"
         }
       ]
     },
@@ -65,7 +65,7 @@
       "variables": [
         {
           "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "E:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
+          "value": "${env.VCPKG_ROOT}\\scripts\\buildsystems\\vcpkg.cmake"
         }
       ]
     }
