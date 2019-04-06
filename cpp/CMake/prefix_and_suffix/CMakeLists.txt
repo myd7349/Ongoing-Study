@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.8)
 
 project(prefix_and_suffix CXX)
 
+if (DEFINED BUILD_SHARED_LIBS)
+    message(STATUS "BUILD_SHARED_LIBS: ${BUILD_SHARED_LIBS}")
+endif ()
+
 if (BUILD_SHARED_LIBS)
     message(STATUS "-- Build shared libs.")
 endif ()
