@@ -21,6 +21,8 @@ if (USE_MSVC_STATIC_RUNTIME)
     endif (MSVC)
 endif (USE_MSVC_STATIC_RUNTIME)
 
+set(BANG ON)
+
 foreach(example_src
     main_contract.cpp
     main_fatal_choice.cpp
@@ -34,8 +36,12 @@ foreach(example_src
 
     add_executable(${example_name} ${CMAKE_BINARY_DIR}/${example_src})
     
-    #target_link_libraries(${example_name} PRIVATE g3logger)
-
-    target_include_directories(${example_name} PRIVATE ${G3LOG_INCLUDE_DIRS})
-    target_link_libraries(${example_name} PRIVATE ${G3LOG_LIBRARIES})
+    if (BANG)
+        target_link_libraries(${example_name} PRIVATE g3logger)
+        set(BANG OFF)
+    else ()
+        target_include_directories(${example_name} PRIVATE ${G3LOG_INCLUDE_DIRS})
+        target_link_libraries(${example_name} PRIVATE ${G3LOG_LIBRARIES})
+        set(BANG ON)
+    endif ()
 endforeach()
