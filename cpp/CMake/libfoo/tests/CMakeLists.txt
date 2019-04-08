@@ -10,6 +10,10 @@ add_executable(foo_test "foo_test.c")
 
 if (TARGET foo)
     target_link_libraries(foo_test PRIVATE foo)
+    add_custom_command(
+        TARGET foo_test
+        POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:foo> $<TARGET_FILE_DIR:foo_test>)
 elseif (TARGET foo_static)
     target_link_libraries(foo_test PRIVATE foo_static)
 endif ()
