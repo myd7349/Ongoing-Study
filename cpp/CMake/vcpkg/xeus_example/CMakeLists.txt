@@ -16,5 +16,9 @@ foreach(_f "connection.json" "echo_interpreter.cpp" "echo_interpreter.hpp" "kern
         "${CMAKE_SOURCE_DIR}/echo_kernel/${_f}")
 endforeach()
 
+message(STATUS "xeus_INCLUDE_DIR: ${xeus_INCLUDE_DIR}")
+message(STATUS "xeus_LIBRARY: ${xeus_LIBRARY}")
+message(STATUS "xeus_STATIC_LIBRARY: ${xeus_STATIC_LIBRARY}")
+
 add_subdirectory(echo_client)
 add_subdirectory(echo_kernel)
