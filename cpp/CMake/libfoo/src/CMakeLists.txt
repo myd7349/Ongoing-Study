@@ -11,7 +11,10 @@ set(sources
 if (BUILD_STATIC_LIBS)
     add_library(${PROJECT_NAME}_static STATIC ${headers} ${sources})
     set_target_properties(${PROJECT_NAME}_static
-        PROPERTIES PUBLIC_HEADER "${headers}"
+        PROPERTIES
+            PUBLIC_HEADER "${headers}"
+            PREFIX ""
+            OUTPUT_NAME "lib${PROJECT_NAME}_static"
     )
 
     target_include_directories(${PROJECT_NAME}_static
@@ -34,7 +37,10 @@ if (BUILD_SHARED_LIBS)
 
     add_library(${PROJECT_NAME} SHARED ${headers} ${sources})
     set_target_properties(${PROJECT_NAME}
-        PROPERTIES PUBLIC_HEADER "${headers}"
+        PROPERTIES
+            PUBLIC_HEADER "${headers}"
+            PREFIX ""
+            OUTPUT_NAME "lib${PROJECT_NAME}"
     )
     target_include_directories(${PROJECT_NAME}
         PUBLIC $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
