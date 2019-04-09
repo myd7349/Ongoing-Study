@@ -637,8 +637,6 @@ target_include_directories(${PROJECT_NAME}
     PRIVATE
         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src/libsodium/include/sodium>
         $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/sodium>
-    INTERFACE
-        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
 if (BUILD_TESTING)
@@ -693,6 +691,7 @@ install(TARGETS ${PROJECT_NAME}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
 install(EXPORT ${PROJECT_NAME}-targets
@@ -742,3 +741,4 @@ install(
 # https://stackoverflow.com/questions/647892/how-to-check-header-files-and-library-functions-in-cmake-like-it-is-done-in-auto
 # https://stackoverflow.com/questions/31038963/how-do-you-rename-a-library-filename-in-cmake
 # https://stackoverflow.com/questions/50468620/what-does-enable-testing-do-in-cmake
+# https://github.com/edenhill/librdkafka/blob/master/src-cpp/CMakeLists.txt
