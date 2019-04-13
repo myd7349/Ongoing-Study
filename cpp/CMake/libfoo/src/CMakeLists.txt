@@ -18,8 +18,9 @@ if (BUILD_STATIC_LIBS)
     )
 
     target_include_directories(${PROJECT_NAME}_static
-        PUBLIC $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:include>
+        PUBLIC
+            $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
+            $<INSTALL_INTERFACE:include>
     )
 
     install(
@@ -43,8 +44,9 @@ if (BUILD_SHARED_LIBS)
             OUTPUT_NAME "lib${PROJECT_NAME}"
     )
     target_include_directories(${PROJECT_NAME}
-        PUBLIC $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:include>
+        PUBLIC
+            $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
+            $<INSTALL_INTERFACE:include>
     )
 
     install(
