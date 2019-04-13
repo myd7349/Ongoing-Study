@@ -1,7 +1,9 @@
 find_package(cmocka CONFIG REQUIRED)
 find_package(roaring CONFIG REQUIRED)
 
-enable_testing()
+include(CTest)
+
+message(STATUS "CMOCKA_LIBRARIES: ${CMOCKA_LIBRARIES}")
 
 set(root_url "https://raw.githubusercontent.com/RoaringBitmap/CRoaring/master/tests/")
 
