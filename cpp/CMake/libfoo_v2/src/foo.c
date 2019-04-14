@@ -10,5 +10,9 @@ int foo()
 
 const char *bar()
 {
+#ifdef FOO_STATIC_LIB
+    return "";
+#else
     return STR(FOO_API);
+#endif
 }

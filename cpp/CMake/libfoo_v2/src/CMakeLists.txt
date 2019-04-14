@@ -23,6 +23,7 @@ if (BUILD_STATIC_LIBS)
     )
 
     if (WIN32)
+        message(STATUS "Defining FOO_STATIC_LIB ...")
         target_compile_definitions(${PROJECT_NAME}_static
             PUBLIC FOO_STATIC_LIB
         )
@@ -50,9 +51,10 @@ if (BUILD_SHARED_LIBS)
     )
 
     if (WIN32)
+        message(STATUS "Defining FOO_SHARED_LIB ...")
         target_compile_definitions(${PROJECT_NAME}
             PRIVATE $<BUILD_INTERFACE:FOO_EXPORTS>
-            INTERFACE $<INSTALL_INTERFACE:FOO_SHARED_LIB>
+            PUBLIC FOO_SHARED_LIB
         )
     endif ()
 
