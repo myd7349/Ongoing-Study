@@ -49,3 +49,5 @@ FOO_API const char *bar();
 
 // References:
 // https://gcc.gnu.org/wiki/Visibility
+// https://stackoverflow.com/questions/22285240/mingw-use-declspecdllexport-or-attribute-visibilitydefault
+// https://github.com/raysan5/raylib/pull/789#issuecomment-482923913
