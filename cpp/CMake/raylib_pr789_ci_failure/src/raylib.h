@@ -12,3 +12,7 @@
 RLAPI void rlHello(void);
 
 #endif
+
+
+// References:
+// https://github.com/raysan5/raylib/pull/789#issuecomment-482923913

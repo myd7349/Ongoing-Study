@@ -13,3 +13,4 @@ endif()
 
 # References:
 # https://github.com/raysan5/raylib/pull/789
+# https://github.com/raysan5/raylib/pull/789#issuecomment-482923913

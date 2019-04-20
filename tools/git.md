@@ -191,3 +191,7 @@ git log --follow --name-only file
 [Squash all my commits into one for GitHub pull request](https://stackoverflow.com/questions/14534397/squash-all-my-commits-into-one-for-github-pull-request)
 
 [Closing multiple issues in Github with a commit message](https://stackoverflow.com/questions/3547445/closing-multiple-issues-in-github-with-a-commit-message)
+
+[How do you merge two Git repositories?](https://stackoverflow.com/questions/1425892/how-do-you-merge-two-git-repositories)
+
+[Git removing commiter information](https://stackoverflow.com/questions/7013085/git-removing-commiter-information)
