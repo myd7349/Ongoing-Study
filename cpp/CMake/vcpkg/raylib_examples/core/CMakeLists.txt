@@ -1,6 +1,8 @@
-set(raylib_USE_STATIC_LIBS ${USE_MSVC_STATIC_RUNTIME})
+#set(raylib_USE_STATIC_LIBS ${USE_MSVC_STATIC_RUNTIME})
 set(raylib_VERBOSE ON)
 find_package(raylib CONFIG REQUIRED)
+
+message(STATUS "raylib_LIBRARIES: ${raylib_LIBRARIES}")
 
 set(core_example_sources
     core_2d_camera.c
