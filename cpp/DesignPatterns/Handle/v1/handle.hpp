@@ -69,6 +69,7 @@ class HandlePtr : public Handle
 public:
     using Handle::Handle;
     using Handle::x;
+    using Handle::y;
 
     // Pointer semantics
     Handle &x(int xv)
@@ -90,6 +91,7 @@ class HandleValue : public Handle
 public:
     using Handle::Handle;
     using Handle::x;
+    using Handle::y;
 
     // Value semantics
     // Copy-on-write

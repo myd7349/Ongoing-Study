@@ -21,3 +21,15 @@
     - [CMAKE_BUILD_TYPE not being used in CMakeLists.txt](https://stackoverflow.com/questions/24460486/cmake-build-type-not-being-used-in-cmakelists-txt)
 
 5. [Difference between CMAKE_CURRENT_SOURCE_DIR and CMAKE_CURRENT_LIST_DIR](https://stackoverflow.com/questions/24460486/cmake-build-type-not-being-used-in-cmakelists-txt)
+
+6. [OS specific instructions in CMAKE: How to?](https://stackoverflow.com/questions/9160335/os-specific-instructions-in-cmake-how-to)
+
+7. Couldn't find Threads when building raylib on Ubuntu:
+* [cmake and libpthread](https://stackoverflow.com/questions/1620918/cmake-and-libpthread)
+* [How to get CMake to recognize pthread on Ubuntu?](https://stackoverflow.com/questions/15193785/how-to-get-cmake-to-recognize-pthread-on-ubuntu)
+* [CMake can't find pthread](https://askubuntu.com/questions/499238/cmake-cant-find-pthread)
+* [CMake failing to detect pthreads due to warnings](https://stackoverflow.com/questions/24813827/cmake-failing-to-detect-pthreads-due-to-warnings/25130590#25130590)
+
+8. Couldn't find OpenGL on Linux
+* [How to use CMake to find and link OpenGL(mesa) package in Ubuntu](https://stackoverflow.com/questions/34001996/how-to-use-cmake-to-find-and-link-openglmesa-package-in-ubuntu)
+* [Couldn't find OpenGL on Ubuntu](https://stackoverflow.com/questions/31170869/cmake-could-not-find-opengl-in-ubuntu)

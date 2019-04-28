@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.9)
 
 project(nonius_example CXX)
 
+if (UNIX)
+    find_package(Threads REQUIRED)
+endif ()
+
 find_path(
     NONIUS_INCLUDE_DIRS
     NAMES nonius/nonius.h++
@@ -28,4 +32,8 @@ foreach (example_src ${examples})
     
     add_executable(${example_title} ${CMAKE_CURRENT_LIST_DIR}/${example_src})
     target_include_directories(${example_title} PRIVATE ${NONIUS_INCLUDE_DIRS})
+
+    if (UNIX)
+        target_link_libraries(${example_title} PRIVATE Threads::Threads)
+    endif ()
 endforeach ()

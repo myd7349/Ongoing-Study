@@ -9,3 +9,7 @@ find_path(
 
 add_executable(demo001 "demo001.cpp")
 target_include_directories(demo001 PRIVATE ${WEBVIEW_INCLUDE_DIRS})
+
+
+# References:
+# https://stackoverflow.com/questions/9160335/os-specific-instructions-in-cmake-how-to
