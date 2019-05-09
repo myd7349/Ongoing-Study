@@ -33,7 +33,9 @@
 #endif
 
 /* ARRAYSIZE */
-#define ARRAYSIZE(arr) (sizeof(arr) / sizeof(arr[0]))
+#ifndef ARRAYSIZE
+# define ARRAYSIZE(arr) (sizeof(arr) / sizeof(arr[0]))
+#endif
 
 /* STR */
 /*

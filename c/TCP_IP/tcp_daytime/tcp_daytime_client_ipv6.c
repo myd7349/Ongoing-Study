@@ -1,10 +1,20 @@
 #include <locale.h>
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include "../../bzero.h"
 #include "../tcpip.h"
+
+#if defined(__MINGW32__) || defined(__MINGW64__)
+# if USING_UNICODE
+#  include "mingw-unicode.c"
+# endif
+
+# include "../inet_pton.h"
+# define inet_pton inet_pton_c
+#endif
 
 #define MAXLINE (1024)
 
@@ -20,6 +30,12 @@ int _tmain(int argc, _TCHAR **argv)
 #ifdef _WIN32
     _tsetlocale(LC_ALL, _T(""));
 #endif
+
+	printf("%d\n", offsetof(struct sockaddr_in6, sin6_family));
+	printf("%d\n", offsetof(struct sockaddr_in6, sin6_port));
+	printf("%d\n", offsetof(struct sockaddr_in6, sin6_flowinfo));
+	printf("%d\n", offsetof(struct sockaddr_in6, sin6_addr));
+	printf("%d\n", offsetof(struct sockaddr_in6, sin6_scope_id));
 
     if (argc != 2)
     {
@@ -78,7 +94,7 @@ int _tmain(int argc, _TCHAR **argv)
 #ifdef _WIN32
         print_error_ex(_T("recv"));
 #else
-        fprintf(stderr, "read failed(%d): %s\n", errno, strerror(errno));
+		print_error_ex(_T("read"));
 #endif
     }
 
@@ -89,4 +105,5 @@ int _tmain(int argc, _TCHAR **argv)
 
 
 // References:
-// UNPv1, 3rd, Ch1.3
+// UNPv1, 3rd, Ch1.3, Ch3.2
+// https://stackoverflow.com/questions/10932473/how-do-i-use-the-wmain-entry-point-in-codeblocks

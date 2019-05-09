@@ -7,10 +7,19 @@
 #include "../../bzero.h"
 #include "../sendall.h"
 
+#if defined(__MINGW32__) || defined(__MINGW64__)
+# if USING_UNICODE
+#  include "mingw-unicode.c"
+# endif
+
+# include "../inet_pton.h"
+# define inet_pton inet_pton_c
+#endif
+
 #define MAXLINE (1024)
 
 
-int _tmain()
+int _tmain(int argc, _TCHAR **argv)
 {
     socket_t listenfd;
     socket_t connfd;
@@ -18,6 +27,9 @@ int _tmain()
     char buff[MAXLINE];
     time_t ticks;
     int res;
+
+    (void)argc;
+    (void)argv;
 
 #ifdef _WIN32
     _tsetlocale(LC_ALL, _T(""));
@@ -80,3 +92,4 @@ int _tmain()
 
 // References:
 // UNPv1, 3rd, Ch1.5, Ch2.12
+// https://stackoverflow.com/questions/10932473/how-do-i-use-the-wmain-entry-point-in-codeblocks

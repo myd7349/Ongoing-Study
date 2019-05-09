@@ -3,7 +3,9 @@
 
 #include "../tchardef.h"
 
-#ifdef _WIN32
+#if defined(_WIN32) || \
+    defined(__MINGW32__) || \
+    defined(__MINGW64__)
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,8 +39,12 @@ typedef SOCKET socket_t;
 #define getnameinfo GetNameInfo
 #define getaddrinfo GetAddrInfo
 #define freeaddrinfo FreeAddrInfo
-#define inet_ntop InetNtop
-#define inet_pton InetPton
+
+#if defined(_MSC_VER)
+# define inet_ntop InetNtop
+# define inet_pton InetPton
+#endif
+
 #define closesock closesocket
 
 #define print_error(func_name, error) \
@@ -69,7 +75,11 @@ typedef int socket_t;
 #define closesock close
 
 #define print_error(func_name, error) \
-    _ftprintf(stderr, func_name _T(" failed(%d): %s(strerror), %s(gai_strerror)\n"), \
+    _ftprintf(stderr, \
+        func_name \
+        _T(" failed(%d):\n") \
+        _T("  strerror: %s\n") \
+        _T("  gai_strerror: %s\n"), \
         (error), strerror(error), gai_strerror((error)))
 #define print_error_ex(func_name) print_error(func_name, errno)
 
@@ -81,4 +91,4 @@ typedef int socket_t;
 // References:
 // man: gethostname
 // https://stackoverflow.com/questions/30084116/host-name-max-undefined-after-include-limits-h
-
+// https://github.com/boostorg/predef/blob/develop/include/boost/predef/platform/mingw.h

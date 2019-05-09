@@ -6,6 +6,16 @@
 #include "../../bzero.h"
 #include "../tcpip.h"
 
+
+#if defined(__MINGW32__) || defined(__MINGW64__)
+# if USING_UNICODE
+#  include "mingw-unicode.c"
+# endif
+
+# include "../inet_pton.h"
+# define inet_pton inet_pton_c
+#endif
+
 #define MAXLINE (1024)
 
 
@@ -90,3 +100,4 @@ int _tmain(int argc, _TCHAR **argv)
 
 // References:
 // UNPv1, 3rd, Ch1.2
+// https://stackoverflow.com/questions/10932473/how-do-i-use-the-wmain-entry-point-in-codeblocks
