@@ -195,3 +195,7 @@ git log --follow --name-only file
 [How do you merge two Git repositories?](https://stackoverflow.com/questions/1425892/how-do-you-merge-two-git-repositories)
 
 [Git removing commiter information](https://stackoverflow.com/questions/7013085/git-removing-commiter-information)
+
+[git-blame -w](https://github.com/edenhill/librdkafka/issues/762)
+
+[git grep](https://github.com/editorconfig/editorconfig-core-c/pull/57)
