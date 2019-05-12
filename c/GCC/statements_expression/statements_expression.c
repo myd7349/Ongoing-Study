@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "../common.h"
+#define max_old(a, b) ((a) > (b) ? (a) : (b))
 
 #define max(a, b) \
     ({ \
@@ -12,7 +12,17 @@
 
 int main(void)
 {
+    int i, j;
+
     printf("%d\n", max(30, 20 + 11));
+
+    i = j = 5;
+    printf("%d\n", max_old(--i, ++j));
+    printf("i: %d, j: %d\n", i, j);
+
+    i = j = 5;
+    printf("%d\n", max(--i, ++j));
+    printf("i: %d, j: %d\n", i, j);
 
     return 0;
 }
