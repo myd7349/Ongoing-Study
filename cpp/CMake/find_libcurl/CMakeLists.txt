@@ -15,3 +15,6 @@ if (LIBCURL_FOUND)
 else (LIBCURL_FOUND)
     message(FATAL_ERROR "libcurl not found." )
 endif (LIBCURL_FOUND)
+
+find_package(CURL REQUIRED)
+message(">> CURL_LIBRARIES: ${CURL_LIBRARIES}")
