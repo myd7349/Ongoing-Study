@@ -1,0 +1,23 @@
+﻿cmake_minimum_required(VERSION 3.8)
+
+project(find_libmicrohttpd C)
+
+list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR})
+
+message("CMake module path: ${CMAKE_MODULE_PATH}")
+
+if (WIN32)
+    set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
+endif ()
+
+find_package(libmicrohttpd QUIET)
+
+if (LIBMICROHTTPD_FOUND)
+    message(">> LIBMICROHTTPD_FOUND: ${LIBMICROHTTPD_FOUND}")
+    message(">> LIBMICROHTTPD_INCLUDE_DIRS: ${LIBMICROHTTPD_INCLUDE_DIRS}")
+    message(STATUS "LIBMICROHTTPD_LIBRARY_DEBUG: ${LIBMICROHTTPD_LIBRARY_DEBUG}")
+    message(STATUS "LIBMICROHTTPD_LIBRARY_RELEASE: ${LIBMICROHTTPD_LIBRARY_RELEASE}")
+    message(">> LIBMICROHTTPD_LIBRARIES: ${LIBMICROHTTPD_LIBRARIES}")
+else (LIBMICROHTTPD_FOUND)
+    message(FATAL_ERROR "libmicrohttpd not found." )
+endif (LIBMICROHTTPD_FOUND)
