@@ -104,7 +104,7 @@ else()
 endif()
 
 if (BUILD_TOOLS)
-    file(INSTALL ${CURRENT_PACKAGES_DIR}/bin/zmakecert${EXECUTABLE_SUFFIX}
+    file(COPY ${CURRENT_PACKAGES_DIR}/bin/zmakecert${EXECUTABLE_SUFFIX}
         DESTINATION ${CURRENT_PACKAGES_DIR}/tools/${PORT})
     vcpkg_copy_tool_dependencies(${CURRENT_PACKAGES_DIR}/tools/${PORT})
 endif()
