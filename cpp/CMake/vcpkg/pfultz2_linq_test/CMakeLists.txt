@@ -37,7 +37,7 @@ include(CTest)
 if (BUILD_TESTING)
     add_executable(linq_test ${CMAKE_CURRENT_BINARY_DIR}/test.cpp)
     #target_include_directories(linq_test PRIVATE ${Boost_INCLUDE_DIRS})
-    target_link_libraries(linq_test PRIVATE linq::linq Boost::boost Boost::unit_test_framework )
+    target_link_libraries(linq_test PRIVATE linq::linq Boost::boost Boost::unit_test_framework)
 
     add_test(NAME linq_test COMMAND linq_test)
 endif (BUILD_TESTING)

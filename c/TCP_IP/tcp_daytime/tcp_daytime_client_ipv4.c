@@ -1,4 +1,5 @@
 #include <locale.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -26,16 +27,26 @@ int _tmain(int argc, _TCHAR **argv)
     char recvline[MAXLINE];
     int n;
     int res;
+    uint16_t port;
+    int count = 0;
+    struct sockaddr_storage sockaddr;
+    socklen_t name_len = sizeof(sockaddr);
+    _TCHAR name_buff[INET_ADDRSTRLEN];
 
 #ifdef _WIN32
     _tsetlocale(LC_ALL, _T(""));
 #endif
 
-    if (argc != 2)
+    if (argc != 2 && argc != 3)
     {
-        fprintf(stderr, "Usage:\n    a.out <IP>\n");
+        fprintf(stderr, "Usage:\n    a.out <IP> [port]\n");
         return EXIT_FAILURE;
     }
+
+    if (argc == 3)
+        port = (uint16_t)_ttoi(argv[2]);
+    else
+        port = 13; // daytime server
 
     TCP_IP_INIT();
 
@@ -47,7 +58,7 @@ int _tmain(int argc, _TCHAR **argv)
 
     bzero(&servaddr, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
-    servaddr.sin_port = htons(13); // daytime server
+    servaddr.sin_port = htons(port);
 
     res = inet_pton(AF_INET, argv[1], &servaddr.sin_addr);
     if (res != 1)
@@ -69,12 +80,35 @@ int _tmain(int argc, _TCHAR **argv)
         return EXIT_FAILURE;
     }
 
+    // UNPv1 Exercise 4.2
+    res = getsockname(sockfd, (struct sockaddr *)&sockaddr, &name_len);
+    if (res == SOCKET_ERROR)
+    {
+        print_error_ex(_T("getsockname"));
+        closesock(sockfd);
+        return EXIT_FAILURE;
+    }
+
+    if (inet_ntop(sockaddr.ss_family, &((struct sockaddr_in *)&sockaddr)->sin_addr,
+        name_buff, sizeof(name_buff) / sizeof(name_buff[0])) != NULL)
+    {
+        _ftprintf(stdout, _T("Socket name: %s:%hd\n"),
+            name_buff,
+            ((struct sockaddr_in *)&sockaddr)->sin_port);
+    }
+    else
+    {
+        fprintf(stderr, "inet_ntop failed.\n");
+    }
+
 #ifdef _WIN32
     while ((n = recv(sockfd, recvline, MAXLINE, 0)) > 0)
 #else
     while ((n = read(sockfd, recvline, MAXLINE)) > 0)
 #endif
     {
+        count += 1; // UNPv1 Exercise 1.5
+
         recvline[n] = '\0';
         if (fputs(recvline, stdout) == EOF)
         {
@@ -91,6 +125,9 @@ int _tmain(int argc, _TCHAR **argv)
         fprintf(stderr, "read failed(%d): %s\n", errno, strerror(errno));
 #endif
     }
+
+    // UNPv1 Exercise 1.5
+    _tprintf(_T("count: %d\n"), count);
 
     closesock(sockfd);
 

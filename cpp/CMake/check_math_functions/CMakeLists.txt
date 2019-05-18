@@ -35,3 +35,6 @@ endif ()
 # https://stackoverflow.com/questions/43412943/cmake-cant-detect-gcc-built-in-functions-such-as-sqrt-pow-exp-and-so-on
 # https://stackoverflow.com/questions/32816646/can-cmake-detect-if-i-need-to-link-to-libm-when-using-pow-in-c
 # https://github.com/edenhill/librdkafka/blob/v1.0.0/CMakeLists.txt#L38
+# https://github.com/mesonbuild/meson/issues/5390#issuecomment-491640529
+# > AFAIK the only platform still using -lm et al is Linux and even there
+#   the GNU people are working on getting rid of them.

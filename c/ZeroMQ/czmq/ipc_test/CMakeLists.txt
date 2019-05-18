@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.8)
 
-if(WIN32 AND DEFINED ENV{VCPKG_ROOT}) #AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
-    set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
-    #set(VCPKG_TARGET_TRIPLET x64-windows-static)
-    #set(CMAKE_GENERATOR_PLATFORM x64)
-endif()
+#if(WIN32 AND DEFINED ENV{VCPKG_ROOT} AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
+#    set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
+#    set(VCPKG_TARGET_TRIPLET x64-windows-static)
+#    set(CMAKE_GENERATOR_PLATFORM x64)
+#endif()
 
 project(ipc_test CXX)
 
@@ -17,7 +17,6 @@ else()
     add_definitions(-DTEST_INPROC=1)
 endif()
 
-#find_package(ZeroMQ CONFIG REQUIRED)
 find_package(czmq CONFIG REQUIRED)
 
 add_executable(ipc_test "ipc_test.cpp")

@@ -10,7 +10,13 @@
       "installRoot": "${env.ProgramFiles(x86)}\\${name}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
-      "ctestCommandArgs": ""
+      "ctestCommandArgs": "",
+      "variables": [
+        {
+          "name": "CMAKE_TOOLCHAIN_FILE",
+          "value": "${env.VCPKG_ROOT}\\scripts\\buildsystems\\vcpkg.cmake"
+        }
+      ]
     },
     {
       "name": "x86-Release",
@@ -21,7 +27,13 @@
       "installRoot": "${env.ProgramFiles(x86)}\\${name}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
-      "ctestCommandArgs": ""
+      "ctestCommandArgs": "",
+      "variables": [
+        {
+          "name": "CMAKE_TOOLCHAIN_FILE",
+          "value": "${env.VCPKG_ROOT}\\scripts\\buildsystems\\vcpkg.cmake"
+        }
+      ]
     },
     {
       "name": "x64-Debug",
@@ -32,7 +44,13 @@
       "installRoot": "${env.ProgramFiles}\\${name}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
-      "ctestCommandArgs": ""
+      "ctestCommandArgs": "",
+      "variables": [
+        {
+          "name": "CMAKE_TOOLCHAIN_FILE",
+          "value": "${env.VCPKG_ROOT}\\scripts\\buildsystems\\vcpkg.cmake"
+        }
+      ]
     },
     {
       "name": "x64-Release",
@@ -43,7 +61,13 @@
       "installRoot": "${env.ProgramFiles}\\${name}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
-      "ctestCommandArgs": ""
+      "ctestCommandArgs": "",
+      "variables": [
+        {
+          "name": "CMAKE_TOOLCHAIN_FILE",
+          "value": "${env.VCPKG_ROOT}\\scripts\\buildsystems\\vcpkg.cmake"
+        }
+      ]
     }
   ]
 }
