@@ -28,8 +28,8 @@ endif ()
 
 add_executable(
     tcp_daytime_server_ipv4
-	tcp_daytime_server_ipv4
-	${CMAKE_CURRENT_LIST_DIR}/../sendall.c
+    tcp_daytime_server_ipv4
+    ${CMAKE_CURRENT_LIST_DIR}/../sendall.c
     ${common_sources}
 )
 if (WIN32)

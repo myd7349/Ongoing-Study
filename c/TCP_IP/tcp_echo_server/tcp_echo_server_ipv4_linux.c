@@ -53,6 +53,10 @@ void str_echo(int sockfd)
         {
             writen(sockfd, buf, n);
         }
+        else if (n == 0)
+        {
+            break;
+        }
         else if (n < 0 && errno != EINTR)
         {
             fprintf(stderr, "read failed(%d): %s\n", errno, strerror(errno));
