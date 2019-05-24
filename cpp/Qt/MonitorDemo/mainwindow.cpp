@@ -236,3 +236,4 @@ bool MainWindow::nativeEvent(const QByteArray &eventType, void *message, long *r
 // https://stackoverflow.com/questions/8881923/how-to-convert-a-pointer-value-to-qstring
 // https://www.codeproject.com/articles/2522/multiple-monitor-support
 // https://stackoverflow.com/questions/8040627/convert-wchar-to-qstring-in-qt
+// https://github.com/wang-bin/qdevicewatcher/blob/master/src/qdevicewatcher_win32.cpp

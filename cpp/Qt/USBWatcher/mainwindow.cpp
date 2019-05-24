@@ -118,3 +118,7 @@ bool MainWindow::nativeEvent(const QByteArray &eventType, void *message, long *r
 #endif
     return QMainWindow::nativeEvent(eventType, message, result);
 }
+
+
+// References:
+// https://github.com/wang-bin/qdevicewatcher/blob/master/src/qdevicewatcher_win32.cpp

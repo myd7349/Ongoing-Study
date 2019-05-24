@@ -5,13 +5,28 @@
 #include <string.h>
 
 #include <netinet/in.h>
+#include <signal.h>
 #include <strings.h>
 #include <sys/socket.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <unistd.h>
 
 
 #define MAXLINE (1024)
+
+
+void sigchld_handler(int s)
+{
+    pid_t pid;
+    int stat;
+
+    pid = wait(&stat);
+
+//#ifndef NDEBUG
+    printf("Child %d terminated.\n", (int)pid);
+//#endif
+}
 
 
 ssize_t writen(int fd, const void *buf, size_t n)
@@ -78,9 +93,27 @@ int main(int argc, char **argv)
 
     pid_t childpid;
 
+    struct sigaction sa;
+
     if (argc != 2)
     {
         puts("Usage:\n    a.out <port>");
+        return EXIT_FAILURE;
+    }
+
+    sa.sa_handler = sigchld_handler;
+    sigemptyset(&sa.sa_mask);
+#if 1
+    sa.sa_flags = SA_RESTART;
+#else
+    // If the client presses Ctrl+C, this app will print:
+    //   accept failed(4): Interrupted system call
+    sa.sa_flags = 0;
+#endif
+
+    if (sigaction(SIGCHLD, &sa, NULL) == -1)
+    {
+        fprintf(stderr, "sigaction failed(%d): %s\n", errno, strerror(errno));
         return EXIT_FAILURE;
     }
 
@@ -146,4 +179,4 @@ int main(int argc, char **argv)
 
 
 // References:
-// UNPv1, Ch5.2
+// UNPv1, Ch5.2, Ch5.9
