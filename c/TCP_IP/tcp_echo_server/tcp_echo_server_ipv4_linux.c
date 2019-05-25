@@ -21,11 +21,17 @@ void sigchld_handler(int s)
     pid_t pid;
     int stat;
 
+#if 0
     pid = wait(&stat);
-
 //#ifndef NDEBUG
     printf("Child %d terminated.\n", (int)pid);
 //#endif
+#else
+    while ((pid = waitpid(-1, &stat, WNOHANG)) > 0)
+//#ifndef NDEBUG
+        printf("Child %d terminated.\n", (int)pid);
+//#endif
+#endif
 }
 
 
@@ -154,8 +160,16 @@ int main(int argc, char **argv)
 
         if (connfd == -1)
         {
-            fprintf(stderr, "accept failed(%d): %s\n", errno, strerror(errno));
-            break;
+            if (errno == EINTR)
+            {
+                fprintf(stderr, "accept failed(%d): %s, will try again.\n", errno, strerror(errno));
+                continue;
+            }
+            else
+            {
+                fprintf(stderr, "accept failed(%d): %s\n", errno, strerror(errno));
+                break;
+            }
         }
 
         childpid = fork();
@@ -163,8 +177,12 @@ int main(int argc, char **argv)
         {
             close(listenfd);
             str_echo(connfd);
+#if 1
             close(connfd);
             return 0;
+#else
+            exit(0); // Ch5.10
+#endif
         }
         else
         {
@@ -179,4 +197,4 @@ int main(int argc, char **argv)
 
 
 // References:
-// UNPv1, Ch5.2, Ch5.9
+// UNPv1, Ch5.2, Ch5.9, Ch5.10
