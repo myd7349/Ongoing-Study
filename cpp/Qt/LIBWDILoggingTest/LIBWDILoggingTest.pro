@@ -30,6 +30,5 @@ SOURCES += \
 
 HEADERS += \
         mainwindow.h \
-        config.h \
         libwdi.h \
         logging.h

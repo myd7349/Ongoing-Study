@@ -6,6 +6,8 @@
 
 int main(int argc, char *argv[])
 {
+    FLAGS_log_dir = "./Logs";
+
     google::InitGoogleLogging(argv[0]);
     gflags::ParseCommandLineFlags(&argc, &argv, true);
 
@@ -14,6 +16,9 @@ int main(int argc, char *argv[])
     google::SetLogDestination(google::GLOG_WARNING, "");
 
     FLAGS_alsologtostderr = 1;
+    FLAGS_colorlogtostderr = 1;
+
+    DLOG(INFO) << "Debug mode!";
 
     LOG(INFO) << "Hello, world!";
     LOG(WARNING) << "This is a test code. This is a real life.";

@@ -14,3 +14,7 @@ string(REGEX REPLACE "${_package_version_re}" "\\1" PACKAGE_VERSION ${_package_v
 
 message(STATUS "_package_version_define: ${_package_version_define}")
 message(STATUS "PACKAGE_VERSION: ${PACKAGE_VERSION}")
+
+
+# References:
+# https://github.com/EOSIO/fc/blob/master/GitVersionGen/GetGitRevisionDescription.cmake.in

@@ -55,3 +55,5 @@ const char *itoa(int n, int base, char *buffer, size_t size)
 // https://github.com/miloyip/itoa-benchmark
 // https://github.com/drh/cii/blob/master/src/xp.c#L250
 // https://github.com/drh/cii/blob/master/src/ap.c#L368
+// https://github.com/google/glog/blob/ba8a9f6952d04d1403b97df24e6836227751454e/src/signalhandler.cc#L85-L145
+// https://github.com/google/glog/blob/ba8a9f6952d04d1403b97df24e6836227751454e/src/symbolize.cc#L663-L729

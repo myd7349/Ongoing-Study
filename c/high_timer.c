@@ -87,3 +87,6 @@ int64_t high_timer_ellapsed_ms(high_timer_t *timer)
 // https://github.com/mloskot/spatial_index_benchmark/blob/master/high_resolution_timer.hpp
 // https://github.com/miloyip/nativejson-benchmark/blob/master/src/timer.h
 // https://stackoverflow.com/questions/21557816/whats-the-c-suffix-for-long-double-literals
+// https://github.com/google/glog/blob/ba8a9f6952d04d1403b97df24e6836227751454e/src/utilities.cc#L194-L216
+// https://stackoverflow.com/questions/3756323/how-to-get-the-current-time-in-milliseconds-from-c-in-linux
+// glog/src/utilities.cc

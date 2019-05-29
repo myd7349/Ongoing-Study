@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 
 #include <ctime>
+#include <string>
 
 #include <QDebug>
 #include <QListWidget>
@@ -64,7 +65,10 @@ bool MainWindow::nativeEvent(const QByteArray &eventType, void *message, long *r
 void MainWindow::tick()
 {
     std::time_t ticks = std::time(nullptr);
-    wdi_info(ctime(&ticks));
+
+    std::string timeString = std::ctime(&ticks);
+    timeString.resize(timeString.size() - 1);
+    wdi_info(timeString.c_str());
 }
 
 

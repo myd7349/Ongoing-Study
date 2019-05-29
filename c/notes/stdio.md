@@ -54,3 +54,19 @@ https://stackoverflow.com/questions/33327720/how-to-use-fread-to-read-the-entire
 
 >Note that this differs from the underlying read(2) POSIX system call. read() can return less than a full buffer if interrupted, or after a packet from a socket, or after a line on a line-buffered tty, and stuff like that. fread() keeps calling read until the buffer is full or it reaches EOF.
 
+4.
+
+https://github.com/google/glog/blob/ba8a9f6952d04d1403b97df24e6836227751454e/src/signalhandler.cc#L85-L86
+
+The class is used for formatting error messages.  We don't use printf() as it's not async signal safe.
+
+UNPv1 Ch5.9:
+>警告：在信号处理函数中调用诸如 printf 这样的标准 I/O 函数是不合适的，其原因将在 11.18 节讨论。
+
+5.
+
+Read a file line by line:
+
+https://github.com/google/glog/blob/ba8a9f6952d04d1403b97df24e6836227751454e/src/symbolize.cc#L401-L444
+
+UNPv1
