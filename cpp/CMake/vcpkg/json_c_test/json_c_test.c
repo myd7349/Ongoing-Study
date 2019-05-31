@@ -8,7 +8,7 @@
 #include <json-c/json_util.h>
 
 
-#if defined(__linux)
+#if defined(__linux__)
 # include <linux/limits.h>
 # define _MAX_PATH PATH_MAX
 #elif defined(_MSC_VER)
