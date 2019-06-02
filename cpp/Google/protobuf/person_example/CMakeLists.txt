@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.9)
 
-project(protobuf-examples)
+project(protobuf-examples CXX)
 
 find_package(protobuf CONFIG REQUIRED)
 
@@ -27,6 +27,19 @@ protobuf_generate(
 )
 
 target_link_libraries(person_cpp PRIVATE protobuf::libprotobuf)
+
+add_custom_command(TARGET person_cpp POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${CMAKE_CURRENT_LIST_DIR}/person_with_email.json"
+        $<TARGET_FILE_DIR:person_cpp>
+)
+
+add_custom_command(TARGET person_cpp POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${CMAKE_CURRENT_LIST_DIR}/person_without_email.json"
+        $<TARGET_FILE_DIR:person_cpp>
+)
+
 
 # References:
 # https://github.com/protocolbuffers/protobuf/blob/master/examples/CMakeLists.txt
