@@ -12,11 +12,13 @@ configure_file(
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
     RESULT_VARIABLE result
     WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/libsodium_download
+    ENCODING AUTO
 )
 
 execute_process(COMMAND ${CMAKE_COMMAND} --build .
     RESULT_VARIABLE result
     WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/libsodium_download
+    ENCODING AUTO
 )
 
 file(STRINGS ${CMAKE_CURRENT_LIST_DIR}/libsodium/configure.ac config_ac_contents)
