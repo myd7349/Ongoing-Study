@@ -65,4 +65,24 @@
     } while (0)
 
 
+#define PRINT_BITS_EX(v, sp, nl) \
+    do \
+    { \
+        int i; \
+        int counter = 0; \
+        for (i = sizeof(v) * CHAR_BIT - 1; i >= 0; --i) \
+        { \
+            putchar(IS_BIT_SET((v), i) ? '1' : '0'); \
+            ++counter; \
+            if (counter == sp && i != 0) \
+            { \
+                putchar(' '); \
+                counter = 0; \
+            } \
+        } \
+        if (nl) \
+            putchar('\n'); \
+    } while (0)
+
+
 #endif // BITUTILS_H_

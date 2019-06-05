@@ -47,3 +47,7 @@ inline BOOL IsKeyUp(int nVirtualKeyCode)
 {
     return !IsKeyDown(nVirtualKeyCode);
 }
+
+
+// References:
+// https://github.com/raysan5/raylib/issues/535

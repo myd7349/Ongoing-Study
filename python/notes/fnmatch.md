@@ -11,3 +11,7 @@ irb(main):002:0> File.fnmatch('*.{dll,exe}', 'a.Exe', File::FNM_EXTGLOB | File::
 ```
 
 It seems that Python version of `fnmatch` doesn't support matching pattern shown above.
+
+http://man7.org/linux/man-pages/man3/fnmatch.3.html
+
+http://man7.org/linux/man-pages/man7/glob.7.html

@@ -11,4 +11,6 @@ def main(args = None):
             zipfile.py -e zipfile.zip target # Extract zipfile into target dir
             zipfile.py -c zipfile.zip src ... # Create zipfile from sources
         """)
-```        
+```
+
+https://github.com/protocolbuffers/upb/blob/00e739648d816fae3972c9d51fef24940cf50539/tools/make_cmakelists.py#L197

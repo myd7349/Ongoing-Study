@@ -22,6 +22,7 @@
 >* [Corrade/acme.py](https://github.com/mosra/corrade/blob/master/src/acme/acme.py)
 >* [csv-parser/single_header.py](https://github.com/vincentlaucsb/csv-parser/blob/master/single_header.py)
 >* [doctest/assemble_single_header.cmake](https://github.com/onqtam/doctest/blob/master/scripts/cmake/assemble_single_header.cmake)
+>* [upb/tools/amalgamate.py](https://github.com/protocolbuffers/upb/blob/master/tools/amalgamate.py)
 >
 >## Ideas:
 >* [The single-header code should be a build artifact](https://github.com/lemire/simdjson/issues/106)
