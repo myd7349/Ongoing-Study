@@ -26,6 +26,8 @@ find_package_handle_standard_args(
 # https://github.com/Microsoft/vcpkg/issues/4312
 # https://github.com/microsoft/vcpkg/commit/ee325d14276e7bd7961e94e58293b02d6e9e92da
 # https://github.com/microsoft/vcpkg/pull/6698
+# https://github.com/microsoft/vcpkg/commit/f6f127eb00fb6b5d43d307bec01e02da570b0631
+# https://github.com/googleapis/google-cloud-cpp/pull/2407/files
 if (LIBCURL_FOUND)
     find_package(OpenSSL QUIET)
     find_package(ZLIB QUIET)
