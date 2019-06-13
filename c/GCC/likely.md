@@ -3,3 +3,11 @@ https://stackoverflow.com/questions/7346929/what-is-the-advantage-of-gccs-builti
 https://stackoverflow.com/questions/1440570/likely-unlikely-equivalent-for-msvc
 
 https://software.intel.com/en-us/forums/intel-c-compiler/topic/540250
+
+https://stackoverflow.com/questions/109710/how-do-the-likely-unlikely-macros-in-the-linux-kernel-work-and-what-is-their-ben
+
+https://stackoverflow.com/questions/30266738/are-boost-likely-and-builtin-expect-still-relevant
+
+https://github.com/boostorg/config/blob/da2cf21fde3b1dd7b7804868c4a4dd66b72b6448/include/boost/config/compiler/gcc.hpp#L95
+
+https://sourcegraph.com/search?q=repo:%5Egithub%5C.com/boostorg/config%24+BOOST_LIKELY

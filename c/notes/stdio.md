@@ -62,6 +62,7 @@ The class is used for formatting error messages.  We don't use printf() as it's 
 
 UNPv1 Ch5.9:
 >警告：在信号处理函数中调用诸如 printf 这样的标准 I/O 函数是不合适的，其原因将在 11.18 节讨论。
+>https://stackoverflow.com/questions/25327519/how-to-send-udp-packet-every-1-ms
 
 5.
 
@@ -74,3 +75,50 @@ UNPv1
 6.
 
 https://stackoverflow.com/questions/14543443/in-c-how-do-you-redirect-stdin-stdout-stderr-to-files-when-making-an-execvp-or
+
+cpp/Google/glog/glog_src_playground/captured_stream.hpp
+
+7.
+
+2019-01-25T13:33+08:00
+
+filecore.cpp
+
+```c
+ULONGLONG CStdioFile::GetLength() const
+{
+   ASSERT_VALID(this);
+
+   LONG nCurrent;
+   LONG nLength;
+   LONG nResult;
+
+   nCurrent = ftell(m_pStream);
+   if (nCurrent == -1)
+      AfxThrowFileException(CFileException::invalidFile, _doserrno,
+         m_strFileName);
+
+   nResult = fseek(m_pStream, 0, SEEK_END);
+   if (nResult != 0)
+      AfxThrowFileException(CFileException::badSeek, _doserrno,
+         m_strFileName);
+
+   nLength = ftell(m_pStream);
+   if (nLength == -1)
+      AfxThrowFileException(CFileException::invalidFile, _doserrno,
+         m_strFileName);
+   nResult = fseek(m_pStream, nCurrent, SEEK_SET);
+   if (nResult != 0)
+      AfxThrowFileException(CFileException::badSeek, _doserrno,
+         m_strFileName);
+
+   return nLength;
+}
+```
+
+8. snprintf and vsnprintf
+
+https://github.com/google/glog/blob/ba8a9f6952d04d1403b97df24e6836227751454e/src/windows/port.h#L118-L128
+
+https://github.com/google/glog/blob/master/src/windows/port.cc
+
