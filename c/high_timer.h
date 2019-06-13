@@ -5,7 +5,13 @@
 #include <stdint.h>
 
 #ifdef __linux__
+#define HAVE_CLOCK_GETTIME
+
+#ifdef HAVE_CLOCK_GETTIME
+#include <time.h>
+#else
 #include <sys/time.h>
+#endif
 #endif
 
 #include "common.h"
@@ -18,7 +24,11 @@ typedef struct high_timer_impl_t
 #if defined(_WIN32)
     int64_t start_time;
 #elif defined(__linux__)
+#ifdef HAVE_CLOCK_GETTIME
+    struct timespec start_time;
+#else
     struct timeval start_time;
+#endif
 #else
 #error high_timer: Unsupported platform!
 #endif
@@ -27,6 +37,8 @@ typedef struct high_timer_impl_t
 
 void high_timer_start(high_timer_t *timer);
 int64_t high_timer_ellapsed_ms(high_timer_t *timer);
+int64_t high_timer_ellapsed_us(high_timer_t *timer);
+int64_t high_timer_ellapsed_ns(high_timer_t *timer);
 
 C_API_END
 
