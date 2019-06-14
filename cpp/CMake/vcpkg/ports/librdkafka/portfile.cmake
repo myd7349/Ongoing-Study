@@ -3,9 +3,11 @@ include(vcpkg_common_functions)
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO edenhill/librdkafka
-    REF dc85ffc8068c18dfdf118666b4c78de1c7ac640b
-    SHA512 b21be356806125ab8bdb74de41eef2c56714cfd2003065be362d9fab7e177a07675e95a13ed6d7fbd3dc38502194000b0e378ff6c43c7d54a0234ada0df881eb
+    REF b25436e6325e7c941eaed1d80a3ed65b6f404e47
+    SHA512 4de86fb14f932a67569cd79f924182559cb9bcc957635c36be493ec3233981755ff751982e48f6999fac50acb153f5c28a23e30538af1a2ad69af87be606a81f
     HEAD_REF master
+    PATCHES
+        fix-arm64.patch
 )
 
 string(COMPARE EQUAL "${VCPKG_LIBRARY_LINKAGE}" "static" RDKAFKA_BUILD_STATIC)
