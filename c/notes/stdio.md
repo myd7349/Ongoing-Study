@@ -122,3 +122,8 @@ https://github.com/google/glog/blob/ba8a9f6952d04d1403b97df24e6836227751454e/src
 
 https://github.com/google/glog/blob/master/src/windows/port.cc
 
+9. fopen for utf-8
+
+https://github.com/ArtifexSoftware/mupdf/blob/b10c81f8d278534b277d181436d5b8e8a9723af9/source/fitz/time.c#L84-L108
+
+

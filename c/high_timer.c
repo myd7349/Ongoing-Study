@@ -159,3 +159,4 @@ int64_t high_timer_ellapsed_ns(high_timer_t *timer)
 // https://github.com/google/glog/blob/ba8a9f6952d04d1403b97df24e6836227751454e/src/utilities.cc#L194-L216
 // https://stackoverflow.com/questions/3756323/how-to-get-the-current-time-in-milliseconds-from-c-in-linux
 // https://linux.die.net/man/2/clock_gettime
+// https://github.com/caryll/otfcc/blob/master/src/stopwatch.c

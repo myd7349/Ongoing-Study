@@ -199,3 +199,5 @@ git log --follow --name-only file
 [git-blame -w](https://github.com/edenhill/librdkafka/issues/762)
 
 [git grep](https://github.com/editorconfig/editorconfig-core-c/pull/57)
+
+[How do I discard unstaged changes in Git?](https://stackoverflow.com/questions/52704/how-do-i-discard-unstaged-changes-in-git)

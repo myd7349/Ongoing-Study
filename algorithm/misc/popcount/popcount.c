@@ -33,3 +33,4 @@ int main()
 //
 // https://www.zhihu.com/question/52726115
 // https://blog.csdn.net/zotin/article/details/5885131
+// https://github.com/arximboldi/immer/blob/a28718c0511ae41503b1c6ef36f4b5368fa717ba/immer/detail/hamts/bits.hpp#L73-L103

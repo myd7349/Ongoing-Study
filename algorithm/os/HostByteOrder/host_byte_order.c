@@ -23,3 +23,4 @@ int main()
 
 // References:
 // UNPv1, Chapter 3
+// https://github.com/caryll/otfcc/blob/ad01e3608293a548bedf87704f35e4c0529804d3/lib/support/bin-io.h#L16-L23
