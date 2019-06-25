@@ -1,3 +1,6 @@
+#! /usr/bin/env python3
+# -*- encoding: utf-8 -*-
+
 import base64
 import random
 import unittest
@@ -23,7 +26,7 @@ class Base64UnitTest(unittest.TestCase):
             b'%\x9f\x88\x94\xa9\xc1\x08f-yG\x1d?P\x8d\xc0\xdak\xc9\xb9',
             b'P\xcau"w\xf1\xf7\xd5\xdb\x12\x97a\x92\xb0C',
             )
-        self.data_list = [generate_random_bytes(random.randint(0, 20)) for _ in range(1000)]
+        self.data_list = [generate_random_bytes(random.randint(0, 5000)) for _ in range(1000)]
 
     def test_ever_failed(self):
         for data in self.ever_failed:

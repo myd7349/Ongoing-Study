@@ -68,7 +68,7 @@ int main(void)
     test_encoding("hello, world", 0, "aGVsbG8sIHdvcmxk");
     test_encoding("hello, world!", 0, "aGVsbG8sIHdvcmxkIQ==");
 
-    test_encoding(data, sizeof(data), "");
+    test_encoding((const char *)data, sizeof(data), "BEI8lqoO2mWUVXvVXap0ttVf");
 
     return 0;
 }

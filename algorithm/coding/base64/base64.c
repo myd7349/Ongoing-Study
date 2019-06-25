@@ -2,6 +2,7 @@
 
 #include <assert.h>
 #include <limits.h>
+#include <stdint.h>
 
 
 static const uint8_t normal_base64_table[] = 
@@ -24,6 +25,7 @@ static const uint8_t urlsafe_base64_table[] =
 };
 
 
+// ALIGN_UP(num, 3):
 // 0 -> 0
 // 1 -> 3
 // 2 -> 3
@@ -42,9 +44,6 @@ size_t base64_encode_length(size_t len)
 }
 
 
-// Python:
-// import base64
-// base64.b64encode
 void *base64_encode(const void *data, size_t len, void *out_buffer, size_t *out_len, B64_FLAGS flags)
 {
     size_t remained_bytes = len % 3;
@@ -96,7 +95,7 @@ void *base64_encode(const void *data, size_t len, void *out_buffer, size_t *out_
 }
 
 
-char *easy_base64_encode(const uint8_t *data, size_t len, char *out, size_t out_len)
+char *easy_base64_encode(const void *data, size_t len, char *out, size_t out_len)
 {
     size_t encoded_len = out_len;
     uint8_t *result = base64_encode(data, len, out, &encoded_len, B64F_NORMAL);

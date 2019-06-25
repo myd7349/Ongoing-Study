@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 # encoding: utf-8
 
 import ctypes
@@ -5,8 +6,8 @@ import ctypes.util
 import os
 import os.path
 import shlex
-import sys
 import subprocess
+import sys
 
 
 def _quote_path(path):
@@ -16,11 +17,21 @@ def _quote_path(path):
         return shlex.quote(path)
 
 
+def _search_base64_dylib(build_path):
+    known_names = frozenset(('base64.dll', 'libbase64.so', 'libbase64.dylib'))
+    for root, dirs, files in os.walk(build_path):
+        for f in files:
+            if f in known_names:
+                return os.path.join(root, f)
+
+
 def _load_base64_module():
     current_path = os.path.dirname(__file__)
     build_path = os.path.join(current_path, 'build')
     install_path = os.path.join(build_path, "install")
 
+    os.makedirs(build_path, exist_ok=True)
+    
     subprocess.run([
         'cmake',
         '..',
@@ -29,18 +40,22 @@ def _load_base64_module():
         ],
         cwd=build_path,
         )
-    subprocess.run(
-        'cmake --build . --config Release',
+    subprocess.run([
+        'cmake',
+        '--build',
+        '.',
+        '--config',
+        'Release'
+        ],
         cwd=build_path,
         )
 
-    release_path = os.path.join(build_path, 'Release')
-    dynlib_path = os.path.join(release_path, 'base64.dll')
+    dylib_path = _search_base64_dylib(build_path)
+    if not dylib_path:
+        raise RuntimeError("Could not find base64 dynamic library!")
 
-    if os.path.exists(dynlib_path):
-        return ctypes.CDLL(dynlib_path)
-
-    raise RuntimeError("{0} doesn't exist!".format(dynlib_path))
+    print('base64 library path: {0}'.format(dylib_path))
+    return ctypes.CDLL(dylib_path)
 
 
 _base64_module = _load_base64_module()
@@ -76,7 +91,7 @@ def base64_encode(data):
         out_buffer, ctypes.byref(expected_len),
         B64F_NORMAL)
 
-    return ctypes.cast(out_buffer, ctypes.c_char_p).value
+    return ctypes.cast(out_buffer, ctypes.c_char_p).value[:expected_len_raw]
 
 
 if __name__ == '__main__':
