@@ -137,7 +137,7 @@ private:
 
         LARGE_INTEGER Frequency;
         bool IsHighResolution;
-        LONGLONG TickFrequency;
+        long double TickFrequency;
     };
 
     static InternalData internalData_;
