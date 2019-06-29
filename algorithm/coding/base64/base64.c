@@ -226,10 +226,10 @@ bool base64_is_valid(const void *base64, size_t len, B64_FLAGS flags, size_t *de
 static const uint8_t *base64_decoding_table(B64_FLAGS flags)
 {
     static bool normal_decoding_table_initialized = false;
-    static uint8_t normal_decoding_table[256] = { 0 };
+    static uint8_t normal_decoding_table[256];
 
     static bool urlsafe_decoding_table_initialized = false;
-    static uint8_t urlsafe_decoding_table[256] = { 0 };
+    static uint8_t urlsafe_decoding_table[256];
 
     if (flags & B64F_URLSAFE)
     {
@@ -238,6 +238,7 @@ static const uint8_t *base64_decoding_table(B64_FLAGS flags)
             const uint8_t *encoding_table = base64_encoding_table(flags);
             size_t i;
 
+            memset(urlsafe_decoding_table, 0xFF, 256);
             for (i = 0; i < 64; ++i)
                 urlsafe_decoding_table[encoding_table[i]] = (uint8_t)i;
         }
@@ -251,6 +252,7 @@ static const uint8_t *base64_decoding_table(B64_FLAGS flags)
             const uint8_t *encoding_table = base64_encoding_table(flags);
             size_t i;
 
+            memset(normal_decoding_table, 0xFF, 256);
             for (i = 0; i < 64; ++i)
                 normal_decoding_table[encoding_table[i]] = (uint8_t)i;
         }
@@ -270,8 +272,9 @@ void *base64_decode(const void *base64, size_t len, void *data, size_t *out_len,
     const uint8_t *in_upfront_end = NULL;
     uint8_t *out = data;
 
-    const uint8_t *encoding_table = base64_encoding_table(flags);
     const uint8_t *decoding_table = base64_decoding_table(flags);
+
+    uint8_t block[4];
 
     size_t decoded_len_unchecked = base64_decoded_length_unchecked(base64, len, flags);
     if (decoded_len_unchecked == 0)
@@ -294,45 +297,51 @@ void *base64_decode(const void *base64, size_t len, void *data, size_t *out_len,
 
     while (in < in_upfront_end)
     {
-        if (!base64_table_contains(encoding_table, in[0]) ||
-            !base64_table_contains(encoding_table, in[1]) ||
-            !base64_table_contains(encoding_table, in[2]) ||
-            !base64_table_contains(encoding_table, in[3]))
+        block[0] = decoding_table[in[0]];
+        block[1] = decoding_table[in[1]];
+        block[2] = decoding_table[in[2]];
+        block[3] = decoding_table[in[3]];
+
+        if ((block[0] | block[1] | block[2] | block[3]) >= 64)
         {
             *out_len = 0;
             return NULL;
         }
 
-        *out++ = decoding_table[in[0]] << 2 | decoding_table[in[1]] >> 4;
-        *out++ = (decoding_table[in[1]] & 0xF) << 4 | decoding_table[in[2]] >> 2;
-        *out++ = (decoding_table[in[2]] & 0x3) << 6 | decoding_table[in[3]];
+        *out++ = block[0] << 2 | block[1] >> 4;
+        *out++ = (block[1] & 0xF) << 4 | block[2] >> 2;
+        *out++ = (block[2] & 0x3) << 6 | block[3];
 
         in += 4;
     }
 
     if (remained_bytes == 2)
     {
-        if (!base64_table_contains(encoding_table, in[0]) ||
-            !base64_table_contains(encoding_table, in[1]))
+        block[0] = decoding_table[in[0]];
+        block[1] = decoding_table[in[1]];
+
+        if ((block[0] | block[1]) >= 64)
         {
             *out_len = 0;
             return NULL;
         }
 
-        *out++ = decoding_table[in[0]] << 2 | decoding_table[in[1]] >> 4;
+        *out++ = block[0] << 2 | block[1] >> 4;
     }
     else if (remained_bytes == 3)
     {
-        if (!base64_table_contains(encoding_table, in[0]) ||
-            !base64_table_contains(encoding_table, in[1]) ||
-            !base64_table_contains(encoding_table, in[2]))
+        block[0] = decoding_table[in[0]];
+        block[1] = decoding_table[in[1]];
+        block[2] = decoding_table[in[2]];
+
+        if ((block[0] | block[1] | block[2]) >= 64)
         {
             *out_len = 0;
             return NULL;
         }
 
-        *out++ = decoding_table[in[0]] << 2 | decoding_table[in[1]] >> 4;
-        *out++ = (decoding_table[in[1]] & 0xF) << 4 | decoding_table[in[2]] >> 2;
+        *out++ = block[0] << 2 | block[1] >> 4;
+        *out++ = (block[1] & 0xF) << 4 | block[2] >> 2;
     }
 
     *out_len = out - (uint8_t *)data;
