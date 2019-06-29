@@ -264,6 +264,7 @@ static const uint8_t *base64_decoding_table(B64_FLAGS flags)
 void *base64_decode(const void *base64, size_t len, void *data, size_t *out_len, B64_FLAGS flags)
 {
     size_t padded_bytes = get_padded_bytes(base64, len);
+    size_t remained_bytes;
 
     const uint8_t *in = base64;
     const uint8_t *in_upfront_end = NULL;
@@ -288,7 +289,8 @@ void *base64_decode(const void *base64, size_t len, void *data, size_t *out_len,
         return NULL;
     }
 
-    in_upfront_end = in + (len - (padded_bytes > 0 ? 4 : len % 4));
+    remained_bytes = padded_bytes > 0 ? (4 - padded_bytes) : len % 4;
+    in_upfront_end = in + (len - remained_bytes - padded_bytes);
 
     while (in < in_upfront_end)
     {
@@ -308,7 +310,7 @@ void *base64_decode(const void *base64, size_t len, void *data, size_t *out_len,
         in += 4;
     }
 
-    if (padded_bytes == 2)
+    if (remained_bytes == 2)
     {
         if (!base64_table_contains(encoding_table, in[0]) ||
             !base64_table_contains(encoding_table, in[1]))
@@ -319,7 +321,7 @@ void *base64_decode(const void *base64, size_t len, void *data, size_t *out_len,
 
         *out++ = decoding_table[in[0]] << 2 | decoding_table[in[1]] >> 4;
     }
-    else if (padded_bytes == 1)
+    else if (remained_bytes == 3)
     {
         if (!base64_table_contains(encoding_table, in[0]) ||
             !base64_table_contains(encoding_table, in[1]) ||
