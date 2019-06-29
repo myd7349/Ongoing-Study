@@ -21,12 +21,15 @@ static void dump_data(const char *data, size_t size)
 }
 
 
-static void test_encoding(const char *data, size_t len, const char *expected)
+static void test(const char *data, size_t len, const char *expected, B64_FLAGS flags)
 {
     char buffer[1024];
+    size_t out_len = sizeof(buffer);
+
     if (len == 0)
         len = strlen(data);
-    char *result = easy_base64_encode(data, len, buffer, sizeof(buffer));
+
+    void *result = base64_encode(data, len, buffer, &out_len, flags);
 
     puts("------------------------------------------------------------");
 
@@ -36,20 +39,28 @@ static void test_encoding(const char *data, size_t len, const char *expected)
     }
     else
     {
-        fprintf(stdout, "Raw(%zu): ", len);
+        fprintf(stdout, "Raw    (%zu): ", len);
         dump_data(data, len);
 
-        fprintf(stdout, "Encoded(%zu): ", strlen(result));
-        dump_data(result, strlen(result));
+        fprintf(stdout, "Encoded(%zu): ", out_len);
+        dump_data(result, out_len);
     }
 
     if (expected != NULL)
     {
-        int ok = strcmp(result, expected) == 0;
+        int ok = memcmp(result, expected, out_len) == 0;
         assert(ok);
         if (!ok)
             exit(EXIT_FAILURE);
     }
+
+    char decoded[1024];
+    size_t decoded_len = sizeof(decoded);
+    base64_decode(result, out_len, decoded, &decoded_len, flags);
+    fprintf(stdout, "Decoded(%zu): ", decoded_len);
+    dump_data(decoded, decoded_len);
+
+    assert(memcmp(data, decoded, decoded_len) == 0);
 }
 
 
@@ -60,15 +71,23 @@ int main(void)
         0x04, 'B', '<', 0x96, 0xaa, 0x0e, 0xda, 'e',  0x94,
         'U',  '{', 0xd5, ']', 0xaa, 't',  0xb6, 0xd5, '_'
     };
+    unsigned char data2[] = { 0x99, 0x00, '`', 0xd2, 'R', 0xae };
+    unsigned char data3[] = { 0xce, '_', '{', 0xad };
 
-    test_encoding("", 0, "");
-    test_encoding("\0", 1, "AA==");
-    test_encoding("\0\0", 2, "AAA=");
-    test_encoding("\0\0\0", 3, "AAAA");
-    test_encoding("hello, world", 0, "aGVsbG8sIHdvcmxk");
-    test_encoding("hello, world!", 0, "aGVsbG8sIHdvcmxkIQ==");
+    test("", 0, "", B64F_NORMAL);
+    test("\0", 1, "AA==", B64F_NORMAL);
+    test("\0", 1, "AA", B64F_NORMAL | B64F_NO_PADDING);
+    test("\0\0", 2, "AAA=", B64F_NORMAL);
+    test("\0\0", 2, "AAA", B64F_NORMAL | B64F_NO_PADDING);
+    test("\0\0\0", 3, "AAAA", B64F_NORMAL);
+    test("hello, world", 0, "aGVsbG8sIHdvcmxk", B64F_NORMAL);
+    test("hello, world!", 0, "aGVsbG8sIHdvcmxkIQ==", B64F_NORMAL);
+    test("hello, world!", 0, "aGVsbG8sIHdvcmxkIQ", B64F_NORMAL | B64F_NO_PADDING);
+    test("hello, world!", 0, "aGVsbG8sIHdvcmxkIQ==", B64F_NORMAL | B64F_NO_PADDING);
 
-    test_encoding((const char *)data, sizeof(data), "BEI8lqoO2mWUVXvVXap0ttVf");
+    test((const char *)data, sizeof(data), "BEI8lqoO2mWUVXvVXap0ttVf", B64F_NORMAL);
+    test((const char *)data2, sizeof(data2), "mQBg0lKu", B64F_NORMAL);
+    test((const char *)data3, sizeof(data3), "zl97rQ==", B64F_NORMAL);
 
     return 0;
 }

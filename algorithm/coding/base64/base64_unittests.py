@@ -14,7 +14,7 @@ def generate_random_bytes(size):
 
 class Base64UnitTest(unittest.TestCase):
     def setUp(self):
-        self.ever_failed = (
+        self.encoding_ever_failed = (
             b'\x04B<\x96\xaa\x0e\xdae\x94U{\xd5]\xaat\xb6\xd5_',
             b'\x88\x1c\x95\x02\x16\xe7\x06\x8e\x1c\xaeC\xb2\x8b\x84\rm \xb3\xf6\x04J@\x1b\x91HV\xe0\xb3\xe1S\xbd\xf1g?\xcdv%P\xd0d\x0b\x1d\xdd\xbb\x17\x017c\\\xd1V\x8b\xe7\x05\x0f\x9bQ\x00km\x08\x9d\xc0\xea\xbb\xb6\xe5v3\x1e\xea\xb9\xac\xc6]\x02\x12\xad\xb3\x18D\x98Kt\xe5Ify\x90\'\xdd\xcf:-',
             b'X\xbbJ\xac\x9f\x0c\xda\xdf_^\xaf\xbab\xfdT\xa0\x0b',
@@ -26,24 +26,46 @@ class Base64UnitTest(unittest.TestCase):
             b'%\x9f\x88\x94\xa9\xc1\x08f-yG\x1d?P\x8d\xc0\xdak\xc9\xb9',
             b'P\xcau"w\xf1\xf7\xd5\xdb\x12\x97a\x92\xb0C',
             )
+        self.decoding_ever_failed = (
+            b'\xbf\xcc\x00',
+            )
         self.data_list = [generate_random_bytes(random.randint(0, 5000)) for _ in range(1000)]
 
-    def test_ever_failed(self):
-        for data in self.ever_failed:
+    def test_encoding_ever_failed_encoding(self):
+        for data in self.encoding_ever_failed:
             result1 = base64_c.base64_encode(data)
             result2 = base64.b64encode(data)
             self.assertEqual(result1, result2)
 
-    def test_random_bytes(self):
-        for data in self.data_list:
-            result1 = base64_c.base64_encode(data)
-            result2 = base64.b64encode(data)
+    def test_decoding_ever_failed_decoding(self):
+        for data in self.decoding_ever_failed:
+            encoded = base64.b64encode(data)
+            decoded1 = base64.b64decode(encoded)
+            decoded2 = base64_c.base64_decode(encoded)
 
-            if result1 != result2:
+            self.assertEqual(decoded1, decoded2)
+
+    def test_encoding(self):
+        for data in self.data_list:
+            encoded1 = base64_c.base64_encode(data)
+            encoded2 = base64.b64encode(data)
+
+            if encoded1 != encoded2:
                 print(data)
 
-            self.assertEqual(len(result1) % 4, 0)
-            self.assertEqual(result1, result2)
+            self.assertEqual(len(encoded1) % 4, 0)
+            self.assertEqual(encoded1, encoded2)
+
+    def test_decoding(self):
+        for data in self.data_list:
+            encoded = base64.b64encode(data)
+            decoded1 = base64.b64decode(encoded)
+            decoded2 = base64_c.base64_decode(encoded)
+
+            if decoded1 != decoded2:
+                print(data)
+
+            self.assertEqual(decoded1, decoded2)
 
 
 if __name__ == '__main__':

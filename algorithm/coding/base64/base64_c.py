@@ -60,27 +60,34 @@ def _load_base64_module():
 
 _base64_module = _load_base64_module()
 
-_base64_encode_length = _base64_module.base64_encode_length
-_base64_encode_length.argtypes = (ctypes.c_size_t, )
-_base64_encode_length.restype = ctypes.c_size_t
+_base64_encoded_length = _base64_module.base64_encoded_length
+_base64_encoded_length.restype = ctypes.c_size_t
+_base64_encoded_length.argtypes = (ctypes.c_size_t, ctypes.c_int)
 
-_base64_encode_prototype = ctypes.CFUNCTYPE(
+_base64_decoded_length = _base64_module.base64_decoded_length_slow
+_base64_decoded_length.restype = ctypes.c_size_t
+_base64_decoded_length.argtypes = (ctypes.c_void_p, ctypes.c_size_t, ctypes.c_int)
+
+_base64_encode_decode_prototype = ctypes.CFUNCTYPE(
     ctypes.c_void_p,
     ctypes.c_void_p, ctypes.c_size_t,
     ctypes.c_void_p, ctypes.POINTER(ctypes.c_size_t),
     ctypes.c_int)
-_base64_encode = _base64_encode_prototype(('base64_encode', _base64_module))
+_base64_encode = _base64_encode_decode_prototype(('base64_encode', _base64_module))
+_base64_decode = _base64_encode_decode_prototype(('base64_decode', _base64_module))
 
-B64F_NORMAL, B64F_URLSAFE = 0x11, 0x12
+B64F_NORMAL     = 0x01
+B64F_URLSAFE    = 0x02
+B64F_NO_PADDING = 0x10
 
 
-def base64_encode(data):
+def base64_encode(data, flags=B64F_NORMAL):
     if not isinstance(data, (bytes, bytearray, memoryview)):
         raise TypeError("Expected bytes-like object, not {0}".format(data.__class__.__name__))
 
     in_len = len(data)
 
-    expected_len_raw = _base64_encode_length(in_len)
+    expected_len_raw = _base64_encoded_length(in_len, flags)
     expected_len = ctypes.c_size_t(expected_len_raw)
     out_buffer = ctypes.cast(
         ctypes.create_string_buffer(expected_len_raw),
@@ -89,18 +96,59 @@ def base64_encode(data):
     _base64_encode(
         bytes(data), in_len,
         out_buffer, ctypes.byref(expected_len),
-        B64F_NORMAL)
+        flags)
 
-    return ctypes.cast(out_buffer, ctypes.c_char_p).value[:expected_len_raw]
+    #return ctypes.cast(out_buffer, ctypes.c_char_p).value[:expected_len_raw]
+    return ctypes.string_at(out_buffer, expected_len_raw)
+
+
+def base64_decode(bstr, flags=B64F_NORMAL):
+    if not isinstance(bstr, (bytes, bytearray, memoryview, str)):
+        raise TypeError("Expected string-like object, not {0}".format(data.__class__.__name__))
+
+    if bstr is str:
+        bstr = bstr.encode('ascii')
+
+    in_len = len(bstr)
+
+    expected_len_raw = _base64_decoded_length(bytes(bstr), in_len, flags)
+    expected_len = ctypes.c_size_t(expected_len_raw)
+    out_buffer = ctypes.cast(
+        ctypes.create_string_buffer(expected_len_raw),
+        ctypes.c_void_p)
+
+    _base64_decode(
+        bytes(bstr), in_len,
+        out_buffer, ctypes.byref(expected_len),
+        flags)
+
+    return ctypes.string_at(out_buffer, expected_len.value)
+
+
+def do_test(data, flags=B64F_NORMAL):
+    print('-' * 79)
+    
+    print('RawData:', data)
+    
+    encoded_data = base64_encode(data, flags)
+    print('Encoded:', encoded_data)
+
+    decoded_data = base64_decode(encoded_data, flags)
+    print('Decoded:', decoded_data)
 
 
 if __name__ == '__main__':
-    print(base64_encode(bytearray(b'\x00')))
-    print(base64_encode(b'\x00\x00'))
-    print(base64_encode(b'\x00\x00\x00'))
-    print(base64_encode(b'Hello, world'))
-    print(base64_encode(b'Hello, world!'))
-    print(base64_encode(b'\x04B<\x96\xaa\x0e\xdae\x94U{\xd5]\xaat\xb6\xd5_'))
+    do_test(bytearray(b'\x00'))
+    do_test(bytearray(b'\x00'), B64F_NORMAL | B64F_NO_PADDING)
+    do_test(b'\x00\x00')
+    do_test(b'\x00\x00', B64F_NORMAL | B64F_NO_PADDING)
+    do_test(b'\x00\x00\x00')
+    do_test(b'Hello, world')
+    do_test(b'Hello, world!')
+    do_test(b'Hello, world!', B64F_NORMAL | B64F_NO_PADDING)
+    do_test(b'\x04B<\x96\xaa\x0e\xdae\x94U{\xd5]\xaat\xb6\xd5_')
+    do_test(b'\x99\x00`\xd2R\xae')
+    do_test(b'\xce_{\xad')
 
 
 # References:
@@ -120,3 +168,4 @@ if __name__ == '__main__':
 # https://stackoverflow.com/questions/15377338/convert-ctype-byte-array-to-bytes
 # https://stackoverflow.com/questions/24912065/how-to-access-data-from-pointer-in-struct-from-python-with-ctypes
 # https://stackoverflow.com/questions/54357920/python-ctypes-create-bytearray-from-void
+# https://stackoverflow.com/questions/1825715/how-to-pack-and-unpack-using-ctypes-structure-str
