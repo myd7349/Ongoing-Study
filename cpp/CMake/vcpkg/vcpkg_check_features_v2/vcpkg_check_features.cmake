@@ -93,12 +93,14 @@ function(vcpkg_check_features)
             set(_vcf_FEATURE_VAR ${_vcf_ARG})
 
             if(${_vcf_FEATURE} IN_LIST FEATURES)
-                set(${_vcf_FEATURE_VAR} ON PARENT_SCOPE)
+                set(${_vcf_FEATURE_VAR} ON)
             else()
-                set(${_vcf_FEATURE_VAR} OFF PARENT_SCOPE)
+                set(${_vcf_FEATURE_VAR} OFF)
             endif()
 
             list(APPEND _vcf_FEATURE_OPTIONS "-D${_vcf_FEATURE_VAR}=${${_vcf_FEATURE_VAR}}")
+
+            set(${_vcf_FEATURE_VAR} ${${_vcf_FEATURE_VAR}} PARENT_SCOPE)
 
             set(_vcf_IS_FEATURE_ARG ON)
         endif()
@@ -110,3 +112,16 @@ function(vcpkg_check_features)
 
     set(FEATURE_OPTIONS ${_vcf_FEATURE_OPTIONS} PARENT_SCOPE)
 endfunction()
+
+
+# References:
+# https://stackoverflow.com/questions/34028300/set-a-variable-in-current-scope-and-parent-scope
+# https://stackoverflow.com/questions/29892929/variables-set-with-parent-scope-are-empty-in-the-corresponding-child-scope-why
+#             if(${_vcf_FEATURE} IN_LIST FEATURES)
+#                set(${_vcf_FEATURE_VAR} ON PARENT_SCOPE)
+#                list(APPEND _vcf_FEATURE_OPTIONS "-D${_vcf_FEATURE_VAR}=ON")
+#            else()
+#                set(${_vcf_FEATURE_VAR} OFF PARENT_SCOPE)
+#                list(APPEND _vcf_FEATURE_OPTIONS "-D${_vcf_FEATURE_VAR}=OFF")
+#            endif()
+# https://github.com/microsoft/vcpkg/pull/7158
