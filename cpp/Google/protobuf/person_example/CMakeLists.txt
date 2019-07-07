@@ -6,7 +6,7 @@ find_package(protobuf CONFIG REQUIRED)
 
 set(CMAKE_INCLUDE_CURRENT_DIR TRUE)
 
-# http://www.cmake.org/Wiki/CMake_FAQ#How_can_I_build_my_MSVC_application_with_a_static_runtime.3F
+# https://gitlab.kitware.com/cmake/community/wikis/FAQ#how-can-i-build-my-msvc-application-with-a-static-runtime
 if(MSVC AND protobuf_MSVC_STATIC_RUNTIME)
   foreach(flag_var
       CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE

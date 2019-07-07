@@ -48,3 +48,4 @@ _TCHAR *getprogname(const _TCHAR *argv0)
 // libuv:uv_get_process_title
 // https://github.com/google/glog/blob/ba8a9f6952d04d1403b97df24e6836227751454e/src/utilities.cc#L345-L358
 // https://github.com/google/glog/blob/ba8a9f6952d04d1403b97df24e6836227751454e/src/vlog_is_on.cc#L218-L222
+// https://github.com/pbatard/libwdi/blob/bc2336edbf0b10341156287fc797598d090b9958/libwdi/embedder.c#L115-L134

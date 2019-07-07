@@ -23,6 +23,7 @@
 >* [csv-parser/single_header.py](https://github.com/vincentlaucsb/csv-parser/blob/master/single_header.py)
 >* [doctest/assemble_single_header.cmake](https://github.com/onqtam/doctest/blob/master/scripts/cmake/assemble_single_header.cmake)
 >* [upb/tools/amalgamate.py](https://github.com/protocolbuffers/upb/blob/master/tools/amalgamate.py)
+>* [mongoose amalgam.py + unamalgam.py](https://github.com/cesanta/mongoose/tree/master/tools)
 >
 >## Ideas:
 >* [The single-header code should be a build artifact](https://github.com/lemire/simdjson/issues/106)
