@@ -1,24 +1,10 @@
 #include <assert.h>
-#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include "../base64.h"
-
-
-static void dump_data(const char *data, size_t size)
-{
-    for (size_t i = 0; i < size; ++i)
-    {
-        if (isprint((unsigned char)data[i]))
-            printf("%c", data[i]);
-        else
-            printf("\\x%02x", (unsigned char)data[i]);
-    }
-
-    printf("\n");
-}
+#include "dump.h"
 
 
 static void test(const char *data, size_t len, const char *expected, B64_FLAGS flags)

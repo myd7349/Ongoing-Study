@@ -6,13 +6,79 @@
 #include <Windows.h>
 
 
-// Copy from:
-// https://github.com/pbatard/libwdi/blob/master/libwdi/msapi_utf8.h
+#define wchar_to_multibyte_no_alloc(wsrc, cp, dest, dest_size) \
+    WideCharToMultiByte((cp), 0, (wsrc), -1, (dest), (dest_size), NULL, NULL)
+#define multibyte_to_wchar_no_alloc(src, cp, wdest, wdest_size) \
+    MultiByteToWideChar((cp), 0, src, -1, wdest, wdest_size)
 
-#define wchar_to_utf8_no_alloc(wsrc, dest, dest_size) \
-    WideCharToMultiByte(CP_UTF8, 0, (wsrc), -1, (dest), (dest_size), NULL, NULL)
-#define utf8_to_wchar_no_alloc(src, wdest, wdest_size) \
-    MultiByteToWideChar(CP_UTF8, 0, src, -1, wdest, wdest_size)
+
+// _AtlGetConversionACP
+static inline UINT get_conversion_acp(void)
+{
+#ifdef CONVERSION_DONT_USE_THREAD_LOCALE
+    return CP_ACP;
+#else
+    return CP_THREAD_ACP;
+#endif
+}
+
+
+static char *wchar_to_multibyte(const wchar_t *wstr, UINT code_page)
+{
+    char *str = NULL;
+
+    // Find out the size we need to allocate for our converted string
+    int size = WideCharToMultiByte(code_page, 0, wstr, -1, NULL, 0, NULL, NULL);
+    if (size <= 1)	// An empty string would be size 1
+        return NULL;
+
+    if ((str = (char *)calloc(size, 1)) == NULL)
+        return NULL;
+
+    if (wchar_to_multibyte_no_alloc(wstr, code_page, str, size) != size) {
+        free(str);
+        return NULL;
+    }
+
+    return str;
+}
+
+
+static wchar_t *multibyte_to_wchar(const char *str, UINT code_page)
+{
+    int size = 0;
+    wchar_t* wstr = NULL;
+
+    if (str == NULL)
+        return NULL;
+
+    // Find out the size we need to allocate for our converted string
+    size = MultiByteToWideChar(code_page, 0, str, -1, NULL, 0);
+    if (size <= 1)	// An empty string would be size 1
+        return NULL;
+
+    if ((wstr = (wchar_t *)calloc(size, sizeof(wchar_t))) == NULL)
+        return NULL;
+
+    if (multibyte_to_wchar_no_alloc(str, code_page, wstr, size) != size) {
+        free(wstr);
+        return NULL;
+    }
+
+    return wstr;
+}
+
+
+char *wchar_to_ansi(const wchar_t *wstr)
+{
+    return wchar_to_multibyte(wstr, get_conversion_acp());
+}
+
+
+wchar_t *ansi_to_wchar(const char *str)
+{
+    return multibyte_to_wchar(str, get_conversion_acp());
+}
 
 
 /*
@@ -21,22 +87,7 @@
  */
 char *wchar_to_utf8(const wchar_t *wstr)
 {
-    char *str = NULL;
-
-    // Find out the size we need to allocate for our converted string
-    int size = WideCharToMultiByte(CP_UTF8, 0, wstr, -1, NULL, 0, NULL, NULL);
-    if (size <= 1)	// An empty string would be size 1
-        return NULL;
-
-    if ((str = (char *)calloc(size, 1)) == NULL)
-        return NULL;
-
-    if (wchar_to_utf8_no_alloc(wstr, str, size) != size) {
-        free(str);
-        return NULL;
-    }
-
-    return str;
+    return wchar_to_multibyte(wstr, CP_UTF8);
 }
 
 
@@ -46,24 +97,10 @@ char *wchar_to_utf8(const wchar_t *wstr)
  */
 wchar_t *utf8_to_wchar(const char *str)
 {
-    int size = 0;
-    wchar_t* wstr = NULL;
-
-    if (str == NULL)
-        return NULL;
-
-    // Find out the size we need to allocate for our converted string
-    size = MultiByteToWideChar(CP_UTF8, 0, str, -1, NULL, 0);
-    if (size <= 1)	// An empty string would be size 1
-        return NULL;
-
-    if ((wstr = (wchar_t *)calloc(size, sizeof(wchar_t))) == NULL)
-        return NULL;
-
-    if (utf8_to_wchar_no_alloc(str, wstr, size) != size) {
-        free(wstr);
-        return NULL;
-    }
-
-    return wstr;
+    return multibyte_to_wchar(str, CP_UTF8);
 }
+
+
+// References:
+// https://github.com/pbatard/libwdi/blob/master/libwdi/msapi_utf8.h
+// atlconv.h
