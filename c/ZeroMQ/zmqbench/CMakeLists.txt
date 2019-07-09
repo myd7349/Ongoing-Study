@@ -4,7 +4,7 @@ if(WIN32)
     set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 endif()
 
-project(zmqbench C)
+project(zmqbench C CXX)
 
 if(WIN32)
     if(MSVC)

@@ -143,7 +143,7 @@ int main()
 
     zmq_close(rep);
 
-    zmq_ctx_shutdown(ctx);
+    zmq_ctx_destroy(ctx);
 
     return 0;
 }
@@ -151,3 +151,4 @@ int main()
 
 // References:
 // https://github.com/nanomsg/nng/issues/560
+// https://github.com/zeromq/cppzmq/issues/47

@@ -170,7 +170,7 @@ int main(int argc, char *argv[])
 
     zmq_close(req);
 
-    zmq_ctx_shutdown(ctx);
+    zmq_ctx_destroy(ctx);
 
     return 0;
 }
@@ -179,3 +179,4 @@ int main(int argc, char *argv[])
 // References:
 // https://www.cnblogs.com/fullsail/p/4285215.html
 // https://github.com/nanomsg/nng/issues/560
+// https://github.com/zeromq/cppzmq/issues/47

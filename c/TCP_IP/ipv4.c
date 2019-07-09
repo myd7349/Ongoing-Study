@@ -16,12 +16,12 @@ bool ptohost(const _TCHAR *str, ipv4_host_t *host, bool needs_port_number)
 
     //_stscanf(str, _T("%hu%*[^.].%hu%*[^.].%hu%*[^.].%hu%*[^:]:%u"),
     _stscanf(str,
-        _T("%") _T(PRIu16) _T(" . ")
-        _T("%") _T(PRIu16) _T(" . ")
-        _T("%") _T(PRIu16) _T(" . ")
-        _T("%") _T(PRIu16)
+        _T("%") _T(SCNu16) _T(" . ")
+        _T("%") _T(SCNu16) _T(" . ")
+        _T("%") _T(SCNu16) _T(" . ")
+        _T("%") _T(SCNu16)
         _T(" : ")
-        _T("%") _T(PRIu32),
+        _T("%") _T(SCNu32),
         ip_addr + 0, ip_addr + 1, ip_addr + 2, ip_addr + 3, &port);
 
     if (ip_addr[0] == 260 || ip_addr[1] == 260 || ip_addr[2] == 260 || ip_addr[3] == 260)
