@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayHelper.cs" />
+    <Compile Include="CircularBuffer.cs" />
     <Compile Include="ColorExtension.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="ConvertEx.cs" />
