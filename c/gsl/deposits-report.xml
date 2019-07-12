@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<deposits script="interest-report.gsl">
+	<deposite amount="1000000" rate="5" years="20" />
+	<deposite amount="500000" rate="4" years="10" />
+	<deposite amount="2500000" rate="6" years="15" />
+</deposits>
+

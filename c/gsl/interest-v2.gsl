@@ -1,0 +1,15 @@
+.template 0
+
+for deposite
+    year = 1
+    accumulated = amount
+
+    while year < years
+        accumulated = accumulated * (rate / 100 + 1)
+        year = year + 1
+    endwhile
+
+    echo "Original amount: " + amount + " becomes: " + accumulated
+endfor
+
+.endtemplate
