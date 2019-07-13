@@ -2,7 +2,6 @@
 
 #include <string.h>
 
-#include <direct.h>
 #include <fcntl.h>
 #include <io.h>
 #include <sys/stat.h>
@@ -60,7 +59,7 @@ FILE *fmemopen_v1(void *buf, size_t len, const char *type)
 static const char *l_makeTempFilename(char fname[MAX_PATH])
 {
     FILE *fp;
-    if (!CreateDirectory("/tmp", NULL))
+    if (!CreateDirectory("/tmp", NULL) && GetLastError() != ERROR_ALREADY_EXISTS)
         return NULL;
     if (GetTempFileName("/tmp", "lp.", 0, fname) == 0)
         return NULL;

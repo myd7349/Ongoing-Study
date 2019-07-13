@@ -126,4 +126,26 @@ https://github.com/google/glog/blob/master/src/windows/port.cc
 
 https://github.com/ArtifexSoftware/mupdf/blob/b10c81f8d278534b277d181436d5b8e8a9723af9/source/fitz/time.c#L84-L108
 
+10. fmemopen for Windows
 
+https://github.com/NimbusKit/MemoryMapping
+
+https://stackoverflow.com/questions/12249610/c-create-file-in-memory
+
+https://stackoverflow.com/questions/7307955/is-there-fmemopen-in-mingw
+
+https://github.com/kespindler/python-tesseract/blob/master/util-fmemopen.c
+
+https://github.com/martinh/libconfuse/blob/master/src/fmemopen.c
+
+https://sourceware.org/git/?p=glibc.git;a=blob;f=libio/fmemopen.c;h=c2c67c112063084bc1ef61a3e1ca59bebeeef087;hb=HEAD
+
+https://github.com/njriasan/graphene-docker/blob/aa0a0dcc893a3865345c26a78299326cbc4c3e9c/graphene/LibOS/glibc-2.19/libio/fmemopen.c
+
+https://sourcegraph.com/github.com/DanBloomberg/leptonica/-/blob/src/utils2.c#L1896:1-1896:20
+
+11.
+
+https://github.com/erikd/libsndfile/blob/master/src/file_io.c
+
+https://github.com/GNOME/glib/blob/master/glib/gstdio.c
