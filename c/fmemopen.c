@@ -12,6 +12,7 @@ char tmp_file_name[MAX_PATH];
 
 
 // https://github.com/martinh/libconfuse/blob/2f7d120e170351cf424845ed27a532cce443247d/src/fmemopen.c#L119-L158
+#if 0
 FILE *fmemopen_v1(void *buf, size_t len, const char *type)
 {
     int fd;
@@ -53,6 +54,43 @@ FILE *fmemopen_v1(void *buf, size_t len, const char *type)
 
     return fp;
 }
+#else
+FILE *fmemopen_v1(void *buf, size_t len, const char *type)
+{
+    int fd;
+    FILE *fp;
+    char tp[MAX_PATH - 13];
+    char fn[MAX_PATH + 1];
+
+    if (!GetTempPathA(sizeof(tp), tp))
+        return NULL;
+
+    if (!GetTempFileNameA(tp, "confuse", 0, fn))
+        return NULL;
+
+    strcpy(tmp_file_name, fn);
+
+    printf("[DBG] %s(%d): Temp file name: %s\n",
+        __FUNCTION__, __LINE__, fn);
+
+    fd = _open(fn,
+        _O_CREAT | _O_RDWR | _O_SHORT_LIVED | _O_TEMPORARY | _O_BINARY,
+        _S_IREAD | _S_IWRITE);
+    if (fd == -1)
+        return NULL;
+
+    fp = _fdopen(fd, "w+");
+    if (!fp) {
+        _close(fd);
+        return NULL;
+    }
+
+    fwrite(buf, len, 1, fp);
+    rewind(fp);
+
+    return fp;
+}
+#endif
 
 
 // https://github.com/DanBloomberg/leptonica/blob/4972d55fcddee5c51f393747848c87fa54a64a78/src/utils2.c#L3254-L3312
