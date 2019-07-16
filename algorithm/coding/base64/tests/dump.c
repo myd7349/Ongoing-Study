@@ -21,7 +21,7 @@ static void dump_data_impl(const char *data, size_t size)
 }
 
 
-void dump_data(const char *data, size_t size)
+void dump_data(const void *data, size_t size)
 {
     dump_data_impl(data, size);
 }

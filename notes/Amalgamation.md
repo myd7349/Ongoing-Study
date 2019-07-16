@@ -24,6 +24,8 @@
 >* [doctest/assemble_single_header.cmake](https://github.com/onqtam/doctest/blob/master/scripts/cmake/assemble_single_header.cmake)
 >* [upb/tools/amalgamate.py](https://github.com/protocolbuffers/upb/blob/master/tools/amalgamate.py)
 >* [mongoose amalgam.py + unamalgam.py](https://github.com/cesanta/mongoose/tree/master/tools)
+>* [wepoll/tools/combine.js](https://github.com/piscisaureus/wepoll/blob/master/tools/combine.js)
+>* [ned14/outcome](https://github.com/ned14/outcome/tree/develop/single-header)
 >
 >## Ideas:
 >* [The single-header code should be a build artifact](https://github.com/lemire/simdjson/issues/106)

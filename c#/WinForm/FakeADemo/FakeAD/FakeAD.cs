@@ -96,7 +96,7 @@
 
         protected void Dispose(bool disposing)
         {
-            if (disposed_)
+            if (!disposed_)
             {
                 // If disposing equals true, dispose all managed
                 // and unmanaged resources.

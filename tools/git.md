@@ -201,3 +201,5 @@ git log --follow --name-only file
 [git grep](https://github.com/editorconfig/editorconfig-core-c/pull/57)
 
 [How do I discard unstaged changes in Git?](https://stackoverflow.com/questions/52704/how-do-i-discard-unstaged-changes-in-git)
+
+[git bisect tutorial](https://github.com/andschwa/git-bisect-tutorial)

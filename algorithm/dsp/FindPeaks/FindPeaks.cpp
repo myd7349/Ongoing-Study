@@ -30,7 +30,7 @@ std::size_t FindPeaks(const double *data, std::size_t length,
         std::transform(x.cbegin(), x.cend(), x.begin(),
             [](double v) { return -v; });
 
-        if (!isnan(mph))
+        if (!std::isnan(mph))
             mph = -mph;
     }
 
@@ -43,16 +43,16 @@ std::size_t FindPeaks(const double *data, std::size_t length,
     std::unordered_set<std::size_t> nans;
     for (std::deque<double>::size_type i = 0; i < x.size(); ++i)
     {
-        if (isnan(x[i]))
+        if (std::isnan(x[i]))
             nans.insert(i);
     }
     //
     if (!nans.empty())
     {
         std::transform(x.cbegin(), x.cend(), x.begin(),
-            [](double v) { return isnan(v) ? INFINITY : v; });
+            [](double v) { return std::isnan(v) ? INFINITY : v; });
         std::transform(dx.cbegin(), dx.cend(), dx.begin(),
-            [](double v) { return isnan(v) ? INFINITY : v; });        
+            [](double v) { return std::isnan(v) ? INFINITY : v; });        
     }
 
     // Find indices of all peaks
@@ -152,10 +152,10 @@ std::size_t FindPeaks(const double *data, std::size_t length,
                 for (std::deque<bool>::size_type j = i + 1; j < idel.size(); ++j)
                 {
                     auto minmax = std::minmax(peaks[i], peaks[j]);
-                    idel[j] = idel[j]
-                        || (minmax.second - minmax.first <= mpd)
+                    idel[j] = idel[j] ||
+                        ((minmax.second - minmax.first <= mpd) &&
                         // Keep peaks with the same height if kpsh is true
-                        && (kpsh ? x[peaks[i]] > x[peaks[j]] : true);
+                        (kpsh ? x[peaks[i]] > x[peaks[j]] : true));
                 }
             }
         }

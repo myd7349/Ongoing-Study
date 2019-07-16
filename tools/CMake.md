@@ -33,3 +33,6 @@
 8. Couldn't find OpenGL on Linux
 * [How to use CMake to find and link OpenGL(mesa) package in Ubuntu](https://stackoverflow.com/questions/34001996/how-to-use-cmake-to-find-and-link-openglmesa-package-in-ubuntu)
 * [Couldn't find OpenGL on Ubuntu](https://stackoverflow.com/questions/31170869/cmake-could-not-find-opengl-in-ubuntu)
+
+9. Setting the MSVC runtime in CMake
+* [Setting the MSVC runtime in CMake](https://stackoverflow.com/questions/10113017/setting-the-msvc-runtime-in-cmake)
