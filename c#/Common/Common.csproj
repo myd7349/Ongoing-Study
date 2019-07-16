@@ -51,6 +51,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DictionaryExtension.cs" />
+    <Compile Include="ActivatorHelper.cs" />
     <Compile Include="ForEach.cs" />
     <Compile Include="FormExtensions.cs" />
     <Compile Include="GDI32Helper.cs" />
