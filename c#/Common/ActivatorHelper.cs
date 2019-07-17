@@ -136,3 +136,5 @@
 // https://stackoverflow.com/questions/10710870/default-value-of-delegates-inside-classes
 // https://docs.microsoft.com/en-us/dotnet/api/system.type.basetype?view=netframework-4.8
 // https://kaliko.com/blog/c-test-if-object-or-type-implements/
+// https://stackoverflow.com/questions/8699053/how-to-check-if-a-class-inherits-another-class-without-instantiating-it
+// https://stackoverflow.com/questions/457676/check-if-a-class-is-derived-from-a-generic-class
