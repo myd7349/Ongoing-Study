@@ -14,7 +14,7 @@
             return type != null &&
                 !type.IsInterface &&
                 !type.IsAbstract &&
-                type.BaseType == typeof(T);
+                typeof(T).IsAssignableFrom(type);
         }
 
         public static Assembly LoadAssembly(string assemblyPath)
@@ -134,3 +134,5 @@
 // https://stackoverflow.com/questions/26530731/runtime-loading-of-private-assemblies-in-a-subdirectory
 // https://stackoverflow.com/questions/24978661/how-to-provide-default-value-for-a-parameter-of-delegate-type-in-c
 // https://stackoverflow.com/questions/10710870/default-value-of-delegates-inside-classes
+// https://docs.microsoft.com/en-us/dotnet/api/system.type.basetype?view=netframework-4.8
+// https://kaliko.com/blog/c-test-if-object-or-type-implements/
