@@ -1,8 +1,5 @@
-﻿// 2018-05-17T12:14+08:00
-namespace MyLib
+﻿namespace MyLib
 {
-    using System.Runtime.InteropServices;
-
     using MyLibBase;
 
     public sealed class MyLibWithPInvokeV2 : MyLibBase

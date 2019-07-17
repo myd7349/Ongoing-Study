@@ -9,6 +9,14 @@
 
     public static class ActivatorHelper
     {
+        public static bool DefaultTypeFilter<T>(Type type) where T : class
+        {
+            return type != null &&
+                !type.IsInterface &&
+                !type.IsAbstract &&
+                type.BaseType == typeof(T);
+        }
+
         public static Assembly LoadAssembly(string assemblyPath)
         {
             try
@@ -26,6 +34,11 @@
         }
 
         public static IDictionary<Assembly, IList<Type>> GetSubTypes<T>(string path, string pattern) where T : class
+        {
+            return GetSubTypes<T>(path, pattern, DefaultTypeFilter<T>);
+        }
+
+        public static IDictionary<Assembly, IList<Type>> GetSubTypes<T>(string path, string pattern, Predicate<Type> typeFilter) where T : class
         {
             if (string.IsNullOrWhiteSpace(path))
                 path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
@@ -46,7 +59,7 @@
                 if (assembly == null)
                     continue;
 
-                var types = GetSubTypes<T>(assembly);
+                var types = GetSubTypes<T>(assembly, typeFilter);
                 if (types.Count > 0)
                     subTypesMap[assembly] = types;
             }
@@ -56,14 +69,18 @@
 
         public static IList<Type> GetSubTypes<T>(Assembly assembly) where T : class
         {
+            return GetSubTypes<T>(assembly, DefaultTypeFilter<T>);
+        }
+
+        public static IList<Type> GetSubTypes<T>(Assembly assembly, Predicate<Type> typeFilter) where T : class
+        {
             if (assembly == null)
                 return new List<Type>();
 
             try
             {
                 return assembly.GetTypes()
-                    .Where(type => !type.IsInterface && !type.IsAbstract)
-                    .Where(type => type.BaseType == typeof(T))
+                    .Where(type => typeFilter(type))
                     .ToList();
             }
             catch (Exception ex)
@@ -75,12 +92,17 @@
 
         public static IList<Type> GetSubTypes<T>(string assemblyPath) where T : class
         {
-            return GetSubTypes<T>(LoadAssembly(assemblyPath));
+            return GetSubTypes<T>(LoadAssembly(assemblyPath), DefaultTypeFilter<T>);
+        }
+
+        public static IList<Type> GetSubTypes<T>(string assemblyPath, Predicate<Type> typeFilter) where T : class
+        {
+            return GetSubTypes<T>(LoadAssembly(assemblyPath), typeFilter);
         }
 
         public static T Create<T>(string assemblyPath, string typeName, params object[] args) where T : class
         {
-            var types = GetSubTypes<T>(assemblyPath);
+            var types = GetSubTypes<T>(assemblyPath, DefaultTypeFilter<T>);
             if (types.Count == 0)
                 return null;
 
@@ -110,3 +132,5 @@
 // https://code.msdn.microsoft.com/windowsdesktop/Creating-a-simple-plugin-b6174b62
 // https://www.codeproject.com/articles/889453/load-and-unload-plug-in-without-file-lock
 // https://stackoverflow.com/questions/26530731/runtime-loading-of-private-assemblies-in-a-subdirectory
+// https://stackoverflow.com/questions/24978661/how-to-provide-default-value-for-a-parameter-of-delegate-type-in-c
+// https://stackoverflow.com/questions/10710870/default-value-of-delegates-inside-classes
