@@ -34,11 +34,11 @@
             if (string.IsNullOrWhiteSpace(pattern))
                 pattern = "*.dll";
 
-            var availableTypesMap = new Dictionary<Assembly, IList<Type>>();
+            var subTypesMap = new Dictionary<Assembly, IList<Type>>();
 
             var dllPathes = Directory.GetFiles(path, pattern);
             if (dllPathes.Length == 0)
-                return availableTypesMap;
+                return subTypesMap;
 
             foreach (var dllPath in dllPathes)
             {
@@ -48,10 +48,10 @@
 
                 var types = GetSubTypes<T>(assembly);
                 if (types.Count > 0)
-                    availableTypesMap[assembly] = types;
+                    subTypesMap[assembly] = types;
             }
 
-            return availableTypesMap;
+            return subTypesMap;
         }
 
         public static IList<Type> GetSubTypes<T>(Assembly assembly) where T : class
