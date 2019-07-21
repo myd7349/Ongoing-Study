@@ -68,3 +68,4 @@ int nicmp(const _TCHAR *s1, const _TCHAR *s2, size_t count)
 // MSVC: stricmp, strnicmp
 // linux <strings.h>: strcasecmp, strncasecmp
 // https://linux.die.net/man/3/strcasecmp
+// https://github.com/python/cpython/pull/13095/files
