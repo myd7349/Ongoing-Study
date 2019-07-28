@@ -203,3 +203,5 @@ git log --follow --name-only file
 [How do I discard unstaged changes in Git?](https://stackoverflow.com/questions/52704/how-do-i-discard-unstaged-changes-in-git)
 
 [git bisect tutorial](https://github.com/andschwa/git-bisect-tutorial)
+
+[Difference between “git add -A” and “git add .”](https://stackoverflow.com/questions/572549/difference-between-git-add-a-and-git-add)

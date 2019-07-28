@@ -43,3 +43,6 @@
 
 - Rust
     - [Rust code formatting RFCs](https://github.com/rust-lang-nursery/fmt-rfcs)
+
+- SQL
+    - [Mazur's SQL Style Guide](https://github.com/mattm/sql-style-guide)
