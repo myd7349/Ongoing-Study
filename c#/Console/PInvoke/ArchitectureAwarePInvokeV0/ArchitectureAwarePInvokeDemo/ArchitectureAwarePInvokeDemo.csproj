@@ -60,7 +60,7 @@
   <PropertyGroup>
     <PostBuildEvent>if not exist "$(TargetDir)x86" mkdir "$(TargetDir)x86"
 if not exist "$(TargetDir)x64" mkdir "$(TargetDir)x64"
-cmd /c "$(SolutionDir)..\NativeLib\build.bat" "$(MSBuildBinPath)\msbuild.exe"
+cmd /c ""$(SolutionDir)..\NativeLib\build.bat" "$(MSBuildBinPath)\msbuild.exe""
 copy /b /Y "$(SolutionDir)..\NativeLib\Release\NativeLib.dll" "$(TargetDir)x86\NativeLib.dll"
 copy /b /Y "$(SolutionDir)..\NativeLib\x64\Release\NativeLib.dll" "$(TargetDir)x64\NativeLib.dll"</PostBuildEvent>
   </PropertyGroup>
