@@ -241,6 +241,8 @@ static const uint8_t *base64_decoding_table(B64_FLAGS flags)
             memset(urlsafe_decoding_table, 0xFF, 256);
             for (i = 0; i < 64; ++i)
                 urlsafe_decoding_table[encoding_table[i]] = (uint8_t)i;
+
+            urlsafe_decoding_table_initialized = true;
         }
 
         return urlsafe_decoding_table;
@@ -255,6 +257,8 @@ static const uint8_t *base64_decoding_table(B64_FLAGS flags)
             memset(normal_decoding_table, 0xFF, 256);
             for (i = 0; i < 64; ++i)
                 normal_decoding_table[encoding_table[i]] = (uint8_t)i;
+
+            normal_decoding_table_initialized = true;
         }
 
         return normal_decoding_table;
@@ -375,3 +379,4 @@ void *easy_base64_decode(const char *base64, void *data, size_t *out_len)
 // https://github.com/kingsamchen/KBase/blob/master/kbase/base64.cpp
 // https://github.com/kingsamchen/KBase/blob/5596e40a215babec40b202a9970308af9522b20f/kbase/base64.cpp#L103-L157
 // https://stackoverflow.com/questions/6098288/c-how-convert-wide-string-to-base64
+// libsodium: sodium_bin2base64

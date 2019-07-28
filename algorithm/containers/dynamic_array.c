@@ -884,3 +884,4 @@ void dyarr_apply(dyarr_t arr, void(*apply_fn)(size_t, void *))
 // https://stackoverflow.com/questions/16986214/why-type-cast-a-void-pointer
 // https://stackoverflow.com/questions/20469958/c-when-is-casting-void-pointer-needed
 // https://stackoverflow.com/questions/6380981/c-c-c4047-differs-in-levels-of-indirection-from-int
+// https://github.com/caryll/otfcc/blob/master/lib/support/vector-impl.h

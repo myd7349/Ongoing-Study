@@ -1,13 +1,8 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 project ("dynamic_array_test")
+enable_testing()
 find_library(GTest REQUIRED)
 target_link_libraries(main PRIVATE GTest::GTest GTest::Main)
-
-#add_executable (dynamic_array_test
-#    "dynamic_array_test.c"
-#	"../dynamic_array.c"
-#	"../../algutils.c"
-#	)
 add_test(AllTestsInMain main)
 
 

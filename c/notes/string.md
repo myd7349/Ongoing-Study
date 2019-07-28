@@ -7,3 +7,5 @@ Use strlcpy instead of strncpy
 https://github.com/sdrsdr/sdrclib
 
 https://github.com/google/glog/blob/ba8a9f6952d04d1403b97df24e6836227751454e/src/demangle.cc#L163
+
+https://stackoverflow.com/questions/51614543/perf-report-shows-this-function-memset-avx2-unaligned-erms-has-overhead-doe

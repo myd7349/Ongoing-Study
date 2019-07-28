@@ -44,3 +44,4 @@ endforeach ()
 # https://github.com/arximboldi/immer/blob/2e421eee7d1298688a2b9cfa73bd24620cc2af26/CMakeLists.txt#L23
 # https://github.com/nanomsg/nng/blob/master/cmake/CheckSanitizer.cmake
 # https://github.com/CaseyCarter/cmcstl2/blob/master/config/cmake/FindSanitizer.cmake
+# https://github.com/lighttransport/nnview/tree/master/cmake/sanitizers
