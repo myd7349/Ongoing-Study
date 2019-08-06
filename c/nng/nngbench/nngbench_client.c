@@ -173,3 +173,4 @@ int main(int argc, char *argv[])
 // https://www.cnblogs.com/fullsail/p/4285215.html
 // https://nanomsg.github.io/nng/man/v1.0.0/nng_recv.3.html
 // https://github.com/nanomsg/nng/issues/560
+// https://github.com/nanomsg/nng/issues/972

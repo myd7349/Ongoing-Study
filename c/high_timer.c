@@ -161,3 +161,4 @@ int64_t high_timer_ellapsed_ns(high_timer_t *timer)
 // https://linux.die.net/man/2/clock_gettime
 // https://github.com/caryll/otfcc/blob/master/src/stopwatch.c
 // https://github.com/microsoft/mimalloc/pull/23/files
+// https://github.com/lemire/simdjson/blob/master/benchmark/benchmark.h

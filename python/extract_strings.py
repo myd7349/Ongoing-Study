@@ -73,7 +73,7 @@ def iter_source_files():
                 yield file
 
 
-directives_re = r'^[ \t"]*#[ \t]*(?:include|import|pragma)[ \t]*'
+directives_re = r'^[ \t"]*#[ \t]*(?:include|import|pragma|error)[ \t]*'
 string_re = r'[^"\\]*"([^"\\]*)"'
 
 

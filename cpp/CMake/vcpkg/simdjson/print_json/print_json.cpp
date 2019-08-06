@@ -20,9 +20,9 @@ int main(int argc, char *argv[])
         {
             std::cout << ">> " << argv[i] << ":\n";
 
-            std::string_view json = get_corpus(argv[i]);
-            ParsedJson document = build_parsed_json(json);
-            document.printjson(std::cout);
+            auto json = simdjson::get_corpus(argv[i]);
+            auto document = simdjson::build_parsed_json(json.data(), json.length());
+            document.print_json(std::cout);
 
             std::cout << '\n';
         }

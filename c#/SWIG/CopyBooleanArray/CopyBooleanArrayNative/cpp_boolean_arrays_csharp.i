@@ -1,3 +1,6 @@
+// This patch is necessary any more since:
+// https://github.com/swig/swig/pull/1576
+
 %define CSHARP_ARRAYS( CTYPE, CSTYPE )
 
 // input only arrays

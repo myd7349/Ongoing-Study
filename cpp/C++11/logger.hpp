@@ -23,7 +23,7 @@ void Log(StreamT &os, FirstT &&first, RestT &&...rest)
 template <typename StreamT, typename MutexT, typename FirstT, typename ...RestT>
 void LogT(StreamT &os, MutexT &mutex, FirstT &&first, RestT &&...rest)
 {
-    std::unique_lock<MutexT> lock(mutex);
+    std::lock_guard<MutexT> lock(mutex);
 
     os << std::forward<FirstT>(first);
     Log(os, std::forward<RestT>(rest)...);
@@ -47,7 +47,7 @@ void LogEx(StreamT &os, const CharT *level, const CharT *fileName, int lineNo, F
 template <typename StreamT, typename MutexT, typename CharT, typename FirstT, typename ...RestT>
 void LogExT(StreamT &os, MutexT &mutex, const CharT *level, const CharT *fileName, int lineNo, FirstT &&first, RestT &&...rest)
 {
-    std::unique_lock<MutexT> lock(mutex);
+    std::lock_guard<MutexT> lock(mutex);
 
     assert(level != nullptr);
     assert(fileName != nullptr);
@@ -88,3 +88,4 @@ void LogExT(StreamT &os, MutexT &mutex, const CharT *level, const CharT *fileNam
 // Ongoing-Study/c/clog.h
 // ./varadic_template_test
 // https://stackoverflow.com/questions/6/374264/is-cout-synchronized-thread-safe
+// https://github.com/microsoft/vcpkg/pull/7443

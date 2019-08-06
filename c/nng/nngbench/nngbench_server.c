@@ -125,3 +125,4 @@ int main()
 // References:
 // https://nanomsg.org/gettingstarted/nng/reqrep.html
 // https://github.com/nanomsg/nng/issues/560
+// https://github.com/nanomsg/nng/issues/972

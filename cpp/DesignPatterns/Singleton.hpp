@@ -2,6 +2,10 @@
 #ifndef SINGLETON_HPP_
 #define SINGLETON_HPP_
 
+// This doesn't work all the time.
+// For example, there are some classes that you can not create instances of 
+// them until some global initialization work is done (MFC: CString).
+// Besides, sometimes lazy initialization is preferable.
 template <typename T>
 class Singleton
 {
