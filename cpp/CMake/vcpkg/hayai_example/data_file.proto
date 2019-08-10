@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+message RawDataFile {
+    required int32 channels = 1;
+    repeated int32 data = 2;
+}
+
+
+message PackedDataFile {
+    required int32 channels = 1;
+    repeated int32 data = 2 [packed=true];
+}
