@@ -1,0 +1,88 @@
+﻿syntax = "proto3";
+
+package datamodel;
+
+option csharp_namespace = "DataModel";
+
+import "google/protobuf/timestamp.proto";
+
+
+message DeviceInfo
+{
+    string device_name = 1;
+    string device_id = 2;
+    string manufacturer = 3;
+    string software_version = 4;
+}
+
+message JobInfo
+{
+    string name = 1;
+    string department = 2;
+    string address = 3;
+}
+
+message PersonInfo
+{
+    string id = 1;
+    string name = 2;
+    int32 age = 3;
+    //Timestamp date_of_birth = 4;
+
+    enum Gender
+    {
+        Unspecified = 0;
+        Male = 1;
+        Female = 2;
+    }
+
+    Gender gender = 5;
+
+    enum HeightUnit
+    {
+        Centimeter = 0;
+        Inch = 1;
+    }
+
+    float height = 6;
+    HeightUnit height_unit = 7;
+
+    enum WeightUnit
+    {
+        Kilogram = 0;
+        Pound = 1;
+    }
+
+    float weight = 8;
+    WeightUnit weight_unit = 9;
+
+    string address = 10;
+}
+
+message DataMetaInfo
+{
+    DeviceInfo device_info = 1;
+    JobInfo job_info = 2;
+    PersonInfo person_info = 3;
+
+    int32 channels = 4;
+    float sampling_rate = 5;
+
+    enum DataWidth
+    {
+        DataWidthCustom = 0;
+        DataWidth8Bits =  1;
+        DataWidth16Bits = 2;
+        DataWidth24Bits = 3;
+        DataWidth32Bits = 4;
+    }
+
+    oneof data_width_union
+    {
+        DataWidth data_width = 6;
+        int32 custom_data_width = 7;
+    }
+
+    //Timestamp start_time = 8;
+    //Timestamp end_time = 9;
+}
