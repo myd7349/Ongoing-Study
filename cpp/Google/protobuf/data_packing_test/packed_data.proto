@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message PackedData {
+    repeated int32 data = 1;
+}

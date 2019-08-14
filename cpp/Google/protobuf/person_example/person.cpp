@@ -22,13 +22,15 @@ std::string ReadContents(const char *file)
         while (std::getline(in_stream, line))
             contents += line;
     }
-    
+
     return contents;
 }
 
 
 int main()
 {
+    GOOGLE_PROTOBUF_VERIFY_VERSION;
+    
     {
         Person person;
         person.set_name("John Doe");
@@ -37,16 +39,16 @@ int main()
 
         std::ofstream out_stream("person.dat", std::ios::binary);
         if (out_stream.is_open())
-           person.SerializeToOstream(&out_stream);
-   }
+            person.SerializeToOstream(&out_stream);
+    }
 
-   {
+    {
         std::ifstream in_stream("person.dat", std::ios::binary);
         if (in_stream.is_open())
         {
             Person person;
             person.ParseFromIstream(&in_stream);
-    
+
             std::cout << "Name: " << person.name() << std::endl;
             std::cout << "Email: " << person.email() << std::endl;
 
@@ -56,43 +58,43 @@ int main()
         }
     }
 
-   {
-       std::string contents = ReadContents("person_with_email.json");
-       Person person;
-       if (google::protobuf::util::JsonStringToMessage(contents, &person) != google::protobuf::util::Status::OK)
-       {
-           std::cerr << "Failed to parse message from json file.\n";
-       }
-       else
-       {
-           std::cout << "Name: " << person.name() << std::endl;
-           std::cout << "Email: " << person.email() << std::endl;
-           std::cout << "Id: " << person.id() << std::endl;
-       }
-   }
+    {
+        std::string contents = ReadContents("person_with_email.json");
+        Person person;
+        if (google::protobuf::util::JsonStringToMessage(contents, &person) != google::protobuf::util::Status::OK)
+        {
+            std::cerr << "Failed to parse message from json file.\n";
+        }
+        else
+        {
+            std::cout << "Name: " << person.name() << std::endl;
+            std::cout << "Email: " << person.email() << std::endl;
+            std::cout << "Id: " << person.id() << std::endl;
+        }
+    }
 
-   {
-       std::string contents = ReadContents("person_without_email.json");
-       Person person;
-       if (google::protobuf::util::JsonStringToMessage(contents, &person) != google::protobuf::util::Status::OK)
-       {
-           std::cerr << "Failed to parse message from json file.\n";
-       }
-       else
-       {
-           std::cout << "Name: " << person.name() << std::endl;
-           std::cout << "Email: " << person.email() << std::endl;
-           std::cout << "Id: " << person.id() << std::endl;
-       }
-   }
+    {
+        std::string contents = ReadContents("person_without_email.json");
+        Person person;
+        if (google::protobuf::util::JsonStringToMessage(contents, &person) != google::protobuf::util::Status::OK)
+        {
+            std::cerr << "Failed to parse message from json file.\n";
+        }
+        else
+        {
+            std::cout << "Name: " << person.name() << std::endl;
+            std::cout << "Email: " << person.email() << std::endl;
+            std::cout << "Id: " << person.id() << std::endl;
+        }
+    }
 
-   {
-       std::string contents = ReadContents("person_ill_formed.json");
-       Person person;
-       auto status = google::protobuf::util::JsonStringToMessage(contents, &person);
-       if (status != google::protobuf::util::Status::OK)
-           std::cerr << "Failed to parse message from json file: " << status.ToString() << '\n';
-   }
+    {
+        std::string contents = ReadContents("person_ill_formed.json");
+        Person person;
+        auto status = google::protobuf::util::JsonStringToMessage(contents, &person);
+        if (status != google::protobuf::util::Status::OK)
+            std::cerr << "Failed to parse message from json file: " << status.ToString() << '\n';
+    }
 
     return 0;
 }
