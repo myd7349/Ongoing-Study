@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package newsoft.datamodel;
+
+import "google/protobuf/timestamp.proto";
+
+
+message NDFMeta
+{
+    google.protobuf.Timestamp created = 1;
+
+    enum DataWidth
+    {
+        DataWidthCustom = 0;
+        DataWidth8Bits = 1;
+        DataWidth16Bits = 2;
+        DataWidth24Bits = 3;
+        DataWidth32Bits = 4;
+    }
+
+    oneof data_width_union
+    {
+        DataWidth data_width = 2;
+        int32 custom_data_width = 3;
+    }
+
+    google.protobuf.Timestamp last_edited = 4;
+
+    string comment = 5;
+}
