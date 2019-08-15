@@ -89,3 +89,4 @@ void LogExT(StreamT &os, MutexT &mutex, const CharT *level, const CharT *fileNam
 // ./varadic_template_test
 // https://stackoverflow.com/questions/6/374264/is-cout-synchronized-thread-safe
 // https://github.com/microsoft/vcpkg/pull/7443
+// https://stackoverflow.com/questions/54237341/how-can-i-determine-the-current-size-of-the-file-opened-by-stdofstream

@@ -10,6 +10,8 @@ project(cmake_variables VERSION 1.0.2 LANGUAGES C)
 
 set(vars
     CMAKE_C_OUTPUT_EXTENSION
+    CMAKE_COMMAND
+    CMAKE_CTEST_COMMAND
     CMAKE_EXECUTABLE_SUFFIX
     CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT
     CMAKE_INSTALL_PREFIX
@@ -29,3 +31,5 @@ endforeach ()
 # References:
 # https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html
 # https://github.com/KjellKod/g3log/pull/312
+# https://stackoverflow.com/questions/5709914/using-cmake-how-do-i-get-verbose-output-from-ctest
+# https://github.com/jedisct1/libhydrogen/pull/72

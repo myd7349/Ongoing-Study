@@ -205,3 +205,7 @@ git log --follow --name-only file
 [git bisect tutorial](https://github.com/andschwa/git-bisect-tutorial)
 
 [Difference between “git add -A” and “git add .”](https://stackoverflow.com/questions/572549/difference-between-git-add-a-and-git-add)
+
+[how to apply multiple git patches in one shot](https://stackoverflow.com/questions/18494750/how-to-apply-multiple-git-patches-in-one-shot)
+
+[git-gc-all](https://stackoverflow.com/questions/1904860/how-to-remove-unreferenced-blobs-from-my-git-repo)

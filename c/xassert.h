@@ -33,3 +33,4 @@ void assert_impl(const char *file, int line, const char *func, const char *expr)
 
 // References:
 // https://stackoverflow.com/questions/15305310/predefined-macros-for-function-name-func
+// https://github.com/jedisct1/libhydrogen/issues/71

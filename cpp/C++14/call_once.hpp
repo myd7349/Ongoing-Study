@@ -118,3 +118,4 @@ inline void call_once(once_flag &flag, TFunc&& func, TArgs&&... args)
 // boost/thread/once.hpp
 // https://stackoverflow.com/questions/40639978/c11-thread-safe-singleton-using-lambda-and-call-once-main-function-g-clan
 // [pthread_once with parameter](https://groups.google.com/forum/m/#!topic/comp.programming.threads/AX2YtBN6jhw)
+// https://github.com/nemequ/portable-snippets/tree/master/once
