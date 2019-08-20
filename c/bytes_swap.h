@@ -8,7 +8,7 @@
 # include <stdlib.h>
 # define BYTESWAP_U16(val) _byteswap_ushort((uint16_t)(val))
 # define BYTESWAP_U32(val) _byteswap_ulong((uint32_t)(val))
-# define BYTESWAP_U64(val) (uint64_t)_byteswap_uint64((int64_t)(val))
+# define BYTESWAP_U64(val) (uint64_t)_byteswap_uint64((uint64_t)(val))
 #elif defined(__linux__)
 # include <byteswap.h>
 # define BYTESWAP_U16(val) bswap_16((val)) // __builtin_bswap16
