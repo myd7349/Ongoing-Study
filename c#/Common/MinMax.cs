@@ -7,13 +7,13 @@
 // First, make a copy of `GitHub/Microsoft/corefx/src/System.Linq/src/System/Linq/Min.cs`.
 // Second, rename all `Min`s to `MinMax`s.
 // At last, enjoy it!
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
-using Common;
-
-namespace System.Linq
+namespace Common.Linq
 {
-    public static partial class Enumerable
+    public static partial class EnumerableExtension
     {
         public static Pair<int, int> MinMax(this IEnumerable<int> source)
         {

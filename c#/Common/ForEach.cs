@@ -2,12 +2,10 @@
 // LINQ-style ForEach to consume an enumerable object.
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 
-namespace System.Linq
+namespace Common.Linq
 {
-    public static partial class Enumerable
+    public static partial class EnumerableExtension
     {
         public static void ForEach<TSource>(this IEnumerable<TSource> source, Action<TSource> predicate)
         {

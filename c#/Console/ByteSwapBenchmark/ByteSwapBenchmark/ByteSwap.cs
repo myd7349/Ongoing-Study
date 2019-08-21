@@ -81,6 +81,7 @@
 
 
 // References:
+// https://github.com/dotnet/coreclr/blob/5068bb8820ebd1820e70aea091bf56b19ae84f13/src/System.Private.CoreLib/shared/System/Buffers/Binary/Reader.cs#L24-L126
 // https://stackoverflow.com/questions/19560436/bitwise-endian-swap-for-various-types
 // https://stackoverflow.com/questions/5784365/how-to-reverse-the-order-of-a-byte-array-in-c
 // https://stackoverflow.com/questions/1358747/fast-little-endian-to-big-endian-conversion-in-asm

@@ -4,6 +4,7 @@
     using BenchmarkDotNet.Running;
 
     using static Common.ByteSwap;
+    using static CoreCLRReverseEndianness;
 
     [RPlotExporter, RankColumn]
     public class ByteSwapBenchmark
@@ -19,6 +20,9 @@
 
         [Benchmark]
         public void ByteSwapV4CSharpUnsafe() => BytesSwapV4(0x2010);
+
+        [Benchmark]
+        public void CoreCLRReverse() => ReverseEndianness(0x2010);
 
         //[Benchmark]
         //public void ByteSwapPInvoke() => byteswap_i32(0x2010);

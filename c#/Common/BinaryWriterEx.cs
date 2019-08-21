@@ -113,3 +113,8 @@
 // https://github.com/dotnet/corefx/blob/master/src/Common/src/CoreLib/System/IO/BinaryWriter.cs
 // https://github.com/dotnet/corefx/blob/f66beeec1ab37a8ea8647caae8bb2ae901f01012/src/Common/src/CoreLib/System/IO/BinaryWriter.cs#L239-L251
 // https://github.com/dotnet/corefx/blob/f66beeec1ab37a8ea8647caae8bb2ae901f01012/src/Common/src/CoreLib/System/BitConverter.cs#L451-L455
+// https://github.com/dotnet/coreclr/blob/master/tests/src/JIT/Intrinsics/BinaryPrimitivesReverseEndianness.cs
+// https://github.com/dotnet/coreclr/blob/master/src/System.Private.CoreLib/shared/System/Buffers/Binary/ReaderBigEndian.cs
+// https://github.com/dotnet/coreclr/blob/master/src/System.Private.CoreLib/shared/System/Buffers/Binary/ReaderLittleEndian.cs
+// https://github.com/dotnet/coreclr/blob/master/src/System.Private.CoreLib/shared/System/Buffers/Binary/WriterBigEndian.cs
+// https://github.com/dotnet/coreclr/blob/master/src/System.Private.CoreLib/shared/System/Buffers/Binary/WriterLittleEndian.cs

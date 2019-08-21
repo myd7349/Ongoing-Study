@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayHelper.cs" />
+    <Compile Include="BinaryReaderEx.cs" />
     <Compile Include="BinaryWriterBE.cs" />
     <Compile Include="BinaryWriterEx.cs" />
     <Compile Include="ByteSwap.cs" />
