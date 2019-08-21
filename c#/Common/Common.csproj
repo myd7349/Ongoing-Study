@@ -48,6 +48,7 @@
     <Compile Include="BinaryReaderEx.cs" />
     <Compile Include="BinaryWriterBE.cs" />
     <Compile Include="BinaryWriterEx.cs" />
+    <Compile Include="BitConverterEx.cs" />
     <Compile Include="ByteSwap.cs" />
     <Compile Include="CircularBuffer.cs" />
     <Compile Include="ColorExtension.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="DictionaryExtension.cs" />
     <Compile Include="ActivatorHelper.cs" />
     <Compile Include="EndianUtility.cs" />
+    <Compile Include="FileStreamExtension.cs" />
     <Compile Include="ForEach.cs" />
     <Compile Include="FormExtensions.cs" />
     <Compile Include="GDI32Helper.cs" />
