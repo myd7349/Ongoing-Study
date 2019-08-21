@@ -4,6 +4,10 @@ add_executable(base64_tests base64_tests.c)
 target_link_libraries(base64_tests PRIVATE base64 dump)
 add_test(base64_tests base64_tests)
 
+add_executable(base64_tests_cpp base64_tests.cpp)
+target_link_libraries(base64_tests_cpp PRIVATE base64 dump)
+add_test(base64_tests_cpp base64_tests_cpp)
+
 if (WIN32)
     add_library(wconv wconv.c)
 

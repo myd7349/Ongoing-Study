@@ -17,9 +17,10 @@ void do_test(const _TCHAR *str)
     char u8str_buffer[256];
     char ansi_buffer[256];
 
+    _putts(_T("------------------------------------------------------------"));
+
 #ifdef _UNICODE
     char *u8str = TCHAR_TO_UTF8(str);
-    _putts(_T("------------------------------------------------------------"));
 
     if (u8str == NULL)
     {
@@ -37,6 +38,8 @@ void do_test(const _TCHAR *str)
         easy_base64_encode(astr, strlen(astr), ansi_buffer, sizeof(ansi_buffer)))
     {
         _tprintf(_T("Original        : %s\n"), str);
+        _tprintf(_T("Original bytes  : "));
+        dump_data(str, _tcslen(str) * sizeof(_TCHAR));
         _tprintf(_T("Raw bytes(utf-8): "));
         dump_data(u8str, strlen(u8str));
         _tprintf(_T("Raw bytes(ansi) : "));
@@ -90,35 +93,44 @@ int _tmain(int argc, _TCHAR *argv[])
 > wchar_tests.exe
 ------------------------------------------------------------
 Original        : Good morning.
+Original bytes  : G\x00o\x00o\x00d\x00 \x00m\x00o\x00r\x00n\x00i\x00n\x00g\x00.\x00
 Raw bytes(utf-8): Good morning.
 Raw bytes(ansi) : Good morning.
 Base64(utf-8)   : R29vZCBtb3JuaW5nLg==
 Base64(ansi)    : R29vZCBtb3JuaW5nLg==
 ------------------------------------------------------------
 Original        : おはよう
+Original bytes  : J0o0\x880F0
 Raw bytes(utf-8): \xe3\x81\x8a\xe3\x81\xaf\xe3\x82\x88\xe3\x81\x86
 Raw bytes(ansi) : \xa4\xaa\xa4\xcf\xa4\xe8\xa4\xa6
 Base64(utf-8)   : 44GK44Gv44KI44GG
 Base64(ansi)    : pKqkz6TopKY=
 ------------------------------------------------------------
 Original        : 早上好！
+Original bytes  : \xe9e\x0aN}Y\x01\xff
 Raw bytes(utf-8): \xe6\x97\xa9\xe4\xb8\x8a\xe5\xa5\xbd\xef\xbc\x81
 Raw bytes(ansi) : \xd4\xe7\xc9\xcf\xba\xc3\xa3\xa1
 Base64(utf-8)   : 5pep5LiK5aW977yB
 Base64(ansi)    : 1OfJz7rDo6E=
 
 > char_tests.exe
+------------------------------------------------------------
 Original        : Good morning.
+Original bytes  : Good morning.
 Raw bytes(utf-8): Good morning.
 Raw bytes(ansi) : Good morning.
 Base64(utf-8)   : R29vZCBtb3JuaW5nLg==
 Base64(ansi)    : R29vZCBtb3JuaW5nLg==
+------------------------------------------------------------
 Original        : おはよう
+Original bytes  : \xa4\xaa\xa4\xcf\xa4\xe8\xa4\xa6
 Raw bytes(utf-8): \xa4\xaa\xa4\xcf\xa4\xe8\xa4\xa6
 Raw bytes(ansi) : \xa4\xaa\xa4\xcf\xa4\xe8\xa4\xa6
 Base64(utf-8)   : pKqkz6TopKY=
 Base64(ansi)    : pKqkz6TopKY=
+------------------------------------------------------------
 Original        : 早上好！
+Original bytes  : \xd4\xe7\xc9\xcf\xba\xc3\xa3\xa1
 Raw bytes(utf-8): \xd4\xe7\xc9\xcf\xba\xc3\xa3\xa1
 Raw bytes(ansi) : \xd4\xe7\xc9\xcf\xba\xc3\xa3\xa1
 Base64(utf-8)   : 1OfJz7rDo6E=
