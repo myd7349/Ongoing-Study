@@ -45,3 +45,4 @@ endforeach ()
 # https://github.com/nanomsg/nng/blob/master/cmake/CheckSanitizer.cmake
 # https://github.com/CaseyCarter/cmcstl2/blob/master/config/cmake/FindSanitizer.cmake
 # https://github.com/lighttransport/nnview/tree/master/cmake/sanitizers
+# https://github.com/lighttransport/nanort/tree/master/cmake

@@ -17,6 +17,7 @@ set(vars
     CMAKE_INSTALL_PREFIX
     CMAKE_MODULE_PATH
     CMAKE_PREFIX_PATH
+    CMAKE_SYSTEM_NAME
     CMAKE_SYSTEM_PROCESSOR
     CPACK_PACKAGING_INSTALL_PREFIX
     PROJECT_VERSION_MAJOR
@@ -33,3 +34,6 @@ endforeach ()
 # https://github.com/KjellKod/g3log/pull/312
 # https://stackoverflow.com/questions/5709914/using-cmake-how-do-i-get-verbose-output-from-ctest
 # https://github.com/jedisct1/libhydrogen/pull/72
+# https://stackoverflow.com/questions/9160335/os-specific-instructions-in-cmake-how-to
+# https://stackoverflow.com/questions/27660048/cmake-check-if-mac-os-x-use-apple-or-apple
+# https://stackoverflow.com/questions/26434308/cmake-system-name-blank

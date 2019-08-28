@@ -49,7 +49,6 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
-#include <memory>
 #include <stdexcept>
 #include <string>
 #include <vector>
@@ -63,9 +62,6 @@
 namespace stdfs = std::experimental::filesystem;
 namespace gpb = google::protobuf;
 namespace ndf = newsoft::datamodel;
-
-class NewDataFormat;
-using NewDataFormatPtr = std::shared_ptr<NewDataFormat>;
 
 #define NDF_MAGIC "SUxTTA"
 #define NDF_MAGIC_LENGTH 6
@@ -433,6 +429,22 @@ public:
         }
     }
 
+#if 0
+    /*
+    NewDataFormat ndf(1024 * 1024 / 2, ndf::NDFMeta_DataWidth_DataWidth16Bits, BigEndian);
+    ndf[0] = 10;
+    */
+    std::string operator[](std::string key) const
+    {
+        return GetProperty(key);
+    }
+
+    std::string &operator[](std::string key)
+    {
+        return meta_.mutable_properties()->operator[](key);
+    }
+#endif
+
     void SetData(std::size_t i, std::uint32_t value)
     {
         if (i >= Count())
@@ -453,6 +465,23 @@ public:
             throw std::runtime_error("Invalid data width");
             break;
         }
+
+        UpdateTimesatamp(*meta_.mutable_last_edited());
+    }
+
+    std::string GetProperty(std::string key, std::string defaultValue = "") const
+    {
+        auto properties = meta_.properties();
+        auto it = properties.find(key);
+        return it != properties.cend() ? it->second : defaultValue;
+    }
+
+    std::string SetProperty(std::string key, std::string value)
+    {
+        std::string oldProperty = GetProperty(key);
+        (*meta_.mutable_properties())[key] = value;
+        UpdateTimesatamp(*meta_.mutable_last_edited());
+        return oldProperty;
     }
 
 private:

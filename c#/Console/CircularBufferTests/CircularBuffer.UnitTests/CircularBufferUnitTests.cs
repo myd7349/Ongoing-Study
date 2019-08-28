@@ -21,8 +21,6 @@
             buffer1_ = new CircularBuffer<int>(array_.Length);
             buffer1_.AddMany(new int[] { 1, 2, 3, 4 }, 0, 4);
             buffer1_.Remove();
-
-
         }
 
         [Test]

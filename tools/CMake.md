@@ -38,3 +38,6 @@
 * [Setting the MSVC runtime in CMake](https://stackoverflow.com/questions/10113017/setting-the-msvc-runtime-in-cmake)
 
 10. [When should I quote variables?](https://stackoverflow.com/questions/35847655/when-should-i-quote-variables)
+
+11. [CMake FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html)
+* [imgui-plot](https://github.com/soulthreads/imgui-plot)

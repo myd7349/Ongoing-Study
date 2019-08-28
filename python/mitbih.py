@@ -18,7 +18,7 @@ class MITBITDBCrawler(rescrawler.ResourceCrawler):
         return 'MIT-BIH Arrhythmia Database downloader.'
     
     def get_url(self):
-        return 'https://physionet.org/physiobank/database/mitdb/'
+        return 'https://physionet.org/content/mitdb/1.0.0/'
     
     def get_re(self):
         return r'\d{3}\.((atr)|(dat)|(hea))' 

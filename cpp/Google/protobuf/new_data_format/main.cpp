@@ -44,6 +44,10 @@ int main()
         ndf.SetData(10, 'F');
         ndf.SetData(11, 0xffff);
 
+        ndf.SetProperty("Name", "Tom");
+        ndf.SetProperty("Age", "8");
+        ndf.SetProperty("Sex", "M");
+
         if (ndf.Save(fileName, metaFileName))
             std::cout << "Saved to " << fileName << " and " << metaFileName << '\n';
         else
@@ -59,6 +63,10 @@ int main()
         std::cout << ndf[1] << '\n';
         std::cout << ndf[10] << '\n';
         std::cout << ndf[11] << '\n';
+
+        std::cout << ndf.GetProperty("Name") << '\n';
+        std::cout << ndf.GetProperty("Age") << '\n';
+        std::cout << ndf.GetProperty("Sex") << '\n';
     }
 
     return 0;

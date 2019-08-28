@@ -27,4 +27,6 @@ message NDFMeta
     google.protobuf.Timestamp last_edited = 4;
 
     string comment = 5;
+
+    map<string, string> properties = 6;
 }

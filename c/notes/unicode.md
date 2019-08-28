@@ -9,3 +9,5 @@ Ongoing-Study/algorithm/coding/base64/tests/wconv.c
 atlconv.h:
 A2W, W2A, A2T, T2A
 A2W_CP, W2A_CP
+
+However, `W2A_CP(L"早上好", CP_UTF8)` not works for me.
