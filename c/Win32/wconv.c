@@ -95,12 +95,43 @@ char *wchar_to_utf8(const wchar_t *wstr)
  * Converts an UTF8 string to UTF-16 (allocate returned string)
  * Returns NULL on error
  */
-wchar_t *utf8_to_wchar(const char *str)
+wchar_t *utf8_to_wchar(const char *u8s)
 {
-    return multibyte_to_wchar(str, CP_UTF8);
+    return multibyte_to_wchar(u8s, CP_UTF8);
+}
+
+
+char *ansi_to_utf8(const char *str)
+{
+    char *u8s = NULL;
+
+    wchar_t *wstr = ansi_to_wchar(str);
+    if (wstr != NULL)
+    {
+        u8s = wchar_to_utf8(wstr);
+        free(wstr);
+    }
+
+    return u8s;
+}
+
+
+char *utf8_to_ansi(const char *u8s)
+{
+    char *str;
+
+    wchar_t *wstr = utf8_to_wchar(u8s);
+    if (wstr != NULL)
+    {
+        str = wchar_to_ansi(wstr);
+        free(wstr);
+    }
+
+    return str;
 }
 
 
 // References:
 // https://github.com/pbatard/libwdi/blob/master/libwdi/msapi_utf8.h
 // atlconv.h
+// https://stackoverflow.com/questions/2108336/converting-multibyte-characters-to-utf-8

@@ -19,7 +19,6 @@ void do_test(const _TCHAR *str)
 
     _putts(_T("------------------------------------------------------------"));
 
-#ifdef _UNICODE
     char *u8str = TCHAR_TO_UTF8(str);
 
     if (u8str == NULL)
@@ -28,11 +27,10 @@ void do_test(const _TCHAR *str)
         return;
     }
 
-    char *astr = TCHAR_TO_ANSI(str);
-#else
-    const char *u8str = str;
-    const char *astr = str;
+#ifndef _UNICODE
+    const
 #endif
+    char *astr = TCHAR_TO_ANSI(str);
 
     if (easy_base64_encode(u8str, strlen(u8str), u8str_buffer, sizeof(u8str_buffer)) != NULL &&
         easy_base64_encode(astr, strlen(astr), ansi_buffer, sizeof(ansi_buffer)))
@@ -63,10 +61,8 @@ void do_test(const _TCHAR *str)
         _ftprintf(stderr, _T("Failed to encode the input string!\n"));
     }
 
-#ifdef _UNICODE
-    free(u8str);
-    free(astr);
-#endif
+    TCHAR_TO_UTF8_FREE(u8str);
+    TCHAR_TO_ANSI_FREE(astr);
 }
 
 
@@ -124,16 +120,16 @@ Base64(ansi)    : R29vZCBtb3JuaW5nLg==
 ------------------------------------------------------------
 Original        : おはよう
 Original bytes  : \xa4\xaa\xa4\xcf\xa4\xe8\xa4\xa6
-Raw bytes(utf-8): \xa4\xaa\xa4\xcf\xa4\xe8\xa4\xa6
+Raw bytes(utf-8): \xe3\x81\x8a\xe3\x81\xaf\xe3\x82\x88\xe3\x81\x86
 Raw bytes(ansi) : \xa4\xaa\xa4\xcf\xa4\xe8\xa4\xa6
-Base64(utf-8)   : pKqkz6TopKY=
+Base64(utf-8)   : 44GK44Gv44KI44GG
 Base64(ansi)    : pKqkz6TopKY=
 ------------------------------------------------------------
 Original        : 早上好！
 Original bytes  : \xd4\xe7\xc9\xcf\xba\xc3\xa3\xa1
-Raw bytes(utf-8): \xd4\xe7\xc9\xcf\xba\xc3\xa3\xa1
+Raw bytes(utf-8): \xe6\x97\xa9\xe4\xb8\x8a\xe5\xa5\xbd\xef\xbc\x81
 Raw bytes(ansi) : \xd4\xe7\xc9\xcf\xba\xc3\xa3\xa1
-Base64(utf-8)   : 1OfJz7rDo6E=
+Base64(utf-8)   : 5pep5LiK5aW977yB
 Base64(ansi)    : 1OfJz7rDo6E=
 
 > py
@@ -143,4 +139,8 @@ b'5pep5LiK5aW977yB'
 >>> b = 
 >>> b64encode('早上好！'.encode('gbk'))
 b'1OfJz7rDo6E='
+>>> '早上好！'.encode('utf-8')
+b'\xe6\x97\xa9\xe4\xb8\x8a\xe5\xa5\xbd\xef\xbc\x81'
+>>> '早上好！'.encode('gbk')
+b'\xd4\xe7\xc9\xcf\xba\xc3\xa3\xa1'
 */
