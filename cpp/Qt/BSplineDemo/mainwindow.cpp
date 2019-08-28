@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setWindowTitle("B-Spline Demo");
+
     setGeometry(
         QStyle::alignedRect(
             Qt::LeftToRight,

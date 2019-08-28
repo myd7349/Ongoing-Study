@@ -1,6 +1,7 @@
 #include "knotsequence.h"
 
 #include <QtCore/QtMath>
+#include <QtGui/QPainterPath>
 #include <QtWidgets/QStylePainter>
 
 #include <tinysplinecpp.h>
@@ -8,10 +9,25 @@
 #include "../../DesignPatterns/Singleton.hpp"
 
 
-constexpr qreal R = 4.0f;
+constexpr qreal R = 5.0f;
 
 
-static void DrawKnot(QStylePainter &painter, const QPointF &pt)
+static void DrawPoint(QStylePainter &painter, const QPointF &pt)
+{
+    QPainterPath pointPath;
+
+    pointPath.addEllipse(pt, 2.0f, 2.0f);
+    painter.fillPath(pointPath, QBrush(Qt::black));
+}
+
+
+static void DrawPoint(QStylePainter &painter, qreal x, qreal y)
+{
+    DrawPoint(painter, QPointF(x, y));
+}
+
+
+static void DrawControlPoint(QStylePainter &painter, const QPointF &pt)
 {
     painter.save();
 
@@ -31,35 +47,54 @@ static void DrawKnot(QStylePainter &painter, const QPointF &pt)
 }
 
 
-static void DrawKnot(QStylePainter &painter, qreal x, qreal y)
+static void DrawControlPoint(QStylePainter &painter, qreal x, qreal y)
 {
-    DrawKnot(painter, QPointF(x, y));
+    DrawControlPoint(painter, QPointF(x, y));
 }
 
 
 void KnotSequence::draw(QStylePainter &painter)
 {
     auto &sequence = Singleton<KnotSequence>::GetInstance();
-    
+    if (sequence.empty())
+        return;
+
     std::vector<tinyspline::real> knots;
     knots.reserve(sequence.size() * 2);
 
     for (const auto &pt : sequence)
     {
-        DrawKnot(painter, pt);
+        DrawPoint(painter, pt);
 
         knots.push_back(pt.x());
         knots.push_back(pt.y());
     }
 
+    if (sequence.size() < 2)
+        return;
+
     auto bSpline = tinyspline::Utils::interpolateCubic(&knots, 2);
+    auto controlPoints = bSpline.controlPoints();
 
-    knots = bSpline.knots();
+    Q_ASSERT(controlPoints.size() % 8 == 0);
 
-    Q_ASSERT(knots.size() % 2 == 0);
+    QPainterPath path;
 
-    for (std::vector<tinyspline::real>::size_type i = 0; i < knots.size(); i += 2)
+    for (KnotSequence::size_type i = 1; i < sequence.size(); ++i)
     {
-        DrawKnot(painter, knots[i], knots[i + 1]);
+        path.moveTo(knots[(i - 1) * 2], knots[(i - 1) * 2 + 1]);
+        path.cubicTo(
+            controlPoints[(i - 1) * 8 + 2], controlPoints[(i - 1) * 8 + 3],
+            controlPoints[(i - 1) * 8 + 4], controlPoints[(i - 1) * 8 + 5],
+            controlPoints[(i - 1) * 8 + 6], controlPoints[(i - 1) * 8 + 7]
+        );
+
+        DrawPoint(painter, knots[(i -1) * 2], knots[(i - 1) * 2 + 1]);
+        DrawPoint(painter, knots[i * 2], knots[i * 2 + 1]);
+        
+        DrawControlPoint(painter, controlPoints[(i - 1) * 8 + 2], controlPoints[(i - 1) * 8 + 3]);
+        DrawControlPoint(painter, controlPoints[(i - 1) * 8 + 4], controlPoints[(i - 1) * 8 + 5]);
     }
+
+    painter.drawPath(path);
 }
