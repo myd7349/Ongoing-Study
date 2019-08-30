@@ -136,11 +136,12 @@ Base64(ansi)    : 1OfJz7rDo6E=
 >>> from base64 import *
 >>> b64encode('早上好！'.encode('utf-8'))
 b'5pep5LiK5aW977yB'
->>> b = 
 >>> b64encode('早上好！'.encode('gbk'))
 b'1OfJz7rDo6E='
 >>> '早上好！'.encode('utf-8')
 b'\xe6\x97\xa9\xe4\xb8\x8a\xe5\xa5\xbd\xef\xbc\x81'
+>>> '早上好！'.encode('utf-8-sig')
+b'\xef\xbb\xbf\xe6\x97\xa9\xe4\xb8\x8a\xe5\xa5\xbd\xef\xbc\x81'
 >>> '早上好！'.encode('gbk')
 b'\xd4\xe7\xc9\xcf\xba\xc3\xa3\xa1'
 */

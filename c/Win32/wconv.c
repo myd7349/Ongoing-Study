@@ -35,7 +35,8 @@ static char *wchar_to_multibyte(const wchar_t *wstr, UINT code_page)
     if ((str = (char *)calloc(size, 1)) == NULL)
         return NULL;
 
-    if (wchar_to_multibyte_no_alloc(wstr, code_page, str, size) != size) {
+    if (wchar_to_multibyte_no_alloc(wstr, code_page, str, size) != size)
+    {
         free(str);
         return NULL;
     }
@@ -60,7 +61,8 @@ static wchar_t *multibyte_to_wchar(const char *str, UINT code_page)
     if ((wstr = (wchar_t *)calloc(size, sizeof(wchar_t))) == NULL)
         return NULL;
 
-    if (multibyte_to_wchar_no_alloc(str, code_page, wstr, size) != size) {
+    if (multibyte_to_wchar_no_alloc(str, code_page, wstr, size) != size)
+    {
         free(wstr);
         return NULL;
     }
@@ -128,6 +130,12 @@ char *utf8_to_ansi(const char *u8s)
     }
 
     return str;
+}
+
+
+void wconv_free(void *ptr)
+{
+    free(ptr);
 }
 
 
