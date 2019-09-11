@@ -179,3 +179,7 @@ FILE *fmemopen_v2(void *data, size_t size, const char *mode)
 
     return fp;
 }
+
+
+// References:
+// https://github.com/jmcnamara/libxlsxwriter/commit/37656389c8a7dcd48a8fc7479f77c77519a73416

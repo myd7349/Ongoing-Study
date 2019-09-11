@@ -10,9 +10,4 @@ file(DOWNLOAD
 )
 
 add_executable(echo "${CMAKE_CURRENT_BINARY_DIR}/echo.c")
-
-if (TARGET argtable3)
-    target_link_libraries(echo PRIVATE argtable3)
-else ()
-    target_link_libraries(echo PRIVATE argtable3_static)
-endif ()
+target_link_libraries(echo PRIVATE argtable3 argtable3_static)

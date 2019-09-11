@@ -149,3 +149,7 @@ https://sourcegraph.com/github.com/DanBloomberg/leptonica/-/blob/src/utils2.c#L1
 https://github.com/erikd/libsndfile/blob/master/src/file_io.c
 
 https://github.com/GNOME/glib/blob/master/glib/gstdio.c
+
+12.
+
+https://github.com/jmcnamara/libxlsxwriter/commit/37656389c8a7dcd48a8fc7479f77c77519a73416
