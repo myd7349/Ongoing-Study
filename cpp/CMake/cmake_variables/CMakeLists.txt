@@ -11,6 +11,7 @@ project(cmake_variables VERSION 1.0.2 LANGUAGES C)
 set(vars
     CMAKE_C_OUTPUT_EXTENSION
     CMAKE_COMMAND
+    CMAKE_CONFIGURATION_TYPES
     CMAKE_CTEST_COMMAND
     CMAKE_EXECUTABLE_SUFFIX
     CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT
@@ -41,3 +42,4 @@ endforeach ()
 # https://stackoverflow.com/questions/9160335/os-specific-instructions-in-cmake-how-to
 # https://stackoverflow.com/questions/27660048/cmake-check-if-mac-os-x-use-apple-or-apple
 # https://stackoverflow.com/questions/26434308/cmake-system-name-blank
+# https://blog.kitware.com/cmake-and-the-default-build-type/
