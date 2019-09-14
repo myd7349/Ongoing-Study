@@ -143,3 +143,5 @@ void wconv_free(void *ptr)
 // https://github.com/pbatard/libwdi/blob/master/libwdi/msapi_utf8.h
 // atlconv.h
 // https://stackoverflow.com/questions/2108336/converting-multibyte-characters-to-utf-8
+// https://stackoverflow.com/questions/688760/how-to-create-a-utf-8-string-literal-in-visual-c-2008
+// https://stackoverflow.com/questions/35249424/msvc-2010-and-utf8

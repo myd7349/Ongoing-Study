@@ -41,3 +41,11 @@
 
 11. [CMake FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html)
 * [imgui-plot](https://github.com/soulthreads/imgui-plot)
+
+12. Override options in subdirectory
+* [Override options in cmake subproject](https://stackoverflow.com/questions/14061605/override-option-in-cmake-subproject)
+* [CMake: set subdirectory options](https://stackoverflow.com/questions/20239334/cmake-set-subdirectory-options)
+
+13. MSVC UTF-8
+* [Possible to force CMake/MSVC to use UTF-8 encoding for source files without a BOM? C4819](https://stackoverflow.com/questions/47690822/possible-to-force-cmake-msvc-to-use-utf-8-encoding-for-source-files-without-a-bo)
+* https://github.com/ethereum/aleth/issues/4102

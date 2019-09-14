@@ -9,6 +9,7 @@ project(cmake_variables VERSION 1.0.2 LANGUAGES C)
 #endif ()
 
 set(vars
+    CMAKE_C_COMPILER_VERSION
     CMAKE_C_OUTPUT_EXTENSION
     CMAKE_COMMAND
     CMAKE_CONFIGURATION_TYPES
@@ -20,11 +21,14 @@ set(vars
     CMAKE_PREFIX_PATH
     CMAKE_SYSTEM_NAME
     CMAKE_SYSTEM_PROCESSOR
+    CMAKE_VERSION
     CMAKE_VS_PLATFORM_TOOLSET
     CPACK_PACKAGING_INSTALL_PREFIX
     MSVC_IDE
     MSVC_RUNTIME
     MSVC_TOOLSET
+    MSVC_TOOLSET_VERSION
+    MSVC_VERSION
     PROJECT_VERSION_MAJOR
     PROJECT_VERSION_MINOR
     PROJECT_VERSION_PATCH
@@ -33,6 +37,16 @@ set(vars
 foreach (_v ${vars})
     message(STATUS "${_v}: ${${_v}}")
 endforeach ()
+
+if (MSVC)
+    if (MSVC_VERSION GREATER_EQUAL 80)
+        message(STATUS "VS2005+")
+    endif ()
+
+    if (MSVC_VERSION GREATER_EQUAL 140)
+        message(STATUS "VS2015+")
+    endif ()
+endif ()
 
 # References:
 # https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html
@@ -43,3 +57,4 @@ endforeach ()
 # https://stackoverflow.com/questions/27660048/cmake-check-if-mac-os-x-use-apple-or-apple
 # https://stackoverflow.com/questions/26434308/cmake-system-name-blank
 # https://blog.kitware.com/cmake-and-the-default-build-type/
+# https://stackoverflow.com/questions/16667017/cmake-express-the-greater-or-equal-statement
