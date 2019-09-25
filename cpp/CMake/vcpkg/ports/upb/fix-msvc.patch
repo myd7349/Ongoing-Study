@@ -1,0 +1,144 @@
+diff --git a/generated_for_cmake/upb/json/parser.c b/generated_for_cmake/upb/json/parser.c
+index a1bd0d2..cbf1ca2 100644
+--- a/generated_for_cmake/upb/json/parser.c
++++ b/generated_for_cmake/upb/json/parser.c
+@@ -949,7 +949,6 @@ static bool parse_number_from_buffer(upb_json_parser *p, const char *buf,
+   upb_fieldtype_t type = upb_fielddef_type(p->top->f);
+   double val;
+   double dummy;
+-  double inf = 1.0 / 0.0;  /* C89 does not have an INFINITY macro. */
+ 
+   errno = 0;
+ 
+@@ -1018,9 +1017,9 @@ static bool parse_number_from_buffer(upb_json_parser *p, const char *buf,
+ 
+   if (len == strlen("Infinity") && strcmp(buf, "Infinity") == 0) {
+     /* C89 does not have an INFINITY macro. */
+-    val = inf;
++    val = UPB_INFINITY;
+   } else if (len == strlen("-Infinity") && strcmp(buf, "-Infinity") == 0) {
+-    val = -inf;
++    val = -UPB_INFINITY;
+   } else {
+     val = strtod(buf, &end);
+     if (errno == ERANGE || end != bufend) {
+@@ -1051,7 +1050,7 @@ static bool parse_number_from_buffer(upb_json_parser *p, const char *buf,
+       upb_sink_putdouble(p->top->sink, parser_getsel(p), val);
+       return true;
+     case UPB_TYPE_FLOAT:
+-      if ((val > FLT_MAX || val < -FLT_MAX) && val != inf && val != -inf) {
++      if ((val > FLT_MAX || val < -FLT_MAX) && val != UPB_INFINITY && val != -UPB_INFINITY) {
+         return false;
+       } else {
+         upb_sink_putfloat(p->top->sink, parser_getsel(p), val);
+diff --git a/upb/json/parser.rl b/upb/json/parser.rl
+index fd3704c..588ec37 100644
+--- a/upb/json/parser.rl
++++ b/upb/json/parser.rl
+@@ -947,7 +947,6 @@ static bool parse_number_from_buffer(upb_json_parser *p, const char *buf,
+   upb_fieldtype_t type = upb_fielddef_type(p->top->f);
+   double val;
+   double dummy;
+-  double inf = 1.0 / 0.0;  /* C89 does not have an INFINITY macro. */
+ 
+   errno = 0;
+ 
+@@ -1016,9 +1015,9 @@ static bool parse_number_from_buffer(upb_json_parser *p, const char *buf,
+ 
+   if (len == strlen("Infinity") && strcmp(buf, "Infinity") == 0) {
+     /* C89 does not have an INFINITY macro. */
+-    val = inf;
++    val = UPB_INFINITY;
+   } else if (len == strlen("-Infinity") && strcmp(buf, "-Infinity") == 0) {
+-    val = -inf;
++    val = -UPB_INFINITY;
+   } else {
+     val = strtod(buf, &end);
+     if (errno == ERANGE || end != bufend) {
+@@ -1049,7 +1048,7 @@ static bool parse_number_from_buffer(upb_json_parser *p, const char *buf,
+       upb_sink_putdouble(p->top->sink, parser_getsel(p), val);
+       return true;
+     case UPB_TYPE_FLOAT:
+-      if ((val > FLT_MAX || val < -FLT_MAX) && val != inf && val != -inf) {
++      if ((val > FLT_MAX || val < -FLT_MAX) && val != UPB_INFINITY && val != -UPB_INFINITY) {
+         return false;
+       } else {
+         upb_sink_putfloat(p->top->sink, parser_getsel(p), val);
+diff --git a/upb/json/printer.c b/upb/json/printer.c
+index 37482a8..9340cb5 100644
+--- a/upb/json/printer.c
++++ b/upb/json/printer.c
+@@ -181,11 +181,11 @@ const char neginf[] = "\"-Infinity\"";
+ const char inf[] = "\"Infinity\"";
+ 
+ static size_t fmt_double(double val, char* buf, size_t length) {
+-  if (val == (1.0 / 0.0)) {
++  if (val == UPB_INFINITY) {
+     CHKLENGTH(length >= strlen(inf));
+     strcpy(buf, inf);
+     return strlen(inf);
+-  } else if (val == (-1.0 / 0.0)) {
++  } else if (val == -UPB_INFINITY) {
+     CHKLENGTH(length >= strlen(neginf));
+     strcpy(buf, neginf);
+     return strlen(neginf);
+diff --git a/upb/port_def.inc b/upb/port_def.inc
+index 1b343d8..8a46c63 100644
+--- a/upb/port_def.inc
++++ b/upb/port_def.inc
+@@ -52,7 +52,11 @@
+ #endif
+ 
+ /* Hints to the compiler about likely/unlikely branches. */
++#ifdef __GNUC__
+ #define UPB_LIKELY(x) __builtin_expect((x),1)
++#else
++#define UPB_LIKELY(x) (!!(x))
++#endif
+ 
+ /* Define UPB_BIG_ENDIAN manually if you're on big endian and your compiler
+  * doesn't provide these preprocessor symbols. */
+@@ -86,6 +90,19 @@
+ #define _upb_snprintf __builtin_snprintf
+ #define _upb_vsnprintf __builtin_vsnprintf
+ #define _upb_va_copy(a, b) __va_copy(a, b)
++#elif defined _MSC_VER
++#include <stdio.h>
++#define _upb_va_copy(a, b) ((a) = (b))
++#if _MSC_VER < 1900
++#define _upb_snprintf _snprintf
++#else
++#define _upb_snprintf snprintf
++#endif
++#if _MSC_VER < 1500
++#define _upb_vsnprintf _vsnprintf
++#else
++#define _upb_vsnprintf vsnprintf
++#endif
+ #else
+ #error Need implementations of [v]snprintf and va_copy
+ #endif
+@@ -121,3 +138,14 @@
+ #else
+ #define UPB_UNREACHABLE() do { assert(0); } while(0)
+ #endif
++
++#ifdef _MSC_VER
++#if _MSC_VER < 1900
++#define UPB_INFINITY G_MAXDOUBLE
++#else
++#include <math.h>
++#define UPB_INFINITY INFINITY
++#endif
++#else
++#define UPB_INFINITY (1.0 / 0.0)
++#endif
+diff --git a/upb/port_undef.inc b/upb/port_undef.inc
+index bfd2a08..d4090b9 100644
+--- a/upb/port_undef.inc
++++ b/upb/port_undef.inc
+@@ -17,3 +17,4 @@
+ #undef _upb_snprintf
+ #undef _upb_vsnprintf
+ #undef _upb_va_copy
++#undef UPB_INFINITY

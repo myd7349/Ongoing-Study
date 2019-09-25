@@ -1,11 +1,15 @@
 include(vcpkg_common_functions)
 
+vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
+
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
-    REPO google/upb
-    REF 9bb0814c48cb4d4df87ca64c9fabba5d15183cc1
-    SHA512 2e23e64224e9984269d4bce477201dc34420fe00bc504dcea5de81f2e35f06e1b6fa97b7f6e739b854f0e0bc49156b59cfd613b95b0e0016c829163877887708
+    REPO protocolbuffers/upb
+    REF 26245628a9b8abfc217b080eec73af477a5fc65c
+    SHA512 d8374e4f077d41eb345ced9e7391e1786ad5e4961b15c6ae408999ef441730365ac0bfa6115340ccc79e7746d2d15b6f1865ede874f47cdf41c1b63eb92a83e1
     HEAD_REF master
+    PATCHES
+        fix-msvc.patch
 )
 
 vcpkg_configure_cmake(
@@ -13,16 +17,13 @@ vcpkg_configure_cmake(
     PREFER_NINJA
 )
 
-vcpkg_install_cmake()
+vcpkg_build_cmake()
+
+#vcpkg_copy_pdbs()
 
 #vcpkg_fixup_cmake_targets(CONFIG_PATH lib/cmake/docopt)
 
 #file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/debug/include)
 
 # Handle copyright
-#file(INSTALL
-#    ${SOURCE_PATH}/LICENSE-MIT
-#    DESTINATION ${CURRENT_PACKAGES_DIR}/share/docopt RENAME copyright)
-#configure_file(${SOURCE_PATH}/LICENSE ${CURRENT_PACKAGES_DIR}/share/double-conversion/copyright COPYONLY)
-
-vcpkg_copy_pdbs()
+configure_file(${SOURCE_PATH}/LICENSE ${CURRENT_PACKAGES_DIR}/share/${PORT}/copyright COPYONLY)
