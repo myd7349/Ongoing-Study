@@ -5,11 +5,9 @@ vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO protocolbuffers/upb
-    REF 26245628a9b8abfc217b080eec73af477a5fc65c
-    SHA512 d8374e4f077d41eb345ced9e7391e1786ad5e4961b15c6ae408999ef441730365ac0bfa6115340ccc79e7746d2d15b6f1865ede874f47cdf41c1b63eb92a83e1
+    REF 9effcbcb27f0a665f9f345030188c0b291e32482
+    SHA512 d
     HEAD_REF master
-    PATCHES
-        fix-msvc.patch
 )
 
 vcpkg_configure_cmake(

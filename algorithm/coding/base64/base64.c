@@ -380,3 +380,4 @@ void *easy_base64_decode(const char *base64, void *data, size_t *out_len)
 // https://github.com/kingsamchen/KBase/blob/5596e40a215babec40b202a9970308af9522b20f/kbase/base64.cpp#L103-L157
 // https://stackoverflow.com/questions/6098288/c-how-convert-wide-string-to-base64
 // libsodium: sodium_bin2base64
+// https://github.com/ReneNyffenegger/cpp-base64

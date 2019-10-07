@@ -482,3 +482,4 @@
 // System.Collections.Concurrent.BlockingCollection
 // https://github.com/dotnet/corefx/blob/master/src/System.Collections/src/System/Collections/Generic/Queue.cs
 // https://stackoverflow.com/questions/424669/how-do-i-overload-the-operator-in-c-sharp
+// https://github.com/spazzarama/SharedMemory/blob/master/SharedMemory/CircularBuffer.cs

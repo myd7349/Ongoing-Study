@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 3.8)
 
 project(BSplineDemo C CXX)
 
-include(FetchContent)
-
 find_package(Qt5Widgets CONFIG REQUIRED)
 
 set(CMAKE_AUTOMOC ON)
@@ -19,6 +17,8 @@ if (USE_EXTERNAL_TINYSPLINE)
     message(STATUS "TINYSPLINE_LIBRARIES: ${TINYSPLINE_LIBRARIES}")
     message(STATUS "TINYSPLINECPP_LIBRARIES: ${TINYSPLINECPP_LIBRARIES}")
 else ()
+    include(FetchContent)
+    
     FetchContent_Declare(
         tinyspline
         GIT_REPOSITORY https://github.com/msteinbeck/tinyspline

@@ -7,3 +7,15 @@ https://github.com/zeromq/zproject/issues/1070
 [clang format configurator](https://zed0.co.uk/clang-format-configurator/)
 
 [apply-clang-format.py](https://github.com/CobaltFusion/DebugViewPP/blob/master/apply-clang-format.py)
+
+[git-clang-format](https://biggates.github.io/2018/05/22/git-clang-format-integration.html)
+
+[ClangFormat Support in Visual Studio 2017](https://devblogs.microsoft.com/cppblog/clangformat-support-in-visual-studio-2017-15-7-preview-1/)
+
+[Clang - Automate C++ Google Style format using Clang Format](http://rogeriodossantos.github.io/MainPage/Clang_-_Automate_Cpp_Google_Style_format_using_Clang-Format/)
+
+[ClangFormat style options](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
+
+[rsocket-cpp format_all](https://github.com/rsocket/rsocket-cpp/blob/master/devtools/format_all.sh)
+
+[format-all.py](https://github.com/kfrlib/kfr/blob/master/format-all.py)

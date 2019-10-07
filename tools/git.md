@@ -211,3 +211,7 @@ git log --follow --name-only file
 [git-gc-all](https://stackoverflow.com/questions/1904860/how-to-remove-unreferenced-blobs-from-my-git-repo)
 
 [git bisect](http://www.ruanyifeng.com/blog/2018/12/git-bisect.html)
+
+[git shallow submodule](https://github.com/denoland/deno/pull/2971/files)
+
+[How to make shallow git submodules?](https://stackoverflow.com/questions/2144406/how-to-make-shallow-git-submodules)
