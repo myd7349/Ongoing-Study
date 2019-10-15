@@ -108,7 +108,7 @@ inline std::string WCharToUtf8(const wchar_t *wstr)
 
 inline std::string WCharToUtf8(const std::wstring &str)
 {
-    return WCharToAnsi(str.c_str());
+    return WCharToUtf8(str.c_str());
 }
 
 

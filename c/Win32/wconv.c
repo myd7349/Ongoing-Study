@@ -145,3 +145,5 @@ void wconv_free(void *ptr)
 // https://stackoverflow.com/questions/2108336/converting-multibyte-characters-to-utf-8
 // https://stackoverflow.com/questions/688760/how-to-create-a-utf-8-string-literal-in-visual-c-2008
 // https://stackoverflow.com/questions/35249424/msvc-2010-and-utf8
+// https://github.com/llvm-mirror/llvm/blob/master/lib/Support/ConvertUTF.cpp
+// https://github.com/haipome/utf8/blob/master/utf8.c

@@ -301,3 +301,4 @@ void slist_reverse(slist_t list)
 // https://coolshell.cn/articles/8990.html
 // http://wordaligned.org/articles/two-star-programming
 // https://www.zhihu.com/question/271003130/answer/361367751
+// RtlInitializeSListHead

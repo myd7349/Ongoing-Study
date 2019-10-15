@@ -16,6 +16,7 @@
 
 - Go
     - [Go Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments)
+    - [The Uber Go Style Guide](https://github.com/uber-go/guide)
 
 - Java
     - [Alibaba Java Coding Guidelines](https://github.com/alibaba/Alibaba-Java-Coding-Guidelines)
