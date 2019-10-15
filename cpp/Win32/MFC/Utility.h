@@ -126,6 +126,10 @@ inline CString GetFileExt(CString strFileName)
     return PathFindExtension(strFileName);
 }
 
+
+CString GetFileName(LPCTSTR lpcszFilePath, BOOL bWithExt);
+
+
 inline BOOL IsFileHasExt(LPCTSTR lpcszFilename, LPCTSTR lpcszExt)
 {
     return _tcsicmp(PathFindExtension(lpcszFilename), lpcszExt) == 0;

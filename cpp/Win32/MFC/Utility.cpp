@@ -784,6 +784,27 @@ BOOL RemoveDirectoryEx(LPCTSTR lpcszDir, BOOL bToRecycleBin)
 }
 
 
+CString GetFileName(LPCTSTR lpcszFilePath, BOOL bWithExt)
+{
+    ASSERT(lpcszFilePath != NULL);
+
+    LPCTSTR lpcszFileName = PathFindFileName(lpcszFilePath);
+    if (bWithExt)
+    {
+        return lpcszFileName;
+    }
+    else
+    {
+        LPCTSTR lpcszExt = PathFindExtension(lpcszFileName);
+        if (lpcszExt == lpcszFileName)
+            return lpcszFileName;
+
+        CString strFileNameWithExt = lpcszFileName;
+        return strFileNameWithExt.Left(lpcszExt - lpcszFileName);
+    }
+}
+
+
 BOOL BytesToImage(CImage &image, LPBYTE pBytes, DWORD dwSize)
 {
     ASSERT(pBytes != NULL && dwSize > 0);
