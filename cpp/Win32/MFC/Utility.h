@@ -94,9 +94,20 @@ DWORD Execute(LPCTSTR lpcszCmdline, WORD wShowWindow, BOOL bSync);
 #define ExecAppSync(lpcszCmdline)     Execute((lpcszCmdline), SW_SHOW, TRUE)
 #define ExecAppAsync(lpcszCmdline)    Execute((lpcszCmdline), SW_SHOW, FALSE)
 
-int FindFiles(CStringArray &arrstrFiles, const CString &strFileNamePattern, 
+int ListDirectory(
+    CStringArray &arrstrItems, 
+    const CString &strPattern, 
+    const CString &strPath,
+    BOOL bFullPath,
+    BOOL bDirectory,
+    BOOL bFile,
+    int nLimit
+    );
+int FindFiles(CStringArray &arrstrFiles, 
+    const CString &strFileNamePattern, 
     const CString &strPath, BOOL bFullPath, int nLimit = -1);
-CString FindFirstFileWithName(const CString &strFileName, const CString &strPath, BOOL bFullPath);
+CString FindFirstFileWithName(const CString &strFileName, 
+    const CString &strPath, BOOL bFullPath);
 
 BOOL GetPEFixedFileVersion(const CString &strExeOrDllFilePath, VS_FIXEDFILEINFO &ffi);
 CString GetPEFileVersion(const CString &strExeOrDllFilePath, BOOL bCompact = TRUE, BOOL bMoreCompact = FALSE);

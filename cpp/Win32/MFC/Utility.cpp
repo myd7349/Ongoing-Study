@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 
 #include "Utility.h"
 
@@ -563,29 +563,67 @@ DWORD Execute(LPCTSTR lpcszCmdline, WORD wShowWindow, BOOL bSync)
     return 1;
 }
 
-// 2016-03-05T15:37+08:00
-int FindFiles(CStringArray &arrstrFiles, const CString &strFileNamePattern, 
-    const CString &strPath, BOOL bFullPath, int nLimit)
+
+int ListDirectory(
+    CStringArray &arrstrItems, 
+    const CString &strPattern, 
+    const CString &strPath,
+    BOOL bFullPath,
+    BOOL bDirectory,
+    BOOL bFile,
+    int nLimit
+    )
 {
-    arrstrFiles.RemoveAll();
+    arrstrItems.RemoveAll();
 
     int nTotal = 0;
 
+    if (!bDirectory && !bFile)
+        return nTotal;
+
     CFileFind fileFinder;
-    BOOL bSearching = fileFinder.FindFile(JoinPath(strPath, strFileNamePattern));
+    BOOL bSearching = fileFinder.FindFile(JoinPath(strPath, strPattern));
 
     CString (CFileFind::*pFunc)() const = bFullPath ? &CFileFind::GetFilePath : &CFileFind::GetFileName;
 
     while (bSearching && (nLimit == -1 || nTotal < nLimit))
     {
         bSearching = fileFinder.FindNextFile();
-        nTotal += 1;
 
-        arrstrFiles.Add((fileFinder.*pFunc)());
+        CString strFileName = fileFinder.GetFileName();
+        if (strFileName != _T(".") && strFileName != _T(".."))
+        {
+            CString strFilePath = fileFinder.GetFilePath();
+            if (ATL::ATLPath::IsDirectory(strFilePath))
+            {
+                if (bDirectory)
+                {
+                    arrstrItems.Add((fileFinder.*pFunc)());
+                    nTotal += 1;
+                }
+            }
+            else
+            {
+                if (bFile)
+                {
+                    arrstrItems.Add((fileFinder.*pFunc)());
+                    nTotal += 1;
+                }
+            }
+        }
     }
 
     return nTotal;
 }
+
+
+// 2016-03-05T15:37+08:00
+int FindFiles(CStringArray &arrstrFiles, const CString &strFileNamePattern, 
+    const CString &strPath, BOOL bFullPath, int nLimit)
+{
+    return ListDirectory(arrstrFiles, strFileNamePattern, strPath, bFullPath, FALSE, TRUE, nLimit);
+}
+
 
 CString FindFirstFileWithName(const CString &strFileName, const CString &strPath, BOOL bFullPath)
 {
@@ -599,6 +637,7 @@ CString FindFirstFileWithName(const CString &strFileName, const CString &strPath
 
     return _T("");
 }
+
 
 // 2016-10-19T17:20+08:00
 // http://stackoverflow.com/questions/940707/how-do-i-programatically-get-the-version-of-a-dll-or-exe-file
