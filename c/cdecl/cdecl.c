@@ -60,6 +60,9 @@ static char classify_string(const char *token)
         "long",
         "float",
         "double",
+        "struct",
+        "union",
+        "enum",
     };
 
     static const char *known_qualifiers[] =
@@ -131,7 +134,7 @@ static const char *read_to_first_identifier(const char *gibberish)
     {
         if (this.type == TOKEN_IDENTIFIER)
         {
-            printf("identifier is:\n");
+            printf("declare %s as:\n", this.string);
             break;
         }
 
@@ -150,13 +153,21 @@ static const char *read_to_first_identifier(const char *gibberish)
 static const char *deal_with_arrays(const char *gibberish)
 {
     const char *p = get_token(gibberish);
-    printf("array of size [%s]\n", this.string);
+    if (this.type == TOKEN_SINGULAR_CHAR && this.string[0] == ']')
+    {
+        printf("array of\n");
+        return p;
+    }
+    else
+    {
+        printf("array of size [%s]\n", this.string);
 
-    p = get_token(p);
-    if (this.type != TOKEN_SINGULAR_CHAR || this.string[0] != ']')
-        error("[ expected!\n");
+        p = get_token(p);
+        if (this.type != TOKEN_SINGULAR_CHAR || this.string[0] != ']')
+            error("[ expected!\n");
 
-    return p;
+        return p;
+    }
 }
 
 
@@ -164,12 +175,26 @@ static const char *deal_with_function_args(const char *gibberish)
 {
     const char *p = gibberish;
 
+    int left_brackets = 0;
+
     while (*p != '\0')
     {
         p = get_token(p);
 
-        if (this.type == TOKEN_SINGULAR_CHAR && this.string[0] == ')')
-            break;
+        if (this.type == TOKEN_SINGULAR_CHAR)
+        {
+            if (this.string[0] == '(')
+            {
+                left_brackets += 1;
+            }
+            else if (this.string[0] == ')')
+            {
+                if (left_brackets > 0)
+                    left_brackets -= 1;
+                else
+                    break;
+            }
+        }
     }
 
     printf("function returning\n");
@@ -272,12 +297,19 @@ int main(int argc, char *argv[])
         process_file(stdin);
     }
 
+    // PASS:
     // char (*p)[10];
     // char *p[10]
     // char * const * (*next)()
     // char *(*c[10])(int **p)
     // void (*signal(int sig, void(*func)(int)))(int)
     // int (*(*foo)(void ))[3]
+    // char *(*fptab[])()
+
+    // const int *foo
+    // int * const foo
+    // int X::*foo
+    // class Y *(X::*foo)(arg1, arg2)
 
     return 0;
 }
