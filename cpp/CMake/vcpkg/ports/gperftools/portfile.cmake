@@ -1,5 +1,3 @@
-include(vcpkg_common_functions)
-
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO gperftools/gperftools
@@ -8,26 +6,70 @@ vcpkg_from_github(
     HEAD_REF master
 )
 
-file(COPY ${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt DESTINATION ${SOURCE_PATH})
+if(VCPKG_TARGET_IS_WINDOWS)
+    if(override IN_LIST FEATURES)
+        if(VCPKG_LIBRARY_LINKAGE STREQUAL dynamic)
+            message(STATUS "${PORT}[override] only supports static library linkage. Building static library.")
+            set(VCPKG_LIBRARY_LINKAGE static)
+        endif()
 
-vcpkg_configure_cmake(
-    SOURCE_PATH ${SOURCE_PATH}
-    PREFER_NINJA
-    DISABLE_PARALLEL_CONFIGURE
-    OPTIONS
-        -DGPERFTOOLS_BUILD_TOOLS=OFF
-)
+        set(libtcmalloc_minimal_release_configuration Release-Override)
+    else()
+        set(libtcmalloc_minimal_release_configuration Release-Patch)
+    endif()
 
-vcpkg_install_cmake()
+    if(VCPKG_LIBRARY_LINKAGE STREQUAL static)
+        set(ENV{CL} "/DPERFTOOLS_DLL_DECL=")
+    endif()
 
-vcpkg_copy_pdbs()
+    vcpkg_build_msbuild(
+        PROJECT_PATH ${SOURCE_PATH}/vsprojects/libtcmalloc_minimal/libtcmalloc_minimal.vcxproj
+        DEBUG_CONFIGURATION Debug
+        RELEASE_CONFIGURATION ${libtcmalloc_minimal_release_configuration}
+    )
 
-#vcpkg_fixup_cmake_targets(CONFIG_PATH CMake)
+    file(COPY
+        ${SOURCE_PATH}/src/gperftools/heap-checker.h
+        ${SOURCE_PATH}/src/gperftools/heap-profiler.h
+        ${SOURCE_PATH}/src/gperftools/malloc_extension.h
+        ${SOURCE_PATH}/src/gperftools/malloc_extension_c.h
+        ${SOURCE_PATH}/src/gperftools/malloc_hook.h
+        ${SOURCE_PATH}/src/gperftools/malloc_hook_c.h
+        ${SOURCE_PATH}/src/gperftools/nallocx.h
+        ${SOURCE_PATH}/src/gperftools/profiler.h
+        ${SOURCE_PATH}/src/gperftools/stacktrace.h
+        ${SOURCE_PATH}/src/windows/gperftools/tcmalloc.h
+        DESTINATION ${CURRENT_PACKAGES_DIR}/include/gperftools
+    )
 
-file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/debug/include)
+    file(COPY
+        ${SOURCE_PATH}/vsprojects/libtcmalloc_minimal/Debug/libtcmalloc_minimal.lib
+        DESTINATION ${CURRENT_PACKAGES_DIR}/debug/lib
+    )
+    file(COPY
+        ${SOURCE_PATH}/vsprojects/libtcmalloc_minimal/${libtcmalloc_minimal_release_configuration}/libtcmalloc_minimal.lib
+        DESTINATION ${CURRENT_PACKAGES_DIR}/lib
+    )
 
-# Handle copyright
+    if (VCPKG_LIBRARY_LINKAGE STREQUAL dynamic)
+        file(COPY
+            ${SOURCE_PATH}/vsprojects/libtcmalloc_minimal/Debug/libtcmalloc_minimal.dll
+            DESTINATION ${CURRENT_PACKAGES_DIR}/debug/bin
+        )
+        file(COPY
+            ${SOURCE_PATH}/vsprojects/libtcmalloc_minimal/${libtcmalloc_minimal_release_configuration}/libtcmalloc_minimal.dll
+            DESTINATION ${CURRENT_PACKAGES_DIR}/bin
+        )
+
+        vcpkg_copy_pdbs()
+    endif()
+else()
+    vcpkg_configure_make(
+        SOURCE_PATH ${SOURCE_PATH}
+        AUTOCONFIG
+    )
+
+    vcpkg_install_make()
+endif()
+
 configure_file(${SOURCE_PATH}/COPYING ${CURRENT_PACKAGES_DIR}/share/${PORT}/copyright COPYONLY)
-
-# CMake integration test
-#vcpkg_test_cmake(PACKAGE_NAME ${PORT})
