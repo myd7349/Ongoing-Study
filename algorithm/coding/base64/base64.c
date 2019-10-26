@@ -381,3 +381,4 @@ void *easy_base64_decode(const char *base64, void *data, size_t *out_len)
 // https://stackoverflow.com/questions/6098288/c-how-convert-wide-string-to-base64
 // libsodium: sodium_bin2base64
 // https://github.com/ReneNyffenegger/cpp-base64
+// https://github.com/cr-marcstevens/snippets/blob/master/cxxheaderonly/base64.hpp

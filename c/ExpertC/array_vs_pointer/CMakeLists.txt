@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.8)
+project(array_vs_pointer C)
+add_library(lib STATIC lib.c)
+add_executable(array_vs_pointer array_vs_pointer.c)
+target_link_libraries(array_vs_pointer PRIVATE lib)
