@@ -15,3 +15,6 @@ void flushinp(void)
 
 // References:
 // https://github.com/wmcbrine/PDCurses/blob/master/wincon/pdckbd.c
+// Jumping into C++, Ch3, What if your program exits immediately?
+// > std::cin.ignore();
+

@@ -92,6 +92,36 @@ T fn(const T *x, const T *y, unsigned n) \
 COV_T(covd, meand, double)
 
 
+void convd(const double *u, size_t ulen, const double *v, size_t vlen, double *out)
+{
+    size_t i;
+    size_t j;
+
+    size_t olen = ulen + vlen - 1;
+
+    assert(u != NULL && ulen > 0);
+    assert(v != NULL && vlen > 0);
+    assert(out != NULL);
+
+    for (i = 0; i < olen; ++i)
+        out[i] = 0;
+
+    for (i = 0; i < ulen; ++i)
+    {
+        for (j = 0; j < vlen; ++j)
+        {
+            out[i + j] += u[i] * v[j];
+        }
+    }
+
+    // References:
+    // https://www.jianshu.com/p/81e0fffe3840
+    // MATLAB: conv
+    // numpy.convolve
+    // https://github.com/numpy/numpy/blob/4e8ab26a17b96b7b0bdd41ba5e2cfac09685d153/numpy/core/src/multiarray/multiarraymodule.c#L1103-L1219
+}
+
+
 #define SQUARE_T(fn, T) \
 void fn(const T *x, unsigned n, T *x2) \
 { \

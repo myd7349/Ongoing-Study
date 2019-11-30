@@ -15,12 +15,9 @@ frewind(fid);
 channels = 5;
 samples = total_bytes / channels / 8;
 
-data = fread(fid, [channels, samples], '*double');
+data = fread(fid, [samples, channels], '*double');
 
 fclose(fid);
-
-data = data';
-data(:, channels) = [];
 
 end
 

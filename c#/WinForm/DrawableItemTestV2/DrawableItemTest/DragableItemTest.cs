@@ -26,7 +26,7 @@ namespace DrawableItemTest
             string[] labels = { "Hello", "world", "myd", "Pink Floyd" };
             for (int i = 0; i < labeledLines.Length; ++i)
             {
-                labeledLines[i] = new DragableVerticalLabeledLine();
+                labeledLines[i] = new OrderedDragableVerticalLabeledLine();
                 labeledLines[i].Label = labels[i];
                 labeledLines[i].LinePen = linePen;
                 labeledLines[i].LabelEdgePen = linePen;
@@ -59,7 +59,7 @@ namespace DrawableItemTest
             Point pt = new Point(0, 20);
             for (int i = 0; i < labeledLines.Length; ++i)
             {
-                pt.X = ClientRectangle.Width / labeledLines.Length * i + 40;
+                pt.X = ClientRectangle.Width / 2;
                 labeledLines[i].Position = pt;
                 labeledLines[i].Length = ClientRectangle.Height - 40;
                 labeledLines[i].LabelYStart = labeledLines[i].Length / 2 - 40 * i;

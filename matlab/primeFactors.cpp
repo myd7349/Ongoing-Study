@@ -1,5 +1,6 @@
 // 2017-08-16T12:23+08:00
 // mex: Call C/C++ functions from MATLAB. 
+// MATLAB Coder: 
 // mcc: Compile MATLAB functions for deployment.
 // You can build C/C++ extension for MATLAB with mex. This is an example.
 

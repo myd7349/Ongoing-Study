@@ -217,3 +217,7 @@ git log --follow --name-only file
 [How to make shallow git submodules?](https://stackoverflow.com/questions/2144406/how-to-make-shallow-git-submodules)
 
 [Is it possible to move/rename files in Git and maintain their history?](https://stackoverflow.com/questions/2314652/is-it-possible-to-move-rename-files-in-git-and-maintain-their-history)
+
+https://github.com/microsoft/vcpkg/issues/8914
+
+https://github.com/magicmonty/bash-git-prompt

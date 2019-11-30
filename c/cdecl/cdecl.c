@@ -134,7 +134,7 @@ static const char *read_to_first_identifier(const char *gibberish)
     {
         if (this.type == TOKEN_IDENTIFIER)
         {
-            printf("declare %s as:\n", this.string);
+            printf("`%s` is ", this.string);
             break;
         }
 
@@ -155,12 +155,12 @@ static const char *deal_with_arrays(const char *gibberish)
     const char *p = get_token(gibberish);
     if (this.type == TOKEN_SINGULAR_CHAR && this.string[0] == ']')
     {
-        printf("array of\n");
+        printf("array of ");
         return p;
     }
     else
     {
-        printf("array of size [%s]\n", this.string);
+        printf("array[%s] of ", this.string);
 
         p = get_token(p);
         if (this.type != TOKEN_SINGULAR_CHAR || this.string[0] != ']')
@@ -197,7 +197,7 @@ static const char *deal_with_function_args(const char *gibberish)
         }
     }
 
-    printf("function returning\n");
+    printf("function returning ");
 
     return p;
 }
@@ -209,7 +209,7 @@ static void deal_with_any_pointers()
         && stack_top(tokens).type == TOKEN_SINGULAR_CHAR
         && stack_top(tokens).string[0] == '*')
     {
-        printf("pointer to\n");
+        printf("pointer to ");
         stack_pop(tokens);
     }
 }
@@ -248,8 +248,13 @@ static const char *deal_with_declarator(const char *gibberish)
         }
         else
         {
-            printf("%s\n", stack_top(tokens).string);
+            printf("%s", stack_top(tokens).string);
             stack_pop(tokens);
+
+            if (stack_is_empty(tokens))
+                printf(".\n");
+            else
+                putchar(' ');
         }
     }
 
@@ -316,7 +321,8 @@ int main(int argc, char *argv[])
 
 
 // References:
-// Expert C Programming: Deep C Secrets, Ch3.8
+// Expert C Programming: Deep C Secrets, Ch3.8, Ch8
 // https://linux.die.net/man/1/cdecl
 // https://cdecl.org/
 // https://github.com/aartamonau/cdecl
+// https://ioccc.org/1988/reddy.c

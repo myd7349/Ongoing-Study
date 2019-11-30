@@ -8,3 +8,4 @@
 * <a href="https://icomoon.io/#icons-icomoon">Ico Moon</a> - Used by [HyperMD](https://github.com/laobubu/HyperMD)
 * <a href="https://github.com/mikolajdobrucki/ikonate">ikonate</a> - Fully customisable & accessible vector icons.
 * <a href="https://github.com/google/material-design-icons">material-design-icons</a> - Material Design icons by Google.
+* <a href="https://github.com/simple-icons/simple-icons">simple-icons</a> - SVG icons for popular brands

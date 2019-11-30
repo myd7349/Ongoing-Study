@@ -365,3 +365,4 @@ small tolerance. If not, the curve is subdivided parametrically into two segment
 // [4] https://stackoverflow.com/questions/3162645/convert-a-quadratic-bezier-to-a-cubic
 // [5] https://stackoverflow.com/questions/11907947/how-to-check-if-a-point-lies-on-a-line-between-2-other-points
 // [6] https://stackoverflow.com/questions/40764011/how-to-draw-a-smooth-curved-line-that-goes-through-several-points-in-qt
+// [7] https://github.com/andresbejarano/BezierCurves2D

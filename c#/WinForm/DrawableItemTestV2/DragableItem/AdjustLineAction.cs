@@ -63,7 +63,7 @@ namespace DragableItem
                     onMovingLine.Position = pt;
                     foreach (var item in measureLines)
                     {
-                        if (onMovingLine.DoCollisonDetection(item))
+                        if (onMovingLine.DoCollisionDetection(item, xStep))
                         {
                             canMove = false;
                             break;

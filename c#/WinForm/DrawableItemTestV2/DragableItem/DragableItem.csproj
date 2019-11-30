@@ -45,6 +45,7 @@
     <Compile Include="AdjustLineAction.cs" />
     <Compile Include="DragableVerticalLabeledLine.cs" />
     <Compile Include="IMouseAction.cs" />
+    <Compile Include="OrderedDragableVerticalLabeledLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

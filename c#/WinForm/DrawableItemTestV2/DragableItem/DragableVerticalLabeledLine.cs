@@ -188,7 +188,7 @@ namespace DragableItem
             graphics.DrawString(Label, isHoving ? FocusedLabelFont : LabelFont, isMoving ? FocusedLabelBrush : LabelBrush, rect);
         }
 
-        public bool DoCollisonDetection(DragableVerticalLabeledLine anotherVerticalLabeledLine)
+        public virtual bool DoCollisionDetection(DragableVerticalLabeledLine anotherVerticalLabeledLine, int xStep)
         {
             if (anotherVerticalLabeledLine != null && anotherVerticalLabeledLine.Visible)
             {

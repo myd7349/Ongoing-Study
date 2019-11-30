@@ -11,3 +11,5 @@ https://codereview.stackexchange.com/questions/147225/python-hex-viewer
 linux xxd command
 
 https://github.com/cr-marcstevens/hashclash
+
+https://github.com/Simsys/qhexedit2
