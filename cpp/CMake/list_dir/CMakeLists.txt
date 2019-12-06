@@ -63,3 +63,5 @@ scan_directory(
 
 # References:
 # https://stackoverflow.com/questions/7787823/cmake-how-to-get-the-name-of-all-subdirectories-of-a-directory
+# https://stackoverflow.com/questions/27302142/cmake-detect-empty-directory-during-build-time
+# https://stackoverflow.com/questions/50738181/cmake-glob-list-of-files-without-directory-path

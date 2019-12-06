@@ -2,10 +2,14 @@
 #include <algorithm>
 #include <cassert>
 #include <cstring>
+#include <numeric>
 #include <vector>
 
 #include "benchmark/benchmark.h"
 
+#ifdef _MSC_VER
+# pragma comment(lib, "shlwapi.lib")
+#endif
 
 namespace {
 void BM_ShiftDownOneElement_naive(benchmark::State &state)
@@ -51,7 +55,7 @@ BENCHMARK(BM_ShiftDownOneElement_naive)->Arg(1000)->Arg(10000)->Arg(100000);
 BENCHMARK(BM_ShiftDownOneElement_memmove)->Arg(1000)->Arg(10000)->Arg(100000);
 BENCHMARK(BM_ShiftDownOneElement_rotate)->Arg(1000)->Arg(10000)->Arg(100000);
 
-BENCHMARK_MAIN()
+BENCHMARK_MAIN();
 
 // Dependencies:
 // [benchmark 0.1.0](https://github.com/google/benchmark)

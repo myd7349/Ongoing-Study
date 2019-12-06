@@ -4,6 +4,8 @@ project(glui_examples C CXX)
 
 find_package(glui CONFIG REQUIRED)
 
+option(USING_MSVC_STATIC_RUNTIME "Using MSVC static runtime" OFF)
+
 if(MSVC AND USING_MSVC_STATIC_RUNTIME)
     foreach(flag_var
         CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE

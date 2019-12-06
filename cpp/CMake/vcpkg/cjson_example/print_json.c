@@ -42,8 +42,6 @@ int main()
                 puts(string);
                 free(string);
             }
-
-            cJSON_Delete(copy_object);
         }
 
         cJSON_Delete(json);
