@@ -49,3 +49,7 @@
 13. MSVC UTF-8
 * [Possible to force CMake/MSVC to use UTF-8 encoding for source files without a BOM? C4819](https://stackoverflow.com/questions/47690822/possible-to-force-cmake-msvc-to-use-utf-8-encoding-for-source-files-without-a-bo)
 * https://github.com/ethereum/aleth/issues/4102
+
+14. Threads
+* [cmake and libpthread](https://stackoverflow.com/questions/1620918/cmake-and-libpthread)
+* [Significance of -pthread flag when compiling](https://stackoverflow.com/questions/2127797/significance-of-pthread-flag-when-compiling)
