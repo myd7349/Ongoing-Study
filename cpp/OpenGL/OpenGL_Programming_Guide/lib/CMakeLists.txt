@@ -8,6 +8,7 @@ find_package(glfw3 CONFIG REQUIRED)
 add_library(
     libredbook
     LoadShaders.cpp
+    vermilion.cpp
 )
 
 target_include_directories(

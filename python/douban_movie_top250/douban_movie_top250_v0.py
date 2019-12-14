@@ -44,7 +44,7 @@ def main(file=sys.stdout):
     except ImportError:
         lxml_installed = False
 
-    start_url = 'http://movie.douban.com/top250'
+    start_url = 'https://movie.douban.com/top250'
     urls = [start_url]
     features = 'lxml' if lxml_installed else None
     
@@ -78,7 +78,7 @@ if __name__ == '__main__':
     else:
         target_file = sys.argv[1]
 
-    if not os.path.exists(target_file):
+    if not os.path.exists(target_file) or os.stat(target_file).st_size == 0:
         lastest_history_file = get_lastest_history_file_path()
         
         with open(target_file, 'w', encoding='utf-8') as fp:

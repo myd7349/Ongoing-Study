@@ -31,3 +31,7 @@ std::ifstream::pos_type GetFileSize(const char *filename)
 [appending to a file with ofstream](https://stackoverflow.com/questions/26084885/appending-to-a-file-with-ofstream)
 
 [std::ofstream with std::ate not opening at end](https://stackoverflow.com/questions/28999745/stdofstream-with-stdate-not-opening-at-end)
+
+[Reading from text file until EOF repeats last line](https://stackoverflow.com/questions/21647/reading-from-text-file-until-eof-repeats-last-line)
+
+[Why is iostream::eof inside a loop condition (i.e. `while (!stream.eof())`) considered wrong?](https://stackoverflow.com/questions/5605125/why-is-iostreameof-inside-a-loop-condition-i-e-while-stream-eof-cons)

@@ -108,6 +108,7 @@ int main() {
            glfwWindowShouldClose(window) == 0);
 
   glDeleteBuffers(1, &vertexBuffer);
+  glUseProgram(0);
   glDeleteProgram(program);
   glDeleteVertexArrays(1, &vertexArrayId);
 

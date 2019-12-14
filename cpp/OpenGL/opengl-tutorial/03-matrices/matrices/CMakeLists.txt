@@ -7,11 +7,11 @@ find_package(glfw3 CONFIG REQUIRED) # GLFW
 find_package(glm CONFIG REQUIRED)
 find_package(GLUT REQUIRED) # FreeGLUT
 
-if(CMAKE_CL_64)
+if (CMAKE_SIZEOF_VOID_P EQUAL 8)
     set(BINARY_FOLDER_SUFFIX x64)
-else()
+else ()
     set(BINARY_FOLDER_SUFFIX x86)
-endif()
+endif ()
 
 add_subdirectory(
     ${CMAKE_CURRENT_LIST_DIR}/../../common

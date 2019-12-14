@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.9)
 
 project(triangles CXX)
 
-if(CMAKE_CL_64)
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
     set(BINARY_FOLDER_SUFFIX x64)
 else()
     set(BINARY_FOLDER_SUFFIX x86)

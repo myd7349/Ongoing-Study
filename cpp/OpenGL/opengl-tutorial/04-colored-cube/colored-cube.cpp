@@ -251,6 +251,7 @@ int main() {
 
   glDeleteBuffers(1, &vertexBuffer);
   glDeleteBuffers(1, &colorBuffer);
+  glUseProgram(0);
   glDeleteProgram(program);
   glDeleteVertexArrays(1, &vertexArrayId);
 

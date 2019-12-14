@@ -13,7 +13,8 @@ template <typename CharT>
 class Line : public std::basic_string<CharT> {
     friend std::basic_istream<CharT> &operator>>(std::basic_istream<CharT> &is, Line &line) {
         std::getline(is, line);
-        line += (CharT)'\n';
+        if (is)
+            line += (CharT)'\n';
         return is;
     }
 };
