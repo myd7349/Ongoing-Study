@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.9)
 project(indicators-test CXX)
 
 find_package(indica CONFIG REQUIRED)
+find_package(Threads REQUIRED)
 
 if (NOT EXISTS "${CMAKE_CURRENT_BINARY_DIR}/demo.cpp")
     file(DOWNLOAD
@@ -18,4 +19,7 @@ if (MSVC)
     target_compile_options(indicators-test PRIVATE /source-charset:utf-8)
 endif ()
 
-target_link_libraries(indicators-test PRIVATE indica::indica)
+target_link_libraries(indicators-test PRIVATE indica::indica Threads::Threads)
+
+# References:
+# [How do I force cmake to include “-pthread” option during compilation?](https://stackoverflow.com/questions/5395309/how-do-i-force-cmake-to-include-pthread-option-during-compilation)
