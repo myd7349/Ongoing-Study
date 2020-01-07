@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="01/06/2020 15:38:42" ReportInfo.Modified="01/08/2020 10:30:39" ReportInfo.CreatorVersion="2020.1.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/06/2020 15:38:42" ReportInfo.Modified="01/08/2020 11:20:24" ReportInfo.CreatorVersion="2020.1.0.0">
   <Dictionary>
     <BusinessObjectDataSource Name="Movies" ReferenceName="Movies" DataType="null" Enabled="true">
       <Column Name="SN" DataType="System.String"/>
@@ -8,6 +8,7 @@
       <Column Name="EstimatedBudget" DataType="System.String"/>
       <Column Name="ReleaseDate" DataType="System.String"/>
     </BusinessObjectDataSource>
+    <Parameter Name="LastUpdated" DataType="System.DateTime"/>
   </Dictionary>
   <ReportPage Name="Page1" RawPaperSize="9" Guides="718.2" Watermark.Font="Times New Roman, 60pt">
     <PageHeaderBand Name="PageHeader1" Width="718.2" Height="28.35">
@@ -24,5 +25,9 @@
       <TextObject Name="EstimatedBudget" Left="368.55" Width="189" Height="28.35" Text="[Movies.EstimatedBudget]" Font="Times New Roman, 12pt"/>
       <TextObject Name="ReleaseDate" Left="557.55" Width="160.65" Height="28.35" Text="[Movies.ReleaseDate]" Font="Times New Roman, 12pt"/>
     </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="64.62" Width="718.2" Height="18.9">
+      <TextObject Name="LastUpdatedLabel" Width="103.95" Height="18.9" Text="Last Updated:" Font="Arial Narrow, 12pt"/>
+      <TextObject Name="LastUpdated" Left="113.4" Width="151.2" Height="18.9" Text="[LastUpdated]" Font="Arial Narrow, 12pt"/>
+    </PageFooterBand>
   </ReportPage>
 </Report>

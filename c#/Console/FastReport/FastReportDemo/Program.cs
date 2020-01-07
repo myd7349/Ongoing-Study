@@ -1,5 +1,6 @@
 ﻿namespace FastReportDemo
 {
+    using System;
     using System.Collections.Generic;
 
     using FastReport;
@@ -41,6 +42,7 @@
 
                 report.Load("report.frx");
                 report.RegisterData(movies, "Movies");
+                report.SetParameterValue("LastUpdated", DateTime.Now);
                 report.Prepare();
 
                 using (var imageExporter = new ImageExport())
