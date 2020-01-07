@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/06/2020 15:38:42" ReportInfo.Modified="01/08/2020 10:14:32" ReportInfo.CreatorVersion="2020.1.0.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="Movies" ReferenceName="Movies" DataType="null" Enabled="true">
+      <Column Name="SN" DataType="System.String"/>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Director" DataType="System.String"/>
+      <Column Name="EstimatedBudget" DataType="System.String"/>
+      <Column Name="ReleaseDate" DataType="System.String"/>
+    </BusinessObjectDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" Guides="718.2" Watermark.Font="Times New Roman, 60pt">
+    <DataBand Name="MovieData" Width="718.2" Height="259.87">
+      <TextObject Name="SN" Left="245.7" Top="9.45" Width="245.7" Height="28.35" Text="[Movies.SN]" Font="Times New Roman, 15.75pt"/>
+      <TextObject Name="MovieNameLabel" Left="37.8" Top="56.7" Width="198.45" Height="28.35" Text="Movie Name:" Font="Times New Roman, 15.75pt, style=Bold"/>
+      <TextObject Name="MovieName" Left="245.7" Top="56.7" Width="245.7" Height="28.35" Text="[Movies.Name]" Font="Times New Roman, 15.75pt"/>
+      <TextObject Name="DirectorLabel" Left="37.8" Top="103.95" Width="198.45" Height="28.35" Text="Director:" Font="Times New Roman, 15.75pt, style=Bold"/>
+      <TextObject Name="Director" Left="245.7" Top="103.95" Width="245.7" Height="28.35" Text="[Movies.Director]" Font="Times New Roman, 15.75pt"/>
+      <TextObject Name="EstimatedBudgetLabel" Left="37.8" Top="151.2" Width="198.45" Height="28.35" Text="Estimated Budget:" Font="Times New Roman, 15.75pt, style=Bold"/>
+      <TextObject Name="EstimatedBudget" Left="245.7" Top="151.2" Width="245.7" Height="28.35" Text="[Movies.EstimatedBudget]" Font="Times New Roman, 15.75pt"/>
+      <TextObject Name="ReleaseDateLabel" Left="37.8" Top="198.45" Width="198.45" Height="28.35" Text="Release Date:" Font="Times New Roman, 15.75pt, style=Bold"/>
+      <TextObject Name="ReleaseDate" Left="245.7" Top="198.45" Width="245.7" Height="28.35" Text="[Movies.ReleaseDate]" Font="Times New Roman, 15.75pt"/>
+      <TextObject Name="SNLabel" Left="37.8" Top="9.45" Width="198.45" Height="28.35" Text="S/N:" Font="Times New Roman, 15.75pt, style=Bold"/>
+    </DataBand>
+  </ReportPage>
+</Report>
