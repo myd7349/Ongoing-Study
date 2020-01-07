@@ -28,6 +28,7 @@
 >* [ned14/outcome](https://github.com/ned14/outcome/tree/develop/single-header)
 >* [brigand/embed.py](https://github.com/edouarda/brigand/blob/master/script/embed.py)
 >* [argtable3/tools](https://github.com/argtable/argtable3/tree/master/tools)
+>* [cista/uniter](https://github.com/felixguendling/cista/blob/master/tools/uniter/uniter.cc)
 >
 >## Ideas:
 >* [The single-header code should be a build artifact](https://github.com/lemire/simdjson/issues/106)

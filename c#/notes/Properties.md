@@ -38,3 +38,7 @@ public class MyClass
 ```
 Otherwise, the compiler will give this error:
 > error CS0840: 'MyClass.Foo.get' must declare a body because it is not marked abstract or extern. Automatically implemented properties must define both get and set accessors.
+
+[CA1819: Properties should not return arrays. Does this happen only with arrays? If yes, why?](https://softwareengineering.stackexchange.com/questions/210922/ca1819-properties-should-not-return-arrays-does-this-happen-only-with-arrays)
+
+[CA1819: Properties should not return arrays](https://docs.microsoft.com/en-us/visualstudio/code-quality/ca1819?view=vs-2019)

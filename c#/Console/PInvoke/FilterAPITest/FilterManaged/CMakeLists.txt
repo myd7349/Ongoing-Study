@@ -40,3 +40,4 @@ set_property(
 # [add_library is not working in CMake for adding CSharp source files?](https://stackoverflow.com/questions/18888266/add-library-is-not-working-in-cmake-for-adding-csharp-source-files)
 # [CMake - Building C# without Prefer 32-bit Flag](https://stackoverflow.com/questions/50614863/cmake-building-c-sharp-without-prefer-32-bit-flag)
 # [CMake on a C# project: Any CPU?](https://stackoverflow.com/questions/58591485/cmake-on-a-c-sharp-project-any-cpu)
+# https://github.com/bemehiser/cmake_csharp_example

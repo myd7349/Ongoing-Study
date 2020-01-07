@@ -221,3 +221,20 @@ git log --follow --name-only file
 https://github.com/microsoft/vcpkg/issues/8914
 
 https://github.com/magicmonty/bash-git-prompt
+
+[How to extract history of specific file[s] and write out to new empty branch?](https://stackoverflow.com/questions/44605145/githow-to-extract-history-of-specific-files-and-write-out-to-new-empty-branc/44606125?noredirect=1)
+
+[git submodule update vs git submodule sync](https://stackoverflow.com/questions/45678862/git-submodule-update-vs-git-submodule-sync)
+
+[Git Submodule update over https](https://stackoverflow.com/questions/11410017/git-submodule-update-over-https)
+
+[GitHub: How to make a fork of public repository private?](https://stackoverflow.com/questions/10065526/github-how-to-make-a-fork-of-public-repository-private/30352360#30352360)
+
+[How to properly mirror a git repository](http://blog.plataformatec.com.br/2013/05/how-to-properly-mirror-a-git-repository/)
+```bash
+$ git clone --mirror git@example.com/upstream-repository.git
+$ cd upstream-repository.git
+$ git push --mirror git@example.com/new-location.git
+```
+
+[How to grep (search) committed code in the Git history](https://stackoverflow.com/questions/2928584/how-to-grep-search-committed-code-in-the-git-history)

@@ -19,3 +19,7 @@ https://github.com/zeromq/zproject/issues/1070
 [rsocket-cpp format_all](https://github.com/rsocket/rsocket-cpp/blob/master/devtools/format_all.sh)
 
 [format-all.py](https://github.com/kfrlib/kfr/blob/master/format-all.py)
+
+[How do I add clang-formatting to pre-commit hook?](https://stackoverflow.com/questions/55965712/how-do-i-add-clang-formatting-to-pre-commit-hook)
+
+[clang-format-hooks](https://github.com/barisione/clang-format-hooks)

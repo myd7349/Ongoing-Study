@@ -153,3 +153,17 @@ https://github.com/GNOME/glib/blob/master/glib/gstdio.c
 12.
 
 https://github.com/jmcnamara/libxlsxwriter/commit/37656389c8a7dcd48a8fc7479f77c77519a73416
+
+13.
+
+[```fread``` returns number of objects read, not number of bytes](https://stackoverflow.com/questions/28398255/fread-return-value-in-c)
+
+```c
+// Ongoing-Study/cpp/OpenGL/opengl-tutorial/common/texture.cpp
+unsigned char header[124];
+
+if ((readBytes = fread(header, sizeof(header), 1, file)) != sizeof(header)) { // Oops!
+  fprintf(stderr, "Unexpected DDS header size: %zu: ", readBytes);
+  return 0;
+}
+```

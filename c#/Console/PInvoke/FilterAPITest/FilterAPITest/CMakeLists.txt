@@ -55,3 +55,4 @@ add_custom_command(
 # [What is the purpose of the “Prefer 32-bit” setting in Visual Studio and how does it actually work?](https://stackoverflow.com/questions/12066638/what-is-the-purpose-of-the-prefer-32-bit-setting-in-visual-studio-and-how-does)
 # [CMake - Building C# without Prefer 32-bit Flag](https://stackoverflow.com/questions/50614863/cmake-building-c-sharp-without-prefer-32-bit-flag)
 # [CMake on a C# project: Any CPU?](https://stackoverflow.com/questions/58591485/cmake-on-a-c-sharp-project-any-cpu)
+# https://github.com/bemehiser/cmake_csharp_example
