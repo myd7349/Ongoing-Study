@@ -23,7 +23,17 @@
 
         private static void Run(Options options)
         {
-            Environment.Exit(RunInternal(options));
+            try
+            {
+                Environment.Exit(RunInternal(options));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Failed to render report to file \"{0}\":\n{1}",
+                    options.InputRfxFilePath, ex);
+
+                Environment.Exit(1);
+            }
         }
 
         private static int RunInternal(Options options)
@@ -111,6 +121,15 @@
                 }
             }
 
+            if (options.RotateFlip != RotateFlipType.RotateNoneFlipNone)
+            {
+                using (var bitmap = Bitmap.FromFile(options.OutputFilePath))
+                {
+                    bitmap.RotateFlip(options.RotateFlip);
+                    bitmap.Save(options.OutputFilePath);
+                }
+            }
+
             return 0;
         }
 
@@ -149,3 +168,6 @@
 
 // References:
 // [How do I specify the exit code of a console application in .NET?](https://stackoverflow.com/questions/155610/how-do-i-specify-the-exit-code-of-a-console-application-in-net)
+// [How do I rotate a picture in WinForms](https://stackoverflow.com/questions/2163829/how-do-i-rotate-a-picture-in-winforms)
+// [in C# how to rotate picturebox with its image?](https://stackoverflow.com/questions/5016081/in-c-sharp-how-to-rotate-picturebox-with-its-image)
+// [How to rotate an ATL::CImage object](https://stackoverflow.com/questions/9492169/how-to-rotate-an-atlcimage-object)

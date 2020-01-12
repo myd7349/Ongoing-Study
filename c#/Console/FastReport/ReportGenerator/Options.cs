@@ -1,6 +1,7 @@
 ﻿namespace ReportGenerator
 {
     using System.Collections.Generic;
+    using System.Drawing;
 
     using CommandLine;
     using FastReport.Export.Image;
@@ -18,6 +19,9 @@
 
         [Option('r', "resolution", HelpText = "Output file resolution.")]
         public int Resolution { get; set; }
+
+        [Option('t', "transform", Default = RotateFlipType.RotateNoneFlipNone, HelpText = "Rotate or flip.")]
+        public RotateFlipType RotateFlip { get; set; }
 
         [Option('p', "parameter", HelpText = "Specify report parameter(key=value).")]
         public IEnumerable<string> Parameters { get; set; }
