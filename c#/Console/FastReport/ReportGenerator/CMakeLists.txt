@@ -30,6 +30,5 @@ set_property(
     TARGET ReportGenerator
     PROPERTY
         VS_PACKAGE_REFERENCES
-            "CommandLineParser_2.7.82"
-            "FastReport.OpenSource_2019.3.19" 
+            "CommandLineParser_2.7.82;FastReport.OpenSource_2019.3.19" 
 )

@@ -29,7 +29,7 @@ set_property(
     TARGET FastReportDemo
     PROPERTY
         VS_PACKAGE_REFERENCES
-            "FastReport.OpenSource_2020.1.0" 
+            "FastReport.OpenSource_2020.1.0"
 )
 
 add_custom_command(

@@ -8,3 +8,6 @@ cmake -G Ninja ^
   -DARGPARSE_BUILD_TESTS=OFF ^
   %SRC_DIR%
 ```
+
+[How to get return/exit code of a batch file started with START command?](https://stackoverflow.com/questions/42597703/how-to-get-return-exit-code-of-a-batch-file-started-with-start-command)
+> cmd /v /e /c "start /high /wait cmd /c launched.cmd & exit ^!errorlevel^!"
