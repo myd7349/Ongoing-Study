@@ -30,7 +30,7 @@
             catch (Exception ex)
             {
                 Console.WriteLine("Failed to render report to file \"{0}\":\n{1}",
-                    options.InputRfxFilePath, ex);
+                    options.OutputFilePath, ex);
 
                 Environment.Exit(1);
             }
@@ -115,7 +115,14 @@
                 {
                     imageExporter.ImageFormat = options.Format;
                     if (options.Resolution > 0)
+                    {
                         imageExporter.Resolution = options.Resolution;
+                    }
+                    else if (options.ResolutionX > 0 && options.ResolutionY > 0)
+                    {
+                        imageExporter.ResolutionX = options.ResolutionX;
+                        imageExporter.ResolutionY = options.ResolutionY;
+                    }
 
                     report.Export(imageExporter, options.OutputFilePath);
                 }

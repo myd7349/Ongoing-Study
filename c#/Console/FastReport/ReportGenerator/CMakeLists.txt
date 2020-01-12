@@ -23,6 +23,7 @@ set_property(
             "System"
             "System.Core"
             "System.Data"
+            "System.Drawing"
 )
 
 set_property(

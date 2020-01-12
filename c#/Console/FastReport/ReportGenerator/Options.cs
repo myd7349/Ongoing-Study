@@ -20,10 +20,16 @@
         [Option('r', "resolution", HelpText = "Output file resolution.")]
         public int Resolution { get; set; }
 
+        [Option('x', "resolution-x", HelpText = "Output file resolution (horizontal).")]
+        public int ResolutionX { get; set; }
+
+        [Option('y', "resolution-y", HelpText = "Output file resolution (vertical).")]
+        public int ResolutionY { get; set; }
+
         [Option('t', "transform", Default = RotateFlipType.RotateNoneFlipNone, HelpText = "Rotate or flip.")]
         public RotateFlipType RotateFlip { get; set; }
 
-        [Option('p', "parameter", HelpText = "Specify report parameter(key=value).")]
+        [Option('p', "parameter", HelpText = "Specify report parameter (key=value).")]
         public IEnumerable<string> Parameters { get; set; }
     }
 }
