@@ -172,6 +172,12 @@ if ((readBytes = fread(header, sizeof(header), 1, file)) != sizeof(header)) { //
 
 [c++: subprocess output to stdin](https://stackoverflow.com/questions/8438277/c-subprocess-output-to-stdin)
 
+Internally, `popen(<command>)` is interpreted as:
+> cmd /c <command>
+
+If `<command>` contains spaces in it, quote the whole command just before passing it to `popen`.
+
+
 [Creating a Child Process with Redirected Input and Output](https://docs.microsoft.com/en-us/windows/win32/procthread/creating-a-child-process-with-redirected-input-and-output)
 
 [Using a handle to collect output from CreateProcess()](https://stackoverflow.com/questions/2674237/using-a-handle-to-collect-output-from-createprocess)

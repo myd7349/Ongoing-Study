@@ -1,4 +1,5 @@
 // clang-format off
+#include <assert.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -10,7 +11,7 @@
 
 #define BUFSIZE 4096
 
-void ErrorExit(PTSTR lpszFunction) {
+void ReportError(LPTSTR lpszFunction) {
   LPVOID lpMsgBuf;
   LPVOID lpDisplayBuf;
   DWORD dw = GetLastError();
@@ -27,20 +28,21 @@ void ErrorExit(PTSTR lpszFunction) {
   StringCchPrintf((LPTSTR)lpDisplayBuf, LocalSize(lpDisplayBuf) / sizeof(TCHAR),
                   TEXT("%s failed with error %d: %s"), lpszFunction, dw,
                   lpMsgBuf);
-  MessageBox(NULL, (LPCTSTR)lpDisplayBuf, TEXT("Error"), MB_OK | MB_ICONERROR);
+  _ftprintf(stderr, _T("%s"), (LPTSTR)lpDisplayBuf);
 
   LocalFree(lpMsgBuf);
   LocalFree(lpDisplayBuf);
-  ExitProcess(1);
 }
 
 // Create a child process that uses the previously created pipes for STDIN and
 // STDOUT.
 HANDLE CreateChildProcess(LPCTSTR lpcszCommandline,
-                          HANDLE hChildStdOutWritePipe,
-                          HANDLE hChildStdInReadPipe) {
+                          HANDLE hChildStdOutWritePipe) {
   size_t length = _tcslen(lpcszCommandline);
-  if (length >= BUFSIZE) ErrorExit(_T("This command is too long!"));
+  if (length >= BUFSIZE) {
+    ReportError(_T("This command is too long!"));
+    return NULL;
+  }
 
   TCHAR szCmdline[BUFSIZE];
   _tcsncpy(szCmdline, lpcszCommandline, BUFSIZE);
@@ -59,7 +61,7 @@ HANDLE CreateChildProcess(LPCTSTR lpcszCommandline,
   siStartInfo.cb = sizeof(STARTUPINFO);
   siStartInfo.hStdError = hChildStdOutWritePipe;
   siStartInfo.hStdOutput = hChildStdOutWritePipe;
-  siStartInfo.hStdInput = INVALID_HANDLE_VALUE;
+  siStartInfo.hStdInput = NULL;
   // siStartInfo.wShowWindow = SW_HIDE;
   siStartInfo.dwFlags |= STARTF_USESTDHANDLES;
 
@@ -76,7 +78,10 @@ HANDLE CreateChildProcess(LPCTSTR lpcszCommandline,
                            &piProcInfo);      // receives PROCESS_INFORMATION
 
   // If an error occurs, exit the application.
-  if (!bSuccess) ErrorExit(TEXT("CreateProcess"));
+  if (!bSuccess) {
+    ReportError(TEXT("CreateProcess"));
+    return NULL;
+  }
 
   // Close handles to the child process and its primary thread.
   // Some applications might keep these handles to monitor the status
@@ -89,7 +94,9 @@ HANDLE CreateChildProcess(LPCTSTR lpcszCommandline,
 // Read output from the child process's pipe for STDOUT
 // and write to the parent process's pipe for STDOUT.
 // Stop when there is no more data.
-void ReadFromPipe(HANDLE hChildStdOutReadPipe) {
+unsigned int __stdcall ReadFromPipe(void *arg) {
+  HANDLE hChildStdOutReadPipe = (HANDLE)arg;
+
   DWORD dwRead, dwWritten;
   CHAR chBuf[BUFSIZE];
   BOOL bSuccess = FALSE;
@@ -102,6 +109,8 @@ void ReadFromPipe(HANDLE hChildStdOutReadPipe) {
     bSuccess = WriteFile(hParentStdOut, chBuf, dwRead, &dwWritten, NULL);
     if (!bSuccess) break;
   }
+
+  return 0;
 }
 
 BOOL RunCommand(LPCTSTR lpcszCommand) {
@@ -117,54 +126,36 @@ BOOL RunCommand(LPCTSTR lpcszCommand) {
   HANDLE hChildStdOutWritePipe;
 
   // Create a pipe for the child process's STDOUT.
-  if (!CreatePipe(&hChildStdOutReadPipe, &hChildStdOutWritePipe, &sa, 0))
-    ErrorExit(TEXT("CreatePipe failed."));
+  if (!CreatePipe(&hChildStdOutReadPipe, &hChildStdOutWritePipe, &sa, 0)) {
+    ReportError(TEXT("CreatePipe"));
+    return FALSE;
+  }
 
   // Ensure the read handle to the pipe for STDOUT is not inherited.
-  if (!SetHandleInformation(hChildStdOutReadPipe, HANDLE_FLAG_INHERIT, 0))
-    ErrorExit(TEXT("Stdout SetHandleInformation"));
-
-  HANDLE hChildStdInReadPipe;
-  HANDLE hChildStdInWritePipe;
-
-  // Create a pipe for the child process's STDIN.
-  if (!CreatePipe(&hChildStdInReadPipe, &hChildStdInWritePipe, &sa, 0))
-    ErrorExit(TEXT("Stdin CreatePipe"));
-
-  // Ensure the write handle to the pipe for STDIN is not inherited.
-  if (!SetHandleInformation(hChildStdInWritePipe, HANDLE_FLAG_INHERIT, 0))
-    ErrorExit(TEXT("Stdin SetHandleInformation"));
-
-  HANDLE hChildProcess = CreateChildProcess(lpcszCommand, hChildStdOutWritePipe,
-                                            hChildStdInReadPipe);
-
-#if 0
-  // Write to child process' STDIN.
-  DWORD dwBytesToWrite = (_tcslen(szCommand) + 1) * sizeof(_TCHAR);
-  DWORD dwBytesWritten;
-  LPBYTE lpbyBuffer = (LPBYTE)szCommand;
-
-  while (dwBytesToWrite > 0) {
-    if (!WriteFile(hChildStdInWritePipe, lpbyBuffer, dwBytesToWrite,
-                   &dwBytesWritten, NULL)) {
-      _ftprintf(stderr, _T("Failed to write to child process's STDIN pipe.\n"));
-      break;
-    }
-
-    dwBytesToWrite -= dwBytesWritten;
-    lpbyBuffer += dwBytesWritten;
+  if (!SetHandleInformation(hChildStdOutReadPipe, HANDLE_FLAG_INHERIT, 0)) {
+    ReportError(TEXT("SetHandleInformation"));
+    return FALSE;
   }
-#endif
 
-  // Close the pipe handle so the child process stops reading.
-  if (!CloseHandle(hChildStdInWritePipe))
-    ErrorExit(TEXT("StdInWr CloseHandle"));
+  HANDLE hChildProcess =
+      CreateChildProcess(lpcszCommand, hChildStdOutWritePipe);
+  if (hChildProcess == NULL) {
+    CloseHandle(hChildStdOutReadPipe);
+    CloseHandle(hChildStdOutWritePipe);
+    return FALSE;
+  }
+
+  HANDLE hThread = (HANDLE)_beginthreadex(NULL, 0, ReadFromPipe,
+                                          hChildStdOutReadPipe, 0, NULL);
+  if (hThread == NULL) ReportError(TEXT("_beginthreadex"));
 
   DWORD dwExitCode;
   switch (WaitForSingleObject(hChildProcess, INFINITE)) {
     case WAIT_TIMEOUT:
+      assert(FALSE);
       break;
     case WAIT_FAILED:
+      ReportError(_T("WaitForSingleObject"));
       break;
     case WAIT_OBJECT_0:
       if (GetExitCodeProcess(hChildProcess, &dwExitCode))
@@ -174,36 +165,40 @@ BOOL RunCommand(LPCTSTR lpcszCommand) {
                                            // will hang with `ReadFile`.
       break;
     default:
+      assert(FALSE);
       break;
   }
 
-  ReadFromPipe(hChildStdOutReadPipe);
+  if (hThread != NULL) {
+    WaitForSingleObject(hThread, INFINITE);
+    CloseHandle(hThread);
+  }
+
+  CloseHandle(hChildStdOutReadPipe);
 
   return TRUE;
 }
 
-BOOL RunFromInput() {
+int main(void) {
+  RunCommand(_T("cmd /c ver"));
+  // RunCommand(_T("cmd /c dir /s /b C:\\"));
+  RunCommand(_T("cmd /c dir /s /b ."));
+
   TCHAR szCommand[MAX_PATH];
-  if (_fgetts(szCommand, ARRAYSIZE(szCommand), stdin) != NULL) {
+
+  while (_fgetts(szCommand, ARRAYSIZE(szCommand), stdin) != NULL) {
     TCHAR *lpLF = _tcschr(szCommand, _T('\n'));
     if (lpLF != NULL) {
       *lpLF = _T('\0');
     } else {
-      return FALSE;
+      _ftprintf(stderr, _T("This command is too long!\n"));
+      continue;
     }
-    if (_tcscmp(szCommand, "q") == 0 || _tcscmp(szCommand, "Q") == 0)
-      return FALSE;
-  } else {
-    return FALSE;
-  }
 
-  return RunCommand(szCommand);
-}
+    if (szCommand[0] == _T('\0')) continue;
+    if (_tcscmp(szCommand, "q") == 0 || _tcscmp(szCommand, "Q") == 0) break;
 
-int main(void) {
-  RunCommand(_T("cmd /c ver"));
-  RunCommand(_T("cmd /c dir /s /b C:\\")); // Still hangs here.
-  while (RunFromInput()) {
+    RunCommand(szCommand);
   }
 
   return 0;
