@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#include <process.h>
 #include <tchar.h>
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
@@ -55,7 +56,7 @@ HANDLE CreateChildProcess(LPCTSTR lpcszCommandline,
   ZeroMemory(&piProcInfo, sizeof(PROCESS_INFORMATION));
 
   // Set up members of the STARTUPINFO structure.
-  // This structure specifies the STDIN and STDOUT handles for redirection.
+  // This structure specifies STDOUT and STDERR handles for redirection.
 
   ZeroMemory(&siStartInfo, sizeof(STARTUPINFO));
   siStartInfo.cb = sizeof(STARTUPINFO);

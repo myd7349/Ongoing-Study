@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.15)
 
 project(subprocess_output LANGUAGES C CXX)
 
+find_package(Boost 1.68.0 COMPONENTS filesystem REQUIRED)
 find_package(unofficial-tiny-process-library CONFIG REQUIRED)
 
 set(CMAKE_CXX_STANDARD 11)
@@ -21,6 +22,7 @@ if(USE_MSVC_STATIC_CRT)
         endforeach(flag_var)
     endif()
 endif()
+
 
 add_executable(subprocess_output-tpl subprocess_output-tpl.cpp)
 add_executable(subprocess_output-popen subprocess_output-popen.c)
@@ -48,3 +50,11 @@ target_link_libraries(
 )
 
 add_executable(stdout_stderr_order stdout_stderr_order.cpp)
+
+add_executable(subprocess_output-boost subprocess_output-boost.cpp)
+target_include_directories(subprocess_output-boost PRIVATE ${Boost_INCLUDE_DIRS})
+target_link_libraries(subprocess_output-boost PRIVATE Boost::filesystem)
+
+# References:
+# [cannot find boost_process cmake find_package](https://stackoverflow.com/questions/45931450/cannot-find-boost-process-cmake-find-package)
+# https://cmake.org/cmake/help/v3.12/module/FindBoost.html
