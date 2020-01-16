@@ -24,6 +24,7 @@ endif()
 
 add_executable(subprocess_output-tpl subprocess_output-tpl.cpp)
 add_executable(subprocess_output-popen subprocess_output-popen.c)
+add_executable(subprocess_output-winapi subprocess_output-winapi.c)
 
 if(MSVC)
     target_compile_definitions(
@@ -39,3 +40,11 @@ target_link_libraries(
     PRIVATE
         unofficial::tiny-process-library::tiny-process-library
 )
+
+target_link_libraries(
+    subprocess_output-winapi
+    PRIVATE
+        strsafe.lib
+)
+
+add_executable(stdout_stderr_order stdout_stderr_order.cpp)

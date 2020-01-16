@@ -3,6 +3,7 @@
 #include <tchar.h>
 
 #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
+
 int main() {
   FILE *fpipe = _tpopen(_T("cmd /c dir /s /b"), _T("rt"));
   if (fpipe == NULL) {
