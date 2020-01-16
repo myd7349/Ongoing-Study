@@ -202,6 +202,7 @@ BOOL RunFromInput() {
 
 int main(void) {
   RunCommand(_T("cmd /c ver"));
+  RunCommand(_T("cmd /c dir /s /b C:\\")); // Still hangs here.
   while (RunFromInput()) {
   }
 
@@ -211,6 +212,7 @@ int main(void) {
 // clang-format off
 // References:
 // [Creating a Child Process with Redirected Input and Output](https://docs.microsoft.com/en-us/windows/win32/procthread/creating-a-child-process-with-redirected-input-and-output)
+// https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/ProcThread/creating-a-child-process-with-redirected-input-and-output.md
 // [Using a handle to collect output from CreateProcess()](https://stackoverflow.com/questions/2674237/using-a-handle-to-collect-output-from-createprocess)
 // [launch an exe/process with stdin stdout and stderr?](https://stackoverflow.com/questions/5485923/launch-an-exe-process-with-stdin-stdout-and-stderr/39648986)
 // [c++: subprocess output to stdin](https://stackoverflow.com/questions/8438277/c-subprocess-output-to-stdin)
@@ -223,4 +225,6 @@ int main(void) {
 // [capture process stdout and stderr in the correct ordering](https://stackoverflow.com/questions/18529662/capture-process-stdout-and-stderr-in-the-correct-ordering)
 // [Preserve output order when redirecting stdout and stderr](https://www.unix.com/shell-programming-and-scripting/126488-preserve-output-order-when-redirecting-stdout-stderr.html)
 // [Win32 ReadFile hangs when reading from pipe](https://stackoverflow.com/questions/13816962/win32-readfile-hangs-when-reading-from-pipe)
+// [How to get Windows version from command prompt or from PowerShell](https://stackoverflow.com/questions/42778858/how-to-get-windows-version-from-command-prompt-or-from-powershell)
+// [Find windows OS version from command line](https://www.windows-commandline.com/find-windows-os-version-from-command/)
 // clang-format on
