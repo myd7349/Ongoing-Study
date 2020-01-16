@@ -51,6 +51,21 @@ target_link_libraries(
 
 add_executable(stdout_stderr_order stdout_stderr_order.cpp)
 
+add_library(
+    subprocess
+    STATIC
+    "${CMAKE_CURRENT_LIST_DIR}/../Win32/SDK/Subprocess.cpp"
+)
+
+target_include_directories(
+    subprocess
+    PUBLIC
+        "${CMAKE_CURRENT_LIST_DIR}/../Win32/SDK/"
+)
+
+add_executable(subprocess_output-winapi-wrapper subprocess_output-winapi-wrapper.cpp)
+target_link_libraries(subprocess_output-winapi-wrapper PRIVATE subprocess)
+
 add_executable(subprocess_output-boost subprocess_output-boost.cpp)
 target_include_directories(subprocess_output-boost PRIVATE ${Boost_INCLUDE_DIRS})
 target_link_libraries(subprocess_output-boost PRIVATE Boost::filesystem)
