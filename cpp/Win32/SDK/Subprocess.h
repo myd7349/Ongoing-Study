@@ -13,41 +13,42 @@ using string_type = std::basic_string<TCHAR>;
 
 class Subprocess {
  public:
+  struct Config {
+    bool IsConsoleApplication = true;
+    bool ShowWindow = true;
+    DWORD BufferSize = 4096;
+    LPCTSTR CurrentDirectory = nullptr;
+  };
+
   Subprocess(LPCTSTR lpcszCommandLine,
              std::function<void(LPVOID, DWORD)> processOutput =
                  std::function<void(LPVOID, DWORD)>(),
-             BOOL bShowWindow = TRUE, DWORD dwBufferSize = 4096)
-      : Subprocess(nullptr, lpcszCommandLine, processOutput, bShowWindow,
-                   dwBufferSize) {}
+             Config config = Config())
+      : Subprocess(nullptr, lpcszCommandLine, processOutput, config) {}
 
   Subprocess(LPCTSTR lpcszApplication, LPCTSTR lpcszArguments,
              std::function<void(LPVOID, DWORD)> processOutput =
                  std::function<void(LPVOID, DWORD)>(),
-             BOOL bShowWindow = TRUE, DWORD dwBufferSize = 4096)
+             Config config = Config())
       : application_(lpcszApplication != nullptr ? lpcszApplication
                                                  : string_type()),
         arguments_(lpcszArguments != nullptr ? lpcszArguments : string_type()),
         processOutput_(processOutput),
-        dwBufferSize_(dwBufferSize) {
-    Run(bShowWindow);
+        config_(config) {
+    Run(config_);
   }
 
   Subprocess(std::initializer_list<LPCTSTR> arguments,
              std::function<void(LPVOID, DWORD)> processOutput =
                  std::function<void(LPVOID, DWORD)>(),
-             BOOL bShowWindow = TRUE, DWORD dwBufferSize = 4096)
-      : Subprocess(arguments.size() > 0 ? *arguments.begin() : nullptr,
-                   std::initializer_list<LPCTSTR>(arguments.size() > 0
-                                                      ? arguments.begin() + 1
-                                                      : arguments.begin(),
-                                                  arguments.end()),
-                   processOutput, bShowWindow, dwBufferSize) {}
+             Config config = Config())
+      : Subprocess(nullptr, arguments, processOutput, config) {}
 
   Subprocess(LPCTSTR lpcszApplication, std::initializer_list<LPCTSTR> arguments,
              std::function<void(LPVOID, DWORD)> processOutput =
                  std::function<void(LPVOID, DWORD)>(),
-             BOOL bShowWindow = TRUE, DWORD dwBufferSize = 4096)
-      : processOutput_(processOutput), dwBufferSize_(dwBufferSize) {
+             Config config = Config())
+      : processOutput_(processOutput), config_(config) {
     if (arguments.size() >= 1) {
       application_ =
           lpcszApplication != nullptr ? lpcszApplication : string_type();
@@ -60,7 +61,7 @@ class Subprocess {
       }
     }
 
-    Run(bShowWindow);
+    Run(config_);
   }
 
   ~Subprocess() {
@@ -70,18 +71,20 @@ class Subprocess {
 
   bool Wait(DWORD &dwExitCode);
 
+  string_type GetLastErrorHint() const { return lastErrorHint_; }
+
  private:
-  void Run(BOOL bShowWindow);
+  void Run(const Config &config);
 
   static unsigned int __stdcall ProcessOutput(void *arg);
 
   string_type application_;
   string_type arguments_;
+  Config config_;
   string_type lastErrorHint_;
   Win32Handle<NULL> stdoutReadPipe_;
   Win32Handle<NULL> stdoutWritePipe_;
   Win32Handle<NULL> childProcess_;
-  DWORD dwBufferSize_;
   std::function<void(LPVOID, DWORD)> processOutput_;
   Win32Handle<NULL> thread_;
 };

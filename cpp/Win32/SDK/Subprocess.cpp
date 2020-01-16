@@ -5,7 +5,7 @@
 
 #include "Subprocess.h"
 
-void Subprocess::Run(BOOL bShowWindow) {
+void Subprocess::Run(const Config &config) {
   assert(childProcess_ == NULL);
 
   if (processOutput_) {
@@ -35,16 +35,28 @@ void Subprocess::Run(BOOL bShowWindow) {
   STARTUPINFO si{};
   si.cb = sizeof(STARTUPINFO);
   si.hStdInput = NULL;
-  si.hStdOutput = stdoutWritePipe_;
-  si.hStdError = stdoutWritePipe_;
-  si.dwFlags |= stdoutWritePipe_ ? STARTF_USESTDHANDLES : 0;
+
+  if (stdoutWritePipe_) {
+    si.hStdOutput = stdoutWritePipe_;
+    si.hStdError = stdoutWritePipe_;
+    si.dwFlags |= STARTF_USESTDHANDLES;
+  }
+
+  if (!config.IsConsoleApplication && !config.ShowWindow) {
+    si.wShowWindow = SW_HIDE;
+    si.dwFlags |= STARTF_USESHOWWINDOW;
+  }
 
   PROCESS_INFORMATION pi{};
+
+  DWORD dwCreationFlags = 0;
+  if (config.IsConsoleApplication && !config.ShowWindow)
+    dwCreationFlags |= CREATE_NO_WINDOW;
 
   BOOL bSuccess = CreateProcess(
       application_.empty() ? nullptr : &application_[0],
       arguments_.empty() ? nullptr : &arguments_[0], NULL, NULL, TRUE,
-      bShowWindow ? 0 : CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
+      dwCreationFlags, NULL, config.CurrentDirectory, &si, &pi);
   if (!bSuccess) {
     stdoutReadPipe_.Close();
     stdoutWritePipe_.Close();
@@ -105,8 +117,8 @@ unsigned int __stdcall Subprocess::ProcessOutput(void *arg) {
 
   BOOL bSuccess;
 
-  std::vector<BYTE> buffer(context->dwBufferSize_ > 0 ? context->dwBufferSize_
-                                                      : 4096);
+  std::vector<BYTE> buffer(
+      context->config_.BufferSize > 0 ? context->config_.BufferSize : 4096);
   DWORD dwRead;
 
   while (TRUE) {
@@ -124,4 +136,5 @@ unsigned int __stdcall Subprocess::ProcessOutput(void *arg) {
 // References:
 // Ongoing-Study/cpp/subprocess_output/subprocess_output-winapi.c
 // Boost.process
+// [How to detect "Use MFC" in preprocessor](https://stackoverflow.com/questions/1196808/how-to-detect-use-mfc-in-preprocessor)
 // clang-format on

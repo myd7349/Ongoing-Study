@@ -54,6 +54,7 @@ add_executable(stdout_stderr_order stdout_stderr_order.cpp)
 add_library(
     subprocess
     STATIC
+    "${CMAKE_CURRENT_LIST_DIR}/../Win32/SDK/Error.cpp"
     "${CMAKE_CURRENT_LIST_DIR}/../Win32/SDK/Subprocess.cpp"
 )
 
