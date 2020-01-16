@@ -7,6 +7,7 @@
 
 #include "Error.h"
 #include "Subprocess.h"
+#include "wconv.h"
 
 void ReportError(const string_type &hint) {
   std::cerr << hint << " failed with " << GetLastError() << ": "
@@ -30,14 +31,25 @@ class OutputCapturer {
 #else
 class OutputCapturer {
  public:
+  OutputCapturer(bool ansi) : ansi_(ansi) {}
   void Clear() { data_.clear(); }
 
   string_type GetOutput() const {
     std::vector<unsigned char> data(data_);
-    data.push_back('\0');
-    data.push_back('\0');
 
-    return reinterpret_cast<LPCTSTR>(data.data());
+    if (ansi_) {
+      data.push_back('\0');
+      return A2T(reinterpret_cast<LPSTR>(data.data()));
+    } else {
+      data.push_back('\0');
+      data.push_back('\0');
+
+#ifdef _UNICODE
+      return reinterpret_cast<LPWSTR>(data.data());
+#else
+      return WCharToAnsi(reinterpret_cast<LPWSTR>(data.data()));
+#endif
+    }
   }
 
   void operator()(LPVOID buffer, DWORD dwBytes) {
@@ -49,6 +61,7 @@ class OutputCapturer {
   }
 
  private:
+  bool ansi_;
   std::vector<unsigned char> data_;
 };
 #endif
@@ -78,7 +91,7 @@ int main() {
     }
   }
   {
-    OutputCapturer capturer;
+    OutputCapturer capturer(true);
     Subprocess process("cmd /c ver", std::ref(capturer));
     DWORD dwExitCode;
     if (process.Wait(dwExitCode)) {

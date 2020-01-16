@@ -64,8 +64,20 @@ target_include_directories(
         "${CMAKE_CURRENT_LIST_DIR}/../Win32/SDK/"
 )
 
+add_library(
+    wconv
+    STATIC
+        "${CMAKE_CURRENT_LIST_DIR}/../../c/Win32/wconv.c"
+)
+
+target_include_directories(
+    wconv
+    PUBLIC
+        "${CMAKE_CURRENT_LIST_DIR}/../../c/Win32/"
+)
+
 add_executable(subprocess_output-winapi-wrapper subprocess_output-winapi-wrapper.cpp)
-target_link_libraries(subprocess_output-winapi-wrapper PRIVATE subprocess)
+target_link_libraries(subprocess_output-winapi-wrapper PRIVATE subprocess wconv)
 
 add_executable(subprocess_output-boost subprocess_output-boost.cpp)
 target_include_directories(subprocess_output-boost PRIVATE ${Boost_INCLUDE_DIRS})
