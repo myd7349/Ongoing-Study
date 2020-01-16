@@ -160,8 +160,6 @@ BOOL RunCommand(LPCTSTR lpcszCommand) {
   if (!CloseHandle(hChildStdInWritePipe))
     ErrorExit(TEXT("StdInWr CloseHandle"));
 
-  ReadFromPipe(hChildStdOutReadPipe);
-
   DWORD dwExitCode;
   switch (WaitForSingleObject(hChildProcess, INFINITE)) {
     case WAIT_TIMEOUT:
@@ -172,10 +170,14 @@ BOOL RunCommand(LPCTSTR lpcszCommand) {
       if (GetExitCodeProcess(hChildProcess, &dwExitCode))
         _ftprintf(stdout, "Exit code: %d\n", (int)dwExitCode);
       CloseHandle(hChildProcess);
+      CloseHandle(hChildStdOutWritePipe);  // Close it, otherwise ReadFromPipe
+                                           // will hang with `ReadFile`.
       break;
     default:
       break;
   }
+
+  ReadFromPipe(hChildStdOutReadPipe);
 
   return TRUE;
 }
@@ -220,4 +222,5 @@ int main(void) {
 // C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\crt\src\osfinfo.c
 // [capture process stdout and stderr in the correct ordering](https://stackoverflow.com/questions/18529662/capture-process-stdout-and-stderr-in-the-correct-ordering)
 // [Preserve output order when redirecting stdout and stderr](https://www.unix.com/shell-programming-and-scripting/126488-preserve-output-order-when-redirecting-stdout-stderr.html)
+// [Win32 ReadFile hangs when reading from pipe](https://stackoverflow.com/questions/13816962/win32-readfile-hangs-when-reading-from-pipe)
 // clang-format on
