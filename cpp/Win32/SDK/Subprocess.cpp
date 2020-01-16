@@ -1,17 +1,18 @@
-#include <cassert>
+// clang-format off
+#include "Subprocess.h"
 
-#include <process.h>
+#include <cassert>
 #include <vector>
 
-#include "Subprocess.h"
+#include <process.h>
+// clang-format on
 
 void Subprocess::Run(const Config &config) {
   assert(childProcess_ == NULL);
 
   if (processOutput_) {
-    SECURITY_ATTRIBUTES sa;
+    SECURITY_ATTRIBUTES sa{};
 
-    ZeroMemory(&sa, sizeof(sa));
     // Set the bInheritHandle flag so pipe handles are inherited.
     sa.nLength = sizeof(SECURITY_ATTRIBUTES);
     sa.bInheritHandle = TRUE;
