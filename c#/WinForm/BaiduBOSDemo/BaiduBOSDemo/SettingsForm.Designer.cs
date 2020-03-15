@@ -46,10 +46,10 @@
             this.tableLayoutPanel.Controls.Add(this.endPointTextBox_, 1, 2);
             this.tableLayoutPanel.Controls.Add(this.endPointLabel_, 0, 2);
             this.tableLayoutPanel.Controls.Add(this.secretAccessKeyTextBox_, 1, 1);
-            this.tableLayoutPanel.Controls.Add(this.accessKeyLabel_, 0, 0);
             this.tableLayoutPanel.Controls.Add(this.accessKeyTextBox_, 1, 0);
             this.tableLayoutPanel.Controls.Add(this.secretAccessKeyLabel_, 0, 1);
-            this.tableLayoutPanel.Location = new System.Drawing.Point(13, 14);
+            this.tableLayoutPanel.Controls.Add(this.accessKeyLabel_, 0, 0);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(13, 65);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 4;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -111,7 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 138);
+            this.ClientSize = new System.Drawing.Size(500, 190);
             this.Controls.Add(this.tableLayoutPanel);
             this.Name = "SettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

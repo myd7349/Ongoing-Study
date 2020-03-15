@@ -2,7 +2,9 @@
 {
     using System.Windows.Forms;
 
-    public partial class SettingsForm : Form
+    using MetroFramework.Forms;
+
+    public partial class SettingsForm : MetroForm
     {
         public SettingsForm()
         {

@@ -27,9 +27,7 @@
             CancellationToken cancellationToken, 
             IProgress<int> onProgressPercentChanged)
         {
-            var uploadTask = new Task<bool>(() => bosClient.UploadFile(bucket, key, filePath, cancellationToken, onProgressPercentChanged));
-            uploadTask.Start();
-            return uploadTask;
+            return Task.Run(() => bosClient.UploadFile(bucket, key, filePath, cancellationToken, onProgressPercentChanged));
         }
 
         public static bool UploadFile(this BosClient bosClient,

@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaiduBOSForm));
             this.filePathTextBox_ = new System.Windows.Forms.TextBox();
             this.uploadButton_ = new System.Windows.Forms.Button();
             this.transmissionProgressBar_ = new System.Windows.Forms.ProgressBar();
-            this.settingsButton_ = new System.Windows.Forms.Button();
-            this.bucketLabel_ = new System.Windows.Forms.Label();
-            this.bucketComboBox_ = new System.Windows.Forms.ComboBox();
             this.selectFileButton_ = new System.Windows.Forms.Button();
-            this.objectDataGridView_ = new Common.WinForms.DataGridViewEx();
-            ((System.ComponentModel.ISupportInitialize)(this.objectDataGridView_)).BeginInit();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.settingsToolStripButton_ = new System.Windows.Forms.ToolStripButton();
+            this.bucketTabControl_ = new Common.WinForms.TabControlEx();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // filePathTextBox_
             // 
-            this.filePathTextBox_.Location = new System.Drawing.Point(14, 443);
+            this.filePathTextBox_.Location = new System.Drawing.Point(14, 511);
             this.filePathTextBox_.Name = "filePathTextBox_";
             this.filePathTextBox_.Size = new System.Drawing.Size(531, 21);
             this.filePathTextBox_.TabIndex = 2;
             // 
             // uploadButton_
             // 
-            this.uploadButton_.Location = new System.Drawing.Point(551, 471);
+            this.uploadButton_.Location = new System.Drawing.Point(551, 539);
             this.uploadButton_.Name = "uploadButton_";
             this.uploadButton_.Size = new System.Drawing.Size(226, 23);
             this.uploadButton_.TabIndex = 3;
@@ -58,43 +58,14 @@
             // 
             // transmissionProgressBar_
             // 
-            this.transmissionProgressBar_.Location = new System.Drawing.Point(14, 471);
+            this.transmissionProgressBar_.Location = new System.Drawing.Point(14, 539);
             this.transmissionProgressBar_.Name = "transmissionProgressBar_";
             this.transmissionProgressBar_.Size = new System.Drawing.Size(531, 23);
             this.transmissionProgressBar_.TabIndex = 4;
             // 
-            // settingsButton_
-            // 
-            this.settingsButton_.Location = new System.Drawing.Point(230, 8);
-            this.settingsButton_.Name = "settingsButton_";
-            this.settingsButton_.Size = new System.Drawing.Size(115, 23);
-            this.settingsButton_.TabIndex = 5;
-            this.settingsButton_.Text = "Settings";
-            this.settingsButton_.UseVisualStyleBackColor = true;
-            this.settingsButton_.Click += new System.EventHandler(this.settingsButton_Click);
-            // 
-            // bucketLabel_
-            // 
-            this.bucketLabel_.AutoSize = true;
-            this.bucketLabel_.Location = new System.Drawing.Point(12, 11);
-            this.bucketLabel_.Name = "bucketLabel_";
-            this.bucketLabel_.Size = new System.Drawing.Size(47, 12);
-            this.bucketLabel_.TabIndex = 6;
-            this.bucketLabel_.Text = "Bucket:";
-            // 
-            // bucketComboBox_
-            // 
-            this.bucketComboBox_.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.bucketComboBox_.FormattingEnabled = true;
-            this.bucketComboBox_.Location = new System.Drawing.Point(66, 9);
-            this.bucketComboBox_.Name = "bucketComboBox_";
-            this.bucketComboBox_.Size = new System.Drawing.Size(148, 20);
-            this.bucketComboBox_.TabIndex = 7;
-            this.bucketComboBox_.SelectedIndexChanged += new System.EventHandler(this.bucketComboBox_SelectedIndexChanged);
-            // 
             // selectFileButton_
             // 
-            this.selectFileButton_.Location = new System.Drawing.Point(551, 442);
+            this.selectFileButton_.Location = new System.Drawing.Point(551, 510);
             this.selectFileButton_.Name = "selectFileButton_";
             this.selectFileButton_.Size = new System.Drawing.Size(226, 23);
             this.selectFileButton_.TabIndex = 8;
@@ -102,27 +73,47 @@
             this.selectFileButton_.UseVisualStyleBackColor = true;
             this.selectFileButton_.Click += new System.EventHandler(this.selectFileButton_Click);
             // 
-            // objectDataGridView_
+            // toolStrip1
             // 
-            this.objectDataGridView_.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.objectDataGridView_.Location = new System.Drawing.Point(14, 42);
-            this.objectDataGridView_.Name = "objectDataGridView_";
-            this.objectDataGridView_.ReadOnly = true;
-            this.objectDataGridView_.RowTemplate.Height = 23;
-            this.objectDataGridView_.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.objectDataGridView_.Size = new System.Drawing.Size(763, 385);
-            this.objectDataGridView_.TabIndex = 9;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsToolStripButton_});
+            this.toolStrip1.Location = new System.Drawing.Point(20, 60);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(760, 25);
+            this.toolStrip1.TabIndex = 11;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // settingsToolStripButton_
+            // 
+            this.settingsToolStripButton_.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.settingsToolStripButton_.Image = ((System.Drawing.Image)(resources.GetObject("settingsToolStripButton_.Image")));
+            this.settingsToolStripButton_.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.settingsToolStripButton_.Name = "settingsToolStripButton_";
+            this.settingsToolStripButton_.Size = new System.Drawing.Size(58, 22);
+            this.settingsToolStripButton_.Text = "Settings";
+            this.settingsToolStripButton_.Click += new System.EventHandler(this.settingsToolStripButton__Click);
+            // 
+            // bucketTabControl_
+            // 
+            this.bucketTabControl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bucketTabControl_.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.bucketTabControl_.Location = new System.Drawing.Point(14, 93);
+            this.bucketTabControl_.Name = "bucketTabControl_";
+            this.bucketTabControl_.Padding = new System.Drawing.Point(12, 4);
+            this.bucketTabControl_.SelectedIndex = 0;
+            this.bucketTabControl_.Size = new System.Drawing.Size(774, 265);
+            this.bucketTabControl_.TabIndex = 10;
+            this.bucketTabControl_.Selected += new System.Windows.Forms.TabControlEventHandler(this.bucketTabControl__Selected);
             // 
             // BaiduBOSForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 535);
-            this.Controls.Add(this.objectDataGridView_);
+            this.ClientSize = new System.Drawing.Size(800, 638);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.bucketTabControl_);
             this.Controls.Add(this.selectFileButton_);
-            this.Controls.Add(this.bucketComboBox_);
-            this.Controls.Add(this.bucketLabel_);
-            this.Controls.Add(this.settingsButton_);
             this.Controls.Add(this.transmissionProgressBar_);
             this.Controls.Add(this.uploadButton_);
             this.Controls.Add(this.filePathTextBox_);
@@ -130,7 +121,8 @@
             this.Text = "Baidu BOS";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BaiduBOSForm_FormClosed);
             this.Load += new System.EventHandler(this.BaiduBOSForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.objectDataGridView_)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,11 +132,10 @@
         private System.Windows.Forms.TextBox filePathTextBox_;
         private System.Windows.Forms.Button uploadButton_;
         private System.Windows.Forms.ProgressBar transmissionProgressBar_;
-        private System.Windows.Forms.Button settingsButton_;
-        private System.Windows.Forms.Label bucketLabel_;
-        private System.Windows.Forms.ComboBox bucketComboBox_;
         private System.Windows.Forms.Button selectFileButton_;
-        private Common.WinForms.DataGridViewEx objectDataGridView_;
+        private Common.WinForms.TabControlEx bucketTabControl_;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton settingsToolStripButton_;
     }
 }
 
