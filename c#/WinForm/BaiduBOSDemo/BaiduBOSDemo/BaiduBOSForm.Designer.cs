@@ -35,7 +35,7 @@
             this.bucketLabel_ = new System.Windows.Forms.Label();
             this.bucketComboBox_ = new System.Windows.Forms.ComboBox();
             this.selectFileButton_ = new System.Windows.Forms.Button();
-            this.objectDataGridView_ = new DataGridViewEx();
+            this.objectDataGridView_ = new Common.WinForms.DataGridViewEx();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataGridView_)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,7 +144,7 @@
         private System.Windows.Forms.Label bucketLabel_;
         private System.Windows.Forms.ComboBox bucketComboBox_;
         private System.Windows.Forms.Button selectFileButton_;
-        private DataGridViewEx objectDataGridView_;
+        private Common.WinForms.DataGridViewEx objectDataGridView_;
     }
 }
 

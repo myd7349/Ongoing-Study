@@ -5,6 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Threading;
+    using System.Threading.Tasks;
     using BaiduBce.Services.Bos;
     using BaiduBce.Services.Bos.Model;
 
@@ -21,7 +22,20 @@
             return response.Contents;
         }
 
-        public static bool UploadFile(this BosClient bosClient, string bucket, string key, string filePath, CancellationToken cancellationToken)
+        public static Task<bool> UploadFileAsync(this BosClient bosClient,
+            string bucket, string key, string filePath,
+            CancellationToken cancellationToken, 
+            IProgress<int> onProgressPercentChanged)
+        {
+            var uploadTask = new Task<bool>(() => bosClient.UploadFile(bucket, key, filePath, cancellationToken, onProgressPercentChanged));
+            uploadTask.Start();
+            return uploadTask;
+        }
+
+        public static bool UploadFile(this BosClient bosClient,
+            string bucket, string key, string filePath,
+            CancellationToken cancellationToken,
+            IProgress<int> onProgressPercentChanged)
         {
             if (!File.Exists(filePath))
                 return false;
@@ -44,12 +58,17 @@
                 };
             var initiateMultipartUploadResponse = bosClient.InitiateMultipartUpload(initiateMultipartUploadRequest);
 
-            using (var stream = fileInfo.OpenRead())
+            for (int i = 0; i < parts; ++i)
             {
-                for (int i = 0; i < parts; ++i)
+                if (cancellationToken.IsCancellationRequested)
+                    return false;
+
+                using (var stream = fileInfo.OpenRead()) // TODO:
                 {
                     var skipBytes = partSize * i;
                     stream.Seek(skipBytes, SeekOrigin.Begin);
+
+                    onProgressPercentChanged?.Report((int)(((double)skipBytes / fileInfo.Length) * 100));
 
                     var actualPartSize = Math.Min(partSize, fileInfo.Length - skipBytes);
 
@@ -82,6 +101,8 @@
                 };
 
             var completeMultipartUploadResponse = bosClient.CompleteMultipartUpload(completeMultipartUploadRequest);
+
+            onProgressPercentChanged?.Report(100);
 
             return completeMultipartUploadResponse != null;
         }

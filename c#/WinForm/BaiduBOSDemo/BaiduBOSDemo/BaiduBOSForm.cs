@@ -18,8 +18,6 @@
     {
         public BaiduBOSForm()
         {
-            syncContextTaskScheduler_ = TaskScheduler.FromCurrentSynchronizationContext();
-
             InitializeComponent();
         }
 
@@ -83,39 +81,29 @@
             }
         }
 
-        private void uploadButton_Click(object sender, EventArgs e)
+        private async void uploadButton_Click(object sender, EventArgs e)
         {
             if (cancellationTokenSource_ == null)
             {
                 selectFileButton_.Enabled = false;
-                uploadButton_.Enabled = false;
                 uploadButton_.Text = "Pause";
 
                 var filePath = filePathTextBox_.Text;
 
                 cancellationTokenSource_ = new CancellationTokenSource();
-                var uploadTask = new Task<bool>(
-                    () => bosClient_.UploadFile(
-                        currentBucket_,
-                        Path.GetFileName(filePath),
-                        filePath,
-                        cancellationTokenSource_.Token
-                        )
+                bool ok = await bosClient_.UploadFileAsync(
+                    currentBucket_,
+                    Path.GetFileName(filePath),
+                    filePath,
+                    cancellationTokenSource_.Token,
+                    new ProgressBarReporter(transmissionProgressBar_, SynchronizationContext.Current)
                     );
-                uploadTask.Start();
 
-                uploadTask.ContinueWith(
-                    task =>
-                    {
-                        UpdateObjectList();
+                if (ok)
+                    UpdateObjectList();
 
-                        selectFileButton_.Enabled = true;
-                        uploadButton_.Enabled = true;
-                        uploadButton_.Text = "Upload";
-                    },
-                    CancellationToken.None,
-                    TaskContinuationOptions.OnlyOnRanToCompletion,
-                    syncContextTaskScheduler_);
+                selectFileButton_.Enabled = true;
+                uploadButton_.Text = "Upload";
             }
             else
             {
@@ -151,7 +139,6 @@
 
         private BosClient bosClient_;
         private string currentBucket_;
-        private readonly TaskScheduler syncContextTaskScheduler_;
         private CancellationTokenSource cancellationTokenSource_;
     }
 }
