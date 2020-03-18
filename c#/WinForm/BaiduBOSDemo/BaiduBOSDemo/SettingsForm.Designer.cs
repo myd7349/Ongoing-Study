@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.endPointTextBox_ = new System.Windows.Forms.TextBox();
-            this.endPointLabel_ = new System.Windows.Forms.Label();
-            this.secretAccessKeyTextBox_ = new System.Windows.Forms.TextBox();
-            this.accessKeyLabel_ = new System.Windows.Forms.Label();
-            this.accessKeyTextBox_ = new System.Windows.Forms.TextBox();
-            this.secretAccessKeyLabel_ = new System.Windows.Forms.Label();
+            this.endPointTextBox_ = new MetroFramework.Controls.MetroTextBox();
+            this.endPointLabel_ = new MetroFramework.Controls.MetroLabel();
+            this.secretAccessKeyTextBox_ = new MetroFramework.Controls.MetroTextBox();
+            this.accessKeyTextBox_ = new MetroFramework.Controls.MetroTextBox();
+            this.secretAccessKeyLabel_ = new MetroFramework.Controls.MetroLabel();
+            this.accessKeyLabel_ = new MetroFramework.Controls.MetroLabel();
+            this.useFileFullPathAsObjectKeyMetroCheckBox_ = new MetroFramework.Controls.MetroCheckBox();
             this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,72 +50,86 @@
             this.tableLayoutPanel.Controls.Add(this.accessKeyTextBox_, 1, 0);
             this.tableLayoutPanel.Controls.Add(this.secretAccessKeyLabel_, 0, 1);
             this.tableLayoutPanel.Controls.Add(this.accessKeyLabel_, 0, 0);
+            this.tableLayoutPanel.Controls.Add(this.useFileFullPathAsObjectKeyMetroCheckBox_, 1, 3);
             this.tableLayoutPanel.Location = new System.Drawing.Point(13, 65);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
-            this.tableLayoutPanel.RowCount = 4;
+            this.tableLayoutPanel.RowCount = 5;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(472, 100);
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(472, 120);
             this.tableLayoutPanel.TabIndex = 0;
             // 
             // endPointTextBox_
             // 
-            this.endPointTextBox_.Location = new System.Drawing.Point(122, 63);
+            this.endPointTextBox_.Location = new System.Drawing.Point(123, 61);
             this.endPointTextBox_.Name = "endPointTextBox_";
-            this.endPointTextBox_.Size = new System.Drawing.Size(347, 21);
+            this.endPointTextBox_.Size = new System.Drawing.Size(346, 21);
             this.endPointTextBox_.TabIndex = 4;
             // 
             // endPointLabel_
             // 
             this.endPointLabel_.AutoSize = true;
-            this.endPointLabel_.Location = new System.Drawing.Point(3, 60);
+            this.endPointLabel_.Location = new System.Drawing.Point(3, 58);
             this.endPointLabel_.Name = "endPointLabel_";
-            this.endPointLabel_.Size = new System.Drawing.Size(65, 12);
+            this.endPointLabel_.Size = new System.Drawing.Size(67, 19);
             this.endPointLabel_.TabIndex = 3;
             this.endPointLabel_.Text = "End Point:";
             // 
             // secretAccessKeyTextBox_
             // 
-            this.secretAccessKeyTextBox_.Location = new System.Drawing.Point(122, 33);
+            this.secretAccessKeyTextBox_.Location = new System.Drawing.Point(123, 32);
             this.secretAccessKeyTextBox_.Name = "secretAccessKeyTextBox_";
-            this.secretAccessKeyTextBox_.Size = new System.Drawing.Size(347, 21);
+            this.secretAccessKeyTextBox_.Size = new System.Drawing.Size(346, 21);
             this.secretAccessKeyTextBox_.TabIndex = 3;
+            // 
+            // accessKeyTextBox_
+            // 
+            this.accessKeyTextBox_.Location = new System.Drawing.Point(123, 3);
+            this.accessKeyTextBox_.Name = "accessKeyTextBox_";
+            this.accessKeyTextBox_.Size = new System.Drawing.Size(346, 21);
+            this.accessKeyTextBox_.TabIndex = 1;
+            // 
+            // secretAccessKeyLabel_
+            // 
+            this.secretAccessKeyLabel_.AutoSize = true;
+            this.secretAccessKeyLabel_.Location = new System.Drawing.Point(3, 29);
+            this.secretAccessKeyLabel_.Name = "secretAccessKeyLabel_";
+            this.secretAccessKeyLabel_.Size = new System.Drawing.Size(114, 19);
+            this.secretAccessKeyLabel_.TabIndex = 2;
+            this.secretAccessKeyLabel_.Text = "Secret Access Key:";
             // 
             // accessKeyLabel_
             // 
             this.accessKeyLabel_.AutoSize = true;
             this.accessKeyLabel_.Location = new System.Drawing.Point(3, 0);
             this.accessKeyLabel_.Name = "accessKeyLabel_";
-            this.accessKeyLabel_.Size = new System.Drawing.Size(71, 12);
+            this.accessKeyLabel_.Size = new System.Drawing.Size(74, 19);
             this.accessKeyLabel_.TabIndex = 0;
             this.accessKeyLabel_.Text = "Access Key:";
             // 
-            // accessKeyTextBox_
+            // useFileFullPathAsObjectKeyMetroCheckBox_
             // 
-            this.accessKeyTextBox_.Location = new System.Drawing.Point(122, 3);
-            this.accessKeyTextBox_.Name = "accessKeyTextBox_";
-            this.accessKeyTextBox_.Size = new System.Drawing.Size(347, 21);
-            this.accessKeyTextBox_.TabIndex = 1;
-            // 
-            // secretAccessKeyLabel_
-            // 
-            this.secretAccessKeyLabel_.AutoSize = true;
-            this.secretAccessKeyLabel_.Location = new System.Drawing.Point(3, 30);
-            this.secretAccessKeyLabel_.Name = "secretAccessKeyLabel_";
-            this.secretAccessKeyLabel_.Size = new System.Drawing.Size(113, 12);
-            this.secretAccessKeyLabel_.TabIndex = 2;
-            this.secretAccessKeyLabel_.Text = "Secret Access Key:";
+            this.useFileFullPathAsObjectKeyMetroCheckBox_.AutoSize = true;
+            this.useFileFullPathAsObjectKeyMetroCheckBox_.Location = new System.Drawing.Point(123, 90);
+            this.useFileFullPathAsObjectKeyMetroCheckBox_.Name = "useFileFullPathAsObjectKeyMetroCheckBox_";
+            this.useFileFullPathAsObjectKeyMetroCheckBox_.Size = new System.Drawing.Size(278, 15);
+            this.useFileFullPathAsObjectKeyMetroCheckBox_.TabIndex = 5;
+            this.useFileFullPathAsObjectKeyMetroCheckBox_.Text = "Use File Full Path as Object Key When Uploading";
+            this.useFileFullPathAsObjectKeyMetroCheckBox_.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 190);
+            this.ClientSize = new System.Drawing.Size(500, 226);
             this.Controls.Add(this.tableLayoutPanel);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SettingsForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Resizable = false;
             this.Text = "Settings";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SettingsForm_FormClosed);
             this.Load += new System.EventHandler(this.SettingsForm_Load);
@@ -127,11 +142,12 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
-        private System.Windows.Forms.TextBox endPointTextBox_;
-        private System.Windows.Forms.Label endPointLabel_;
-        private System.Windows.Forms.TextBox secretAccessKeyTextBox_;
-        private System.Windows.Forms.Label accessKeyLabel_;
-        private System.Windows.Forms.TextBox accessKeyTextBox_;
-        private System.Windows.Forms.Label secretAccessKeyLabel_;
+        private MetroFramework.Controls.MetroTextBox endPointTextBox_;
+        private MetroFramework.Controls.MetroLabel endPointLabel_;
+        private MetroFramework.Controls.MetroTextBox secretAccessKeyTextBox_;
+        private MetroFramework.Controls.MetroLabel accessKeyLabel_;
+        private MetroFramework.Controls.MetroTextBox accessKeyTextBox_;
+        private MetroFramework.Controls.MetroLabel secretAccessKeyLabel_;
+        private MetroFramework.Controls.MetroCheckBox useFileFullPathAsObjectKeyMetroCheckBox_;
     }
 }

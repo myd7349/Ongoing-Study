@@ -6,29 +6,36 @@
 
     public partial class SettingsForm : MetroForm
     {
-        public SettingsForm()
+        public SettingsForm(Settings settings)
         {
+            Settings = settings;
+
             InitializeComponent();
+        }
+
+        public Settings Settings
+        {
+            get;
+            private set;
         }
 
         private void SettingsForm_Load(object sender, System.EventArgs e)
         {
-            var settings = Settings.Load();
-
-            accessKeyTextBox_.Text = settings.AccessKey;
-            secretAccessKeyTextBox_.Text = settings.SecretAccessKey;
-            endPointTextBox_.Text = settings.EndPoint;
+            accessKeyTextBox_.Text = Settings.AccessKey;
+            secretAccessKeyTextBox_.Text = Settings.SecretAccessKey;
+            endPointTextBox_.Text = Settings.EndPoint;
+            useFileFullPathAsObjectKeyMetroCheckBox_.Checked = Settings.UseFileFullPathAsObjectKey;
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Settings.Store(
-                new Settings
-                {
-                    AccessKey = accessKeyTextBox_.Text,
-                    SecretAccessKey = secretAccessKeyTextBox_.Text,
-                    EndPoint = endPointTextBox_.Text
-                });
+            Settings = new Settings
+            {
+                AccessKey = accessKeyTextBox_.Text,
+                SecretAccessKey = secretAccessKeyTextBox_.Text,
+                EndPoint = endPointTextBox_.Text,
+                UseFileFullPathAsObjectKey = useFileFullPathAsObjectKeyMetroCheckBox_.Checked
+            };
         }
     }
 }

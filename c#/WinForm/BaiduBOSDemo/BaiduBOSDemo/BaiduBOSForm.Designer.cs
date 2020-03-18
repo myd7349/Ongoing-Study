@@ -28,114 +28,242 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaiduBOSForm));
-            this.filePathTextBox_ = new System.Windows.Forms.TextBox();
-            this.uploadButton_ = new System.Windows.Forms.Button();
-            this.transmissionProgressBar_ = new System.Windows.Forms.ProgressBar();
-            this.selectFileButton_ = new System.Windows.Forms.Button();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.settingsToolStripButton_ = new System.Windows.Forms.ToolStripButton();
+            this.mainToolStrip_ = new System.Windows.Forms.ToolStrip();
+            this.firstToolStripSeparator_ = new System.Windows.Forms.ToolStripSeparator();
+            this.secondToolStripSeparator_ = new System.Windows.Forms.ToolStripSeparator();
+            this.objectFilterToolStripTextBox_ = new System.Windows.Forms.ToolStripTextBox();
+            this.delimiterToolStripTextBox_ = new System.Windows.Forms.ToolStripTextBox();
+            this.thirdToolStripSeparator_ = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripProgressBar_ = new System.Windows.Forms.ToolStripProgressBar();
             this.bucketTabControl_ = new Common.WinForms.TabControlEx();
-            this.toolStrip1.SuspendLayout();
+            this.statusStrip_ = new System.Windows.Forms.StatusStrip();
+            this.totalObjectsToolStripStatusLabel_ = new System.Windows.Forms.ToolStripStatusLabel();
+            this.totalObjectsNumbertoolStripStatusLabel_ = new System.Windows.Forms.ToolStripStatusLabel();
+            this.uploadToolStripButton_ = new System.Windows.Forms.ToolStripButton();
+            this.downloadToolStripButton_ = new System.Windows.Forms.ToolStripButton();
+            this.deleteToolStripButton_ = new System.Windows.Forms.ToolStripButton();
+            this.propertiesToolStripButton_ = new System.Windows.Forms.ToolStripButton();
+            this.settingsToolStripButton_ = new System.Windows.Forms.ToolStripButton();
+            this.pauseToolStripButton_ = new System.Windows.Forms.ToolStripButton();
+            this.abortToolStripButton_ = new System.Windows.Forms.ToolStripButton();
+            this.mainToolStrip_.SuspendLayout();
+            this.statusStrip_.SuspendLayout();
             this.SuspendLayout();
             // 
-            // filePathTextBox_
+            // mainToolStrip_
             // 
-            this.filePathTextBox_.Location = new System.Drawing.Point(14, 511);
-            this.filePathTextBox_.Name = "filePathTextBox_";
-            this.filePathTextBox_.Size = new System.Drawing.Size(531, 21);
-            this.filePathTextBox_.TabIndex = 2;
+            this.mainToolStrip_.ImageScalingSize = new System.Drawing.Size(36, 36);
+            this.mainToolStrip_.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.uploadToolStripButton_,
+            this.downloadToolStripButton_,
+            this.deleteToolStripButton_,
+            this.propertiesToolStripButton_,
+            this.firstToolStripSeparator_,
+            this.settingsToolStripButton_,
+            this.secondToolStripSeparator_,
+            this.objectFilterToolStripTextBox_,
+            this.delimiterToolStripTextBox_,
+            this.thirdToolStripSeparator_,
+            this.toolStripProgressBar_,
+            this.pauseToolStripButton_,
+            this.abortToolStripButton_});
+            this.mainToolStrip_.Location = new System.Drawing.Point(20, 60);
+            this.mainToolStrip_.Name = "mainToolStrip_";
+            this.mainToolStrip_.Size = new System.Drawing.Size(760, 43);
+            this.mainToolStrip_.TabIndex = 11;
+            this.mainToolStrip_.Text = "toolStrip1";
             // 
-            // uploadButton_
+            // firstToolStripSeparator_
             // 
-            this.uploadButton_.Location = new System.Drawing.Point(551, 539);
-            this.uploadButton_.Name = "uploadButton_";
-            this.uploadButton_.Size = new System.Drawing.Size(226, 23);
-            this.uploadButton_.TabIndex = 3;
-            this.uploadButton_.Text = "Upload";
-            this.uploadButton_.UseVisualStyleBackColor = true;
-            this.uploadButton_.Click += new System.EventHandler(this.uploadButton_Click);
+            this.firstToolStripSeparator_.Name = "firstToolStripSeparator_";
+            this.firstToolStripSeparator_.Size = new System.Drawing.Size(6, 43);
             // 
-            // transmissionProgressBar_
+            // secondToolStripSeparator_
             // 
-            this.transmissionProgressBar_.Location = new System.Drawing.Point(14, 539);
-            this.transmissionProgressBar_.Name = "transmissionProgressBar_";
-            this.transmissionProgressBar_.Size = new System.Drawing.Size(531, 23);
-            this.transmissionProgressBar_.TabIndex = 4;
+            this.secondToolStripSeparator_.Name = "secondToolStripSeparator_";
+            this.secondToolStripSeparator_.Size = new System.Drawing.Size(6, 43);
             // 
-            // selectFileButton_
+            // objectFilterToolStripTextBox_
             // 
-            this.selectFileButton_.Location = new System.Drawing.Point(551, 510);
-            this.selectFileButton_.Name = "selectFileButton_";
-            this.selectFileButton_.Size = new System.Drawing.Size(226, 23);
-            this.selectFileButton_.TabIndex = 8;
-            this.selectFileButton_.Text = "Select a File";
-            this.selectFileButton_.UseVisualStyleBackColor = true;
-            this.selectFileButton_.Click += new System.EventHandler(this.selectFileButton_Click);
+            this.objectFilterToolStripTextBox_.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.objectFilterToolStripTextBox_.Name = "objectFilterToolStripTextBox_";
+            this.objectFilterToolStripTextBox_.Size = new System.Drawing.Size(160, 43);
+            this.objectFilterToolStripTextBox_.TextChanged += new System.EventHandler(this.objectFilterToolStripTextBox__TextChanged);
             // 
-            // toolStrip1
+            // delimiterToolStripTextBox_
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingsToolStripButton_});
-            this.toolStrip1.Location = new System.Drawing.Point(20, 60);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(760, 25);
-            this.toolStrip1.TabIndex = 11;
-            this.toolStrip1.Text = "toolStrip1";
+            this.delimiterToolStripTextBox_.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.delimiterToolStripTextBox_.Name = "delimiterToolStripTextBox_";
+            this.delimiterToolStripTextBox_.Size = new System.Drawing.Size(80, 43);
             // 
-            // settingsToolStripButton_
+            // thirdToolStripSeparator_
             // 
-            this.settingsToolStripButton_.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.settingsToolStripButton_.Image = ((System.Drawing.Image)(resources.GetObject("settingsToolStripButton_.Image")));
-            this.settingsToolStripButton_.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.settingsToolStripButton_.Name = "settingsToolStripButton_";
-            this.settingsToolStripButton_.Size = new System.Drawing.Size(58, 22);
-            this.settingsToolStripButton_.Text = "Settings";
-            this.settingsToolStripButton_.Click += new System.EventHandler(this.settingsToolStripButton__Click);
+            this.thirdToolStripSeparator_.Name = "thirdToolStripSeparator_";
+            this.thirdToolStripSeparator_.Size = new System.Drawing.Size(6, 43);
+            // 
+            // toolStripProgressBar_
+            // 
+            this.toolStripProgressBar_.AutoSize = false;
+            this.toolStripProgressBar_.Name = "toolStripProgressBar_";
+            this.toolStripProgressBar_.Size = new System.Drawing.Size(200, 25);
+            this.toolStripProgressBar_.Visible = false;
             // 
             // bucketTabControl_
             // 
-            this.bucketTabControl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.bucketTabControl_.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bucketTabControl_.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.bucketTabControl_.Location = new System.Drawing.Point(14, 93);
+            this.bucketTabControl_.Location = new System.Drawing.Point(20, 106);
             this.bucketTabControl_.Name = "bucketTabControl_";
             this.bucketTabControl_.Padding = new System.Drawing.Point(12, 4);
             this.bucketTabControl_.SelectedIndex = 0;
-            this.bucketTabControl_.Size = new System.Drawing.Size(774, 265);
+            this.bucketTabControl_.Size = new System.Drawing.Size(760, 449);
             this.bucketTabControl_.TabIndex = 10;
             this.bucketTabControl_.Selected += new System.Windows.Forms.TabControlEventHandler(this.bucketTabControl__Selected);
+            // 
+            // statusStrip_
+            // 
+            this.statusStrip_.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.totalObjectsToolStripStatusLabel_,
+            this.totalObjectsNumbertoolStripStatusLabel_});
+            this.statusStrip_.Location = new System.Drawing.Point(20, 558);
+            this.statusStrip_.Name = "statusStrip_";
+            this.statusStrip_.Size = new System.Drawing.Size(760, 22);
+            this.statusStrip_.SizingGrip = false;
+            this.statusStrip_.TabIndex = 12;
+            // 
+            // totalObjectsToolStripStatusLabel_
+            // 
+            this.totalObjectsToolStripStatusLabel_.Name = "totalObjectsToolStripStatusLabel_";
+            this.totalObjectsToolStripStatusLabel_.Size = new System.Drawing.Size(88, 17);
+            this.totalObjectsToolStripStatusLabel_.Text = "Total Objects:";
+            // 
+            // totalObjectsNumbertoolStripStatusLabel_
+            // 
+            this.totalObjectsNumbertoolStripStatusLabel_.Name = "totalObjectsNumbertoolStripStatusLabel_";
+            this.totalObjectsNumbertoolStripStatusLabel_.Size = new System.Drawing.Size(23, 17);
+            this.totalObjectsNumbertoolStripStatusLabel_.Text = "---";
+            // 
+            // uploadToolStripButton_
+            // 
+            this.uploadToolStripButton_.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.uploadToolStripButton_.Image = global::BaiduBOSDemo.Properties.Resources.Add;
+            this.uploadToolStripButton_.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.uploadToolStripButton_.Name = "uploadToolStripButton_";
+            this.uploadToolStripButton_.Size = new System.Drawing.Size(40, 40);
+            this.uploadToolStripButton_.Text = "Upload";
+            this.uploadToolStripButton_.Click += new System.EventHandler(this.uploadToolStripButton__Click);
+            // 
+            // downloadToolStripButton_
+            // 
+            this.downloadToolStripButton_.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.downloadToolStripButton_.Enabled = false;
+            this.downloadToolStripButton_.Image = global::BaiduBOSDemo.Properties.Resources.Download;
+            this.downloadToolStripButton_.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.downloadToolStripButton_.Name = "downloadToolStripButton_";
+            this.downloadToolStripButton_.Size = new System.Drawing.Size(40, 40);
+            this.downloadToolStripButton_.Text = "Download";
+            this.downloadToolStripButton_.Click += new System.EventHandler(this.downloadToolStripButton__Click);
+            // 
+            // deleteToolStripButton_
+            // 
+            this.deleteToolStripButton_.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteToolStripButton_.Enabled = false;
+            this.deleteToolStripButton_.Image = global::BaiduBOSDemo.Properties.Resources.Delete;
+            this.deleteToolStripButton_.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteToolStripButton_.Name = "deleteToolStripButton_";
+            this.deleteToolStripButton_.Size = new System.Drawing.Size(40, 40);
+            this.deleteToolStripButton_.Text = "Delete";
+            this.deleteToolStripButton_.Click += new System.EventHandler(this.deleteToolStripButton__Click);
+            // 
+            // propertiesToolStripButton_
+            // 
+            this.propertiesToolStripButton_.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.propertiesToolStripButton_.Enabled = false;
+            this.propertiesToolStripButton_.Image = global::BaiduBOSDemo.Properties.Resources.Properties;
+            this.propertiesToolStripButton_.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.propertiesToolStripButton_.Name = "propertiesToolStripButton_";
+            this.propertiesToolStripButton_.Size = new System.Drawing.Size(40, 40);
+            this.propertiesToolStripButton_.Text = "Properties";
+            this.propertiesToolStripButton_.Click += new System.EventHandler(this.propertiesToolStripButton__Click);
+            // 
+            // settingsToolStripButton_
+            // 
+            this.settingsToolStripButton_.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.settingsToolStripButton_.Image = global::BaiduBOSDemo.Properties.Resources.Settings;
+            this.settingsToolStripButton_.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.settingsToolStripButton_.Name = "settingsToolStripButton_";
+            this.settingsToolStripButton_.Size = new System.Drawing.Size(40, 40);
+            this.settingsToolStripButton_.Text = "Settings";
+            this.settingsToolStripButton_.Click += new System.EventHandler(this.settingsToolStripButton__Click);
+            // 
+            // pauseToolStripButton_
+            // 
+            this.pauseToolStripButton_.AutoSize = false;
+            this.pauseToolStripButton_.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.pauseToolStripButton_.Image = global::BaiduBOSDemo.Properties.Resources.Pause;
+            this.pauseToolStripButton_.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pauseToolStripButton_.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.pauseToolStripButton_.Name = "pauseToolStripButton_";
+            this.pauseToolStripButton_.Size = new System.Drawing.Size(26, 26);
+            this.pauseToolStripButton_.Text = "Pause";
+            this.pauseToolStripButton_.Visible = false;
+            this.pauseToolStripButton_.Click += new System.EventHandler(this.pauseToolStripButton__Click);
+            // 
+            // abortToolStripButton_
+            // 
+            this.abortToolStripButton_.AutoSize = false;
+            this.abortToolStripButton_.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.abortToolStripButton_.Image = global::BaiduBOSDemo.Properties.Resources.Cancel;
+            this.abortToolStripButton_.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.abortToolStripButton_.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.abortToolStripButton_.Name = "abortToolStripButton_";
+            this.abortToolStripButton_.Size = new System.Drawing.Size(26, 26);
+            this.abortToolStripButton_.Text = "Abort";
+            this.abortToolStripButton_.Visible = false;
+            this.abortToolStripButton_.Click += new System.EventHandler(this.abortToolStripButton__Click);
             // 
             // BaiduBOSForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 638);
-            this.Controls.Add(this.toolStrip1);
+            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.statusStrip_);
+            this.Controls.Add(this.mainToolStrip_);
             this.Controls.Add(this.bucketTabControl_);
-            this.Controls.Add(this.selectFileButton_);
-            this.Controls.Add(this.transmissionProgressBar_);
-            this.Controls.Add(this.uploadButton_);
-            this.Controls.Add(this.filePathTextBox_);
             this.Name = "BaiduBOSForm";
             this.Text = "Baidu BOS";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BaiduBOSForm_FormClosed);
             this.Load += new System.EventHandler(this.BaiduBOSForm_Load);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.mainToolStrip_.ResumeLayout(false);
+            this.mainToolStrip_.PerformLayout();
+            this.statusStrip_.ResumeLayout(false);
+            this.statusStrip_.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox filePathTextBox_;
-        private System.Windows.Forms.Button uploadButton_;
-        private System.Windows.Forms.ProgressBar transmissionProgressBar_;
-        private System.Windows.Forms.Button selectFileButton_;
         private Common.WinForms.TabControlEx bucketTabControl_;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip mainToolStrip_;
         private System.Windows.Forms.ToolStripButton settingsToolStripButton_;
+        private System.Windows.Forms.ToolStripButton uploadToolStripButton_;
+        private System.Windows.Forms.ToolStripButton downloadToolStripButton_;
+        private System.Windows.Forms.ToolStripButton deleteToolStripButton_;
+        private System.Windows.Forms.ToolStripSeparator firstToolStripSeparator_;
+        private System.Windows.Forms.ToolStripSeparator secondToolStripSeparator_;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar_;
+        private System.Windows.Forms.ToolStripButton pauseToolStripButton_;
+        private System.Windows.Forms.ToolStripButton abortToolStripButton_;
+        private System.Windows.Forms.StatusStrip statusStrip_;
+        private System.Windows.Forms.ToolStripStatusLabel totalObjectsToolStripStatusLabel_;
+        private System.Windows.Forms.ToolStripStatusLabel totalObjectsNumbertoolStripStatusLabel_;
+        private System.Windows.Forms.ToolStripTextBox objectFilterToolStripTextBox_;
+        private System.Windows.Forms.ToolStripSeparator thirdToolStripSeparator_;
+        private System.Windows.Forms.ToolStripTextBox delimiterToolStripTextBox_;
+        private System.Windows.Forms.ToolStripButton propertiesToolStripButton_;
     }
 }
 

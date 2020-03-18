@@ -88,7 +88,17 @@
       <DependentUpon>BaiduBOSForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BOSHelper.cs" />
+    <Compile Include="BOSObjectListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BOSUploader.cs" />
+    <Compile Include="JsonHelper.cs" />
+    <Compile Include="ObjectMetaDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObjectMetaDataForm.Designer.cs">
+      <DependentUpon>ObjectMetaDataForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="ProgressBarReporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaiduBOSForm.resx">
       <DependentUpon>BaiduBOSForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ObjectMetaDataForm.resx">
+      <DependentUpon>ObjectMetaDataForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -139,10 +152,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MetroFramework.txt" />
+    <None Include="Resources\Pause.png" />
+    <None Include="Resources\Continue.png" />
+    <None Include="Resources\Cancel.png" />
+    <None Include="Resources\Settings.png" />
+    <None Include="Resources\Download.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\Add.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\Properties.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

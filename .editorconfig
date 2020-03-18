@@ -16,6 +16,7 @@ indent_size = 4
 [*.{cs}]
 indent_style = space
 indent_size = 4
+end_of_line = crlf
 
 # Set default charset
 [*.{js,m,py,rb}]

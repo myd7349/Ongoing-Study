@@ -6,33 +6,70 @@
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+
+    using BaiduBce;
+    using BaiduBce.Auth;
     using BaiduBce.Services.Bos;
     using BaiduBce.Services.Bos.Model;
 
     public static class BOSHelper
     {
-        public static IEnumerable<string> GetBuckets(this BosClient bosClient)
+        public static BosClient CreateBosClient(Settings settings)
         {
-            return bosClient.ListBuckets().Buckets.Select(bucketSummary => bucketSummary.Name);
+            BceClientConfiguration clientConfig = new BceClientConfiguration();
+            clientConfig.Credentials = new DefaultBceCredentials(settings.AccessKey, settings.SecretAccessKey);
+            clientConfig.Endpoint = settings.EndPoint;
+
+            return new BosClient(clientConfig);
         }
 
-        public static IEnumerable<BosObjectSummary> GetObjects(this BosClient bosClient, string bucket)
+        public static Task<IEnumerable<string>> GetBucketsAsync(this BosClient bosClient)
         {
-            var response = bosClient.ListObjects(bucket);
-            return response.Contents;
+            /*
+            BaiduBce.BceServiceException
+            HResult=0x80131500
+            Message=Your request is denied because there is an overdue bill of your account. (Status Code: 403; Error Code: AccountOverdue; Request ID: e1c9e259-1ede-4bff-aba3-d3a75186c095)
+            Source=BceSdkDotNet
+            */
+            return Task.Run(() => bosClient.ListBuckets().Buckets.Select(bucketSummary => bucketSummary.Name));
+        }
+
+        public static Task<List<BosObjectSummary>> GetObjectsAsync(this BosClient bosClient, string bucket)
+        {
+            return Task.Run(() => bosClient.ListObjects(bucket).Contents);
+        }
+
+        public static Task<List<BosObjectSummary>> GetObjectsAsync(this BosClient bosClient, string bucket, string prefix, string delimiter = "")
+        {
+            return Task.Run(
+                () =>
+                {
+                    var listObjectsRequest = new ListObjectsRequest { BucketName = bucket };
+                    listObjectsRequest.Prefix = prefix;
+                    listObjectsRequest.Delimiter = delimiter;
+
+                    return bosClient.ListObjects(listObjectsRequest).Contents;
+                });
+        }
+
+        public static Task DeleteObjectsAsync(this BosClient bosClient, string bucketName, params string[] objects)
+        {
+            return Task.Run(() => { foreach (var objectKey in objects) bosClient.DeleteObject(bucketName, objectKey); });
         }
 
         public static Task<bool> UploadFileAsync(this BosClient bosClient,
             string bucket, string key, string filePath,
-            CancellationToken cancellationToken, 
+            CancellationToken pausecancellationToken,
+            CancellationToken abortCancellationToken,
             IProgress<int> onProgressPercentChanged)
         {
-            return Task.Run(() => bosClient.UploadFile(bucket, key, filePath, cancellationToken, onProgressPercentChanged));
+            return Task.Run(() => bosClient.UploadFile(bucket, key, filePath,
+                pausecancellationToken, abortCancellationToken,
+                onProgressPercentChanged));
         }
 
-        public static bool UploadFile(this BosClient bosClient,
-            string bucket, string key, string filePath,
-            CancellationToken cancellationToken,
+        public static bool UploadFile(this BosClient bosClient, string bucket, string key, string filePath,
+            CancellationToken pauseCancellationToken, CancellationToken abortCancellationToken,
             IProgress<int> onProgressPercentChanged)
         {
             if (!File.Exists(filePath))
@@ -58,8 +95,21 @@
 
             for (int i = 0; i < parts; ++i)
             {
-                if (cancellationToken.IsCancellationRequested)
+                if (pauseCancellationToken.IsCancellationRequested)
                     return false;
+
+                if (abortCancellationToken.IsCancellationRequested)
+                {
+                    var abortMultipartUploadRequest = new AbortMultipartUploadRequest()
+                    {
+                        BucketName = bucket,
+                        Key = key,
+                        UploadId = initiateMultipartUploadResponse.UploadId,
+                    };
+                    bosClient.AbortMultipartUpload(abortMultipartUploadRequest);
+
+                    return false;
+                }
 
                 using (var stream = fileInfo.OpenRead()) // TODO:
                 {

@@ -3,9 +3,7 @@
     using System.IO;
     using System.Reflection;
 
-    using Newtonsoft.Json;
-
-    struct Settings
+    public struct Settings
     {
         static Settings()
         {
@@ -18,30 +16,16 @@
         public string EndPoint { get; set; }
         public string CurrentBucket { get; set; }
 
+        public bool UseFileFullPathAsObjectKey { get; set; }
+
         public static Settings Load()
         {
-            Settings settings = new Settings();
-
-            if (File.Exists(SettingsFilePath))
-            {
-                using (var reader = File.OpenText(SettingsFilePath))
-                using (var jsonReader = new JsonTextReader(reader))
-                {
-                    var jsonSerializer = new JsonSerializer();
-                    settings = jsonSerializer.Deserialize<Settings>(jsonReader);
-                }
-            }
-
-            return settings;
+            return JsonHelper.Load<Settings>(SettingsFilePath);
         }
 
         public static void Store(Settings settings)
         {
-            var json = JsonConvert.SerializeObject(settings, Formatting.Indented);
-            using (var writer = File.CreateText(SettingsFilePath))
-            {
-                writer.Write(json);
-            }
+            JsonHelper.Store(SettingsFilePath, settings);
         }
 
         private const string SettingFileName = "BOSettings.json";

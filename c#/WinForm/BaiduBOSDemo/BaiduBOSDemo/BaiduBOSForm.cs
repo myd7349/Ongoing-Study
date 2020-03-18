@@ -2,6 +2,7 @@
 {
     using System;
     using System.Data;
+    using System.Diagnostics;
     using System.Drawing;
     using System.IO;
     using System.Linq;
@@ -10,16 +11,11 @@
     using System.Windows.Forms;
 
     using BaiduBce;
-    using BaiduBce.Auth;
     using BaiduBce.Services.Bos;
-
-    using BrightIdeasSoftware;
 
     using FastMember;
 
     using MetroFramework.Forms;
-
-    using Humanizer.Bytes;
 
     public partial class BaiduBOSForm : MetroForm
     {
@@ -31,41 +27,67 @@
             bucketTabControl_.TabPageDeleting += BucketTabControl__DeleteBucket;
         }
 
-        private void BaiduBOSForm_Load(object sender, EventArgs e)
+        private async void BaiduBOSForm_Load(object sender, EventArgs e)
         {
-            var settings = Settings.Load();
+            settings_ = Settings.Load();
 
-            bosClient_ = CreateBosClient(settings);
+            if (string.IsNullOrEmpty(settings_.AccessKey) ||
+                string.IsNullOrEmpty(settings_.SecretAccessKey) ||
+                string.IsNullOrEmpty(settings_.EndPoint))
+                settingsToolStripButton__Click(this, null);
 
-            currentBucket_ = settings.CurrentBucket;
+            try
+            {
+                bosClient_ = BOSHelper.CreateBosClient(settings_);
+            }
+            catch (Exception ex) // TODO: Fix it
+            {
+                MessageBox.Show(
+                    this,
+                    "Invalid settings!\n" + ex.Message,
+                    "Error:",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
 
-            var buckets = bosClient_.GetBuckets().ToArray();
-            bucketTabControl_.TabPages.AddRange(buckets.Select(bucketName => new TabPage(bucketName)).ToArray());
+            CurrentBucket_ = settings_.CurrentBucket;
+
+            var buckets = (await bosClient_.GetBucketsAsync()).ToArray();
+            bucketTabControl_.TabPages.AddRange(buckets.Select(bucketName => new TabPage(bucketName) { Name = bucketName }).ToArray());
             bucketTabControl_.TabPages.Add("+");
 
             if (buckets.Length > 0)
             {
-                int index = bucketTabControl_.TabPages.IndexOfKey(currentBucket_);
-                bucketTabControl_.SelectedIndex = index != -1 ? index : 0;
-            }
+                int index = bucketTabControl_.TabPages.IndexOfKey(CurrentBucket_);
+                if (index == -1)
+                    index = 0;
 
-            uploadButton_.Enabled = false;
+                if (index == 0)
+                    bucketTabControl__Selected(this, null);
+                else
+                    bucketTabControl_.SelectedIndex = index;
+            }
         }
 
         private void BaiduBOSForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var settings = Settings.Load();
-            settings.CurrentBucket = currentBucket_;
-            Settings.Store(settings);
+            Settings.Store(settings_);
         }
 
         private void settingsToolStripButton__Click(object sender, EventArgs e)
         {
-            using (var settingsForm = new SettingsForm())
+            using (var settingsForm = new SettingsForm(settings_))
             {
                 settingsForm.ShowDialog();
-                bosClient_ = CreateBosClient(Settings.Load());
+                settings_ = settingsForm.Settings;
+                bosClient_ = BOSHelper.CreateBosClient(settings_);
             }
+        }
+
+        private void objectFilterToolStripTextBox__TextChanged(object sender, EventArgs e)
+        {
+            UpdateObjectList();
         }
 
         private bool BucketTabControl__AddNewBucket(object sender, Common.WinForms.TabPageEventArgs e)
@@ -150,8 +172,10 @@
             return false;
         }
 
-        private void selectFileButton_Click(object sender, EventArgs e)
+        private async void uploadToolStripButton__Click(object sender, EventArgs e)
         {
+            string filePath;
+
             using (var openFileDialog = new OpenFileDialog())
             {
                 var filters = new string[]
@@ -161,120 +185,176 @@
 
                 openFileDialog.Filter = string.Join("|", filters);
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    filePathTextBox_.Text = openFileDialog.FileName;
-                    uploadButton_.Enabled = true;
-                }
+                    filePath = openFileDialog.FileName;
+                else
+                    return;
+            }
+
+            toolStripProgressBar_.Value = 0;
+            uploadToolStripButton_.Enabled = false;
+            settingsToolStripButton_.Enabled = false;
+
+            toolStripProgressBar_.Visible = true;
+            pauseToolStripButton_.Visible = true;
+            abortToolStripButton_.Visible = true;
+
+            var objectKey = settings_.UseFileFullPathAsObjectKey ? filePath : Path.GetFileName(filePath);
+
+            pauseCancellationTokenSource_ = new CancellationTokenSource();
+            abortCancellationTokenSource_ = new CancellationTokenSource();
+
+            bool ok = await bosClient_.UploadFileAsync(
+                CurrentBucket_,
+                objectKey,
+                filePath,
+                pauseCancellationTokenSource_.Token,
+                abortCancellationTokenSource_.Token,
+                new ProgressBarReporter(toolStripProgressBar_.ProgressBar, SynchronizationContext.Current));
+
+            if (ok)
+                UpdateObjectList();
+
+            uploadToolStripButton_.Enabled = true;
+            settingsToolStripButton_.Enabled = true;
+
+            toolStripProgressBar_.Visible = false;
+            pauseToolStripButton_.Visible = false;
+            abortToolStripButton_.Visible = false;
+
+            pauseCancellationTokenSource_ = null;
+            abortCancellationTokenSource_ = null;
+        }
+
+        private void downloadToolStripButton__Click(object sender, EventArgs e)
+        {
+            var objectListView = bucketTabControl_.SelectedTab.Controls[0] as BOSObjectListView;
+            Debug.Assert(objectListView != null);
+        }
+
+        private async void deleteToolStripButton__Click(object sender, EventArgs e)
+        {
+            var objectListView = bucketTabControl_.SelectedTab.Controls[0] as BOSObjectListView;
+            Debug.Assert(objectListView != null);
+            Debug.Assert(objectListView.SelectedItems.Count > 0);
+
+            var objectNames = objectListView.SelectedItems
+                .Cast<ListViewItem>()
+                .Select(item => item.SubItems[0].Text)
+                .ToArray();
+            var answer = MessageBox.Show(
+                this,
+                "The following objects will be deleted:\n" +
+                string.Join("\n", objectNames),
+                "Confirm:",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2
+                );
+            if (answer == DialogResult.No)
+                return;
+
+            try
+            {
+                await bosClient_.DeleteObjectsAsync(CurrentBucket_, objectNames);
+                UpdateObjectList();
+            }
+            catch (BceServiceException ex)
+            {
+                MessageBox.Show(
+                    this,
+                    "Failed to delete objects:" +
+                    ex.Message,
+                    "Error:",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
-        private async void uploadButton_Click(object sender, EventArgs e)
+        private async void propertiesToolStripButton__Click(object sender, EventArgs e)
         {
-            if (cancellationTokenSource_ == null)
+            var objectListView = bucketTabControl_.SelectedTab.Controls[0] as BOSObjectListView;
+            Debug.Assert(objectListView != null);
+            Debug.Assert(objectListView.SelectedItems.Count == 1);
+
+            var objectKey = objectListView.SelectedItems
+                .Cast<ListViewItem>()
+                .Select(item => item.SubItems[0].Text)
+                .First();
+
+            var objectMetadata = await Task.Run(() => bosClient_.GetObjectMetadata(CurrentBucket_, objectKey));
+            using (var objectMetaDataForm = new ObjectMetaDataForm(objectMetadata))
             {
-                selectFileButton_.Enabled = false;
-                uploadButton_.Text = "Pause";
-
-                var filePath = filePathTextBox_.Text;
-
-                cancellationTokenSource_ = new CancellationTokenSource();
-                bool ok = await bosClient_.UploadFileAsync(
-                    currentBucket_,
-                    Path.GetFileName(filePath),
-                    filePath,
-                    cancellationTokenSource_.Token,
-                    new ProgressBarReporter(transmissionProgressBar_, SynchronizationContext.Current)
-                    );
-
-                if (ok)
-                    UpdateObjectList();
-
-                selectFileButton_.Enabled = true;
-                uploadButton_.Text = "Upload";
+                objectMetaDataForm.ShowDialog();
             }
-            else
-            {
-                cancellationTokenSource_.Cancel();
-                cancellationTokenSource_ = null;
-            }
+        }
+
+        private void pauseToolStripButton__Click(object sender, EventArgs e)
+        {
+            Debug.Assert(pauseCancellationTokenSource_ != null);
+            pauseCancellationTokenSource_.Cancel();
+        }
+
+        private void abortToolStripButton__Click(object sender, EventArgs e)
+        {
+            Debug.Assert(abortCancellationTokenSource_ != null);
+            abortCancellationTokenSource_.Cancel();
         }
 
         private void bucketTabControl__Selected(object sender, TabControlEventArgs e)
         {
-            currentBucket_ = bucketTabControl_.SelectedTab.Text;
+            CurrentBucket_ = bucketTabControl_.SelectedTab.Text;
 
             UpdateObjectList();
         }
 
-        private static BosClient CreateBosClient(Settings settings)
+        private void ObjectListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BceClientConfiguration clientConfig = new BceClientConfiguration();
-            clientConfig.Credentials = new DefaultBceCredentials(settings.AccessKey, settings.SecretAccessKey);
-            clientConfig.Endpoint = settings.EndPoint;
+            var objectListView = sender as BOSObjectListView;
+            Debug.Assert(objectListView != null);
 
-            return new BosClient(clientConfig);
+            downloadToolStripButton_.Enabled = objectListView.SelectedItems.Count > 0;
+            deleteToolStripButton_.Enabled = objectListView.SelectedItems.Count > 0;
+            propertiesToolStripButton_.Enabled = objectListView.SelectedItems.Count == 1;
         }
 
         private async void UpdateObjectList()
         {
             var tabPage = bucketTabControl_.SelectedTab;
-            DataListView objectListView;
+            BOSObjectListView objectListView;
             if (tabPage.Controls.Count == 0)
             {
-                objectListView = new DataListView();
+                objectListView = new BOSObjectListView();
                 objectListView.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
                 objectListView.Bounds = new Rectangle(4, 4, tabPage.Width - 8, tabPage.Height - 8);
-                objectListView.View = View.Details;
-                //objectListView.FullRowSelect = true;
-                objectListView.GridLines = true;
-                objectListView.ShowGroups = false;
-
-                objectListView.UseCellFormatEvents = true;
-                objectListView.FormatCell += delegate (object sender, FormatCellEventArgs e)
-                {
-                    if (e.ColumnIndex == 2)
-                    {
-                        long totalBytes;
-                        if (long.TryParse(e.SubItem.Text, out totalBytes))
-                            e.SubItem.Text = ByteSize.FromBytes(Convert.ToInt64(e.SubItem.Text)).ToString("0.##");
-                    }
-                };
+                objectListView.SelectedIndexChanged += ObjectListView_SelectedIndexChanged;
 
                 tabPage.Controls.Add(objectListView);
-
-                objectListView.DataSource = await CreateObjectDataTable();
-
-                var downloadColumn = new OLVColumn();
-                downloadColumn.Text = "Action";
-                downloadColumn.IsButton = true;
-                downloadColumn.Sortable = false;
-                downloadColumn.Width = 100;
-
-                objectListView.AllColumns.Add(downloadColumn);
-
-                objectListView.ButtonClick += ObjectListView_ButtonClick;
             }
             else
             {
-                objectListView = tabPage.Controls[0] as DataListView;
-
-                objectListView.DataSource = await CreateObjectDataTable();
+                objectListView = tabPage.Controls[0] as BOSObjectListView;
             }
 
+            objectListView.DataSource = await CreateObjectDataTable();
             objectListView.AutoResizeColumns();
-        }
+            objectListView.SelectedItems.Clear();
 
-        private void ObjectListView_ButtonClick(object sender, CellClickEventArgs e)
-        {
-            MessageBox.Show(e.ColumnIndex.ToString());
+            downloadToolStripButton_.Enabled = objectListView.SelectedItems.Count > 0;
+            deleteToolStripButton_.Enabled = objectListView.SelectedItems.Count > 0;
+            propertiesToolStripButton_.Enabled = objectListView.SelectedItems.Count == 1;
+
+            totalObjectsNumbertoolStripStatusLabel_.Text = objectListView.Items.Count.ToString();
         }
 
         private Task<DataTable> CreateObjectDataTable()
         {
             return Task.Run(
-                () =>
+                async () =>
                 {
-                    var objects = bosClient_.GetObjects(currentBucket_);
+                    var objects = await bosClient_.GetObjectsAsync(
+                        CurrentBucket_,
+                        objectFilterToolStripTextBox_.Text,
+                        delimiterToolStripTextBox_.Text);
                     if (objects == null)
                         return null;
 
@@ -288,8 +368,28 @@
                 });
         }
 
+        private string CurrentBucket_
+        {
+            get
+            {
+                return settings_.CurrentBucket;
+            }
+            set
+            {
+                settings_.CurrentBucket = value;
+            }
+        }
+
+        private Settings settings_;
         private BosClient bosClient_;
-        private string currentBucket_;
-        private CancellationTokenSource cancellationTokenSource_;
+        private CancellationTokenSource pauseCancellationTokenSource_;
+        private CancellationTokenSource abortCancellationTokenSource_;
     }
 }
+
+// References:
+// Icons: open_icon_library-standard-0.11
+// https://stackoverflow.com/questions/1189728/why-cant-i-use-linq-on-listview-selecteditems
+// https://stackoverflow.com/questions/5383310/catch-an-exception-thrown-by-an-async-void-method
+// https://stackoverflow.com/questions/3529928/how-do-i-put-text-on-progressbar
+// https://github.com/ukushu/TextProgressBar
