@@ -2,9 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.IO;
     using System.Linq;
-    using System.Threading;
     using System.Threading.Tasks;
 
     using BaiduBce;
@@ -57,54 +57,55 @@
             return Task.Run(() => { foreach (var objectKey in objects) bosClient.DeleteObject(bucketName, objectKey); });
         }
 
-        public static Task<bool> UploadFileAsync(this BosClient bosClient,
-            string bucket, string key, string filePath,
-            CancellationToken pausecancellationToken,
-            CancellationToken abortCancellationToken,
-            IProgress<int> onProgressPercentChanged)
+        public static Task<bool> UploadFileAsync(this BosClient bosClient, string filePath, BOSMultipartUploadRequest bosUploadRequest, IProgress<int> onProgressPercentChanged)
         {
-            return Task.Run(() => bosClient.UploadFile(bucket, key, filePath,
-                pausecancellationToken, abortCancellationToken,
-                onProgressPercentChanged));
+            return Task.Run(() => bosClient.UploadFile(filePath, bosUploadRequest, onProgressPercentChanged));
         }
 
-        public static bool UploadFile(this BosClient bosClient, string bucket, string key, string filePath,
-            CancellationToken pauseCancellationToken, CancellationToken abortCancellationToken,
-            IProgress<int> onProgressPercentChanged)
+        public static bool UploadFile(this BosClient bosClient, string filePath, BOSMultipartUploadRequest bosUploadRequest, IProgress<int> onProgressPercentChanged)
         {
+            Debug.Assert(bosUploadRequest.RequestInfo.PartSize > 0);
+
             if (!File.Exists(filePath))
                 return false;
 
             var fileInfo = new FileInfo(filePath);
 
-            long partSize = 1024 * 1024 * 5;
+            long partSize = bosUploadRequest.RequestInfo.PartSize;
             
             int parts = (int)(fileInfo.Length / partSize);
             if (fileInfo.Length % partSize != 0)
                 parts += 1;
 
-            var partETags = new List<PartETag>();
+            if (bosUploadRequest.RequestInfo.PartETags == null)
+                bosUploadRequest.RequestInfo.PartETags = new List<PartETag>();
 
-            var initiateMultipartUploadRequest =
-                new InitiateMultipartUploadRequest()
-                {
-                    BucketName = bucket,
-                    Key = key
-                };
-            var initiateMultipartUploadResponse = bosClient.InitiateMultipartUpload(initiateMultipartUploadRequest);
-
-            for (int i = 0; i < parts; ++i)
+            if (string.IsNullOrEmpty(bosUploadRequest.RequestInfo.UploadId))
             {
-                if (pauseCancellationToken.IsCancellationRequested)
+                var initiateMultipartUploadRequest = new InitiateMultipartUploadRequest()
+                {
+                    BucketName = bosUploadRequest.RequestInfo.Bucket,
+                    Key = bosUploadRequest.RequestInfo.ObjectKey
+                };
+                var initiateMultipartUploadResponse = bosClient.InitiateMultipartUpload(initiateMultipartUploadRequest);
+
+                bosUploadRequest.RequestInfo.UploadId = initiateMultipartUploadResponse.UploadId;
+            }
+            
+            var uploadId = bosUploadRequest.RequestInfo.UploadId;
+
+            for (int i = bosUploadRequest.RequestInfo.LastPartNumber; i < parts; ++i)
+            {
+                if (bosUploadRequest.PauseCancellationToken.IsCancellationRequested)
                     return false;
 
-                if (abortCancellationToken.IsCancellationRequested)
+                if (bosUploadRequest.AbortCancellationToken.IsCancellationRequested)
                 {
                     var abortMultipartUploadRequest = new AbortMultipartUploadRequest()
                     {
-                        BucketName = bucket,
-                        Key = key,
-                        UploadId = initiateMultipartUploadResponse.UploadId,
+                        BucketName = bosUploadRequest.RequestInfo.Bucket,
+                        Key = bosUploadRequest.RequestInfo.ObjectKey,
+                        UploadId = uploadId,
                     };
                     bosClient.AbortMultipartUpload(abortMultipartUploadRequest);
 
@@ -121,31 +122,33 @@
                     var actualPartSize = Math.Min(partSize, fileInfo.Length - skipBytes);
 
                     var uploadPartRequest = new UploadPartRequest();
-                    uploadPartRequest.BucketName = bucket;
-                    uploadPartRequest.Key = key;
-                    uploadPartRequest.UploadId = initiateMultipartUploadResponse.UploadId;
+                    uploadPartRequest.BucketName = bosUploadRequest.RequestInfo.Bucket;
+                    uploadPartRequest.Key = bosUploadRequest.RequestInfo.ObjectKey;
+                    uploadPartRequest.UploadId = uploadId;
                     uploadPartRequest.InputStream = stream;
                     uploadPartRequest.PartSize = actualPartSize;
                     uploadPartRequest.PartNumber = i + 1;
 
                     var uploadPartResponse = bosClient.UploadPart(uploadPartRequest);
 
-                    partETags.Add(
+                    bosUploadRequest.RequestInfo.PartETags.Add(
                         new PartETag()
                         {
                             ETag = uploadPartResponse.ETag,
                             PartNumber = uploadPartResponse.PartNumber
                         });
+
+                    bosUploadRequest.RequestInfo.LastPartNumber = uploadPartResponse.PartNumber;
                 }
             }
 
             var completeMultipartUploadRequest =
                 new CompleteMultipartUploadRequest()
                 {
-                    BucketName = bucket,
-                    Key = key,
-                    UploadId = initiateMultipartUploadResponse.UploadId,
-                    PartETags = partETags
+                    BucketName = bosUploadRequest.RequestInfo.Bucket,
+                    Key = bosUploadRequest.RequestInfo.ObjectKey,
+                    UploadId = uploadId,
+                    PartETags = bosUploadRequest.RequestInfo.PartETags
                 };
 
             var completeMultipartUploadResponse = bosClient.CompleteMultipartUpload(completeMultipartUploadRequest);

@@ -91,7 +91,7 @@
     <Compile Include="BOSObjectListView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BOSUploader.cs" />
+    <Compile Include="BOSMultipartUploadRequest.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="ObjectMetaDataForm.cs">
       <SubType>Form</SubType>

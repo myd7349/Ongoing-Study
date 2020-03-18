@@ -203,16 +203,44 @@
             pauseCancellationTokenSource_ = new CancellationTokenSource();
             abortCancellationTokenSource_ = new CancellationTokenSource();
 
-            bool ok = await bosClient_.UploadFileAsync(
-                CurrentBucket_,
-                objectKey,
-                filePath,
-                pauseCancellationTokenSource_.Token,
-                abortCancellationTokenSource_.Token,
-                new ProgressBarReporter(toolStripProgressBar_.ProgressBar, SynchronizationContext.Current));
+            BOSMultipartUploadRequestInfo bosMultipartUploadRequestInfo;
 
+            var multipartUploadInfoFile = filePath + BOSMultipartUploadRequestInfo.UploadRequestInfoFileExtension;
+            if (File.Exists(multipartUploadInfoFile))
+            {
+                bosMultipartUploadRequestInfo = JsonHelper.Load<BOSMultipartUploadRequestInfo>(multipartUploadInfoFile);
+            }
+            else
+            {
+                bosMultipartUploadRequestInfo = new BOSMultipartUploadRequestInfo
+                {
+                    FilePath = filePath,
+                    Bucket = CurrentBucket_,
+                    ObjectKey = objectKey,
+                    PartSize = 1024 * 1024 * 5,
+                };
+            }
+
+            var bosMultipartUploadRequest = new BOSMultipartUploadRequest
+            {
+                RequestInfo = bosMultipartUploadRequestInfo,
+                PauseCancellationToken = pauseCancellationTokenSource_.Token,
+                AbortCancellationToken = abortCancellationTokenSource_.Token,
+            };
+
+            bool ok = await bosClient_.UploadFileAsync(filePath, bosMultipartUploadRequest,
+                new ProgressBarReporter(toolStripProgressBar_.ProgressBar, SynchronizationContext.Current));
             if (ok)
+            {
                 UpdateObjectList();
+
+                if (File.Exists(multipartUploadInfoFile))
+                    File.Delete(multipartUploadInfoFile);
+            }
+            else if (pauseCancellationTokenSource_.IsCancellationRequested)
+            {
+                JsonHelper.Store(multipartUploadInfoFile, bosMultipartUploadRequestInfo);
+            }
 
             uploadToolStripButton_.Enabled = true;
             settingsToolStripButton_.Enabled = true;
