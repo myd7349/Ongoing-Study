@@ -42,6 +42,7 @@
             this.uploadToolStripButton_ = new System.Windows.Forms.ToolStripButton();
             this.downloadToolStripButton_ = new System.Windows.Forms.ToolStripButton();
             this.deleteToolStripButton_ = new System.Windows.Forms.ToolStripButton();
+            this.refreshToolStripButton_ = new System.Windows.Forms.ToolStripButton();
             this.propertiesToolStripButton_ = new System.Windows.Forms.ToolStripButton();
             this.settingsToolStripButton_ = new System.Windows.Forms.ToolStripButton();
             this.pauseToolStripButton_ = new System.Windows.Forms.ToolStripButton();
@@ -57,6 +58,7 @@
             this.uploadToolStripButton_,
             this.downloadToolStripButton_,
             this.deleteToolStripButton_,
+            this.refreshToolStripButton_,
             this.propertiesToolStripButton_,
             this.firstToolStripSeparator_,
             this.settingsToolStripButton_,
@@ -69,7 +71,7 @@
             this.abortToolStripButton_});
             this.mainToolStrip_.Location = new System.Drawing.Point(20, 60);
             this.mainToolStrip_.Name = "mainToolStrip_";
-            this.mainToolStrip_.Size = new System.Drawing.Size(760, 43);
+            this.mainToolStrip_.Size = new System.Drawing.Size(920, 43);
             this.mainToolStrip_.TabIndex = 11;
             this.mainToolStrip_.Text = "toolStrip1";
             // 
@@ -118,7 +120,7 @@
             this.bucketTabControl_.Name = "bucketTabControl_";
             this.bucketTabControl_.Padding = new System.Drawing.Point(12, 4);
             this.bucketTabControl_.SelectedIndex = 0;
-            this.bucketTabControl_.Size = new System.Drawing.Size(760, 449);
+            this.bucketTabControl_.Size = new System.Drawing.Size(920, 569);
             this.bucketTabControl_.TabIndex = 10;
             this.bucketTabControl_.Selected += new System.Windows.Forms.TabControlEventHandler(this.bucketTabControl__Selected);
             // 
@@ -127,9 +129,9 @@
             this.statusStrip_.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.totalObjectsToolStripStatusLabel_,
             this.totalObjectsNumbertoolStripStatusLabel_});
-            this.statusStrip_.Location = new System.Drawing.Point(20, 558);
+            this.statusStrip_.Location = new System.Drawing.Point(20, 678);
             this.statusStrip_.Name = "statusStrip_";
-            this.statusStrip_.Size = new System.Drawing.Size(760, 22);
+            this.statusStrip_.Size = new System.Drawing.Size(920, 22);
             this.statusStrip_.SizingGrip = false;
             this.statusStrip_.TabIndex = 12;
             // 
@@ -176,6 +178,16 @@
             this.deleteToolStripButton_.Size = new System.Drawing.Size(40, 40);
             this.deleteToolStripButton_.Text = "Delete";
             this.deleteToolStripButton_.Click += new System.EventHandler(this.deleteToolStripButton__Click);
+            // 
+            // refreshToolStripButton_
+            // 
+            this.refreshToolStripButton_.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.refreshToolStripButton_.Image = global::BaiduBOSDemo.Properties.Resources.Refresh;
+            this.refreshToolStripButton_.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.refreshToolStripButton_.Name = "refreshToolStripButton_";
+            this.refreshToolStripButton_.Size = new System.Drawing.Size(40, 40);
+            this.refreshToolStripButton_.Text = "Refresh";
+            this.refreshToolStripButton_.Click += new System.EventHandler(this.refreshToolStripButton__Click);
             // 
             // propertiesToolStripButton_
             // 
@@ -228,7 +240,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(960, 720);
             this.Controls.Add(this.statusStrip_);
             this.Controls.Add(this.mainToolStrip_);
             this.Controls.Add(this.bucketTabControl_);
@@ -264,6 +276,7 @@
         private System.Windows.Forms.ToolStripSeparator thirdToolStripSeparator_;
         private System.Windows.Forms.ToolStripTextBox delimiterToolStripTextBox_;
         private System.Windows.Forms.ToolStripButton propertiesToolStripButton_;
+        private System.Windows.Forms.ToolStripButton refreshToolStripButton_;
     }
 }
 

@@ -27,46 +27,22 @@
             bucketTabControl_.TabPageDeleting += BucketTabControl__DeleteBucket;
         }
 
-        private async void BaiduBOSForm_Load(object sender, EventArgs e)
+        private void BaiduBOSForm_Load(object sender, EventArgs e)
         {
             settings_ = Settings.Load();
 
             if (string.IsNullOrEmpty(settings_.AccessKey) ||
                 string.IsNullOrEmpty(settings_.SecretAccessKey) ||
                 string.IsNullOrEmpty(settings_.EndPoint))
+            {
                 settingsToolStripButton__Click(this, null);
-
-            try
-            {
-                bosClient_ = BOSHelper.CreateBosClient(settings_);
             }
-            catch (Exception ex) // TODO: Fix it
+            else
             {
-                MessageBox.Show(
-                    this,
-                    "Invalid settings!\n" + ex.Message,
-                    "Error:",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                return;
-            }
+                CurrentBucket_ = settings_.CurrentBucket;
 
-            CurrentBucket_ = settings_.CurrentBucket;
-
-            var buckets = (await bosClient_.GetBucketsAsync()).ToArray();
-            bucketTabControl_.TabPages.AddRange(buckets.Select(bucketName => new TabPage(bucketName) { Name = bucketName }).ToArray());
-            bucketTabControl_.TabPages.Add("+");
-
-            if (buckets.Length > 0)
-            {
-                int index = bucketTabControl_.TabPages.IndexOfKey(CurrentBucket_);
-                if (index == -1)
-                    index = 0;
-
-                if (index == 0)
-                    bucketTabControl__Selected(this, null);
-                else
-                    bucketTabControl_.SelectedIndex = index;
+                CreateBosClient();
+                UpdateBucketList();
             }
         }
 
@@ -81,7 +57,8 @@
             {
                 settingsForm.ShowDialog();
                 settings_ = settingsForm.Settings;
-                bosClient_ = BOSHelper.CreateBosClient(settings_);
+                CreateBosClient();
+                UpdateBucketList();
             }
         }
 
@@ -228,8 +205,22 @@
                 AbortCancellationToken = abortCancellationTokenSource_.Token,
             };
 
-            bool ok = await bosClient_.UploadFileAsync(filePath, bosMultipartUploadRequest,
-                new ProgressBarReporter(toolStripProgressBar_.ProgressBar, SynchronizationContext.Current));
+            bool ok = false;
+            try
+            {
+                ok = await bosClient_.UploadFileAsync(filePath, bosMultipartUploadRequest,
+                    new ProgressBarReporter(toolStripProgressBar_.ProgressBar, SynchronizationContext.Current));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    this,
+                    "Failed to upload objects:\n" + ex.Message,
+                    "Error:",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
             if (ok)
             {
                 UpdateObjectList();
@@ -290,12 +281,16 @@
             {
                 MessageBox.Show(
                     this,
-                    "Failed to delete objects:" +
-                    ex.Message,
+                    "Failed to delete objects:\n" + ex.Message,
                     "Error:",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
+
+        private void refreshToolStripButton__Click(object sender, EventArgs e)
+        {
+            UpdateBucketList();
         }
 
         private async void propertiesToolStripButton__Click(object sender, EventArgs e)
@@ -309,10 +304,22 @@
                 .Select(item => item.SubItems[0].Text)
                 .First();
 
-            var objectMetadata = await Task.Run(() => bosClient_.GetObjectMetadata(CurrentBucket_, objectKey));
-            using (var objectMetaDataForm = new ObjectMetaDataForm(objectMetadata))
+            try
             {
-                objectMetaDataForm.ShowDialog();
+                var objectMetadata = await Task.Run(() => bosClient_.GetObjectMetadata(CurrentBucket_, objectKey));
+                using (var objectMetaDataForm = new ObjectMetaDataForm(objectMetadata))
+                {
+                    objectMetaDataForm.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    this,
+                    "Failed to get object metadata:\n" + ex.Message,
+                    "Error:",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
@@ -345,6 +352,68 @@
             propertiesToolStripButton_.Enabled = objectListView.SelectedItems.Count == 1;
         }
 
+        private void CreateBosClient()
+        {
+            try
+            {
+                bosClient_ = BOSHelper.CreateBosClient(settings_);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    this,
+                    "Invalid settings!\n" + ex.Message,
+                    "Error:",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                //BeginInvoke(new MethodInvoker(Close));
+            }
+        }
+
+        private async void UpdateBucketList()
+        {
+            uploadToolStripButton_.Enabled = false;
+
+            var currentBucket = CurrentBucket_;
+            bucketTabControl_.TabPages.Clear(); // This will cause CurrentBucket_ be changed.
+            CurrentBucket_ = currentBucket;
+
+            if (bosClient_ == null)
+                return;
+
+            try
+            {
+                var buckets = (await bosClient_.GetBucketsAsync()).ToArray();
+
+                bucketTabControl_.TabPages.AddRange(buckets.Select(bucketName => new TabPage(bucketName) { Name = bucketName }).ToArray());
+                bucketTabControl_.TabPages.Add("+");
+
+                if (buckets.Length > 0)
+                {
+                    int index = bucketTabControl_.TabPages.IndexOfKey(CurrentBucket_);
+                    if (index == -1)
+                        index = 0;
+
+                    if (index == 0)
+                        bucketTabControl__Selected(this, null);
+                    else
+                        bucketTabControl_.SelectedIndex = index;
+
+                    uploadToolStripButton_.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    this,
+                    "Failed to get bucket list:" + ex.Message,
+                    "Error:",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
         private async void UpdateObjectList()
         {
             var tabPage = bucketTabControl_.SelectedTab;
@@ -363,7 +432,14 @@
                 objectListView = tabPage.Controls[0] as BOSObjectListView;
             }
 
-            objectListView.DataSource = await CreateObjectDataTable();
+            try
+            {
+                objectListView.DataSource = await CreateObjectDataTable();
+            }
+            catch (Exception)
+            {
+            }
+
             objectListView.AutoResizeColumns();
             objectListView.SelectedItems.Clear();
 
@@ -421,3 +497,5 @@
 // https://stackoverflow.com/questions/5383310/catch-an-exception-thrown-by-an-async-void-method
 // https://stackoverflow.com/questions/3529928/how-do-i-put-text-on-progressbar
 // https://github.com/ukushu/TextProgressBar
+// https://stackoverflow.com/questions/32067034/how-to-handle-task-run-exception
+// https://stackoverflow.com/questions/731068/closing-a-form-from-the-load-handler
