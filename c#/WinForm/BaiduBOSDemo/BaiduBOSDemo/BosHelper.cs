@@ -25,12 +25,6 @@
 
         public static Task<IEnumerable<string>> GetBucketsAsync(this BosClient bosClient)
         {
-            /*
-            BaiduBce.BceServiceException
-            HResult=0x80131500
-            Message=Your request is denied because there is an overdue bill of your account. (Status Code: 403; Error Code: AccountOverdue; Request ID: e1c9e259-1ede-4bff-aba3-d3a75186c095)
-            Source=BceSdkDotNet
-            */
             return Task.Run(() => bosClient.ListBuckets().Buckets.Select(bucketSummary => bucketSummary.Name));
         }
 

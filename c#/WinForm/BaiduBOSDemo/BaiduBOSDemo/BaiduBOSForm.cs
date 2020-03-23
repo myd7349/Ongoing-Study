@@ -328,8 +328,6 @@
 
             if (ok)
             {
-                UpdateObjectList();
-
                 if (File.Exists(downloadingFilePath))
                     File.Move(downloadingFilePath, filePath);
 
@@ -401,7 +399,7 @@
             UpdateBucketList();
         }
 
-        private async void propertiesToolStripButton__Click(object sender, EventArgs e)
+        private void propertiesToolStripButton__Click(object sender, EventArgs e)
         {
             var objectListView = bucketTabControl_.SelectedTab.Controls[0] as BOSObjectListView;
             Debug.Assert(objectListView != null);
@@ -412,22 +410,9 @@
                 .Select(item => item.SubItems[0].Text)
                 .First();
 
-            try
+            using (var objectMetaDataForm = new ObjectMetaDataForm(bosClient_, CurrentBucket_, objectKey))
             {
-                var objectMetadata = await Task.Run(() => bosClient_.GetObjectMetadata(CurrentBucket_, objectKey));
-                using (var objectMetaDataForm = new ObjectMetaDataForm(objectMetadata))
-                {
-                    objectMetaDataForm.ShowDialog();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    this,
-                    "Failed to get object metadata:\n" + ex.Message,
-                    "Error:",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                objectMetaDataForm.ShowDialog();
             }
         }
 
@@ -515,7 +500,7 @@
             {
                 MessageBox.Show(
                     this,
-                    "Failed to get bucket list:" + ex.Message,
+                    "Failed to get bucket list:\n" + ex.Message,
                     "Error:",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
