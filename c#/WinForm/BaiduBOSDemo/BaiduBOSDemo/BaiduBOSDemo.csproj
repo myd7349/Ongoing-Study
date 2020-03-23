@@ -87,6 +87,7 @@
     <Compile Include="BaiduBOSForm.Designer.cs">
       <DependentUpon>BaiduBOSForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BOSDownloadRequest.cs" />
     <Compile Include="BOSHelper.cs" />
     <Compile Include="BOSObjectListView.cs">
       <SubType>Component</SubType>

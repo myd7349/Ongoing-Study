@@ -57,15 +57,15 @@
             return Task.Run(() => { foreach (var objectKey in objects) bosClient.DeleteObject(bucketName, objectKey); });
         }
 
-        public static Task<bool> UploadFileAsync(this BosClient bosClient, string filePath, BOSMultipartUploadRequest bosUploadRequest, IProgress<int> onProgressPercentChanged)
+        public static Task<bool> UploadFileAsync(this BosClient bosClient, BOSMultipartUploadRequest bosUploadRequest, IProgress<int> onProgressPercentChanged)
         {
-            return Task.Run(() => bosClient.UploadFile(filePath, bosUploadRequest, onProgressPercentChanged));
+            return Task.Run(() => bosClient.UploadFile(bosUploadRequest, onProgressPercentChanged));
         }
 
-        public static bool UploadFile(this BosClient bosClient, string filePath, BOSMultipartUploadRequest bosUploadRequest, IProgress<int> onProgressPercentChanged)
+        public static bool UploadFile(this BosClient bosClient, BOSMultipartUploadRequest bosUploadRequest, IProgress<int> onProgressPercentChanged)
         {
             Debug.Assert(bosUploadRequest.RequestInfo.PartSize > 0);
-
+            var filePath = bosUploadRequest.RequestInfo.FilePath;
             if (!File.Exists(filePath))
                 return false;
 
@@ -157,9 +157,81 @@
 
             return completeMultipartUploadResponse != null;
         }
+
+        public static Task<bool> DownloadFileAsync(this BosClient bosClient, BOSDownloadRequest bosDownloadRequest, IProgress<int> onProgressPercentChanged)
+        {
+            return Task.Run(() => bosClient.DownloadFile(bosDownloadRequest, onProgressPercentChanged));
+        }
+
+        public static bool DownloadFile(this BosClient bosClient, BOSDownloadRequest bosDownloadRequest, IProgress<int> onProgressPercentChanged)
+        {
+            Debug.Assert(bosDownloadRequest.RequestInfo.DownloadSize > 0);
+            Debug.Assert(bosDownloadRequest.RequestInfo.DownloadedBytes % bosDownloadRequest.RequestInfo.DownloadSize == 0);
+
+            var filePath = bosDownloadRequest.RequestInfo.FilePath;
+
+            var getObjectRequest = new GetObjectRequest
+            {
+                BucketName = bosDownloadRequest.RequestInfo.Bucket,
+                Key = bosDownloadRequest.RequestInfo.ObjectKey,
+            };
+
+            var objectMetadata = bosClient.GetObjectMetadata(getObjectRequest);
+            var fileLength = objectMetadata.ContentLength;
+            Debug.Assert(bosDownloadRequest.RequestInfo.DownloadedBytes < fileLength);
+
+            using (var stream = File.OpenWrite(filePath))
+            {
+                if (bosDownloadRequest.RequestInfo.DownloadedBytes == 0)
+                {
+                    // This doesn't work:
+                    //stream.Seek(fileLength, SeekOrigin.Begin);
+                    stream.SetLength(fileLength);
+                }
+
+                stream.Seek(bosDownloadRequest.RequestInfo.DownloadedBytes, SeekOrigin.Begin);
+
+                int parts = (int)(fileLength / bosDownloadRequest.RequestInfo.DownloadSize);
+                if (fileLength % bosDownloadRequest.RequestInfo.DownloadSize != 0)
+                    parts += 1;
+
+
+                for (int i = (int)(bosDownloadRequest.RequestInfo.DownloadedBytes / bosDownloadRequest.RequestInfo.DownloadSize);
+                    i < parts;
+                    ++i)
+                {
+                    if (bosDownloadRequest.PauseCancellationToken.IsCancellationRequested)
+                        return false;
+
+                    if (bosDownloadRequest.AbortCancellationToken.IsCancellationRequested)
+                    {
+                        stream.Close();
+                        return false;
+                    }
+                    
+                    var startBytes = bosDownloadRequest.RequestInfo.DownloadSize * i;
+                    var endBytes = startBytes + bosDownloadRequest.RequestInfo.DownloadSize - 1;
+                    if (endBytes > fileLength)
+                        endBytes = fileLength;
+
+                    onProgressPercentChanged?.Report((int)(((double)startBytes / fileLength) * 100));
+
+                    getObjectRequest.SetRange(startBytes, endBytes);
+                    var bosObject = bosClient.GetObject(getObjectRequest);
+                    bosObject.ObjectContent.CopyTo(stream);
+
+                    bosDownloadRequest.RequestInfo.DownloadedBytes += endBytes + 1 - startBytes;
+                }
+
+                onProgressPercentChanged?.Report(100);
+            }
+
+            return true;
+        }
     }
 }
 
 // References:
 // https://stackoverflow.com/questions/9459225/asynchronous-file-download-with-progress-bar
 // http://simplygenius.net/Article/AncillaryAsyncProgress
+// https://stackoverflow.com/questions/8416413/create-new-file-with-specific-size

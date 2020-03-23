@@ -15,8 +15,9 @@
         public string SecretAccessKey { get; set; }
         public string EndPoint { get; set; }
         public string CurrentBucket { get; set; }
-
+        public long UploadPartSize { get; set; }
         public bool UseFileFullPathAsObjectKey { get; set; }
+        public long DownloadSize { get; set; }
 
         public static Settings Load()
         {

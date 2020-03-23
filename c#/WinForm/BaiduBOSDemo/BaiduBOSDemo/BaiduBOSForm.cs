@@ -169,6 +169,7 @@
 
             toolStripProgressBar_.Value = 0;
             uploadToolStripButton_.Enabled = false;
+            downloadToolStripButton_.Enabled = false;
             settingsToolStripButton_.Enabled = false;
 
             toolStripProgressBar_.Visible = true;
@@ -194,7 +195,7 @@
                     FilePath = filePath,
                     Bucket = CurrentBucket_,
                     ObjectKey = objectKey,
-                    PartSize = 1024 * 1024 * 5,
+                    PartSize = settings_.UploadPartSize > 0 ? settings_.UploadPartSize : 1024 * 1024 * 1,
                 };
             }
 
@@ -208,14 +209,14 @@
             bool ok = false;
             try
             {
-                ok = await bosClient_.UploadFileAsync(filePath, bosMultipartUploadRequest,
+                ok = await bosClient_.UploadFileAsync(bosMultipartUploadRequest,
                     new ProgressBarReporter(toolStripProgressBar_.ProgressBar, SynchronizationContext.Current));
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
                     this,
-                    "Failed to upload objects:\n" + ex.Message,
+                    "Failed to upload object:\n" + ex.Message,
                     "Error:",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -234,6 +235,7 @@
             }
 
             uploadToolStripButton_.Enabled = true;
+            downloadToolStripButton_.Enabled = true;
             settingsToolStripButton_.Enabled = true;
 
             toolStripProgressBar_.Visible = false;
@@ -244,10 +246,116 @@
             abortCancellationTokenSource_ = null;
         }
 
-        private void downloadToolStripButton__Click(object sender, EventArgs e)
+        private async void downloadToolStripButton__Click(object sender, EventArgs e)
         {
             var objectListView = bucketTabControl_.SelectedTab.Controls[0] as BOSObjectListView;
             Debug.Assert(objectListView != null);
+
+            var objectKey = objectListView.SelectedItems[0].SubItems[0].Text;
+
+            string filePath;
+            using (var saveFileDialog = new SaveFileDialog())
+            {
+                var filters = new string[]
+                {
+                    "All Files (*.*)|*.*",
+                };
+
+                saveFileDialog.FileName = Path.GetFileName(objectKey);
+                saveFileDialog.Filter = string.Join("|", filters);
+                saveFileDialog.OverwritePrompt = true;
+                saveFileDialog.CheckPathExists = true;
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    filePath = saveFileDialog.FileName;
+                else
+                    return;
+            }
+            
+            toolStripProgressBar_.Value = 0;
+            uploadToolStripButton_.Enabled = false;
+            downloadToolStripButton_.Enabled = false;
+            settingsToolStripButton_.Enabled = false;
+
+            toolStripProgressBar_.Visible = true;
+            pauseToolStripButton_.Visible = true;
+            abortToolStripButton_.Visible = true;
+
+            pauseCancellationTokenSource_ = new CancellationTokenSource();
+            abortCancellationTokenSource_ = new CancellationTokenSource();
+
+            
+            BOSDownloadRequestInfo bosDownloadRequestInfo;
+
+            var downloadInfoFile = filePath + BOSDownloadRequestInfo.DownloadRequestInfoFileExtension;
+            var downloadingFilePath = filePath + BOSDownloadRequestInfo.DownloadingFileExtension;
+            if (File.Exists(downloadInfoFile))
+            {
+                bosDownloadRequestInfo = JsonHelper.Load<BOSDownloadRequestInfo>(downloadInfoFile);
+            }
+            else
+            {
+                bosDownloadRequestInfo = new BOSDownloadRequestInfo
+                {
+                    FilePath = downloadingFilePath,
+                    Bucket = CurrentBucket_,
+                    ObjectKey = objectKey,
+                    DownloadSize = settings_.DownloadSize > 0 ? settings_.DownloadSize : 1024 * 256,
+                };
+            }
+
+            var bosDownloadRequest = new BOSDownloadRequest
+            {
+                RequestInfo = bosDownloadRequestInfo,
+                PauseCancellationToken = pauseCancellationTokenSource_.Token,
+                AbortCancellationToken = abortCancellationTokenSource_.Token,
+            };
+            
+            bool ok = false;
+            try
+            {
+                ok = await bosClient_.DownloadFileAsync(bosDownloadRequest,
+                    new ProgressBarReporter(toolStripProgressBar_.ProgressBar, SynchronizationContext.Current));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    this,
+                    "Failed to download object:\n" + ex.Message,
+                    "Error:",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            if (ok)
+            {
+                UpdateObjectList();
+
+                if (File.Exists(downloadingFilePath))
+                    File.Move(downloadingFilePath, filePath);
+
+                if (File.Exists(downloadInfoFile))
+                    File.Delete(downloadInfoFile);
+            }
+            else if (pauseCancellationTokenSource_.IsCancellationRequested)
+            {
+                JsonHelper.Store(downloadInfoFile, bosDownloadRequestInfo);
+            }
+            else if (abortCancellationTokenSource_.IsCancellationRequested)
+            {
+                if (File.Exists(downloadingFilePath))
+                    File.Delete(downloadingFilePath);
+            }
+
+            uploadToolStripButton_.Enabled = true;
+            downloadToolStripButton_.Enabled = true;
+            settingsToolStripButton_.Enabled = true;
+
+            toolStripProgressBar_.Visible = false;
+            pauseToolStripButton_.Visible = false;
+            abortToolStripButton_.Visible = false;
+
+            pauseCancellationTokenSource_ = null;
+            abortCancellationTokenSource_ = null;
         }
 
         private async void deleteToolStripButton__Click(object sender, EventArgs e)
@@ -347,7 +455,7 @@
             var objectListView = sender as BOSObjectListView;
             Debug.Assert(objectListView != null);
 
-            downloadToolStripButton_.Enabled = objectListView.SelectedItems.Count > 0;
+            downloadToolStripButton_.Enabled = objectListView.SelectedItems.Count == 1;
             deleteToolStripButton_.Enabled = objectListView.SelectedItems.Count > 0;
             propertiesToolStripButton_.Enabled = objectListView.SelectedItems.Count == 1;
         }
