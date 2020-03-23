@@ -103,6 +103,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="ProgressBarReporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.githash.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
@@ -168,4 +169,7 @@
     <None Include="Resources\Refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>"$(SolutionDir)createGitStatus.bat" "$(SolutionDir)gitStatus.txt" "$(ProjectDir)\Properties\AssemblyInfo.githash.cs"</PreBuildEvent>
+  </PropertyGroup>
 </Project>
