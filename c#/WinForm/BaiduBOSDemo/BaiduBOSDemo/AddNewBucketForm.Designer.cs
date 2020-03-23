@@ -36,9 +36,9 @@
             // 
             // bucketNameMetroTextBox_
             // 
-            this.bucketNameMetroTextBox_.Location = new System.Drawing.Point(13, 99);
+            this.bucketNameMetroTextBox_.Location = new System.Drawing.Point(23, 99);
             this.bucketNameMetroTextBox_.Name = "bucketNameMetroTextBox_";
-            this.bucketNameMetroTextBox_.Size = new System.Drawing.Size(271, 23);
+            this.bucketNameMetroTextBox_.Size = new System.Drawing.Size(253, 23);
             this.bucketNameMetroTextBox_.TabIndex = 1;
             this.bucketNameMetroTextBox_.TextChanged += new System.EventHandler(this.bucketNameMetroTextBox__TextChanged);
             // 
@@ -65,7 +65,7 @@
             // bucketNameMetroLabel_
             // 
             this.bucketNameMetroLabel_.AutoSize = true;
-            this.bucketNameMetroLabel_.Location = new System.Drawing.Point(12, 71);
+            this.bucketNameMetroLabel_.Location = new System.Drawing.Point(23, 77);
             this.bucketNameMetroLabel_.Name = "bucketNameMetroLabel_";
             this.bucketNameMetroLabel_.Size = new System.Drawing.Size(123, 19);
             this.bucketNameMetroLabel_.TabIndex = 0;

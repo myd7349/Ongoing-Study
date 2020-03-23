@@ -39,8 +39,6 @@
             }
             else
             {
-                CurrentBucket_ = settings_.CurrentBucket;
-
                 CreateBosClient();
                 UpdateBucketList();
             }
@@ -274,10 +272,10 @@
 
         private async void downloadToolStripButton__Click(object sender, EventArgs e)
         {
-            var objectListView = bucketTabControl_.SelectedTab.Controls[0] as BOSObjectListView;
-            Debug.Assert(objectListView != null);
+            var objectTable = bucketTabControl_.SelectedTab.Controls[0] as BOSObjectTable;
+            Debug.Assert(objectTable != null);
 
-            var objectKey = objectListView.SelectedItems[0].SubItems[0].Text;
+            var objectKey = objectTable.SelectedItems[0].Cells[0].Text;
 
             string filePath;
             using (var saveFileDialog = new SaveFileDialog())
@@ -354,6 +352,9 @@
 
             if (ok)
             {
+                if (File.Exists(filePath))
+                    File.Delete(filePath);
+
                 if (File.Exists(downloadingFilePath))
                     File.Move(downloadingFilePath, filePath);
 
@@ -384,13 +385,12 @@
 
         private async void deleteToolStripButton__Click(object sender, EventArgs e)
         {
-            var objectListView = bucketTabControl_.SelectedTab.Controls[0] as BOSObjectListView;
-            Debug.Assert(objectListView != null);
-            Debug.Assert(objectListView.SelectedItems.Count > 0);
+            var objectTable = bucketTabControl_.SelectedTab.Controls[0] as BOSObjectTable;
+            Debug.Assert(objectTable != null);
+            Debug.Assert(objectTable.SelectedItems.Length > 0);
 
-            var objectNames = objectListView.SelectedItems
-                .Cast<ListViewItem>()
-                .Select(item => item.SubItems[0].Text)
+            var objectNames = objectTable.SelectedItems
+                .Select(item => item.Cells[0].Text)
                 .ToArray();
             var answer = MessageBox.Show(
                 this,
@@ -427,13 +427,12 @@
 
         private void propertiesToolStripButton__Click(object sender, EventArgs e)
         {
-            var objectListView = bucketTabControl_.SelectedTab.Controls[0] as BOSObjectListView;
-            Debug.Assert(objectListView != null);
-            Debug.Assert(objectListView.SelectedItems.Count == 1);
+            var objectTable = bucketTabControl_.SelectedTab.Controls[0] as BOSObjectTable;
+            Debug.Assert(objectTable != null);
+            Debug.Assert(objectTable.SelectedItems.Length == 1);
 
-            var objectKey = objectListView.SelectedItems
-                .Cast<ListViewItem>()
-                .Select(item => item.SubItems[0].Text)
+            var objectKey = objectTable.SelectedItems
+                .Select(item => item.Cells[0].Text)
                 .First();
 
             using (var objectMetaDataForm = new ObjectMetaDataForm(bosClient_, CurrentBucket_, objectKey))
@@ -461,14 +460,15 @@
             UpdateObjectList();
         }
 
-        private void ObjectListView_SelectedIndexChanged(object sender, EventArgs e)
+        private void ObjectTable_SelectionChanged(object sender, XPTable.Events.SelectionEventArgs e)
         {
-            var objectListView = sender as BOSObjectListView;
-            Debug.Assert(objectListView != null);
+            var objectTable = sender as BOSObjectTable;
+            Debug.Assert(objectTable != null);
 
-            downloadToolStripButton_.Enabled = objectListView.SelectedItems.Count == 1;
-            deleteToolStripButton_.Enabled = objectListView.SelectedItems.Count > 0;
-            propertiesToolStripButton_.Enabled = objectListView.SelectedItems.Count == 1;
+            if (!toolStripProgressBar_.Visible)
+                downloadToolStripButton_.Enabled = objectTable.SelectedItems.Length == 1;
+            deleteToolStripButton_.Enabled = objectTable.SelectedItems.Length > 0;
+            propertiesToolStripButton_.Enabled = objectTable.SelectedItems.Length == 1;
         }
 
         private void CreateBosClient()
@@ -528,7 +528,7 @@
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    this,
+                    this, 
                     "Failed to get bucket list:\n" + ex.Message,
                     "Error:",
                     MessageBoxButtons.OK,
@@ -539,37 +539,47 @@
         private async void UpdateObjectList()
         {
             var tabPage = bucketTabControl_.SelectedTab;
-            BOSObjectListView objectListView;
+            BOSObjectTable objectTable;
             if (tabPage.Controls.Count == 0)
             {
-                objectListView = new BOSObjectListView();
-                objectListView.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
-                objectListView.Bounds = new Rectangle(4, 4, tabPage.Width - 8, tabPage.Height - 8);
-                objectListView.SelectedIndexChanged += ObjectListView_SelectedIndexChanged;
+                objectTable = new BOSObjectTable();
+                objectTable.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
+                objectTable.Bounds = new Rectangle(4, 4, tabPage.Width - 8, tabPage.Height - 8);
+                objectTable.DataSourceColumnBinder = new BOSObjectTableColumnBinder();
+                objectTable.SelectionChanged += ObjectTable_SelectionChanged;
 
-                tabPage.Controls.Add(objectListView);
+                tabPage.Controls.Add(objectTable);
             }
             else
             {
-                objectListView = tabPage.Controls[0] as BOSObjectListView;
+                objectTable = tabPage.Controls[0] as BOSObjectTable;
             }
 
             try
             {
-                objectListView.DataSource = await CreateObjectDataTable();
+                objectTable.BeginUpdate();
+                objectTable.DataMember = "";
+                objectTable.DataSource = await CreateObjectDataTable();
+                objectTable.EndUpdate();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(
+                    this,
+                    "Failed to get object table:\n" + ex.Message,
+                    "Error:",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
 
-            objectListView.AutoResizeColumns();
-            objectListView.SelectedItems.Clear();
+            objectTable.AutoResizeColumnWidths(); // TODO
+            //objectTable.SelectedItems.Clear(); // TODO
 
-            downloadToolStripButton_.Enabled = objectListView.SelectedItems.Count > 0;
-            deleteToolStripButton_.Enabled = objectListView.SelectedItems.Count > 0;
-            propertiesToolStripButton_.Enabled = objectListView.SelectedItems.Count == 1;
+            downloadToolStripButton_.Enabled = objectTable.SelectedItems.Length > 0;
+            deleteToolStripButton_.Enabled = objectTable.SelectedItems.Length > 0;
+            propertiesToolStripButton_.Enabled = objectTable.SelectedItems.Length == 1;
 
-            totalObjectsNumbertoolStripStatusLabel_.Text = objectListView.Items.Count.ToString();
+            totalObjectsNumbertoolStripStatusLabel_.Text = objectTable.RowCount.ToString();
         }
 
         private Task<DataTable> CreateObjectDataTable()
@@ -589,6 +599,8 @@
                     {
                         dataTable.Load(reader);
                     }
+
+                    dataTable.Columns.Add("Progress");
 
                     return dataTable;
                 });
@@ -622,3 +634,7 @@
 // https://stackoverflow.com/questions/32067034/how-to-handle-task-run-exception
 // https://stackoverflow.com/questions/731068/closing-a-form-from-the-load-handler
 // https://stackoverflow.com/questions/8750602/detect-when-a-form-has-been-closed-c-sharp
+// https://stackoverflow.com/questions/2467133/c-sharp-listview-with-a-progressbar
+// https://stackoverflow.com/questions/39181805/accessing-progressbar-in-listview
+// https://stackoverflow.com/questions/9488176/how-do-i-update-progressbar-in-objectlistview-or-xptable
+// https://stackoverflow.com/questions/37537765/uwp-update-multiple-progressbars-inside-listview

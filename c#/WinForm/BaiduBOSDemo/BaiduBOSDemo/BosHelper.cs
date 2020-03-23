@@ -106,7 +106,7 @@
                     return false;
                 }
 
-                using (var stream = fileInfo.OpenRead()) // TODO:
+                using (var stream = fileInfo.OpenRead())
                 {
                     var skipBytes = partSize * i;
                     stream.Seek(skipBytes, SeekOrigin.Begin);
