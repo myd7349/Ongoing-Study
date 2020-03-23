@@ -46,6 +46,32 @@
             }
         }
 
+        private void BaiduBOSForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (abortCancellationTokenSource_ != null)
+            {
+#if false
+                var reply = MessageBox.Show(
+                    this,
+                    "There are still some unfinished transfer tasks.\nDo you want to abort them and exit?",
+                    "Warning:",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning,
+                    MessageBoxDefaultButton.Button2);
+                if (reply == DialogResult.Yes)
+                    e.Cancel = true;
+#else
+                MessageBox.Show(
+                    this,
+                    "There are still some unfinished transfer tasks.\nIf you want to exit, please abort/cancel them first.",
+                    "Warning:",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                e.Cancel = true;
+#endif
+            }
+        }
+
         private void BaiduBOSForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Settings.Store(settings_);
@@ -493,7 +519,10 @@
                     else
                         bucketTabControl_.SelectedIndex = index;
 
-                    uploadToolStripButton_.Enabled = true;
+                    // If the ProgressBar is visible, it means we are uploading/downloading objects.
+                    // So, we should not enable the `Upload` button, as the user may upload a new object.
+                    if (!toolStripProgressBar_.Visible)
+                        uploadToolStripButton_.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -592,3 +621,4 @@
 // https://github.com/ukushu/TextProgressBar
 // https://stackoverflow.com/questions/32067034/how-to-handle-task-run-exception
 // https://stackoverflow.com/questions/731068/closing-a-form-from-the-load-handler
+// https://stackoverflow.com/questions/8750602/detect-when-a-form-has-been-closed-c-sharp
