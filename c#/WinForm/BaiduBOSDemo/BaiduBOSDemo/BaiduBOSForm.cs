@@ -234,7 +234,7 @@
             try
             {
                 ok = await bosClient_.UploadFileAsync(bosMultipartUploadRequest,
-                    new ProgressBarReporter(toolStripProgressBar_.ProgressBar, SynchronizationContext.Current));
+                    new Progress<int>(percentage => toolStripProgressBar_.ProgressBar.Value = percentage));
             }
             catch (Exception ex)
             {
@@ -338,7 +338,7 @@
             try
             {
                 ok = await bosClient_.DownloadFileAsync(bosDownloadRequest,
-                    new ProgressBarReporter(toolStripProgressBar_.ProgressBar, SynchronizationContext.Current));
+                    new Progress<int>(percentage => toolStripProgressBar_.ProgressBar.Value = percentage));
             }
             catch (Exception ex)
             {
@@ -638,3 +638,6 @@
 // https://stackoverflow.com/questions/39181805/accessing-progressbar-in-listview
 // https://stackoverflow.com/questions/9488176/how-do-i-update-progressbar-in-objectlistview-or-xptable
 // https://stackoverflow.com/questions/37537765/uwp-update-multiple-progressbars-inside-listview
+// [The Progress Reporting Pattern in C# 5 async, How to use it and how it works. By Nicholas Butler](http://simplygenius.net/Article/AncillaryAsyncProgress)
+// https://stackoverflow.com/questions/38719345/iprogresst-in-net-4-0
+// https://github.com/dotnet/runtime/blob/master/src/libraries/System.Private.CoreLib/src/System/Progress.cs
