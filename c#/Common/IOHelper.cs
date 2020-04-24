@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 
 
 namespace Common.IO
@@ -12,6 +13,9 @@ namespace Common.IO
         // Microsoft.VisualBasic.FileIO.FileSystem.FileExists
         public static bool IsFile(string path)
         {
+            // File.Exists(path) returns False if `path` is a directory.
+            return File.Exists(path);
+#if false
             try
             {
                 var attr = File.GetAttributes(path);
@@ -22,11 +26,15 @@ namespace Common.IO
                 Debug.WriteLine(e);
                 return false;
             }
+#endif
         }
 
         // Microsoft.VisualBasic.FileIO.FileSystem.DirectoryExists
         public static bool IsDirectory(string path)
         {
+            // File.Exists(path) returns False if `path` is a directory.
+            return Directory.Exists(path);
+#if false
             try
             {
                 var attr = File.GetAttributes(path);
@@ -37,6 +45,7 @@ namespace Common.IO
                 Debug.WriteLine(e);
                 return false;
             }
+#endif
         }
 
         public static bool IsAbsolute(string path)
@@ -51,11 +60,38 @@ namespace Common.IO
 
             return startPathUri.MakeRelativeUri(fullPathUri).ToString();
         }
+
+        public static string NormalizePath(string path, bool keepLastDirectorySeparator = true)
+        {
+            var fullPath = Path.GetFullPath(new Uri(path).LocalPath);
+
+            if (keepLastDirectorySeparator)
+                return fullPath;
+            else
+                return fullPath.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+        }
+
+        public static bool IsSamePath(string path1, string path2)
+        {
+            return NormalizePath(path1).ToUpperInvariant() == NormalizePath(path2).ToUpperInvariant();
+        }
+
+        public static bool IsDirectoryEmpty(string path)
+        {
+            return !Directory.EnumerateFileSystemEntries(path).Any();
+        }
+
+        public static string QuotePath(string path, bool force = false)
+        {
+            if ((force || path.Contains(' ')) && !path.Contains('"'))
+                return "\"" + path + "\"";
+            else
+                return path;
+        }
     }
 
     public static class DirUtils
     {
-        
         public static string[] ListDir(string path, bool silence = true)
         {
             try
@@ -123,3 +159,5 @@ namespace Common.IO
 //   IEnumerable<string> EnumerateFileSystemEntries (string path);
 // These three methods were added in Framework 4.0.
 //
+// [How can I compare (directory) paths in C#?](https://stackoverflow.com/questions/2281531/how-can-i-compare-directory-paths-in-c)
+// [How to quickly check if folder is empty (.NET)?](https://stackoverflow.com/questions/755574/how-to-quickly-check-if-folder-is-empty-net)

@@ -106,3 +106,26 @@ public static IEnumerable<TSource> OfType <TSource> (IEnumerable source)
 ```
 
 By the way, the implementation of `IPartition`, `ListPartition` can be found in [corefx::Partition.cs](https://github.com/dotnet/corefx/blob/master/src/System.Linq/src/System/Linq/Partition.cs).
+
+`TakeWhile` and `Where`:
+
+```csharp
+var names = new string[]
+{
+    "Tom",
+    null,
+    "Jerry",
+    "Lucy",
+    "",
+    "John",
+};
+
+foreach (var name in names.TakeWhile(name => !string.IsNullOrWhiteSpace(name)))
+    Console.WriteLine(name);
+
+foreach (var name in names.Where(name => !string.IsNullOrWhiteSpace(name)))
+    Console.WriteLine(name);
+
+// References:
+// https://stackoverflow.com/questions/12397880/using-linq-how-to-select-conditionally-some-items-but-when-no-conditions-select
+```

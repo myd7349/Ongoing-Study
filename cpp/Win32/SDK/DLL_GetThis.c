@@ -19,3 +19,4 @@ HMODULE DLL_GetThis()
 
 // References:
 // https://stackoverflow.com/questions/6924195/get-dll-path-at-runtime
+// https://blog.assarbad.net/20090716/how-to-get-the-instance-handle-of-a-dll/
