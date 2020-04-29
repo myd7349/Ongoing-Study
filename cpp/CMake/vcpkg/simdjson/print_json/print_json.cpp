@@ -1,10 +1,10 @@
+#include <cstdlib>
 #include <exception>
 #include <iostream>
 #include <string_view>
 
-#include <simdjson/jsonioutil.h>
-#include <simdjson/jsonparser.h>
-
+#include <simdjson.h>
+//#include <simdjson/document.h>
 
 int main(int argc, char *argv[])
 {
@@ -20,11 +20,18 @@ int main(int argc, char *argv[])
         {
             std::cout << ">> " << argv[i] << ":\n";
 
-            auto json = simdjson::get_corpus(argv[i]);
-            auto document = simdjson::build_parsed_json(json.data(), json.length());
-            document.print_json(std::cout);
+            auto json_result = simdjson::padded_string::load(argv[i]);
+            if (json_result.error() != simdjson::SUCCESS) {
+              std::cerr << "Failed to load JSON file: " << json_result.error() << '\n';
+              return EXIT_FAILURE;
+            }
 
-            std::cout << '\n';
+            auto &json = json_result.value();
+
+            simdjson::dom::parser parser;
+            auto parse_result = parser.parse(json.data(), json.length());
+
+            std::cout << parse_result << '\n';
         }
         catch (const std::exception &exc)
         {

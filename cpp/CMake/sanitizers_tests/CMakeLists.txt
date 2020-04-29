@@ -27,6 +27,7 @@ endforeach ()
 # References:
 # cJson/CMakeLists.txt
 # https://github.com/google/sanitizers/wiki/AddressSanitizer
+# https://github.com/googleapis/google-cloud-cpp/pull/2737
 # https://stackoverflow.com/questions/44320465/whats-the-proper-way-to-enable-addresssanitizer-in-cmake-that-works-in-xcode
 # https://github.com/googleapis/google-cloud-cpp/blob/v0.9.x/cmake/EnableSanitizers.cmake
 # https://github.com/google/sanitizers
@@ -46,3 +47,12 @@ endforeach ()
 # https://github.com/CaseyCarter/cmcstl2/blob/master/config/cmake/FindSanitizer.cmake
 # https://github.com/lighttransport/nnview/tree/master/cmake/sanitizers
 # https://github.com/lighttransport/nanort/tree/master/cmake
+# https://github.com/simdjson/simdjson/blob/76b0bfa7f5f0cc74b5fec8244d6f9cda96e67872/simdjson-flags.cmake#L80-L89
+# target_compile_options(simdjson-flags INTERFACE -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined -fno-sanitize-recover=all)
+# target_link_libraries(simdjson-flags INTERFACE -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined -fno-sanitize-recover=all)
+# 
+# [undefined reference to '_asan_init_v4' when compiling](https://stackoverflow.com/questions/42482494/undefined-reference-to-asan-init-v4-when-compiling)
+# [How to use AddressSanitizer with GCC?](https://stackoverflow.com/questions/37970758/how-to-use-addresssanitizer-with-gcc)
+# https://clang.llvm.org/docs/AddressSanitizer.html
+# [How I'm supposed to use the sanitizer in clang?](https://stackoverflow.com/questions/22699881/how-im-supposed-to-use-the-sanitizer-in-clang)
+# https://lemire.me/blog/2016/04/20/no-more-leaks-with-sanitize-flags-in-gcc-and-clang/

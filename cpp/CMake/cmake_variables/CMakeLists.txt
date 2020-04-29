@@ -32,6 +32,10 @@ set(vars
     PROJECT_VERSION_MAJOR
     PROJECT_VERSION_MINOR
     PROJECT_VERSION_PATCH
+    WIN32
+    MSVC
+    MINGW
+    CYGWIN
 )
 
 foreach (_v ${vars})
