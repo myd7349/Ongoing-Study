@@ -53,3 +53,6 @@
 14. Threads
 * [cmake and libpthread](https://stackoverflow.com/questions/1620918/cmake-and-libpthread)
 * [Significance of -pthread flag when compiling](https://stackoverflow.com/questions/2127797/significance-of-pthread-flag-when-compiling)
+
+15. CMAKE_BUILD_TYPE
+* [CMAKE_BUILD_TYPE is not being used in CMakeLists.txt](https://stackoverflow.com/questions/24460486/cmake-build-type-is-not-being-used-in-cmakelists-txt)

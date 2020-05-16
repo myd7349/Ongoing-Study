@@ -211,7 +211,7 @@ class ECGDataset(dicom.dataset.FileDataset):
             assert 1 <= channel_cnt <= 24  # PS3.3 A.34.4.4.3 Number of Waveform Channels
 
         assert 200 <= self._sampling_frequency <= 1000 # DICOM PS3.3-2015a A.34.3.4.6
-                
+
         while data_file_total_samples > 0:
             seq_item = dicom.dataset.Dataset()
             seq_item.WaveformOriginality = 'ORIGINAL'  # Type 1

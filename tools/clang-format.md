@@ -23,3 +23,5 @@ https://github.com/zeromq/zproject/issues/1070
 [How do I add clang-formatting to pre-commit hook?](https://stackoverflow.com/questions/55965712/how-do-i-add-clang-formatting-to-pre-commit-hook)
 
 [clang-format-hooks](https://github.com/barisione/clang-format-hooks)
+
+https://github.com/SemaiCZE/inicpp/blob/381509d335392e1c1e121375a86f622f6cc310f4/CMakeLists.txt#L97-L110

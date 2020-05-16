@@ -6,9 +6,20 @@ include(GNUInstallDirs)
 
 option(GPERFTOOLS_BUILD_TOOLS "Build tools" ON)
 
-if (WIN32) # TODO: MINGW, MSYS
+if(WIN32) # TODO: MINGW, MSYS
     option(GPERFTOOLS_WIN32_OVERRIDE "Override allocators" OFF)
-endif ()
+endif()
+
+set(deprecated_public_headers
+    src/google/heap-checker.h
+    src/google/heap-profiler.h
+    src/google/malloc_extension.h
+    src/google/malloc_extension_c.h
+    src/google/malloc_hook.h
+    src/google/malloc_hook_c.h
+    src/google/profiler.h
+    src/google/stacktrace.h
+)
 
 set(gperftools_public_headers
     src/gperftools/heap-checker.h
@@ -22,7 +33,11 @@ set(gperftools_public_headers
     src/gperftools/stacktrace.h
 )
 
-if (WIN32) # TODO: MINGW, MSYS
+if(WIN32) # TODO: MINGW, MSYS
+    list(APPEND deprecated_public_headers
+        src/windows/google/tcmalloc.h
+    )
+
     list(APPEND gperftools_public_headers
         src/windows/gperftools/tcmalloc.h
     )
@@ -118,28 +133,28 @@ if (WIN32) # TODO: MINGW, MSYS
         src/windows/system-alloc.cc
     )
 
-    if (GPERFTOOLS_WIN32_OVERRIDE)
+    if(GPERFTOOLS_WIN32_OVERRIDE)
         list(APPEND libtcmalloc_minimal_sources src/windows/override_functions.cc)
-    else ()
+    else()
         list(APPEND libtcmalloc_minimal_sources src/windows/patch_functions.cc)
-    endif ()
+    endif()
 
     set_property(GLOBAL PROPERTY USE_FOLDERS ON)
     source_group("Header Files" FILES ${libtcmalloc_minimal_headers})
     source_group("Source Files" FILES ${libtcmalloc_minimal_sources})
 
-    if (GPERFTOOLS_WIN32_OVERRIDE)
+    if(GPERFTOOLS_WIN32_OVERRIDE)
         add_library(libtcmalloc_minimal
             STATIC
             ${libtcmalloc_minimal_headers}
             ${libtcmalloc_minimal_sources}
         )
-    else ()
+    else()
         add_library(libtcmalloc_minimal
             ${libtcmalloc_minimal_headers}
             ${libtcmalloc_minimal_sources}
         )
-    endif ()
+    endif()
 
     target_compile_definitions(
         libtcmalloc_minimal
@@ -168,6 +183,10 @@ if (WIN32) # TODO: MINGW, MSYS
             >
     )
 
+    install(FILES ${deprecated_public_headers}
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/google
+    )
+
     install(FILES ${gperftools_public_headers}
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/gperftools
     )
@@ -179,7 +198,7 @@ if (WIN32) # TODO: MINGW, MSYS
         INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
     )
 
-    if (GPERFTOOLS_BUILD_TOOLS)
+    if(GPERFTOOLS_BUILD_TOOLS)
         add_executable(addr2line-pdb src/windows/addr2line-pdb.c)
         target_link_libraries(addr2line-pdb PRIVATE DbgHelp)
 
@@ -187,10 +206,9 @@ if (WIN32) # TODO: MINGW, MSYS
         target_link_libraries(nm-pdb PRIVATE DbgHelp)
 
         install(TARGETS addr2line-pdb nm-pdb DESTINATION ${CMAKE_INSTALL_BINDIR})
-    endif ()
-else ()
-endif ()
-
+    endif()
+else()
+endif()
 
 # References:
 # wepoll

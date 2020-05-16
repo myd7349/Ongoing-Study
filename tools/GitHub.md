@@ -13,3 +13,4 @@ Here’s how we suggest you go about proposing a change to this project:
 3. Make your changes to your fork.
 4. Send a pull request from your fork’s branch to our master branch.
 
+[Creating an official github mirror](https://stackoverflow.com/questions/11370239/creating-an-official-github-mirror)

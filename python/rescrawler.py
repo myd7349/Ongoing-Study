@@ -200,3 +200,6 @@ if __name__ == '__main__':
 # https://stackoverflow.com/questions/37748105/how-to-use-progressbar-module-with-urlretrieve
 # http://docopt.org/
 # https://github.com/docopt/docopt
+# https://stackoverflow.com/questions/4533304/python-urlretrieve-limit-rate-and-resume-partial-download
+# https://stackoverflow.com/questions/2021519/download-file-using-urllib-in-python-with-the-wget-c-feature
+# https://github.com/berdario/resumable-urlretrieve

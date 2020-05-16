@@ -125,3 +125,5 @@ namespace Common.IO
 // https://github.com/dotnet/corefx/blob/master/src/Common/src/CoreLib/System/IO/BinaryWriter.cs
 // ./BinaryWriterEx.cs
 // https://github.com/caryll/otfcc/blob/master/lib/support/bin-io.h
+// https://sourceforge.net/projects/dicom-cs/files/dicom-cs/dicom-0_3_1/
+// > org/dicomcs/util/BEBinaryReader.cs

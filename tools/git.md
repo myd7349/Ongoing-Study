@@ -246,3 +246,16 @@ Client:
 * [Fork](https://git-fork.com/)
 * [GitUp](https://gitup.co/)
 * [SmartGit](https://www.syntevo.com/smartgit/)
+
+[Mirror a repo](http://blog.plataformatec.com.br/2013/05/how-to-properly-mirror-a-git-repository/)
+> However, what we want with mirroring is to replicate the state of an origin repository (or upstream repository). By state, we mean all the branches (including master) and all the tags as well.
+
+```bash
+$ git clone --mirror git@example.com/upstream-repository.git
+$ cd upstream-repository.git
+$ git push --mirror git@example.com/new-location.git
+```
+
+[ORIG_HEAD, FETCH_HEAD, MERGE_HEAD etc](https://stackoverflow.com/questions/17595524/orig-head-fetch-head-merge-head-etc)
+
+[git hook](https://githooks.com/)
