@@ -56,3 +56,13 @@
 
 15. CMAKE_BUILD_TYPE
 * [CMAKE_BUILD_TYPE is not being used in CMakeLists.txt](https://stackoverflow.com/questions/24460486/cmake-build-type-is-not-being-used-in-cmakelists-txt)
+
+16. CMAKE_CXX_COMPILER_ID
+* [In CMake, how can I test if the compiler is Clang?](https://stackoverflow.com/questions/10046114/in-cmake-how-can-i-test-if-the-compiler-is-clang)
+
+17. C++17
+* [How to enable C++17 in CMake](https://stackoverflow.com/questions/45688522/how-to-enable-c17-in-cmake)
+> target_compile_features(${TARGET_NAME} PRIVATE cxx_std_17)
+
+18.
+* [CMAKE_RUNTIME_OUTPUT_DIRECTORY](https://github.com/microsoft/vcpkg/issues/11547#issuecomment-633211556)

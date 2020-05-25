@@ -90,3 +90,4 @@
 // https://github.com/dotnet/coreclr/blob/5068bb8820ebd1820e70aea091bf56b19ae84f13/src/System.Private.CoreLib/shared/System/Buffers/Binary/Reader.cs#L24-L126
 // https://sourceforge.net/projects/dicom-cs/files/dicom-cs/dicom-0_3_1/
 // > org/dicomcs/util/BEBinaryReader.cs
+// https://github.com/ddiakopoulos/tinyply/blob/ca7b279fb6c9af931ffdaed96a3b11ca3ccd79ea/source/tinyply.h#L195-L213

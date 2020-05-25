@@ -28,7 +28,6 @@ foreach (test_src_file
     target_include_directories(
         ${test_name}
         PRIVATE
-            ${CMOCKA_INCLUDE_DIR}
             ${CMAKE_CURRENT_LIST_DIR}
     )
 
@@ -36,7 +35,7 @@ foreach (test_src_file
         ${test_name}
         PRIVATE
             roaring::roaring
-            ${CMOCKA_LIBRARIES}
+            cmocka::cmocka
     )
 
     add_test(${test_name} ${test_name})

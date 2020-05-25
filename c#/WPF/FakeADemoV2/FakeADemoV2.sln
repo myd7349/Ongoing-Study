@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30021.99
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeAD", "FakeAD\FakeAD.csproj", "{A43BD800-0EA2-4ED9-9C62-C806EB228370}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeADDemoV2", "FakeADDemoV2\FakeADDemoV2.csproj", "{D232596D-DFFD-4BFB-94B5-C58F1B6F1221}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A43BD800-0EA2-4ED9-9C62-C806EB228370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A43BD800-0EA2-4ED9-9C62-C806EB228370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A43BD800-0EA2-4ED9-9C62-C806EB228370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A43BD800-0EA2-4ED9-9C62-C806EB228370}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D232596D-DFFD-4BFB-94B5-C58F1B6F1221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D232596D-DFFD-4BFB-94B5-C58F1B6F1221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D232596D-DFFD-4BFB-94B5-C58F1B6F1221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D232596D-DFFD-4BFB-94B5-C58F1B6F1221}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1623A8A-F084-4980-8333-D6C616B044A3}
+	EndGlobalSection
+EndGlobal

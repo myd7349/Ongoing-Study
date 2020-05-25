@@ -14,3 +14,7 @@ Here’s how we suggest you go about proposing a change to this project:
 4. Send a pull request from your fork’s branch to our master branch.
 
 [Creating an official github mirror](https://stackoverflow.com/questions/11370239/creating-an-official-github-mirror)
+
+[How do I re-run Github Actions?](https://stackoverflow.com/questions/56435547/how-do-i-re-run-github-actions)
+
+[Line endings](https://help.github.com/en/github/using-git/configuring-git-to-handle-line-endings)

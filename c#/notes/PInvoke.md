@@ -4,6 +4,8 @@
 
 [How to import void * C API into C#?](https://stackoverflow.com/questions/521774/how-to-import-void-c-api-into-c)
 
+https://github.com/labstreaminglayer/liblsl-Csharp/blob/master/LSL.cs
+
 [PInvoke for C function that returns char \*](https://stackoverflow.com/questions/370079/pinvoke-for-c-function-that-returns-char)
 
 C:
@@ -51,3 +53,5 @@ private static extern void FreeFileContentsNative(IntPtr text);
 ```
 
 [pinvoke to function which returns string array](https://stackoverflow.com/questions/22126172/pinvoke-to-function-which-returns-string-array)
+
+https://github.com/texus/TGUI.Net/blob/ff5804eb082c3677d5b2bbe13be1b48b63397407/src/Global.cs#L35-L41

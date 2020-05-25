@@ -11,3 +11,13 @@ https://github.com/amrayn/licensepp
 https://github.com/open-license-manager/open-license-manager
 
 https://github.com/plstcharles/meta-licensor
+
+https://github.com/amrayn/licensepp/issues/31
+
+https://github.com/akio-tanaka/lickey
+
+https://stackoverflow.com/questions/8294475/c-api-license-management-to-protect-a-software
+
+https://www.codeproject.com/articles/8902/a-simple-software-key-useful-to-protect-software-c
+
+http://activelock.sourceforge.net/documents/tutorials/BasicTutorial.html

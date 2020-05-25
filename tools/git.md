@@ -259,3 +259,17 @@ $ git push --mirror git@example.com/new-location.git
 [ORIG_HEAD, FETCH_HEAD, MERGE_HEAD etc](https://stackoverflow.com/questions/17595524/orig-head-fetch-head-merge-head-etc)
 
 [git hook](https://githooks.com/)
+
+[How can one change the timestamp of an old commit in Git?](https://stackoverflow.com/questions/454734/how-can-one-change-the-timestamp-of-an-old-commit-in-git)
+```bash
+git filter-branch --env-filter \
+    'if [ $GIT_COMMIT = 119f9ecf58069b265ab22f1f97d2b648faf932e0 ]
+     then
+         export GIT_AUTHOR_DATE="Fri Jan 2 21:38:53 2009 -0800"
+         export GIT_COMMITTER_DATE="Sat May 19 01:01:01 2007 -0700"
+     fi'
+```
+
+[How can I get the Git commit hash in my PS script?](https://stackoverflow.com/questions/43962860/how-can-i-get-the-git-commit-hash-in-my-ps-script)
+
+[Trying to find out if Git is installed via Powershell?](https://stackoverflow.com/questions/46743845/trying-to-find-out-if-git-is-installed-via-powershell)
