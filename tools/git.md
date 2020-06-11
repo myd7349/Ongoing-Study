@@ -273,3 +273,5 @@ git filter-branch --env-filter \
 [How can I get the Git commit hash in my PS script?](https://stackoverflow.com/questions/43962860/how-can-i-get-the-git-commit-hash-in-my-ps-script)
 
 [Trying to find out if Git is installed via Powershell?](https://stackoverflow.com/questions/46743845/trying-to-find-out-if-git-is-installed-via-powershell)
+
+[git diff ^M](https://help.github.com/en/github/using-git/configuring-git-to-handle-line-endings)

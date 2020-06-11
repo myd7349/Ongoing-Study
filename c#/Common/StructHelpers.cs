@@ -31,3 +31,21 @@
 // References:
 // Ongoing-Study/C#/notes/ReadBytesIntoAStruct.linq
 // https://stackoverflow.com/questions/3278827/how-to-convert-a-structure-to-a-byte-array-in-c
+// https://stackoverflow.com/questions/7030150/copying-byte-array-to-various-fields-in-class-struct-in-c-sharp
+/*
+unsafe struct ExampleClass
+{
+   public ulong field1;
+   public uint field2
+   public ushort field3
+   public fixed byte field4[18];
+
+   public static ExampleClass ReadStruct(byte[] data)
+   {
+       fixed (byte* pb = &data[0])
+       {
+           return *(ExampleClass*)pb;
+       }
+   }
+}
+*/

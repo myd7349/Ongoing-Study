@@ -66,3 +66,12 @@
 
 18.
 * [CMAKE_RUNTIME_OUTPUT_DIRECTORY](https://github.com/microsoft/vcpkg/issues/11547#issuecomment-633211556)
+
+19. libm
+* [Can CMake detect if I need to link to libm when using pow in C?](https://stackoverflow.com/questions/32816646/can-cmake-detect-if-i-need-to-link-to-libm-when-using-pow-in-c)
+
+20.
+* [CMake install](https://github.com/uriparser/uriparser/pull/75)
+
+21
+* [CMAKE_CURRENT_SOURCE_DIR vs PROJECT_SOURCE_DIR](https://github.com/mandreyel/mio/commit/61567f4c579aeb2ec1ab8f6bc285de461c7149a8)

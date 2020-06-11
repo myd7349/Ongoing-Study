@@ -1,16 +1,15 @@
 ﻿namespace FakeADDemoV2
 {
     using System;
+    using System.Diagnostics;
     using System.Linq;
     using System.Windows;
     using System.Windows.Media;
     using System.Windows.Threading;
 
-    using Microsoft.Research.DynamicDataDisplay;
     using Microsoft.Research.DynamicDataDisplay.DataSources;
 
     using FakeAD;
-    using System.Diagnostics;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -76,7 +75,7 @@
             }
         }
 
-        private const int Samples = 64;
+        private const int Samples = 100;
         private const int SecondsPerScreen = 10;
         private ObservableDataSource<Point> dataSource_ = new ObservableDataSource<Point>();
         private DispatcherTimer dispatcherTimer_ = new DispatcherTimer();

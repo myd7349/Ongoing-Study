@@ -47,3 +47,8 @@ function getLastCommitHash()
     }
 }
 ```
+
+[touch](https://stackoverflow.com/questions/51841259/touch-function-in-powershell)
+```powershell
+echo $null > .gitkeep
+```

@@ -94,12 +94,14 @@
     <Compile Include="PropertyChangedExEventArgs.cs" />
     <Compile Include="PropertyChangedExEventHandler.cs" />
     <Compile Include="RandomExtension.cs" />
+    <Compile Include="RegistryHelper.cs" />
     <Compile Include="RegistryKeyExtension.cs" />
     <Compile Include="SingletonApplication.cs" />
     <Compile Include="StringExtension.cs" />
     <Compile Include="StructHelpers.cs" />
     <Compile Include="TabControlEx.cs" />
     <Compile Include="ValueWithDefault.cs" />
+    <Compile Include="Zip.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
