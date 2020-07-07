@@ -1,11 +1,14 @@
 ﻿// 2016-06-02T16:40+08:00
+using Common;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace ECGLeads
 {
     enum Lead
     {
+        [Description("Lead I")]
         I,
         II,
         III,
@@ -45,8 +48,12 @@ namespace ECGLeads
             Console.WriteLine("{0}", Lead.II.ToString());
             Console.WriteLine((Lead)1);
 
-            foreach (var kv in Common.EnumHelper<Lead>.EnumNamesDict)
+            foreach (var kv in Common.EnumHelper<Lead>.EnumValueToNameDict)
                 Console.WriteLine("{0,2}: {1,3}", (int)kv.Key, kv.Value);
+
+            var leadIDescription = Lead.I.GetDescription();
+            Console.WriteLine(leadIDescription);
+            Console.WriteLine(EnumHelper<Lead>.EnumDescriptionToValueDict[leadIDescription].ToString());
 
             Common.Util.Pause();
         }

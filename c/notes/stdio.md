@@ -184,3 +184,10 @@ If `<command>` contains spaces in it, quote the whole command just before passin
 
 [launch an exe/process with stdin stdout and stderr?](https://stackoverflow.com/questions/5485923/launch-an-exe-process-with-stdin-stdout-and-stderr/39648986)
 
+15.
+
+[fgets to read line by line in files](https://stackoverflow.com/questions/21180248/fgets-to-read-line-by-line-in-files)
+```c
+    while (fgets(line, MAX_LINE_SIZE, fp) != NULL)
+        ++col;
+```

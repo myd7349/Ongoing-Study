@@ -5,3 +5,4 @@ Projects using `pybind11`
 * [xeus-python](https://github.com/QuantStack/xeus-python)
 * [dlib](https://github.com/davisking/dlib/blob/master/setup.py)
 * [bimpy](https://github.com/podgorskiy/bimpy)
+* [pysimdjson](https://github.com/TkTech/pysimdjson)

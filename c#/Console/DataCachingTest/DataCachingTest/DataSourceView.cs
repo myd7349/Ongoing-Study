@@ -39,6 +39,9 @@
 
             count = Math.Min(count, DataSource.Length - start);
 
+            if (start >= DataSource.Length || count == 0)
+                return new int[0];
+
             if (UpdateDataCache(start, count))
             {
                 Debug.WriteLine("Expected data range: [{0}, {1}), data cache range: [{2}, {3})",
@@ -82,9 +85,12 @@
                 return true;
 
             if (cachedDataStartPosition_ == -1 ||
-                start + count < cachedDataStartPosition_ ||
+                start + count <= cachedDataStartPosition_ ||
                 start >= cachedDataStartPosition_ + cachedData_.Length)
             {
+                if (start + cachedData_.Length > DataSource.Length)
+                    start = DataSource.Length - cachedData_.Length;
+
                 DataSource.Position = start;
 
                 int position = 0;
@@ -126,6 +132,8 @@
                         cachedData_, freshDataPackToRead,
                         cachedData_, 0,
                         cachedData_.Length - freshDataPackToRead);
+
+                    DataSource.Position = cachedDataStartPosition_ + cachedData_.Length;
 
                     int position = cachedData_.Length - freshDataPackToRead;
                     foreach (var data in DataSource.Read(freshDataPackToRead))

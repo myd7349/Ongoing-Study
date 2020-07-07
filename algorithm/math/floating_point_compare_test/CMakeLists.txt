@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.8)
+project(floating_point_compare_test C)
+add_library(floating_point_compare "${CMAKE_CURRENT_LIST_DIR}/../floating_point_compare.c")
+target_include_directories(floating_point_compare PUBLIC "${CMAKE_CURRENT_LIST_DIR}/../")
+add_executable(floating_point_compare_test floating_point_compare_test.c)
+target_link_libraries(floating_point_compare_test PRIVATE floating_point_compare)

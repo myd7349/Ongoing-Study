@@ -62,3 +62,6 @@ endif ()
 # https://stackoverflow.com/questions/26434308/cmake-system-name-blank
 # https://blog.kitware.com/cmake-and-the-default-build-type/
 # https://stackoverflow.com/questions/16667017/cmake-express-the-greater-or-equal-statement
+# [What is the relationship between CMAKE_VS_PLATFORM_TOOLSET and MSVC_TOOLSET_VERSION?](https://gitlab.kitware.com/cmake/cmake/-/issues/17976)
+# > CMAKE_VS_PLATFORM_TOOLSET is set only when using a Visual Studio generator.  It is the toolset name as MSBuild sees it, and can be v110 or v110_xp and such.
+# https://github.com/simdjson/simdjson/pull/1009

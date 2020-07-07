@@ -25,7 +25,7 @@ include(FetchContent)
 FetchContent_Declare(
     marl
     GIT_REPOSITORY https://github.com/google/marl
-    GIT_TAG        00433d41804f52af29ef6f386f4c479f48c63e66
+    GIT_TAG        45be9b248306e6ec3136efdd256d769c23b581d1
 )
 
 FetchContent_GetProperties(marl)

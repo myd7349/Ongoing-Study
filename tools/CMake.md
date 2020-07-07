@@ -75,3 +75,7 @@
 
 21
 * [CMAKE_CURRENT_SOURCE_DIR vs PROJECT_SOURCE_DIR](https://github.com/mandreyel/mio/commit/61567f4c579aeb2ec1ab8f6bc285de461c7149a8)
+
+22.
+* https://github.com/llvm/llvm-project/commit/bb73d1b278eb478ca8e56153cf1469bf7eb13a3f
+> include_directories(AFTER ${CMAKE_CURRENT_BINARY_DIR})
