@@ -6,7 +6,7 @@
 #include "../ConfigItem.hpp"
 #include "../IniConfigItemProvider.h"
 #include "../IPv4AddressItem.h"
-#include "../../common.h"
+#include "../ColorRefConverter.hpp"
 
 #include <shlwapi.h>
 #pragma comment(lib, "shlwapi.lib")
@@ -58,6 +58,8 @@ int wmain(int argc, wchar_t *argv[])
     IN_ADDR in_addr;
     in_addr.s_addr = ntohl(MAKEIPADDRESS(192, 168, 10, 1));
     IPv4AddressItem ipv4_3(ini, L"Server", L"IP-3", in_addr);
+    
+    ColorRefItem skyBlue(ini, L"Colors", L"Sky", RGB(166, 202, 240));
 
     if (!PathFileExistsW(iniPath.c_str()))
     {
@@ -68,6 +70,7 @@ int wmain(int argc, wchar_t *argv[])
         e.Store();
         ipv4.Store();
         ipv4_3.Store();
+        skyBlue.Store();
     }
     else
     {
@@ -78,6 +81,10 @@ int wmain(int argc, wchar_t *argv[])
         std::wcout << L"e: " << e.GetValue() << std::endl;
         std::wcout << L"IP-2: " << ConfigItemConverter<IN_ADDR>().ToString(ipv4.GetValue()) << std::endl;
         std::wcout << L"IP-3: " << ConfigItemConverter<IN_ADDR>().ToString(ipv4_3.GetValue()) << std::endl;
+        std::wcout << L"Skyblue: ("
+            << GetRValue(skyBlue.GetValue().Color) << ", "
+            << GetGValue(skyBlue.GetValue().Color) << ", "
+            << GetBValue(skyBlue.GetValue().Color) << ")\n";
     }
 
     portNumber.SetValue(portNumber.GetValue() + 1);
@@ -98,8 +105,6 @@ int wmain(int argc, wchar_t *argv[])
         inAddr.s_impno++;
         ipv4.SetValue(inAddr);
     }
-
-    PAUSE();
 
     return 0;
 }

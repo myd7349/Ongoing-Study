@@ -3,19 +3,12 @@
 
 import math
 import os.path
-import urllib.request
 
+from detecta.detect_peaks import _plot  # pip install detecta, https://github.com/demotu/detecta
 import numpy as np
 
 root_dir = os.path.dirname(__file__)
 same_dir = lambda entry: os.path.join(root_dir, entry)
-
-if not os.path.isfile(same_dir('detect_peaks.py')):
-    urllib.request.urlretrieve(
-        'https://raw.githubusercontent.com/demotu/BMC/master/functions/detect_peaks.py',
-        same_dir('detect_peaks.py'))
-
-import detect_peaks
 
 
 def find_peaks(x, mph=None, mpd=1, threshold=0, edge='rising',
@@ -36,6 +29,10 @@ def find_peaks(x, mph=None, mpd=1, threshold=0, edge='rising',
     ind = np.array(ind)
     
     if show:
-       detect_peaks._plot(x, mph, mpd, threshold, edge, valley, ax, np.array(ind))
+        _plot(x, mph, mpd, threshold, edge, valley, ax, np.array(ind), 'FindPeaks(C++)')
 
     return ind
+
+
+# References:
+# [How to import private functions with import *?](https://stackoverflow.com/questions/42950256/how-to-import-private-functions-with-import)

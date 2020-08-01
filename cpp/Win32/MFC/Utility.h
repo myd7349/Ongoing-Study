@@ -22,7 +22,7 @@ CString RemoveLastPathSep(const CString &strPath);
 __declspec(deprecated("Deprecated, use SHCreateDirectory(Ex) instead."))
 BOOL MakeFullPath(const CString &strPath);
 #else
-#define MakeFullPath(path) SHCreateDirectory(NULL, (path))
+#define MakeFullPath(path) (SHCreateDirectory(NULL, (path)) == ERROR_SUCCESS)
 #endif
 
 CString GetDirName(const CString &strPath);

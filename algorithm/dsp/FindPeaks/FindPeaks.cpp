@@ -8,7 +8,7 @@
 
 
 // A C++ port of https://github.com/demotu/BMC/blob/master/functions/detect_peaks.py
-
+// https://github.com/demotu/detecta/blob/master/detecta/detect_peaks.py
 std::size_t FindPeaks(const double *data, std::size_t length,
     std::deque<std::size_t> &peaks,
     double mph,
@@ -168,7 +168,7 @@ std::size_t FindPeaks(const double *data, std::size_t length,
         std::sort(peaks.begin(), peaks.end());
     }
 
-    return peaks.size();    
+    return peaks.size();
 }
 
 

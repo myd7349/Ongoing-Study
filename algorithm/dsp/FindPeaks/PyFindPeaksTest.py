@@ -1,14 +1,12 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import itertools
 import struct
 
 import numpy as np
 
 import PyFindPeaksEx
-import detect_peaks
-
+import detecta  # pip install detecta, https://github.com/demotu/detecta
 
 def do_test(x, **kwargs):
     if x is None:
@@ -17,7 +15,7 @@ def do_test(x, **kwargs):
         x[-1] = 20
         
     peaks1 = PyFindPeaksEx.find_peaks(x, **kwargs)
-    peaks2 = detect_peaks.detect_peaks(x, **kwargs)
+    peaks2 = detecta.detect_peaks(x, **kwargs)
 
     print(peaks1)
     print(peaks2)
@@ -48,7 +46,7 @@ def main():
     data = struct.unpack('<' + 'd' * (len(raw_data) // 8), raw_data)
     #data = [num[0] for num in struct.iter_unpack('<d', raw_data)]
     #data = list(itertools.chain.from_iterable(struct.iter_unpack('<d', raw_data)))
-    do_test(data, mph=0.05, mpd=100, show=True)
+    do_test(np.array(data), mph=0.05, mpd=100, show=True)
 
 if __name__ == '__main__':
     main()

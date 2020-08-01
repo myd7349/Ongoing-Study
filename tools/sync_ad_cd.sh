@@ -19,3 +19,4 @@ git filter-branch --env-filter \
 # [How do I set a variable to the output of a command in Bash?](https://stackoverflow.com/questions/4651437/how-do-i-set-a-variable-to-the-output-of-a-command-in-bash)
 # [Difference between author and committer in Git?](https://stackoverflow.com/questions/18750808/difference-between-author-and-committer-in-git)
 # [The shortest possible output from git log containing author and date](https://stackoverflow.com/questions/1441010/the-shortest-possible-output-from-git-log-containing-author-and-date)
+# [GIT: change commit date to author date](https://stackoverflow.com/questions/28536980/git-change-commit-date-to-author-date)

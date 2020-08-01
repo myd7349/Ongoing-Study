@@ -4,10 +4,10 @@
 import random
 import unittest
 
+import detecta
 import numpy as np
 
 import PyFindPeaksEx
-import detect_peaks
 
 
 class TestFindPeaks(unittest.TestCase):
@@ -16,7 +16,7 @@ class TestFindPeaks(unittest.TestCase):
         x[600:801] = np.nan
 
         peaks1 = PyFindPeaksEx.find_peaks(x, **kwargs)
-        peaks2 = detect_peaks.detect_peaks(x, **kwargs)
+        peaks2 = detecta.detect_peaks(x, **kwargs)
 
         self.assertTrue(np.array_equal(peaks1, peaks2))
 

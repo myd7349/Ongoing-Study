@@ -270,6 +270,9 @@ git filter-branch --env-filter \
      fi'
 ```
 
+[GIT: change commit date to author date](https://stackoverflow.com/questions/28536980/git-change-commit-date-to-author-date)
+> git rebase --committer-date-is-author-date
+
 [How can I get the Git commit hash in my PS script?](https://stackoverflow.com/questions/43962860/how-can-i-get-the-git-commit-hash-in-my-ps-script)
 
 [Trying to find out if Git is installed via Powershell?](https://stackoverflow.com/questions/46743845/trying-to-find-out-if-git-is-installed-via-powershell)

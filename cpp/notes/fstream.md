@@ -35,3 +35,9 @@ std::ifstream::pos_type GetFileSize(const char *filename)
 [Reading from text file until EOF repeats last line](https://stackoverflow.com/questions/21647/reading-from-text-file-until-eof-repeats-last-line)
 
 [Why is iostream::eof inside a loop condition (i.e. `while (!stream.eof())`) considered wrong?](https://stackoverflow.com/questions/5605125/why-is-iostreameof-inside-a-loop-condition-i-e-while-stream-eof-cons)
+
+[ifstream, bytes read?](https://stackoverflow.com/questions/1937408/ifstream-bytes-read)
+```cpp
+ifs.read(buf, sizeof buf);
+std::streamsize bytes = ifs.gcount();
+```

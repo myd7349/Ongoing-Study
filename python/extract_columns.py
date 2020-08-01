@@ -63,7 +63,7 @@ def main():
         description='Extract specified columns of data from a text file',
     )
     parser.add_argument('--input-file', required=True, help='Input file path')
-    parser.add_argument('-encoding', help='Input/Output file encoding')
+    parser.add_argument('--encoding', help='Input/Output file encoding')
     parser.add_argument(
         '--header-lines', default=0, help='Count of header lines to skip')
     parser.add_argument('--delimiter', help='Column delimiter')

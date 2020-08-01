@@ -128,3 +128,4 @@ BOOL Execute(
 // Ongoing-Study/cpp/Win32/MFC/Utility.h
 // https://www.zhihu.com/question/37334646/answer/409253134
 // TortoiseGit/src/Utils/CreateProcessHelper.h
+// [AfxPumpMessage() is using for?](https://stackoverflow.com/questions/21304232/afxpumpmessage-is-using-for)

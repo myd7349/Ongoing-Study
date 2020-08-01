@@ -4,3 +4,4 @@
 * [py-graphqlparser](https://github.com/elastic-coders/py-graphqlparser)
 * [pyql](https://github.com/enthought/pyql)
 * [cpxlsxwriter](https://github.com/Hypers-HFA/cpxlsxwriter)
+* [chaco](https://github.com/enthought/chaco)

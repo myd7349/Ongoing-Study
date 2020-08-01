@@ -25,6 +25,7 @@
 - JavaScript
     - [JavaScript Style Guide](https://github.com/airbnb/javascript)
     - [Angular Style Guide](https://github.com/mgechev/angularjs-style-guide)
+    - [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript)
 
 - Kotlin
     - [Android Kotlin Guides](https://github.com/android/kotlin-guides)
