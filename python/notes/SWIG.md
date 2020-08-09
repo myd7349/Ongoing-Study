@@ -3,3 +3,4 @@
 [SimpleITK](https://github.com/SimpleITK/SimpleITK)
 [liblsl-Generic](https://github.com/labstreaminglayer/liblsl-Generic)
 [fir1](https://github.com/berndporr/fir1)
+[enable](https://github.com/enthought/enable)

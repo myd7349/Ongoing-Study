@@ -191,3 +191,13 @@ If `<command>` contains spaces in it, quote the whole command just before passin
     while (fgets(line, MAX_LINE_SIZE, fp) != NULL)
         ++col;
 ```
+
+[fwrite vs stdout](https://stackoverflow.com/questions/17259250/fwrite-doesnt-print-anything-to-stdout)
+```
+char s[5] = { 'H', 'e', 'l', 'l', 'o' };
+fwrite(s, 1, 5, stdout);
+fflush(stdout);
+```
+
+https://github.com/microsoft/vcpkg/blob/f1bef4aa7ca7e2a6ea4f5dfe4850d95fce60b431/toolsrc/src/vcpkg/base/system.print.cpp#L8
+

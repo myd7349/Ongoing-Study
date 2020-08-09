@@ -1,10 +1,9 @@
 ﻿cmake_minimum_required (VERSION 3.8)
-project ("dynamic_array_test")
-enable_testing()
-find_library(GTest REQUIRED)
-target_link_libraries(main PRIVATE GTest::GTest GTest::Main)
-add_test(AllTestsInMain main)
-
+project(dynamic_array_test C)
+add_library(dynamic_array "${CMAKE_CURRENT_LIST_DIR}/../dynamic_array.c")
+target_include_directories(dynamic_array PUBLIC "${CMAKE_CURRENT_LIST_DIR}/..")
+add_executable(dynamic_array_test dynamic_array_test.c)
+target_link_libraries(dynamic_array_test PRIVATE dynamic_array)
 
 # References:
 # https://github.com/Microsoft/vcpkg/issues/1094

@@ -41,3 +41,10 @@ std::ifstream::pos_type GetFileSize(const char *filename)
 ifs.read(buf, sizeof buf);
 std::streamsize bytes = ifs.gcount();
 ```
+
+[Why is iostream::eof inside a loop condition (i.e. `while (!stream.eof())`) considered wrong?](https://stackoverflow.com/questions/5605125/why-is-iostreameof-inside-a-loop-condition-i-e-while-stream-eof-cons)
+```cpp
+int data;
+while(inStream >> data) {
+}
+```

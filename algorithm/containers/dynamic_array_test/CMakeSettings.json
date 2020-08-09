@@ -10,13 +10,7 @@
             "installRoot": "${env.ProgramFiles(x86)}\\${name}",
             "cmakeCommandArgs": "",
             "buildCommandArgs": "",
-            "ctestCommandArgs": "",
-            "variables": [
-                {
-                    "name": "CMAKE_TOOLCHAIN_FILE",
-                    "value": "E:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
-                }
-            ]
+            "ctestCommandArgs": ""
         },
         {
             "name": "x86-Release",
@@ -27,30 +21,18 @@
             "installRoot": "${env.ProgramFiles(x86)}\\${name}",
             "cmakeCommandArgs": "",
             "buildCommandArgs": "",
-            "ctestCommandArgs": "",
-            "variables": [
-                {
-                    "name": "CMAKE_TOOLCHAIN_FILE",
-                    "value": "E:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
-                }
-            ]
+            "ctestCommandArgs": ""
         },
         {
             "name": "x64-Debug",
             "generator": "Ninja",
             "configurationType": "Debug",
             "inheritEnvironments": [ "msvc_x64" ],
-            "buildRoot": "${projectDir}\\build\\Release_x64",
+            "buildRoot": "${projectDir}\\build\\Debug_x64",
             "installRoot": "${env.ProgramFiles}\\${name}",
             "cmakeCommandArgs": "",
             "buildCommandArgs": "",
-            "ctestCommandArgs": "",
-            "variables": [
-                {
-                    "name": "CMAKE_TOOLCHAIN_FILE",
-                    "value": "E:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
-                }
-            ]
+            "ctestCommandArgs": ""
         },
         {
             "name": "x64-Release",
@@ -61,13 +43,7 @@
             "installRoot": "${env.ProgramFiles}\\${name}",
             "cmakeCommandArgs": "",
             "buildCommandArgs": "",
-            "ctestCommandArgs": "",
-            "variables": [
-                {
-                    "name": "CMAKE_TOOLCHAIN_FILE",
-                    "value": "E:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
-                }
-            ]
+            "ctestCommandArgs": ""
         }
     ]
 }
