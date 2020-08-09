@@ -172,6 +172,22 @@ std::size_t FindPeaks(const double *data, std::size_t length,
 }
 
 
+std::size_t FindPeaks(const double *data, std::size_t length,
+    std::size_t *peaks, double mph, std::size_t mpd, double threshold,
+    EdgeType edge, bool kpsh, bool valley)
+{
+    assert(data != nullptr);
+    assert(peaks != nullptr);
+
+    std::deque<std::size_t> pq;
+    std::size_t count = FindPeaks(data, length, pq, mph, mpd, threshold, edge, kpsh, valley);
+
+    std::copy(pq.cbegin(), pq.cend(), peaks);
+
+    return count;
+}
+
+
 // References:
 // MATLAB: findpeaks
 // https://stackoverflow.com/questions/1713335/peak-finding-algorithm-for-python-scipy/

@@ -112,6 +112,7 @@ CString FindFirstFileWithName(const CString &strFileName,
 BOOL GetPEFixedFileVersion(const CString &strExeOrDllFilePath, VS_FIXEDFILEINFO &ffi);
 CString GetPEFileVersion(const CString &strExeOrDllFilePath, BOOL bCompact = TRUE, BOOL bMoreCompact = FALSE);
 CString GetPEProductVersion(const CString &strExeOrDllFilePath, BOOL bCompact = TRUE, BOOL bMoreCompact = FALSE);
+CString GetFileInfoString(LPCTSTR lpcszExeOrDllFilePath, LPCTSTR lpcszStringName);
 CString GetModuleFilePath(HMODULE hModule = NULL);
 
 CString GetFullPath(LPCTSTR lpcszPath);

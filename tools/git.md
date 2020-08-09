@@ -278,3 +278,5 @@ git filter-branch --env-filter \
 [Trying to find out if Git is installed via Powershell?](https://stackoverflow.com/questions/46743845/trying-to-find-out-if-git-is-installed-via-powershell)
 
 [git diff ^M](https://help.github.com/en/github/using-git/configuring-git-to-handle-line-endings)
+
+[Configure Git to use a proxy](https://gist.github.com/evantoli/f8c23a37eb3558ab8765)

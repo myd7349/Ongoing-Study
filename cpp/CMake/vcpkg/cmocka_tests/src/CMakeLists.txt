@@ -3,8 +3,6 @@ find_package(roaring CONFIG REQUIRED)
 
 include(CTest)
 
-message(STATUS "CMOCKA_LIBRARIES: ${CMOCKA_LIBRARIES}")
-
 set(root_url "https://raw.githubusercontent.com/RoaringBitmap/CRoaring/master/tests/")
 
 foreach (test_src_file 
@@ -16,10 +14,12 @@ foreach (test_src_file
     "toplevel_unit.c"
     "util_unit.c"
     )
-    file(DOWNLOAD
-        "${root_url}${test_src_file}"
-        "${CMAKE_BINARY_DIR}/${test_src_file}"
-    )
+    if(NOT EXISTS "${CMAKE_BINARY_DIR}/${test_src_file}")
+        file(DOWNLOAD
+            "${root_url}${test_src_file}"
+            "${CMAKE_BINARY_DIR}/${test_src_file}"
+        )
+    endif()
 
     get_filename_component(test_name ${test_src_file} NAME_WE)
 

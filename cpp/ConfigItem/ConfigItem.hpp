@@ -11,7 +11,7 @@ struct ConfigItem
     typedef const CharT *StringT;
 
     ConfigItem(IConfigItemProvider<CharT> &provider,
-        StringT section, StringT name, T defaultValue,
+        StringT section, StringT name, T defaultValue = T(),
         bool autoSync = true, ConverterT converter = ConverterT())
         : provider_(provider)
         , section_(section)
@@ -37,7 +37,7 @@ struct ConfigItem
     // If you really want to define a string-likely ConfigItem, use
     // ConfigItem<std::string, char>/ConfigItem<std::wstring, wchar_t> instead.
     ConfigItem(IConfigItemProvider<CharT> &provider,
-        StringT section, StringT name, StringT defaultValue,
+        StringT section, StringT name, StringT defaultValue = StringT(),
         bool autoSync = true, ConverterT converter = ConverterT())
         : provider_(provider)
         , section_(section)
@@ -84,6 +84,11 @@ struct ConfigItem
 
         return value_;
     }
+    
+    T operator()() const
+    {
+        return GetValue();
+    }
 
     T SetValue(T value)
     {
@@ -94,6 +99,11 @@ struct ConfigItem
         }
 
         return value_;
+    }
+    
+    T operator=(T value)
+    {
+        return SetValue(value);
     }
 
     T Reset()
@@ -174,7 +184,7 @@ private:
 
 
 template <typename T, typename CharT>
-inline T LoadItem(IConfigItemProvider<CharT> &provider, const CharT *section, const CharT *name, T defaultValue)
+inline T LoadItem(IConfigItemProvider<CharT> &provider, const CharT *section, const CharT *name, T defaultValue = T())
 {
     ConfigItem<T, CharT, ConfigItemConverter<T, CharT>> configItem(provider, section, name, defaultValue, true);
     return configItem.GetValue();

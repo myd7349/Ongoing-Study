@@ -52,3 +52,9 @@ function getLastCommitHash()
 ```powershell
 echo $null > .gitkeep
 ```
+
+[Use PowerShell to Set Environment Variables](https://www.tachytelic.net/2019/03/powershell-environment-variables/)
+```
+$env:HTTP_PROXY='127.0.0.1:7079'
+Get-ChildItem Env:HTTP_PROXY
+```

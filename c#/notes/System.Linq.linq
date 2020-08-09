@@ -34,6 +34,33 @@ IEnumerable<short> ReadData(BinaryReader reader, int ch, int count)
         yield return Unpack(dataPack).ToArray()[ch];
 }
 
+// [Get indexes of all matching values from list using Linq](https://stackoverflow.com/questions/13055391/get-indexes-of-all-matching-values-from-list-using-linq)
+void FindAllOnesV1()
+{
+    var result = new int[] { 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0 };
+    var indices = Enumerable.Range(0, result.Length)
+        .Where(i => result[i] == 1).ToArray();
+
+    Console.Write("Indices: ");
+    foreach (var i in indices)
+        Console.Write("{0} ", i);
+    Console.Write('\n');
+}
+
+// [LINQ to find array indexes of a value](https://stackoverflow.com/questions/13291788/linq-to-find-array-indexes-of-a-value)
+void FindAllOnesV2()
+{
+    var result = new int[] { 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0 };
+    var indices = result.Select((r, i) => new {i, r})
+        .Where(t => t.r == 1)
+        .Select(t => t.i);
+
+    Console.Write("Indices: ");
+    foreach (var i in indices)
+        Console.Write("{0} ", i);
+    Console.Write('\n');
+}
+
 void Main()
 {
     var ch1 = new short[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -77,4 +104,7 @@ void Main()
             }           
         }
     }
+
+    FindAllOnesV1();
+    FindAllOnesV2();
 }

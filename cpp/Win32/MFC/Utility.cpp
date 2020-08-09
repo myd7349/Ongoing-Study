@@ -639,19 +639,28 @@ CString FindFirstFileWithName(const CString &strFileName, const CString &strPath
 }
 
 
-// 2016-10-19T17:20+08:00
-// http://stackoverflow.com/questions/940707/how-do-i-programatically-get-the-version-of-a-dll-or-exe-file
-BOOL GetPEFixedFileVersion(const CString &strExeOrDllFilePath, VS_FIXEDFILEINFO &ffi)
+static BOOL GetFileVersionInfoBlock(const CString &strExeOrDllFilePath, CArray<unsigned char> &arrVersionInfoBlocks)
 {
     DWORD dwHandle = NULL;
     DWORD dwFileVerInfoSize = GetFileVersionInfoSize(strExeOrDllFilePath, &dwHandle);
     if (dwFileVerInfoSize == 0)
         return FALSE;
 
-    CArray<unsigned char> arrVersionData;
-    arrVersionData.SetSize(dwFileVerInfoSize);
+    arrVersionInfoBlocks.SetSize(dwFileVerInfoSize);
 
-    if (!GetFileVersionInfo(strExeOrDllFilePath, 0, dwFileVerInfoSize, arrVersionData.GetData()))
+    if (!GetFileVersionInfo(strExeOrDllFilePath, 0, dwFileVerInfoSize, arrVersionInfoBlocks.GetData()))
+        return FALSE;
+
+    return TRUE;
+}
+
+
+// 2016-10-19T17:20+08:00
+// http://stackoverflow.com/questions/940707/how-do-i-programatically-get-the-version-of-a-dll-or-exe-file
+BOOL GetPEFixedFileVersion(const CString &strExeOrDllFilePath, VS_FIXEDFILEINFO &ffi)
+{
+    CArray<unsigned char> arrVersionData;
+    if (!GetFileVersionInfoBlock(strExeOrDllFilePath, arrVersionData))
         return FALSE;
 
     LPBYTE lpBuffer = NULL;
@@ -726,6 +735,50 @@ CString GetPEProductVersion(const CString &strExeOrDllFilePath, BOOL bCompact, B
 
     return VersionToString(ffi.dwProductVersionMS, ffi.dwProductVersionLS, bCompact, bMoreCompact);
 }
+
+
+CString GetFileInfoString(LPCTSTR lpcszExeOrDllFilePath, LPCTSTR lpcszStringName)
+{
+    ASSERT(lpcszExeOrDllFilePath != nullptr);
+    ASSERT(lpcszStringName != nullptr);
+
+    CArray<unsigned char> arrVersionInfoBlocks;
+    if (!GetFileVersionInfoBlock(lpcszExeOrDllFilePath, arrVersionInfoBlocks))
+        return _T("");
+
+    struct LANGANDCODEPAGE
+    {
+        WORD wLanguage;
+        WORD wCodePage;
+    } *lpTranslate;
+
+    UINT uSize = 0;
+    if (!VerQueryValue(arrVersionInfoBlocks.GetData(), _T("\\VarFileInfo\\Translation"), (LPVOID *)&lpTranslate, &uSize) || lpTranslate == NULL || uSize == 0)
+        return _T("");
+    
+    CString strSubBlock;
+    for (size_t i = 0; i < uSize / sizeof(struct LANGANDCODEPAGE); i++)
+    {
+        strSubBlock.Format(
+            _T("\\StringFileInfo\\%04x%04x\\%s"),
+            lpTranslate[i].wLanguage,
+            lpTranslate[i].wCodePage,
+            lpcszStringName);
+        
+        TCHAR *pSubBlock = NULL;
+        UINT uSubBlockSize = 0;
+        if (!VerQueryValue(arrVersionInfoBlocks.GetData(), strSubBlock, (LPVOID *)&pSubBlock, &uSubBlockSize) || pSubBlock == NULL || uSubBlockSize == 0)
+            continue;
+
+        CString strField(pSubBlock, static_cast<int>(uSubBlockSize));
+        if (!strField.IsEmpty())
+            return strField;
+    }
+
+    return _T("");
+}
+
+
 
 CString GetModuleFilePath(HMODULE hModule)
 {
