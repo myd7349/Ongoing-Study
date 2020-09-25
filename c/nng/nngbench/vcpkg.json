@@ -1,0 +1,13 @@
+{
+  "name": "nngbench",
+  "version-string": "0.0.1",
+  "dependencies": [
+    {
+      "name": "nng",
+      "features": [
+        "mbedtls",
+        "tools"
+      ]
+    }
+  ]
+}

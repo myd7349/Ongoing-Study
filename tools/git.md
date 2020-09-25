@@ -280,3 +280,6 @@ git filter-branch --env-filter \
 [git diff ^M](https://help.github.com/en/github/using-git/configuring-git-to-handle-line-endings)
 
 [Configure Git to use a proxy](https://gist.github.com/evantoli/f8c23a37eb3558ab8765)
+
+[Git apply error : unrecognized input](https://stackoverflow.com/questions/51542622/git-apply-error-unrecognized-input)
+> git diff --no-color

@@ -36,6 +36,10 @@ set(vars
     MSVC
     MINGW
     CYGWIN
+    CMAKE_SIZEOF_VOID_P
+    CMAKE_CPU_ARCHITECTURES
+    CMAKE_GENERATOR_PLATFORM
+    CMAKE_SHARED_MODULE_PREFIX
 )
 
 foreach (_v ${vars})
@@ -52,6 +56,15 @@ if (MSVC)
     endif ()
 endif ()
 
+if("${CMAKE_SIZEOF_VOID_P}" STREQUAL "")
+    message(STATUS "*** Warning: CMAKE_SIZEOF_VOID_P is empty.")
+endif()
+
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    message(STATUS "CMAKE_SIZEOF_VOID_P == 8.")
+endif()
+
+
 # References:
 # https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html
 # https://github.com/KjellKod/g3log/pull/312
@@ -65,3 +78,10 @@ endif ()
 # [What is the relationship between CMAKE_VS_PLATFORM_TOOLSET and MSVC_TOOLSET_VERSION?](https://gitlab.kitware.com/cmake/cmake/-/issues/17976)
 # > CMAKE_VS_PLATFORM_TOOLSET is set only when using a Visual Studio generator.  It is the toolset name as MSBuild sees it, and can be v110 or v110_xp and such.
 # https://github.com/simdjson/simdjson/pull/1009
+# [Mac CMake bug w/ 8 * CMAKE_SIZEOF_VOID_P](https://github.com/stepmania/stepmania/issues/1826)
+# https://github.com/civetweb/civetweb/commit/bdcc5623a68bec4e76b661bba550345755300d5b
+# https://gitlab.kitware.com/cmake/cmake/-/issues/18839
+# https://gitlab.kitware.com/cmake/cmake/-/issues/21128
+# CMAKE_GENERATOR_PLATFORM is an input variable.  It is used if it is set.  It is not provided if not set.
+# https://gitlab.kitware.com/cmake/cmake/-/issues/13526
+# [Why does `project()` affect CMake's opinion on `CMAKE_SIZEOF_VOID_P`?](https://stackoverflow.com/questions/43379311/why-does-project-affect-cmakes-opinion-on-cmake-sizeof-void-p)

@@ -60,8 +60,24 @@ inline std::basic_string<CharT> ToUpper(const std::basic_string<CharT> &s)
 template <typename CharT>
 std::basic_string<CharT> &TrimLeftInPlace(std::basic_string<CharT> &s)
 {
-    s.erase(s.begin(), std::find_if(s.begin(), s.end(),
-        std::not1(std::ptr_fun<int, int>(std::isspace))));
+    // [](char ch){ return !std::isspace<char>(ch , std::locale::classic()); }
+    // std::isspace's MSVC implementation may contains this:
+    // assert(c >= -1 && c <= 255);
+    if (sizeof(CharT) == 1)
+    {
+        s.erase(s.begin(), std::find_if(s.begin(), s.end(),
+            std::not1(std::ptr_fun<int, int>(std::isspace))));
+    }
+    else
+    {
+        s.erase(s.begin(),
+            std::find_if(s.begin(), s.end(),
+                [](CharT ch)
+                {
+                    return !std::isspace<CharT>(ch , std::locale::classic());
+                }));
+    }
+    
     return s;
 }
 
@@ -69,7 +85,10 @@ template <typename CharT>
 std::basic_string<CharT> &TrimRightInPlace(std::basic_string<CharT> &s)
 {
     s.erase(std::find_if(s.rbegin(), s.rend(),
-        std::not1(std::ptr_fun<int, int>(std::isspace))).base(), s.end());
+        [](CharT ch)
+        {
+            return !std::isspace<CharT>(ch , std::locale::classic());
+        }).base(), s.end());
     return s;
 }
 
@@ -233,3 +252,5 @@ std::string ws2s(const std::wstring &str)
 // [How to convert wstring into string?](https://stackoverflow.com/questions/4804298/how-to-convert-wstring-into-string)
 // [Find if string ends with another string in C++](https://stackoverflow.com/questions/874134/find-if-string-ends-with-another-string-in-c)
 // [Convert a String In C++ To Upper Case](https://stackoverflow.com/questions/735204/convert-a-string-in-c-to-upper-case)
+// [trim for both std::string and std::wstring](https://stackoverflow.com/questions/63808539/trim-for-both-stdstring-and-stdwstring)
+// [Trim whitespace from a String](https://stackoverflow.com/questions/25829143/trim-whitespace-from-a-string)

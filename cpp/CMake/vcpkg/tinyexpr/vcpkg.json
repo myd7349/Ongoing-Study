@@ -1,0 +1,7 @@
+{
+  "name": "tinyexpr-test",
+  "version-string": "0.0.1",
+  "dependencies": [
+    "tinyexpr"
+  ]
+}

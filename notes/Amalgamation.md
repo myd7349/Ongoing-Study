@@ -31,6 +31,7 @@
 >* [cista/uniter](https://github.com/felixguendling/cista/blob/master/tools/uniter/uniter.cc)
 >* [constexpr-sql/generator.py](https://github.com/mkitzan/constexpr-sql)
 > * [libfort/amalgamate.py](https://github.com/seleznevae/libfort/blob/develop/amalgamate.py)
+> * [structopt](https://github.com/p-ranav/structopt/tree/master/utils/amalgamate)
 >
 >## Ideas:
 >* [The single-header code should be a build artifact](https://github.com/lemire/simdjson/issues/106)

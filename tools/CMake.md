@@ -79,3 +79,47 @@
 22.
 * https://github.com/llvm/llvm-project/commit/bb73d1b278eb478ca8e56153cf1469bf7eb13a3f
 > include_directories(AFTER ${CMAKE_CURRENT_BINARY_DIR})
+
+https://github.com/rafat/wavelib/blob/a92456d2e20451772dd76c2a0a3368537ee94184/CMakeLists.txt#L24-L25
+```cmake
+# cleanup prefix lib for Unix-like OSes
+set(CMAKE_SHARED_MODULE_PREFIX)
+```
+
+[CMake and Boost](https://github.com/microsoft/vcpkg/issues/4188)
+```cmake
+cmake_minimum_required (VERSION 3.10)
+
+project ("Example" LANGUAGES CXX)
+
+set(Boost_USE_STATIC_LIBS ON)
+find_package(Boost REQUIRED COMPONENTS random )# asio is header only no library, random is for example
+include_directories(${Boost_INCLUDE_DIR})
+
+add_executable (Example "Example.cpp")
+target_link_libraries(Example ${Boost_LIBRARIES})
+```
+
+[How to detect if 64 bit MSVC with cmake?](https://stackoverflow.com/questions/39258250/how-to-detect-if-64-bit-msvc-with-cmake)
+```cmake
+if(NOT "${CMAKE_GENERATOR}" MATCHES "(Win64|IA64)")
+    ...
+endif()
+
+if("${CMAKE_SIZEOF_VOID_P}" STREQUAL "4")
+    ...
+endif()
+
+if(NOT CMAKE_CL_64)
+   ...
+endif()
+```
+
+> [Beware of the cmake 3.14 release, now the bitness in the generator name is dropped.](https://cmake.org/cmake/help/v3.14/generator/Visual%20Studio%2016%202019.html#generator:Visual%20Studio%2016%202019)
+
+```bash
+cmake -G "Visual Studio 16 2019" -A Win32
+cmake -G "Visual Studio 16 2019" -A x64
+cmake -G "Visual Studio 16 2019" -A ARM
+cmake -G "Visual Studio 16 2019" -A ARM64
+```

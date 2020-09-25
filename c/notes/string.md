@@ -19,3 +19,9 @@ https://stackoverflow.com/questions/51614543/perf-report-shows-this-function-mem
 > 当源字节串与目标字节串重叠时，bcopy 能够正确处理，但是 memcpy 的操作结果却不可知。这种情形下必须改用 ANSI C 的 memmove 函数。
 
 > 记住 memset 最后两个参数顺序的方法之一是认识到所有 ANSI C 的 memXXX 函数都需要一个长度参数，而且它总是最后一个参数。
+
+[How to use memset function in two dimensional array for initialization of members in C?](https://stackoverflow.com/questions/23039134/how-to-use-memset-function-in-two-dimensional-array-for-initialization-of-member)
+
+[strdup](https://github.com/snowballstem/snowball/pull/136)
+
+[strdup](https://en.cppreference.com/w/c/experimental/dynamic/strdup)

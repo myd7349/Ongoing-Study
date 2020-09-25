@@ -1,0 +1,8 @@
+{
+  "name": "hand-written-signature-cutter",
+  "version-string": "0.0.1",
+  "dependencies": [
+    "tinyfiledialogs",
+    "opencv"
+  ]
+}

@@ -190,6 +190,8 @@ std::size_t FindPeaks(const double *data, std::size_t length,
 
 // References:
 // MATLAB: findpeaks
+// scipy.signal.find_peaks
+// https://github.com/scipy/scipy/blob/v1.5.2/scipy/signal/_peak_finding.py#L723-L1003
 // https://stackoverflow.com/questions/1713335/peak-finding-algorithm-for-python-scipy/
 // http://nbviewer.jupyter.org/github/demotu/BMC/blob/master/notebooks/DetectPeaks.ipynb
 // https://ccrma.stanford.edu/~jos/sasp/Quadratic_Peak_Interpolation.html
