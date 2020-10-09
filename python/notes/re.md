@@ -6,3 +6,6 @@ Character class support:
 
 Regular expressions for China mobile phone numbers:
 - [china-mobile-phone-regexp](https://github.com/node-modules/china-mobile-phone-regexp/blob/master/index.js)
+
+SemVer:
+- [Is there a suggested regular expression (RegEx) to check a SemVer string?](https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string) - [vcpkg uses this RE](https://github.com/microsoft/vcpkg/pull/13777/files)

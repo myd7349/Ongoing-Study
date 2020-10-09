@@ -70,6 +70,10 @@ std::basic_string<CharT> &TrimLeftInPlace(std::basic_string<CharT> &s)
     }
     else
     {
+        // For VS2010:
+        // CString::Trim
+        //s.erase(s.begin(), std::find_if(s.begin(), s.end(),
+        //    std::not1(std::ptr_fun<int, int>(std::iswspace))));
         s.erase(s.begin(),
             std::find_if(s.begin(), s.end(),
                 [](CharT ch)

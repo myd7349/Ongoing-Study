@@ -13,3 +13,5 @@ linux xxd command
 https://github.com/cr-marcstevens/hashclash
 
 https://github.com/Simsys/qhexedit2
+
+https://github.com/echo-devim/fhex

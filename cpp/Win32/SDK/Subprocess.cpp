@@ -138,5 +138,6 @@ unsigned int __stdcall Subprocess::ProcessOutput(void *arg) {
 // Ongoing-Study/cpp/subprocess_output/subprocess_output-winapi.c
 // Boost.process
 // [How to detect "Use MFC" in preprocessor](https://stackoverflow.com/questions/1196808/how-to-detect-use-mfc-in-preprocessor)
-// clang-format on
 // https://stackoverflow.com/questions/46343789/cant-find-popen-and-pclose-with-windows-codeblocks-mingw-16-01
+// https://github.com/DaanDeMeyer/reproc
+// clang-format on

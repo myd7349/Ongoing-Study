@@ -1,12 +1,15 @@
 #pragma once
 
+#include <vector>
+
 #include "ConfigItemProvider.h"
 
 
 class IniConfigItemProvider : public IConfigItemProvider<wchar_t>
 {
 public:
-    IniConfigItemProvider(StringT ini) : ini_(ini)
+    IniConfigItemProvider(StringT ini)
+        : ini_(ini), buffer_(1024)
     {
     }
 
@@ -15,5 +18,5 @@ public:
 
 private:
     std::wstring ini_;
-    mutable wchar_t buffer_[1024];
+    mutable std::vector<wchar_t> buffer_;
 };

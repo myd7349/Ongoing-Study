@@ -310,11 +310,22 @@ int main(int argc, char *argv[])
     // void (*signal(int sig, void(*func)(int)))(int)
     // int (*(*foo)(void ))[3]
     // char *(*fptab[])()
+    // double **data;
+    // const double **data;
+    // double * const *data;
+    /*
+    double **data = ...;
+    
+    void SaveData(const double **data, size_t rows, size_t cols); // this one?
+    or:
+    void SaveData(double * const *data, size_t rows, size_t cols); // this one?
+    */
 
     // const int *foo
     // int * const foo
     // int X::*foo
     // class Y *(X::*foo)(arg1, arg2)
+    // void (* x)(int (*[])())
 
     return 0;
 }
@@ -326,3 +337,4 @@ int main(int argc, char *argv[])
 // https://cdecl.org/
 // https://github.com/aartamonau/cdecl
 // https://ioccc.org/1988/reddy.c
+// https://stackoverflow.com/questions/10091825/constant-pointer-vs-pointer-on-a-constant-value
