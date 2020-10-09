@@ -14,7 +14,7 @@ std::wstring IniConfigItemProvider::Load(StringT section, StringT name, bool &ok
 
     DWORD dwRes = GetPrivateProfileStringW(section, name, L"",
         buffer_.data(), static_cast<DWORD>(buffer_.size()), ini_.c_str());
-    if (dwRes < buffer_.size() - 1)
+    if (dwRes > 0 && dwRes < buffer_.size() - 1)
     {
         ok = true;
         return buffer_.data();
@@ -34,7 +34,7 @@ std::wstring IniConfigItemProvider::Load(StringT section, StringT name, bool &ok
 
         dwRes = GetPrivateProfileStringW(section, name, L"",
             buffer_.data(), static_cast<DWORD>(buffer_.size()), ini_.c_str());
-        if (dwRes < buffer_.size() - 1)
+        if (dwRes > 0 && dwRes < buffer_.size() - 1)
         {
             ok = true;
             return buffer_.data();

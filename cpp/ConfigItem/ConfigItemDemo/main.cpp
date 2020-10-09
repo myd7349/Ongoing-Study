@@ -4,9 +4,13 @@
 #include <direct.h>
 
 #include "../ConfigItem.hpp"
-#include "../IniConfigItemProvider.h"
 #include "../IPv4AddressItem.h"
 #include "../ColorRefConverter.hpp"
+#ifdef ENABLE_SIMPLEINI
+#include "../SimpleIniConfigItemProvider.h"
+#else
+#include "../IniConfigItemProvider.h"
+#endif
 
 #include <shlwapi.h>
 #pragma comment(lib, "shlwapi.lib")
@@ -45,7 +49,11 @@ int wmain(int argc, wchar_t *argv[])
     std::wcout << "App Path: " << appPath << std::endl;
 
     std::wstring iniPath = appPath + L"Config.ini";
+#ifdef ENABLE_SIMPLEINI
+    SimpleIniConfigItemProvider ini(iniPath.c_str());
+#else
     IniConfigItemProvider ini(iniPath.c_str());
+#endif
     
     BoolItem useIPv6(ini, L"Server", L"UseIPv6", false);
     StringItem ipAddress(ini, L"Server", L"IP", L"localhost");
