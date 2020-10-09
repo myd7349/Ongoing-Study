@@ -2,7 +2,7 @@
 {
     using System;
     using System.Diagnostics;
-    using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
 
     using NAudio;
@@ -15,8 +15,10 @@
             InitializeComponent();
         }
 
-        private WaveOut player_;
-        private WaveStream waveStream_;
+        private AudioPlayer audioPlayer_;
+        private AudioFileReader audioReader_;
+        private Thread thread_;
+        private bool isPlaying_;
 
         private void PopulateDeviceList()
         {
@@ -24,11 +26,39 @@
 
             deviceComboBox_.Items.Clear();
 
-            var devices = WaveOutDevice.GetDevices();
+            for (int i = 0; i < WaveOut.DeviceCount; ++i)
+            {
+                // MSDN:
+                // If the value specified by the uDeviceID parameter is a device identifier,
+                // it can vary from zero to one less than the number of devices present. 
+                var device = new WaveOutDevice(i, WaveOut.GetCapabilities(i));
+                deviceComboBox_.Items.Add(device);
 
-            deviceComboBox_.Items.AddRange(devices);
-            deviceComboBox_.SelectedItem =
-                devices.FirstOrDefault(device => device.ToString() == selectedDevice?.ToString()); ;
+                if (device.DeviceNumber == selectedDevice?.DeviceNumber)
+                    selectedDevice = device;
+            }
+
+            deviceComboBox_.SelectedItem = selectedDevice;
+        }
+
+        private void PlayWaveFileCallback()
+        {
+            var audioBufferSize = audioReader_.WaveFormat.ConvertLatencyToByteSize(
+                (audioPlayer_.DesiredLatency + audioPlayer_.NumberOfBuffers - 1)
+                / audioPlayer_.NumberOfBuffers);
+            var audioBuffer = new byte[audioBufferSize];
+
+            while (isPlaying_)
+            {
+                try
+                {
+                    audioReader_.Read(audioBuffer, 0, audioBuffer.Length);
+                    audioPlayer_.AddSamples(audioBuffer, 0, audioBuffer.Length);
+                }
+                catch (Exception ex)
+                {
+                }
+            }
         }
 
         private void PlayWaveFileForm_Load(object sender, EventArgs e)
@@ -70,14 +100,16 @@
 
         private void playOrPauseButton__Click(object sender, EventArgs e)
         {
-            if (player_ == null)
+            if (thread_ == null)
             {
+                Debug.Assert(audioReader_ == null);
+
                 var waveOutDevice = deviceComboBox_.SelectedItem as WaveOutDevice;
                 Debug.Assert(waveOutDevice != null);
 
                 try
                 {
-                    waveStream_ = new AudioFileReader(filePathTextBox_.Text);
+                    audioReader_ = new AudioFileReader(filePathTextBox_.Text);
                 }
                 catch (MmException ex)
                 {
@@ -90,13 +122,16 @@
                     return;
                 }
 
+                Debug.Assert(audioPlayer_ == null);
+
                 try
                 {
-                    player_ = new WaveOut { DeviceNumber = waveOutDevice.DeviceNumber };
-                    player_.Init(waveStream_);
-                    player_.PlaybackStopped += Player__PlaybackStopped;
+                    audioPlayer_ = new AudioPlayer(audioReader_.WaveFormat)
+                    {
+                        DeviceNumber = waveOutDevice.DeviceNumber
+                    };
 
-                    player_.Play();
+                    audioPlayer_.Play();
                 }
                 catch (MmException ex)
                 {
@@ -108,39 +143,44 @@
                         );
                 }
 
+                isPlaying_ = true;
+
+                thread_ = new Thread(PlayWaveFileCallback);
+                thread_.IsBackground = false;
+                thread_.Start();
+
                 playOrPauseButton_.Text = "Pause";
                 stopButton_.Enabled = true;
             }
             else
             {
-                if (player_.PlaybackState == PlaybackState.Playing)
+                if (audioPlayer_.PlaybackState == PlaybackState.Playing)
                 {
-                    player_.Pause();
+                    audioPlayer_.Pause();
                     playOrPauseButton_.Text = "Resume";
                 }
-                else if (player_.PlaybackState == PlaybackState.Paused)
+                else if (audioPlayer_.PlaybackState == PlaybackState.Paused)
                 {
-                    player_.Resume();
+                    audioPlayer_.Resume();
                     playOrPauseButton_.Text = "Pause";
                 }
             }
         }
 
-        private void Player__PlaybackStopped(object sender, StoppedEventArgs e)
-        {
-            stopButton__Click(this, null);
-        }
-
         private void stopButton__Click(object sender, EventArgs e)
         {
-            if (player_ == null)
-                return;
+            Debug.Assert(audioPlayer_ != null);
+            Debug.Assert(thread_ != null);
 
-            player_.Stop();
-            player_ = null;
+            isPlaying_ = false;
+            thread_.Join();
+            thread_ = null;
 
-            waveStream_.Close();
-            waveStream_ = null;
+            audioPlayer_.Stop();
+            audioPlayer_ = null;
+
+            audioReader_.Close();
+            audioReader_ = null;
 
             deviceComboBox_.Enabled = true;
             selectFileButton_.Enabled = true;

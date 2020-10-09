@@ -123,3 +123,8 @@ cmake -G "Visual Studio 16 2019" -A x64
 cmake -G "Visual Studio 16 2019" -A ARM
 cmake -G "Visual Studio 16 2019" -A ARM64
 ```
+
+[How can I install a hierarchy of files using CMake?](https://stackoverflow.com/questions/11096471/how-can-i-install-a-hierarchy-of-files-using-cmake)
+
+[cmake glob include while preserving directory structure](https://stackoverflow.com/questions/6216554/cmake-glob-include-while-preserving-directory-structure)
+

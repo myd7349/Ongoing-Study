@@ -34,3 +34,4 @@ bool startswithiex(const _TCHAR *s, const _TCHAR *s2, size_t count)
 // References:
 // TortoiseGit/src/Utils/StringUtils.cpp
 // Ongoing-Study/cpp/strutils.hpp
+// https://github.com/martinmoene/string-view-lite/blob/3d2a4a7ebcc5dbdd55bd00026075c574a13c861b/include/nonstd/string_view.hpp#L767-L770

@@ -19,3 +19,34 @@ static extern int LZ4_compress_default(
     int maxDestLength
 );
 ```
+
+Bytes to Struct:
+```csharp
+public static MyPacket FromBytes(byte[] bytes, int offset, int count)
+{
+    Debug.Assert(offset + count <= bytes.Length);
+    
+    fixed (byte *pb = &bytes[offset])
+    {
+        return *(MyPacket *)pb;
+    }
+}
+```
+
+or:
+
+```csharp
+public static MyPacket FromBytes(byte[] bytes, int offset, int count)
+{
+    Debug.Assert(offset + count <= bytes.Length);
+    
+    // .NET 4.0:
+    return (MyPacket)Marshal.PtrToStructure(
+        Marshal.UnsafeAddrOfPinnedArrayElement(bytes, offset),
+        typeof(MyPacket));
+    // https://github.com/naudio/NAudio/blob/a2cc704b6cf9e1bbefd2e7fff14d5c5e19e8c2a0/NAudio/Utils/MarshalHelpers.cs#L38-L44
+    return Marshal.PtrToStructure<MyPacket>(
+        Marshal.UnsafeAddrOfPinnedArrayElement(bytes, offset),
+        typeof(MyPacket));    
+}
+```

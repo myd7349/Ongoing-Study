@@ -3,3 +3,4 @@ Projects that using Python C API to create bindings:
 - [python-systemd](https://github.com/systemd/python-systemd)
 - [pylzma](https://github.com/fancycode/pylzma)
 - [py-simple-audio](https://github.com/hamiltron/py-simple-audio)
+- [py_yyjson](https://github.com/TkTech/py_yyjson)

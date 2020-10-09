@@ -155,3 +155,14 @@ public static class MyFunkyExtensions
 
 [Generate number sequences with LINQ](https://stackoverflow.com/questions/2737090/generate-number-sequences-with-linq)
 > Enumerable.Range(start, count);
+
+[How do you do *integer* exponentiation in C#?](https://stackoverflow.com/questions/383587/how-do-you-do-integer-exponentiation-in-c)
+```csharp
+public static int Pow(this int bas, int exp)
+{
+    return Enumerable
+          .Repeat(bas, exp)
+          .Aggregate(1, (a, b) => a * b);
+}
+```
+

@@ -99,6 +99,7 @@
     <Compile Include="SingletonApplication.cs" />
     <Compile Include="StringExtension.cs" />
     <Compile Include="StructHelpers.cs" />
+    <Compile Include="SwapHelper.cs" />
     <Compile Include="TabControlEx.cs" />
     <Compile Include="ValueWithDefault.cs" />
     <Compile Include="Zip.cs" />

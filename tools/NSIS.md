@@ -5,3 +5,5 @@ Projects that using `NSIS`:
 
 NSIS Themes:
 * [BiuSetup](https://github.com/Watch-Later/BiuSetup)
+
+See Also: [Installation Software](installation.md)
