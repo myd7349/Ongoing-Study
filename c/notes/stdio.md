@@ -201,3 +201,12 @@ fflush(stdout);
 
 https://github.com/microsoft/vcpkg/blob/f1bef4aa7ca7e2a6ea4f5dfe4850d95fce60b431/toolsrc/src/vcpkg/base/system.print.cpp#L8
 
+16.
+
+[C 语言中为什么没有直接提供二进制数的输出？](https://www.zhihu.com/question/438434182)
+
+[Is there a printf converter to print in binary format?](https://stackoverflow.com/questions/111928/is-there-a-printf-converter-to-print-in-binary-format)
+
+[Binary representation of a given number](https://www.geeksforgeeks.org/binary-representation-of-a-given-number/)
+
+[Binary representation in C](https://stackoverflow.com/questions/8372646/binary-representation-in-c)

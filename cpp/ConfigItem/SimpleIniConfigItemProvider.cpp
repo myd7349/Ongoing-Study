@@ -4,7 +4,7 @@
 
 
 SimpleIniConfigItemProvider::SimpleIniConfigItemProvider(StringT ini)
-    : ini_(ini)
+    : ini_(ini), store_(false)
 {
 	simpleIni_.LoadFile(ini_.c_str());
 }
@@ -12,7 +12,8 @@ SimpleIniConfigItemProvider::SimpleIniConfigItemProvider(StringT ini)
 
 SimpleIniConfigItemProvider::~SimpleIniConfigItemProvider()
 {
-    simpleIni_.SaveFile(ini_.c_str());
+    if (store_)
+        simpleIni_.SaveFile(ini_.c_str());
 }
 
 
@@ -63,4 +64,7 @@ void SimpleIniConfigItemProvider::Store(StringT section, StringT name, StringT v
     assert(value != nullptr);
     
     simpleIni_.SetValue(section, name, value);
+    
+    if (!store_)
+        store_ = true;
 }

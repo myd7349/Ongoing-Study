@@ -19,4 +19,5 @@ public:
 private:
     std::wstring ini_;
     CSimpleIniW simpleIni_;
+    bool store_;
 };

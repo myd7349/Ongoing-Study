@@ -292,3 +292,10 @@ What does `feat` mean in git commit message? For example, [feat: :sparkles: lamb
 - [git commit 提交规范 & 规范校验](https://blog.csdn.net/y491887095/article/details/80594043)
 
 In the last article listed above, it mentioned `commitlint` and `husky`, which can both be installed via `npm`.
+
+
+> git config --global http.proxy http://127.0.0.1:7079
+
+[Reset git proxy to default configuration](https://stackoverflow.com/questions/11265463/reset-git-proxy-to-default-configuration)
+> git config --global --unset core.gitproxy
+> git config --global --unset https.proxy
