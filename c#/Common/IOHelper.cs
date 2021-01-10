@@ -88,6 +88,22 @@ namespace Common.IO
             else
                 return path;
         }
+
+        public static bool PathContainsInvalidChars(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path))
+                return false;
+
+            return path.Any(ch => Path.GetInvalidPathChars().Contains(ch));
+        }
+
+        public static bool FileNameContainsInvalidChars(string fileName)
+        {
+            if (string.IsNullOrWhiteSpace(fileName))
+                return false;
+
+            return fileName.Any(ch => Path.GetInvalidFileNameChars().Contains(ch));
+        }
     }
 
     public static class DirUtils
@@ -161,3 +177,5 @@ namespace Common.IO
 //
 // [How can I compare (directory) paths in C#?](https://stackoverflow.com/questions/2281531/how-can-i-compare-directory-paths-in-c)
 // [How to quickly check if folder is empty (.NET)?](https://stackoverflow.com/questions/755574/how-to-quickly-check-if-folder-is-empty-net)
+// [In C# check that filename is *possibly* valid (not that it exists)](https://stackoverflow.com/questions/422090/in-c-sharp-check-that-filename-is-possibly-valid-not-that-it-exists)
+// [How do I check if a given string is a legal/valid file name under Windows?](https://stackoverflow.com/questions/62771/how-do-i-check-if-a-given-string-is-a-legal-valid-file-name-under-windows)

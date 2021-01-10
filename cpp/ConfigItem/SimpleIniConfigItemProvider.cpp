@@ -16,6 +16,26 @@ SimpleIniConfigItemProvider::~SimpleIniConfigItemProvider()
 }
 
 
+// Difference between SimpleIniConfigItemProvider::Load and IniConfigItemProvider::Load:
+// If `name` is not exist under `section`, then both of them returns false.
+// If 'name' is exist, but its value is empty, then:
+//     SimpleIniConfigItemProvider::Load returns true;
+//     IniConfigItemProvider::Load returns false;
+//
+// Suppose you have an INI file `Config.ini`:
+//     IniConfigItemProvider ini(_T("Config.ini"));
+//     StringItem item(ini, _T("Default"), _T("Name"), _T("Non-empty default value"));
+//     SimpleIniConfigItemProvider ini2(_T("Config.ini"));
+//     StringItem item2(ini2, _T("Default"), _T("Name"), _T("Non-empty default value"));
+//
+// If `Name` is not exist under `Default`, then:
+//     item.GetValue() == _T("Non-empty default value");
+//     item2.GetValue() == _T("Non-empty default value");
+//
+// If `Name` is exist under `Default`, but with an empty value, then:
+//     item.GetValue() == _T("Non-empty default value");
+//     item2.GetValue() == _T("");
+
 std::wstring SimpleIniConfigItemProvider::Load(StringT section, StringT name, bool &ok) const
 {
     assert(section != nullptr);

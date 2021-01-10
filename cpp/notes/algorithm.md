@@ -6,3 +6,5 @@
 std::vector<int> v { 1, 2, 3, 4, 5 };
 std::for_each(v.begin(), v.end(), [](int &x) { x += 1000; });
 ```
+
+[Problem calling std::max](https://stackoverflow.com/questions/2789481/problem-calling-stdmax/2789509#2789509)

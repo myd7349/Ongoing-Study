@@ -110,6 +110,7 @@
 
                 playOrPauseButton_.Text = "Pause";
                 stopButton_.Enabled = true;
+                propertiesButton_.Enabled = true;
             }
             else
             {
@@ -145,8 +146,17 @@
             deviceComboBox_.Enabled = true;
             selectFileButton_.Enabled = true;
             stopButton_.Enabled = false;
+            propertiesButton_.Enabled = false;
 
             playOrPauseButton_.Text = "Play";
+        }
+
+        private void propertiesButton__Click(object sender, EventArgs e)
+        {
+            using (var propertiesForm = new PropertiesForm(waveStream_.WaveFormat))
+            {
+                propertiesForm.ShowDialog();
+            }
         }
     }
 }

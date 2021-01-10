@@ -283,3 +283,12 @@ git filter-branch --env-filter \
 
 [Git apply error : unrecognized input](https://stackoverflow.com/questions/51542622/git-apply-error-unrecognized-input)
 > git diff --no-color
+
+What does `feat` mean in git commit message? For example, [feat: :sparkles: lambda closure](https://github.com/Danielmelody/Ruschm/pull/29). By searching `git feat` in popular search engines, I found these articles:
+- [Semantic Commit Messages](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
+- [Commit message 和 Change log 编写指南](https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
+- [AngularJS Git Commit Message Conventions](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit)
+- [Git 提交信息样式指南](https://github.com/udacity/frontend-nanodegree-styleguide-zh/blob/master/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%BA%B3%E7%B1%B3%E5%AD%A6%E4%BD%8D%E6%A0%B7%E5%BC%8F%E6%8C%87%E5%8D%97%20-%20Git.md)
+- [git commit 提交规范 & 规范校验](https://blog.csdn.net/y491887095/article/details/80594043)
+
+In the last article listed above, it mentioned `commitlint` and `husky`, which can both be installed via `npm`.

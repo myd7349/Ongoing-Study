@@ -36,6 +36,7 @@
             this.selectFileButton_ = new System.Windows.Forms.Button();
             this.playOrPauseButton_ = new System.Windows.Forms.Button();
             this.stopButton_ = new System.Windows.Forms.Button();
+            this.propertiesButton_ = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // deviceLabel_
@@ -116,11 +117,23 @@
             this.stopButton_.UseVisualStyleBackColor = true;
             this.stopButton_.Click += new System.EventHandler(this.stopButton__Click);
             // 
+            // propertiesButton_
+            // 
+            this.propertiesButton_.Enabled = false;
+            this.propertiesButton_.Location = new System.Drawing.Point(248, 73);
+            this.propertiesButton_.Name = "propertiesButton_";
+            this.propertiesButton_.Size = new System.Drawing.Size(94, 23);
+            this.propertiesButton_.TabIndex = 8;
+            this.propertiesButton_.Text = "Properties...";
+            this.propertiesButton_.UseVisualStyleBackColor = true;
+            this.propertiesButton_.Click += new System.EventHandler(this.propertiesButton__Click);
+            // 
             // PlayWaveFileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 114);
+            this.Controls.Add(this.propertiesButton_);
             this.Controls.Add(this.stopButton_);
             this.Controls.Add(this.playOrPauseButton_);
             this.Controls.Add(this.selectFileButton_);
@@ -151,5 +164,6 @@
         private System.Windows.Forms.Button selectFileButton_;
         private System.Windows.Forms.Button playOrPauseButton_;
         private System.Windows.Forms.Button stopButton_;
+        private System.Windows.Forms.Button propertiesButton_;
     }
 }

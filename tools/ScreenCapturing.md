@@ -12,3 +12,6 @@
 - 迅捷屏幕录像工具
 - 屏幕录像大师
 - CompuClever Ultra Screen Recorder
+- FormatFactory
+- Screencastify for Chrome
+- [Snipaste](https://www.zhihu.com/pin/1319210101270749184)

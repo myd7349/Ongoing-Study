@@ -1,18 +1,19 @@
 // 2016-07-05T14:45+08:00
 #include <algorithm>
 #include <iostream>
+#include <iterator>
 #include <vector>
 
 #include "../common.h"
-#include "../iterator_ex.hpp"
+
 
 void ExpandData(const std::vector<int> &source, std::vector<int> &target, unsigned int width)
 {
     target.resize(source.size() + 2 * width);
     std::copy_n(source.cbegin(), width, target.begin());
-    std::copy(source.cbegin(), source.cend(), Advance(target.begin(), width));
-    std::copy_n(Advance(source.cend(), -static_cast<int>(width)), width,
-                Advance(target.end(), -static_cast<int>(width)));
+    std::copy(source.cbegin(), source.cend(), std::next(target.begin(), width));
+    std::copy_n(std::prev(source.cend(), width), width,
+                std::prev(target.end(), width));
 }
 
 int main()

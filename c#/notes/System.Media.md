@@ -1,0 +1,2 @@
+[C# Using SoundPlayer to Pause and Resume](https://stackoverflow.com/questions/19762734/c-sharp-using-soundplayer-to-pause-and-resume)
+>SoundPlayer is extremely limited, and doesn't support Pause and Resume. Are you able to use the WPF MediaElement instead? You will find it is much more powerful, supporting playing files of many types, repositioning, setting volume, pausing and resuming. You can also use it to get the file length instead of mci.

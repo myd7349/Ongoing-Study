@@ -128,3 +128,4 @@ cmake -G "Visual Studio 16 2019" -A ARM64
 
 [cmake glob include while preserving directory structure](https://stackoverflow.com/questions/6216554/cmake-glob-include-while-preserving-directory-structure)
 
+https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake

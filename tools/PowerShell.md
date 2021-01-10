@@ -58,3 +58,11 @@ echo $null > .gitkeep
 $env:HTTP_PROXY='127.0.0.1:7079'
 Get-ChildItem Env:HTTP_PROXY
 ```
+
+[batch menu outlines and design](https://stackoverflow.com/questions/34977487/batch-menu-outlines-and-design)
+
+```
+$ iwr https://deno.land/x/install/install.ps1 -useb | iex
+$ Get-Alias -Definition Invoke-WebRequest | Format-Table -AutoSize
+$ Get-Alias -Definition Invoke-Expression
+```

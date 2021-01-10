@@ -20,3 +20,5 @@ Here’s how we suggest you go about proposing a change to this project:
 [Line endings](https://help.github.com/en/github/using-git/configuring-git-to-handle-line-endings)
 
 [githistory.xyz](https://github.githistory.xyz/myd7349/simdjson-cmake-example/blob/master/print_json.cpp)
+
+[GitHub Actions 教程：定时发送天气邮件](http://www.ruanyifeng.com/blog/2019/12/github_actions.html)
