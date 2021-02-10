@@ -6,7 +6,7 @@ import argparse
 import os.path
 import sys
 
-import math_eval
+import math_eval_v1
 import numutil
 import unpacker
 
@@ -75,7 +75,7 @@ def parse_factor(factor_string):
         pass
 
     try:
-        factor = math_eval.math_eval_ex(factor_string)
+        factor = math_eval_v1.math_eval(factor_string)
         return factor
     except:
         pass
@@ -86,7 +86,7 @@ def main():
 
     parser = argparse.ArgumentParser(
         prog=prog,
-        description='',
+        description='Extract data from binary file',
     )
     parser.add_argument('-i',
                         '--input-file',
@@ -138,7 +138,7 @@ def main():
         factor = parse_factor(args.factor)
         if factor is None:
             try:
-                _ = math_eval.math_eval_ex(args.factor, x=1)
+                _ = math_eval_v1.math_eval(args.factor, x=1)
                 fixed_factor = False
             except:
                 sys.stderr.write(
@@ -173,7 +173,7 @@ def main():
         elif fixed_factor:
             output_line = (col * factor for col in line)
         else:
-            output_line = (math_eval.math_eval_ex(args.factor, x=col)
+            output_line = (math_eval_v1.math_eval(args.factor, x=col)
                            for col in line)
 
         output_fp.write(args.delimiter.join(
