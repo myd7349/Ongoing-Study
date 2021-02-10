@@ -77,3 +77,4 @@
 // https://code.msdn.microsoft.com/windowsdesktop/Creating-a-simple-plugin-b6174b62
 // https://www.codeproject.com/articles/889453/load-and-unload-plug-in-without-file-lock
 // https://stackoverflow.com/questions/26530731/runtime-loading-of-private-assemblies-in-a-subdirectory
+// https://github.com/Tencent/behaviac/blob/master/tools/designer/BehaviacDesignerBase/Plugin.cs

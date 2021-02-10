@@ -9,3 +9,7 @@ Regular expressions for China mobile phone numbers:
 
 SemVer:
 - [Is there a suggested regular expression (RegEx) to check a SemVer string?](https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string) - [vcpkg uses this RE](https://github.com/microsoft/vcpkg/pull/13777/files)
+
+[Regexp for a double](https://stackoverflow.com/questions/10516967/regexp-for-a-double)
+
+import tokenize; tokenize.Pointfloat; tokenize.Expfloat

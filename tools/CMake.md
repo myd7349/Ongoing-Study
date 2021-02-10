@@ -129,3 +129,6 @@ cmake -G "Visual Studio 16 2019" -A ARM64
 [cmake glob include while preserving directory structure](https://stackoverflow.com/questions/6216554/cmake-glob-include-while-preserving-directory-structure)
 
 https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
+
+[CMake & Ninja](https://twitter.com/lichray/status/1358689765684617216)
+> cmake -G "Ninja Multi-Config" -B build

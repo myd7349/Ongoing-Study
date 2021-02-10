@@ -326,6 +326,7 @@ int main(int argc, char *argv[])
     // int X::*foo
     // class Y *(X::*foo)(arg1, arg2)
     // void (* x)(int (*[])())
+    // const int * volatile * (**const volatile arr[6666]) [2333]
 
     return 0;
 }
@@ -338,3 +339,4 @@ int main(int argc, char *argv[])
 // https://github.com/aartamonau/cdecl
 // https://ioccc.org/1988/reddy.c
 // https://stackoverflow.com/questions/10091825/constant-pointer-vs-pointer-on-a-constant-value
+// https://www.zhihu.com/question/439224121

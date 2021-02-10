@@ -45,3 +45,4 @@ namespace Common
 // [Is there a version of the class Tuple whose Items properties are not readonly and can be set?](http://stackoverflow.com/questions/7787994/is-there-a-version-of-the-class-tuple-whose-items-properties-are-not-readonly-an)
 // [Why Tuple's items are ReadOnly?](http://stackoverflow.com/questions/3131400/why-tuples-items-are-readonly)
 // CLR via C#, 3rd Edition, Ch05
+// https://github.com/JimBobSquarePants/ImageProcessor/blob/release/3.0.0/src/ImageProcessor/Bgra32.cs

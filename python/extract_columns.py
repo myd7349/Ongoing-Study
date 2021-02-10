@@ -5,6 +5,7 @@
 # https://github.com/google/yapf
 # http://pep8online.com/
 # autopep8
+# $ yapf -i extract_columns.py
 
 import argparse
 import os.path
@@ -12,7 +13,7 @@ import re
 import sys
 
 
-def enumerate_lines(input_file, encoding=None, header_lines=0):
+def enumerate_lines_from_file(input_file, encoding=None, header_lines=0):
     with open(input_file, mode='r', encoding=encoding) as fp:
         current_line_no = 0
         for line in fp:
@@ -20,6 +21,23 @@ def enumerate_lines(input_file, encoding=None, header_lines=0):
                 yield line
 
             current_line_no += 1
+
+
+def enumerate_lines_from_stdin(header_lines=0):
+    current_line_no = 0
+    run = True
+
+    while run:
+        try:
+            line = input()
+
+            if current_line_no >= header_lines and line:
+                yield line
+
+            current_line_no += 1
+        except (EOFError, KeyboardInterrupt):
+            #raise StopIteration
+            run = False
 
 
 def extract_columns(lines, columns, delimiter=None, use_regexp=False):
@@ -41,8 +59,8 @@ def extract_columns(lines, columns, delimiter=None, use_regexp=False):
             for column_no in columns:
                 if column_no < 0 or column_no >= total_columns:
                     raise RuntimeError(
-                        'Unexpected column number: {0}. Total columns: {1}'
-                        .format(column_no, total_columns))
+                        'Unexpected column number: {0}. Total columns: {1}'.
+                        format(column_no, total_columns))
         elif len(line_fields
                  ) < total_columns:  # Use '!=' here to enable strict mode.
             raise RuntimeError(
@@ -58,32 +76,39 @@ def is_csv_file(file_path):
 
 
 def main():
+    prog = os.path.splitext(os.path.basename(__file__))[0]
+
     parser = argparse.ArgumentParser(
-        prog='extract_columns',
+        prog=prog,
         description='Extract specified columns of data from a text file',
     )
-    parser.add_argument('--input-file', required=True, help='Input file path')
+    parser.add_argument('-i', '--input-file', help='Input file path')
     parser.add_argument('--encoding', help='Input/Output file encoding')
-    parser.add_argument(
-        '--header-lines', default=0, help='Count of header lines to skip')
-    parser.add_argument('--delimiter', help='Column delimiter')
-    parser.add_argument(
-        '--use-regexp',
-        action='store_true',
-        help='Colum delimiter is a regular expression')
-    parser.add_argument(
-        '--columns', nargs='+', type=int, help='Column numbers (0 based)')
-    parser.add_argument('--output-file', help='Output file path')
-    parser.add_argument(
-        '--overwrite', action='store_true', help='Overwrite existing file')
-    parser.add_argument(
-        '--output-delimiter',
-        default=' ',
-        help='Column delimiter of output file')
+    parser.add_argument('--header-lines',
+                        type=int,
+                        default=0,
+                        help='Count of header lines to skip')
+    parser.add_argument('-d', '--delimiter', help='Column delimiter')
+    parser.add_argument('--use-regexp',
+                        action='store_true',
+                        help='Colum delimiter is a regular expression')
+    parser.add_argument('-c',
+                        '--columns',
+                        nargs='+',
+                        type=int,
+                        help='Column numbers (0 based)')
+    parser.add_argument('-o', '--output-file', help='Output file path')
+    parser.add_argument('-O',
+                        '--overwrite',
+                        action='store_true',
+                        help='Overwrite existing file')
+    parser.add_argument('--output-delimiter',
+                        default=' ',
+                        help='Column delimiter of output file')
 
     args = parser.parse_args()
 
-    if not os.path.isfile(args.input_file):
+    if args.input_file and not os.path.isfile(args.input_file):
         sys.stderr.write('Input file \'{0}\' doesn\'t exist!\n'.format(
             args.input_file))
         sys.exit(1)
@@ -96,11 +121,12 @@ def main():
             args.header_lines))
         sys.exit(1)
 
-    is_input_csv = is_csv_file(args.input_file)
+    is_input_csv = args.input_file and is_csv_file(args.input_file)
 
     if args.use_regexp and not args.delimiter:
-        sys.stderr.write('Delimiter is not a valid regular expression: {0}.'
-                         .format(args.delimiter))
+        sys.stderr.write(
+            'Delimiter is not a valid regular expression: {0}.'.format(
+                args.delimiter))
         sys.exit(1)
     elif not args.delimiter and not args.use_regexp:
         # .txt and .csv are most commonly used data formats.
@@ -126,7 +152,7 @@ def main():
     if not args.output_delimiter:
         if not args.use_regexp:
             args.output_delimiter = args.delimiter
-        
+
         if not args.output_delimiter:
             args.output_delimiter = ',' if is_input_csv else ' '
 
@@ -135,23 +161,27 @@ def main():
     else:
         output_fp = sys.stdout
 
-    lines = enumerate_lines(
-        args.input_file,
-        encoding=args.encoding,
-        header_lines=args.header_lines)
+    if args.input_file is None:
+        lines = enumerate_lines_from_stdin(header_lines=args.header_lines)
+    else:
+        lines = enumerate_lines(args.input_file,
+                                encoding=args.encoding,
+                                header_lines=args.header_lines)
     for extracted_columns in extract_columns(lines, args.columns,
                                              args.delimiter, args.use_regexp):
         output_fp.write(args.output_delimiter.join(extracted_columns))
         output_fp.write('\n')
 
+    if args.output_file:
+        output_fp.close()
+
 
 if __name__ == '__main__':
     main()
 
-
 # References:
 # [How to parse on/off (debug) flag using argparse?](https://stackoverflow.com/questions/13415400/how-to-parse-on-off-debug-flag-using-argparse)
-# [How do you find out what the “system default encoding” is?](https://stackoverflow.com/questions/7387744/how-do-you-find-out-what-the-system-default-encoding-is)
+# [How do you find out what the "system default encoding" is?](https://stackoverflow.com/questions/7387744/how-do-you-find-out-what-the-system-default-encoding-is)
 # [How can I pass a list as a command-line argument with argparse?](https://stackoverflow.com/questions/15753701/how-can-i-pass-a-list-as-a-command-line-argument-with-argparse)
 # [Python: filtering lists by indices](https://stackoverflow.com/questions/11847491/python-filtering-lists-by-indices)
 # [Extracting extension from filename in Python](https://stackoverflow.com/questions/541390/extracting-extension-from-filename-in-python)

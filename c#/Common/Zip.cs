@@ -45,3 +45,6 @@ namespace Common.Linq
 
 // References:
 // [How to combine more than two generic lists in C# Zip?](https://stackoverflow.com/questions/10297124/how-to-combine-more-than-two-generic-lists-in-c-sharp-zip)
+// https://github.com/morelinq/MoreLINQ#zipshortest
+// https://github.com/morelinq/MoreLINQ#ziplongest
+

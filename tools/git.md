@@ -299,3 +299,5 @@ In the last article listed above, it mentioned `commitlint` and `husky`, which c
 [Reset git proxy to default configuration](https://stackoverflow.com/questions/11265463/reset-git-proxy-to-default-configuration)
 > git config --global --unset core.gitproxy
 > git config --global --unset https.proxy
+
+[git-sizer](https://github.com/github/git-sizer)

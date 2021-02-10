@@ -17,6 +17,9 @@ pwd_utf8 = pwd.encode('utf-8')
 print(pwd_utf8)
 print(pwd_utf8.decode('gbk'))
 
+print(b'\xcc\xcc'.decode('gbk'))
+print(b'\xcd\xcd'.decode('gbk'))
+
 
 # Output:
 # b'\xe4\xba\xba\xe9\xb1\xbc'
@@ -24,3 +27,7 @@ print(pwd_utf8.decode('gbk'))
 
 # References:
 # [压缩包使用中文密码带来的问题 - DDKK64 - 博客园](https://www.cnblogs.com/wyzersblog/p/13882302.html)
+# [为什么乱码总是写“屯屯屯屯屯屯屯”或是“烫烫烫烫烫烫”？](https://www.zhihu.com/question/36899383)
+# https://www.zhihu.com/question/36899383/answer/69503032
+# > Visual Studio中，未初始化的栈空间用0xCC填充，而未初始化的堆空间用0xCD填充。
+#   而0xCCCC和0xCDCD在中文GB2312编码中分别对应“烫”字和“屯”字。

@@ -51,3 +51,5 @@ FOO_API const char *bar();
 // https://gcc.gnu.org/wiki/Visibility
 // https://stackoverflow.com/questions/22285240/mingw-use-declspecdllexport-or-attribute-visibilitydefault
 // https://github.com/raysan5/raylib/pull/789#issuecomment-482923913
+// [Use ELF visibility](https://github.com/SOCI/soci/commit/d867b0c631c2714babbcf0cea113febb4927391f)
+// [Enable visibility for gcc and clang](https://github.com/SOCI/soci/pull/848)

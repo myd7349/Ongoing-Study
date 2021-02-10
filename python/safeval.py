@@ -70,3 +70,5 @@ if __name__ == '__main__':
 # [# PicoCTF 2k13 - Python Eval 3](http://hacktracking.blogspot.jp/2014/01/picoctf-2k13-python-eval-3.html)
 # [Exploiting Python’s Eval](http://www.floyd.ch/?p=584)
 # https://github.com/FXuZ/colock-server/blob/master/colock/security.py
+# [Evaluating a mathematical expression in a string](https://stackoverflow.com/questions/2371436/evaluating-a-mathematical-expression-in-a-string)
+# [Python: make eval safe](https://stackoverflow.com/questions/3513292/python-make-eval-safe)

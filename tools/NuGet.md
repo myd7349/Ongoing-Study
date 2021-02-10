@@ -8,3 +8,6 @@
 or
 > Install-Package SomePackage -Project MvcApplication2
 
+[NuGet behind a proxy](https://stackoverflow.com/questions/9232160/nuget-behind-a-proxy)
+
+[Accessing Nuget Official Package Source behind company proxy](https://stackoverflow.com/questions/7710533/accessing-nuget-official-package-source-behind-company-proxy)
