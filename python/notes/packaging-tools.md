@@ -29,6 +29,8 @@ The answer is NO:
 
 **Solution 4**: :star: [PyInstaller](https://github.com/pyinstaller/pyinstaller/wiki) <sup>[[2](http://stackoverflow.com/questions/112698/py2exe-generate-single-executable-file)]</sup>. You may refer to this tutorial(in chinese): [Python转exe](https://github.com/smartFlash/pySecurity/blob/master/zh-cn/0x4.md)
 
+[[Python executables: py2exe or PyInstaller?](https://stackoverflow.com/questions/6235123/python-executables-py2exe-or-pyinstaller)]
+
 This post mentioned `py2app`: [How to Create a Single Windows Executable from a Python and PyGame Project (Summary)](https://irwinkwan.com/2013/04/29/python-executables-pyinstaller-and-a-48-hour-game-design-compo/)
 
 

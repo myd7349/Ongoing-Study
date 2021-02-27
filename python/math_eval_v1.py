@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# $ yapf -i math_eval.py
+# $ yapf -i math_eval_v1.py
 
 # https://github.com/pyparsing/pyparsing/blob/master/examples/fourFn.py
 # fourFn.py
@@ -51,6 +51,7 @@ functions = {
 
 
 def aton(s):
+    # Try to evaluate as int first, then as float if int fails.
     try:
         return int(s)
     except:
@@ -82,7 +83,6 @@ def evaluate_stack(s, **kwargs):
         else:
             raise Exception("Invalid identifier '{0}'".format(op))
     else:
-        # try to evaluate as int first, then as float if int fails
         return aton(op)
 
 
@@ -177,8 +177,9 @@ def math_eval(expr, **kwargs):
 
 
 def main():
-    for i in range(100 + 1):
-        print(math_eval('x^2', x=i))
+    squares = (math_eval('x^2', x=i) for i in range(100 + 1))
+    for i in squares:
+        print(i)
 
 
 if __name__ == '__main__':

@@ -6,3 +6,4 @@
 * [cpxlsxwriter](https://github.com/Hypers-HFA/cpxlsxwriter)
 * [chaco](https://github.com/enthought/chaco)
 * [enable](https://github.com/enthought/enable)
+* [libGDF](https://github.com/mbillingr/libgdf/blob/master/python/pylibgdf.pyx)

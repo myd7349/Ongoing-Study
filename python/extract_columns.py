@@ -76,11 +76,11 @@ def is_csv_file(file_path):
 
 
 def main():
-    prog = os.path.splitext(os.path.basename(__file__))[0]
+    prog = os.path.splitext(os.path.basename(sys.argv[0]))[0]
 
     parser = argparse.ArgumentParser(
         prog=prog,
-        description='Extract specified columns of data from a text file',
+        description='Extract specified columns of data from a text file.',
     )
     parser.add_argument('-i', '--input-file', help='Input file path')
     parser.add_argument('--encoding', help='Input/Output file encoding')
@@ -133,7 +133,6 @@ def main():
         args.use_regexp = True
 
         if is_input_csv:
-
             # r'(\s+)|(\s*[,]\s*)' is problematic for columns seperated by spaces.
             # r'\s+' is somewhat ok. But, re.split(r'\s+', 'a b c\n') returns:
             # ['a', 'b', 'c', '']

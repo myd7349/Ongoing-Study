@@ -1,0 +1,1 @@
+py -m nuitka --onefile --windows-company-name=myd7349 --windows-product-version=0.1.0 --windows-file-description="Extract data from binary file" --output-dir=build\bin2txt\nuitka --remove-output bin2txt.py

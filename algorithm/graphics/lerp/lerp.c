@@ -84,3 +84,4 @@ LERP_T(long long, lllerp)
 // https://github.com/komorra/NodeEditorWinforms/blob/master/NodeEditor/NodesGraph.cs#L132
 // https://en.wikipedia.org/wiki/Linear_interpolation
 // https://en.wikipedia.org/wiki/B%C3%A9zier_curve#Linear_B.C3.A9zier_curves
+// https://en.cppreference.com/w/cpp/numeric/lerp

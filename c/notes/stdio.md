@@ -5,7 +5,7 @@
 https://stackoverflow.com/questions/44792526/differenence-among-open-open-and-fopen-with-regard-to-msvc-compiler
 
     For the Windows API, you can use _open_osfhandle() to create a FILE * from a HANDLE, and _get_osfhandle() to get the HANDLE from the FILE *. However, in both cases, the handle will be owned by the FILE *.
-
+    
     For the POSIX API, you can use fdopen() to create a FILE * from a int file descriptor, and you can use fileno() to get the int file descriptor from a FILE *. Again, in both cases the file is owned by the FILE *.
 
 2.
@@ -210,3 +210,7 @@ https://github.com/microsoft/vcpkg/blob/f1bef4aa7ca7e2a6ea4f5dfe4850d95fce60b431
 [Binary representation of a given number](https://www.geeksforgeeks.org/binary-representation-of-a-given-number/)
 
 [Binary representation in C](https://stackoverflow.com/questions/8372646/binary-representation-in-c)
+
+17.
+
+[Create temporary file in C, MS Windows system](https://stackoverflow.com/questions/9717271/create-temporary-file-in-c-ms-windows-system)

@@ -7,7 +7,6 @@ import os.path
 import sys
 
 import math_eval_v1
-import numutil
 import unpacker
 
 # MATLAB: doc fread
@@ -39,15 +38,15 @@ known_matlab_types = {
     'long': None,  # system-dependent
     'bitn': None,
     # Floating-point numbers
-    'single': '',
-    'double': '',
-    'float': '',
-    'float32': '',
-    'float64': '',
-    'real*4': '',
-    'real*8': '',
+    'single': 'f',
+    'double': 'd',
+    'float': 'f',
+    'float32': 'f',
+    'float64': 'd',
+    'real*4': 'f',
+    'real*8': 'd',
     # Characters
-    'char*1': '',
+    'char*1': None,
     'char': None,
 }
 
@@ -69,7 +68,7 @@ def parse_factor(factor_string):
     "1.0/1000" -> 0.001
     """
     try:
-        factor = numutil.aton(factor_string)
+        factor = math_eval_v1.aton(factor_string)
         return factor
     except (TypeError, ValueError):
         pass
@@ -82,11 +81,11 @@ def parse_factor(factor_string):
 
 
 def main():
-    prog = os.path.splitext(os.path.basename(__file__))[0]
+    prog = os.path.splitext(os.path.basename(sys.argv[0]))[0]
 
     parser = argparse.ArgumentParser(
         prog=prog,
-        description='Extract data from binary file',
+        description='Extract data from binary file.',
     )
     parser.add_argument('-i',
                         '--input-file',
@@ -131,8 +130,8 @@ def main():
     # 2. A math expression: "1.0/1000.0"
     # 3. A math expression with unknown value: "x+300"
     # For 1 and 2, we can get the value of factor via `parse_factor`.
-    # For 3, we first replace `x` with `1.0`, and then we call `math_eval_ex`.
-    #   If it failed, then it means the factor string is not a valid factor string.
+    # For 3, we first replace `x` with `1.0`, and then we call `math_eval`.
+    #   If it failed, then it means the factor string is not a valid one.
     #   Otherwise, we evaluate it later.
     if args.factor:
         factor = parse_factor(args.factor)

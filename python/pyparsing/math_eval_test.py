@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# $ yapf -i math_eval.py
+# $ yapf -i math_eval_test.py
 
 import ast
 import importlib.util

@@ -119,3 +119,5 @@
 // https://github.com/dotnet/coreclr/blob/master/src/System.Private.CoreLib/shared/System/Buffers/Binary/WriterBigEndian.cs
 // https://github.com/dotnet/coreclr/blob/master/src/System.Private.CoreLib/shared/System/Buffers/Binary/WriterLittleEndian.cs
 // https://github.com/ddiakopoulos/tinyply/blob/ca7b279fb6c9af931ffdaed96a3b11ca3ccd79ea/source/tinyply.h#L195-L213
+// [Struct.Pack Equivalent in C#](https://stackoverflow.com/questions/19337056/struct-pack-equivalent-in-c-sharp)
+// https://github.com/loory/MiscUtil/blob/master/Conversion/LittleEndianBitConverter.cs

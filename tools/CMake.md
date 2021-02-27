@@ -132,3 +132,15 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
 
 [CMake & Ninja](https://twitter.com/lichray/status/1358689765684617216)
 > cmake -G "Ninja Multi-Config" -B build
+
+
+
+[set_source_files_properties](https://github.com/google/marl/commit/e82d1a7b8bca94cca68e0000e866289e2cf29ccc)
+
+>set_source_files_properties(
+>
+>​    ......
+>
+>​    PROPERTIES LANGUAGE C
+>
+>)

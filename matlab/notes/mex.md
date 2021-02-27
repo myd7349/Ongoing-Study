@@ -9,3 +9,7 @@ https://github.com/labstreaminglayer/liblsl-Matlab
 https://www.mathworks.com/matlabcentral/fileexchange/32261-filterm
 
 https://github.com/RoyiAvital/FastGuassianBlur/blob/master/FilterM/FilterX.c
+
+[libGDF](https://github.com/mbillingr/libgdf/tree/master/matlab)
+
+[edf-converter](https://github.com/uzh/edf-converter/tree/master/edfmex)
