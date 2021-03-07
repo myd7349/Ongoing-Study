@@ -31,6 +31,7 @@ COOKIES_FILE_NAME_DICT = {
 DEFAULT_CONFIG = {
     'browser': 'Firefox',
     'browser_driver_path': '',
+    'login_timeout_in_seconds': 300,
 }
 
 
@@ -64,6 +65,12 @@ def load(config_file):
                     str) or not config['browser_driver_path']:
                 config['browser_driver_path'] = DEFAULT_CONFIG[
                     'browser_driver_path']
+            elif not os.path.isfile(
+                    config['browser_driver_path']) and not os.path.isdir(
+                        config['browser_driver_path']):
+                raise InvalidConfigException(
+                    'Browser driver path \'{0}\' is neither an existing file or directory.'
+                    .format(config['browser_driver_path']))
 
             return types.SimpleNamespace(**config)
     else:

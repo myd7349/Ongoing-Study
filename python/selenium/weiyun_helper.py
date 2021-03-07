@@ -23,24 +23,28 @@ class WeiYunHelper:
 
         print('Browser:', self._config.browser)
 
-        driver_path = os.path.dirname(self._config.browser_driver_path)
-        if os.path.exists(driver_path):
-            print('Browser driver searching path: {0}.'.format(driver_path))
-            sys.path.append(driver_path)
-        else:
-            print('Browser driver path \'{0}\' doesn\'t exist.'.format(
+        if self._config.browser_driver_path and os.path.isdir(
+                self._config.browser_driver_path):
+            print('Browser driver searching path: {0}.'.format(
                 self._config.browser_driver_path))
+            sys.path.append(self._config.browser_driver_path)
 
         if self._config.browser == 'Chrome':
-            self._browser = webdriver.Chrome()
+            driver_class = webdriver.Chrome
         elif self._config.browser == 'Edge':
-            self._browser = webdriver.Edge('./msedgedriver.exe')
+            driver_class = webdriver.Edge
         elif self._config.browser == 'Firefox':
-            self._browser = webdriver.Firefox()
+            driver_class = webdriver.Firefox
         elif self._config.browser == 'Safari':
-            self._browser = webdriver.Safari()
+            driver_class = webdriver.Safari
         else:
             assert False, 'Unknown browser.'
+
+        if os.path.isfile(self._config.browser_driver_path):
+            self._browser = driver_class(
+                executable_path=self._config.browser_driver_path)
+        else:
+            self._browser = driver_class()
 
         self._cookies_file_path = weiyun_config.get_cookies_file_path(
             self._config)

@@ -7,3 +7,5 @@ public Background Background
     set;
 }
 ```
+
+[Implement System.ComponentModel.BackgroundWorker](https://github.com/inthehand/32feet/blob/main/Legacy/InTheHand.Net.Personal/Windows/Forms/BackgroundWorker.cs)

@@ -1,0 +1,29 @@
+简介：
+weiyun_helper 是一个基于 Python + Selenium 的批量保存微云分享链接的命令行小工具。
+
+使用方法：
+1. 首先运行一次 weiyun_helper，它会生成初始配置文件 weiyun_helper.json；
+
+2. 用文本编辑器（推荐 Notepad++、Sublime Text、VS Code）打开 weiyun_helper.json，可以看到如下配置项：
+   browser：指定浏览器类型。它只能是 Chrome、Edge、Firefox、Safari 四者之一。
+
+   browser_driver_path：指定与浏览器对应的驱动路径。
+   
+   从：
+   https://selenium-python.readthedocs.io/installation.html
+   可以找到各主流浏览器对应的驱动程序的下载链接。我在这里也列举一下：
+   Chrome: 	https://sites.google.com/a/chromium.org/chromedriver/downloads
+   Edge:    https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
+   Firefox: https://github.com/mozilla/geckodriver/releases
+   Safari: 	https://webkit.org/blog/6900/webdriver-support-in-safari-10/
+   
+   以 Win10 平台火狐浏览器 Firefox 为例，我们从 https://github.com/mozilla/geckodriver/releases 下载最新版本的 geckodriver 二进制文件：geckodriver-v0.29.0-win64.zip。下载完成后解压，并将解压得到的 geckodriver.exe 与 weiyun_helper 放置在同一级路径下，然后我们编辑 weiyun_helper.json 文件：
+   {
+       "browser": "Firefox",
+       "browser_driver_path": "./geckodriver.exe",
+       "login_timeout_in_seconds": 300
+   }
+	
+	注：部分浏览器对驱动的版本有要求，最好先确认自己所用浏览器的版本，并下载与之版本相符的驱动程序。
+
+3. 将包含微云分享链接的文本存储到文本文件中，然后将文本文件拖拽到 weiyun_helper.exe 图标上。不出意外的话，程序会自动在浏览器中打开微云主页。此时，用户需要登录一下，登录完成后就是见证奇迹的时刻了。

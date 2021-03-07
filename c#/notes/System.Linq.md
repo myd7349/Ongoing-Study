@@ -166,3 +166,4 @@ public static int Pow(this int bas, int exp)
 }
 ```
 
+[LINQ - Convert List to Dictionary with Value as List](https://stackoverflow.com/questions/3549103/linq-convert-list-to-dictionary-with-value-as-list)()

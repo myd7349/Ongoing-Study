@@ -1,0 +1,7 @@
+{
+  "name": "set-log-destination",
+  "version-string": "0.0.1",
+  "dependencies": [
+    "glog"
+  ]
+}

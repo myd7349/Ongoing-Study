@@ -72,3 +72,6 @@ private static extern void FreeFileContentsNative(IntPtr text);
 [pinvoke to function which returns string array](https://stackoverflow.com/questions/22126172/pinvoke-to-function-which-returns-string-array)
 
 https://github.com/texus/TGUI.Net/blob/ff5804eb082c3677d5b2bbe13be1b48b63397407/src/Global.cs#L35-L41
+
+https://github.com/microsoft/win32metadata
+

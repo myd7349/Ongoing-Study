@@ -1,0 +1,1 @@
+[How to encode log file?](https://stackoverflow.com/questions/21402530/how-to-encode-log-file)

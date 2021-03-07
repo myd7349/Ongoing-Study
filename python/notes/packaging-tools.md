@@ -38,5 +38,5 @@ https://github.com/PedramNavid/GooeyPi
 
 
 * [Python打包exe的王炸-Nuitka](https://zhuanlan.zhihu.com/p/133303836)
-
 * [shiv](https://github.com/linkedin/shiv)
+* [PyOxidizer](https://github.com/indygreg/PyOxidizer)

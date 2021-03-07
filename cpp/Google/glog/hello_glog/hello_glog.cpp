@@ -50,3 +50,5 @@ int main(int argc, char *argv[])
 // References:
 // https://stackoverflow.com/questions/20016036/glog-no-output-file-log-is-created
 // https://stackoverflow.com/questions/7430248/creating-a-new-directory-in-c
+// [logging with glog is not working properly](https://stackoverflow.com/questions/35572073/logging-with-glog-is-not-working-properly)
+// >glog by default uses one log file for each severity to prevent two streams opening the same file.
