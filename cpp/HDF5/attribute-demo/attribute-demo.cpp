@@ -19,27 +19,44 @@ H5std_string GetDateTime() {
   return buf;
 }
 
-void WriteStringAttribute(H5::H5Object &obj, const char *attributeName,
+bool WriteStringAttribute(H5::H5Object &obj, const char *attributeName,
                           const H5std_string &value) {
   if (!obj.attrExists(attributeName)) {
-    H5::StrType strType(H5::PredType::C_S1, value.size());
+    H5::StrType strType(H5::PredType::C_S1, value.size() + 1);
+    // strType.setCset(H5T_CSET_UTF8);
     H5::DataSpace dataSpace(H5S_SCALAR);
     auto attribute = obj.createAttribute(attributeName, strType, dataSpace);
     attribute.write(strType, value);
   } else {
     auto attribute = obj.openAttribute(attributeName);
-    attribute.write(attribute.getDataType(), value);
+
+    auto dataSpace = attribute.getSpace();
+    if (dataSpace.getSimpleExtentType() != H5S_SCALAR) return false;
+
+    auto dataType = attribute.getDataType();
+    if (dataType.getClass() != H5T_STRING) return false;
+
+    attribute.write(dataType, value);
   }
+
+  return true;
 }
 
-H5std_string ReadStringAttribute(const H5::H5Object &obj,
-                                 const char *attributeName) {
-  if (!obj.attrExists(attributeName)) return "";
+bool ReadStringAttribute(const H5::H5Object &obj, const char *attributeName,
+                         H5std_string &value) {
+  if (!obj.attrExists(attributeName)) return false;
 
-  H5std_string value;
   auto attribute = obj.openAttribute(attributeName);
-  attribute.read(attribute.getDataType(), value);
-  return value;
+
+  auto dataSpace = attribute.getSpace();
+  if (dataSpace.getSimpleExtentType() != H5S_SCALAR) return false;
+
+  auto dataType = attribute.getDataType();
+  if (dataType.getClass() != H5T_STRING) return false;
+
+  attribute.read(dataType, value);
+
+  return true;
 }
 
 void WriteStringArrayAttribute(H5::H5Object &obj, const char *attributeName,
@@ -92,6 +109,130 @@ std::vector<H5std_string> ReadStringArrayAttribute(H5::H5Object &obj,
   return value;
 }
 
+bool WriteIntAttribute(H5::H5Object &obj, const char *attributeName,
+                       int value) {
+  if (!obj.attrExists(attributeName)) {
+    H5::DataSpace dataSpace(H5S_SCALAR);
+    auto attribute =
+        obj.createAttribute(attributeName, H5::PredType::NATIVE_INT, dataSpace);
+    attribute.write(H5::PredType::NATIVE_INT, &value);
+  } else {
+    auto attribute = obj.openAttribute(attributeName);
+
+    auto dataSpace = attribute.getSpace();
+    if (dataSpace.getSimpleExtentType() != H5S_SCALAR) return false;
+
+    auto dataType = attribute.getDataType();
+    if (dataType.getClass() != H5T_INTEGER) return false;
+
+    attribute.write(dataType, &value);
+  }
+
+  return true;
+}
+
+bool ReadIntAttribute(H5::H5Object &obj, const char *attributeName,
+                      int &value) {
+  if (!obj.attrExists(attributeName)) return false;
+
+  auto attribute = obj.openAttribute(attributeName);
+  if (attribute.getSpace().getSimpleExtentType() != H5S_SCALAR) return false;
+
+  auto dataType = attribute.getDataType();
+  if (dataType.getClass() != H5T_INTEGER) return false;
+
+  attribute.read(dataType, &value);
+  return true;
+}
+
+bool WriteDoubleAttribute(H5::H5Object &obj, const char *attributeName,
+                          double value) {
+  if (!obj.attrExists(attributeName)) {
+    H5::DataSpace dataSpace(H5S_SCALAR);
+    auto attribute = obj.createAttribute(
+        attributeName, H5::PredType::NATIVE_DOUBLE, dataSpace);
+    attribute.write(H5::PredType::NATIVE_DOUBLE, &value);
+  } else {
+    auto attribute = obj.openAttribute(attributeName);
+
+    auto dataSpace = attribute.getSpace();
+    if (dataSpace.getSimpleExtentType() != H5S_SCALAR) return false;
+
+    auto dataType = attribute.getDataType();
+    if (dataType.getClass() != H5T_FLOAT) return false;
+
+    attribute.write(dataType, &value);
+  }
+
+  return true;
+}
+
+bool ReadDoubleAttribute(H5::H5Object &obj, const char *attributeName,
+                         double &value) {
+  if (!obj.attrExists(attributeName)) return false;
+
+  auto attribute = obj.openAttribute(attributeName);
+  if (attribute.getSpace().getSimpleExtentType() != H5S_SCALAR) return false;
+
+  auto dataType = attribute.getDataType();
+  if (dataType.getClass() != H5T_FLOAT) return false;
+
+  attribute.read(dataType, &value);
+  return true;
+}
+
+bool WriteDoubleArrayAttribute(H5::H5Object &obj, const char *attributeName,
+                               const std::vector<double> &values) {
+  if (!obj.attrExists(attributeName)) {
+    hsize_t dims[1]{static_cast<hsize_t>(values.size())};
+    H5::DataSpace dataSpace(1, dims);
+    auto attribute = obj.createAttribute(
+        attributeName, H5::PredType::NATIVE_DOUBLE, dataSpace);
+    attribute.write(H5::PredType::NATIVE_DOUBLE, values.data());
+  } else {
+    auto attribute = obj.openAttribute(attributeName);
+
+    auto dataSpace = attribute.getSpace();
+    if (dataSpace.getSimpleExtentType() != H5S_SIMPLE) return false;
+
+    auto dataType = attribute.getDataType();
+    if (dataType.getClass() != H5T_FLOAT) return false;
+
+    if (dataSpace.getSimpleExtentNdims() != 1) return false;
+
+    hsize_t length;
+    dataSpace.getSimpleExtentDims(&length);
+    if (length > values.size()) return false;
+
+    attribute.write(dataType, values.data());
+  }
+
+  return true;
+}
+
+bool ReadDoubleArrayAttribute(H5::H5Object &obj, const char *attributeName,
+                              std::vector<double> &values) {
+  values.clear();
+
+  if (!obj.attrExists(attributeName)) return false;
+
+  auto attribute = obj.openAttribute(attributeName);
+
+  auto dataSpace = attribute.getSpace();
+  if (dataSpace.getSimpleExtentNdims() != 1) return false;
+  if (dataSpace.getSimpleExtentType() != H5S_SIMPLE) return false;
+
+  hsize_t length;
+  dataSpace.getSimpleExtentDims(&length);
+  values.resize(static_cast<std::vector<double>::size_type>(length));
+
+  auto dataType = attribute.getDataType();
+  if (dataType.getClass() != H5T_FLOAT) return false;
+
+  attribute.read(dataType, values.data());
+  return true;
+}
+
 void WriteFile(const H5std_string &filePath) {
   H5::H5File file(filePath, H5F_ACC_TRUNC);
 
@@ -121,12 +262,23 @@ void WriteFile(const H5std_string &filePath) {
   columnNames.push_back("Column 3");
 
   WriteStringArrayAttribute(dataSet, "names", columnNames);
+
+  WriteIntAttribute(dataSet, "columns", 4);
+  WriteDoubleAttribute(dataSet, "pi", 3.14159265358979);
+
+  std::vector<double> factors{1.0, 2.0, 3.0, 4.0};
+  WriteDoubleArrayAttribute(dataSet, "factors", factors);
+  std::transform(factors.begin(), factors.end(), factors.begin(),
+                 [](double x) { return x * x; });
+  WriteDoubleArrayAttribute(dataSet, "factors", factors);
 }
 
 void ReadFile(const H5std_string &filePath) {
   H5::H5File file(filePath, H5F_ACC_RDONLY);
 
-  std::cout << ReadStringAttribute(file, "created") << std::endl;
+  H5std_string created;
+  if (ReadStringAttribute(file, "created", created))
+    std::cout << created << std::endl;
 
   auto dataSet = file.openDataSet(DataSetName);
 
@@ -162,11 +314,25 @@ void ReadFile(const H5std_string &filePath) {
     // attrSpace.getSimpleExtentDims(dims);
     // std::cout << "String length: " << dims[0] << std::endl;
 
-    std::cout << ReadStringAttribute(dataSet, "string") << std::endl;
+    if (ReadStringAttribute(dataSet, "string", string))
+      std::cout << string << std::endl;
   }
 
+  std::cout << "Column names:\n";
   auto names = ReadStringArrayAttribute(dataSet, "names");
   for (auto &name : names) std::cout << name << std::endl;
+
+  int columns;
+  if (ReadIntAttribute(dataSet, "columns", columns))
+    std::cout << "Total columns: " << columns << std::endl;
+
+  double pi;
+  if (ReadDoubleAttribute(dataSet, "pi", pi)) std::cout << pi << std::endl;
+
+  std::vector<double> factors;
+  if (ReadDoubleArrayAttribute(dataSet, "factors", factors)) {
+    for (auto factor : factors) std::cout << factor << std::endl;
+  }
 }
 
 int main(int argc, char *argv[]) {
@@ -202,4 +368,7 @@ int main(int argc, char *argv[]) {
 // https://forum.hdfgroup.org/t/error-reading-variable-length-utf8-string-using-h5lt-c-api/4392
 // https://bitbucket.hdfgroup.org/projects/HDFFV/repos/hdf5-examples/browse/1_10/C/H5T/h5ex_t_vlstringatt.c
 // https://github.com/HDFGroup/hdf5-examples/blob/master/1_6/C/H5T/h5ex_t_vlstring.c
+// https://github.com/HDFGroup/hdf5/blob/develop/examples/h5_attribute.c
+// [What datatype to use for UTF-8 text](https://forum.hdfgroup.org/t/what-datatype-to-use-for-utf-8-text/4829)
+// [HDF5 Attribute unsigned long long value](https://stackoverflow.com/questions/27243947/hdf5-attribute-unsigned-long-long-value)
 // clang-format on
