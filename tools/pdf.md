@@ -15,3 +15,6 @@ https://twitter.com/terrywang/status/1303592660670668802
 - [OCRmyPDF](https://github.com/jbarlow83/OCRmyPDF)
 
 - [uPDF](https://www.zhihu.com/question/23360635/answer/876404121)
+
+pdftk4all
+

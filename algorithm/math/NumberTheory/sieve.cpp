@@ -140,3 +140,4 @@ int main(int argc, char *argv[])
 // [1] https://en.wikipedia.org/wiki/Prime_number
 // [2] https://en.wikipedia.org/wiki/Generating_primes
 // [3] https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+// https://github.com/kimwalisch/primesieve

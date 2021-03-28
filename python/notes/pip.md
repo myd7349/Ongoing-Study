@@ -6,3 +6,9 @@ PS C:\Users\myd> $env:HTTP_PROXY='http://127.0.0.1:7079'
 PS C:\Users\myd> $env:HTTPS_PROXY='https://127.0.0.1:7079'
 PS C:\Users\myd> py -m pip install -U pywinauto
 ```
+
+- [requirements.txt](https://pip.pypa.io/en/stable/user_guide/)
+
+> ```
+> python -m pip install -r requirements.txt
+> ```

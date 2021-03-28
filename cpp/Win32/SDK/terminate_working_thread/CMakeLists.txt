@@ -1,0 +1,3 @@
+cmake_minimum_required(VERSION 3.8)
+project(terminate_working_thread C)
+add_executable(terminate_working_thread terminate_working_thread.c)

@@ -5,3 +5,5 @@ Projects that using `ctypes`:
 - [Kernel-Bridge](https://github.com/HoShiMin/Kernel-Bridge/blob/master/Python-Bridge/Python-Bridge.py)
 - [comtypes](https://github.com/enthought/comtypes)
 - [liblsl-Python](https://github.com/labstreaminglayer/liblsl-Python)
+- [pyhidapi](https://github.com/apmorton/pyhidapi)
+- [pyserial](https://github.com/pyserial/pyserial/blob/master/serial/win32.py)

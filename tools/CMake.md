@@ -144,3 +144,9 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
 >​    PROPERTIES LANGUAGE C
 >
 >)
+
+[future-proof CMake](https://github.com/kimwalisch/libpopcnt/commit/870e63dba35050c60a45f3b63f2d0138154eeaf9)
+
+> cmake_minimum_required(VERSION 3.4...3.19)
+
+[cmkr](https://github.com/MoAlyousef/cmkr)

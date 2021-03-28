@@ -61,6 +61,11 @@ def is_csv_file(file_path):
     return file_ext.lower() == '.csv'
 
 
+def is_tsv_file(file_path):
+    _, file_ext = os.path.splitext(file_path)
+    return file_ext.lower() == '.tsv'
+
+
 def parse_factor(factor_string):
     """Parse factor string and convert it to a number.
     
@@ -156,9 +161,15 @@ def main():
         sys.exit(1)
 
     if not args.delimiter:
-        is_output_csv = False if not args.output_file else is_csv_file(
-            args.output_file)
-        args.delimiter = ',' if is_output_csv else ' '
+        if args.output_file:
+            if is_csv_file(args.output_file):
+                args.delimiter = ','
+            elif is_tsv_file(args.output_file):
+                args.delimiter = '\t'
+            else:
+                args.delimiter = ' '
+        else:
+            args.delimiter = ' '
 
     if args.output_file:
         output_fp = open(args.output_file, 'w', encoding='ascii')

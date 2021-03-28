@@ -59,3 +59,4 @@ if __name__ == '__main__':
 # [Evaluating a mathematical expression in a string](https://stackoverflow.com/questions/2371436/evaluating-a-mathematical-expression-in-a-string)
 # [Python eval(): Evaluate Expressions Dynamically](https://realpython.com/python-eval-function/)
 # [Python: make eval safe](https://stackoverflow.com/questions/3513292/python-make-eval-safe)
+# https://github.com/kimwalisch/calculator

@@ -35,3 +35,4 @@ int main()
 // https://blog.csdn.net/zotin/article/details/5885131
 // https://github.com/arximboldi/immer/blob/a28718c0511ae41503b1c6ef36f4b5368fa717ba/immer/detail/hamts/bits.hpp#L73-L103
 // https://github.com/microsoft/angle/blob/c61d0488abd9663e0d4d2450db7345baa2c0dfb6/src/common/mathutil.h#L885-L920
+// Windows Terminal relays on: https://github.com/kimwalisch/libpopcnt

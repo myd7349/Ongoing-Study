@@ -47,3 +47,7 @@ https://thegeekpage.com/how-to-delete-files-protected-by-trustedinstaller-in-win
 [How to change text color of cmd with windows batch script every 1 second](https://stackoverflow.com/questions/12572718/how-to-change-text-color-of-cmd-with-windows-batch-script-every-1-second)
 
 https://github.com/dbohdan/messagebox
+
+> netstat  -ano | findstr "5037"
+>
+> tasklist| findstr "34652"

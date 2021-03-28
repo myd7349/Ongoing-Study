@@ -75,6 +75,11 @@ def is_csv_file(file_path):
     return file_ext.lower() == '.csv'
 
 
+def is_tsv_file(file_path):
+    _, file_ext = os.path.splitext(file_path)
+    return file_ext.lower() == '.tsv'
+
+
 def main():
     prog = os.path.splitext(os.path.basename(sys.argv[0]))[0]
 
@@ -123,37 +128,50 @@ def main():
 
     is_input_csv = args.input_file and is_csv_file(args.input_file)
 
-    if args.use_regexp and not args.delimiter:
-        sys.stderr.write(
-            'Delimiter is not a valid regular expression: {0}.'.format(
-                args.delimiter))
-        sys.exit(1)
-    elif not args.delimiter and not args.use_regexp:
-        # .txt and .csv are most commonly used data formats.
-        args.use_regexp = True
-
-        if is_input_csv:
-            # r'(\s+)|(\s*[,]\s*)' is problematic for columns seperated by spaces.
-            # r'\s+' is somewhat ok. But, re.split(r'\s+', 'a b c\n') returns:
-            # ['a', 'b', 'c', '']
-            args.delimiter = r'\s*[,]\s*'
+    if not args.delimiter:
+        if args.use_regexp:
+            sys.stderr.write(
+                'Delimiter is not a valid regular expression: {0}.'.format(
+                    args.delimiter))
+            sys.exit(1)
         else:
-            args.delimiter = r'\s+'
+            # .txt and .csv are most commonly used data formats.
+            args.use_regexp = True
+
+            if is_input_csv:
+                # r'(\s+)|(\s*[,]\s*)' is problematic for columns seperated by spaces.
+                # r'\s+' is somewhat ok. But, re.split(r'\s+', 'a b c\n') returns:
+                # ['a', 'b', 'c', '']
+                args.delimiter = r'\s*[,]\s*'
+            else:
+                args.delimiter = r'\s+'
 
     if args.output_file and os.path.isfile(
             args.output_file) and not args.overwrite:
-        sys.stderr.write('Output file \'{0}\' already exists! '
-                         'Please use a different file path or specify '
-                         '\'--overwrite\' on the command line.\n'.format(
-                             args.output_file))
+        sys.stderr.write(
+            'Output file \'{0}\' already exists! '
+            'Please use a different file path or specify '
+            '\'--overwrite\'/\'-O\' on the command line.\n'.format(
+                args.output_file))
         sys.exit(1)
 
     if not args.output_delimiter:
-        if not args.use_regexp:
-            args.output_delimiter = args.delimiter
+        if args.output_file:
+            if is_csv_file(args.output_file):
+                args.output_delimiter = ','
+            elif is_tsv_file(args.output_file):
+                args.output_delimiter = '\t'
 
         if not args.output_delimiter:
-            args.output_delimiter = ',' if is_input_csv else ' '
+            if not args.use_regexp:
+                args.output_delimiter = args.delimiter
+            else:
+                if is_input_csv:
+                    args.output_delimiter = ','
+                elif is_tsv_file(args.input_file):
+                    args.output_delimiter = '\t'
+                else:
+                    args.output_delimiter = ' '
 
     if args.output_file:
         output_fp = open(args.output_file, 'w', encoding=args.encoding)
@@ -163,9 +181,9 @@ def main():
     if args.input_file is None:
         lines = enumerate_lines_from_stdin(header_lines=args.header_lines)
     else:
-        lines = enumerate_lines(args.input_file,
-                                encoding=args.encoding,
-                                header_lines=args.header_lines)
+        lines = enumerate_lines_from_file(args.input_file,
+                                          encoding=args.encoding,
+                                          header_lines=args.header_lines)
     for extracted_columns in extract_columns(lines, args.columns,
                                              args.delimiter, args.use_regexp):
         output_fp.write(args.output_delimiter.join(extracted_columns))
@@ -186,3 +204,5 @@ if __name__ == '__main__':
 # [Extracting extension from filename in Python](https://stackoverflow.com/questions/541390/extracting-extension-from-filename-in-python)
 # [Why are empty strings returned in split() results?](https://stackoverflow.com/questions/2197451/why-are-empty-strings-returned-in-split-results)
 # [Python regex split without empty string](Python regex split without empty string)
+# [HDF5 数据文件简介](https://zhuanlan.zhihu.com/p/104145585)
+# [How to load and save data in CSV file](https://nono721.github.io/2020/01/26/CSV.html)

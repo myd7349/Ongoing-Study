@@ -10,7 +10,8 @@ import time
 import warnings
 
 
-# 2014-10-28T22:20+08:00 
+# 2014-10-28T22:20+08:00
+# https://stackoverflow.com/questions/7370801/how-to-measure-elapsed-time-in-python
 def benchmark(times):
     '''A decorator for calculating the execution time of calling a function several times.
 

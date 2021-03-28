@@ -32,3 +32,4 @@ protected:
 // https://www.zhihu.com/question/267013757
 // https://www.zhihu.com/question/272087885
 // https://stackoverflow.com/questions/11711920/how-to-implement-multithread-safe-singleton-in-c11-without-using-mutex
+// https://liam.page/2020/10/27/implement-a-singleton-class-template-in-cxx/

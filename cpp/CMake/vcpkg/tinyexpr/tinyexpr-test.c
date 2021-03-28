@@ -31,3 +31,7 @@ int main(void) {
 
   return 0;
 }
+
+
+// References:
+// https://github.com/kimwalisch/calculator

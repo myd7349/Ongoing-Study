@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.8)
+project(high_timer_test CXX)
+add_executable(high_timer_test high_timer_test.cpp)
+target_include_directories(high_timer_test PRIVATE "${CMAKE_CURRENT_LIST_DIR}/..")
+target_compile_features(high_timer_test PUBLIC cxx_std_11)

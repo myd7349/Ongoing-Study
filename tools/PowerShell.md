@@ -66,3 +66,5 @@ $ iwr https://deno.land/x/install/install.ps1 -useb | iex
 $ Get-Alias -Definition Invoke-WebRequest | Format-Table -AutoSize
 $ Get-Alias -Definition Invoke-Expression
 ```
+
+> Set-ExecutionPolicy RemoteSigned

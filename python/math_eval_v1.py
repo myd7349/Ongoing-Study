@@ -191,3 +191,5 @@ if __name__ == '__main__':
 # [Python: make eval safe](https://stackoverflow.com/questions/3513292/python-make-eval-safe)
 # [Parse mathematical expressions with pyparsing](https://stackoverflow.com/questions/23879784/parse-mathematical-expressions-with-pyparsing)
 # [Value for epsilon in Python](https://stackoverflow.com/questions/9528421/value-for-epsilon-in-python)
+# https://github.com/kimwalisch/calculator
+# https://github.com/pydata/numexpr
