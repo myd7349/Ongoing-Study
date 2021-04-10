@@ -303,8 +303,3 @@ def ecg_to_dcm(src, dest, extra_ds=dicom.dataset.Dataset(), format_ch='d', callb
                           adjust_callback=callback)
     data_set.update(extra_ds)
     data_set.save_as(dest)
-
-
-def fecg_to_dcm(src, dest):
-    raise NotImplementedError()
-

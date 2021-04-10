@@ -143,6 +143,7 @@ private:
     static InternalData internalData_;
 
     // coreclr\src\mscorlib\shared\System\DateTime.cs
+    // https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/DateTime.cs#L49
     /*
         // Returns the tick count for this DateTime. The returned value is
         // the number of 100-nanosecond intervals that have elapsed since 1/1/0001

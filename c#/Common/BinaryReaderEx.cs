@@ -91,3 +91,4 @@
 // https://sourceforge.net/projects/dicom-cs/files/dicom-cs/dicom-0_3_1/
 // > org/dicomcs/util/BEBinaryReader.cs
 // https://github.com/ddiakopoulos/tinyply/blob/ca7b279fb6c9af931ffdaed96a3b11ca3ccd79ea/source/tinyply.h#L195-L213
+// https://github.com/dbrant/imageformats/blob/master/ImageFormats/Util.cs

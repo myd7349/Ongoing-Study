@@ -6,7 +6,7 @@
 SimpleIniConfigItemProvider::SimpleIniConfigItemProvider(StringT ini)
     : ini_(ini), store_(false)
 {
-	simpleIni_.LoadFile(ini_.c_str());
+    simpleIni_.LoadFile(ini_.c_str());
 }
 
 

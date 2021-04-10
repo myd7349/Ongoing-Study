@@ -214,3 +214,11 @@ https://github.com/microsoft/vcpkg/blob/f1bef4aa7ca7e2a6ea4f5dfe4850d95fce60b431
 17.
 
 [Create temporary file in C, MS Windows system](https://stackoverflow.com/questions/9717271/create-temporary-file-in-c-ms-windows-system)
+
+18.
+
+[C - create file in memory](https://stackoverflow.com/questions/12249610/c-create-file-in-memory)
+
+https://github.com/libconfuse/libconfuse/blob/master/src/fmemopen.c
+
+[Create temporary file in C, MS Windows system](https://stackoverflow.com/questions/9717271/create-temporary-file-in-c-ms-windows-system)

@@ -1,0 +1,22 @@
+library: person
+
+# This must be relative to python directory targeted by shroud
+cxx_header: ../person.h
+
+options:
+  wrap_fortran: False
+  wrap_c: False
+  wrap_python: True
+  debug: False
+
+declarations:
+- decl: class Person
+  declarations:
+  - decl: Person(const char *name, int age)  +name(new)
+  - decl: const std::string name() const
+  - decl: int age() const
+  - decl: static std::string Introduce(const Person &person)
+
+# References:
+# https://github.com/LLNL/shroud/tree/develop/examples/hello-world-python
+# https://shroud.readthedocs.io/en/develop/tutorial.html

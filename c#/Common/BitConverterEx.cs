@@ -123,3 +123,4 @@
 
 // References:
 // https://github.com/dotnet/coreclr/blob/master/src/System.Private.CoreLib/shared/System/BitConverter.cs
+// https://github.com/dbrant/imageformats/blob/master/ImageFormats/Util.cs

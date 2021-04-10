@@ -199,4 +199,5 @@ int double_almost_equal_v2(double x, double y, double epsilon) {
 // (C#)](https://stackoverflow.com/questions/3564871/difference-between-double-comparisons-in-gtest-c-and-nunit-c)
 // https://github.com/google/googletest/blob/aee0f9d9b5b87796ee8a0ab26b7587ec30e8858e/googletest/include/gtest/internal/gtest-internal.h#L249-L397
 // https://www.zhihu.com/question/32304267
+// https://github.com/adevress/hadoken/blob/master/include/hadoken/numeric/float.hpp
 // clang-format on

@@ -18,3 +18,5 @@ https://twitter.com/terrywang/status/1303592660670668802
 
 pdftk4all
 
+[pdfcrack](https://github.com/robins/pdfcrack)
+

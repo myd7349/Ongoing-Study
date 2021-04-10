@@ -127,3 +127,4 @@ namespace Common.IO
 // https://github.com/caryll/otfcc/blob/master/lib/support/bin-io.h
 // https://sourceforge.net/projects/dicom-cs/files/dicom-cs/dicom-0_3_1/
 // > org/dicomcs/util/BEBinaryReader.cs
+// https://github.com/dbrant/imageformats/blob/master/ImageFormats/Util.cs

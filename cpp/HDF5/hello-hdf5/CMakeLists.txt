@@ -15,7 +15,7 @@ target_link_libraries(
         hdf5::hdf5_hl_cpp-shared
         std::filesystem
 )
-target_compile_features(hello-hdf5 PUBLIC cxx_std_17)
+target_compile_features(hello-hdf5 PRIVATE cxx_std_17)
 
 # References:
 # https://github.com/alandefreitas/matplotplusplus/commit/a4ac853949d5b02891b18ca7c6d777b72bf6b8e8#diff-1ef7efcd62777b6d2d048781d6f097fdd5be311cab1e5252477c8288f32c77e9

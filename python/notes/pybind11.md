@@ -6,3 +6,4 @@ Projects using `pybind11`
 * [dlib](https://github.com/davisking/dlib/blob/master/setup.py)
 * [bimpy](https://github.com/podgorskiy/bimpy)
 * [pysimdjson](https://github.com/TkTech/pysimdjson)
+* [pymetis](https://github.com/inducer/pymetis)

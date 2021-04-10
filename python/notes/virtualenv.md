@@ -14,3 +14,7 @@ For example, we can build [ViTables](https://github.com/uvemas/ViTables/issues/7
 >
 > pip install -r requirements.txt --proxy http://127.0.0.1:7080
 
+https://github.com/pantsbuild/pex
+
+[pex](https://github.com/pantsbuild/pex#development) uses [tox](https://testrun.org/tox/en/latest/) for test and development automation.
+

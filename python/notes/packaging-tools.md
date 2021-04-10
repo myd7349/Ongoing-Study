@@ -40,3 +40,12 @@ https://github.com/PedramNavid/GooeyPi
 * [Python打包exe的王炸-Nuitka](https://zhuanlan.zhihu.com/p/133303836)
 * [shiv](https://github.com/linkedin/shiv)
 * [PyOxidizer](https://github.com/indygreg/PyOxidizer)
+
+[pex](https://github.com/pantsbuild/pex)
+
+[Shroud](https://github.com/LLNL/shroud/blob/db592d5d72ed61cbebbd1a084230e15b6b0096b4/Makefile#L116-L182) will uses one of:
+
+- pex
+- shiv
+- nuitka
+

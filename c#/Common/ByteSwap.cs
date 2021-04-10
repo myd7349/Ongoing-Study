@@ -115,3 +115,4 @@
 // https://stackoverflow.com/questions/1358747/fast-little-endian-to-big-endian-conversion-in-asm
 // https://stackoverflow.com/questions/19560436/bitwise-endian-swap-for-various-types
 // https://github.com/nemequ/portable-snippets/blob/77654dbc376e0465aaae096553eeb2e95a9f2735/builtin/builtin.h#L974-L980
+// https://github.com/dbrant/imageformats/blob/master/ImageFormats/Util.cs

@@ -33,3 +33,5 @@ Makefile:135: recipe for target 'WavelibTest' failed
 ```
 
 [Convert a Static Library to a Shared Library?](https://stackoverflow.com/questions/655163/convert-a-static-library-to-a-shared-library)
+
+[Linking to a .dll file without the .lib](https://stackoverflow.com/questions/45030749/linking-to-a-dll-file-without-the-lib)
