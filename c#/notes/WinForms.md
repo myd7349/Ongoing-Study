@@ -7,3 +7,7 @@
 [Avoiding the woes of Invoke/BeginInvoke in cross-thread WinForm event handling?](https://stackoverflow.com/questions/1364116/avoiding-the-woes-of-invoke-begininvoke-in-cross-thread-winform-event-handling)
 
 [How do I make a textbox that only accepts numbers?](https://stackoverflow.com/questions/463299/how-do-i-make-a-textbox-that-only-accepts-numbers)
+
+[What is the difference between User Control, Custom Control and Component?](https://stackoverflow.com/questions/1322451/what-is-the-difference-between-user-control-custom-control-and-component)
+
+[UserControl vs CustomControl in C#](https://stackoverflow.com/questions/15294974/usercontrol-vs-customcontrol-in-c-sharp)

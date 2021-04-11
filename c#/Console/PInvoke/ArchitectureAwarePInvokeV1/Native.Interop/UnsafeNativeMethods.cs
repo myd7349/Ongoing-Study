@@ -714,3 +714,4 @@ namespace Native.Interop
 
 // References:
 // System.Data.SQLite.UnsafeNativeMethods
+// https://github.com/HDFGroup/HDF.PInvoke/blob/master/HDF5/H5DLLImporter.cs

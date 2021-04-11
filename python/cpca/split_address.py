@@ -10,7 +10,7 @@ import xlrd
 
 
 app_dir = os.path.dirname(__file__)
-excel_name = r'./04.01拓单订单（导入管家）.xls'
+excel_name = r'../jieba/orders.xls'
 excel_path = os.path.join(app_dir, excel_name)
 
 if not os.path.exists(excel_path):

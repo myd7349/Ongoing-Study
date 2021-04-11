@@ -167,3 +167,7 @@ public static int Pow(this int bas, int exp)
 ```
 
 [LINQ - Convert List to Dictionary with Value as List](https://stackoverflow.com/questions/3549103/linq-convert-list-to-dictionary-with-value-as-list)()
+
+[Accumulating sum in one line in C#](https://stackoverflow.com/questions/5653439/accumulating-sum-in-one-line-in-c-sharp)
+
+[Enumerable.Aggregate Method](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.aggregate?view=net-5.0)

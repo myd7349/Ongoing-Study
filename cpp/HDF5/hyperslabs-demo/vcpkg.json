@@ -1,6 +1,6 @@
 {
-  "name": "write-2d-array",
-  "version-string": "0.0.1",
+  "name": "hyperslabs-demo",
+  "version": "0.0.1",
   "dependencies": [
     {
       "name": "hdf5",

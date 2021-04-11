@@ -1,0 +1,9 @@
+{
+  "cmake.configureSettings": {
+    "CMAKE_TOOLCHAIN_FILE": "${env.VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+    "CMAKE_GENERATOR_PLATFORM": "x64",
+    "VCPKG_TARGET_TRIPLET": "x64-windows"
+  },
+  "editor.formatOnSave": true
+  }
+}

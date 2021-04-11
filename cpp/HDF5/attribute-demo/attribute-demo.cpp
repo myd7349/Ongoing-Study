@@ -371,4 +371,5 @@ int main(int argc, char *argv[]) {
 // https://github.com/HDFGroup/hdf5/blob/develop/examples/h5_attribute.c
 // [What datatype to use for UTF-8 text](https://forum.hdfgroup.org/t/what-datatype-to-use-for-utf-8-text/4829)
 // [HDF5 Attribute unsigned long long value](https://stackoverflow.com/questions/27243947/hdf5-attribute-unsigned-long-long-value)
+// https://github.com/HDFGroup/hdf5/issues/544
 // clang-format on

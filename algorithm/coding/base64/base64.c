@@ -384,3 +384,4 @@ void *easy_base64_decode(const char *base64, void *data, size_t *out_len)
 // https://github.com/cr-marcstevens/snippets/blob/master/cxxheaderonly/base64.hpp
 // https://github.com/WojciechMula/base64-avx512
 // https://github.com/WojciechMula/toys/tree/master/base64
+// https://github.com/tplgy/cppcodec/blob/master/cppcodec/base64_url.hpp

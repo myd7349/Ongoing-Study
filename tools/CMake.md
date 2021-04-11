@@ -150,3 +150,14 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
 > cmake_minimum_required(VERSION 3.4...3.19)
 
 [cmkr](https://github.com/MoAlyousef/cmkr)
+
+[cmakepp](https://github.com/toeb/cmakepp)
+
+[How to build x86 and/or x64 on Windows from command line with CMAKE?](https://stackoverflow.com/questions/28350214/how-to-build-x86-and-or-x64-on-windows-from-command-line-with-cmake)
+
+23. [Is there a CMake '--install' switch?](https://stackoverflow.com/questions/34040522/is-there-a-cmake-install-switch)
+
+24. [cmake set subdirectory options](https://stackoverflow.com/questions/20239334/cmake-set-subdirectory-options/20239564)
+
+25. https://github.com/Neumann-A/CMakeJSON
+

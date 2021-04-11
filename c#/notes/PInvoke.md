@@ -75,3 +75,6 @@ https://github.com/texus/TGUI.Net/blob/ff5804eb082c3677d5b2bbe13be1b48b63397407/
 
 https://github.com/microsoft/win32metadata
 
+[How to Marshal a C++ Class](https://www.codeproject.com/Articles/18032/How-to-Marshal-a-C-Class)
+
+[Native interoperability best practices](https://docs.microsoft.com/en-us/dotnet/standard/native-interop/best-practices)

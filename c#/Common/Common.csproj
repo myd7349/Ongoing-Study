@@ -83,6 +83,7 @@
     <Compile Include="NotifyProperty.cs" />
     <Compile Include="ObservableCollectionEx.cs" />
     <Compile Include="Pair.cs" />
+    <Compile Include="PinnedObject.cs" />
     <Compile Include="ProcessHelpers.cs" />
     <Compile Include="ProgressBarHelper.cs" />
     <Compile Include="ProgressReporter.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="StructHelpers.cs" />
     <Compile Include="SwapHelper.cs" />
     <Compile Include="TabControlEx.cs" />
+    <Compile Include="UnmanagedBuffer.cs" />
     <Compile Include="ValueWithDefault.cs" />
     <Compile Include="Zip.cs" />
   </ItemGroup>

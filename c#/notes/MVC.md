@@ -1,0 +1,2 @@
+* [C# Model View Controller (MVC) Explained](https://www.youtube.com/watch?v=u4O-b1BJg98)
+* [Introduction to Model View Control (MVC) Pattern using C#](https://www.c-sharpcorner.com/article/introduction-to-model-view-control-mvc-pattern-using-c-sharp/)

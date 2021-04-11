@@ -1,0 +1,8 @@
+{
+  "name": "attribute-demo",
+  "version": "0.0.1",
+  "dependencies": [
+    "fmt",
+    "highfive"
+  ]
+}

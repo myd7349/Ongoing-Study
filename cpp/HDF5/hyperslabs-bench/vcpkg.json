@@ -1,6 +1,6 @@
 {
   "name": "hyperslabs-bench",
-  "version-string": "0.0.1",
+  "version": "0.0.1",
   "dependencies": [
     {
       "name": "hdf5",

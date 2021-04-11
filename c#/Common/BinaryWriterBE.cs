@@ -128,3 +128,4 @@ namespace Common.IO
 // https://sourceforge.net/projects/dicom-cs/files/dicom-cs/dicom-0_3_1/
 // > org/dicomcs/util/BEBinaryReader.cs
 // https://github.com/dbrant/imageformats/blob/master/ImageFormats/Util.cs
+// https://github.com/mandreyel/endian/blob/master/endian.hpp

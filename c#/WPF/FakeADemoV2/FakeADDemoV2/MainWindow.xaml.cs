@@ -28,11 +28,25 @@
             adDataChart_.LegendVisible = true;
             adDataChart_.FitToView();
 
+#if ViaProducerConsumerDataFlow
             ad_ = new FakeADViaProducerConsumerDataFlow
             {
                 Channels = 1,
                 SamplingRate = 4000,
             };
+#elif ViaBlockingCollection
+            ad_ = new FakeADViaBlockingCollection
+            {
+                Channels = 1,
+                SamplingRate = 4000,
+            };
+#elif ViaUDP
+            ad_ = new FakeADViaUDP
+            {
+                Channels = 1,
+                SamplingRate = 4000,
+            };
+#endif
             ad_.Open(Samples);
             buffer_ = new double[Samples];
             samples_ = 0;
@@ -79,7 +93,7 @@
         private const int SecondsPerScreen = 10;
         private ObservableDataSource<Point> dataSource_ = new ObservableDataSource<Point>();
         private DispatcherTimer dispatcherTimer_ = new DispatcherTimer();
-        private FakeADViaProducerConsumerDataFlow ad_;
+        private FakeADBase ad_;
         private double[] buffer_;
         private long samples_;
         private Stopwatch stopwatch_;

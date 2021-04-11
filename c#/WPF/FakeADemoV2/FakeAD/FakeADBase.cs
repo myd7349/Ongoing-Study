@@ -66,9 +66,8 @@
                 if (disposing)
                 {
                     // Dispose managed resources.
+                    Release();
                 }
-
-                Release();
 
                 disposed_ = true;
             }

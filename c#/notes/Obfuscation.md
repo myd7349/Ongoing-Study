@@ -1,0 +1,1 @@
+- [Dotfuscator](https://en.wikipedia.org/wiki/Dotfuscator) - [dotfuscator-pro-samples](https://github.com/preemptive/dotfuscator-pro-samples)
