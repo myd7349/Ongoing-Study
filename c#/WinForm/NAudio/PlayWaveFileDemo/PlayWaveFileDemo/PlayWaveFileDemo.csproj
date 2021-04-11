@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DRCSampleProvider.cs" />
     <Compile Include="PlayWaveFileForm.cs">
       <SubType>Form</SubType>
     </Compile>

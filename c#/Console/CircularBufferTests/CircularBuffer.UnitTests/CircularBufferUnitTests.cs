@@ -11,16 +11,14 @@
     public class CircularBufferUnitTests 
     {
         private int[] array_ = new int[] { 1, 2, 3, 4, 5 };
-        private CircularBuffer<int> buffer0_;
-        private CircularBuffer<int> buffer1_;
-        private CircularBuffer<int> buffer2_;
+        private CircularBuffer<int> buffer_;
 
         [SetUp]
         protected void SetUp()
         {
-            buffer1_ = new CircularBuffer<int>(array_.Length);
-            buffer1_.AddMany(new int[] { 1, 2, 3, 4 }, 0, 4);
-            buffer1_.Remove();
+            buffer_ = new CircularBuffer<int>(array_.Length);
+            buffer_.AddMany(new int[] { 1, 2, 3, 4 }, 0, 4);
+            buffer_.Remove();
         }
 
         [Test]

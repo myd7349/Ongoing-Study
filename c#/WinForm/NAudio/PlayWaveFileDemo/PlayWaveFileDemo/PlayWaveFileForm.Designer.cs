@@ -37,6 +37,10 @@
             this.playOrPauseButton_ = new System.Windows.Forms.Button();
             this.stopButton_ = new System.Windows.Forms.Button();
             this.propertiesButton_ = new System.Windows.Forms.Button();
+            this.drcCheckBox_ = new System.Windows.Forms.CheckBox();
+            this.volumeLabel_ = new System.Windows.Forms.Label();
+            this.volumeTrackBar_ = new System.Windows.Forms.TrackBar();
+            ((System.ComponentModel.ISupportInitialize)(this.volumeTrackBar_)).BeginInit();
             this.SuspendLayout();
             // 
             // deviceLabel_
@@ -98,7 +102,7 @@
             // playOrPauseButton_
             // 
             this.playOrPauseButton_.Enabled = false;
-            this.playOrPauseButton_.Location = new System.Drawing.Point(67, 73);
+            this.playOrPauseButton_.Location = new System.Drawing.Point(67, 158);
             this.playOrPauseButton_.Name = "playOrPauseButton_";
             this.playOrPauseButton_.Size = new System.Drawing.Size(75, 23);
             this.playOrPauseButton_.TabIndex = 6;
@@ -109,7 +113,7 @@
             // stopButton_
             // 
             this.stopButton_.Enabled = false;
-            this.stopButton_.Location = new System.Drawing.Point(159, 73);
+            this.stopButton_.Location = new System.Drawing.Point(158, 158);
             this.stopButton_.Name = "stopButton_";
             this.stopButton_.Size = new System.Drawing.Size(75, 23);
             this.stopButton_.TabIndex = 7;
@@ -120,7 +124,7 @@
             // propertiesButton_
             // 
             this.propertiesButton_.Enabled = false;
-            this.propertiesButton_.Location = new System.Drawing.Point(248, 73);
+            this.propertiesButton_.Location = new System.Drawing.Point(248, 158);
             this.propertiesButton_.Name = "propertiesButton_";
             this.propertiesButton_.Size = new System.Drawing.Size(94, 23);
             this.propertiesButton_.TabIndex = 8;
@@ -128,11 +132,44 @@
             this.propertiesButton_.UseVisualStyleBackColor = true;
             this.propertiesButton_.Click += new System.EventHandler(this.propertiesButton__Click);
             // 
+            // drcCheckBox_
+            // 
+            this.drcCheckBox_.AutoSize = true;
+            this.drcCheckBox_.Location = new System.Drawing.Point(67, 127);
+            this.drcCheckBox_.Name = "drcCheckBox_";
+            this.drcCheckBox_.Size = new System.Drawing.Size(216, 16);
+            this.drcCheckBox_.TabIndex = 9;
+            this.drcCheckBox_.Text = "Enable Dynamic Range Compression";
+            this.drcCheckBox_.UseVisualStyleBackColor = true;
+            // 
+            // volumeLabel_
+            // 
+            this.volumeLabel_.AutoSize = true;
+            this.volumeLabel_.Location = new System.Drawing.Point(12, 76);
+            this.volumeLabel_.Name = "volumeLabel_";
+            this.volumeLabel_.Size = new System.Drawing.Size(47, 12);
+            this.volumeLabel_.TabIndex = 10;
+            this.volumeLabel_.Text = "Volume:";
+            // 
+            // volumeTrackBar_
+            // 
+            this.volumeTrackBar_.Location = new System.Drawing.Point(62, 76);
+            this.volumeTrackBar_.Maximum = 32;
+            this.volumeTrackBar_.Minimum = 1;
+            this.volumeTrackBar_.Name = "volumeTrackBar_";
+            this.volumeTrackBar_.Size = new System.Drawing.Size(280, 45);
+            this.volumeTrackBar_.TabIndex = 11;
+            this.volumeTrackBar_.Value = 1;
+            this.volumeTrackBar_.Scroll += new System.EventHandler(this.volumeTrackBar__Scroll);
+            // 
             // PlayWaveFileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 114);
+            this.ClientSize = new System.Drawing.Size(436, 245);
+            this.Controls.Add(this.volumeTrackBar_);
+            this.Controls.Add(this.volumeLabel_);
+            this.Controls.Add(this.drcCheckBox_);
             this.Controls.Add(this.propertiesButton_);
             this.Controls.Add(this.stopButton_);
             this.Controls.Add(this.playOrPauseButton_);
@@ -149,6 +186,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Play Wave File";
             this.Load += new System.EventHandler(this.PlayWaveFileForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.volumeTrackBar_)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,5 +203,8 @@
         private System.Windows.Forms.Button playOrPauseButton_;
         private System.Windows.Forms.Button stopButton_;
         private System.Windows.Forms.Button propertiesButton_;
+        private System.Windows.Forms.CheckBox drcCheckBox_;
+        private System.Windows.Forms.Label volumeLabel_;
+        private System.Windows.Forms.TrackBar volumeTrackBar_;
     }
 }

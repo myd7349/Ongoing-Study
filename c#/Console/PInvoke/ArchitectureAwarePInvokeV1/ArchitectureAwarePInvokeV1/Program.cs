@@ -4,6 +4,7 @@
     // x86/Win32: OK
     // x64: OK
     // AnyCPU: Doesn't work currently.
+    // PInvoke\MarshalCppClassV1 works with x86/x64/AnyCPU.
    
     using System;
     using static System.Console;

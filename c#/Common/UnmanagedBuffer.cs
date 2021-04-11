@@ -86,3 +86,4 @@
 // References:
 // [How to get IntPtr from byte[] in C#](https://stackoverflow.com/questions/537573/how-to-get-intptr-from-byte-in-c-sharp)
 // [CA1063: Implement IDisposable correctly](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1063)
+// https://referencesource.microsoft.com/#system/compmod/microsoft/win32/safehandles/SafeLibraryHandle.cs

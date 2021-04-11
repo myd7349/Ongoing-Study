@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\..\..\..\Commo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDF5.Extension", "HDF5.Extension\HDF5.Extension.csproj", "{B8C864DE-545B-40E3-A7F6-108C508FF686}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDF5.Extension.UnitTests", "HDF5.Extension.UnitTests\HDF5.Extension.UnitTests.csproj", "{E456BEC5-E0D6-49B5-BA64-49737512E26A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B8C864DE-545B-40E3-A7F6-108C508FF686}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8C864DE-545B-40E3-A7F6-108C508FF686}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8C864DE-545B-40E3-A7F6-108C508FF686}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E456BEC5-E0D6-49B5-BA64-49737512E26A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E456BEC5-E0D6-49B5-BA64-49737512E26A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E456BEC5-E0D6-49B5-BA64-49737512E26A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E456BEC5-E0D6-49B5-BA64-49737512E26A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

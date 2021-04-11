@@ -49,3 +49,4 @@ https://github.com/PedramNavid/GooeyPi
 - shiv
 - nuitka
 
+[briefcase](https://github.com/beeware/briefcase)

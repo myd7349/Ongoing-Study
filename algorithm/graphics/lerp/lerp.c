@@ -85,3 +85,4 @@ LERP_T(long long, lllerp)
 // https://en.wikipedia.org/wiki/Linear_interpolation
 // https://en.wikipedia.org/wiki/B%C3%A9zier_curve#Linear_B.C3.A9zier_curves
 // https://en.cppreference.com/w/cpp/numeric/lerp
+// https://github.com/naudio/NAudio/blob/fb35ce8367f30b8bc5ea84e7d2529e172cf4c381/NAudio.Core/Utils/IEEE.cs#L18-L27

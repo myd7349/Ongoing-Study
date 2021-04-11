@@ -3,7 +3,6 @@
     using static System.Console;
     using System.IO;
 
-    using HDF.PInvoke;
     using HDF5CSharp;
 
     class Program

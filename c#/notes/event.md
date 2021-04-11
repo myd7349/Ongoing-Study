@@ -1,0 +1,1 @@
+[Using the same EventArgs instance for multiple events, is this code smell?](https://stackoverflow.com/questions/24891558/using-the-same-eventargs-instance-for-multiple-events-is-this-code-smell)

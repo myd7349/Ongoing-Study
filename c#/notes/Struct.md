@@ -19,6 +19,10 @@ unsafe struct ExampleClass
        }
    }
 }
+
+// https://github.com/naudio/NAudio/blob/master/NAudio.Core/Wave/WaveFormats/WaveFormat.cs
+// > Marshal.PtrToStructure
+// > Marshal.StructureToPtr
 ```
 
 [Cannot take the address of, get the size of, or declare a pointer to a managed type](https://stackoverflow.com/questions/13299153/cannot-take-the-address-of-get-the-size-of-or-declare-a-pointer-to-a-managed-t)

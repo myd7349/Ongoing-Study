@@ -69,6 +69,28 @@
      > }
      > ```
 
+   Another example:
+
+   ```c#
+   // https://github.com/LiorBanai/HDF5-CSharp/blob/40805dc11f97f37fe1edd33ff52ea11261f78010/HDF5-CSharp/Hdf5Utils.cs#L83-L94
+   public static bool ItemExists(long groupId, string groupName, Hdf5ElementType type)
+   {
+       switch (type)
+       {
+           case Hdf5ElementType.Group:
+           case Hdf5ElementType.Dataset:
+               return H5L.exists(groupId, NormalizedName(groupName)) > 0;
+           case Hdf5ElementType.Attribute:
+               return H5A.exists(groupId, NormalizedName(groupName)) > 0;
+           default:
+               throw new ArgumentOutOfRangeException(nameof(type), type, null);
+       }
+   }
+   
+   // https://github.com/LiorBanai/HDF5-CSharp/blob/40805dc11f97f37fe1edd33ff52ea11261f78010/HDF5-CSharp/Hdf5Dataset.cs#L42
+   public static bool DatasetExists(long groupId, string datasetName) => Hdf5Utils.ItemExists(groupId, datasetName, Hdf5ElementType.Dataset);
+   ```
+
 7. H5::DataSet::extend will invalidate a data space
 
    - [HDF5: How to append data to a dataset (extensible array)](https://stackoverflow.com/questions/23934724/hdf5-how-to-append-data-to-a-dataset-extensible-array)

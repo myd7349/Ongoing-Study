@@ -13,10 +13,14 @@
         public PlayWaveFileForm()
         {
             InitializeComponent();
+
+            volume_ = volumeTrackBar_.Value;
         }
 
         private WaveOut player_;
         private WaveStream waveStream_;
+        private ISampleProvider sampleProvider_;
+        private float volume_;
 
         private void PopulateDeviceList()
         {
@@ -68,6 +72,16 @@
                 && !string.IsNullOrEmpty(filePathTextBox_.Text);
         }
 
+        private void volumeTrackBar__Scroll(object sender, EventArgs e)
+        {
+            volume_ = volumeTrackBar_.Value;
+
+            var volumeProvider = sampleProvider_ as DRCSampleProvider;
+            //volumeProvider?.Volume = volume_;
+            if (volumeProvider != null)
+                volumeProvider.Volume = volume_;
+        }
+
         private void playOrPauseButton__Click(object sender, EventArgs e)
         {
             if (player_ == null)
@@ -77,6 +91,13 @@
 
                 try
                 {
+                    // AudioFileReader simplifies opening an audio file in NAudio
+                    // Simply pass in the filename, and it will attempt to open the
+                    // file and set up a conversion path that turns into PCM IEEE float.
+                    // ACM codecs will be used for conversion.
+                    // It provides a volume property and implements both WaveStream and
+                    // ISampleProvider, making it possibly the only stage in your audio
+                    // pipeline necessary for simple playback scenarios
                     waveStream_ = new AudioFileReader(filePathTextBox_.Text);
                 }
                 catch (MmException ex)
@@ -93,10 +114,28 @@
                 try
                 {
                     player_ = new WaveOut { DeviceNumber = waveOutDevice.DeviceNumber };
-                    player_.Init(waveStream_);
+
+                    if (drcCheckBox_.Checked)
+                    {
+                        sampleProvider_ = new DRCSampleProvider(waveStream_ as AudioFileReader)
+                        {
+                            Volume = volume_
+                        };
+                        player_.Init(sampleProvider_);
+                    }
+                    else
+                    {
+                        player_.Init(waveStream_);
+                    }
+
                     player_.PlaybackStopped += Player__PlaybackStopped;
 
                     player_.Play();
+
+                    playOrPauseButton_.Text = "Pause";
+                    stopButton_.Enabled = true;
+                    propertiesButton_.Enabled = true;
+                    drcCheckBox_.Enabled = false;
                 }
                 catch (MmException ex)
                 {
@@ -107,10 +146,6 @@
                         MessageBoxIcon.Error
                         );
                 }
-
-                playOrPauseButton_.Text = "Pause";
-                stopButton_.Enabled = true;
-                propertiesButton_.Enabled = true;
             }
             else
             {
@@ -143,12 +178,16 @@
             waveStream_.Close();
             waveStream_ = null;
 
+            sampleProvider_ = null;
+
             deviceComboBox_.Enabled = true;
             selectFileButton_.Enabled = true;
             stopButton_.Enabled = false;
             propertiesButton_.Enabled = false;
 
             playOrPauseButton_.Text = "Play";
+
+            drcCheckBox_.Enabled = true;
         }
 
         private void propertiesButton__Click(object sender, EventArgs e)

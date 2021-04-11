@@ -103,7 +103,7 @@ std::vector<H5std_string> ReadStringArrayAttribute(H5::H5Object &obj,
                  [](const char *cstr) { return H5std_string(cstr); });
 
   // std::for_each(cstrs.begin(), cstrs.end(), [](char *p) { std::free(p); });
-  H5Dvlen_reclaim(dataSpace.getId(), dataSpace.getId(), H5P_DEFAULT,
+  H5Dvlen_reclaim(strType.getId(), dataSpace.getId(), H5P_DEFAULT,
                   cstrs.data());
 
   return value;
@@ -366,7 +366,7 @@ int main(int argc, char *argv[]) {
 // https://support.hdfgroup.org/ftp/HDF5/examples/misc-examples/attrvstr.c
 // https://portal.hdfgroup.org/display/HDF5/Examples+by+API
 // https://forum.hdfgroup.org/t/error-reading-variable-length-utf8-string-using-h5lt-c-api/4392
-// https://bitbucket.hdfgroup.org/projects/HDFFV/repos/hdf5-examples/browse/1_10/C/H5T/h5ex_t_vlstringatt.c
+// https://github.com/HDFGroup/hdf5-examples/blob/master/1_14/C/H5T/h5ex_t_vlstringatt.c
 // https://github.com/HDFGroup/hdf5-examples/blob/master/1_6/C/H5T/h5ex_t_vlstring.c
 // https://github.com/HDFGroup/hdf5/blob/develop/examples/h5_attribute.c
 // [What datatype to use for UTF-8 text](https://forum.hdfgroup.org/t/what-datatype-to-use-for-utf-8-text/4829)

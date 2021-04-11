@@ -51,6 +51,8 @@
                     throw new ArgumentException("H5T.get_class(type) != H5T.class_t.STRING");
                 }
 
+                utf8 = H5T.get_cset(type) == H5T.cset_t.UTF8;
+
                 bool ok;
                 if (H5T.is_variable_str(type) > 0)
                     ok = CreateOrOverwriteVariableStringAttribute(hid, key, new string[] { value }, utf8);
