@@ -9,13 +9,21 @@ namespace HelloHDF5
     using Common;
     using static HDF5.Extension.HDF5Helper;
 
+    enum Boolean : byte
+    {
+        FALSE = 0,
+        TRUE = 1
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
             var filePath = args.Length >= 1 ? args[0] : "./a.h5";
 
+#if !DEBUG
             if (!File.Exists(filePath))
+#endif
                 WriteFile(filePath);
 
             if (File.Exists(filePath))
@@ -58,6 +66,8 @@ namespace HelloHDF5
             H5S.close(dataSpace);
             H5A.write(doubleAttribute, H5T.NATIVE_DOUBLE, new PinnedObject(new double[] { Math.PI }));
             H5A.close(doubleAttribute);
+
+            WriteEnumAttribute(dataSet, "boolean-8-bit-enum", Boolean.TRUE);
 
             H5D.close(dataSet);
             H5F.close(file);
@@ -107,6 +117,7 @@ namespace HelloHDF5
             WriteLine($"string: {ReadStringAttribute(dataSet, "string")}");
             WriteLine($"string-ascii: {ReadStringAttribute(dataSet, "string-ascii")}");
             WriteLine($"string-vlen: {ReadStringAttribute(dataSet, "string-vlen")}");
+            WriteLine($"boolean-8-bit-enum: {ReadEnumAttribute<Boolean>(dataSet, "boolean-8-bit-enum")}");
 
             H5D.close(dataSet);
             H5F.close(file);

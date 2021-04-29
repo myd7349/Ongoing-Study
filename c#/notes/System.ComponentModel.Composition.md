@@ -1,0 +1,1 @@
+[ImportingConstructor and ImportMany](https://github.com/naudio/NAudio/blob/fb35ce8367f30b8bc5ea84e7d2529e172cf4c381/AudioFileInspector/AudioFileInspectorForm.cs#L25-L26)

@@ -18,3 +18,36 @@ Task.FromResult(SomeSyncFunction());
 
 [Using Task.FromResult v/s await in C#](https://stackoverflow.com/questions/50726867/using-task-fromresult-v-s-await-in-c-sharp)
 
+[Task.FromException](https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.fromresult?view=net-5.0)
+
+> ```csharp
+> private static Task<long> GetFileLengthsAsync(string filePath)
+> {
+>     if (! Directory.Exists(filePath))
+>     {
+>         return Task.FromException<long>(
+>             new DirectoryNotFoundException("Invalid directory name."));
+>     }
+>     else {
+>         string[] files = Directory.GetFiles(filePath);
+>         if (files.Length == 0)
+>             return Task.FromResult(0L);
+>         else
+>             return Task.Run(() =>
+>             {
+>                 long total = 0;
+>                 Parallel.ForEach(files, (fileName) =>
+>                 {
+>                     var fs = new FileStream(fileName, FileMode.Open,
+>                                             FileAccess.Read, FileShare.ReadWrite,
+>                                             256, true);
+>                     long length = fs.Length;
+>                     Interlocked.Add(ref total, length);
+>                     fs.Close();
+>                 });
+>                 return total;
+>             });
+>     }
+> }
+> ```
+

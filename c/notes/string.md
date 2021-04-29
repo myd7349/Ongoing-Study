@@ -25,3 +25,5 @@ https://stackoverflow.com/questions/51614543/perf-report-shows-this-function-mem
 [strdup](https://github.com/snowballstem/snowball/pull/136)
 
 [strdup](https://en.cppreference.com/w/c/experimental/dynamic/strdup)
+
+[strtok](https://github.com/FreeRDP/FreeRDP/blob/d4ae65dbb54683cb08bff4d50f9637c0a325fb9a/winpr/libwinpr/utils/ini.c#L68)

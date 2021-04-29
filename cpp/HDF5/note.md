@@ -25,6 +25,10 @@
 
    - [Test group existence in hdf5/c++](https://stackoverflow.com/questions/35668056/test-group-existence-in-hdf5-c)
 
+   - https://support.hdfgroup.org/HDF5/doc/RM/RM_H5L.html#Link-Exists
+
+   - https://portal.hdfgroup.org/display/HDF5/H5L_EXISTS
+
      > https://github.com/HDFGroup/hdf5/blob/1.12/master/c++/src/H5AbstractDs.cpp#L64-L102
      >
      > ```c++

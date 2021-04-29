@@ -4,3 +4,4 @@ Projects that using Python C API to create bindings:
 - [pylzma](https://github.com/fancycode/pylzma)
 - [py-simple-audio](https://github.com/hamiltron/py-simple-audio)
 - [py_yyjson](https://github.com/TkTech/py_yyjson)
+- [pycurl](https://github.com/pycurl/pycurl)

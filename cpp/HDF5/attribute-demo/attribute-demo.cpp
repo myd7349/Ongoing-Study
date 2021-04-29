@@ -9,6 +9,11 @@
 #include <H5Cpp.h>
 // clang-format on
 
+enum class Boolean : bool {
+  False = 0,
+  True = 1,
+};
+
 const char *DataSetName = "dataset";
 
 H5std_string GetDateTime() {
@@ -233,6 +238,57 @@ bool ReadDoubleArrayAttribute(H5::H5Object &obj, const char *attributeName,
   return true;
 }
 
+bool WriteBooleanAttribute(H5::H5Object &obj, const char *attributeName,
+                           Boolean value) {
+  if (!obj.attrExists(attributeName)) {
+    H5::EnumType booleanType(H5::PredType::NATIVE_INT8);
+    Boolean boolean = Boolean::False;
+    booleanType.insert("FALSE", &boolean);
+    boolean = Boolean::True;
+    booleanType.insert("TRUE", &boolean);
+
+    H5::DataSpace dataSpace(H5S_SCALAR);
+    auto attribute =
+        obj.createAttribute(attributeName, booleanType, dataSpace);
+    attribute.write(booleanType, &value);
+  } else {
+    auto attribute = obj.openAttribute(attributeName);
+
+    auto dataSpace = attribute.getSpace();
+    if (dataSpace.getSimpleExtentType() != H5S_SCALAR) return false;
+
+    auto dataType = attribute.getEnumType();
+
+    attribute.write(dataType, &value);
+  }
+
+  return true;
+}
+
+bool ReadBooleanAttribute(H5::H5Object &obj, const char *attributeName,
+                          Boolean &value) {
+  if (!obj.attrExists(attributeName)) return false;
+
+  auto attribute = obj.openAttribute(attributeName);
+  if (attribute.getSpace().getSimpleExtentType() != H5S_SCALAR) return false;
+
+  auto dataType = attribute.getEnumType();
+  int members = dataType.getNmembers();
+  for (int i = 0; i < members; ++i) {
+    Boolean boolean;
+    dataType.getMemberValue(i, &boolean);
+    std::cout << dataType.nameOf(&boolean, 100) << " " << static_cast<bool>(boolean) << std::endl;
+  }
+
+  attribute.read(dataType, &value);
+  return true;
+}
+
+bool IsDataSetExists(H5::H5Object &obj, const char *attributeName) {
+  auto result = H5Lexists(obj.getId(), attributeName, H5P_DEFAULT);
+  return result > 0;
+}
+
 void WriteFile(const H5std_string &filePath) {
   H5::H5File file(filePath, H5F_ACC_TRUNC);
 
@@ -271,6 +327,8 @@ void WriteFile(const H5std_string &filePath) {
   std::transform(factors.begin(), factors.end(), factors.begin(),
                  [](double x) { return x * x; });
   WriteDoubleArrayAttribute(dataSet, "factors", factors);
+
+  WriteBooleanAttribute(dataSet, "boolean-8-bit-enum", Boolean::True);
 }
 
 void ReadFile(const H5std_string &filePath) {
@@ -333,6 +391,10 @@ void ReadFile(const H5std_string &filePath) {
   if (ReadDoubleArrayAttribute(dataSet, "factors", factors)) {
     for (auto factor : factors) std::cout << factor << std::endl;
   }
+
+  Boolean boolean;
+  if (ReadBooleanAttribute(dataSet, "boolean-8-bit-enum", boolean))
+    std::cout << static_cast<bool>(boolean) << std::endl;
 }
 
 int main(int argc, char *argv[]) {
@@ -372,4 +434,7 @@ int main(int argc, char *argv[]) {
 // [What datatype to use for UTF-8 text](https://forum.hdfgroup.org/t/what-datatype-to-use-for-utf-8-text/4829)
 // [HDF5 Attribute unsigned long long value](https://stackoverflow.com/questions/27243947/hdf5-attribute-unsigned-long-long-value)
 // https://github.com/HDFGroup/hdf5/issues/544
+// https://github.com/HDFGroup/hdf5-examples/blob/master/1_14/C/H5T/h5ex_t_enum.c
+// [HDF5 C++: How to get possible values of H5T_ENUM](https://stackoverflow.com/questions/58302430/hdf5-c-how-to-get-possible-values-of-h5t-enum)
+// [How to create multi-value attribute in a HDF5 file using C++ API](https://stackoverflow.com/questions/35580279/how-to-create-multi-value-attribute-in-a-hdf5-file-using-c-api)
 // clang-format on

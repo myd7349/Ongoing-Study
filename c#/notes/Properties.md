@@ -42,3 +42,5 @@ Otherwise, the compiler will give this error:
 [CA1819: Properties should not return arrays. Does this happen only with arrays? If yes, why?](https://softwareengineering.stackexchange.com/questions/210922/ca1819-properties-should-not-return-arrays-does-this-happen-only-with-arrays)
 
 [CA1819: Properties should not return arrays](https://docs.microsoft.com/en-us/visualstudio/code-quality/ca1819?view=vs-2019)
+
+[Override get, but not set](https://stackoverflow.com/questions/2026546/override-get-but-not-set)

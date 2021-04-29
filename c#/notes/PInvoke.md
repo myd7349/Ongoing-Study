@@ -2,16 +2,23 @@
 
 1.  [PInvoke Interop Assistant/clrinterop](https://archive.codeplex.com/?p=clrinterop)
 
-2.  If you want to use Win32 APIs in C#, then you should take a look at [pinvoke.net](http://pinvoke.net/). BTW, a Visual Studio plugin for `pinvoke.net` is also available.
+2. If you want to use Win32 APIs in C#, then you should take a look at [pinvoke.net](http://pinvoke.net/). BTW, a Visual Studio plugin for `pinvoke.net` is also available.
 
    _Update_: Finally, we have pre-built binarys:
 
    * [PInvoke.Kernel32](https://www.nuget.org/packages/PInvoke.Kernel32/)
+
    * [dotnet/pinvoke](https://github.com/dotnet/pinvoke)
+
+     - [New Source Generator based approach to getting all the Win32 methods and types you need](https://github.com/dotnet/pinvoke/issues/565)
+
+     - [Making Win32 APIs More Accessible to More Languages](https://blogs.windows.com/windowsdeveloper/2021/01/21/making-win32-apis-more-accessible-to-more-languages/)
 
 3. SWIG, CXXI, CppSharp
 
 4. [C#/Win32 P/Invoke Source Generator](https://github.com/microsoft/CsWin32)
+
+   - [win32metadata](https://github.com/microsoft/win32metadata)
 
 5. Book: [.NET and COM: The Complete Interoperability Guide](https://www.oreilly.com/library/view/net-and-com/9780672333583/)
 
@@ -78,3 +85,6 @@ https://github.com/microsoft/win32metadata
 [How to Marshal a C++ Class](https://www.codeproject.com/Articles/18032/How-to-Marshal-a-C-Class)
 
 [Native interoperability best practices](https://docs.microsoft.com/en-us/dotnet/standard/native-interop/best-practices)
+
+[UnmanagedFunctionPointer - FreeRDP example](https://github.com/FreeRDP/FreeRDP-Sharp/blob/0334b0dcc785243ba752b1731f123212a733fdc2/FreeRDP/Core/FreeRDP.cs#L25)
+

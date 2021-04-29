@@ -11,3 +11,5 @@
 [What is the difference between User Control, Custom Control and Component?](https://stackoverflow.com/questions/1322451/what-is-the-difference-between-user-control-custom-control-and-component)
 
 [UserControl vs CustomControl in C#](https://stackoverflow.com/questions/15294974/usercontrol-vs-customcontrol-in-c-sharp)
+
+[How could i display a Graph on WindowsForms?](https://stackoverflow.com/questions/38713649/how-could-i-display-a-graph-on-windowsforms)

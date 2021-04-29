@@ -13,7 +13,7 @@
 
     using hid_t = System.Int64;
 
-    public static class HDF5Helper
+    public static partial class HDF5Helper
     {
         public static bool WriteStringAttribute(hid_t hid, string key, string value, bool utf8 = true, bool variable = true)
         {
@@ -107,6 +107,8 @@
                 H5A.write(attribute, type, new PinnedObject(bytes));
 
                 H5A.close(attribute);
+                H5S.close(space);
+                H5T.close(type);
             }
             else
             {
@@ -116,9 +118,15 @@
                     return false;
 
                 var type = H5A.get_type(attribute);
-                H5A.write(attribute, type, new PinnedObject(value.ToBytes(utf8)));
-                H5T.close(type);
+                if (type < 0)
+                {
+                    H5A.close(attribute);
+                    return false;
+                }
 
+                H5A.write(attribute, type, new PinnedObject(value.ToBytes(utf8)));
+
+                H5T.close(type);
                 H5A.close(attribute);
             }
 

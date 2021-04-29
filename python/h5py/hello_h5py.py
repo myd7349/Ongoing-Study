@@ -30,6 +30,8 @@ def main():
         utf8_type = h5py.string_dtype('utf-8', len(hello_utf8))
         dataset.attrs.create('string', hello_utf8, None, utf8_type)
 
+        dataset.attrs['boolean'] = True
+
 
 if __name__ == '__main__':
     main()

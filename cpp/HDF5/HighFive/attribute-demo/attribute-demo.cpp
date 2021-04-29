@@ -23,6 +23,17 @@ namespace h5 = HighFive;
 const std::size_t DIM0 = 3;
 const std::size_t DIM1 = 4;
 
+enum class BooleanType : bool {
+  FALSE = 0,
+  TRUE = 1,
+};
+
+h5::EnumType<BooleanType> CreateBooleanType() {
+  return { { "FALSE", BooleanType::FALSE }, { "TRUE", BooleanType::TRUE } };
+}
+
+HIGHFIVE_REGISTER_TYPE(BooleanType, CreateBooleanType)
+
 std::string GetDateTime() {
   std::time_t now;
   std::time(&now);
@@ -81,6 +92,20 @@ void WriteToFile(const char *filePath) {
   dataSet.createAttribute<std::string>("good-morning-vlen", "早上好！");
 #ifdef WCONV_AVAILABLE
   dataSet.createAttribute<std::string>("good-morning-vlen-encoded", AnsiToUtf8("早上好！"));
+#endif
+
+  // 8-bit integer with value 1.
+  dataSet.createAttribute("boolean", true);
+
+  // In Python, with h5py,
+  // dataset.attrs['boolean'] = True
+  // will create a 8-bit enum type:
+  // 8-bit enum (0=FALSE, 1=TRUE)
+#if 0
+  auto booleanTypeAttribute = dataSet.createAttribute("boolean-8-bit-enum", h5::DataSpace(h5::DataSpace::datascape_scalar), CreateBooleanType());
+  booleanTypeAttribute.write(BooleanType::TRUE);
+#else
+  dataSet.createAttribute("boolean-8-bit-enum", BooleanType::TRUE);
 #endif
 }
 
@@ -152,6 +177,16 @@ void ReadFromFile(const char *filePath) {
   double pi;
   doubleAttribute.read(pi);
   println("pi: {}", pi);
+
+  auto booleanAttribute = dataSet.getAttribute("boolean");
+  bool toBeOrNotToBe;
+  booleanAttribute.read(toBeOrNotToBe);
+  println("To be or not to be: {}", toBeOrNotToBe);
+
+  booleanAttribute = dataSet.getAttribute("boolean-8-bit-enum");
+  BooleanType toBeOrNotToBe2;
+  booleanAttribute.read(toBeOrNotToBe2);
+  println("To be or not to be 2: {}", toBeOrNotToBe2);
 }
 
 int main(int argc, char *argv[]) {

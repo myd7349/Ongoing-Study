@@ -161,3 +161,5 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
 
 25. https://github.com/Neumann-A/CMakeJSON
 
+26. [CMake Presets integration in Visual Studio and Visual Studio Code](https://devblogs.microsoft.com/cppblog/cmake-presets-integration-in-visual-studio-and-visual-studio-code/)
+

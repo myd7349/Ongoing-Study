@@ -16,3 +16,4 @@
 - Screencastify for Chrome
 - [Snipaste](https://www.zhihu.com/pin/1319210101270749184)
 - [ShareX](https://getsharex.com/) - [GitHub](https://github.com/ShareX/ShareX)
+- [flameshot](https://github.com/flameshot-org/flameshot)

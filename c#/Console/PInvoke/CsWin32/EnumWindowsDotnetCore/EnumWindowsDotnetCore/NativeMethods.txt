@@ -1,0 +1,4 @@
+GetLastError
+GetWindowText
+GetWindowTextLength
+EnumWindows

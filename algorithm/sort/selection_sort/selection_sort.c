@@ -31,3 +31,4 @@ void selection_sorti(int x[], unsigned n)
 // References:
 // Algorithms Unlocked, Thomas Cormen
 // https://en.wikipedia.org/wiki/Selection_sort
+// https://github.com/danlark1/miniselect
