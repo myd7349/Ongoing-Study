@@ -38,3 +38,4 @@ namespace Common.Linq
 // GitHub: dotnet/corefx/src/System.Linq/src/System/Linq/Where.cs
 // [foreach with index](https://stackoverflow.com/questions/521687/foreach-with-index)
 // https://github.com/morelinq/MoreLINQ#foreach
+// C# 6.0 in a Nutshell, P301: Array.ForEach

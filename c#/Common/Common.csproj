@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DoubleConverter.cs" />
+    <Compile Include="MarshalHelper.cs" />
     <Compile Include="MMTimer.cs" />
     <Compile Include="ArrayHelper.cs" />
     <Compile Include="BinaryReaderEx.cs" />

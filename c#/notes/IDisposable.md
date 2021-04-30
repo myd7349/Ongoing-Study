@@ -1,3 +1,11 @@
+[Is it abusive to use IDisposable and “using” as a means for getting “scoped behavior” for exception safety?](https://stackoverflow.com/questions/2101524/is-it-abusive-to-use-idisposable-and-using-as-a-means-for-getting-scoped-beha)
+
+[Using IDisposable for managing a reference count [duplicate\]](https://stackoverflow.com/questions/25827668/using-idisposable-for-managing-a-reference-count)
+
+[C# Reference Counting](https://stackoverflow.com/questions/35005219/c-sharp-reference-counting)
+
+[Managing unmanaged objects in C#](https://medium.com/ingeniouslysimple/managing-unmanaged-objects-in-c-6c69968c60eb)
+
 [When to call Dispose](https://blogs.msdn.microsoft.com/kimhamil/2008/11/06/when-to-call-dispose/)
 
 [WinForms - when to call Dispose? When is it implicit?](https://stackoverflow.com/questions/22846663/winforms-when-to-call-dispose-when-is-it-implicit)

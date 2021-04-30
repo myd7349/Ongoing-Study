@@ -13,3 +13,5 @@ Libraries
 - [LiteHDF](https://github.com/silkfire/LiteHDF)
 - [sharpHDF](https://github.com/sharpHDF/sharpHDF) - Object oriented approach to accessing HDF5 files.
   - [it seems the project is not maintained anymore](https://github.com/sharpHDF/sharpHDF/issues/8)
+- [ILNumerics.IO.HDF5](https://ilnumerics.net/hdf5-files.html)
+

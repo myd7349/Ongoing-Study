@@ -91,3 +91,4 @@ namespace FunctionPointerTest
 //   for the fact that the unmanaged string has a null terminator while StringBuilder does not.
 // [Default Marshaling for Strings](https://docs.microsoft.com/en-us/dotnet/framework/interop/default-marshaling-for-strings?redirectedfrom=MSDN)
 // [CA1838: Avoid StringBuilder parameters for P/Invokes](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1838)
+// https://github.com/dotnet/pinvoke/blob/bc93e82c2208023ac142acb6a2a26ca3f59fc40a/src/User32/User32.Helpers.cs#L305-L342

@@ -7,3 +7,5 @@ Projects that using `ctypes`:
 - [liblsl-Python](https://github.com/labstreaminglayer/liblsl-Python)
 - [pyhidapi](https://github.com/apmorton/pyhidapi)
 - [pyserial](https://github.com/pyserial/pyserial/blob/master/serial/win32.py)
+- [arrayfire-python](https://github.com/arrayfire/arrayfire-python)
+

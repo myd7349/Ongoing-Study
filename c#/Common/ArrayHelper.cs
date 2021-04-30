@@ -55,3 +55,6 @@ namespace Common
 // References:
 // [Comparing arrays in C#](http://stackoverflow.com/questions/713341/comparing-arrays-in-c-sharp)
 // [Easiest way to Rotate a List in c#](https://stackoverflow.com/questions/9948202/easiest-way-to-rotate-a-list-in-c-sharp)
+// C# 6.0 in a Nutshell, P298
+// > Framework 4.0 introduced one for the purpose of comparing elements in arrays or tuples
+//   which you can access via the StructuralComparisons type.

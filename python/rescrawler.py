@@ -39,7 +39,9 @@ _progress_bar = None
 def _show_progress(block_num, block_size, total_size):
     global _progress_bar
     if _progress_bar is None:
-        _progress_bar = progressbar.ProgressBar(maxval=total_size)
+        # total_size might be -1
+        _progress_bar = progressbar.ProgressBar(maxval=total_size if total_size >= 0 else 1)
+        _progress_bar.start()
 
     downloaded = block_num * block_size
     if downloaded < total_size:
@@ -61,7 +63,7 @@ class ResourceCrawler:
 Usage:
     {prog} """ + \
 ('--url=<URL> ' if not url else '') + \
-('--re=<RegExp> ' if not re else '') + \
+('[--re=<RegExp>] ' if not re else '') + \
 """[--dir=<PATH>]
     {prog} -h | --help
     {prog} -v | --version
@@ -87,7 +89,14 @@ Options:
 
     def get_entity(self, rurl):
         rurl_parse_res = urllib.parse.urlparse(rurl)
-        return ResourceEntity(rurl, rurl_parse_res.netloc, rurl_parse_res.path, *os.path.split(rurl_parse_res.path))
+
+        rurl_parts = os.path.split(rurl_parse_res.path)
+        if '%' in rurl_parts[-1]:
+            filename = urllib.parse.unquote(rurl_parts[-1])
+            if filename != rurl_parts[-1]:
+                rurl_parts = *rurl_parts[:-1], filename
+
+        return ResourceEntity(rurl, rurl_parse_res.netloc, rurl_parse_res.path, *rurl_parts)
 
     def _get_meta_file(self, res_dir):
         assert os.path.exists(res_dir)
@@ -157,17 +166,20 @@ Options:
         _mkdir(target_dir)
     
         page_contents = uriutils.fetch_page_contents(root_url)
-        res = (rn for rn in uriutils.iurl(page_contents) if re.match(res_name_re, rn))
+        res = (rn for rn in uriutils.iurl(page_contents) if not res_name_re or re.match(res_name_re, rn))
         res_urls = {rn: urllib.parse.urljoin(root_url, rn) for rn in res}
     
         for rurl in res_urls.values():
             entity = self.get_entity(rurl)
+            if not entity.filename:
+                print('Skip url', entity.url)
+                continue
             
-            netloc_dir = os.path.join(target_dir, entity.netloc)
+            netloc_dir = os.path.normpath(os.path.join(target_dir, entity.netloc))
             _mkdir(netloc_dir)
 
             res_subdir = entity.subdir[1:] if entity.subdir.startswith('/') else entity.subdir
-            res_dir = os.path.join(netloc_dir, res_subdir)
+            res_dir = os.path.normpath(os.path.join(netloc_dir, res_subdir))
             _mkdir(res_dir)
 
             target_file = os.path.join(res_dir, entity.filename)
@@ -179,7 +191,7 @@ Options:
                     urllib.request.urlretrieve(entity.url, target_file, _show_progress)
                     print("File '{0}' is saved as '{1}'.".format(entity.filename, target_file))
                 except urllib.error.HTTPError as e:
-                    print("Failed to download file '{0}' from '{1}'.".format(entity.filename, entity.url))
+                    print("Failed to download file '{0}' from '{1}': {2}.".format(entity.filename, entity.url, e))
                 else:
                     self._write_meta_data(target_file, entity.url)
 
@@ -203,3 +215,32 @@ if __name__ == '__main__':
 # https://stackoverflow.com/questions/4533304/python-urlretrieve-limit-rate-and-resume-partial-download
 # https://stackoverflow.com/questions/2021519/download-file-using-urllib-in-python-with-the-wget-c-feature
 # https://github.com/berdario/resumable-urlretrieve
+
+# PS C:\Users\myd\Ongoing-Study\python> .\rescrawler.py --url https://secret/wallpaper
+# Skip url https://secret/
+# Downloading '1600x900.jpg' from 'https://secret/1600x900.jpg' ...
+# Failed to download file '1600x900.jpg' from 'https://secret/1600x900.jpg': HTTP Error 404: Not Found.
+# Downloading '1920x1200.jpg' from 'https://secret/1920x1200.jpg' ...
+# Failed to download file '1920x1200.jpg' from 'https://secret/1920x1200.jpg': HTTP Error 404: Not Found.
+# PS C:\Users\myd\Ongoing-Study\python> .\rescrawler.py --url https://secret/wallpaper/
+# Skip url https://secret/
+# Creating directory 'C:\Users\myd\Ongoing-Study\python\./secret\wallpaper'...
+# Downloading '1600x900.jpg' from 'https://secret/wallpaper/1600x900.jpg' ...
+# 100% |########################################################################|
+# File '1600x900.jpg' is saved as 'C:\Users\myd\Ongoing-Study\python\./secret\wallpaper\1600x900.jpg'.
+# Downloading '1920x1200.jpg' from 'https://secret/wallpaper/1920x1200.jpg' ...
+# 100% |########################################################################|
+# File '1920x1200.jpg' is saved as 'C:\Users\myd\Ongoing-Study\python\./secret\wallpaper\1920x1200.jpg'.
+# PS C:\Users\myd\Ongoing-Study\python> .\rescrawler.py --url https://secret/wallpaper/1600x900.jpg
+# Traceback (most recent call last):
+#   File "C:\Users\myd\Ongoing-Study\python\rescrawler.py", line 205, in <module>
+#     main()
+#   File "C:\Users\myd\Ongoing-Study\python\rescrawler.py", line 201, in main
+#     ResourceCrawler(prog, __version__).run()
+#   File "C:\Users\myd\Ongoing-Study\python\rescrawler.py", line 168, in run
+#     page_contents = uriutils.fetch_page_contents(root_url)
+#   File "C:\Users\myd\Ongoing-Study\python\uriutils.py", line 28, in fetch_page_contents
+#     return ''.join(fetch_page(url, encoding))
+#   File "C:\Users\myd\Ongoing-Study\python\uriutils.py", line 22, in fetch_page
+#     yield line.decode(charset)
+# UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte

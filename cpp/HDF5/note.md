@@ -95,6 +95,40 @@
    public static bool DatasetExists(long groupId, string datasetName) => Hdf5Utils.ItemExists(groupId, datasetName, Hdf5ElementType.Dataset);
    ```
 
+   https://github.com/BlueBrain/HighFive/blob/2cd1f569945c87b085c459f9224705f13f51a091/include/highfive/bits/H5Object_misc.hpp#L59-L85
+
+   > ```c++
+   > static inline ObjectType _convert_object_type(const H5I_type_t& h5type) {
+   >     switch (h5type) {
+   >         case H5I_FILE:
+   >             return ObjectType::File;
+   >         case H5I_GROUP:
+   >             return ObjectType::Group;
+   >         case H5I_DATATYPE:
+   >             return ObjectType::UserDataType;
+   >         case H5I_DATASPACE:
+   >             return ObjectType::DataSpace;
+   >         case H5I_DATASET:
+   >             return ObjectType::Dataset;
+   >         case H5I_ATTR:
+   >             return ObjectType::Attribute;
+   >         default:
+   >             return ObjectType::Other;
+   >     }
+   > }
+   > 
+   > inline ObjectType Object::getType() const {
+   >     // H5Iget_type is a very lightweight func which extracts the type from the id
+   >     H5I_type_t h5type;
+   >     if ((h5type = H5Iget_type(_hid)) == H5I_BADID) {
+   >         HDF5ErrMapper::ToException<ObjectException>("Invalid hid or object type");
+   >     }
+   >     return _convert_object_type(h5type);
+   > }
+   > ```
+
+   [HDF5 Lite APIs](https://portal.hdfgroup.org/display/HDF5/Lite) include a function named [`H5LTfind_dataset`](https://portal.hdfgroup.org/display/HDF5/H5LT_FIND_DATASET).
+
 7. H5::DataSet::extend will invalidate a data space
 
    - [HDF5: How to append data to a dataset (extensible array)](https://stackoverflow.com/questions/23934724/hdf5-how-to-append-data-to-a-dataset-extensible-array)
@@ -143,3 +177,19 @@
      > For fixing the unresolved symbols problem, open zlib project  preferences,  then go to Configuration Properties -> C/C++ -> Preprocessor, and  in the Preprocessor Definitions line remove “ZLIB_WINAPI;” (don’t forget to remove the trailing semicolon).
 
    - [Unresolved externals despite linking in zlib.lib](https://stackoverflow.com/questions/5424549/unresolved-externals-despite-linking-in-zlib-lib)
+   
+10. https://github.com/hpc-io/h5bench
+
+11. [How to flush a file?](https://github.com/BlueBrain/HighFive/blob/master/include/highfive/bits/H5File_misc.hpp)
+
+    > ```c++
+    > inline void File::flush() {
+    >  if (H5Fflush(_hid, H5F_SCOPE_GLOBAL) < 0) {
+    >      HDF5ErrMapper::ToException<FileException>(
+    >          std::string("Unable to flush file " + getName()));
+    >  }
+    > }
+    > ```
+    
+12. `H5Lexists` vs `H5Oexists_by_name`
+

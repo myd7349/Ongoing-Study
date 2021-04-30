@@ -14,3 +14,5 @@ Projects using `pybind11`
 * [bimpy](https://github.com/podgorskiy/bimpy)
 * [pysimdjson](https://github.com/TkTech/pysimdjson)
 * [pymetis](https://github.com/inducer/pymetis)
+* [flashlight](https://github.com/flashlight/flashlight/tree/master/bindings/python)
+

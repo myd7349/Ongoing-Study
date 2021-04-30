@@ -132,4 +132,3 @@ namespace HelloHDF5
 // https://github.com/HDFGroup/HDF.PInvoke/blob/master/UnitTests/H5ATest/H5Awrite.cs
 // https://github.com/HDFGroup/HDF.PInvoke/blob/master/UnitTests/H5ATest/H5Aget_name.cs
 // [C/C++ HDF5 Read string attribute](https://stackoverflow.com/questions/31344648/c-c-hdf5-read-string-attribute)
-

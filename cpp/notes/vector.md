@@ -40,3 +40,6 @@ for (int i = 0; i < 4; ++i)
 }
 
 ```
+
+https://github.com/p-ranav/small_vector
+

@@ -8,6 +8,26 @@
 
     using static HDF5.Extension.HDF5Helper;
 
+    enum Boolean : byte
+    {
+        False,
+        True,
+    }
+
+    enum MyEnumI64 : long
+    {
+        Foo = long.MinValue,
+        Zero = 0,
+        Bar = long.MaxValue,
+    }
+
+    enum MyEnumU64 : ulong
+    {
+        Foo = ulong.MinValue,
+        Zero = 0,
+        Bar = ulong.MaxValue,
+    }
+
     [TestFixture]
     public class HDF5HelperUnitTests
     {
@@ -72,6 +92,38 @@
 
             Assert.IsTrue(WriteStringAttribute(file_, "utf8-vlen", str + str));
             Assert.IsTrue(ReadStringAttribute(file_, "utf8-vlen") == str + str);
+        }
+
+        [Test]
+        public void Test8bitEnum()
+        {
+            Assert.IsTrue(WriteEnumAttribute(file_, "boolean-8-bit-enum", Boolean.False));
+            Assert.IsTrue(ReadEnumAttribute<Boolean>(file_, "boolean-8-bit-enum") == Boolean.False);
+            Assert.IsTrue(WriteEnumAttribute(file_, "boolean-8-bit-enum", Boolean.True));
+            Assert.IsTrue(ReadEnumAttribute<Boolean>(file_, "boolean-8-bit-enum") == Boolean.True);
+        }
+
+        [Test]
+        public void TestMyEnumI64()
+        {
+            Assert.IsTrue(WriteEnumAttribute(file_, "myenum-i64", MyEnumI64.Bar));
+            Assert.IsTrue(ReadEnumAttribute<MyEnumI64>(file_, "myenum-i64") == MyEnumI64.Bar);
+            Assert.IsTrue(WriteEnumAttribute(file_, "myenum-i64", MyEnumI64.Foo));
+            Assert.IsTrue(ReadEnumAttribute<MyEnumI64>(file_, "myenum-i64") == MyEnumI64.Foo);
+            Assert.IsTrue(WriteEnumAttribute(file_, "myenum-i64", MyEnumI64.Zero));
+            Assert.IsTrue(ReadEnumAttribute<MyEnumI64>(file_, "myenum-i64") == MyEnumI64.Zero);
+        }
+
+        [Test]
+        public void TestMyEnumU64()
+        {
+            Assert.IsTrue(MyEnumU64.Foo == MyEnumU64.Zero);
+            Assert.IsTrue(WriteEnumAttribute(file_, "myenum-u64", MyEnumU64.Bar));
+            Assert.IsTrue(ReadEnumAttribute<MyEnumU64>(file_, "myenum-u64") == MyEnumU64.Bar);
+            Assert.IsTrue(WriteEnumAttribute(file_, "myenum-u64", MyEnumU64.Foo));
+            Assert.IsTrue(ReadEnumAttribute<MyEnumU64>(file_, "myenum-u64") == MyEnumU64.Foo);
+            Assert.IsTrue(WriteEnumAttribute(file_, "myenum-u64", MyEnumU64.Zero));
+            Assert.IsTrue(ReadEnumAttribute<MyEnumU64>(file_, "myenum-u64") == MyEnumU64.Zero);
         }
     }
 }

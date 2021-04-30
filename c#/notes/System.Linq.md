@@ -17,7 +17,6 @@ C# 6.0 in a Nutshell
 >Cast and OfType differ in their behavior when encountering an input element that’s of an incompatible type. Cast throws an exception; OfType ignores the incompatible element.
 >
 >The internal implementation of OfType:
->
 ```csharp
 public static IEnumerable<TSource> OfType <TSource> (IEnumerable source)
 {
@@ -28,7 +27,6 @@ public static IEnumerable<TSource> OfType <TSource> (IEnumerable source)
 ```
 
 >Cast has an identical implementation, except that it omits the type compatibility test:
->
 ```csharp
 public static IEnumerable<TSource> Cast <TSource> (IEnumerable source)
 {
@@ -171,3 +169,13 @@ public static int Pow(this int bas, int exp)
 [Accumulating sum in one line in C#](https://stackoverflow.com/questions/5653439/accumulating-sum-in-one-line-in-c-sharp)
 
 [Enumerable.Aggregate Method](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.aggregate?view=net-5.0)
+
+[Using Linq extension on Array class](https://stackoverflow.com/questions/5729729/using-linq-extension-on-array-class)
+
+> Use [OfType](http://msdn.microsoft.com/en-us/library/bb360913.aspx) method to get an `IEnumerable<T>` that can be queried using LINQ:
+>
+> ```cs
+> var values = Enum.GetValues(typeof(MyEnum));
+> var test = values.OfType<int>().Select(x => x);
+> ```
+

@@ -1,3 +1,5 @@
+[Platform Invocation Services](https://en.wikipedia.org/wiki/Platform_Invocation_Services)
+
 [C# 调用 C++ API 时，函数的参数类型该怎么转换？](https://www.zhihu.com/question/34670135/answer/100024595)
 
 1.  [PInvoke Interop Assistant/clrinterop](https://archive.codeplex.com/?p=clrinterop)
@@ -20,7 +22,9 @@
 
    - [win32metadata](https://github.com/microsoft/win32metadata)
 
-5. Book: [.NET and COM: The Complete Interoperability Guide](https://www.oreilly.com/library/view/net-and-com/9780672333583/)
+5.  [Vanara](https://github.com/dahall/Vanara) - A set of .NET libraries for Windows implementing PInvoke calls to many native Windows APIs with supporting wrappers.
+
+6. Book: [.NET and COM: The Complete Interoperability Guide](https://www.oreilly.com/library/view/net-and-com/9780672333583/)
 
 [NNanomsg](https://github.com/mhowlett/NNanomsg/blob/master/NNanomsg/Interop.cs)
 
