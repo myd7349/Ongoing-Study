@@ -5,4 +5,6 @@
 * [toga](https://github.com/beeware/toga)
 * [urwid](https://github.com/urwid/urwid)
   - Go version: [gowid](https://github.com/gcla/gowid)
+* [Eel](https://github.com/ChrisKnott/Eel)
+  - [auto-py-to-exe](https://github.com/brentvollebregt/auto-py-to-exe)
 

@@ -10,3 +10,6 @@ if hasattr(os, 'statvfs'):
     _ntuple_diskusage.used.__doc__ = 'Used space in bytes'
     _ntuple_diskusage.free.__doc__ = 'Free space in bytes'
 ```
+
+[Does Python have an ordered set?](https://stackoverflow.com/questions/1653970/does-python-have-an-ordered-set)
+

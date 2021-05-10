@@ -166,6 +166,8 @@ BOOL IsRemovableDrive(LPCTSTR lpcszDrive)
 // http://code.reactos.org/browse/reactos/trunk/reactos/base/shell/cmd/internal.c?hb=true
 // 2015-04-23T09:21+08:00
 // Deprecated, use SHCreateDirectory(Ex) instead.
+//
+// https://github.com/CrashRpt/crashrpt2/blob/0c6ca1054fb7883f092a7c9bae1d5cd44467e33a/reporting/crashrpt/Utility.cpp#L460-L497
 BOOL MakeFullPath(const CString &strPath)
 {
     TCHAR szNormPath[MAX_PATH];
@@ -594,7 +596,7 @@ int ListDirectory(
         if (strFileName != _T(".") && strFileName != _T(".."))
         {
             CString strFilePath = fileFinder.GetFilePath();
-            if (ATL::ATLPath::IsDirectory(strFilePath))
+            if (PathIsDirectory(strFilePath)) // <atlpath.h> ATL::ATLPath::IsDirectory
             {
                 if (bDirectory)
                 {

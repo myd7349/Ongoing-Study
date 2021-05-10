@@ -108,6 +108,7 @@ std::vector<H5std_string> ReadStringArrayAttribute(H5::H5Object &obj,
                  [](const char *cstr) { return H5std_string(cstr); });
 
   // std::for_each(cstrs.begin(), cstrs.end(), [](char *p) { std::free(p); });
+  // TODO: Can we use DataSet::vlenReclaim instead?
   H5Dvlen_reclaim(strType.getId(), dataSpace.getId(), H5P_DEFAULT,
                   cstrs.data());
 

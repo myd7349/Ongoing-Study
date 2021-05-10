@@ -16,6 +16,7 @@ namespace GetApplicationPath
             Console.WriteLine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
             Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
             Console.WriteLine(Common.Util.GetAppPath());
+            Console.WriteLine(System.Windows.Forms.Application.StartupPath);
 
             Common.Util.Pause();
         }

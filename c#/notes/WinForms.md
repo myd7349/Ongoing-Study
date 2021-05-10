@@ -13,3 +13,8 @@
 [UserControl vs CustomControl in C#](https://stackoverflow.com/questions/15294974/usercontrol-vs-customcontrol-in-c-sharp)
 
 [How could i display a Graph on WindowsForms?](https://stackoverflow.com/questions/38713649/how-could-i-display-a-graph-on-windowsforms)
+
+Awesome WinForms projects:
+
+- https://github.com/d2phap/ImageGlass
+

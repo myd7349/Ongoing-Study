@@ -90,11 +90,10 @@ Options:
     def get_entity(self, rurl):
         rurl_parse_res = urllib.parse.urlparse(rurl)
 
-        rurl_parts = os.path.split(rurl_parse_res.path)
-        if '%' in rurl_parts[-1]:
-            filename = urllib.parse.unquote(rurl_parts[-1])
-            if filename != rurl_parts[-1]:
-                rurl_parts = *rurl_parts[:-1], filename
+        if '%' in rurl_parse_res.path:
+            rurl_parts = os.path.split(urllib.parse.unquote(rurl_parse_res.path))
+        else:
+            rurl_parts = os.path.split(rurl_parse_res.path)
 
         return ResourceEntity(rurl, rurl_parse_res.netloc, rurl_parse_res.path, *rurl_parts)
 
@@ -166,7 +165,8 @@ Options:
         _mkdir(target_dir)
     
         page_contents = uriutils.fetch_page_contents(root_url)
-        res = (rn for rn in uriutils.iurl(page_contents) if not res_name_re or re.match(res_name_re, rn))
+        all_urls = tuple(uriutils.iurl(page_contents))
+        res = (rn for rn in all_urls if not res_name_re or re.search(res_name_re, rn))
         res_urls = {rn: urllib.parse.urljoin(root_url, rn) for rn in res}
     
         for rurl in res_urls.values():

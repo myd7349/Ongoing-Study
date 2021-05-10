@@ -10,8 +10,19 @@
 
     using hid_t = System.Int64;
 
+    internal enum Boolean : byte
+    {
+        FALSE = 0,
+        TRUE = 1
+    }
+
     public static partial class HDF5Helper
     {
+        public static bool WriteAttribute(hid_t hid, string key, bool value)
+        {
+            return WriteEnumAttribute<Boolean>(hid, key, value ? Boolean.TRUE : Boolean.FALSE);
+        }
+
         public static bool WriteEnumAttribute<T>(hid_t hid, string key, T value) where T : struct, IConvertible
         {
             var enumSize = GetEnumTypeSize<T>();
@@ -188,6 +199,8 @@
 
             var underlyingType = Enum.GetUnderlyingType(typeof(T));
 
+            // TODO:
+            // Move to new function: ReadNumericValueFromUnmanagedBuffer
             switch (size)
             {
                 case 1:

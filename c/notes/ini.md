@@ -3,3 +3,5 @@
 - [inih](https://github.com/benhoyt/inih)
 - [inih](https://github.com/jtilly/inih)
 - [simpleini](https://github.com/brofield/simpleini)
+- [mINI](https://github.com/pulzed/mINI)
+

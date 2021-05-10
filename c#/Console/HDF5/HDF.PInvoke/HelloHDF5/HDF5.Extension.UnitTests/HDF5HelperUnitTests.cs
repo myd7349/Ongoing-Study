@@ -1,5 +1,6 @@
 ﻿namespace HDF5.Extension.UnitTests
 {
+    using System;
     using System.IO;
     using System.Reflection;
 
@@ -62,17 +63,17 @@
         public void TestFixedLengthStringAttribute()
         {
             var str = "Hello, world!";
-            Assert.IsTrue(WriteStringAttribute(file_, "ascii", str, false, false));
+            Assert.IsTrue(WriteAttribute(file_, "ascii", str, false, false));
             Assert.IsTrue(ReadStringAttribute(file_, "ascii") == str);
 
-            Assert.IsTrue(WriteStringAttribute(file_, "ascii", str + str, false, false));
+            Assert.IsTrue(WriteAttribute(file_, "ascii", str + str, false, false));
             Assert.IsTrue(ReadStringAttribute(file_, "ascii") == str);
 
             str = "早上好！";
-            Assert.IsTrue(WriteStringAttribute(file_, "utf8", str, true, false));
+            Assert.IsTrue(WriteAttribute(file_, "utf8", str, true, false));
             Assert.IsTrue(ReadStringAttribute(file_, "utf8") == str);
 
-            Assert.IsTrue(WriteStringAttribute(file_, "utf8", str + str, true, false));
+            Assert.IsTrue(WriteAttribute(file_, "utf8", str + str, true, false));
             Assert.IsTrue(ReadStringAttribute(file_, "utf8") == str);
         }
 
@@ -80,17 +81,17 @@
         public void TestVariableStringAttribute()
         {
             var str = "Hello, world!";
-            Assert.IsTrue(WriteStringAttribute(file_, "ascii-vlen", str, false, true));
+            Assert.IsTrue(WriteAttribute(file_, "ascii-vlen", str, false, true));
             Assert.IsTrue(ReadStringAttribute(file_, "ascii-vlen") == str);
 
-            Assert.IsTrue(WriteStringAttribute(file_, "ascii-vlen", str + str));
+            Assert.IsTrue(WriteAttribute(file_, "ascii-vlen", str + str));
             Assert.IsTrue(ReadStringAttribute(file_, "ascii-vlen") == str + str);
 
             str = "早上好！";
-            Assert.IsTrue(WriteStringAttribute(file_, "utf8-vlen", str, true, true));
+            Assert.IsTrue(WriteAttribute(file_, "utf8-vlen", str, true, true));
             Assert.IsTrue(ReadStringAttribute(file_, "utf8-vlen") == str);
 
-            Assert.IsTrue(WriteStringAttribute(file_, "utf8-vlen", str + str));
+            Assert.IsTrue(WriteAttribute(file_, "utf8-vlen", str + str));
             Assert.IsTrue(ReadStringAttribute(file_, "utf8-vlen") == str + str);
         }
 
@@ -124,6 +125,55 @@
             Assert.IsTrue(ReadEnumAttribute<MyEnumU64>(file_, "myenum-u64") == MyEnumU64.Foo);
             Assert.IsTrue(WriteEnumAttribute(file_, "myenum-u64", MyEnumU64.Zero));
             Assert.IsTrue(ReadEnumAttribute<MyEnumU64>(file_, "myenum-u64") == MyEnumU64.Zero);
+        }
+
+        [Test]
+        public void TestBooleanAttribute()
+        {
+            Assert.IsTrue(WriteAttribute(file_, "true", true));
+            Assert.IsTrue(WriteAttribute(file_, "false", false));
+        }
+
+        [Test]
+        public void TestNumericAttribute()
+        {
+            Assert.IsTrue(WriteAttribute(file_, "i8", sbyte.MaxValue));
+            Assert.IsTrue(ReadScalarNumericAttribute<sbyte>(file_, "i8") == sbyte.MaxValue);
+            Assert.IsTrue(ReadScalarNumericAttribute<int>(file_, "i8") == sbyte.MaxValue);
+
+            Assert.IsTrue(WriteAttribute(file_, "u8", byte.MaxValue));
+            Assert.IsTrue(ReadScalarNumericAttribute<byte>(file_, "u8") == byte.MaxValue);
+            Assert.IsTrue(ReadScalarNumericAttribute<int>(file_, "u8") == byte.MaxValue);
+
+            Assert.IsTrue(WriteAttribute(file_, "i16", short.MaxValue));
+            Assert.IsTrue(ReadScalarNumericAttribute<short>(file_, "i16") == short.MaxValue);
+            Assert.IsTrue(ReadScalarNumericAttribute<int>(file_, "i16") == short.MaxValue);
+
+            Assert.IsTrue(WriteAttribute(file_, "u16", ushort.MaxValue));
+            Assert.IsTrue(ReadScalarNumericAttribute<ushort>(file_, "u16") == ushort.MaxValue);
+            Assert.IsTrue(ReadScalarNumericAttribute<int>(file_, "u16") == ushort.MaxValue);
+
+            Assert.IsTrue(WriteAttribute(file_, "i32", int.MaxValue));
+            Assert.IsTrue(ReadScalarNumericAttribute<int>(file_, "i32") == int.MaxValue);
+            Assert.IsTrue(ReadScalarNumericAttribute<long>(file_, "i32") == int.MaxValue);
+
+            Assert.IsTrue(WriteAttribute(file_, "u32", uint.MaxValue));
+            Assert.IsTrue(ReadScalarNumericAttribute<uint>(file_, "u32") == uint.MaxValue);
+            Assert.IsTrue(ReadScalarNumericAttribute<long>(file_, "u32") == uint.MaxValue);
+
+            Assert.IsTrue(WriteAttribute(file_, "i64", long.MaxValue));
+            Assert.IsTrue(ReadScalarNumericAttribute<long>(file_, "i64") == long.MaxValue);
+
+            Assert.IsTrue(WriteAttribute(file_, "u64", ulong.MaxValue));
+            Assert.IsTrue(ReadScalarNumericAttribute<ulong>(file_, "u64") == ulong.MaxValue);
+
+            Assert.IsTrue(WriteAttribute(file_, "float", float.MaxValue));
+            Assert.IsTrue(WriteAttribute(file_, "double", double.MaxValue));
+            Assert.IsTrue(WriteAttribute(file_, "pi", Math.PI));
+
+            Assert.IsTrue(WriteAttribute(file_, "i8", Math.PI));
+            Assert.IsTrue(ReadScalarNumericAttribute<sbyte>(file_, "i8") == 3);
+            Assert.IsTrue(ReadScalarNumericAttribute<int>(file_, "i8") == 3);
         }
     }
 }

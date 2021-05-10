@@ -147,3 +147,4 @@ void wconv_free(void *ptr)
 // https://stackoverflow.com/questions/35249424/msvc-2010-and-utf8
 // https://github.com/llvm-mirror/llvm/blob/master/lib/Support/ConvertUTF.cpp
 // https://github.com/haipome/utf8/blob/master/utf8.c
+// https://github.com/CrashRpt/crashrpt2/blob/master/reporting/crashrpt/strconv.h

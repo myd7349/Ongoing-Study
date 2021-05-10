@@ -43,8 +43,11 @@
                     Console.WriteLine("Ellapsed ms: {0}", stopwatch.ElapsedMilliseconds);
                     Interlocked.Increment(ref count);
                 }
-                );
-            mmTimer.Start(100, true);
+                )
+            {
+                Interval = 100
+            };
+            mmTimer.Start();
 
             while (true)
             {

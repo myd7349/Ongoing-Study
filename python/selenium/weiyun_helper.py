@@ -60,7 +60,13 @@ class WeiYunHelper:
 
         self._store_cookies(cookies)
 
+        self._saved_urls = set()
+
     def save_share(self, share_url, timeout_in_seconds=60):
+        if share_url in self._saved_urls:
+            print('Share url {0} already handled.'.format(share_url))
+            return
+
         self._browser.get(share_url)
 
         time.sleep(3)
@@ -78,6 +84,8 @@ class WeiYunHelper:
         ok_button = self._browser.find_element_by_xpath(
             weiyun_config.WEIYUN_SAVE_OK_BUTTON_XPATH)
         ok_button.click()
+
+        self._saved_urls.add(share_url)
 
         time.sleep(3)
 

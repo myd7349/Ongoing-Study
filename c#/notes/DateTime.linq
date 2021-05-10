@@ -1,6 +1,8 @@
 <Query Kind="Statements" />
 
 Console.WriteLine(DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"));
+Console.WriteLine(DateTime.Now.ToString("G"));
+Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"));
 
 var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 Console.WriteLine(epoch);

@@ -61,6 +61,28 @@ void FindAllOnesV2()
     Console.Write('\n');
 }
 
+void CastTest()
+{
+    var range = Enumerable.Range(0, 10);
+    Console.WriteLine("{0}", range.ToArray());
+
+    try
+    {
+        var numbers = range.Cast<ulong>().ToArray();
+        Console.WriteLine("{0}", numbers);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("{0}", ex);
+
+        var numbers = range.Select(num => (ulong)num).ToArray();
+        Console.WriteLine("{0}", numbers);
+
+        var numbers2 = range.ToList().ConvertAll(num => (ulong)num);
+        Console.WriteLine("{0}", numbers2);
+    }
+}
+
 void Main()
 {
     var ch1 = new short[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -107,4 +129,11 @@ void Main()
 
     FindAllOnesV1();
     FindAllOnesV2();
+
+    CastTest();
 }
+
+
+// References:
+// [Using linq what is the easiest way to conv list<long> to list<int>?](https://stackoverflow.com/questions/2743819/using-linq-what-is-the-easiest-way-to-conv-listlong-to-listint/2743846)
+// [LINQ .Cast() extension method fails but (type)object works](https://stackoverflow.com/questions/2819473/linq-cast-extension-method-fails-but-typeobject-works)

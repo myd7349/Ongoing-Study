@@ -49,6 +49,9 @@ private:
 
     static CCriticalSection ms_cs;
     static CStdioFile       ms_hLogFile;
+    static CString          ms_strContent;
+    static SYSTEMTIME       ms_SystemTime;
+    static CString          ms_strLongDateTime;
 };
 
 #define cmVLPLogStartup(szLogFileName) \
@@ -65,7 +68,7 @@ private:
         cmGetErrMsg(strErrMsg, dwErrCode); \
         cmVLPLogDump(_T("%s(%d) %s(%d): %s"), \
             cmFILE, cmLINE, _T("Error"), dwErrCode, \
-            strErrMsg); \
+            strErrMsg.GetString()); \
     } while (0)
 
 #else
@@ -76,3 +79,7 @@ private:
 #define cmVLPLogDumpError()            ((void)0)
 
 #endif // _VLPLOG_ON
+
+
+// References:
+// [Using CString object in CString::Format](https://stackoverflow.com/questions/48245284/using-cstring-object-in-cstringformat)

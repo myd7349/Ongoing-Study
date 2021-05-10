@@ -152,3 +152,7 @@
         private int cachedDataStartPosition_ = -1;
     }
 }
+
+
+// References:
+// https://github.com/SixLabors/ImageSharp/blob/master/src/ImageSharp/IO/BufferedReadStream.cs

@@ -42,8 +42,13 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enum.cs" />
-    <Compile Include="HDF5Helper.cs" />
+    <Compile Include="HDF5Exception.cs" />
+    <Compile Include="HDF5Helper.Attribute.Enum.cs" />
+    <Compile Include="HDF5Helper.Attribute.Numeric.cs" />
+    <Compile Include="HDF5Helper.Attribute.String.cs" />
+    <Compile Include="HDF5Helper.DataSet.cs" />
+    <Compile Include="HDF5Helper.DataSpace.cs" />
+    <Compile Include="HDF5Helper.Group.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

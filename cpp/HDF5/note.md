@@ -23,6 +23,8 @@
 
 6. Check if a dataset/group exists.
 
+   H5Location::nameExists + IdComponent::getHDFObjType
+
    - [Test group existence in hdf5/c++](https://stackoverflow.com/questions/35668056/test-group-existence-in-hdf5-c)
 
    - https://support.hdfgroup.org/HDF5/doc/RM/RM_H5L.html#Link-Exists
@@ -192,4 +194,35 @@
     > ```
     
 12. `H5Lexists` vs `H5Oexists_by_name`
+
+13. How to copy/move all attributes from one dataset to another?
+
+    - `H5Location::copyLink` vs `H5Location::moveLink`
+    - `H5Lcopy` vs `H5Lmove`
+    
+14. How to open a file whose path is a `PCWSTR`?
+
+    > ```
+    > MyApp.exe!H5_get_utf16_str(const char * s)
+    > MyApp.exe!Wopen_utf8(const char * path, int oflag, ...)
+    > MyApp.exe!H5FD_sec2_open(const char * name, unsigned int flags, __int64 fapl_id, unsigned __int64 maxaddr)
+    > MyApp.exe!H5FD_open(const char * name, unsigned int flags, __int64 fapl_id, unsigned __int64 maxaddr)
+    > MyApp.exe!H5F__is_hdf5(const char * name, __int64 fapl_id)
+    > MyApp.exe!H5VL__native_file_specific(void * obj, H5VL_file_specific_t specific_type, __int64 dxpl_id, void * * req, char * arguments)
+    > MyApp.exe!H5VL__file_specific(void * obj, const H5VL_class_t * cls, H5VL_file_specific_t specific_type, __int64 dxpl_id, void * * req, char * arguments)
+    > MyApp.exe!H5VL_file_specific(const H5VL_object_t * vol_obj, H5VL_file_specific_t specific_type, __int64 dxpl_id, void * * req, ...)
+    > MyApp.exe!H5Fis_accessible(const char * filename, __int64 fapl_id)
+    > MyApp.exe!H5::H5File::isHdf5(const char * name)
+    > MyApp.exe!H5::H5File::isHdf5(const std::basic_string<char,std::char_traits<char>,std::allocator<char> > & name)
+    > ```
+
+    From the calling stack above, we can know that HDF5 assumes that the file path you passed to `H5File::isHdf5(const char * name)` is a UTF-8 string, not a ANSI one. So that is what we can do:
+
+    > PCWSTR filePath = L"...";
+    >
+    > const char *filePathU8 = WCharToUtf8(filePath);
+    >
+    > assert(H5::H5File::isHdf5(filePathU8));
+
+    
 

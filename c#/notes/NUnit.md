@@ -16,3 +16,5 @@ https://docs.nunit.org/articles/nunit/writing-tests/setup-teardown/index.html
 
 [SetUp and TearDown for all fixtures in namespace](https://github.com/nunit/nunit/issues/3140)
 
+[NUnit - cleanup after test failure](https://stackoverflow.com/questions/1131758/nunit-cleanup-after-test-failure)
+

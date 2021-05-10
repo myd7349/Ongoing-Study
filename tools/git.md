@@ -7,6 +7,7 @@ Mona Lisa
 ```
 
 [Setting your Git username for a single repository](https://help.github.com/articles/setting-your-username-in-git/)
+
 ```bash
 $ git config user.name "Mona Lisa"
 $ git config user.name
@@ -301,3 +302,10 @@ In the last article listed above, it mentioned `commitlint` and `husky`, which c
 > git config --global --unset https.proxy
 
 [git-sizer](https://github.com/github/git-sizer)
+
+git-lfs:
+
+https://github.com/SixLabors/ImageSharp/blob/master/tests/Images/Input/Bmp/Car.bmp
+
+https://docs.github.com/en/github/managing-large-files/installing-git-large-file-storage
+

@@ -1,4 +1,6 @@
-﻿namespace FakeAD
+﻿#define USE_MMTIMER
+
+namespace FakeAD
 {
     using System;
     using System.Diagnostics;
@@ -24,7 +26,15 @@
             for (int i = 0; i < dataGenerators_.Length; ++i)
                 dataGenerators_[i] = new SinusWaveDataGenerator(0.5, SamplingRate);
 
+#if USE_MMTIMER
+            timer_ = new Common.MMTimer(FakeADCallback, SynchronizationContext.Current)
+            {
+                Interval = (int)(samples / SamplingRate * 1000.0)
+            };
+            timer_.Start();
+#else
             timer_ = new Timer(FakeADCallback, null, 0, (int)(samples / SamplingRate * 1000.0));
+#endif
 
             return true;
         }
@@ -81,12 +91,21 @@
                 .Range(0, dataLength)
                 .Select(n => dataGenerators_[n % Channels].Next())
                 .ToArray();
+
+#if USE_MMTIMER
+            dataBuffer_?.Post(data);
+#else
             dataBuffer_.Post(data);
+#endif
         }
 
         private int samples_;
         private BufferBlock<double[]> dataBuffer_;
+#if USE_MMTIMER
+        private Common.MMTimer timer_;
+#else
         private Timer timer_;
+#endif
         private IDataGenerator[] dataGenerators_;
     }
 }

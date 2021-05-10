@@ -18,6 +18,12 @@ using (var textWriter = new StreamWriter(memoryStream))
     Console.WriteLine(memoryStream.Position);
 }
 
+var sourceName = "main.cpp";
+var exeName = Path.GetFileNameWithoutExtension(sourceName) + ".exe";
+Console.WriteLine($"{exeName}");
+Console.WriteLine($"{Path.ChangeExtension(sourceName, ".exe")}");
+
+
 // References:
 // https://stackoverflow.com/questions/1266674/how-can-one-get-an-absolute-or-normalized-file-path-in-net
 // https://stackoverflow.com/questions/5292305/is-there-a-c-sharp-equivalent-of-pythons-os-path-normpath

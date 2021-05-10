@@ -1,3 +1,11 @@
+// Note:
+// By default, SimpleIni will add space characters around equal sign when
+// reading/writing key-value pairs:
+// key = value
+
+// Question: If we write an empty value with SimpleIni:
+// key = 
+// and read it via GetPrivateProfileString, what will we get? " " or ""?
 #include "SimpleIniConfigItemProvider.h"
 
 #include <cassert>

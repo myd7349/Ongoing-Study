@@ -100,7 +100,7 @@ int main(void)
     // note that buffer and &b[0][0] are equivalent
     H5Dwrite(dset, H5T_NATIVE_FLOAT, mem_space, file_space, H5P_DEFAULT, buffer);
     puts("- First buffer written");
-    
+
     // We can now close the file dataspace
     // We could close the memory dataspace and create a new one,
     // but we will simply update its size

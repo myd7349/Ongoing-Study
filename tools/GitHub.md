@@ -22,3 +22,7 @@ Here’s how we suggest you go about proposing a change to this project:
 [githistory.xyz](https://github.githistory.xyz/myd7349/simdjson-cmake-example/blob/master/print_json.cpp)
 
 [GitHub Actions 教程：定时发送天气邮件](http://www.ruanyifeng.com/blog/2019/12/github_actions.html)
+
+[renovate](https://github.com/renovatebot/renovate)
+
+- https://github.com/whtsky/kindle-sdr-cleaner/blob/master/renovate.json

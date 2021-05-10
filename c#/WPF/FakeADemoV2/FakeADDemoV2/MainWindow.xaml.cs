@@ -8,6 +8,7 @@
     using System.Windows.Threading;
 
     using Microsoft.Research.DynamicDataDisplay.DataSources;
+    using NLog;
 
     using FakeAD;
 
@@ -57,6 +58,8 @@
 
             stopwatch_ = Stopwatch.StartNew();
             previousTimePoint_ = stopwatch_.ElapsedMilliseconds;
+
+            dispatcherStopwatch_ = Stopwatch.StartNew();
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -66,6 +69,8 @@
 
         private void DispatcherTimer__Tick(object sender, EventArgs e)
         {
+            Logger_.Debug("Tick: {0}ms", dispatcherStopwatch_.ElapsedMilliseconds);
+
             ad_.Read(buffer_, 0, buffer_.Length);
             dataSource_.AppendMany(
                 buffer_.Select(
@@ -84,11 +89,12 @@
             if (ellapsedMs - previousTimePoint_ >= 1000)
             {
                 var samplingRate = (double)samples_ / ellapsedMs * 1000;
-                Debug.WriteLine("Sampling Rate: {0} / {1} = {2}", samples_, ellapsedMs, samplingRate);
+                Logger_.Debug("Sampling Rate: {0} / {1} = {2}", samples_, ellapsedMs, samplingRate);
                 previousTimePoint_ = ellapsedMs;
             }
         }
 
+        private Logger Logger_ = LogManager.GetCurrentClassLogger();
         private const int Samples = 100;
         private const int SecondsPerScreen = 10;
         private ObservableDataSource<Point> dataSource_ = new ObservableDataSource<Point>();
@@ -97,6 +103,7 @@
         private double[] buffer_;
         private long samples_;
         private Stopwatch stopwatch_;
+        private Stopwatch dispatcherStopwatch_;
         private long previousTimePoint_;
     }
 }
@@ -106,3 +113,4 @@
 // [DynamicDataDisplay ChartPlotter scroll horizontal axis](https://stackoverflow.com/questions/13546068/dynamicdatadisplay-chartplotter-scroll-horizontal-axis)
 // https://blog.csdn.net/u013187531/article/details/72137401
 // https://www.mesta-automation.com/real-time-line-charts-with-wpf-and-dynamic-data-display/
+// [dispatcherTimer doesn't work accurately](https://stackoverflow.com/questions/23197993/dispatchertimer-doesnt-work-accurately)

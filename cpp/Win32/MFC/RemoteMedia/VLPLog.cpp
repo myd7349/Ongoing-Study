@@ -10,6 +10,10 @@
 // CVLPLog
 CStdioFile       CVLPLog::ms_hLogFile;
 CCriticalSection CVLPLog::ms_cs;
+CString          CVLPLog::ms_strContent;
+SYSTEMTIME       CVLPLog::ms_SystemTime;
+CString          CVLPLog::ms_strLongDateTime;
+
 
 CVLPLog::CVLPLog()
 {
@@ -42,11 +46,12 @@ BOOL CVLPLog::Startup(LPCTSTR lpszLogFileName)
 
     _tsetlocale(LC_ALL, _T(""));
 
-    CSingleLock singleLock(&ms_cs);
+    CSingleLock singleLock(&ms_cs, TRUE);
 
-    singleLock.Lock();
     ms_hLogFile.Open(strFullPath, CStdioFile::modeCreate | CStdioFile::modeWrite);
+
     singleLock.Unlock();
+
     DumpToLog(_T("<<================ VLPLog Startup ===================>>\n"));
 
     return _IsFileValid();
@@ -60,30 +65,27 @@ void CVLPLog::DumpToLog(LPCTSTR lpszFmt, ...)
     {
         return;
     }
-    CString strContent;
+
+    CSingleLock singleLock(&ms_cs, TRUE);
+
     std::va_list pArgList;
 
     va_start(pArgList, lpszFmt);
-    strContent.FormatV(lpszFmt, pArgList);
+    ms_strContent.FormatV(lpszFmt, pArgList);
     va_end(pArgList);
-    if (strContent[strContent.GetLength() - 1] != _T('\n'))
+
+    if (ms_strContent.IsEmpty() || ms_strContent[ms_strContent.GetLength() - 1] != _T('\n'))
     {
-        strContent += _T('\n');
+        ms_strContent += _T('\n');
     }
 
-    ::SYSTEMTIME systime;
-    ::GetLocalTime(&systime);
-    CString strTime;
-    strTime.Format(_T("%04d-%02d-%02d %02d:%02d:%02d.%03d> "), 
-        systime.wYear, systime.wMonth, systime.wDay, 
-        systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds);
+    ::GetLocalTime(&ms_SystemTime);
+    ms_strLongDateTime.Format(_T("%04d-%02d-%02d %02d:%02d:%02d.%03d> "), 
+        ms_SystemTime.wYear, ms_SystemTime.wMonth, ms_SystemTime.wDay, 
+        ms_SystemTime.wHour, ms_SystemTime.wMinute, ms_SystemTime.wSecond, ms_SystemTime.wMilliseconds);
 
-    CSingleLock singleLock(&ms_cs);
-
-    singleLock.Lock();
-    ms_hLogFile.WriteString(strTime + strContent);
+    ms_hLogFile.WriteString(ms_strLongDateTime + ms_strContent);
     ms_hLogFile.Flush();
-    singleLock.Unlock();
 }
 
 void CVLPLog::Shutdown()
@@ -92,10 +94,8 @@ void CVLPLog::Shutdown()
     {
         DumpToLog(_T("<<================ VLPLog Shutdown ==================>>\n"));
 
-        CSingleLock singleLock(&ms_cs);
+        CSingleLock singleLock(&ms_cs, TRUE);
 
-        singleLock.Lock();
         ms_hLogFile.Close();
-        singleLock.Unlock();
     }
 }

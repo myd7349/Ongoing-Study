@@ -7,7 +7,10 @@ namespace HelloHDF5
     using HDF.PInvoke;
 
     using Common;
+    using HDF5.Extension;
     using static HDF5.Extension.HDF5Helper;
+
+    using hid_t = System.Int64;
 
     enum Boolean : byte
     {
@@ -21,32 +24,46 @@ namespace HelloHDF5
         {
             var filePath = args.Length >= 1 ? args[0] : "./a.h5";
 
-#if !DEBUG
-            if (!File.Exists(filePath))
-#endif
-                WriteFile(filePath);
-
-            if (File.Exists(filePath))
-                ReadFile(filePath);
+            WriteFile(filePath);
+            ReadFile(filePath);
 
             ReadKey();
         }
 
         static void WriteFile(string filePath)
         {
-            var file = H5F.create(filePath, H5F.ACC_TRUNC);
+            var file = File.Exists(filePath) ? 
+                H5F.open(filePath, H5F.ACC_RDWR) :
+                H5F.create(filePath, H5F.ACC_TRUNC);
+            if (file < 0)
+                throw new HDF5Exception("Failed to open or create file \"{0}\".", filePath);
 
-            var group = H5G.create(file, "/group");
+            var group = GroupExists(file, "/group") ?
+                H5G.open(file, "/group") :
+                H5G.create(file, "/group");
+            if (group < 0)
+            {
+                H5F.close(file);
+                throw new HDF5Exception("Failed to open or create group \"{0}\".", "/group");
+            }
             H5G.close(group);
 
             const int RANK = 2;
             const int DIM0 = 3;
             const int DIM1 = 4;
-            var dims = new ulong[RANK] { DIM0, DIM1 };
-            var dataSpace = H5S.create_simple(RANK, dims, null);
 
-            var dataSet = H5D.create(file, "/group/dataset", H5T.NATIVE_INT, dataSpace);
-            H5S.close(dataSpace);
+            var dataSetName = "/group/dataset";
+            hid_t dataSet;
+            if (DataSetExists(file, dataSetName))
+                dataSet = H5D.open(file, dataSetName);
+            else
+                dataSet = CreateDataSet(file, dataSetName, H5T.NATIVE_INT, new ulong[RANK] { DIM0, DIM1 });
+
+            if (dataSet < 0)
+            {
+                H5F.close(file);
+                throw new HDF5Exception("Failed to open or create data set \"{0}\".", dataSetName);
+            }
 
             var data = new int[DIM0, DIM1]
             {
@@ -57,19 +74,34 @@ namespace HelloHDF5
             H5D.write(dataSet, H5T.NATIVE_INT, H5S.ALL, H5S.ALL, H5P.DEFAULT, new PinnedObject(data));
 
             var hello = "早上好！";
-            WriteStringAttribute(dataSet, "string", hello, true, false);
-            WriteStringAttribute(dataSet, "string-ascii", "Hello, world!", false, false);
-            WriteStringAttribute(dataSet, "string-vlen", hello, true, true);
+            WriteAttribute(dataSet, "string", hello, true, false);
+            WriteAttribute(dataSet, "string-ascii", "Hello, world!", false, false);
+            WriteAttribute(dataSet, "string-vlen", hello, true, true);
 
-            dataSpace = H5S.create(H5S.class_t.SCALAR);
-            var doubleAttribute = H5A.create(dataSet, "double", H5T.NATIVE_DOUBLE, dataSpace);
-            H5S.close(dataSpace);
-            H5A.write(doubleAttribute, H5T.NATIVE_DOUBLE, new PinnedObject(new double[] { Math.PI }));
-            H5A.close(doubleAttribute);
+            WriteAttribute(dataSet, "double", Math.PI);
 
             WriteEnumAttribute(dataSet, "boolean-8-bit-enum", Boolean.TRUE);
 
             H5D.close(dataSet);
+
+            var chunkedDataSetName = "/group/chunked-dataset";
+            var chunkedDataSet = DataSetExists(file, chunkedDataSetName) ?
+                H5D.open(file, chunkedDataSetName) :
+                CreateDataSet(file, chunkedDataSetName, H5T.NATIVE_INT, new ulong[] { 0, DIM1 }, new ulong[] { H5S.UNLIMITED, DIM1 }, new ulong[] { DIM0, DIM1 });
+            if (chunkedDataSet < 0)
+            {
+                H5F.close(file);
+                throw new HDF5Exception("Failed to open or create data set \"{0}\".", chunkedDataSetName);
+            }
+
+            ulong[] dims = null;
+            ulong[] maxDims = null;
+            GetDataSetDimensions(chunkedDataSet, ref dims, ref maxDims);
+            var value = (int)dims[0];
+            AppendDataSet(chunkedDataSet, H5T.NATIVE_INT, new int[DIM1] { value, value, value, value });
+
+            H5D.close(chunkedDataSet);
+
             H5F.close(file);
         }
 
@@ -101,11 +133,10 @@ namespace HelloHDF5
             H5S.close(dataSpace);
 
             var doubleAttribute = H5A.open(dataSet, "double");
-#if false
-            double pi = 0.0;
-            var handle = GCHandle.Alloc(pi, GCHandleType.Pinned);
-            H5A.read(doubleAttribute, H5T.NATIVE_DOUBLE, handle.AddrOfPinnedObject());
-            handle.Free();
+#if true
+            //double pi = 0.0; // Won't work
+            object pi = 0.0;
+            H5A.read(doubleAttribute, H5T.NATIVE_DOUBLE, new PinnedObject(pi));
             WriteLine($"PI = {pi}");
 #else
             var values = new double[1];

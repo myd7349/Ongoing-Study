@@ -21,7 +21,7 @@ class MITBITDBCrawler(rescrawler.ResourceCrawler):
         return 'https://physionet.org/content/mitdb/1.0.0/'
     
     def get_re(self):
-        return r'\d{3}\.((atr)|(dat)|(hea))' 
+        return r'\d{3}\.((atr)|(dat)|(hea))\?download' 
 
 
 def main():
