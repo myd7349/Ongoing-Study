@@ -8,6 +8,15 @@ namespace Common
 {
     public static class ArrayHelper
     {
+        public static void Fill<T>(this T[] array, T value)
+        {
+            if (array == null)
+                throw new ArgumentNullException("array");
+
+            for (int i = 0; i < array.Length; i++)
+                array[i] = value;
+        }
+
         public static bool EqualTo<T>(this T[] lhs, T[] rhs)
         {
             if (ReferenceEquals(lhs, rhs))
@@ -58,3 +67,5 @@ namespace Common
 // C# 6.0 in a Nutshell, P298
 // > Framework 4.0 introduced one for the purpose of comparing elements in arrays or tuples
 //   which you can access via the StructuralComparisons type.
+// [Array.Fill Method](https://docs.microsoft.com/en-us/dotnet/api/system.array.fill?view=net-5.0)
+// [How to populate/instantiate a C# array with a single value?](https://stackoverflow.com/questions/1014005/how-to-populate-instantiate-a-c-sharp-array-with-a-single-value)
