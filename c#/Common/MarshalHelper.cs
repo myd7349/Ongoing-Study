@@ -8,29 +8,43 @@
         public static sbyte ReadSByte(IntPtr ptr)
         {
             byte[] bytes = new byte[1];
-            Marshal.Copy(ptr, bytes, 0, 1);
+            Marshal.Copy(ptr, bytes, 0, bytes.Length);
             return Convert.ToSByte(bytes[0]);
         }
 
         public static ushort ReadUInt16(IntPtr ptr)
         {
             byte[] bytes = new byte[sizeof(ushort)];
-            Marshal.Copy(ptr, bytes, 0, 2);
+            Marshal.Copy(ptr, bytes, 0, bytes.Length);
             return BitConverter.ToUInt16(bytes, 0);
         }
 
         public static uint ReadUInt32(IntPtr ptr)
         {
             byte[] bytes = new byte[sizeof(uint)];
-            Marshal.Copy(ptr, bytes, 0, 4);
+            Marshal.Copy(ptr, bytes, 0, bytes.Length);
             return BitConverter.ToUInt32(bytes, 0);
         }
 
         public static ulong ReadUInt64(IntPtr ptr)
         {
             byte[] bytes = new byte[sizeof(ulong)];
-            Marshal.Copy(ptr, bytes, 0, 8);
+            Marshal.Copy(ptr, bytes, 0, bytes.Length);
             return BitConverter.ToUInt64(bytes, 0);
+        }
+
+        public static float ReadSingle(IntPtr ptr)
+        {
+            byte[] bytes = new byte[sizeof(float)];
+            Marshal.Copy(ptr, bytes, 0, bytes.Length);
+            return BitConverter.ToSingle(bytes, 0);
+        }
+
+        public static double ReadDouble(IntPtr ptr)
+        {
+            byte[] bytes = new byte[sizeof(double)];
+            Marshal.Copy(ptr, bytes, 0, bytes.Length);
+            return BitConverter.ToDouble(bytes, 0);
         }
 
         public static void WriteSByte(IntPtr ptr, sbyte value)
@@ -52,6 +66,18 @@
         }
 
         public static void WriteUInt64(IntPtr ptr, ulong value)
+        {
+            var bytes = BitConverter.GetBytes(value);
+            Marshal.Copy(bytes, 0, ptr, bytes.Length);
+        }
+
+        public static void WriteSingle(IntPtr ptr, float value)
+        {
+            var bytes = BitConverter.GetBytes(value);
+            Marshal.Copy(bytes, 0, ptr, bytes.Length);
+        }
+
+        public static void WriteDouble(IntPtr ptr, double value)
         {
             var bytes = BitConverter.GetBytes(value);
             Marshal.Copy(bytes, 0, ptr, bytes.Length);

@@ -162,32 +162,34 @@
 
             var underlyingType = Enum.GetUnderlyingType(typeof(T));
 
-            switch (size)
+            switch (Type.GetTypeCode(underlyingType))
             {
-                case 1:
-                    if (underlyingType == typeof(byte))
-                        Marshal.WriteByte(unmanagedBuffer, Convert.ToByte(value));
-                    else
-                        MarshalHelper.WriteSByte(unmanagedBuffer, Convert.ToSByte(value));
+                case TypeCode.SByte:
+                    unmanagedBuffer.Write(Convert.ToSByte(value));
                     break;
-                case 2:
-                    if (underlyingType == typeof(short))
-                        Marshal.WriteInt16(unmanagedBuffer, Convert.ToInt16(value));
-                    else
-                        MarshalHelper.WriteUInt16(unmanagedBuffer, Convert.ToUInt16(value));
+                case TypeCode.Byte:
+                    unmanagedBuffer.Write(Convert.ToByte(value));
                     break;
-                case 4:
-                    if (underlyingType == typeof(int))
-                        Marshal.WriteInt32(unmanagedBuffer, Convert.ToInt32(value));
-                    else
-                        MarshalHelper.WriteUInt32(unmanagedBuffer, Convert.ToUInt32(value));
+                case TypeCode.Int16:
+                    unmanagedBuffer.Write(Convert.ToInt16(value));
                     break;
-                case 8:
-                    if (underlyingType == typeof(long))
-                        Marshal.WriteInt64(unmanagedBuffer, Convert.ToInt64(value));
-                    else
-                        MarshalHelper.WriteUInt64(unmanagedBuffer, Convert.ToUInt64(value));
+                case TypeCode.UInt16:
+                    unmanagedBuffer.Write(Convert.ToUInt16(value));
                     break;
+                case TypeCode.Int32:
+                    unmanagedBuffer.Write(Convert.ToInt32(value));
+                    break;
+                case TypeCode.UInt32:
+                    unmanagedBuffer.Write(Convert.ToUInt32(value));
+                    break;
+                case TypeCode.Int64:
+                    unmanagedBuffer.Write(Convert.ToInt64(value));
+                    break;
+                case TypeCode.UInt64:
+                    unmanagedBuffer.Write(Convert.ToUInt64(value));
+                    break;
+                default:
+                    throw new Exception(string.Format("Unexpected enum underlying type {0}.", underlyingType));
             }
 
             return unmanagedBuffer;
@@ -195,36 +197,28 @@
 
         private static T ReadEnumFromUnmanagedBuffer<T>(UnmanagedBuffer unmanagedBuffer)
         {
-            var size = GetEnumTypeSize<T>();
-
             var underlyingType = Enum.GetUnderlyingType(typeof(T));
 
-            // TODO:
-            // Move to new function: ReadNumericValueFromUnmanagedBuffer
-            switch (size)
+            switch (Type.GetTypeCode(underlyingType))
             {
-                case 1:
-                    if (underlyingType == typeof(byte))
-                        return (T)(object)Marshal.ReadByte(unmanagedBuffer);
-                    else
-                        return (T)(object)MarshalHelper.ReadSByte(unmanagedBuffer);
-                case 2:
-                    if (underlyingType == typeof(short))
-                        return (T)(object)Marshal.ReadInt16(unmanagedBuffer);
-                    else
-                        return (T)(object)MarshalHelper.ReadUInt16(unmanagedBuffer);
-                case 4:
-                    if (underlyingType == typeof(int))
-                        return (T)(object)Marshal.ReadInt32(unmanagedBuffer);
-                    else
-                        return (T)(object)MarshalHelper.ReadUInt32(unmanagedBuffer);
-                case 8:
-                    if (underlyingType == typeof(long))
-                        return (T)(object)Marshal.ReadInt64(unmanagedBuffer);
-                    else
-                        return (T)(object)MarshalHelper.ReadUInt64(unmanagedBuffer);
+                case TypeCode.SByte:
+                    return (T)(object)unmanagedBuffer.ReadSByte();
+                case TypeCode.Byte:
+                    return (T)(object)unmanagedBuffer.ReadByte();
+                case TypeCode.Int16:
+                    return (T)(object)unmanagedBuffer.ReadInt16();
+                case TypeCode.UInt16:
+                    return (T)(object)unmanagedBuffer.ReadUInt16();
+                case TypeCode.Int32:
+                    return (T)(object)unmanagedBuffer.ReadInt32();
+                case TypeCode.UInt32:
+                    return (T)(object)unmanagedBuffer.ReadUInt32();
+                case TypeCode.Int64:
+                    return (T)(object)unmanagedBuffer.ReadInt64();
+                case TypeCode.UInt64:
+                    return (T)(object)unmanagedBuffer.ReadUInt64();
                 default:
-                    throw new Exception(string.Format("Unexpected enum size {0}.", size));
+                    throw new Exception(string.Format("Unexpected enum underlying type {0}.", underlyingType));
             }
         }
     }
@@ -240,4 +234,3 @@
 // [How to convert from System.Enum to base integer?](https://stackoverflow.com/questions/908543/how-to-convert-from-system-enum-to-base-integer)
 // https://github.com/HDFGroup/hdf5-examples/blob/master/1_14/C/H5T/h5ex_t_enum.c
 // https://support.hdfgroup.org/HDF5/doc/H5.user/DatatypesEnum.html
-// [How to find out if a numeric type is signed or unsigned in C#](https://stackoverflow.com/questions/53300136/how-to-find-out-if-a-numeric-type-is-signed-or-unsigned-in-c-sharp)

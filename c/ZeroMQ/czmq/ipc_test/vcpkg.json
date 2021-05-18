@@ -1,0 +1,17 @@
+{
+  "name": "ipc-test",
+  "version": "0.0.1",
+  "dependencies": [
+    {
+      "name": "czmq",
+      "features": [
+        "curl",
+        "draft",
+        "httpd",
+        "lz4",
+        "tool",
+        "uuid"
+      ]
+    }
+  ]
+}
