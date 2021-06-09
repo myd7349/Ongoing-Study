@@ -15,4 +15,5 @@ Projects using `pybind11`
 * [pysimdjson](https://github.com/TkTech/pysimdjson)
 * [pymetis](https://github.com/inducer/pymetis)
 * [flashlight](https://github.com/flashlight/flashlight/tree/master/bindings/python)
+* [pyworkflow](https://github.com/sogou/pyworkflow)
 

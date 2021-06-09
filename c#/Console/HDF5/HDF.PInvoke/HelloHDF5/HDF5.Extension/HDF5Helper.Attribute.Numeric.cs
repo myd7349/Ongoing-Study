@@ -244,6 +244,10 @@
 
             // TODO:
             // Check if value can be cast to type of this attribute.
+            //
+            // TODO:
+            // T[] value = new T[1];
+            // H5A.read(attribute, NumericTypeToHDF5Type<T>(), new PinnedObject(value));
             object boxedValue = new T();
             if (H5A.read(attribute, NumericTypeToHDF5Type<T>(), new PinnedObject(boxedValue)) < 0)
                 throw new Exception("Failed to read attribute");

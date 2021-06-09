@@ -39,3 +39,5 @@
 
 [AsyncWrapper target](https://github.com/nlog/NLog/wiki/AsyncWrapper-target)
 
+[Logging in multiple files using NLog](https://stackoverflow.com/questions/20352325/logging-in-multiple-files-using-nlog)
+

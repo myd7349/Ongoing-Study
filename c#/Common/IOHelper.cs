@@ -4,10 +4,18 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-
+using System.Reflection;
 
 namespace Common.IO
 {
+    public static class IOHelper
+    {
+        public static string GetAppPath()
+        {
+            return Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+        }
+    }
+
     public static class PathUtils
     {
         // Microsoft.VisualBasic.FileIO.FileSystem.FileExists

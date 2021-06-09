@@ -1,3 +1,7 @@
+[CMake and the Future of C++ Package Management](https://ibob.bg/blog/2020/01/13/cmake-package-management/)
+
+https://github.com/cpm-cmake/CPM.cmake
+
 1. cmake -G "Visual Studio 10 2010" ..
 
 2. E:\vcpkg>vcpkg.exe integrate install
@@ -170,4 +174,6 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
     https://github.com/KhronosGroup/glslang/blob/9431c53c84c14fa9e9cd37678262ebba55c62c87/parse_version.cmake#L23-L41
     
 29. [WIN32 var has been deprecated in later versions of cmake.](https://github.com/google/glog/commit/d2fed749a5a69354b22c32ee128f5dbabeeabcf3)
+
+30. https://github.com/hosseinmoein/DataFrame/blob/master/cmake/AddUninstallTarget.cmake
 
