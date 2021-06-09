@@ -328,3 +328,7 @@ namespace DataModel
     }
 }
 ```
+
+[C# Define base class by ](https://stackoverflow.com/questions/30038028/c-sharp-define-base-class-by-t)
+
+> class HDF5Exception<T> : T where T : Exception {};

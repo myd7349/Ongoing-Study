@@ -60,6 +60,27 @@
         }
 
         [Test]
+        public void TestDataSetCreation()
+        {
+            var group1 = H5G.create(file_, "group1");
+            Assert.IsTrue(group1 >= 0);
+
+            var dataSet1 = CreateDataSet(group1, "dataset1", H5T.NATIVE_INT, new ulong[] { 1 });
+            Assert.IsTrue(dataSet1 >= 0);
+            H5D.close(dataSet1);
+
+            H5G.close(group1);
+            var dataSet2 = CreateDataSet(file_, "group1/dataset2", H5T.NATIVE_INT, new ulong[] { 100 }, new ulong[] { H5S.UNLIMITED }, new ulong[] { 10 });
+            Assert.IsTrue(dataSet2 >= 0);
+            H5D.close(dataSet2);
+
+            Assert.That(
+                () => CreateDataSet(file_, "group2/dataset3", H5T.NATIVE_INT, new ulong[] { 1 }),
+                Throws.InstanceOf<HDF5Exception>());
+            Assert.IsFalse(GroupExists(file_, "group2"));
+        }
+
+        [Test]
         public void TestFixedLengthStringAttribute()
         {
             var str = "Hello, world!";
@@ -93,6 +114,18 @@
 
             Assert.IsTrue(WriteAttribute(file_, "utf8-vlen", str + str));
             Assert.IsTrue(ReadStringAttribute(file_, "utf8-vlen") == str + str);
+        }
+
+        [Test]
+        public void TestCreateEnumType()
+        {
+            var type = CreateEnumType(new string[] { "FALSE", "TRUE" }, new int[] { 0, 1 });
+            Assert.IsFalse(type < 0);
+            H5T.close(type);
+
+            var type2 = CreateEnumType(new string[] { "FALSE", "TRUE" }, new Boolean[] { Boolean.False, Boolean.True });
+            Assert.IsFalse(type2 < 0);
+            H5T.close(type2);
         }
 
         [Test]

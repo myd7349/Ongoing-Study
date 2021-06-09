@@ -71,37 +71,89 @@
             }
         }
 
-        public T Read<T>()
+        public void WriteEnum<T>(T value)
         {
             var type = typeof(T);
+            if (!type.IsEnum)
+                throw new ArgumentException("Not a enum type.");
+
+            var underlyingType = Enum.GetUnderlyingType(typeof(T));
+            switch (Type.GetTypeCode(underlyingType))
+            {
+                case TypeCode.SByte:
+                    Write(Convert.ToSByte(value));
+                    break;
+                case TypeCode.Byte:
+                    Write(Convert.ToByte(value));
+                    break;
+                case TypeCode.Int16:
+                    Write(Convert.ToInt16(value));
+                    break;
+                case TypeCode.UInt16:
+                    Write(Convert.ToUInt16(value));
+                    break;
+                case TypeCode.Int32:
+                    Write(Convert.ToInt32(value));
+                    break;
+                case TypeCode.UInt32:
+                    Write(Convert.ToUInt32(value));
+                    break;
+                case TypeCode.Int64:
+                    Write(Convert.ToInt64(value));
+                    break;
+                case TypeCode.UInt64:
+                    Write(Convert.ToUInt64(value));
+                    break;
+                default:
+                    throw new Exception(string.Format("Unexpected enum underlying type {0}.", underlyingType));
+            }
+        }
+
+        public object Read(Type type)
+        {
             if (Marshal.SizeOf(type) != bytes_)
                 throw new ArgumentException("Unmatched buffer size.");
 
             switch (Type.GetTypeCode(type))
             {
                 case TypeCode.SByte:
-                    return (T)(object)MarshalHelper.ReadSByte(handle_);
+                    return MarshalHelper.ReadSByte(handle_);
                 case TypeCode.Byte:
-                    return (T)(object)Marshal.ReadByte(handle_);
+                    return Marshal.ReadByte(handle_);
                 case TypeCode.Int16:
-                    return (T)(object)Marshal.ReadInt16(handle_);
+                    return Marshal.ReadInt16(handle_);
                 case TypeCode.UInt16:
-                    return (T)(object)MarshalHelper.ReadUInt16(handle_);
+                    return MarshalHelper.ReadUInt16(handle_);
                 case TypeCode.Int32:
-                    return (T)(object)Marshal.ReadInt32(handle_);
+                    return Marshal.ReadInt32(handle_);
                 case TypeCode.UInt32:
-                    return (T)(object)MarshalHelper.ReadUInt32(handle_);
+                    return MarshalHelper.ReadUInt32(handle_);
                 case TypeCode.Int64:
-                    return (T)(object)Marshal.ReadInt64(handle_);
+                    return Marshal.ReadInt64(handle_);
                 case TypeCode.UInt64:
-                    return (T)(object)MarshalHelper.ReadUInt64(handle_);
+                    return MarshalHelper.ReadUInt64(handle_);
                 case TypeCode.Single:
-                    return (T)(object)MarshalHelper.ReadSingle(handle_);
+                    return MarshalHelper.ReadSingle(handle_);
                 case TypeCode.Double:
-                    return (T)(object)MarshalHelper.ReadDouble(handle_);
+                    return MarshalHelper.ReadDouble(handle_);
                 default:
                     throw new ArgumentException("Only primitive data types are supported.");
             }
+        }
+
+        public T Read<T>()
+        {
+            return (T)Read(typeof(T));
+        }
+
+        public T ReadEnum<T>()
+        {
+            var type = typeof(T);
+            if (!type.IsEnum)
+                throw new ArgumentException("Not a enum type.");
+
+            var underlyingType = Enum.GetUnderlyingType(typeof(T));
+            return (T)Read(underlyingType);
         }
 
         public sbyte ReadSByte()
@@ -252,3 +304,7 @@
 // [How to find out if a numeric type is signed or unsigned in C#](https://stackoverflow.com/questions/53300136/how-to-find-out-if-a-numeric-type-is-signed-or-unsigned-in-c-sharp)
 // [How do I cast a generic enum to int?](https://stackoverflow.com/questions/16960555/how-do-i-cast-a-generic-enum-to-int)
 // [Cast Int to Generic Enum in C#](https://stackoverflow.com/questions/10387095/cast-int-to-generic-enum-in-c-sharp)
+// [How do I cast a generic enum to int?](https://stackoverflow.com/questions/16960555/how-do-i-cast-a-generic-enum-to-int)
+// [Cast Int to Generic Enum in C#](https://stackoverflow.com/questions/10387095/cast-int-to-generic-enum-in-c-sharp)
+// [c# P/Invoke : Pass Enum value with IntPtr to Function; AccessViolationException](https://stackoverflow.com/questions/47723953/c-sharp-p-invoke-pass-enum-value-with-intptr-to-function-accessviolationexcep)
+// [How to convert from System.Enum to base integer?](https://stackoverflow.com/questions/908543/how-to-convert-from-system-enum-to-base-integer)

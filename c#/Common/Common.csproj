@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyHelper.cs" />
+    <Compile Include="DateTimeHelper.cs" />
     <Compile Include="DoubleConverter.cs" />
     <Compile Include="MarshalHelper.cs" />
     <Compile Include="MMTimer.cs" />

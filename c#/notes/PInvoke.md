@@ -92,3 +92,19 @@ https://github.com/microsoft/win32metadata
 
 [UnmanagedFunctionPointer - FreeRDP example](https://github.com/FreeRDP/FreeRDP-Sharp/blob/0334b0dcc785243ba752b1731f123212a733fdc2/FreeRDP/Core/FreeRDP.cs#L25)
 
+https://github.com/HDFGroup/HDF.PInvoke/blob/d281aa75f1562e677d1307cc1a234f9079cd76c3/HDF5/H5Spublic.cs#L601-L609
+
+> ```c#
+> [DllImport(Constants.DLLFileName, EntryPoint = "H5Sselect_hyperslab", CallingConvention = CallingConvention.Cdecl),
+> SuppressUnmanagedCodeSecurity, SecuritySafeCritical]
+> public static extern herr_t select_hyperslab(hid_t space_id, seloper_t op,
+>     [MarshalAs(UnmanagedType.LPArray)] hsize_t[] start,
+>     [MarshalAs(UnmanagedType.LPArray)] hsize_t[] stride,
+>     [MarshalAs(UnmanagedType.LPArray)] hsize_t[] count,
+>     [MarshalAs(UnmanagedType.LPArray)] hsize_t[] block);
+> ```
+
+[How to marshal collection in c# to pass to native (C++) code](https://stackoverflow.com/questions/5102436/how-to-marshal-collection-in-c-sharp-to-pass-to-native-c-code) - Marshal a string array.
+
+[Return contents of a std::wstring from C++ into C#](https://stackoverflow.com/questions/7051097/return-contents-of-a-stdwstring-from-c-into-c-sharp)
+

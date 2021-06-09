@@ -224,5 +224,33 @@
     >
     > assert(H5::H5File::isHdf5(filePathU8));
 
+15. [Unifying Biological Image Formats with HDF5](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3016045/)
+
+16. [Corrupt files when creating HDF5 files without closing them (h5py)](https://stackoverflow.com/questions/31287744/corrupt-files-when-creating-hdf5-files-without-closing-them-h5py)
+
+    > It indeed helps to `flush()` after writing. Even if you write data afterwards that you didn't flush,  everything up to the point of the most recent flush is accessible. 
+    
+17. `selectHyperslab` C and C++ API
+
+    C++:
+
+    ```c++
+    // `count` first, then `start`.
+    void DataSpace::selectHyperslab(H5S_seloper_t op, const hsize_t *count, const hsize_t *start,
+                               const hsize_t *stride, const hsize_t *block) const
+    {
+        // ...
+    }
+    ```
+
+    C:
+
+    ```c
+    // `start` first, then `count`.
+    herr_t H5Sselect_hyperslab(hid_t space_id, H5S_seloper_t op,
+        const hsize_t start[], const hsize_t _stride[], const hsize_t count[],
+        const hsize_t _block[]);
+    ```
+
     
 

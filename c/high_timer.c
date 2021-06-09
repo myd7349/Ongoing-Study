@@ -167,3 +167,4 @@ int64_t high_timer_ellapsed_ns(high_timer_t *timer)
 // https://github.com/mattreecebentley/plf_nanotimer/blob/master/plf_nanotimer.h
 // https://github.com/ibireme/yybench/blob/master/src/yybench_time.h
 // https://github.com/powturbo/TurboBench/blob/master/time_.h
+// https://github.com/floooh/sokol/blob/master/sokol_time.h

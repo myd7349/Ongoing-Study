@@ -168,3 +168,6 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
 28. https://github.com/KhronosGroup/glslang/blob/master/parse_version.cmake
 
     https://github.com/KhronosGroup/glslang/blob/9431c53c84c14fa9e9cd37678262ebba55c62c87/parse_version.cmake#L23-L41
+    
+29. [WIN32 var has been deprecated in later versions of cmake.](https://github.com/google/glog/commit/d2fed749a5a69354b22c32ee128f5dbabeeabcf3)
+

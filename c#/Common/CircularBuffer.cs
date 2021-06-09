@@ -467,7 +467,7 @@
             return sb.ToString();
         }
 
-        private T[] buffer_;
+        private readonly T[] buffer_;
         private int fillPtr_ = 0;
         private int usePtr_ = 0;
     }
@@ -475,6 +475,10 @@
 
 
 // References:
+// http://pages.cs.wisc.edu/~remzi/OSTEP/threads-cv.pdf
+// Operating Systems: Three Easy Pieces, P352
+// https://github.com/michaeltyson/TPCircularBuffer
+// https://github.com/boostorg/circular_buffer
 // https://stackoverflow.com/questions/13275975/circularbuffer-highly-efficient-implementation-both-thread-safe-and-not-thread
 // https://github.com/joaoportela/CircullarBuffer-CSharp
 // https://github.com/xorxornop/RingBuffer
@@ -485,3 +489,10 @@
 // https://github.com/spazzarama/SharedMemory/blob/master/SharedMemory/CircularBuffer.cs
 // Microsoft.Research.DynamicDataDisplay.Common.RingArray
 // https://github.com/naudio/NAudio/blob/master/NAudio/Utils/CircularBuffer.cs
+// [CircularBuffer highly efficient implementation (both thread-safe and not thread-safe)](https://stackoverflow.com/questions/13275975/circularbuffer-highly-efficient-implementation-both-thread-safe-and-not-thread)
+// https://github.com/disruptor-net/Disruptor-net/blob/master/src/Disruptor/RingBuffer.cs
+// [CircularBuffer - a first-in, first-out collection of objects using a fixed buffer](https://www.cyotek.com/blog/circularbuffer-a-first-in-first-out-collection-of-objects-using-a-fixed-buffer) - NuGet package: Cyotek CircularBuffer
+// https://archive.codeplex.com/?p=circularbuffer
+// https://github.com/nieltg/Collections.Generic.CircularBuffer
+// https://github.com/embeddedartistry/embedded-resources/blob/master/examples/c/circular_buffer/circular_buffer.c
+// [Creating a Circular Buffer in C and C++](https://embeddedartistry.com/blog/2017/05/17/creating-a-circular-buffer-in-c-and-c/)

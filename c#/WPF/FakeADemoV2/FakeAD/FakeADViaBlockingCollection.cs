@@ -127,3 +127,7 @@ namespace FakeAD
 
 // References:
 // https://github.com/reyntjesr/Hdf5DotnetTools/blob/master/Hdf5DotNetTools/DataProducerConsumer.cs
+
+// TODO:
+// Use MMTimer to insert tickets into a BlockingCollection, then try to read a ticket from another thread.
+// Once a ticket is read, generate new data.

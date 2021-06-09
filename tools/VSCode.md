@@ -8,3 +8,5 @@
 Extensions:
 
 - [tabnine](https://www.tabnine.com/)
+- [Markdown All in One](https://github.com/wuye9036/CppTemplateTutorial)
+

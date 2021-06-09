@@ -1,0 +1,9 @@
+- [QuickQanava](https://github.com/cneben/QuickQanava): C++, Qt
+- [nodeeditor](https://github.com/paceholder/nodeeditor): C++, Qt
+- [NodeNetwork](https://github.com/Wouterdek/NodeNetwork): C#, WPF
+- [NodeEditorWinforms](https://github.com/komorra/NodeEditorWinforms): C#, WinForms
+- [qt5-node-editor](https://github.com/nwaniek/qt5-node-editor)
+- [NodeBoxEditor](https://github.com/rubenwardy/NodeBoxEditor)
+- [imgui-node-editor](https://github.com/thedmd/imgui-node-editor): C++, ImGui
+- [ImNodes](https://github.com/rokups/ImNodes): C++, ImGui
+

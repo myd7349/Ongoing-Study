@@ -1,11 +1,41 @@
 namespace Common
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics;
+    using System.Linq;
     using System.Runtime.InteropServices;
 
     public static class ProcessHelpers
     {
+        public static IEnumerable<Process> FindProcesses(Predicate<Process> predicate)
+        {
+            if (predicate == null)
+                throw new ArgumentNullException("predicate");
+
+            var processes = Process.GetProcesses();
+            for (int i = 0; i < processes.Length; ++i)
+            {
+                if (predicate(processes[i]))
+                    yield return processes[i];
+            }
+        }
+
+        public static Process FindProcess(Predicate<Process> predicate)
+        {
+            return FindProcesses(predicate).FirstOrDefault();
+        }
+
+        public static bool IsProcessStarted(Process process)
+        {
+            if (process == null)
+                throw new ArgumentNullException("process");
+
+            return FindProcess(
+                p => p.Id != process.Id &&
+                IO.PathUtils.IsSamePath(p.MainModule.FileName, process.MainModule.FileName)) != null;
+        }
+
         public static void BringProcessToFront(Process process)
         {
             IntPtr handle = process.MainWindowHandle;

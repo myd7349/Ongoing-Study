@@ -2,13 +2,13 @@
 {
     using System;
     using System.Linq;
-    using System.Runtime.InteropServices;
 
     using HDF.PInvoke;
 
     using Common;
 
     using hid_t = System.Int64;
+    using System.Runtime.InteropServices;
 
     internal enum Boolean : byte
     {
@@ -25,7 +25,7 @@
 
         public static bool WriteEnumAttribute<T>(hid_t hid, string key, T value) where T : struct, IConvertible
         {
-            var enumSize = GetEnumTypeSize<T>();
+            var enumSize = EnumHelper.GetUnderlyingTypeSize<T>();
 
             if (!Enum.IsDefined(typeof(T), value))
                 throw new ArgumentException("value");
@@ -52,7 +52,8 @@
                     return false;
                 }
 
-                var unmanagedBuffer = WriteEnumToUnmanagedBuffer(value);
+                var unmanagedBuffer = new UnmanagedBuffer(enumSize);
+                unmanagedBuffer.WriteEnum(value);
                 H5A.write(attribute, type, unmanagedBuffer);
 
                 H5A.close(attribute);
@@ -72,7 +73,10 @@
                     return false;
                 }
 
-                H5A.write(attribute, type, WriteEnumToUnmanagedBuffer(value));
+                var unmanagedBuffer = new UnmanagedBuffer(enumSize);
+                unmanagedBuffer.WriteEnum(value);
+
+                H5A.write(attribute, type, unmanagedBuffer);
 
                 H5T.close(type);
                 H5A.close(attribute);
@@ -108,21 +112,71 @@
             H5T.close(type);
             H5A.close(attribute);
 
-            return ReadEnumFromUnmanagedBuffer<T>(unmanagedBuffer);
+            return unmanagedBuffer.ReadEnum<T>();
         }
 
-        private static int GetEnumTypeSize<T>()
+        public static hid_t CreateEnumType<T>(string[] names, T[] values)
         {
+            if (names == null)
+                throw new ArgumentNullException("names");
+
+            if (values == null)
+                throw new ArgumentNullException("values");
+
+            if (names.Length == 0)
+                throw new ArgumentException("names");
+
+            if (values.Length == 0)
+                throw new ArgumentException("values");
+
+            if (names.Length != values.Length)
+                throw new ArgumentException("names.Length != values.Length");
+
+            if (names.Any(string.IsNullOrEmpty))
+                throw new ArgumentException("names");
+
+            if (names.Distinct().Count() != names.Length)
+                throw new ArgumentException("duplicate in names");
+
+            if (values.Distinct().Count() != values.Length)
+                throw new ArgumentException("duplicate in values");
+
             var type = typeof(T);
-            if (!type.IsEnum)
-                throw new ArgumentException("Not an enum type.");
 
-            return Marshal.SizeOf(Enum.GetUnderlyingType(type));
+            var size = 0;
+            if (type.IsEnum)
+                size = EnumHelper.GetUnderlyingTypeSize<T>();
+            else
+                size = Marshal.SizeOf(type);
+
+            var enumType = H5T.create(H5T.class_t.ENUM, new IntPtr(size));
+            if (enumType < 0)
+                throw new HDF5Exception("Failed to create enum type");
+
+            for (int i = 0; i < values.Length; ++i)
+            {
+                var value = values[i];
+
+                var unmanagedBuffer = new UnmanagedBuffer(size);
+                if (type.IsEnum)
+                    unmanagedBuffer.WriteEnum(value);
+                else
+                    unmanagedBuffer.Write(value);
+
+                // TODO: Should I call H5T.convert before H5T.enum_insert?
+                if (H5T.enum_insert(enumType, names[i], unmanagedBuffer) < 0)
+                {
+                    H5T.close(enumType);
+                    throw new HDF5Exception("Failed to insert enum: {0} = {1}", names[i], value);
+                }
+            }
+
+            return enumType;
         }
 
-        private static hid_t CreateEnumType<T>()
+        public static hid_t CreateEnumType<T>()
         {
-            var size = GetEnumTypeSize<T>();
+            var size = EnumHelper.GetUnderlyingTypeSize<T>();
             if (size != 1 && size != 2 && size != 4 && size != 8)
                 throw new ArgumentException("Unexpected enum type size.");
 
@@ -143,7 +197,10 @@
             for (int i = 0; i < values.Length; ++i)
             {
                 var value = values[i];
-                var unmanagedBuffer = WriteEnumToUnmanagedBuffer<T>(value);
+
+                var unmanagedBuffer = new UnmanagedBuffer(size);
+                unmanagedBuffer.WriteEnum(value);
+
                 // TODO: Should I call H5T.convert before H5T.enum_insert?
                 if (H5T.enum_insert(enumType, Enum.GetName(type, value), unmanagedBuffer) < 0)
                 {
@@ -154,83 +211,12 @@
 
             return enumType;
         }
-
-        private static UnmanagedBuffer WriteEnumToUnmanagedBuffer<T>(T value)
-        {
-            var size = GetEnumTypeSize<T>();
-            var unmanagedBuffer = new UnmanagedBuffer(size);
-
-            var underlyingType = Enum.GetUnderlyingType(typeof(T));
-
-            switch (Type.GetTypeCode(underlyingType))
-            {
-                case TypeCode.SByte:
-                    unmanagedBuffer.Write(Convert.ToSByte(value));
-                    break;
-                case TypeCode.Byte:
-                    unmanagedBuffer.Write(Convert.ToByte(value));
-                    break;
-                case TypeCode.Int16:
-                    unmanagedBuffer.Write(Convert.ToInt16(value));
-                    break;
-                case TypeCode.UInt16:
-                    unmanagedBuffer.Write(Convert.ToUInt16(value));
-                    break;
-                case TypeCode.Int32:
-                    unmanagedBuffer.Write(Convert.ToInt32(value));
-                    break;
-                case TypeCode.UInt32:
-                    unmanagedBuffer.Write(Convert.ToUInt32(value));
-                    break;
-                case TypeCode.Int64:
-                    unmanagedBuffer.Write(Convert.ToInt64(value));
-                    break;
-                case TypeCode.UInt64:
-                    unmanagedBuffer.Write(Convert.ToUInt64(value));
-                    break;
-                default:
-                    throw new Exception(string.Format("Unexpected enum underlying type {0}.", underlyingType));
-            }
-
-            return unmanagedBuffer;
-        }
-
-        private static T ReadEnumFromUnmanagedBuffer<T>(UnmanagedBuffer unmanagedBuffer)
-        {
-            var underlyingType = Enum.GetUnderlyingType(typeof(T));
-
-            switch (Type.GetTypeCode(underlyingType))
-            {
-                case TypeCode.SByte:
-                    return (T)(object)unmanagedBuffer.ReadSByte();
-                case TypeCode.Byte:
-                    return (T)(object)unmanagedBuffer.ReadByte();
-                case TypeCode.Int16:
-                    return (T)(object)unmanagedBuffer.ReadInt16();
-                case TypeCode.UInt16:
-                    return (T)(object)unmanagedBuffer.ReadUInt16();
-                case TypeCode.Int32:
-                    return (T)(object)unmanagedBuffer.ReadInt32();
-                case TypeCode.UInt32:
-                    return (T)(object)unmanagedBuffer.ReadUInt32();
-                case TypeCode.Int64:
-                    return (T)(object)unmanagedBuffer.ReadInt64();
-                case TypeCode.UInt64:
-                    return (T)(object)unmanagedBuffer.ReadUInt64();
-                default:
-                    throw new Exception(string.Format("Unexpected enum underlying type {0}.", underlyingType));
-            }
-        }
     }
 }
 
 
 // References:
 // [7. Enumeration Data Types](https://support.hdfgroup.org/HDF5/doc/H5.user/DatatypesEnum.html)
-// [Enum Size in Bytes](https://stackoverflow.com/questions/20944585/enum-size-in-bytes)
-// [How do I cast a generic enum to int?](https://stackoverflow.com/questions/16960555/how-do-i-cast-a-generic-enum-to-int)
-// [Cast Int to Generic Enum in C#](https://stackoverflow.com/questions/10387095/cast-int-to-generic-enum-in-c-sharp)
-// [c# P/Invoke : Pass Enum value with IntPtr to Function; AccessViolationException](https://stackoverflow.com/questions/47723953/c-sharp-p-invoke-pass-enum-value-with-intptr-to-function-accessviolationexcep)
-// [How to convert from System.Enum to base integer?](https://stackoverflow.com/questions/908543/how-to-convert-from-system-enum-to-base-integer)
 // https://github.com/HDFGroup/hdf5-examples/blob/master/1_14/C/H5T/h5ex_t_enum.c
 // https://support.hdfgroup.org/HDF5/doc/H5.user/DatatypesEnum.html
+// [C# Determine Duplicate in List](https://stackoverflow.com/questions/5080538/c-sharp-determine-duplicate-in-list)

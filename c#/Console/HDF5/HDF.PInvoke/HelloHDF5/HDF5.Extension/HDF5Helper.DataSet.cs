@@ -6,6 +6,7 @@
     using HDF.PInvoke;
 
     using hid_t = System.Int64;
+    using hsize_t = System.UInt64;
 
     public static partial class HDF5Helper
     {
@@ -119,7 +120,7 @@
             }
         }
 
-        public static void WriteDataSet(hid_t hid, string dataSetName, hid_t typeId)
+        public static void WriteDataSet(hid_t hid, string dataSetName, hsize_t[] offset, hsize_t[] count, hid_t typeId, Array data)
         {
             if (string.IsNullOrEmpty(dataSetName))
                 throw new ArgumentException("dataSetName");
@@ -133,7 +134,7 @@
 
             try
             {
-                WriteDataSet(dataSet, typeId);
+                WriteDataSet(dataSet, offset, count, typeId, data);
             }
             finally
             {
@@ -141,7 +142,7 @@
             }
         }
 
-        public static void WriteDataSet(hid_t dataSet, hid_t typeId)
+        public static void WriteDataSet(hid_t dataSet, hsize_t[] offset, hsize_t[] count, hid_t typeId, Array data)
         {
         }
 

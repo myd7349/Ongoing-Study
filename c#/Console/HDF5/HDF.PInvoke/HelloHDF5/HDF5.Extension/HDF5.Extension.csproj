@@ -48,6 +48,7 @@
     <Compile Include="HDF5Helper.Attribute.String.cs" />
     <Compile Include="HDF5Helper.DataSet.cs" />
     <Compile Include="HDF5Helper.DataSpace.cs" />
+    <Compile Include="HDF5Helper.File.cs" />
     <Compile Include="HDF5Helper.Group.cs" />
     <Compile Include="HDF5Helper.DateType.cs" />
     <Compile Include="HDF5Helper.Static.cs" />

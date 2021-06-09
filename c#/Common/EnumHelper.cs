@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace Common
 {
@@ -38,6 +39,22 @@ namespace Common
 
     public static class EnumHelper
     {
+        public static int GetUnderlyingTypeSize<T>()
+        {
+            return GetUnderlyingTypeSize(typeof(T));
+        }
+
+        public static int GetUnderlyingTypeSize(Type type)
+        {
+            if (type == null)
+                throw new ArgumentNullException("type");
+
+            if (!type.IsEnum)
+                throw new ArgumentException("Not an enum type.");
+
+            return Marshal.SizeOf(Enum.GetUnderlyingType(type));
+        }
+
         public static string GetDescription(this Enum value)
         {
             Type type = value.GetType();
@@ -74,4 +91,4 @@ namespace Common
 // References:
 // [Enum ToString with user friendly strings](https://stackoverflow.com/questions/479410/enum-tostring-with-user-friendly-strings)
 // [Can my enums have friendly names?](https://stackoverflow.com/questions/1415140/can-my-enums-have-friendly-names)
-
+// [Enum Size in Bytes](https://stackoverflow.com/questions/20944585/enum-size-in-bytes)

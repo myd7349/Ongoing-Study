@@ -11,3 +11,5 @@ or
 [NuGet behind a proxy](https://stackoverflow.com/questions/9232160/nuget-behind-a-proxy)
 
 [Accessing Nuget Official Package Source behind company proxy](https://stackoverflow.com/questions/7710533/accessing-nuget-official-package-source-behind-company-proxy)
+
+[Package authoring best practices](https://docs.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices)

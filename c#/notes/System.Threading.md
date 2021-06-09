@@ -14,3 +14,7 @@
 
 > `Thread.Yield()` will reduce the chance of a context-switch. `Thread.Sleep(0)` results in a context switch to lower priority processes. Elevating the current process priority will decrease the chance of `Thread.Yield()` itself context-switching.
 
+[Why does Interlocked.Exchange not support Boolean type?](https://stackoverflow.com/questions/6164751/why-does-interlocked-exchange-not-support-boolean-type)
+
+[C# producer/consumer](https://stackoverflow.com/questions/1656404/c-sharp-producer-consumer)
+

@@ -19,3 +19,6 @@ def stdchannel_redirected(stdchannel):
 ```
 
 With the release of Python 3.4, code above can be replaced by `contextlib.redirect_stdout`/`contextlib.redirect_stderr`.
+
+[contextlib.redirect_stdout](https://github.com/tbenthompson/cppimport/blob/a3ac34b575cf586fa762adef7dce1f6c10abcc86/cppimport/build_module.py#L82)
+

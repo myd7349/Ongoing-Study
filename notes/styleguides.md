@@ -10,14 +10,17 @@
 - C++
     - [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
     - [C++ Coding Styles](https://github.com/fffaraz/awesome-cpp#coding-style)
-
+    - [Orthodox C++](https://gist.github.com/bkaradzic/2e39896bc7d8c34e042b)
+      - https://github.com/floooh/oryol
+    
 - C#
     - [C# Style Guide](https://github.com/quozd/awesome-dotnet#style-guide)
 
 - Go
     - [Go Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments)
     - [The Uber Go Style Guide](https://github.com/uber-go/guide)
-
+    - [go-styleguide](https://github.com/bahlo/go-styleguide)
+    
 - Java
     - [Alibaba Java Coding Guidelines](https://github.com/alibaba/Alibaba-Java-Coding-Guidelines)
     - [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
@@ -38,7 +41,8 @@
     - [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)
     - [PEP 8 -- Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
     - [The Elements of Python Style](https://github.com/amontalenti/elements-of-python-style)
-
+    - [The *Black* Code Style: Future style](https://black.readthedocs.io/en/stable/the_black_code_style/future_style.html)
+    
 - Ruby
     - [ruby-style-guide](https://github.com/bbatsov/ruby-style-guide)
     - [Ruby Style Guide](https://github.com/airbnb/ruby)

@@ -67,5 +67,6 @@ namespace Common
 // C# 6.0 in a Nutshell, P298
 // > Framework 4.0 introduced one for the purpose of comparing elements in arrays or tuples
 //   which you can access via the StructuralComparisons type.
+// [StructuralComparisons for arrays](https://stackoverflow.com/questions/32095508/structuralcomparisons-for-arrays)
 // [Array.Fill Method](https://docs.microsoft.com/en-us/dotnet/api/system.array.fill?view=net-5.0)
 // [How to populate/instantiate a C# array with a single value?](https://stackoverflow.com/questions/1014005/how-to-populate-instantiate-a-c-sharp-array-with-a-single-value)

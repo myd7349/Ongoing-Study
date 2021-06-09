@@ -309,3 +309,17 @@ https://github.com/SixLabors/ImageSharp/blob/master/tests/Images/Input/Bmp/Car.b
 
 https://docs.github.com/en/github/managing-large-files/installing-git-large-file-storage
 
+https://github.com/gongminmin/Coilgun
+
+> NOTE: Please turn on git LFS when cloning this project.
+
+git ls-tree:
+
+> ```
+> # https://github.com/microsoft/vcpkg/pull/17597
+> git ls-tree -d HEAD -- ports/
+> ```
+
+git grep option -- CMakeLists.txt
+
+git grep option -- *.txt *.cmake

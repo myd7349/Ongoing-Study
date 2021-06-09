@@ -250,55 +250,6 @@
 
             return (T)boxedValue;
         }
-
-        internal static hid_t NumericTypeToHDF5Type<T>()
-        {
-            return NumericTypeToHDF5Type(typeof(T));
-        }
-
-#if false
-        internal static hid_t NumericTypeToHDF5Type(Type type)
-        {
-            if (type == null)
-                throw new ArgumentNullException("type");
-
-            switch (Type.GetTypeCode(type))
-            {
-                case TypeCode.SByte:
-                    return H5T.NATIVE_INT8;
-                case TypeCode.Byte:
-                    return H5T.NATIVE_UINT8;
-                case TypeCode.Int16:
-                    return H5T.NATIVE_INT16;
-                case TypeCode.UInt16:
-                    return H5T.NATIVE_UINT16;
-                case TypeCode.Int32:
-                    return H5T.NATIVE_INT32;
-                case TypeCode.UInt32:
-                    return H5T.NATIVE_UINT32;
-                case TypeCode.Int64:
-                    return H5T.NATIVE_INT64;
-                case TypeCode.UInt64:
-                    return H5T.NATIVE_UINT64;
-                case TypeCode.Single:
-                    return H5T.NATIVE_FLOAT;
-                case TypeCode.Double:
-                    return H5T.NATIVE_DOUBLE;
-                default:
-                    throw new NotImplementedException(string.Format("{0}", type));
-            }
-        }
-#else
-        internal static hid_t NumericTypeToHDF5Type(Type type)
-        {
-            var typeCode = (int)Type.GetTypeCode(type);
-            if (typeCode < 0 || typeCode >= NumericTypeToHDF5TypeMap.Length ||
-                NumericTypeToHDF5TypeMap[typeCode] == -1)
-                throw new NotImplementedException(string.Format("{0}", type));
-
-            return NumericTypeToHDF5TypeMap[typeCode];
-        }
-#endif
     }
 }
 
