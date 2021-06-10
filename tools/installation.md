@@ -24,6 +24,7 @@
 ### InnoSetup
 - https://github.com/ShareX/ShareX
 - https://github.com/Microsoft/vscode/tree/master/build/win32
+- https://github.com/cyanfish/naps2/blob/master/NAPS2/Setup/setup.iss
 
 ### [PortableApps.com](http://portableapps.com/apps/development/portableapps.com_installer)
 - https://github.com/greenshot/greenshot

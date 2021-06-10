@@ -51,6 +51,7 @@
     <Compile Include="HDF5Helper.File.cs" />
     <Compile Include="HDF5Helper.Group.cs" />
     <Compile Include="HDF5Helper.DateType.cs" />
+    <Compile Include="HDF5Helper.Object.cs" />
     <Compile Include="HDF5Helper.Static.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 # $ yapf -i bin2txt.py
 
+# TODO: Allow to skip several bytes in each block.
+
 import argparse
 import os.path
 import sys

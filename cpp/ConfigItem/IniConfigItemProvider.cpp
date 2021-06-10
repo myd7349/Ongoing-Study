@@ -7,6 +7,9 @@
 #include <Windows.h>
 
 
+std::wstring IniConfigItemProvider::Empty = L"<EMPTY>";
+
+
 std::wstring IniConfigItemProvider::Load(StringT section, StringT name, bool &ok) const
 {
     assert(section != nullptr);
@@ -19,7 +22,7 @@ std::wstring IniConfigItemProvider::Load(StringT section, StringT name, bool &ok
         ok = true;
         return buffer_.data();
     }
-    else
+    else if (dwRes == buffer_.size() - 1)
     {
         struct _stat fileInfo;
         if (_wstat(ini_.c_str(), &fileInfo) != 0)
@@ -42,6 +45,29 @@ std::wstring IniConfigItemProvider::Load(StringT section, StringT name, bool &ok
 
         ok = false;
         return L"";
+    }
+    else
+    {
+        assert(dwRes == 0);
+
+        if (buffer_.size() < Empty.length() + 1)
+            buffer_.resize(Empty.length() + 1);
+
+        dwRes = GetPrivateProfileStringW(section, name, Empty.c_str(),
+            buffer_.data(), static_cast<DWORD>(buffer_.size()), ini_.c_str());
+        if (dwRes == 0)
+        {
+            // That means the key exists, but its value is empty.
+            ok = true;
+            return L"";
+        }
+        else
+        {
+            // That means the key doesn't exist.
+            assert(dwRes == Empty.length());
+            ok = false;
+            return L"";
+        }
     }
 }
 

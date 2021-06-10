@@ -68,6 +68,7 @@ int wmain(int argc, wchar_t *argv[])
     IPv4AddressItem ipv4_3(ini, L"Server", L"IP-3", in_addr);
     
     ColorRefItem skyBlue(ini, L"Colors", L"Sky", RGB(166, 202, 240));
+    StringItem name(ini, L"Person", L"Name", L"Tom & Jerry");
 
     if (!PathFileExistsW(iniPath.c_str()))
     {
@@ -93,6 +94,11 @@ int wmain(int argc, wchar_t *argv[])
             << GetRValue(skyBlue.GetValue().Color) << ", "
             << GetGValue(skyBlue.GetValue().Color) << ", "
             << GetBValue(skyBlue.GetValue().Color) << ")\n";
+
+        std::wcout << "Name: " << name.GetValue() << std::endl;
+
+        name.SetValue(L"");
+        std::wcout << "Name: " << name.GetValue() << std::endl;
     }
 
     portNumber.SetValue(portNumber.GetValue() + 1);

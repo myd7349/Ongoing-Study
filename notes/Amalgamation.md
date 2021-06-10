@@ -8,6 +8,7 @@
 >* [JuceAmalgam](https://github.com/vinniefalco/DSPFilters/tree/master/shared/JuceAmalgam)
 >
 >## Tools:
+> * [EnTT/scripts/amalgamate.py](https://github.com/skypjack/entt/blob/master/scripts/amalgamate.py)
 >* [Amalgamate](https://github.com/vinniefalco/Amalgamate)
 >* [amalgamate.py](https://github.com/edlund/amalgamate) - [nlohmann/json](https://github.com/nlohmann/json/tree/develop/third_party/amalgamate) uses this tool to create a single header only library.
 >* [amalgamate](https://gitlab.com/DerManu/QCustomPlot/blob/master/amalgamate)

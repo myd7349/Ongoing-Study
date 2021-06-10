@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 
 project(ConfigItemDemo LANGUAGES C CXX)
 
-option(ENABLE_SIMPLEINI "Enable SimpleIni" ON)
+option(ENABLE_SIMPLEINI "Enable SimpleIni" OFF)
 
 add_definitions(-D_UNICODE)
 add_definitions(-DUNICODE)

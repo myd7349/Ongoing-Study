@@ -88,7 +88,7 @@ def main():
         description='Extract specified columns of data from a text file.',
     )
     parser.add_argument('-i', '--input-file', help='Input file path')
-    parser.add_argument('--encoding', help='Input/Output file encoding')
+    parser.add_argument('--encoding', help='Input file encoding')
     parser.add_argument('--header-lines',
                         type=int,
                         default=0,
@@ -110,6 +110,7 @@ def main():
     parser.add_argument('--output-delimiter',
                         default=' ',
                         help='Column delimiter of output file')
+    parser.add_argument('--output-encoding', help='Output file encoding')
 
     args = parser.parse_args()
 
@@ -174,7 +175,11 @@ def main():
                     args.output_delimiter = ' '
 
     if args.output_file:
-        output_fp = open(args.output_file, 'w', encoding=args.encoding)
+        if not args.output_encoding:
+            args.output_encoding = args.encoding
+
+    if args.output_file:
+        output_fp = open(args.output_file, 'w', encoding=args.output_encoding)
     else:
         output_fp = sys.stdout
 

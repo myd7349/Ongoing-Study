@@ -2,3 +2,5 @@
 
 [String representation of an Enum](https://stackoverflow.com/questions/424366/string-representation-of-an-enum)
 
+[C# non-boxing conversion of generic enum to int?](https://stackoverflow.com/questions/1189144/c-sharp-non-boxing-conversion-of-generic-enum-to-int)
+

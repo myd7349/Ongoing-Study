@@ -87,6 +87,17 @@ void Main()
     GetEnumSize();
     DumpEnumV1(typeof(Boolean));
     DumpEnumV2(typeof(Boolean));
+    Console.WriteLine($"{(Boolean)1}");
+    try
+    {
+        Console.WriteLine($"{(Boolean)(object)1}"); // InvalidCastException
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"{ex}");
+    }
+    Console.WriteLine($"{(Boolean)(object)(byte)1}");
+    Console.WriteLine($"{(Boolean)(int)(object)1}");
 }
 
 // References:

@@ -20,3 +20,6 @@ pdftk4all
 
 [pdfcrack](https://github.com/robins/pdfcrack)
 
+Other tools:
+
+- [naps2](https://github.com/cyanfish/naps2)

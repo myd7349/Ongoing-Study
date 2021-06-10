@@ -177,3 +177,21 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
 
 30. https://github.com/hosseinmoein/DataFrame/blob/master/cmake/AddUninstallTarget.cmake
 
+31. [CMake compare to empty string with STREQUAL failed](https://stackoverflow.com/questions/19982340/cmake-compare-to-empty-string-with-strequal-failed)
+
+32. [Define DEBUG and RELEASE symbols in Visual Studio Code](https://stackoverflow.com/questions/58783805/define-debug-and-release-symbols-in-visual-studio-code)
+
+33. VS Code and CMake
+
+    - [Configure Visual Studio Code for CMake with some options](https://stackoverflow.com/questions/42423536/configure-visual-studio-code-for-cmake-with-some-options)
+    - [Getting Started](https://vector-of-bool.github.io/docs/vscode-cmake-tools/getting_started.html#getting-started)
+    - [Configuring CMake Tools](https://vector-of-bool.github.io/docs/vscode-cmake-tools/settings.html#conf-cmake-configuresettings)
+    - [CMake Configuring](https://vector-of-bool.github.io/docs/vscode-cmake-tools/configuring.html#configuring)
+    
+34. CMake project templates
+
+    - https://github.com/friendlyanon/cmake-init
+    - https://github.com/friendlyanon/cxx-static-shared-example
+    - https://github.com/friendlyanon/cmake-init-executable
+    - https://github.com/friendlyanon/cmake-init-header-only
+

@@ -19,4 +19,6 @@ public:
 private:
     std::wstring ini_;
     mutable std::vector<wchar_t> buffer_;
+
+    static std::wstring Empty;
 };

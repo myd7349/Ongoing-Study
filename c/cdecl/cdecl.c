@@ -340,3 +340,4 @@ int main(int argc, char *argv[])
 // https://ioccc.org/1988/reddy.c
 // https://stackoverflow.com/questions/10091825/constant-pointer-vs-pointer-on-a-constant-value
 // https://www.zhihu.com/question/439224121
+// https://github.com/ridiculousfish/cdecl-blocks

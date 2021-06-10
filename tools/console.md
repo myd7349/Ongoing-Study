@@ -1,0 +1,4 @@
+- Windows Terminal
+- Fluent Terminal
+- ConEmu
+- Cmder

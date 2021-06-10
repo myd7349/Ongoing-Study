@@ -164,3 +164,4 @@ inline ResultList split_by_tokens(const CharT *s, const CharT *tokens, bool keep
 // References:
 // [Split a string in C++?](http://stackoverflow.com/questions/236129/split-a-string-in-c)
 // Qt:QString::split
+// https://www.zhihu.com/question/36642771

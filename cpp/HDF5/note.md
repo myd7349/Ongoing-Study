@@ -8,9 +8,15 @@
 
    [H5Ocopy](https://github.com/HDFGroup/hdf5/blob/develop/tools/src/h5copy/h5copy.c) - According to https://github.com/HDFGroup/hdf5/blob/develop/c%2B%2B/src/C2Cppfunction_map.htm, this function doesn't have a C++ wrapper yet.
 
+   [h5copy](https://github.com/qsnake/hdf5/blob/master/tools/h5copy/h5copy.c)
+
+   [[H5copy; how to copy root ‘/’ attributes to target file?](https://forum.hdfgroup.org/t/h5copy-how-to-copy-root-attributes-to-target-file/7396)](https://forum.hdfgroup.org/t/h5copy-how-to-copy-root-attributes-to-target-file/7396)
+
 4. What if we encountered a PC power off when I was writing data into an opened dataset?
 
    [Corrupt files when creating HDF5 files without closing them (h5py)](https://stackoverflow.com/questions/31287744/corrupt-files-when-creating-hdf5-files-without-closing-them-h5py)
+
+   > It indeed helps to `flush()` after writing. Even if you write data afterwards that you didn't flush,  everything up to the point of the most recent flush is accessible. 
 
    [Flushing files sometimes corrupts them](https://forum.hdfgroup.org/t/flushing-files-sometimes-corrupts-them/4958)
 
@@ -129,9 +135,45 @@
    > }
    > ```
 
-   [HDF5 Lite APIs](https://portal.hdfgroup.org/display/HDF5/Lite) include a function named [`H5LTfind_dataset`](https://portal.hdfgroup.org/display/HDF5/H5LT_FIND_DATASET).
+   [HDF5 Lite APIs](https://portal.hdfgroup.org/display/HDF5/Lite) include a function named [`H5LTfind_dataset`](https://portal.hdfgroup.org/display/HDF5/H5LT_FIND_DATASET)
 
-7. H5::DataSet::extend will invalidate a data space
+   [h5ex_g_iterate.c](https://github.com/HDFGroup/hdf5-examples/blob/master/1_6/C/H5G/h5ex_g_iterate.c)
+
+   > ```c
+   > herr_t op_func (hid_t loc_id, const char *name, void *operator_data)
+   > {
+   >     herr_t          status;
+   >     H5G_stat_t      statbuf;
+   > 
+   >     /*
+   >      * Get type of the object and display its name and type.
+   >      * The name of the object is passed to this function by
+   >      * the Library.
+   >      */
+   >     status = H5Gget_objinfo (loc_id, name, 0, &statbuf);
+   >     switch (statbuf.type) {
+   >         case H5G_GROUP:
+   >             printf ("  Group: %s\n", name);
+   >             break;
+   >         case H5G_DATASET:
+   >             printf ("  Dataset: %s\n", name);
+   >             break;
+   >         case H5G_TYPE:
+   >             printf ("  Datatype: %s\n", name);
+   >             break;
+   >         default:
+   >             printf ( "  Unknown: %s\n", name);
+   >     }
+   > 
+   >     return 0;
+   > }
+   > ```
+
+7. Check if an attribute exists or not
+
+   Use `H5Aexists` instead of `H5Lexists`.
+
+8. H5::DataSet::extend will invalidate a data space
 
    - [HDF5: How to append data to a dataset (extensible array)](https://stackoverflow.com/questions/23934724/hdf5-how-to-append-data-to-a-dataset-extensible-array)
 
@@ -226,10 +268,6 @@
 
 15. [Unifying Biological Image Formats with HDF5](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3016045/)
 
-16. [Corrupt files when creating HDF5 files without closing them (h5py)](https://stackoverflow.com/questions/31287744/corrupt-files-when-creating-hdf5-files-without-closing-them-h5py)
-
-    > It indeed helps to `flush()` after writing. Even if you write data afterwards that you didn't flush,  everything up to the point of the most recent flush is accessible. 
-    
 17. `selectHyperslab` C and C++ API
 
     C++:
@@ -252,5 +290,10 @@
         const hsize_t _block[]);
     ```
 
-    
+17. Object iteration
+
+    - [Cookbook : Iteration](https://github.com/HDFGroup/HDF.PInvoke/wiki/Cookbook-:-Iteration)
+    - https://github.com/HDFGroup/hdf5-examples/blob/master/1_6/C/H5G/h5ex_g_iterate.c
+    - [How to Iterate over Group Members Using C](https://www.asc.ohio-state.edu/wilkins.5/computing/HDF/hdf5tutorial/iterate.html)
+    - [HDF5 Cpp - retrieving the names of all groups in a file](https://stackoverflow.com/questions/23778630/hdf5-cpp-retrieving-the-names-of-all-groups-in-a-file)
 

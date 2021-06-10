@@ -222,3 +222,13 @@ https://github.com/microsoft/vcpkg/blob/f1bef4aa7ca7e2a6ea4f5dfe4850d95fce60b431
 https://github.com/libconfuse/libconfuse/blob/master/src/fmemopen.c
 
 [Create temporary file in C, MS Windows system](https://stackoverflow.com/questions/9717271/create-temporary-file-in-c-ms-windows-system)
+
+19.
+
+[fopen](https://en.cppreference.com/w/cpp/io/c/fopen)
+
+> File access mode flag `"b"` can optionally be specified to open a file [in binary mode](https://en.cppreference.com/w/cpp/io/c/FILE#Binary_and_text_modes). This flag has no effect on POSIX systems, but on Windows, for example, it disables special handling of '\n' and '\x1A'. 
+
+[What does the \x1a characters mean](https://stackoverflow.com/questions/16255585/what-does-the-x1a-characters-mean)
+
+> `\x1a` is a [SUB](http://en.wikipedia.org/wiki/Substitute_character) control character, used to mark end of a file (EOF).

@@ -1,0 +1,7 @@
+{
+  "name": "h5dset-extent-test",
+  "version": "0.0.1",
+  "dependencies": [
+    "hdf5"
+  ]
+}

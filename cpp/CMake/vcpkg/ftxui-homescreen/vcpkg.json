@@ -1,0 +1,7 @@
+{
+  "name": "ftxui-homescreen",
+  "version-string": "0.0.1",
+  "dependencies": [
+    "ftxui"
+  ]
+}

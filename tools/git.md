@@ -323,3 +323,9 @@ git ls-tree:
 git grep option -- CMakeLists.txt
 
 git grep option -- *.txt *.cmake
+
+[git rev-list --count HEAD](https://github.com/ArthurSonzogni/FTXUI/blob/2406e20f3640c6bf8fac56860105744b6bafd2f9/CMakeLists.txt#L7)
+
+https://github.com/arxanas/git-branchless
+
+https://github.com/conventional-changelog/commitlint

@@ -26,3 +26,12 @@ Here’s how we suggest you go about proposing a change to this project:
 [renovate](https://github.com/renovatebot/renovate)
 
 - https://github.com/whtsky/kindle-sdr-cleaner/blob/master/renovate.json
+
+[GitHub520](https://github.com/521xueweihan/GitHub520)
+
+Awesome README.md:
+
+- https://github.com/yihong0618/yihong0618
+  - https://twitter.com/yihong06181/status/1405011143966351364
+- https://github.com/wuhan005/wuhan005
+- https://github.com/jasonlong

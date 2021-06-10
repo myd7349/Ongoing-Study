@@ -3,6 +3,7 @@
 Libraries
 
 - [HDF.PInvoke](https://github.com/HDFGroup/HDF.PInvoke) - Raw HDF5 Power for .NET
+  - [Cookbook](https://github.com/HDFGroup/HDF.PInvoke/wiki/Cookbook)
 - [HDF.PInvoke.1.10](https://github.com/HDFGroup/HDF.PInvoke.1.10) - HDF.PInvoke for .NET Standard
 - [HDF5-CSharp](https://github.com/LiorBanai/HDF5-CSharp)
   - This is a fork of [Hdf5DotnetTools](https://github.com/reyntjesr/Hdf5DotnetTools) for .NET Core.
