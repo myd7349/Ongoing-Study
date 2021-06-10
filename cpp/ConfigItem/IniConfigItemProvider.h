@@ -13,6 +13,11 @@ public:
     {
     }
 
+    virtual std::basic_string<CharT> GetConfigFilePath()
+    {
+        return ini_;
+    }
+
     virtual std::wstring Load(StringT section, StringT name, bool &ok) const;
     virtual void Store(StringT section, StringT name, StringT value);
 

@@ -13,3 +13,16 @@ or
 [Accessing Nuget Official Package Source behind company proxy](https://stackoverflow.com/questions/7710533/accessing-nuget-official-package-source-behind-company-proxy)
 
 [Package authoring best practices](https://docs.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices)
+
+[How do I get NuGet to install/update all the packages in the packages.config?](https://stackoverflow.com/questions/6876732/how-do-i-get-nuget-to-install-update-all-the-packages-in-the-packages-config)
+
+> ```
+> nuget restore YourSolution.sln
+> ```
+
+or
+
+> ```
+> nuget install packages.config
+> ```
+

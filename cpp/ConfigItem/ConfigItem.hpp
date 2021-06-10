@@ -19,7 +19,7 @@ struct ConfigItem
         , value_(defaultValue)
         , default_(defaultValue)
         , autoSync_(autoSync)
-        , dirty_(false)
+        , dirty_(true)//, dirty_(!PathFileExists(provider.GetConfigFilePath().c_str()))
         , converter_(converter)
     {
         assert(section != nullptr);
@@ -43,7 +43,7 @@ struct ConfigItem
         , section_(section)
         , name_(name)
         , autoSync_(autoSync)
-        , dirty_(false)
+        , dirty_(true)//, dirty_(!PathFileExists(provider.GetConfigFilePath().c_str()))
         , converter_(converter)
     {
         assert(section != nullptr);
@@ -90,13 +90,16 @@ struct ConfigItem
         return GetValue();
     }
 
-    T SetValue(T value)
+    T SetValue(T value/*, bool store = true*/)
     {
         if (value_ != value)
         {
             value_ = value;
             dirty_ = true;
         }
+
+        //if (store)
+        //    Store();
 
         return value_;
     }

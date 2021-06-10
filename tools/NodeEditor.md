@@ -7,4 +7,5 @@
 - [imgui-node-editor](https://github.com/thedmd/imgui-node-editor): C++, ImGui
 - [ImNodes](https://github.com/rokups/ImNodes): C++, ImGui
 - [light-flow-editor](https://github.com/ArthurSonzogni/light-flow-editor)
+- [smkflow](https://github.com/ArthurSonzogni/smkflow)
 

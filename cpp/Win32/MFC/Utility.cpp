@@ -15,6 +15,7 @@
 #pragma comment(lib, "Version.lib")
 
 
+// https://github.com/microsoft/wil/blob/2e225973d6c2ecf17fb4d376ddbeedb6db7dd82f/include/wil/win32_helpers.h#L319
 CString GetModuleFileName(HMODULE hModule)
 {
     CString strDir;

@@ -11,6 +11,10 @@
 #include <cassert>
 
 
+// TODO:
+// Add Flush method for SimpleIniConfigItemProvider:
+// void Flush() { simpleIni_.SaveFile(ini_.c_str()); }
+
 SimpleIniConfigItemProvider::SimpleIniConfigItemProvider(StringT ini)
     : ini_(ini), store_(false)
 {
@@ -24,26 +28,6 @@ SimpleIniConfigItemProvider::~SimpleIniConfigItemProvider()
         simpleIni_.SaveFile(ini_.c_str());
 }
 
-
-// Difference between SimpleIniConfigItemProvider::Load and IniConfigItemProvider::Load:
-// If `name` is not exist under `section`, then both of them returns false.
-// If 'name' is exist, but its value is empty, then:
-//     SimpleIniConfigItemProvider::Load returns true;
-//     IniConfigItemProvider::Load returns false;
-//
-// Suppose you have an INI file `Config.ini`:
-//     IniConfigItemProvider ini(_T("Config.ini"));
-//     StringItem item(ini, _T("Default"), _T("Name"), _T("Non-empty default value"));
-//     SimpleIniConfigItemProvider ini2(_T("Config.ini"));
-//     StringItem item2(ini2, _T("Default"), _T("Name"), _T("Non-empty default value"));
-//
-// If `Name` is not exist under `Default`, then:
-//     item.GetValue() == _T("Non-empty default value");
-//     item2.GetValue() == _T("Non-empty default value");
-//
-// If `Name` is exist under `Default`, but with an empty value, then:
-//     item.GetValue() == _T("Non-empty default value");
-//     item2.GetValue() == _T("");
 
 std::wstring SimpleIniConfigItemProvider::Load(StringT section, StringT name, bool &ok) const
 {

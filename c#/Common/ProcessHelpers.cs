@@ -26,14 +26,33 @@ namespace Common
             return FindProcesses(predicate).FirstOrDefault();
         }
 
+        public static Process GetSameProcess(Process process = null)
+        {
+            if (process == null)
+                process = Process.GetCurrentProcess();
+
+            return FindProcess(
+                p =>
+                {
+                    try
+                    {
+                        return p.Id != process.Id &&
+                            IO.PathUtils.IsSamePath(p.MainModule.FileName, process.MainModule.FileName);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine("{0}", ex);
+                        return false;
+                    }
+                });
+        }
+
         public static bool IsProcessStarted(Process process)
         {
             if (process == null)
                 throw new ArgumentNullException("process");
 
-            return FindProcess(
-                p => p.Id != process.Id &&
-                IO.PathUtils.IsSamePath(p.MainModule.FileName, process.MainModule.FileName)) != null;
+            return GetSameProcess(process) != null;
         }
 
         public static void BringProcessToFront(Process process)
