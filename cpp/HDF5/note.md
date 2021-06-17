@@ -26,7 +26,9 @@
    - [h5cpp](https://github.com/steven-varga/h5cpp) - [talk](http://lightning-talk.h5cpp.org/#/)
    - [h5cpp](https://github.com/ess-dmsc/h5cpp)
    - [HDFql](https://www.hdfql.com/)
-
+   - [openPMD-standard](https://github.com/openPMD/openPMD-standard)
+   - [openPMD-api](https://github.com/openPMD/openPMD-api)
+   
 6. Check if a dataset/group exists.
 
    H5Location::nameExists + IdComponent::getHDFObjType

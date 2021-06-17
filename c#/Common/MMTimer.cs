@@ -244,3 +244,4 @@
 // [Multimedia Timer limitations or why it stops firing randomly](https://stackoverflow.com/questions/33091639/multimedia-timer-limitations-or-why-it-stops-firing-randomly)
 // [How can I use CreateTimerQueueTimer to create a high resolution timer in C#?](https://stackoverflow.com/questions/1015769/how-can-i-use-createtimerqueuetimer-to-create-a-high-resolution-timer-in-c)
 // [High precision timers in C#](https://social.msdn.microsoft.com/Forums/en-US/822aed2d-dca0-4a8e-8130-20fab69557d2/high-precision-timers-in-c?forum=csharpgeneral)
+// https://github.com/OneDAS-Group/OneDAS-Core/blob/master/src/OneDas.Core/Engine/RtTimer.cs

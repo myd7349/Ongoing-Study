@@ -14,8 +14,12 @@ $ git config user.name
 Mona Lisa
 ```
 
+[Git 在不同的项目使用不同的author](https://www.kawabangga.com/posts/2889)
+
+[Is it possible to have different Git configuration for different projects?](https://stackoverflow.com/questions/8801729/is-it-possible-to-have-different-git-configuration-for-different-projects)
 
 How to ignore files from commit?
+
 - [Untrack files from git temporarily](https://stackoverflow.com/questions/6964297/untrack-files-from-git-temporarily/6964322)
 - [Can I 'git commit' a file and ignore its content changes?](https://stackoverflow.com/questions/3319479/can-i-git-commit-a-file-and-ignore-its-content-changes)
 - [GIT — Exclude / Ignore Files from commit](https://stackoverflow.com/questions/7070659/git-exclude-ignore-files-from-commit)
@@ -329,3 +333,5 @@ git grep option -- *.txt *.cmake
 https://github.com/arxanas/git-branchless
 
 https://github.com/conventional-changelog/commitlint
+
+https://github.com/pre-commit/pre-commit

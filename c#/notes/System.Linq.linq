@@ -100,6 +100,27 @@ void CastStringArrayToIntArray()
     Console.WriteLine();
 }
 
+class Packet
+{
+    public byte[] Load;
+}
+
+void SelectManyTest()
+{
+    var packet1 = new Packet();
+    packet1.Load = new byte[] { 1, 2, 3, 4, 5 };
+
+    var packet2 = new Packet();
+    packet2.Load = new byte[] { 6, 7, 8, 9, 10 };
+
+    packet1.Load.Concat(packet2.Load).Dump();
+
+    var packets = new Packet[]{ packet1, packet2 };
+
+    foreach (var x in packets.SelectMany(p => p.Load))
+        x.Dump();
+}
+
 void Main()
 {
     var ch1 = new short[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -150,6 +171,8 @@ void Main()
     CastTest();
 
     CastStringArrayToIntArray();
+
+    SelectManyTest();
 }
 
 
@@ -160,3 +183,4 @@ void Main()
 // [How to convert a String[] to int[] in C# and .NET 2.0?](https://stackoverflow.com/questions/4387901/how-to-convert-a-string-to-int-in-c-sharp-and-net-2-0)
 // [Convert String To Int in LINQ](https://stackoverflow.com/questions/16820855/convert-string-to-int-in-linq)
 // [LINQ converting string to int](https://stackoverflow.com/questions/41191729/linq-converting-string-to-int)
+// [Create a list from two object lists with linq](https://stackoverflow.com/questions/720609/create-a-list-from-two-object-lists-with-linq/10119183)

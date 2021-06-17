@@ -179,3 +179,29 @@ public static int Pow(this int bas, int exp)
 > var test = values.OfType<int>().Select(x => x);
 > ```
 
+[Create a list from two object lists with linq](https://stackoverflow.com/questions/720609/create-a-list-from-two-object-lists-with-linq)
+
+[Linq list of lists to single list](https://stackoverflow.com/questions/1145558/linq-list-of-lists-to-single-list)
+
+```csharp
+class Packet
+{
+    public byte[] Load;
+}
+
+void SelectManyTest()
+{
+    var packet1 = new Packet();
+    packet1.Load = new byte[] { 1, 2, 3, 4, 5 };
+
+    var packet2 = new Packet();
+    packet2.Load = new byte[] { 6, 7, 8, 9, 10 };
+
+    Console.WriteLine($"{packet1.Load.Concat(packet2.Load)}");
+
+    var packets = new Packet[]{ packet1, packet2 };
+    foreach (var x in packets.SelectMany(p => p.Load))
+        Console.WriteLine("{0}", x);
+}
+```
+

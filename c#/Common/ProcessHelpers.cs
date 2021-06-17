@@ -47,11 +47,8 @@ namespace Common
                 });
         }
 
-        public static bool IsProcessStarted(Process process)
+        public static bool IsProcessStarted(Process process = null)
         {
-            if (process == null)
-                throw new ArgumentNullException("process");
-
             return GetSameProcess(process) != null;
         }
 

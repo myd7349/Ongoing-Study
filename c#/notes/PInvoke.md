@@ -108,3 +108,27 @@ https://github.com/HDFGroup/HDF.PInvoke/blob/d281aa75f1562e677d1307cc1a234f9079c
 
 [Return contents of a std::wstring from C++ into C#](https://stackoverflow.com/questions/7051097/return-contents-of-a-stdwstring-from-c-into-c-sharp)
 
+[board_controller_library.cs](https://github.com/brainflow-dev/brainflow/blob/bb6883783badcc5303570b0d6783687a30d43f12/csharp-package/brainflow/brainflow/board_controller_library.cs#L395-L410)
+
+> ```csharp
+> public static int start_stream (int buffer_size, string streamer_params, int board_id, string input_json)
+> {
+>     switch (PlatformHelper.get_library_environment ())
+>     {
+>         case LibraryEnvironment.x64:
+>             return BoardControllerLibrary64.start_stream (buffer_size, streamer_params, board_id, input_json);
+>         case LibraryEnvironment.x86:
+>             return BoardControllerLibrary32.start_stream (buffer_size, streamer_params, board_id, input_json);
+>         case LibraryEnvironment.Linux:
+>             return BoardControllerLibraryLinux.start_stream (buffer_size, streamer_params, board_id, input_json);
+>         case LibraryEnvironment.MacOS:
+>             return BoardControllerLibraryMac.start_stream (buffer_size, streamer_params, board_id, input_json);
+>     }
+> 
+>     return (int)CustomExitCodes.GENERAL_ERROR;
+> }
+> ```
+
+https://github.com/CodefoundryDE/LegacyWrapper
+
+[COM or C++/CLI layer for long-term maintenance?](https://www.reddit.com/r/cpp/comments/nonhuk/com_or_ccli_layer_for_longterm_maintenance/)

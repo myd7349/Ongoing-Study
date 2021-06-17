@@ -52,3 +52,4 @@ int main(int argc, char *argv[])
 // https://stackoverflow.com/questions/7430248/creating-a-new-directory-in-c
 // [logging with glog is not working properly](https://stackoverflow.com/questions/35572073/logging-with-glog-is-not-working-properly)
 // >glog by default uses one log file for each severity to prevent two streams opening the same file.
+// https://github.com/openppl-public/ppl.common/blob/master/src/ppl/common/log.h

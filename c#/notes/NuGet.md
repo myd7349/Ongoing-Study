@@ -9,4 +9,9 @@
 2. [Automatic NuGet package generation](https://github.com/HDFGroup/HDF.PInvoke/pull/106)
 
    [CircularBuffer-CSharp](https://github.com/joaoportela/CircularBuffer-CSharp/tree/master/.github/workflows)
+   
+3. repositories.config
+
+   - [NuGet - repositories.config](https://stackoverflow.com/questions/7286261/nuget-repositories-config)
+   - [What is the Nuget repositories.config file for?](https://stackoverflow.com/questions/11207635/what-is-the-nuget-repositories-config-file-for)
 

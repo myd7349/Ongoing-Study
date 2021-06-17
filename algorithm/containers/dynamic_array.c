@@ -886,3 +886,4 @@ void dyarr_apply(dyarr_t arr, void(*apply_fn)(size_t, void *))
 // https://stackoverflow.com/questions/6380981/c-c-c4047-differs-in-levels-of-indirection-from-int
 // https://github.com/caryll/otfcc/blob/master/lib/support/vector-impl.h
 // https://github.com/LLNL/zfp
+// https://github.com/tylov/STC/blob/master/include/stc/carray.h

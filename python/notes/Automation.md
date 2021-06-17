@@ -7,4 +7,5 @@ Win32 automation frameworks:
 
 - [pywinauto](https://github.com/pywinauto/pywinauto)
 - [pyautogui](https://github.com/asweigart/pyautogui)
+- [Python-UIAutomation-for-Windows](https://github.com/yinkaisheng/Python-UIAutomation-for-Windows)
 

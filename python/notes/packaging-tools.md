@@ -53,3 +53,5 @@ https://github.com/PedramNavid/GooeyPi
 - nuitka
 
 [briefcase](https://github.com/beeware/briefcase)
+
+[delocate](https://github.com/matthew-brett/delocate) - Find and copy needed dynamic libraries into python wheels.
