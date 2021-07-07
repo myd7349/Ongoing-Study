@@ -4,6 +4,10 @@ Libraries:
 - [PyTables](https://github.com/PyTables/PyTables)
 - [HDFql](https://www.hdfql.com/)
 
+Filters:
+
+- [bitshuffle](https://github.com/kiyo-masui/bitshuffle/)
+
 Data Viewers:
 
 - [HDFView](https://www.hdfgroup.org/downloads/hdfview/)

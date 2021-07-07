@@ -55,3 +55,8 @@ https://github.com/PedramNavid/GooeyPi
 [briefcase](https://github.com/beeware/briefcase)
 
 [delocate](https://github.com/matthew-brett/delocate) - Find and copy needed dynamic libraries into python wheels.
+
+[The Hitchhiker’s Guide to Packaging](https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/)
+
+[The State of Python Packaging in 2021](https://venthur.de/2021-06-26-python-packaging.html)
+

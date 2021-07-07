@@ -48,3 +48,12 @@ int data;
 while(inStream >> data) {
 }
 ```
+
+[c++ std::ofstream flush() but not close()](https://stackoverflow.com/questions/2341177/c-stdofstream-flush-but-not-close)
+
+> As an alternative approach, you can disable buffering altogether with
+>
+> ```cpp
+> outFile.rdbuf()->pubsetbuf(0, 0);
+> ```
+

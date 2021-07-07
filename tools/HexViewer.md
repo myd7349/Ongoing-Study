@@ -10,6 +10,8 @@ https://codereview.stackexchange.com/questions/147225/python-hex-viewer
 
 linux xxd command
 
+- [How can a file contain null bytes?](https://stackoverflow.com/questions/34621006/how-can-a-file-contain-null-bytes)
+
 https://github.com/cr-marcstevens/hashclash
 
 https://github.com/Simsys/qhexedit2

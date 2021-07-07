@@ -335,3 +335,11 @@ https://github.com/arxanas/git-branchless
 https://github.com/conventional-changelog/commitlint
 
 https://github.com/pre-commit/pre-commit
+
+[Is it possible to cherry-pick a commit from another git repository?](https://stackoverflow.com/questions/5120038/is-it-possible-to-cherry-pick-a-commit-from-another-git-repository)
+
+```
+# https://github.com/SixLabors/ImageSharp
+git config --system core.longpaths true
+```
+

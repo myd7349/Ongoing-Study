@@ -386,3 +386,9 @@ void *easy_base64_decode(const char *base64, void *data, size_t *out_len)
 // https://github.com/WojciechMula/toys/tree/master/base64
 // https://github.com/tplgy/cppcodec/blob/master/cppcodec/base64_url.hpp
 // https://github.com/powturbo/Turbo-Base64
+// A comment about base64 from Frank:
+// > Encode to hex. Seriously. It’s url-safe and sql-safe.
+//   It compresses better than base64, it faster and trivial
+//   to safely encode/decode, no padding mess, no incompatibilities
+//   between decoders (due to how they handle non-zero padding bits).
+// https://twitter.com/jedisct1/status/1413525125459333126

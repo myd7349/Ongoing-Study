@@ -36,5 +36,8 @@ Awesome README.md:
 - https://github.com/wuhan005/wuhan005
 - https://github.com/jasonlong
 - https://github.com/hackfengJam
+- https://github.com/frostming
+- https://github.com/jaywcjlove
+- https://github.com/JustNikhill
 
 https://github.com/Tyrrrz/GitHubActionsTestLogger

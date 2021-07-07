@@ -53,4 +53,6 @@
    > }
    > ```
 
-   
+2. [Do you end your exception messages with a period?](https://stackoverflow.com/questions/1136829/do-you-end-your-exception-messages-with-a-period)
+
+   > Use grammatically correct error messages, **including ending  punctuation**. Each sentence in a description string of an exception  should end in a period. For example, "The log table has overflowed.”  would be an appropriate description string.

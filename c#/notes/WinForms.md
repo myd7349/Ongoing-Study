@@ -18,3 +18,7 @@ Awesome WinForms projects:
 
 - https://github.com/d2phap/ImageGlass
 
+[How to add print dialog to the printpreviewdialog?](https://stackoverflow.com/questions/40236241/how-to-add-print-dialog-to-the-printpreviewdialog)
+
+[Show Print Dialog before printing](https://stackoverflow.com/questions/15985909/show-print-dialog-before-printing)
+

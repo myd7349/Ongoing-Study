@@ -1,8 +1,11 @@
-https://github.com/dotnet/Nerdbank.GitVersioning
+- [Nerdbank.GitVersioning](https://github.com/dotnet/Nerdbank.GitVersioning)
 
-https://github.com/GitTools/GitVersion
+- [GitVersion](https://github.com/GitTools/GitVersion)
 
-https://github.com/schoetbi/XPTable/blob/master/createGitStatus.bat
+- [MinVer](https://github.com/adamralph/minver)
+  - MinVer only works in SDK-style projects.
 
-https://github.com/myd7349/Ongoing-Study/blob/master/c%23/WinForm/BaiduBOSDemo/createGitStatus.bat
+- [createGitStatus.bat](https://github.com/schoetbi/XPTable/blob/master/createGitStatus.bat)
+
+- [createGitStatus.bat with build date & time](https://github.com/myd7349/Ongoing-Study/blob/master/c%23/WinForm/BaiduBOSDemo/createGitStatus.bat)
 

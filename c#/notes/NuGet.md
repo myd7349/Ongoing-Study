@@ -14,4 +14,8 @@
 
    - [NuGet - repositories.config](https://stackoverflow.com/questions/7286261/nuget-repositories-config)
    - [What is the Nuget repositories.config file for?](https://stackoverflow.com/questions/11207635/what-is-the-nuget-repositories-config-file-for)
+   
+4. [Multi-targeting for NuGet Packages in your project file](https://docs.microsoft.com/en-us/nuget/create-packages/supporting-multiple-target-frameworks)
+
+5. [.NET project SDKs](https://docs.microsoft.com/en-us/dotnet/core/project-sdk/overview)
 

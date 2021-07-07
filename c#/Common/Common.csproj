@@ -48,6 +48,7 @@
     <Compile Include="DateTimeHelper.cs" />
     <Compile Include="DoubleConverter.cs" />
     <Compile Include="MarshalHelper.cs" />
+    <Compile Include="MetafileUtility.cs" />
     <Compile Include="MMTimer.cs" />
     <Compile Include="ArrayHelper.cs" />
     <Compile Include="BinaryReaderEx.cs" />
