@@ -25,3 +25,5 @@ https://github.com/zeromq/zproject/issues/1070
 [clang-format-hooks](https://github.com/barisione/clang-format-hooks)
 
 https://github.com/SemaiCZE/inicpp/blob/381509d335392e1c1e121375a86f622f6cc310f4/CMakeLists.txt#L97-L110
+
+https://github.com/microsoft/calculator/tree/master/Tools/Scripts/clang-format

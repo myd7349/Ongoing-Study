@@ -7,3 +7,5 @@
 https://github.com/rickyah/ini-parser
 
 https://github.com/MarioZ/MadMilkman.Ini
+
+https://github.com/dotnetconfig/dotnet-config

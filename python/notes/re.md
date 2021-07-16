@@ -13,3 +13,25 @@ SemVer:
 [Regexp for a double](https://stackoverflow.com/questions/10516967/regexp-for-a-double)
 
 import tokenize; tokenize.Pointfloat; tokenize.Expfloat
+
+https://github.com/triton-inference-server/client/blob/d07efb84f938bce126e4d0a0541629113ffe6d53/src/python/library/build_wheel.py#L51-L66
+
+> ```python
+> def sed(pattern, replace, source, dest=None):
+>     fin = open(source, 'r')
+>     if dest:
+>         fout = open(dest, 'w')
+>     else:
+>         fd, name = mkstemp()
+>         fout = open(name, 'w')
+> 
+>     for line in fin:
+>         out = re.sub(pattern, replace, line)
+>         fout.write(out)
+> 
+>     fin.close()
+>     fout.close()
+>     if not dest:
+>         shutil.copyfile(name, source)
+> ```
+

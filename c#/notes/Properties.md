@@ -44,3 +44,8 @@ Otherwise, the compiler will give this error:
 [CA1819: Properties should not return arrays](https://docs.microsoft.com/en-us/visualstudio/code-quality/ca1819?view=vs-2019)
 
 [Override get, but not set](https://stackoverflow.com/questions/2026546/override-get-but-not-set)
+
+[How do I create a delegate for a .NET property?](https://stackoverflow.com/questions/724143/how-do-i-create-a-delegate-for-a-net-property)
+
+[Delegates as Properties: Bad Idea?](https://stackoverflow.com/questions/7575059/delegates-as-properties-bad-idea)
+

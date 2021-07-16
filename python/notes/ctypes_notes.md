@@ -9,4 +9,5 @@ Projects that using `ctypes`:
 - [pyserial](https://github.com/pyserial/pyserial/blob/master/serial/win32.py)
 - [arrayfire-python](https://github.com/arrayfire/arrayfire-python)
 - [brainflow](https://github.com/brainflow-dev/brainflow/tree/master/python-package/brainflow)
+- [triton-inference-server/client](https://github.com/triton-inference-server/client)
 

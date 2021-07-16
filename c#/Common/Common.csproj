@@ -47,6 +47,7 @@
     <Compile Include="AssemblyHelper.cs" />
     <Compile Include="DateTimeHelper.cs" />
     <Compile Include="DoubleConverter.cs" />
+    <Compile Include="GraphicsUnitConvert.cs" />
     <Compile Include="MarshalHelper.cs" />
     <Compile Include="MetafileUtility.cs" />
     <Compile Include="MMTimer.cs" />

@@ -1,0 +1,2 @@
+- [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager)
+- [QtScrcpy](https://github.com/barry-ran/QtScrcpy)

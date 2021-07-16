@@ -170,3 +170,4 @@ int64_t high_timer_ellapsed_ns(high_timer_t *timer)
 // https://github.com/floooh/sokol/blob/master/sokol_time.h
 // https://github.com/google/glog/commit/a1374c42009b8c37e774038b6d2a837c94d430e2
 // https://github.com/google/glog/pull/669
+// [rdtsc](https://github.com/zeromq/libzmq/issues/3366)

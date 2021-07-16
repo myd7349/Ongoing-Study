@@ -30,3 +30,8 @@ index d6f75cf..1d2cfdf 100755
 
 
 3 https://github.com/guodongxiaren/README
+
+Softwares:
+
+- Typora
+- [Notable](https://github.com/notable/notable)

@@ -19,3 +19,5 @@
 
 5. [.NET project SDKs](https://docs.microsoft.com/en-us/dotnet/core/project-sdk/overview)
 
+6. https://github.com/devlooped/nugetizer
+

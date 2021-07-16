@@ -14,6 +14,46 @@ namespace Common.IO
         {
             return Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
         }
+
+        public static void AppendAllBytes(string path, byte[] bytes)
+        {
+            if (string.IsNullOrEmpty(path))
+                throw new ArgumentException("path");
+
+            if (bytes == null)
+                throw new ArgumentNullException("bytes");
+
+            using (var stream = new FileStream(path, FileMode.Append))
+            {
+                stream.Write(bytes, 0, bytes.Length);
+            }
+        }
+
+        public static IEnumerable<string> EnumerateLines(string filePath, Predicate<string> predicate = null)
+        {
+            if (string.IsNullOrEmpty(filePath))
+                throw new ArgumentException("filePath");
+
+            using (var fileStream = File.OpenRead(filePath))
+            using (var streamReader = new StreamReader(fileStream))
+            {
+                string line = null;
+
+                if (predicate == null)
+                {
+                    while ((line = streamReader.ReadLine()) != null)
+                        yield return line;
+                }
+                else
+                {
+                    while ((line = streamReader.ReadLine()) != null)
+                    {
+                        if (predicate(line))
+                            yield return line;
+                    }
+                }
+            }
+        }
     }
 
     public static class PathUtils
@@ -187,3 +227,5 @@ namespace Common.IO
 // [How to quickly check if folder is empty (.NET)?](https://stackoverflow.com/questions/755574/how-to-quickly-check-if-folder-is-empty-net)
 // [In C# check that filename is *possibly* valid (not that it exists)](https://stackoverflow.com/questions/422090/in-c-sharp-check-that-filename-is-possibly-valid-not-that-it-exists)
 // [How do I check if a given string is a legal/valid file name under Windows?](https://stackoverflow.com/questions/62771/how-do-i-check-if-a-given-string-is-a-legal-valid-file-name-under-windows)
+// [C# Append byte array to existing file](https://stackoverflow.com/questions/6862368/c-sharp-append-byte-array-to-existing-file)
+// [How to read a text file one line at a time (C# Programming Guide)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/file-system/how-to-read-a-text-file-one-line-at-a-time)

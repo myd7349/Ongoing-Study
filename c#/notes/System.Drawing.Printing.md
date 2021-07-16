@@ -102,4 +102,10 @@
 4. Finally, C# supports `MM_HIMETRIC` : [PrinterUnit](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printerunit?view=net-5.0)
 
    > HundredthsOfAMillimeter: One-hundredth of a millimeter (0.01 mm).
+   
+   [PrinterUnitConvert](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printerunitconvert?view=net-5.0)
+   
+   > Specifies a series of conversion methods that are useful when  interoperating with the Win32 printing API. This class cannot be  inherited.
+   
+   [GraphicsUnitConverter](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraPrinting.GraphicsUnitConverter._members)
 

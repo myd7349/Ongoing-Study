@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATasteOfSmallSharp", "ATasteOfSmallSharp\ATasteOfSmallSharp.csproj", "{87E82543-7B72-4A10-98F4-2C0A32864B41}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87E82543-7B72-4A10-98F4-2C0A32864B41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87E82543-7B72-4A10-98F4-2C0A32864B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87E82543-7B72-4A10-98F4-2C0A32864B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87E82543-7B72-4A10-98F4-2C0A32864B41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {725199C1-EB52-45C2-BDF4-D9CB68E9BE1D}
+	EndGlobalSection
+EndGlobal

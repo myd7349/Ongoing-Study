@@ -15,6 +15,10 @@ int main(int argc, char *argv[]) {
   else
     std::cout << "File \'" << argv[0] << "\' doesn't exist.\n";
 
+  fs::path p1 = ".";
+  fs::path p2 = fs::current_path();
+  std::cout << fs::equivalent(p1, p2) << std::endl;
+
   return 0;
 }
 
@@ -22,6 +26,7 @@ int main(int argc, char *argv[]) {
 // clang-format off
 // References:
 // [Why does GCC not seem to have the filesystem standard library?](https://stackoverflow.com/questions/45867379/why-does-gcc-not-seem-to-have-the-filesystem-standard-library)
+// https://en.cppreference.com/w/cpp/filesystem/equivalent
 // clang-format on
 
 /*

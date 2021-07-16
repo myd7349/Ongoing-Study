@@ -907,3 +907,4 @@ BOOL BytesToImage(CImage &image, LPBYTE pBytes, DWORD dwSize)
 // References:
 // https://www.codeproject.com/tips/139345/embracing-istream-as-just-a-stream-of-bytes
 // https://stackoverflow.com/questions/7014623/cbitmap-and-cimage-interchangeable
+// https://github.com/CrashRpt/crashrpt2/blob/master/reporting/crashrpt/Utility.cpp
