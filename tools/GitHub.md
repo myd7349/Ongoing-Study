@@ -39,5 +39,6 @@ Awesome README.md:
 - https://github.com/frostming
 - https://github.com/jaywcjlove
 - https://github.com/JustNikhill
+- https://github.com/yoshuawuyts
 
 https://github.com/Tyrrrz/GitHubActionsTestLogger

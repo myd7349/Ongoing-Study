@@ -12,6 +12,7 @@ Data Viewers:
 
 - [HDFView](https://www.hdfgroup.org/downloads/hdfview/)
 - [ViTables](https://vitables.org/)
+- [argos](https://github.com/titusjan/argos)
 
 Books:
 

@@ -1,0 +1,1 @@
+https://github.com/avalentino/hashsum/blob/master/hashsum.py

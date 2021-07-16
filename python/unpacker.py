@@ -64,3 +64,8 @@ def unpack_data_from_file(file, fmt, offset=0):
                 else:
                     break
                 data = fp.read(pack_size)
+
+
+# References:
+# https://github.com/avalentino/hashsum/blob/1bc36e78439ee066626d7875fc4e8ae20f0aa2f8/hashsum.py#L59-L69
+# def blockiter(fd, blocksize=io.DEFAULT_BUFFER_SIZE):

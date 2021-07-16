@@ -24,6 +24,16 @@
                         default:
                             throw new NotImplementedException();
                     }
+                case GraphicsUnit.Document:
+                    switch (toUnit)
+                    {
+                        case GraphicsUnit.Document:
+                            return value;
+                        case GraphicsUnit.Millimeter:
+                            return value / 300 * 25.4;
+                        default:
+                            throw new NotImplementedException();
+                    }
                 case GraphicsUnit.Millimeter:
                     switch (toUnit)
                     {

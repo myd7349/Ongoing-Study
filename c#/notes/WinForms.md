@@ -22,3 +22,5 @@ Awesome WinForms projects:
 
 [Show Print Dialog before printing](https://stackoverflow.com/questions/15985909/show-print-dialog-before-printing)
 
+[Is it possible to use ShowDialog without blocking all forms?](https://stackoverflow.com/questions/428494/is-it-possible-to-use-showdialog-without-blocking-all-forms)
+

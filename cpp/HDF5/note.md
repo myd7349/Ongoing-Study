@@ -25,11 +25,18 @@
      - [xtensor-io](https://github.com/xtensor-stack/xtensor-io) depends on this library.
    - [h5cpp](https://github.com/steven-varga/h5cpp) - [talk](http://lightning-talk.h5cpp.org/#/)
    - [h5cpp](https://github.com/ess-dmsc/h5cpp)
+   - [h5pp](https://github.com/DavidAce/h5pp)
    - [HDFql](https://www.hdfql.com/)
    - [openPMD-standard](https://github.com/openPMD/openPMD-standard)
    - [openPMD-api](https://github.com/openPMD/openPMD-api)
+   - [hdf5serie](https://github.com/mbsim-env/hdf5serie)
    
-6. Check if a dataset/group exists.
+6. Related projects
+
+   - [libhio](https://github.com/hpc/libhio)
+   - [gdl](https://github.com/gnudatalanguage/gdl)
+
+7. Check if a dataset/group exists.
 
    H5Location::nameExists + IdComponent::getHDFObjType
 
@@ -171,11 +178,11 @@
    > }
    > ```
 
-7. Check if an attribute exists or not
+8. Check if an attribute exists or not
 
    Use `H5Aexists` instead of `H5Lexists`.
 
-8. H5::DataSet::extend will invalidate a data space
+9. H5::DataSet::extend will invalidate a data space
 
    - [HDF5: How to append data to a dataset (extensible array)](https://stackoverflow.com/questions/23934724/hdf5-how-to-append-data-to-a-dataset-extensible-array)
 

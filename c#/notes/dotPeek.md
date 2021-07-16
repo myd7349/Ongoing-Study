@@ -1,0 +1,1 @@
+Some dlls can not be decompiled by `ILSpy` and `ildasm`, but can be decompiled with `dotPeek`.

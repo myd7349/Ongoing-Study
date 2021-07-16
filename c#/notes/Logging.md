@@ -13,5 +13,6 @@ https://github.com/cyanfish/naps2/tree/9ffd24bb4186b7a81d4f1d686ee946d2684e8239/
 
 https://github.com/microsoft/FASTER
 
+[When logging when is an error fatal?](https://stackoverflow.com/questions/313351/when-logging-when-is-an-error-fatal)
 
-
+https://github.com/de4dot/de4dot/blob/master/de4dot.code/Logger.cs

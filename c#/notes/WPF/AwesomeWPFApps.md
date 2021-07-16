@@ -11,3 +11,7 @@ https://github.com/FantasticFiasco/mvvm-dialogs
 https://github.com/ghost1372/HandyControls
 
 https://github.com/Accelerider/Accelerider.Windows
+
+Libraries:
+
+- [Ookii.Dialogs.Wpf](https://github.com/ookii-dialogs/ookii-dialogs-wpf)

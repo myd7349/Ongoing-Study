@@ -13,7 +13,7 @@ public:
     {
     }
 
-    virtual std::basic_string<CharT> GetConfigFilePath()
+    virtual std::wstring GetConfigFilePath()
     {
         return ini_;
     }

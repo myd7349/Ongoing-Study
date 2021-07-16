@@ -5,6 +5,7 @@
     using HDF.PInvoke;
 
     using hid_t = System.Int64;
+    using htri_t = System.Int32;
 
     public static partial class HDF5Helper
     {
@@ -58,5 +59,13 @@
             return NumericTypeToHDF5TypeMap[typeCode];
         }
 #endif
+
+        internal static bool htri_t_to_bool(htri_t result, string function)
+        {
+            if (result < 0)
+                throw new HDF5Exception("{0} failed.", function);
+
+            return result > 0;
+        }
     }
 }

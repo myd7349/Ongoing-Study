@@ -2,3 +2,7 @@
 
 https://github.com/Accelerider/BaiduPanDownloadWinform
 
+Libraries:
+
+- [Ookii.Dialogs.WinForms](https://github.com/ookii-dialogs/ookii-dialogs-winforms)
+

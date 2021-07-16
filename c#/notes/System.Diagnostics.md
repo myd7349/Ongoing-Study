@@ -12,3 +12,14 @@ System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAss
 System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
 string version = fvi.FileVersion;
 ```
+
+[Enable code on Release compilation](https://stackoverflow.com/questions/6927263/enable-code-on-release-compilation)
+
+> ```csharp
+> #if !DEBUG
+> 
+> // Release-only code goes here...
+> 
+> #endif
+> ```
+

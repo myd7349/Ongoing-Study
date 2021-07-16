@@ -1,18 +1,21 @@
-[How do you stop the Designer generating code for public properties on a User Control?](https://stackoverflow.com/questions/29696/how-do-you-stop-the-designer-generating-code-for-public-properties-on-a-user-con)
-```csharp
-[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-public Background Background
-{
-    get;
-    set;
-}
-```
+1. [How do you stop the Designer generating code for public properties on a User Control?](https://stackoverflow.com/questions/29696/how-do-you-stop-the-designer-generating-code-for-public-properties-on-a-user-con)
 
-[Implement System.ComponentModel.BackgroundWorker](https://github.com/inthehand/32feet/blob/main/Legacy/InTheHand.Net.Personal/Windows/Forms/BackgroundWorker.cs)
+   ```csharp
+   [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+   public Background Background
+   {
+       get;
+       set;
+   }
+   ```
 
-[How to license .NET components and controls using Microsoft’s LicenseProvider Class](https://www.softwarekey.com/blog/licensing-tips/how-to-license-components-controls-microsoft-license-provider-class/)
+2. [Implement System.ComponentModel.BackgroundWorker](https://github.com/inthehand/32feet/blob/main/Legacy/InTheHand.Net.Personal/Windows/Forms/BackgroundWorker.cs)
 
-- [ILNumerics FFT Spectrum Analyzer example](https://ilnumerics.net/examples.php?exid=16e18c33a0743343c75e6470d07011bd)
+3. [How to license .NET components and controls using Microsoft’s LicenseProvider Class](https://www.softwarekey.com/blog/licensing-tips/how-to-license-components-controls-microsoft-license-provider-class/)
+   - [ILNumerics FFT Spectrum Analyzer example](https://ilnumerics.net/examples.php?exid=16e18c33a0743343c75e6470d07011bd)
 
-[Developing . NET Custom Controls and Designers Using C#](https://books.google.com.hk/books?id=f2lcvqNAeo4C&pg=PA449&lpg=PA449&dq=LicenseProvider&source=bl&ots=nyenbLGTkg&sig=ACfU3U3g-HAJ8R4ecIWplHHunXwE0MXXnQ&hl=en&sa=X&redir_esc=y&hl=zh-CN&sourceid=cndr#v=onepage&q=LicenseProvider&f=false)
+4. [Developing . NET Custom Controls and Designers Using C#](https://books.google.com.hk/books?id=f2lcvqNAeo4C&pg=PA449&lpg=PA449&dq=LicenseProvider&source=bl&ots=nyenbLGTkg&sig=ACfU3U3g-HAJ8R4ecIWplHHunXwE0MXXnQ&hl=en&sa=X&redir_esc=y&hl=zh-CN&sourceid=cndr#v=onepage&q=LicenseProvider&f=false)
+5. [INotifyPropertyChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged?view=net-5.0)
+   - [How to: Implement Property Change Notification](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-property-change-notification?view=netframeworkdesktop-4.8)
+   - [Raise an event whenever a property's value changed?](https://stackoverflow.com/questions/2246777/raise-an-event-whenever-a-propertys-value-changed)
 

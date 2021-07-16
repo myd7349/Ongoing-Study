@@ -1,4 +1,5 @@
 // An example shows how to make simple things complicated.
+#include <cassert>
 #include <iostream>
 
 #include <direct.h>
@@ -6,6 +7,7 @@
 #include "../ConfigItem.hpp"
 #include "../IPv4AddressItem.h"
 #include "../ColorRefConverter.hpp"
+#include "../PointConverter.hpp"
 #ifdef ENABLE_SIMPLEINI
 #include "../SimpleIniConfigItemProvider.h"
 #else
@@ -70,6 +72,8 @@ int wmain(int argc, wchar_t *argv[])
     ColorRefItem skyBlue(ini, L"Colors", L"Sky", RGB(166, 202, 240));
     StringItem name(ini, L"Person", L"Name", L"Tom & Jerry");
 
+    PointItem position(ini, L"", L"Position", Point());
+
     if (!PathFileExistsW(iniPath.c_str()))
     {
         useIPv6.Store();
@@ -80,6 +84,7 @@ int wmain(int argc, wchar_t *argv[])
         ipv4.Store();
         ipv4_3.Store();
         skyBlue.Store();
+        position.Store();
     }
     else
     {
@@ -99,6 +104,8 @@ int wmain(int argc, wchar_t *argv[])
 
         name.SetValue(L"");
         std::wcout << "Name: " << name.GetValue() << std::endl;
+
+        std::wcout << ConfigItemConverter<Point>().ToString(position.GetValue()) << std::endl;
     }
 
     portNumber.SetValue(portNumber.GetValue() + 1);
@@ -119,6 +126,12 @@ int wmain(int argc, wchar_t *argv[])
         inAddr.s_impno++;
         ipv4.SetValue(inAddr);
     }
+
+    bool ok;
+    assert(ConfigItemConverter<Point>().FromString(L"Point", ok, Point()) == Point() && !ok);
+    assert(ConfigItemConverter<Point>().FromString(L"Point(", ok, Point()) == Point() && !ok);
+    assert(ConfigItemConverter<Point>().FromString(L"Point(1,2", ok, Point()) == Point() && !ok);
+    assert(ConfigItemConverter<Point>().FromString(L"Point(1,2)", ok, Point()) == Point(1, 2) && ok);
 
     return 0;
 }
