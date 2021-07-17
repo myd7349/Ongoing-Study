@@ -239,3 +239,4 @@ static void Main(string[] args)
 }
  */
 // [Is there a way to write System.Drawing.Graphics to PDF from C#?](https://stackoverflow.com/questions/7439699/is-there-a-way-to-write-system-drawing-graphics-to-pdf-from-c)
+// [GDI+ / C#: How to save an image as EMF?](https://stackoverflow.com/questions/152729/gdi-c-how-to-save-an-image-as-emf)
