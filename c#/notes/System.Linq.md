@@ -205,3 +205,5 @@ void SelectManyTest()
 }
 ```
 
+`OfType` vs `Cast`: [When to use Cast() and Oftype() in Linq](https://stackoverflow.com/questions/4015930/when-to-use-cast-and-oftype-in-linq)
+
