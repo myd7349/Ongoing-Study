@@ -47,3 +47,5 @@ Otherwise, the compiler will give this error:
 
 [How do I create a delegate for a .NET property?](https://stackoverflow.com/questions/724143/how-do-i-create-a-delegate-for-a-net-property)
 
+[Delegates as Properties: Bad Idea?](https://stackoverflow.com/questions/7575059/delegates-as-properties-bad-idea)
+
