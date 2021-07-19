@@ -1,0 +1,1 @@
+- [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager)
