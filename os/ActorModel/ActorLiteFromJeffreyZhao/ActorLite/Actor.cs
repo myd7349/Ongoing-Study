@@ -72,3 +72,7 @@
         private Queue<T> messages_;
     }
 }
+
+
+// References:
+// https://github.com/basiliscos/cpp-rotor

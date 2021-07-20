@@ -51,3 +51,7 @@ Task.FromResult(SomeSyncFunction());
 > }
 > ```
 
+Packages:
+
+- [AsyncAwaitBestPractices](https://github.com/brminnick/AsyncAwaitBestPractices)
+

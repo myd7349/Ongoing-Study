@@ -4,3 +4,5 @@
 - Cmder
 - https://github.com/christianparpart/contour
 - https://github.com/contour-terminal/contour
+- https://github.com/alacritty/alacritty
+- https://github.com/rprichard/winpty

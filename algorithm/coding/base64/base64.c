@@ -392,3 +392,6 @@ void *easy_base64_decode(const char *base64, void *data, size_t *out_len)
 //   to safely encode/decode, no padding mess, no incompatibilities
 //   between decoders (due to how they handle non-zero padding bits).
 // https://twitter.com/jedisct1/status/1413525125459333126
+// https://github.com/libb64/libb64
+// https://github.com/uutils/coreutils/blob/master/src/uu/base64/src/base64.rs
+// https://github.com/wertarbyte/coreutils/blob/master/src/base64.c

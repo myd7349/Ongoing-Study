@@ -7,3 +7,5 @@
 [Visual Studio and WSL](https://github.com/simdjson/simdjson/issues/955)
 
 [Connect to your target Linux system in Visual Studio](https://docs.microsoft.com/en-us/cpp/linux/connect-to-your-remote-linux-computer?view=vs-2019#tcp-port-forwarding)
+
+https://github.com/wmjordan/Codist

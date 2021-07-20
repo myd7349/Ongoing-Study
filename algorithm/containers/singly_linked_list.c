@@ -304,3 +304,4 @@ void slist_reverse(slist_t list)
 // RtlInitializeSListHead
 // https://github.com/tylov/STC/blob/master/include/stc/clist.h
 // https://plflib.org/ - [Pacific++ 2017: Matt Bentley "Can we make a faster linked list?"](https://www.youtube.com/watch?v=SPXNy0-dUbw)
+// https://github.com/xant/libhl/blob/master/src/linklist.h

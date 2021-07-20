@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButtonWithoutFocus", "ButtonWithoutFocus\ButtonWithoutFocus.csproj", "{10E2D8A9-3626-48A3-AF53-8E902FB172DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10E2D8A9-3626-48A3-AF53-8E902FB172DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10E2D8A9-3626-48A3-AF53-8E902FB172DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10E2D8A9-3626-48A3-AF53-8E902FB172DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10E2D8A9-3626-48A3-AF53-8E902FB172DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {167CA250-DE95-4198-B871-C2B05B3F7112}
+	EndGlobalSection
+EndGlobal

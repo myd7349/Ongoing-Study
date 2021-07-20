@@ -271,3 +271,4 @@
 // References:
 // https://stackoverflow.com/questions/2281441/can-i-set-the-timeout-for-udpclient-in-c
 // https://stackoverflow.com/questions/1584062/how-to-wait-for-thread-to-finish-with-net
+// [Difference in usage and implementation of ManualResetEvent(Slim), Semaphore(Slim) and ReaderWriterLock(Slim)](https://stackoverflow.com/questions/6764864/difference-in-usage-and-implementation-of-manualreseteventslim-semaphoreslim)

@@ -49,6 +49,7 @@
     <Compile Include="DoubleConverter.cs" />
     <Compile Include="GraphicsUnitConvert.cs" />
     <Compile Include="MarshalHelper.cs" />
+    <Compile Include="MathHelper.cs" />
     <Compile Include="MetafileUtility.cs" />
     <Compile Include="MMTimer.cs" />
     <Compile Include="ArrayHelper.cs" />
@@ -103,6 +104,9 @@
     <Compile Include="RandomExtension.cs" />
     <Compile Include="RegistryHelper.cs" />
     <Compile Include="RegistryKeyExtension.cs" />
+    <Compile Include="SerialPortEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SerialPortHelper.cs" />
     <Compile Include="SingletonApplication.cs" />
     <Compile Include="StringExtension.cs" />

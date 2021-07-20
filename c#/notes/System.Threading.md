@@ -18,3 +18,22 @@
 
 [C# producer/consumer](https://stackoverflow.com/questions/1656404/c-sharp-producer-consumer)
 
+[C# Is value type assignment atomic?](https://stackoverflow.com/questions/53601121/c-sharp-is-value-type-assignment-atomic)
+
+> Reads and writes of the following data types are atomic: *bool*, *char*,  *byte*, *sbyte*, *short*, *ushort*, *uint*, *int*, *float*, and *reference types*. In  addition, reads and writes of *enum types* with an underlying type in  the previous list are also atomic. Reads and writes of other types,  including *long*, *ulong*, *double*, and *decimal*, as well as user-defined  types, are not guaranteed to be atomic. Aside from the library  functions designed for that purpose, there is no guarantee of atomic  read-modify-write, such as in the case of increment or decrement.
+
+[Is ++ operation atomic in C#?](https://stackoverflow.com/questions/17872057/is-operation-atomic-in-c)
+
+> No ++/-- is not an atomic operation, however reading and writing to  integers and other primitive times is considered an atomic operation.
+
+[Difference in usage and implementation of ManualResetEvent(Slim), Semaphore(Slim) and ReaderWriterLock(Slim)](https://stackoverflow.com/questions/6764864/difference-in-usage-and-implementation-of-manualreseteventslim-semaphoreslim)
+
+> `ReaderWriterLockSlim` is a better version of `ReaderWriterLock` that is faster and  doesn't suffer from writer starvation
+>
+> `ManualResetEventSlim` and `SemaphoreSlim` are fully managed versions of a `ManualResetEvent` and `Semaphore` that spin-wait for a while before falling back to kernel objects, and  so are faster than the old versions when wait times are short.
+
+[What's the difference between Invoke() and BeginInvoke()](https://stackoverflow.com/questions/229554/whats-the-difference-between-invoke-and-begininvoke)
+
+> `Control.Invoke`: Executes on the UI thread, but calling thread waits for completion before continuing.
+>
+> `Control.BeginInvoke`: Executes on the UI thread, and calling thread doesn't wait for completion.

@@ -15,3 +15,11 @@ https://github.com/Accelerider/Accelerider.Windows
 Libraries:
 
 - [Ookii.Dialogs.Wpf](https://github.com/ookii-dialogs/ookii-dialogs-wpf)
+- [Stylet](https://github.com/canton7/Stylet)
+- https://github.com/Catel/Catel
+- https://github.com/WildGums/Orchestra
+- https://github.com/CommunityToolkit/WindowsCommunityToolkit
+- https://github.com/dotnet/DataGridExtensions
+- https://github.com/punker76/gong-wpf-dragdrop
+- https://github.com/OutSystems/WebView
+

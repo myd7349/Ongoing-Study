@@ -7,4 +7,6 @@
   Projects using this package:
 
   - [QuickInfo](https://github.com/KirillOsenkov/QuickInfo/blob/dce4fcb4adc62abed898826abdb48998aed1f4b3/src/QuickInfo/Processors/Math.cs#L2)
+  
+- [CLanguage](https://github.com/praeclarum/CLanguage)
 

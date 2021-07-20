@@ -29,6 +29,20 @@
             BackColor = Color.Transparent;
         }
 
+        private const int HTTRANSPARENT = -1;
+
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case User32.WM_NCHITTEST:
+                    m.Result = (IntPtr)HTTRANSPARENT;
+                    return;
+            }
+
+            base.WndProc(ref m);
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             try
@@ -88,3 +102,4 @@
 
 // References:
 // [Show Transparent Loading Spinner above other Controls](https://stackoverflow.com/questions/37220327/show-transparent-loading-spinner-above-other-controls)
+// [Winforms - WM_NCHITEST message for click on control](https://stackoverflow.com/questions/12392125/winforms-wm-nchitest-message-for-click-on-control)

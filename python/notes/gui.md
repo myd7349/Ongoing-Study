@@ -7,4 +7,5 @@
   - Go version: [gowid](https://github.com/gcla/gowid)
 * [Eel](https://github.com/ChrisKnott/Eel)
   - [auto-py-to-exe](https://github.com/brentvollebregt/auto-py-to-exe)
+* [textual](https://github.com/willmcgugan/textual)
 

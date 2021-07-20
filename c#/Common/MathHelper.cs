@@ -1,8 +1,8 @@
-﻿namespace GraphicsTransformDemo
+﻿namespace Common
 {
     using System;
 
-    class MathHelper
+    public static class MathHelper
     {
         public static double ConvertDegreesToRadians(double degrees)
         {

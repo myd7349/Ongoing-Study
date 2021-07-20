@@ -6,6 +6,7 @@
 
     public static class RegistryHelper
     {
+        // SerialPort.GetPortNames()
         public static Dictionary<string, string> GetAvailableSerialPorts()
         {
             var availablePortsMap = new Dictionary<string, string>();
