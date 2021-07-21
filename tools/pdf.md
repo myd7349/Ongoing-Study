@@ -2,6 +2,8 @@ Extract tabular data from PDF:
 - [Tabula](https://github.com/tabulapdf/tabula)
 - [PDFPlumber](https://github.com/jsvine/pdfplumber)
 - [Tabula #731](https://github.com/tabulapdf/tabula/issues/731)
+- [PDFBox](https://github.com/apache/pdfbox)
+- [PdfPig](https://github.com/UglyToad/PdfPig)
 
 PDF Viewers:
 - [MuPDF](https://github.com/ArtifexSoftware/mupdf)
