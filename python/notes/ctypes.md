@@ -10,4 +10,5 @@ Projects that using `ctypes`:
 - [arrayfire-python](https://github.com/arrayfire/arrayfire-python)
 - [brainflow](https://github.com/brainflow-dev/brainflow/tree/master/python-package/brainflow)
 - [triton-inference-server/client](https://github.com/triton-inference-server/client)
+- [TDLib](https://github.com/tdlib/td/blob/master/example/python/tdjson_example.py)
 

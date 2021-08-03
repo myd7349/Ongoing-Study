@@ -9,3 +9,7 @@ PosixFileSystemAdaptor::PathExists(const string& path) {
 }
 ```
 
+[fork for Windows](https://github.com/nemequ/munit/issues/2)
+
+- https://groups.google.com/forum/#!topic/microsoft.public.win32.programmer.kernel/ejtHCZmdyaI
+- https://github.com/jonclayden/multicore/blob/master/src/forknt.c

@@ -7,7 +7,9 @@ Extract tabular data from PDF:
 
 PDF Viewers:
 - [MuPDF](https://github.com/ArtifexSoftware/mupdf)
+- [PdfiumViewer](https://github.com/pvginkel/PdfiumViewer)
 - [SumatraPDF](https://github.com/sumatrapdfreader/sumatrapdf)
+- [Okular](https://github.com/KDE/okular)
 
 Tools:
 https://twitter.com/terrywang/status/1303592660670668802
@@ -25,3 +27,9 @@ pdftk4all
 Other tools:
 
 - [naps2](https://github.com/cyanfish/naps2)
+
+PDF Printers:
+
+- PDF Factory
+- Microsoft Print to PDF
+- Foxit Reader PDF Printer

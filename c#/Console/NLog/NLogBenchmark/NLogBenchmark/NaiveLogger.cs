@@ -26,3 +26,7 @@
         }
     }
 }
+
+
+// References:
+// https://github.com/files-community/Files/blob/cf12811c32053ac9cd72e727d8627ca83581ec7f/Files.Launcher/LogWriter.cs#L26-L40

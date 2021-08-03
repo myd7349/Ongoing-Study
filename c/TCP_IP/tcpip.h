@@ -92,3 +92,4 @@ typedef int socket_t;
 // man: gethostname
 // https://stackoverflow.com/questions/30084116/host-name-max-undefined-after-include-limits-h
 // https://github.com/boostorg/predef/blob/develop/include/boost/predef/platform/mingw.h
+// https://github.com/Genymobile/scrcpy/blob/master/app/src/util/net.h

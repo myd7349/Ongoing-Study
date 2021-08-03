@@ -207,3 +207,5 @@ void SelectManyTest()
 
 `OfType` vs `Cast`: [When to use Cast() and Oftype() in Linq](https://stackoverflow.com/questions/4015930/when-to-use-cast-and-oftype-in-linq)
 
+[Select All distinct values in a column using LINQ](https://stackoverflow.com/questions/19548043/select-all-distinct-values-in-a-column-using-linq)
+

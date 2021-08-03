@@ -16,4 +16,5 @@ Projects using `pybind11`
 * [pymetis](https://github.com/inducer/pymetis)
 * [flashlight](https://github.com/flashlight/flashlight/tree/master/bindings/python)
 * [pyworkflow](https://github.com/sogou/pyworkflow)
+* [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
 

@@ -37,3 +37,21 @@ https://stackoverflow.com/questions/9759697/reading-a-file-used-by-another-proce
 > // Suspend the screen.  
 > System.Console.ReadLine();  
 > ```
+
+https://github.com/dotnet/runtime/blob/1fa304a14a8be27428399bd6f2cc51736cb1515a/src/libraries/Microsoft.Extensions.Configuration/tests/Common/TestStreamHelpers.cs#L108-L117
+
+> ```csharp
+> public static Stream StringToStream(string str)
+> {
+>     var memStream = new MemoryStream();
+>     var textWriter = new StreamWriter(memStream);
+>     textWriter.Write(str);
+>     textWriter.Flush();
+>     memStream.Seek(0, SeekOrigin.Begin);
+> 
+>     return memStream;
+> }
+> ```
+
+https://github.com/dahall/Vanara/blob/56cda5a8f4d6648563651996d99f471f9e49e56f/Core/Extensions/InteropExtensions.cs#L1047-L1068
+

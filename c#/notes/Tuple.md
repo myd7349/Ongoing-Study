@@ -1,0 +1,1 @@
+1. [How to easily initialize a list of Tuples?](https://stackoverflow.com/questions/8002455/how-to-easily-initialize-a-list-of-tuples)

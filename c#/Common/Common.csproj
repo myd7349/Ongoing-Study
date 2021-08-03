@@ -46,8 +46,13 @@
   <ItemGroup>
     <Compile Include="AssemblyHelper.cs" />
     <Compile Include="DateTimeHelper.cs" />
+    <Compile Include="DiagnosticsHelper.cs" />
     <Compile Include="DoubleConverter.cs" />
     <Compile Include="GraphicsUnitConvert.cs" />
+    <Compile Include="IniFile.cs" />
+    <Compile Include="IniFile2.cs" />
+    <Compile Include="IniFile2.Extension.cs" />
+    <Compile Include="Kernel32.WinBase.Profile.cs" />
     <Compile Include="MarshalHelper.cs" />
     <Compile Include="MathHelper.cs" />
     <Compile Include="MetafileUtility.cs" />

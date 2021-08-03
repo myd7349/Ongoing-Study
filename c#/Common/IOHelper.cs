@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 
 namespace Common.IO
 {
@@ -29,13 +30,13 @@ namespace Common.IO
             }
         }
 
-        public static IEnumerable<string> EnumerateLines(string filePath, Predicate<string> predicate = null)
+        public static IEnumerable<string> EnumerateLines(string filePath, Encoding encoding = null, Predicate<string> predicate = null)
         {
             if (string.IsNullOrEmpty(filePath))
                 throw new ArgumentException("filePath");
 
             using (var fileStream = File.OpenRead(filePath))
-            using (var streamReader = new StreamReader(fileStream))
+            using (var streamReader = encoding == null ? new StreamReader(fileStream) : new StreamReader(fileStream, encoding))
             {
                 string line = null;
 

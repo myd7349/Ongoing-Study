@@ -28,3 +28,7 @@ void *binary_search(const void *key, const void *ptr, size_t count, size_t size,
 
     return NULL;
 }
+
+
+// References:
+// Ongoing-Study\c#\Console\INI\INITest\INITest\Program.cs

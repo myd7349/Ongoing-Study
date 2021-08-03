@@ -4,3 +4,4 @@
 [liblsl-Generic](https://github.com/labstreaminglayer/liblsl-Generic)
 [fir1](https://github.com/berndporr/fir1)
 [enable](https://github.com/enthought/enable)
+[QSanguosha](https://github.com/Mogara/QSanguosha/tree/master/swig)

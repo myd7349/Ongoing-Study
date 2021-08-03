@@ -347,3 +347,17 @@ git config --system core.longpaths true
 
 [New in Git: switch and restore](https://www.banterly.net/2021/07/31/new-in-git-switch-and-restore/)
 
+[```master``` and ```development```  branch](https://github.com/CppMicroServices/CppMicroServices)
+
+> The Git repository contains two eternal branches, [master](https://github.com/CppMicroServices/CppMicroServices/tree/master/) and [development](https://github.com/CppMicroServices/CppMicroServices/tree/development/). The master branch contains production quality code and its HEAD points to the latest released version. The development branch is the default branch and contains the current state of development. Pull requests by default target the development branch. See the [:ref:`CONTRIBUTING `](https://github.com/CppMicroServices/CppMicroServices#id5) file for details about the contribution process.
+
+[Git pulling a branch from another repository?](https://stackoverflow.com/questions/14383212/git-pulling-a-branch-from-another-repository)
+
+> ```
+> git remote add fork <url of fork>
+> git fetch fork
+> git checkout -b fork_branch fork/<branch>
+> ```
+
+[gitfs](https://github.com/presslabs/gitfs)
+

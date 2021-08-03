@@ -23,6 +23,8 @@ Here’s how we suggest you go about proposing a change to this project:
 
 [GitHub Actions 教程：定时发送天气邮件](http://www.ruanyifeng.com/blog/2019/12/github_actions.html)
 
+https://github.com/lukka/run-vcpkg/issues/66
+
 [renovate](https://github.com/renovatebot/renovate)
 
 - https://github.com/whtsky/kindle-sdr-cleaner/blob/master/renovate.json
@@ -40,5 +42,12 @@ Awesome README.md:
 - https://github.com/jaywcjlove
 - https://github.com/JustNikhill
 - https://github.com/yoshuawuyts
+- https://github.com/itgoyo
+- https://github.com/yqchilde/Yqchilde
+- https://github.com/willmcgugan/willmcgugan
 
 https://github.com/Tyrrrz/GitHubActionsTestLogger
+
+https://github.com/anuraghazra/github-readme-stats
+
+https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/

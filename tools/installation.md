@@ -12,6 +12,9 @@
 - https://github.com/python/cpython/blob/master/Tools/msi/wix.props
 - https://github.com/wireshark/wireshark/tree/master/packaging/wix
 - https://archive.codeplex.com/?p=nmexperts
+- https://github.com/Wox-launcher/Wox/tree/master/Wox.Installer
+- https://github.com/QL-Win/QuickLook/tree/master/QuickLook.Installer
+- https://github.com/mixxxdj/mixxx/tree/main/packaging
 
 ### NSIS
 - https://github.com/wireshark/wireshark/tree/master/packaging/nsis
@@ -25,6 +28,7 @@
 - https://github.com/ShareX/ShareX
 - https://github.com/Microsoft/vscode/tree/master/build/win32
 - https://github.com/cyanfish/naps2/blob/master/NAPS2/Setup/setup.iss
+- https://github.com/canton7/SyncTrayzor/tree/master/installer
 
 ### [PortableApps.com](http://portableapps.com/apps/development/portableapps.com_installer)
 - https://github.com/greenshot/greenshot

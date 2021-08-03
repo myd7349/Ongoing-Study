@@ -11,6 +11,8 @@
 
 [How to: Implement Property Change Notification](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-property-change-notification?view=netframeworkdesktop-4.8)
 
+[Can you use reflection to find the name of the currently executing method?](https://stackoverflow.com/questions/44153/can-you-use-reflection-to-find-the-name-of-the-currently-executing-method)
+
 ```csharp
 void Foo([CallerMemberName] string caller = null)
 {

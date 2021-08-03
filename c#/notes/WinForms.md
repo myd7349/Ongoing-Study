@@ -50,3 +50,17 @@ Awesome WinForms projects:
 
 [Dialog MessageBox sometimes hidden behind the main form](https://stackoverflow.com/questions/3467403/dialog-messagebox-sometimes-hidden-behind-the-main-form)
 
+[**Threading in Windows Forms**](https://jonskeet.uk/csharp/threads/winforms.html)
+
+> 1. Never invoke any method or property on a control created on another thread other than `Invoke`, `BeginInvoke`, `EndInvoke` or `CreateGraphics`, and `InvokeRequired`.
+>
+>    Each control is effectively bound to a thread which runs its message pump. If you try to access or change anything in the UI (for example changing the `Text` property) from a different thread, you run a risk of your program hanging or misbehaving in other ways. You may get away with it in some cases, but only by blind luck. Fortunately, the `Invoke`, `BeginInvoke` and `EndInvoke` methods have been provided so that you can ask the UI thread to call a method for you in a safe manner.
+>
+> 2. Never execute a long-running piece of code in the UI thread.
+>
+>    If your code is running in the UI thread, that means no other code is running in that thread. That means you won't receive events, your controls won't be repainted, etc. This is a very Bad Thing. You *can* execute long-running code and periodically call `Application.DoEvents()`, and this is              the natural thing for many VB programmers to wish to do - but I'd advise against it. It means you have to consider re-entrancy issues etc, which I believe are harder to diagnose and fix than "normal" threading problems. You have to judge when to call `DoEvents`, and you can't use anything which might block (network access, for instance) without risking an unresponsive UI. I believe there are message pumping issues in terms of COM objects as well, but I don't have details of them (and I frankly wouldn't understand them fully anyway).
+>
+> So, if you have a piece of long-running code which you need to execute, you need to create a new thread(or use a thread pool thread if you prefer) to execute it on, and make sure it doesn't directly try to update the UI with its results. The thread creation part is the same as any other threading problem, and we've addressed that before. The interesting bit is going the other way - invoking a method on the UI thread in order to update the UI.
+
+[Can BeginInvoke interrupt code already running on the UI thread?](https://stackoverflow.com/questions/2048491/can-begininvoke-interrupt-code-already-running-on-the-ui-thread)
+

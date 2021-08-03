@@ -140,4 +140,5 @@ unsigned int __stdcall Subprocess::ProcessOutput(void *arg) {
 // [How to detect "Use MFC" in preprocessor](https://stackoverflow.com/questions/1196808/how-to-detect-use-mfc-in-preprocessor)
 // https://stackoverflow.com/questions/46343789/cant-find-popen-and-pclose-with-windows-codeblocks-mingw-16-01
 // https://github.com/DaanDeMeyer/reproc
+// https://github.com/Genymobile/scrcpy/blob/master/app/src/util/process.h
 // clang-format on

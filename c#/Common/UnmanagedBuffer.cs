@@ -308,3 +308,4 @@
 // [Cast Int to Generic Enum in C#](https://stackoverflow.com/questions/10387095/cast-int-to-generic-enum-in-c-sharp)
 // [c# P/Invoke : Pass Enum value with IntPtr to Function; AccessViolationException](https://stackoverflow.com/questions/47723953/c-sharp-p-invoke-pass-enum-value-with-intptr-to-function-accessviolationexcep)
 // [How to convert from System.Enum to base integer?](https://stackoverflow.com/questions/908543/how-to-convert-from-system-enum-to-base-integer)
+// SafeHeapBlock: https://github.com/dahall/Vanara/blob/56cda5a8f4d6648563651996d99f471f9e49e56f/PInvoke/Kernel32/HeapApi.cs#L1411

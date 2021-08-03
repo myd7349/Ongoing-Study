@@ -122,3 +122,4 @@
 // [Struct.Pack Equivalent in C#](https://stackoverflow.com/questions/19337056/struct-pack-equivalent-in-c-sharp)
 // https://github.com/loory/MiscUtil/blob/master/Conversion/LittleEndianBitConverter.cs
 // https://github.com/dbrant/imageformats/blob/master/ImageFormats/Util.cs
+// [How to get a null terminated string from a C# string?](https://stackoverflow.com/questions/2793548/how-to-get-a-null-terminated-string-from-a-c-sharp-string)

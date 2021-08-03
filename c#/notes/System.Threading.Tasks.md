@@ -55,3 +55,5 @@ Packages:
 
 - [AsyncAwaitBestPractices](https://github.com/brminnick/AsyncAwaitBestPractices)
 
+https://github.com/microsoft/Vipr/blob/master/src/Core/Vipr/FileWriter.cs
+

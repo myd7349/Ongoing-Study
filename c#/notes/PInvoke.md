@@ -22,7 +22,11 @@
 
    - [win32metadata](https://github.com/microsoft/win32metadata)
 
-5.  [Vanara](https://github.com/dahall/Vanara) - A set of .NET libraries for Windows implementing PInvoke calls to many native Windows APIs with supporting wrappers.
+5. [Vanara](https://github.com/dahall/Vanara) - A set of .NET libraries for Windows implementing PInvoke calls to many native Windows APIs with supporting wrappers.
+
+   Projects using `Vanara`:
+
+   - [Files](https://github.com/files-community/Files/blob/cf12811c32053ac9cd72e727d8627ca83581ec7f/Files.Launcher/LogWriter.cs#L8)
 
 6. Book: [.NET and COM: The Complete Interoperability Guide](https://www.oreilly.com/library/view/net-and-com/9780672333583/)
 
@@ -134,3 +138,20 @@ https://github.com/CodefoundryDE/LegacyWrapper
 [COM or C++/CLI layer for long-term maintenance?](https://www.reddit.com/r/cpp/comments/nonhuk/com_or_ccli_layer_for_longterm_maintenance/)
 
 https://github.com/ookii-dialogs/ookii-dialogs-winforms/blob/master/src/Ookii.Dialogs.WinForms/Interop/IProgressDialog.cs
+
+https://github.com/chmorgan/sharppcap/blob/master/SharpPcap/LibPcap/NativeLibraryHelper.cs
+
+[Conversion from c char* to string/IntPtr c#](https://stackoverflow.com/questions/22483380/conversion-from-c-char-to-string-intptr-c-sharp)
+
+[CA1838: Avoid `StringBuilder` parameters for P/Invokes](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1838)
+
+[Fix broken defines](https://github.com/dotnet/pinvoke/pull/576/files)
+
+> ```csharp
+> // src/Kernel32/storebanned/Kernel32.cs 
+> 
+> [DllImport(nameof(Kernel32))]
+> //public static extern SafeObjectHandle GetCurrentProcessToken();
+> public static SafeObjectHandle GetCurrentProcessToken()
+> ```
+

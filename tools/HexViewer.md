@@ -11,6 +11,7 @@ https://codereview.stackexchange.com/questions/147225/python-hex-viewer
 linux xxd command
 
 - [How can a file contain null bytes?](https://stackoverflow.com/questions/34621006/how-can-a-file-contain-null-bytes)
+- [Conversion hex string into ascii in bash command line](https://stackoverflow.com/questions/13160309/conversion-hex-string-into-ascii-in-bash-command-line)
 
 https://github.com/cr-marcstevens/hashclash
 
@@ -19,3 +20,8 @@ https://github.com/Simsys/qhexedit2
 https://github.com/echo-devim/fhex
 
 https://github.com/jovibor/HexCtrl
+
+linux unhex command
+
+- https://linux.die.net/man/1/unhex
+- https://github.com/zTrix/zio

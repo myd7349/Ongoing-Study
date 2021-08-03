@@ -68,3 +68,7 @@
         }
     }
 }
+
+
+// References:
+// https://github.com/chmorgan/sharppcap/blob/master/SharpPcap/LibPcap/NativeLibraryHelper.cs

@@ -1,6 +1,7 @@
 ﻿namespace HDF5.Extension
 {
     using System;
+    using System.IO;
 
     using HDF.PInvoke;
 
@@ -8,10 +9,13 @@
 
     public static partial class HDF5Helper
     {
-        public static bool IsHdf5File(string filePath)
+        public static bool IsHdf5File(string filePath, bool failIfNotExists = false)
         {
             if (string.IsNullOrEmpty(filePath))
                 throw new ArgumentException("filePath");
+
+            if (!failIfNotExists && !File.Exists(filePath))
+                return false;
 
             return htri_t_to_bool(H5F.is_hdf5(filePath), "H5F.is_hdf5");
         }

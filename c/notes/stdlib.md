@@ -69,3 +69,9 @@ void free(void *alloc) {
 [Problem in overriding malloc](https://stackoverflow.com/questions/1094532/problem-in-overriding-malloc)
 
 [What is the LD_PRELOAD trick?](https://stackoverflow.com/questions/426230/what-is-the-ld-preload-trick)
+
+[some standard libraries have a mutex lock in rand() that can dramatically hurt performance when run across multiple threads.](https://github.com/google/marl/commit/59068ee4cf1f5ff5e691ff010c8d83b5f862c4fa)
+
+- https://github.com/google/marl/issues/17
+- [Using stdlib's rand() from multiple threads](https://stackoverflow.com/questions/6161322/using-stdlibs-rand-from-multiple-threads)
+

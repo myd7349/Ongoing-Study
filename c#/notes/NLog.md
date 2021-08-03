@@ -45,3 +45,4 @@
 
 [How to make NLog terminate application on fatal errors?](https://stackoverflow.com/questions/19225402/how-to-make-nlog-terminate-application-on-fatal-errors)
 
+https://github.com/microsoft/Vipr/blob/master/src/Core/Vipr/NLog.config

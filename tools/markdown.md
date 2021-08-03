@@ -35,3 +35,5 @@ Softwares:
 
 - Typora
 - [Notable](https://github.com/notable/notable)
+- [Obsidian](https://obsidian.md/)
+

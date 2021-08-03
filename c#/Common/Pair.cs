@@ -2,6 +2,7 @@
 
 // Another Pair implementation by wj32:
 // https://github.com/wj32/Wj.Math/blob/master/Wj.Math/Pair.cs
+// System.Collections.Generic.KeyValuePair<TKey,TValue>
 
 namespace Common
 {

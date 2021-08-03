@@ -395,3 +395,4 @@ void *easy_base64_decode(const char *base64, void *data, size_t *out_len)
 // https://github.com/libb64/libb64
 // https://github.com/uutils/coreutils/blob/master/src/uu/base64/src/base64.rs
 // https://github.com/wertarbyte/coreutils/blob/master/src/base64.c
+// https://github.com/ARMmbed/mbedtls/blob/development/include/mbedtls/base64.h

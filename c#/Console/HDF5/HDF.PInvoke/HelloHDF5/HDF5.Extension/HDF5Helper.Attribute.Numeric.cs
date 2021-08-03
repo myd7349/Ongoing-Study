@@ -110,7 +110,7 @@
             return WriteScalarNumericAttribute(attribute, value);
         }
 
-        public static bool WriteScalarNumericAttribute<T>(hid_t hid, string key, T value) where T : struct
+        public static bool WriteScalarNumericAttribute<T>(hid_t hid, string key, T value, hid_t type) where T : struct
         {
             if (key == null)
                 throw new ArgumentNullException("key");
@@ -124,17 +124,6 @@
                 var space = H5S.create(H5S.class_t.SCALAR);
                 if (space < 0)
                     throw new Exception("Failed to create scalar space");
-
-                hid_t type = H5I.H5I_INVALID_HID;
-                try
-                {
-                    type = NumericTypeToHDF5Type<T>();
-                }
-                catch (Exception)
-                {
-                    H5S.close(space);
-                    throw;
-                }
 
                 var attribute = H5A.create(hid, key, type, space);
                 if (attribute < 0)
@@ -160,7 +149,7 @@
 
                 try
                 {
-                    return WriteScalarNumericAttribute(attribute, value);
+                    return WriteScalarNumericAttribute(attribute, value, type);
                 }
                 finally
                 {
@@ -169,7 +158,12 @@
             }
         }
 
-        public static bool WriteScalarNumericAttribute<T>(hid_t attribute, T value) where T : struct
+        public static bool WriteScalarNumericAttribute<T>(hid_t hid, string key, T value) where T : struct
+        {
+            return WriteScalarNumericAttribute(hid, key, value, NumericTypeToHDF5Type<T>());
+        }
+
+        public static bool WriteScalarNumericAttribute<T>(hid_t attribute, T value, hid_t type) where T : struct
         {
             var space = H5A.get_space(attribute);
             if (space < 0)
@@ -183,21 +177,26 @@
 
             H5S.close(space);
 
-            var type = H5A.get_type(attribute);
-            if (type < 0)
+            var attributeType = H5A.get_type(attribute);
+            if (attributeType < 0)
                 throw new Exception("Failed to get type");
 
-            var typeClass = H5T.get_class(type);
-            H5T.close(type);
-            if (typeClass != H5T.class_t.INTEGER && typeClass != H5T.class_t.FLOAT)
+            var attributeTypeClass = H5T.get_class(attributeType);
+            H5T.close(attributeType);
+            if (attributeTypeClass != H5T.class_t.INTEGER && attributeTypeClass != H5T.class_t.FLOAT)
                 throw new Exception("Not an integral or floating point data type");
 
             // TODO:
             // Check if value can be cast to type of this attribute.
             object boxedValue = value;
-            H5A.write(attribute, NumericTypeToHDF5Type<T>(), new PinnedObject(boxedValue));
+            H5A.write(attribute, type, new PinnedObject(boxedValue));
 
             return true;
+        }
+
+        public static bool WriteScalarNumericAttribute<T>(hid_t attribute, T value) where T : struct
+        {
+            return WriteScalarNumericAttribute(attribute, value, NumericTypeToHDF5Type<T>());
         }
 
         public static T ReadScalarNumericAttribute<T>(hid_t hid, string key) where T : struct

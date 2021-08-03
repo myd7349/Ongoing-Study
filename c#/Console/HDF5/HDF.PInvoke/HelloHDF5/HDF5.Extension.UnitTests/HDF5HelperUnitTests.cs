@@ -178,6 +178,13 @@
             Assert.IsTrue(ReadScalarNumericAttribute<byte>(file_, "u8") == byte.MaxValue);
             Assert.IsTrue(ReadScalarNumericAttribute<int>(file_, "u8") == byte.MaxValue);
 
+            // Very funny!
+            Assert.IsTrue(WriteScalarNumericAttribute(file_, "u8", 0xAA, H5T.NATIVE_INT8));
+            Assert.IsFalse(ReadScalarNumericAttribute<byte>(file_, "u8") == 0xAA);
+            Assert.IsTrue(ReadScalarNumericAttribute<byte>(file_, "u8") == 0);
+            Assert.IsTrue(WriteScalarNumericAttribute(file_, "u8", 0xAA, H5T.NATIVE_UINT8));
+            Assert.IsTrue(ReadScalarNumericAttribute<byte>(file_, "u8") == 0xAA);
+
             Assert.IsTrue(WriteAttribute(file_, "i16", short.MaxValue));
             Assert.IsTrue(ReadScalarNumericAttribute<short>(file_, "i16") == short.MaxValue);
             Assert.IsTrue(ReadScalarNumericAttribute<int>(file_, "i16") == short.MaxValue);
