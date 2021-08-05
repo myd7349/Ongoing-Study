@@ -17,7 +17,7 @@
 
         public static int ReadInt(this IniFile2 ini, string section, string key, int defaultValue = default(int))
         {
-            var value = ini.ReadLong(section, key);
+            var value = ini.ReadLong(section, key, defaultValue);
             if (value >= int.MinValue && value <= int.MaxValue)
                 return (int)value;
             else
@@ -26,7 +26,7 @@
 
         public static uint ReadUInt(this IniFile2 ini, string section, string key, uint defaultValue = default(uint))
         {
-            var value = ini.ReadULong(section, key);
+            var value = ini.ReadULong(section, key, defaultValue);
             if (value >= uint.MinValue && value <= uint.MaxValue)
                 return (uint)value;
             else
@@ -114,6 +114,7 @@
                 case '0':
                     return false;
                 case 'o':
+                case 'O':
                     {
                         var lowerValue = value.ToLower();
                         if (lowerValue == "on")
@@ -126,6 +127,11 @@
             }
 
             return defaultValue;
+        }
+
+        public static double ReadDouble(this IniFile2 ini, string section, string key, double defaultValue = default(double))
+        {
+            return ini.Read(section, key, defaultValue, double.TryParse);
         }
 
         public static string ReadString(this IniFile2 ini, string section, string key, string defaultValue = "" /* string.Empty */)
@@ -145,7 +151,7 @@
             if (ini == null)
                 throw new ArgumentNullException("ini");
 
-            if (tryParse != null)
+            if (tryParse == null)
                 throw new ArgumentNullException("tryParse");
 
             string valueString = string.Empty;
@@ -213,6 +219,14 @@
             Debug.Assert(ini.TrueLiteral != ini.FalseLiteral);
 
             ini.Write(section, key, value ? ini.TrueLiteral : ini.FalseLiteral);
+        }
+
+        public static void Write(this IniFile2 ini, string section, string key, double value)
+        {
+            if (ini == null)
+                throw new ArgumentNullException("ini");
+
+            ini.Write(section, key, value.ToString());
         }
 
         public static void Write(this IniFile2 ini, string section, string key, string value)

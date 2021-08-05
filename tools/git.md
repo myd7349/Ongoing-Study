@@ -361,3 +361,4 @@ git config --system core.longpaths true
 
 [gitfs](https://github.com/presslabs/gitfs)
 
+https://github.com/klaussilveira/gitlist

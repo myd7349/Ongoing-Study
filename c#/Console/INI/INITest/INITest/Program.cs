@@ -33,6 +33,8 @@
 
         static void Test1()
         {
+            Console.WriteLine("---------- {0} ----------", DiagnosticsHelper.GetCurrentMethodName());
+
             var iniFilePath = Path.Combine(AppBaseDirectory, "test1.ini");
 
             Kernel32.WritePrivateProfileString(null, "tom", "jerry", iniFilePath);
@@ -139,14 +141,16 @@
 
         static void TestIniFileClass()
         {
+            Console.WriteLine("---------- {0} ----------", DiagnosticsHelper.GetCurrentMethodName());
+
             var iniFilePath = Path.Combine(AppBaseDirectory, "config.ini");
 
             var ini = new IniFile(iniFilePath);
             foreach (var kv in ini.ReadSection("hello"))
                 Console.WriteLine("{0} = {1}", kv.Key, kv.Value);
 
-            Console.WriteLine("{0}", ini.IsSectionExists("server"));
-            Console.WriteLine("{0}", ini.IsKeyExists("server", "user"));
+            Console.WriteLine("{0}", ini.HasSection("server"));
+            Console.WriteLine("{0}", ini.HasKey("server", "user"));
 
             ini.WriteSection(
                 "Server",
@@ -159,12 +163,14 @@
             foreach (var kv in ini.ReadSection("Server"))
                 Console.WriteLine("{0} = {1}", kv.Key, kv.Value);
 
-            Console.WriteLine("{0}", ini.IsSectionExists("server"));
-            Console.WriteLine("{0}", ini.IsKeyExists("server", "user"));
+            Console.WriteLine("{0}", ini.HasSection("server"));
+            Console.WriteLine("{0}", ini.HasKey("server", "user"));
         }
 
         static void TestIniFileClass2()
         {
+            Console.WriteLine("---------- {0} ----------", DiagnosticsHelper.GetCurrentMethodName());
+
             var iniFilePath = Path.Combine(AppBaseDirectory, "config2.ini");
 
             var config =
@@ -183,9 +189,9 @@ Pwd=123456
                     Console.WriteLine("{0} = {1}", kv.Key, kv.Value);
 
                 using (var iniFileStream = new FileStream(iniFilePath, FileMode.Create))
-                    IniFile2.Store(iniFileStream, configContents);
+                    IniFile2.Store(configContents, iniFileStream, Encoding.UTF8);
 
-                using (var ini = new IniFile2(iniFilePath))
+                using (var ini = new IniFile2(iniFilePath, Encoding.UTF8))
                 {
                     ini["login", "LastSeen"] = DateTime.Now.ToString();
                     foreach (var section in ini.GetSections())

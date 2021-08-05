@@ -27,20 +27,27 @@
             return Kernel32.GetPrivateProfileSectionNames(FilePath);
         }
 
-        public bool IsSectionExists(string section)
+        public bool HasSection(string section)
         {
-            Debug.Assert(!string.IsNullOrWhiteSpace(section));
+            if (string.IsNullOrWhiteSpace(section))
+                throw new ArgumentException("section");
+
             return GetSections().Contains(section, StringComparer.OrdinalIgnoreCase);
         }
 
         public string[] GetKeys(string section)
         {
-            Debug.Assert(!string.IsNullOrWhiteSpace(section));
+            if (string.IsNullOrWhiteSpace(section))
+                throw new ArgumentException("section");
+
             return Kernel32.GetPrivateProfileString(section, null, null, FilePath).ToStrings().ToArray();
         }
 
-        public bool IsKeyExists(string section, string key)
+        public bool HasKey(string section, string key)
         {
+            if (string.IsNullOrWhiteSpace(key))
+                throw new ArgumentException("key");
+
             return GetKeys(section).Contains(key, StringComparer.OrdinalIgnoreCase);
         }
 
@@ -126,6 +133,7 @@
                 case '0':
                     return false;
                 case 'o':
+                case 'O':
                     {
                         var lowerValue = value.ToLower();
                         if (lowerValue == "on")
@@ -140,6 +148,11 @@
             return defaultValue;
         }
 
+        public double ReadDouble(string section, string key, double defaultValue = default(double))
+        {
+            return Read(section, key, defaultValue, double.TryParse);
+        }
+
         public string ReadString(string section, string key, string defaultValue = "" /* string.Empty */)
         {
             return Kernel32.GetPrivateProfileString(section, key, defaultValue, FilePath);
@@ -147,7 +160,8 @@
 
         public T Read<T>(string section, string key, T defaultValue, GenericTryParse<T> tryParse)
         {
-            Debug.Assert(tryParse != null);
+            if (tryParse == null)
+                throw new ArgumentNullException("tryParse");
 
             var valueString = ReadString(section, key, defaultValue.ToString());
             if (string.IsNullOrEmpty(valueString))
@@ -197,6 +211,11 @@
             return Write(section, key, value ? TrueLiteral : FalseLiteral);
         }
 
+        public bool Write(string section, string key, double value)
+        {
+            return Write(section, key, value.ToString());
+        }
+
         public bool Write(string section, string key, string value)
         {
             return Kernel32.WritePrivateProfileString(section, key, value, FilePath);
@@ -204,8 +223,23 @@
 
         public bool Write<T>(string section, string key, T value, GenericConvert<T> convert)
         {
-            Debug.Assert(convert != null);
+            if (convert == null)
+                throw new ArgumentNullException("convert");
+
             return Write(section, key, convert(value));
+        }
+
+        public string this[string section, string key]
+        {
+            get
+            {
+                return ReadString(section, key);
+            }
+
+            set
+            {
+                Write(section, key, value);
+            }
         }
     }
 }

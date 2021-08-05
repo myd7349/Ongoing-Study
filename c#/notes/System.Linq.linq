@@ -125,6 +125,7 @@ void Main()
 {
     var ch1 = new short[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     var ch2 = ch1.Select(x => (short)(x * 1000)).ToArray();
+    ch1.Where(x => x % 2 == 0).Dump();
     
     using (var memoryStream = new MemoryStream())
     using (var binaryWriter = new BinaryWriter(memoryStream))

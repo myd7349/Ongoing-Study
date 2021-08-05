@@ -47,6 +47,95 @@
 
             return memStream;
         }
+
+        public static int AsInt(this string str)
+        {
+            int value;
+            if (!int.TryParse(str, out value))
+                throw new ArgumentException("str");
+
+            return value;
+        }
+
+        public static uint AsUInt(this string str)
+        {
+            uint value;
+            if (!uint.TryParse(str, out value))
+                throw new ArgumentException("str");
+
+            return value;
+        }
+
+        public static long AsLong(this string str)
+        {
+            long value;
+            if (!long.TryParse(str, out value))
+                throw new ArgumentException("str");
+
+            return value;
+        }
+
+        public static ulong AsULong(this string str)
+        {
+            ulong value;
+            if (!ulong.TryParse(str, out value))
+                throw new ArgumentException("str");
+
+            return value;
+        }
+
+        public static bool AsBoolean(this string str, string trueLiteral = "true", string falseLiteral = "false")
+        {
+            Debug.Assert(!string.IsNullOrWhiteSpace(trueLiteral));
+            Debug.Assert(!string.IsNullOrWhiteSpace(falseLiteral));
+            Debug.Assert(trueLiteral != falseLiteral);
+
+            if (str.IsNull())
+                throw new ArgumentNullException("str");
+
+            str.Trim();
+            if (str.IsEmpty())
+                throw new ArgumentException("str");
+
+            if (str == trueLiteral)
+                return true;
+
+            if (str == falseLiteral)
+                return false;
+
+            // true/false, True/False
+            // yes/no, Yes/No
+            // on/off
+            // 1/0
+            switch (str[0])
+            {
+                case 't':
+                case 'T':
+                case 'y':
+                case 'Y':
+                case '1':
+                    return true;
+                case 'f':
+                case 'F':
+                case 'n':
+                case 'N':
+                case '0':
+                    return false;
+                case 'o':
+                case 'O':
+                    {
+                        var lowerValue = str.ToLower();
+                        if (lowerValue == "on")
+                            return true;
+                        else if (lowerValue == "off")
+                            return false;
+                    }
+                    break;
+                default: break;
+            }
+
+            throw new ArgumentException("str");
+        }
     }
 }
 

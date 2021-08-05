@@ -26,3 +26,4 @@
 // References:
 // https://stackoverflow.com/questions/2124339/c-preprocessor-va-args-number-of-arguments
 // https://github.com/Genymobile/scrcpy/blob/master/app/src/util/log.h
+// https://github.com/armink/EasyLogger

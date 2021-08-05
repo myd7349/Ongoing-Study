@@ -5,13 +5,15 @@
     using System.Diagnostics;
     using System.IO;
     using System.Linq;
+    using System.Text;
 
     public class IniFile2 : IDisposable
     {
-        public IniFile2(string filePath)
+        public IniFile2(string filePath, Encoding encoding = null)
         {
             Debug.Assert(!string.IsNullOrWhiteSpace(filePath));
             FilePath = filePath;
+            Encoding = encoding;
 
             TrueLiteral = "true";
             FalseLiteral = "false";
@@ -20,6 +22,8 @@
         }
 
         public string FilePath { get; private set; }
+
+        public Encoding Encoding { get; private set; }
 
         public string TrueLiteral { get; set; }
 
@@ -30,7 +34,7 @@
             if (File.Exists(FilePath))
             {
                 using (var fileStream = File.OpenRead(FilePath))
-                    data_ = Load(fileStream);
+                    data_ = Load(fileStream, Encoding);
             }
             else
             {
@@ -41,7 +45,7 @@
         public void Flush()
         {
             using (var fileStream = new FileStream(FilePath, FileMode.Create))
-                Store(fileStream, data_);
+                Store(data_, fileStream, Encoding);
         }
 
         public string Get(string section, string key)
@@ -138,7 +142,7 @@
             return data_.Keys.Select(sk => sk.Split(KeyDelimiter[0])[0]).Distinct(data_.Comparer);  
         }
 
-        public bool IsSectionExists(string section)
+        public bool HasSection(string section)
         {
             if (section == null)
                 throw new ArgumentNullException("section");
@@ -146,12 +150,18 @@
             return GetSections().Contains(section, data_.Comparer);
         }
 
-        public IEnumerable<string> GetKeys(string setcion)
+        public IEnumerable<string> GetKeys(string section)
         {
-            return data_.Keys.Select(sk => sk.Split(KeyDelimiter[0])[1]).Distinct(data_.Comparer);
+            if (section == null)
+                throw new ArgumentNullException("section");
+
+            return data_.Keys
+                .Select(sk => sk.Split(KeyDelimiter[0]))
+                .Where(sk => data_.Comparer.Equals(section, sk[0]))
+                .Select(sk => sk[1]);
         }
 
-        public bool IsKeyExists(string section, string key)
+        public bool HasKey(string section, string key)
         {
             return GetKeys(section).Contains(key, data_.Comparer);
         }
@@ -188,11 +198,11 @@
         private Dictionary<string, string> data_;
         private bool disposed_ = false;
 
-        public static Dictionary<string, string> Load(Stream stream)
+        public static Dictionary<string, string> Load(Stream stream, Encoding encoding = null)
         {
             var data = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
-            using (var reader = new StreamReader(stream))
+            using (var reader = encoding == null ? new StreamReader(stream) : new StreamReader(stream, encoding))
             {
                 string sectionPrefix = string.Empty;
 
@@ -240,13 +250,13 @@
         }
 
         // TODO: Preserve comments.
-        public static void Store(Stream stream, Dictionary<string, string> data)
+        public static void Store(Dictionary<string, string> data, Stream stream, Encoding encoding = null)
         {
             var sortedData = new SortedDictionary<string, string>(data, StringComparer.OrdinalIgnoreCase);
 
             string section = null;
 
-            using (var streamWriter = new StreamWriter(stream))
+            using (var streamWriter = encoding == null ? new StreamWriter(stream) : new StreamWriter(stream, encoding))
             {
                 foreach (var keyValuePair in sortedData)
                 {

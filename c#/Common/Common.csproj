@@ -55,6 +55,7 @@
     <Compile Include="Kernel32.WinBase.Profile.cs" />
     <Compile Include="MarshalHelper.cs" />
     <Compile Include="MathHelper.cs" />
+    <Compile Include="MemoryStreamExtension.cs" />
     <Compile Include="MetafileUtility.cs" />
     <Compile Include="MMTimer.cs" />
     <Compile Include="ArrayHelper.cs" />

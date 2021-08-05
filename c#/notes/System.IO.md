@@ -55,3 +55,5 @@ https://github.com/dotnet/runtime/blob/1fa304a14a8be27428399bd6f2cc51736cb1515a/
 
 https://github.com/dahall/Vanara/blob/56cda5a8f4d6648563651996d99f471f9e49e56f/Core/Extensions/InteropExtensions.cs#L1047-L1068
 
+[How can I create a temp file with a specific extension with .NET?](https://stackoverflow.com/questions/581570/how-can-i-create-a-temp-file-with-a-specific-extension-with-net)
+

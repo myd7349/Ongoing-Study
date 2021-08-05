@@ -51,3 +51,7 @@ https://github.com/Tyrrrz/GitHubActionsTestLogger
 https://github.com/anuraghazra/github-readme-stats
 
 https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/
+
+https://github.com/haya14busa/action-update-semver
+
+https://github.com/reviewdog/action-languagetool
