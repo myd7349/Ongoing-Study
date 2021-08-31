@@ -1,185 +1,136 @@
 ﻿namespace Common
 {
-	using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
+    using System;
+    //using System.ComponentModel;
     using System.Linq;
     using System.Runtime.InteropServices;
 
     public static class Kernel32
     {
-		[DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Auto)]
+        [DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Auto)]
         public static extern uint GetPrivateProfileInt(string lpAppName, string lpKeyName, int nDefault, string lpFileName);
 
-		[DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Auto)]
-		public static extern uint GetPrivateProfileSection(string lpAppName, [Out] IntPtr lpReturnedString, uint nSize, string lpFileName);
+        [DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Auto)]
+        public static extern uint GetPrivateProfileSection(string lpAppName, [Out] IntPtr lpReturnedString, uint nSize, string lpFileName);
 
-		//[DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Auto)]
-		//private static extern uint GetPrivateProfileSectionW(string lpAppName, StringBuilder lpReturnedString, uint nSize, string lpFileName);
+        //[DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Auto)]
+        //private static extern uint GetPrivateProfileSectionW(string lpAppName, StringBuilder lpReturnedString, uint nSize, string lpFileName);
 
-		//[DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Unicode)]
-		//private static extern unsafe uint GetPrivateProfileSectionW(string lpAppName, [Out] char* lpReturnedString, uint nSize, string lpFileName);
+        //[DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Unicode)]
+        //private static extern unsafe uint GetPrivateProfileSectionW(string lpAppName, [Out] char* lpReturnedString, uint nSize, string lpFileName);
 
-		[DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Unicode)]
-		private static extern uint GetPrivateProfileSectionW(string lpAppName, [Out] char[] lpReturnedString, uint nSize, string lpFileName);
+        [DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Unicode)]
+        private static extern uint GetPrivateProfileSectionW(string lpAppName, [Out] char[] lpReturnedString, uint nSize, string lpFileName);
 
-		public static string[] GetPrivateProfileSection(string lpAppName, string lpFileName)
+        public static string[] GetPrivateProfileSection(string lpAppName, string lpFileName)
         {
-			return ReadString(
-				buffer => GetPrivateProfileSectionW(lpAppName, buffer, (uint)buffer.Length, lpFileName),
-				IsBufferTooSmall).ToStrings().ToArray();
+            return ReadString(
+                buffer => GetPrivateProfileSectionW(lpAppName, buffer, (uint)buffer.Length, lpFileName),
+                IsBufferTooSmall).ToStrings().ToArray();
         }
 
-		[DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Auto)]
-		public static extern uint GetPrivateProfileSectionNames(IntPtr lpszReturnBuffer, uint nSize, string lpFileName);
+        [DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Auto)]
+        public static extern uint GetPrivateProfileSectionNames(IntPtr lpszReturnBuffer, uint nSize, string lpFileName);
 
-		[DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Unicode)]
-		public static extern uint GetPrivateProfileSectionNamesW([Out] char[] lpszReturnBuffer, uint nSize, string lpFileName);
+        [DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Unicode)]
+        private static extern uint GetPrivateProfileSectionNamesW([Out] char[] lpszReturnBuffer, uint nSize, string lpFileName);
 
-		public static string[] GetPrivateProfileSectionNames(string lpFileName)
+        public static string[] GetPrivateProfileSectionNames(string lpFileName)
         {
-			return ReadString(
-				buffer => GetPrivateProfileSectionNamesW(buffer, (uint)buffer.Length, lpFileName),
-				IsBufferTooSmall).ToStrings().ToArray();
-		}
+            return ReadString(
+                buffer => GetPrivateProfileSectionNamesW(buffer, (uint)buffer.Length, lpFileName),
+                IsBufferTooSmall).ToStrings().ToArray();
+        }
 
-		[DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-		public static extern uint GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, IntPtr lpReturnedString, uint nSize, string lpFileName);
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        public static extern uint GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, IntPtr lpReturnedString, uint nSize, string lpFileName);
 
-		[DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
-		public static extern uint GetPrivateProfileStringW(string lpAppName, string lpKeyName, string lpDefault, char[] lpReturnedString, uint nSize, string lpFileName);
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+        public static extern uint GetPrivateProfileStringW(string lpAppName, string lpKeyName, string lpDefault, char[] lpReturnedString, uint nSize, string lpFileName);
 
-		public static string GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, string lpFileName)
+        public static string GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, string lpFileName)
         {
-			return ReadString(
-				buffer =>
-				{
-					var result = GetPrivateProfileStringW(lpAppName, lpKeyName, lpDefault, buffer, (uint)buffer.Length, lpFileName);
+            return ReadString(
+                buffer =>
+                {
+                    var result = GetPrivateProfileStringW(lpAppName, lpKeyName, lpDefault, buffer, (uint)buffer.Length, lpFileName);
 #if false
-					var lastError = Marshal.GetLastWin32Error();
-					if (lastError != 0)
-						throw new Win32Exception(lastError);
+                    var lastError = Marshal.GetLastWin32Error();
+                    if (lastError != 0)
+                        throw new Win32Exception(lastError);
 #endif
-					return result;
-				},
-				(buffer, result) => result == buffer.Length - 2 || result == buffer.Length - 1);
+                    return result;
+                },
+                (buffer, result) => result == buffer.Length - 2 || result == buffer.Length - 1);
         }
 
-		[DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Auto)]
-		[return: MarshalAs(UnmanagedType.Bool)]
-		public static extern bool GetPrivateProfileStruct(string lpszSection, string lpszKey, IntPtr lpStruct, uint uSizeStruct, string szFile);
+        [DllImport("kernel32.dll", SetLastError = false, CharSet = CharSet.Auto)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GetPrivateProfileStruct(string lpszSection, string lpszKey, IntPtr lpStruct, uint uSizeStruct, string szFile);
 
-		[DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-		[return: MarshalAs(UnmanagedType.Bool)]
-		public static extern bool WritePrivateProfileSection(IntPtr lpAppName, string lpString, string lpFileName);
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool WritePrivateProfileSection(string lpAppName, IntPtr lpString, string lpFileName);
 
-		/*
+        /*
         [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool WritePrivateProfileSection(
-	        string lpAppName,
-	        [In, MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(NullTermStringArrayMarshaler), MarshalCookie = "Auto")] string[] lpString,
-	        string lpFileName);
+            string lpAppName,
+            [In, MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(NullTermStringArrayMarshaler), MarshalCookie = "Auto")] string[] lpString,
+            string lpFileName);
         */
-		// According to:
-		// https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-writeprivateprofilesectionw
-		// lpString
-		// The new key names and associated values that are to be written to the named section.This string is limited to 65,535 bytes.
-		[DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-		[return: MarshalAs(UnmanagedType.Bool)]
-		public static extern bool WritePrivateProfileSection(string lpAppName, string lpString, string lpFileName);
+        // According to:
+        // https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-writeprivateprofilesectionw
+        // lpString
+        // The new key names and associated values that are to be written to the named section.This string is limited to 65,535 bytes.
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool WritePrivateProfileSection(string lpAppName, string lpString, string lpFileName);
 
-		[DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-		[return: MarshalAs(UnmanagedType.Bool)]
-		public static extern bool WritePrivateProfileString(string lpAppName, string lpKeyName, string lpString, string lpFileName);
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool WritePrivateProfileString(string lpAppName, string lpKeyName, string lpString, string lpFileName);
 
-		[DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-		[return: MarshalAs(UnmanagedType.Bool)]
-		public static extern bool WritePrivateProfileStruct(string lpszSection, string lpszKey, [In] IntPtr lpStruct, uint uSizeStruct, string szFile);
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool WritePrivateProfileStruct(string lpszSection, string lpszKey, [In] IntPtr lpStruct, uint uSizeStruct, string szFile);
 
-		private const int StringBufferLengthHint = 256;
+        private const int StringBufferLengthHint = 256;
 
-		private const int StringBufferMaximumLength = int.MaxValue;
+        private const int StringBufferMaximumLength = ushort.MaxValue + 3;
 
-		private static string ReadString(
-			Func<char[], uint> read,
-			Func<char[], uint, bool> isBufferTooSmall)
-		{
-			// TODO:
-			// Will using System.Buffers.ArrayPool<char> here improve performance?
-			var buffer = new char[StringBufferLengthHint];
-
-			while (true)
-			{
-				uint result = read(buffer);
-
-				if (result == 0)
-					return string.Empty;
-
-				if (!isBufferTooSmall(buffer, result))
-					return new string(buffer, 0, (int)result);
-
-				var newBufferLength = Math.Min(buffer.Length * 2, StringBufferMaximumLength);
-				if (newBufferLength == StringBufferMaximumLength)
-					throw new InsufficientMemoryException();
-
-				buffer = new char[newBufferLength];
-			}
-		}
-
-		private static bool IsBufferTooSmall(char[] buffer, uint result)
+        private static string ReadString(
+            Func<char[], uint> read,
+            Func<char[], uint, bool> isBufferTooSmall)
         {
-			return result == buffer.Length - 2;
+            // TODO:
+            // Will using System.Buffers.ArrayPool<char> here improve performance?
+            var buffer = new char[StringBufferLengthHint];
+
+            while (true)
+            {
+                uint result = read(buffer);
+
+                if (result == 0)
+                    return string.Empty;
+
+                if (!isBufferTooSmall(buffer, result))
+                    return new string(buffer, 0, (int)result);
+
+                if (buffer.Length == StringBufferMaximumLength)
+                    throw new InsufficientMemoryException();
+
+                var newBufferLength = Math.Min(buffer.Length * 2, StringBufferMaximumLength);
+                buffer = new char[newBufferLength];
+            }
         }
 
-#if true
-		public static IEnumerable<string> ToStrings(this string buffer)
-		{
-			int start = 0;
-			int length = 0;
-
-			for (var i = 0; i < buffer.Length; i++)
-			{
-				if (buffer[i] != '\0' && i < buffer.Length - 1)
-                {
-					length += 1;
-				}
-				else
-                {
-					yield return buffer.Substring(start, length);
-
-					length = 0;
-					start = i + 1;
-                }
-			}
-		}
-#else
-		public static IEnumerable<string> ToStrings(this string buffer, int count)
-		{
-			List<string> strings = new List<string>();
-
-			int start = 0;
-			int length = 0;
-
-			for (var i = 0; i < buffer.Length; i++)
-			{
-				if (buffer[i] != '\0' && i < buffer.Length - 1)
-				{
-					length += 1;
-				}
-				else
-				{
-					strings.Add(buffer.Substring(start, length));
-
-					length = 0;
-					start = i + 1;
-				}
-			}
-
-			return strings;
-		}
-#endif
-	}
+        private static bool IsBufferTooSmall(char[] buffer, uint result)
+        {
+            return result == buffer.Length - 2;
+        }
+    }
 }
 
 

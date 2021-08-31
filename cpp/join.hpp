@@ -45,3 +45,7 @@ std::basic_string<CharT> join(BidIt first, BidIt last, CharT c)
 }
 
 #endif // JOIN_H_
+
+
+// References:
+// https://github.com/imageworks/pystring/blob/master/pystring.h

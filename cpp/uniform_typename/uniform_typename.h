@@ -8,10 +8,7 @@
 // http://nadeausoftware.com/articles/2012/10/c_c_tip_how_detect_compiler_name_and_version_using_compiler_predefined_macros
 // http://stackoverflow.com/questions/2658461/what-predefined-macro-can-i-use-to-detect-clang
 // https://stackoverflow.com/questions/2989810/which-cross-platform-preprocessor-defines-win32-or-win32-or-win32
-#if defined(__clang__)
-//# define TYPE_NAME(exp) (typeid(exp).name())
-# error Not tested yet!
-#elif defined(__GNUC__) || defined(__GNUG__)
+#if defined(__GNUC__) || defined(__GNUG__) || defined(__clang__)
 // The type name we got from g++ is a decorated name, so we need demangle it.
 // http://stackoverflow.com/questions/4465872/why-typeid-name-returns-weird-characters-using-gcc
 // https://gcc.gnu.org/onlinedocs/libstdc++/manual/ext_demangling.html
@@ -46,3 +43,4 @@ std::string demangle(const char *mangledName)
 
 // References:
 // https://www.zhihu.com/question/278587865
+// https://github.com/DuffsDevice/cpp-typename-parser

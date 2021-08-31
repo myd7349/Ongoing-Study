@@ -118,4 +118,4 @@
   }
   ```
 
-  
+- https://github.com/GothenburgBitFactory/libshared/blob/master/src/Configuration.h

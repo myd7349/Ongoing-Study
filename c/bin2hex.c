@@ -30,3 +30,4 @@ void dump_data(const void *data, size_t size)
 // References:
 // libsodium:sodium_bin2hex
 // Python: binascii.b2a_hex
+// https://github.com/edenhill/librd/blob/master/rdlog.c

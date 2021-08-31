@@ -232,3 +232,7 @@ https://github.com/libconfuse/libconfuse/blob/master/src/fmemopen.c
 [What does the \x1a characters mean](https://stackoverflow.com/questions/16255585/what-does-the-x1a-characters-mean)
 
 > `\x1a` is a [SUB](http://en.wikipedia.org/wiki/Substitute_character) control character, used to mark end of a file (EOF).
+
+20.
+
+https://github.com/bbc/audiowaveform/blob/master/src/madlld-1.1p1/bstdfile.c

@@ -148,3 +148,5 @@ void wconv_free(void *ptr)
 // https://github.com/llvm-mirror/llvm/blob/master/lib/Support/ConvertUTF.cpp
 // https://github.com/haipome/utf8/blob/master/utf8.c
 // https://github.com/CrashRpt/crashrpt2/blob/master/reporting/crashrpt/strconv.h
+// https://github.com/flibitijibibo/SDL2-CS/blob/904eed3cb04319c4e3e360360943e39080f80d7b/src/SDL2.cs#L46-L143
+// https://github.com/wiredtiger/wiredtiger/blob/develop/src/os_win/os_utf8.c

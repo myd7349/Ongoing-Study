@@ -57,3 +57,10 @@ https://github.com/dahall/Vanara/blob/56cda5a8f4d6648563651996d99f471f9e49e56f/C
 
 [How can I create a temp file with a specific extension with .NET?](https://stackoverflow.com/questions/581570/how-can-i-create-a-temp-file-with-a-specific-extension-with-net)
 
+MemoryMapFile:
+
+- https://github.com/microsoft/perfview/blob/7bc1b55ebf6773f8afcdf46a96d2e9ccc763aeee/src/FastSerialization/MemoryMappedFileStreamWriter.cs
+
+https://github.com/microsoft/perfview/blob/7bc1b55ebf6773f8afcdf46a96d2e9ccc763aeee/src/FastSerialization/CompressedStream.cs
+
+[File IO improvements in .NET 6](https://devblogs.microsoft.com/dotnet/file-io-improvements-in-dotnet-6/)

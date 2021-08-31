@@ -243,4 +243,6 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
     Bad:
     
     https://github.com/zeromq/czmq/blob/master/Findlibzmq.cmake
+    
+36. https://github.com/desktop-app/cmake_helpers
 

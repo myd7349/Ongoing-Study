@@ -25,3 +25,20 @@ void Main()
 }
 ```
 
+https://github.com/EasyNetQ/EasyNetQ/blob/develop/Source/EasyNetQ/Internals/ReadOnlyMemoryStream.cs
+
+> ```csharp
+> [MethodImpl(MethodImplOptions.AggressiveInlining)]
+> private static void ValidateReadArrayArguments(byte[] buffer, int offset, int count)
+> {
+>     if (buffer == null)
+>         throw new ArgumentNullException(nameof(buffer));
+> 
+>     if (offset < 0)
+>         throw new ArgumentOutOfRangeException(nameof(offset));
+> 
+>     if (count < 0 || buffer.Length - offset < count)
+>         throw new ArgumentOutOfRangeException(nameof(count));
+> }
+> ```
+

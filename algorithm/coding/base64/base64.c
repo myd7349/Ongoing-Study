@@ -396,3 +396,7 @@ void *easy_base64_decode(const char *base64, void *data, size_t *out_len)
 // https://github.com/uutils/coreutils/blob/master/src/uu/base64/src/base64.rs
 // https://github.com/wertarbyte/coreutils/blob/master/src/base64.c
 // https://github.com/ARMmbed/mbedtls/blob/development/include/mbedtls/base64.h
+// https://github.com/tdlib/td/blob/master/tdutils/td/utils/base64.cpp
+// [Base64 vs HEX for sending binary content over the internet in XML doc](https://stackoverflow.com/questions/3183841/base64-vs-hex-for-sending-binary-content-over-the-internet-in-xml-doc)
+// https://github.com/jedisct1/d8code
+// https://github.com/BuLogics/libb64

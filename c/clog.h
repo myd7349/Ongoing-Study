@@ -27,3 +27,7 @@
 // https://stackoverflow.com/questions/2124339/c-preprocessor-va-args-number-of-arguments
 // https://github.com/Genymobile/scrcpy/blob/master/app/src/util/log.h
 // https://github.com/armink/EasyLogger
+// https://github.com/tdlib/td/blob/master/td/telegram/Log.h
+// https://github.com/GothenburgBitFactory/libshared/blob/591fa58f9c684e22a3a55dbf71bdd00c25ceb28d/src/Log.h
+// https://github.com/wiredtiger/wiredtiger/blob/develop/src/log/log.c
+// https://github.com/bbc/audiowaveform/blob/master/src/Log.cpp

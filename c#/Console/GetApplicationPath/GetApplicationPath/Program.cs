@@ -27,3 +27,7 @@ namespace GetApplicationPath
 // [Get current folder path](http://stackoverflow.com/questions/15653921/get-current-folder-path)
 // [mono c# get application path](http://stackoverflow.com/questions/6246074/mono-c-sharp-get-application-path/18562036#18562036)
 // C# 6.0 in a Nutshell, P631
+// https://github.com/microsoft/perfview/blob/7bc1b55ebf6773f8afcdf46a96d2e9ccc763aeee/src/HeapDump/Program.cs#L27-L29
+//            var exeAssembly = System.Reflection.Assembly.GetExecutingAssembly();
+//            var parentDir = Path.GetDirectoryName(Path.GetDirectoryName(exeAssembly.ManifestModule.FullyQualifiedName));
+//            string fileName = Path.Combine(parentDir, simpleName + ".dll");

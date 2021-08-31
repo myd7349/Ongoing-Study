@@ -4,13 +4,13 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
+    using System.Runtime.CompilerServices;
 
     public static class IniFile2Extension
     {
         public static IEnumerable<KeyValuePair<string, string>> ReadSection(this IniFile2 ini, string section)
         {
-            if (ini == null)
-                throw new ArgumentNullException("ini");
+            ValidateIniArgument(ini);
 
             return ini.GetKeys(section).Select(key => new KeyValuePair<string, string>(key, ini[section, key]));
         }
@@ -35,8 +35,7 @@
 
         public static long ReadLong(this IniFile2 ini, string section, string key, long defaultValue = default(long))
         {
-            if (ini == null)
-                throw new ArgumentNullException("ini");
+            ValidateIniArgument(ini);
 
             string s = string.Empty;
             if (ini.TryGet(section, key, ref s))
@@ -55,8 +54,7 @@
 
         public static ulong ReadULong(this IniFile2 ini, string section, string key, ulong defaultValue = default(ulong))
         {
-            if (ini == null)
-                throw new ArgumentNullException("ini");
+            ValidateIniArgument(ini);
 
             string s = string.Empty;
             if (ini.TryGet(section, key, ref s))
@@ -75,8 +73,7 @@
 
         public static bool ReadBoolean(this IniFile2 ini, string section, string key, bool defaultValue = default(bool))
         {
-            if (ini == null)
-                throw new ArgumentNullException("ini");
+            ValidateIniArgument(ini);
 
             Debug.Assert(!string.IsNullOrWhiteSpace(ini.TrueLiteral));
             Debug.Assert(!string.IsNullOrWhiteSpace(ini.FalseLiteral));
@@ -97,7 +94,7 @@
 
             // true/false, True/False
             // yes/no, Yes/No
-            // on/off
+            // on/off, On/Off
             // 1/0
             switch (value[0])
             {
@@ -136,8 +133,7 @@
 
         public static string ReadString(this IniFile2 ini, string section, string key, string defaultValue = "" /* string.Empty */)
         {
-            if (ini == null)
-                throw new ArgumentNullException("ini");
+            ValidateIniArgument(ini);
 
             string value = string.Empty;
             if (ini.TryGet(section, key, ref value))
@@ -148,8 +144,7 @@
 
         public static T Read<T>(this IniFile2 ini, string section, string key, T defaultValue, GenericTryParse<T> tryParse)
         {
-            if (ini == null)
-                throw new ArgumentNullException("ini");
+            ValidateIniArgument(ini);
 
             if (tryParse == null)
                 throw new ArgumentNullException("tryParse");
@@ -167,8 +162,7 @@
 
         public static void WriteSection(this IniFile2 ini, string section, KeyValuePair<string, string>[] keyValuePairs)
         {
-            if (ini == null)
-                throw new ArgumentNullException("ini");
+            ValidateIniArgument(ini);
 
             if (keyValuePairs == null)
                 throw new ArgumentNullException("keyValuePairs");
@@ -179,40 +173,35 @@
 
         public static void Write(this IniFile2 ini, string section, string key, int value)
         {
-            if (ini == null)
-                throw new ArgumentNullException("ini");
+            ValidateIniArgument(ini);
 
             ini[section, key] = value.ToString();
         }
 
         public static void Write(this IniFile2 ini, string section, string key, uint value)
         {
-            if (ini == null)
-                throw new ArgumentNullException("ini");
+            ValidateIniArgument(ini);
 
             ini[section, key] = value.ToString();
         }
 
         public static void Write(this IniFile2 ini, string section, string key, long value)
         {
-            if (ini == null)
-                throw new ArgumentNullException("ini");
+            ValidateIniArgument(ini);
 
             ini[section, key] = value.ToString();
         }
 
         public static void Write(this IniFile2 ini, string section, string key, ulong value)
         {
-            if (ini == null)
-                throw new ArgumentNullException("ini");
+            ValidateIniArgument(ini);
 
             ini[section, key] = value.ToString();
         }
 
         public static void Write(this IniFile2 ini, string section, string key, bool value)
         {
-            if (ini == null)
-                throw new ArgumentNullException("ini");
+            ValidateIniArgument(ini);
 
             Debug.Assert(!string.IsNullOrWhiteSpace(ini.TrueLiteral));
             Debug.Assert(!string.IsNullOrWhiteSpace(ini.FalseLiteral));
@@ -223,29 +212,37 @@
 
         public static void Write(this IniFile2 ini, string section, string key, double value)
         {
-            if (ini == null)
-                throw new ArgumentNullException("ini");
+            ValidateIniArgument(ini);
 
             ini.Write(section, key, value.ToString());
         }
 
         public static void Write(this IniFile2 ini, string section, string key, string value)
         {
-            if (ini == null)
-                throw new ArgumentNullException("ini");
+            ValidateIniArgument(ini);
 
             ini[section, key] = value;
         }
 
         public static void Write<T>(this IniFile2 ini, string section, string key, T value, GenericConvert<T> convert)
         {
-            if (ini == null)
-                throw new ArgumentNullException("ini");
+            ValidateIniArgument(ini);
 
             if (convert == null)
                 throw new ArgumentNullException("convert");
 
             ini[section, key] = convert(value);
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ValidateIniArgument(IniFile2 ini)
+        {
+            if (ini == null)
+                throw new ArgumentNullException("ini");
+        }
     }
 }
+
+
+// References:
+// https://github.com/EasyNetQ/EasyNetQ/blob/develop/Source/EasyNetQ/Internals/ReadOnlyMemoryStream.cs

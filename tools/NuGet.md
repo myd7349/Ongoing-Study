@@ -26,3 +26,4 @@ or
 > nuget install packages.config
 > ```
 
+https://github.com/esskar/Serialize.Linq

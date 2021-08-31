@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictionaryBenchmarkDotNetFramework", "DictionaryBenchmarkDotNetFramework\DictionaryBenchmarkDotNetFramework.csproj", "{DB4487D3-97EE-49BD-9881-DEE9EF2EE7FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB4487D3-97EE-49BD-9881-DEE9EF2EE7FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB4487D3-97EE-49BD-9881-DEE9EF2EE7FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB4487D3-97EE-49BD-9881-DEE9EF2EE7FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB4487D3-97EE-49BD-9881-DEE9EF2EE7FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFFF04B8-60C9-43DD-A640-C6283E95E621}
+	EndGlobalSection
+EndGlobal

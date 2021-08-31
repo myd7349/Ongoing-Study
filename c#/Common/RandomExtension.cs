@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Security.Cryptography;
 
     public static class RandomExtension
     {
@@ -32,6 +33,16 @@
         {
             return new string(Enumerable.Repeat(chars, length)
               .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        public static byte[] RandomBytes(int length)
+        {
+            var bytes = new byte[length];
+
+            using (var rng = new RNGCryptoServiceProvider())
+                rng.GetBytes(bytes);
+
+            return bytes;
         }
     }
 }

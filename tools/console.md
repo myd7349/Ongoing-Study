@@ -1,7 +1,7 @@
 - Windows Terminal
 - Fluent Terminal
 - ConEmu
-- Cmder
+- [Cmder](https://github.com/cmderdev/cmder)
 - https://github.com/christianparpart/contour
 - https://github.com/contour-terminal/contour
 - https://github.com/alacritty/alacritty

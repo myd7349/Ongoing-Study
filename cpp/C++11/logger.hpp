@@ -91,3 +91,4 @@ void LogExT(StreamT &os, MutexT &mutex, const CharT *level, const CharT *fileNam
 // https://github.com/microsoft/vcpkg/pull/7443
 // https://stackoverflow.com/questions/54237341/how-can-i-determine-the-current-size-of-the-file-opened-by-stdofstream
 // https://github.com/openppl-public/ppl.common/blob/master/src/ppl/common/log.h
+// https://github.com/bbc/audiowaveform/blob/master/src/Log.cpp

@@ -156,3 +156,4 @@
 
 // References:
 // https://github.com/SixLabors/ImageSharp/blob/master/src/ImageSharp/IO/BufferedReadStream.cs
+// https://github.com/bbc/audiowaveform/blob/master/src/madlld-1.1p1/bstdfile.c

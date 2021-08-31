@@ -105,6 +105,18 @@
             ini_.ReadDouble("math", "e").Should().BeApproximately(2.71828, 1e-6);
         }
 
+        [Test]
+        public void TestToStrings()
+        {
+            "".ToStrings().Should().BeEmpty();
+            "abc".ToStrings().Should().Equal("abc");
+            "abc\0".ToStrings().Should().Equal("abc");
+            "abc\0\0".ToStrings().Should().Equal("abc");
+            "abc\0def".ToStrings().Should().Equal("abc", "def");
+            "abc\0def\0".ToStrings().Should().Equal("abc", "def");
+            "abc\0def\0\0".ToStrings().Should().Equal("abc", "def");
+        }
+
         private string temporaryIniFilePath_;
         private IniFile ini_;
     }

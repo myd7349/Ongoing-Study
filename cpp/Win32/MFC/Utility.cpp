@@ -16,6 +16,8 @@
 
 
 // https://github.com/microsoft/wil/blob/2e225973d6c2ecf17fb4d376ddbeedb6db7dd82f/include/wil/win32_helpers.h#L319
+// https://blog.wangzhl.com/posts/get-runtime-dll-path/
+// https://github.com/gpakosz/whereami
 CString GetModuleFileName(HMODULE hModule)
 {
     CString strDir;
@@ -908,3 +910,4 @@ BOOL BytesToImage(CImage &image, LPBYTE pBytes, DWORD dwSize)
 // https://www.codeproject.com/tips/139345/embracing-istream-as-just-a-stream-of-bytes
 // https://stackoverflow.com/questions/7014623/cbitmap-and-cimage-interchangeable
 // https://github.com/CrashRpt/crashrpt2/blob/master/reporting/crashrpt/Utility.cpp
+// https://github.com/MaskRay/ccls/blob/master/src/filesystem.cc

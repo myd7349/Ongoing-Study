@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDF5.Extension.UnitTests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlushFileTest", "FlushFileTest\FlushFileTest.csproj", "{C51EE0AA-0B72-481D-BFC8-CBFAE3361F1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDF5Benchmark", "HDF5Benchmark\HDF5Benchmark.csproj", "{325FD9F8-37A7-4D55-942B-420BCB66D1FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C51EE0AA-0B72-481D-BFC8-CBFAE3361F1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C51EE0AA-0B72-481D-BFC8-CBFAE3361F1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C51EE0AA-0B72-481D-BFC8-CBFAE3361F1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{325FD9F8-37A7-4D55-942B-420BCB66D1FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{325FD9F8-37A7-4D55-942B-420BCB66D1FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{325FD9F8-37A7-4D55-942B-420BCB66D1FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{325FD9F8-37A7-4D55-942B-420BCB66D1FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

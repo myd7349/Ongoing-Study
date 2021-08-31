@@ -3,6 +3,7 @@ Libraries:
 - [NLog](https://github.com/NLog/NLog)
 - [serilog](https://github.com/serilog/serilog)
   - [serilog-sinks-http](https://github.com/FantasticFiasco/serilog-sinks-http)
+  - [logging-dotnet](https://github.com/felfel/logging-dotnet)
 - [common-logging](https://github.com/net-commons/common-logging)
   - https://github.com/itext/itext7-dotnet
 - [MSBuildStructuredLog](https://github.com/KirillOsenkov/MSBuildStructuredLog)
@@ -17,3 +18,7 @@ https://github.com/microsoft/FASTER
 [When logging when is an error fatal?](https://stackoverflow.com/questions/313351/when-logging-when-is-an-error-fatal)
 
 https://github.com/de4dot/de4dot/blob/master/de4dot.code/Logger.cs
+
+[LogParser](https://en.wikipedia.org/wiki/Logparser)
+
+- https://github.com/TerribleDev/TimberWinR

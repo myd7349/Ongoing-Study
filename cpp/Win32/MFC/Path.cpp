@@ -222,3 +222,4 @@ BOOL IsEquivalentPath(LPCTSTR lpcszPath1, LPCTSTR lpcszPath2)
 
 // References:
 // [Best way to determine if two path reference to same file in Windows?](https://stackoverflow.com/questions/562701/best-way-to-determine-if-two-path-reference-to-same-file-in-windows)
+// https://github.com/MaskRay/ccls/blob/master/src/filesystem.cc

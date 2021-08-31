@@ -55,5 +55,26 @@
    }
    ```
    
+2. https://github.com/EasyNetQ/EasyNetQ/blob/develop/Source/EasyNetQ/Internals/ReadOnlyMemoryStream.cs
+
+   > ```csharp
+   > public override long Seek(long offset, SeekOrigin origin)
+   > {
+   >     var newPosition = origin switch
+   >     {
+   >         SeekOrigin.Begin => offset,
+   >         SeekOrigin.Current => position + offset,
+   >         SeekOrigin.End => content.Length + offset,
+   >         _ => throw new ArgumentOutOfRangeException(nameof(origin))
+   >     };
+   > 
+   >     if (newPosition > int.MaxValue || newPosition < 0)
+   >         throw new ArgumentOutOfRangeException(nameof(offset));
+   > 
+   >     position = (int)newPosition;
+   >     return position;
+   > }
+   > ```
+
    
 

@@ -1,0 +1,1 @@
+https://github.com/desktop-app/lib_base/blob/master/base/crash_report_writer.cpp

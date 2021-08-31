@@ -283,4 +283,4 @@
 
 // References:
 // https://github.com/dotnet/runtime/blob/1fa304a14a8be27428399bd6f2cc51736cb1515a/src/libraries/Microsoft.Extensions.Configuration.Ini/src/IniStreamConfigurationProvider.cs#L26-L81
-
+// https://github.com/GothenburgBitFactory/libshared/blob/master/src/Configuration.h

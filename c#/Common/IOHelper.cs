@@ -230,3 +230,6 @@ namespace Common.IO
 // [How do I check if a given string is a legal/valid file name under Windows?](https://stackoverflow.com/questions/62771/how-do-i-check-if-a-given-string-is-a-legal-valid-file-name-under-windows)
 // [C# Append byte array to existing file](https://stackoverflow.com/questions/6862368/c-sharp-append-byte-array-to-existing-file)
 // [How to read a text file one line at a time (C# Programming Guide)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/file-system/how-to-read-a-text-file-one-line-at-a-time)
+// https://github.com/microsoft/perfview/blob/main/src/Utilities/FileUtilities.cs
+// https://github.com/microsoft/perfview/blob/main/src/Utilities/DirectoryUtilities.cs
+// https://github.com/microsoft/perfview/blob/main/src/Utilities/StreamUtilities.cs

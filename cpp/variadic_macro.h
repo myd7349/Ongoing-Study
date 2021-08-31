@@ -24,4 +24,4 @@
 // [Can C/C++ preprocessor macros have default parameter values?](http://stackoverflow.com/questions/27049491/can-c-c-preprocessor-macros-have-default-parameter-values)
 // [How to make a variadic macro (variable number of arguments)](http://stackoverflow.com/questions/679979/how-to-make-a-variadic-macro-variable-number-of-arguments)
 // [Optional Parameters with C++ Macros](http://stackoverflow.com/questions/3046889/optional-parameters-with-c-macros)
-// 
+// [Preprocessor: Concatenate string to each argument in __VA_ARGS__](https://stackoverflow.com/questions/44479282/preprocessor-concatenate-string-to-each-argument-in-va-args/44479664)

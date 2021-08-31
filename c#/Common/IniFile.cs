@@ -116,7 +116,7 @@
 
             // true/false, True/False
             // yes/no, Yes/No
-            // on/off
+            // on/off, On/Off
             // 1/0
             switch (value[0])
             {

@@ -103,7 +103,7 @@ def main():
     form = MainForm()
     app = WinForms.Application
     app.Run(form)
-    
+
 
 if __name__ == '__main__':
     main()

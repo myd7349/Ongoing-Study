@@ -19,6 +19,7 @@
 ### NSIS
 - https://github.com/wireshark/wireshark/tree/master/packaging/nsis
 - https://github.com/vim/vim/tree/master/nsis
+- https://github.com/FreeCAD/FreeCAD/tree/master/src/WindowsInstaller
 
 ### CPack
 
@@ -29,6 +30,12 @@
 - https://github.com/Microsoft/vscode/tree/master/build/win32
 - https://github.com/cyanfish/naps2/blob/master/NAPS2/Setup/setup.iss
 - https://github.com/canton7/SyncTrayzor/tree/master/installer
+- https://github.com/xroche/httrack-windows/tree/master/InnoSetup
+- https://github.com/samhocevar/wincompose/blob/master/src/installer/installer.iss
+
+### Advanced Installer
+
+- https://github.com/d2phap/ImageGlass/tree/develop/Setup/AdvancedInstaller
 
 ### [PortableApps.com](http://portableapps.com/apps/development/portableapps.com_installer)
 - https://github.com/greenshot/greenshot

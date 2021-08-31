@@ -1,0 +1,1 @@
+https://github.com/microsoft/perfview/tree/7bc1b55ebf6773f8afcdf46a96d2e9ccc763aeee/src/EtwClrProfilerSigning

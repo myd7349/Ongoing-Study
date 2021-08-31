@@ -59,6 +59,9 @@ int _tmain(void)
     {
         ExecAppSync(lpcszSnippingToolPath, NULL, FALSE);
     }
+
+    MessageBox(NULL, _T("Now let's try Sysnative!"), _T(""), MB_OK | MB_ICONINFORMATION);
+    ExecAppSync(_T("C:\\Windows\\Sysnative\\SnippingTool.exe"), NULL, FALSE);
 #endif
 
     return 0;
@@ -83,3 +86,4 @@ References:
 * [Wow64DisableWow64FsRedirection](https://docs.microsoft.com/en-us/windows/win32/api/wow64apiset/nf-wow64apiset-wow64disablewow64fsredirection)
 * [Launch SnippingTool.exe from c++ program](http://www.cplusplus.com/forum/general/79335/)
 */
+// [Windows平台下System32和SysWOW64文件夹](https://blog.wangzhl.com/posts/windows-system32-and-syswow64/)

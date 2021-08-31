@@ -82,3 +82,4 @@ namespace Common
 
 // References:
 // https://stackoverflow.com/questions/2636721/bring-another-processes-window-to-foreground-when-it-has-showintaskbar-false
+// https://github.com/microsoft/perfview/blob/main/src/HeapDump/GCHeapDump.cs

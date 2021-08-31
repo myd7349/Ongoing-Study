@@ -71,3 +71,7 @@ private:
 };
 
 #endif // DATA_SPAN_HPP_
+
+
+// References:
+// https://github.com/tdlib/td/blob/master/tdutils/td/utils/Slice-decl.h

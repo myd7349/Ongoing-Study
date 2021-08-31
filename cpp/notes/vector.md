@@ -43,3 +43,5 @@ for (int i = 0; i < 4; ++i)
 
 https://github.com/p-ranav/small_vector
 
+[How do I print out the contents of a vector?](https://stackoverflow.com/questions/10750057/how-do-i-print-out-the-contents-of-a-vector)
+

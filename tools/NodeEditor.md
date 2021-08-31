@@ -1,5 +1,6 @@
 - [QuickQanava](https://github.com/cneben/QuickQanava): C++, Qt
 - [nodeeditor](https://github.com/paceholder/nodeeditor): C++, Qt
+  - [Groot](https://github.com/BehaviorTree/Groot/tree/master/QtNodeEditor)
 - [NodeNetwork](https://github.com/Wouterdek/NodeNetwork): C#, WPF
 - [NodeEditorWinforms](https://github.com/komorra/NodeEditorWinforms): C#, WinForms
 - [qt5-node-editor](https://github.com/nwaniek/qt5-node-editor)

@@ -1,0 +1,2 @@
+- https://github.com/protobuf-net/protobuf-net
+  - https://github.com/AqlaSolutions/AqlaSerializer

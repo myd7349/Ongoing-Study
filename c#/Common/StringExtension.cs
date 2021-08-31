@@ -1,6 +1,7 @@
 ﻿namespace Common
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
 
@@ -105,7 +106,7 @@
 
             // true/false, True/False
             // yes/no, Yes/No
-            // on/off
+            // on/off, On/Off
             // 1/0
             switch (str[0])
             {
@@ -136,6 +137,74 @@
 
             throw new ArgumentException("str");
         }
+
+#if true
+        public static IEnumerable<string> ToStrings(this string buffer)
+        {
+            int start = 0;
+            int length = 0;
+
+            for (var i = 0; i < buffer.Length; i++)
+            {
+                if (buffer[i] != '\0')
+                {
+                    length += 1;
+                }
+                else
+                {
+                    if (length > 0)
+                    {
+                        yield return buffer.Substring(start, length);
+                        length = 0;
+                    }
+                    else
+                    {
+                        yield break;
+                    }
+
+                    start = i + 1;
+                }
+            }
+
+            if (length > 0)
+                yield return buffer.Substring(start, length);
+        }
+#else
+        public static IEnumerable<string> ToStrings(this string buffer, int count)
+        {
+            List<string> strings = new List<string>();
+
+            int start = 0;
+            int length = 0;
+
+            for (var i = 0; i < buffer.Length; i++)
+            {
+                if (buffer[i] != '\0')
+                {
+                    length += 1;
+                }
+                else
+                {
+                    if (length > 0)
+                    {
+                        strings.Add(buffer.Substring(start, length));
+                        length = 0;
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                    start = i + 1;
+                }
+            }
+
+            if (length > 0)
+                strings.Add(buffer.Substring(start, length));
+
+            return strings;
+        }
+#endif
     }
 }
 

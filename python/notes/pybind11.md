@@ -17,4 +17,5 @@ Projects using `pybind11`
 * [flashlight](https://github.com/flashlight/flashlight/tree/master/bindings/python)
 * [pyworkflow](https://github.com/sogou/pyworkflow)
 * [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
+* [optima](https://github.com/reaktoro/optima/blob/master/python/bindings/CMakeLists.txt)
 

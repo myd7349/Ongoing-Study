@@ -45,6 +45,8 @@ Awesome README.md:
 - https://github.com/itgoyo
 - https://github.com/yqchilde/Yqchilde
 - https://github.com/willmcgugan/willmcgugan
+- https://github.com/orta/orta
+- https://github.com/ldqk/ldqk
 
 https://github.com/Tyrrrz/GitHubActionsTestLogger
 

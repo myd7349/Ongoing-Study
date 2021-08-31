@@ -6,3 +6,4 @@ https://github.com/SlimDX
 
 https://github.com/sharpdx/SharpDX
 
+https://github.com/terrafx/terrafx.interop.windows

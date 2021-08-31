@@ -5,3 +5,8 @@
 [fir1](https://github.com/berndporr/fir1)
 [enable](https://github.com/enthought/enable)
 [QSanguosha](https://github.com/Mogara/QSanguosha/tree/master/swig)
+
+[opensim-core](https://github.com/opensim-org/opensim-core/tree/master/Bindings)
+
+[WiredTiger](https://github.com/wiredtiger/wiredtiger/blob/develop/lang/python/wiredtiger.i)
+

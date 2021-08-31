@@ -2,6 +2,8 @@ https://github.com/commandlineparser/commandline
 
 https://github.com/dotnet/command-line-api
 
+- https://github.com/wieslawsoltes/Core2D/blob/master/src/Core2D.Desktop/Program.cs
+
 https://github.com/natemcmaster/CommandLineUtils
 
 https://github.com/Tyrrrz/CliFx
@@ -18,3 +20,6 @@ https://github.com/de4dot/de4dot/blob/master/de4dot.cui/CommandLineParser.cs
 
 - https://github.com/dotnet/runtime/tree/main/src/libraries/Microsoft.Extensions.Configuration.CommandLine
 
+https://github.com/microsoft/perfview/blob/main/src/HeapDump/Program.cs
+
+https://github.com/spectreconsole/spectre.console/tree/main/src/Spectre.Console/Cli

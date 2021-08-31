@@ -155,3 +155,43 @@ https://github.com/chmorgan/sharppcap/blob/master/SharpPcap/LibPcap/NativeLibrar
 > public static SafeObjectHandle GetCurrentProcessToken()
 > ```
 
+https://github.com/flibitijibibo/SDL2-CS/blob/904eed3cb04319c4e3e360360943e39080f80d7b/src/SDL2.cs#L192-L197
+
+> ```csharp
+> [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+> public delegate long SDLRWopsSeekCallback(
+> 	IntPtr context,
+> 	long offset,
+> 	int whence
+> );
+> ```
+
+https://github.com/flibitijibibo/SDL2-CS/blob/904eed3cb04319c4e3e360360943e39080f80d7b/src/SDL2.cs#L902-L917
+
+> ```csharp
+> [DllImport(nativeLibName, EntryPoint = "SDL_LogVerbose", CallingConvention = CallingConvention.Cdecl)]
+> private static extern unsafe void INTERNAL_SDL_LogVerbose(
+> 	int category,
+> 	byte* fmtAndArglist
+> );
+> public static unsafe void SDL_LogVerbose(
+> 	int category,
+> 	string fmtAndArglist
+> ) {
+> 	int utf8FmtAndArglistBufSize = Utf8Size(fmtAndArglist);
+> 	byte* utf8FmtAndArglist = stackalloc byte[utf8FmtAndArglistBufSize];
+> 	INTERNAL_SDL_LogVerbose(
+> 		category,
+> 		Utf8Encode(fmtAndArglist, utf8FmtAndArglist, utf8FmtAndArglistBufSize)
+> 	);
+> }
+> ```
+
+Microsoft.Win32.SafeHandles
+
+- https://github.com/chmorgan/sharppcap/blob/c19fc4da9c41658742379f8ab57ea8fb02b3a725/SharpPcap/LibPcap/PcapHandle.cs
+- https://github.com/chmorgan/sharppcap/blob/c19fc4da9c41658742379f8ab57ea8fb02b3a725/SharpPcap/LibPcap/LibPcapSafeNativeMethods.Interop.cs
+- [IntPtr, SafeHandle and HandleRef - Explained](https://stackoverflow.com/questions/526661/intptr-safehandle-and-handleref-explained)
+- [Can I use SafeHandle instead of IntPtr?](https://stackoverflow.com/questions/11973109/can-i-use-safehandle-instead-of-intptr)
+- https://github.com/chmorgan/sharppcap/commit/c19fc4da9c41658742379f8ab57ea8fb02b3a725
+

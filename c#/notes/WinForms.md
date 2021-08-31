@@ -16,10 +16,6 @@
 
 [How could i display a Graph on WindowsForms?](https://stackoverflow.com/questions/38713649/how-could-i-display-a-graph-on-windowsforms)
 
-Awesome WinForms projects:
-
-- https://github.com/d2phap/ImageGlass
-
 [How to add print dialog to the printpreviewdialog?](https://stackoverflow.com/questions/40236241/how-to-add-print-dialog-to-the-printpreviewdialog)
 
 [Show Print Dialog before printing](https://stackoverflow.com/questions/15985909/show-print-dialog-before-printing)

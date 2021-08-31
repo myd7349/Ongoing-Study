@@ -186,6 +186,6 @@ if __name__ == '__main__':
 
 
 # References:
-#  Ongoing-Study/cpp/msvc_cmdline_args/msvc_cmdline_args.cpp
+# Ongoing-Study/cpp/msvc_cmdline_args/msvc_cmdline_args.cpp
 # [Python glob multiple filetypes](http://stackoverflow.com/questions/4568580/python-glob-multiple-filetypes)
-
+# https://github.com/telegramdesktop/tdesktop/blob/dev/Telegram/build/set_version.py
