@@ -16,11 +16,11 @@ int main(int argc, char *argv[])
     double d = num.toDouble();
 
     // QTextStream 定义了一些manipulators
-    qDebug() << fixed << qSetRealNumberPrecision(0) << d << endl;
+    qDebug() << Qt::fixed << qSetRealNumberPrecision(0) << d << Qt::endl;
     qDebug() << QString::number(d, 'f', 0);
 
     QTextStream os(stderr);
-    os << fixed; // os.setRealNumberNotation(QTextStream::FixedNotation);
+    os << Qt::fixed; // os.setRealNumberNotation(QTextStream::FixedNotation);
     os.setRealNumberPrecision(0);
     os << d << '\n';
     os.flush(); // Why stderr still need to flush?

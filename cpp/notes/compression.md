@@ -1,0 +1,14 @@
+- [7zip, xz, gzip, tar, etc -- what are the differences?](https://unix.stackexchange.com/questions/322746/7zip-xz-gzip-tar-etc-what-are-the-differences)
+- [c++ library to make tar files](https://stackoverflow.com/questions/4812837/c-library-to-make-tar-files)
+  - https://github.com/tklauser/libtar
+  - https://github.com/abergmeier/tarlib
+  - [tarlib – Windows TAR Library](http://codexpert.ro/blog/2012/09/17/tarlib-windows-tar-library/)
+  - [tarlib - Windows TAR Library](http://codexpert.ro/forum/viewtopic.php?f=47&t=2232&sid=11cb576a017ef3f065a82b2018acb601) - http://codexpert.ro/forum/viewtopic.php?f=47&t=2232
+  - https://github.com/libarchive/libarchive
+- [How to use LZMA SDK in C++?](https://stackoverflow.com/questions/23232864/how-to-use-lzma-sdk-in-c)
+- [Qt 使用LZMA SDK完成C++的7z格式文件压缩和解压缩](https://blog.csdn.net/AsukaV_V/article/details/83994492)
+- [7-Zip: Any good tutorials?](https://stackoverflow.com/questions/6226443/7-zip-any-good-tutorials)
+  - https://github.com/getnamo/7zip-cpp
+- https://github.com/coderforlife/ms-compress
+  - https://github.com/coderforlife/ms-compress-test
+

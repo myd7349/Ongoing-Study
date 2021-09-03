@@ -1,8 +1,8 @@
-// 2014-05-14T16:36:14+08:00
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
+#include <QtWidgets/QMainWindow>
+
 
 namespace Ui {
 class MainWindow;
@@ -15,9 +15,6 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
-protected:
-    bool nativeEvent(const QByteArray &eventType, void *message, qintptr *result);
 
 private:
     Ui::MainWindow *ui;

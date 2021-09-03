@@ -2,7 +2,6 @@
 
 #include <QtGui/QPixmapCache>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QDesktopWidget>
 #include <QtWidgets/QStylePainter>
 
 #include "../../DesignPatterns/Singleton.h"
@@ -24,7 +23,7 @@ Widget::Widget(QWidget *parent)
             Qt::LeftToRight,
             Qt::AlignCenter,
             QSize(800, 640),
-            qApp->desktop()->availableGeometry()
+            qApp->primaryScreen()->availableGeometry()
         )
     );
 }
@@ -84,7 +83,7 @@ QPixmap Widget::render()
     QString key = QString("%1,%2").arg(w).arg(h);
 
     QPixmap pixmap;
-    if (!QPixmapCache::find(key, pixmap))
+    if (!QPixmapCache::find(key, &pixmap))
     {
         pixmap = QPixmap(w, h);
         QPixmapCache::insert(key, pixmap);
@@ -100,8 +99,11 @@ QPixmap Widget::render()
     return pixmap;
 }
 
+
 // References:
 // [Fast and Flicker-Free](https://doc.qt.io/archives/qq/qq06-flicker-free.html)
 // [Optimizing with QPixmapCache](http://doc.qt.io/archives/qq/qq12-qpixmapcache.html)
 // [When does a Qt widget get a paintEvent?](https://stackoverflow.com/questions/11645667/when-does-a-qt-widget-get-a-paintevent)
 // [How to Center a Window on the Screen](https://wiki.qt.io/How_to_Center_a_Window_on_the_Screen)
+// [Changes to Qt Widgets](https://doc-snapshots.qt.io/qt6-dev/widgets-changes-qt6.html)
+// [Module 'PyQt6.QtWidgets' has no attribute 'QDesktopWidget'](https://stackoverflow.com/questions/68037950/module-pyqt6-qtwidgets-has-no-attribute-qdesktopwidget)

@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 
 #include <QtCore/QStringList>
-#include <QtWidgets/QAction>
+#include <QtGui/QAction>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>

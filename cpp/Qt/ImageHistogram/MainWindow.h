@@ -7,9 +7,9 @@
 #include <QtGui/QImage>
 #include <QtWidgets/QMainWindow>
 
-namespace QtCharts {
+QT_BEGIN_NAMESPACE
 class QChartView;
-}
+QT_END_NAMESPACE
 
 class QLabel;
 
@@ -40,7 +40,7 @@ private:
 
     QImage currentImage;
     QLabel *pictureBox = nullptr;
-    QtCharts::QChartView *chartView = nullptr;
+    QChartView *chartView = nullptr;
     bool useLogMapping = false;
 };
 

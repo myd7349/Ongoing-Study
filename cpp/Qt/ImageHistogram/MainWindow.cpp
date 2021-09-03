@@ -9,10 +9,9 @@
 #include <QtCore/QStringList>
 
 #include <QApplication>
+#include <QtGui/QAction>
 #include <QtGui/QImageReader>
 
-#include <QtWidgets/QAction>
-#include <QtWidgets/QDesktopWidget>
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -61,7 +60,7 @@ void MainWindow::centerWindowOnScreen()
             Qt::LeftToRight,
             Qt::AlignCenter,
             size(),
-            qApp->desktop()->availableGeometry()));
+            qApp->primaryScreen()->availableGeometry()));
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)
@@ -109,12 +108,12 @@ void MainWindow::initializeChartView()
 
     QFont titleFont(tr("Arial"), 12);
 
-    auto *chart = new QtCharts::QChart;
+    auto *chart = new QChart;
     chart->setTitle(tr("Histogram of image"));
     chart->setMargins(QMargins(5, 2, 5, 5));
     chart->setTitleFont(titleFont);
 
-    chartView = new QtCharts::QChartView(chart);
+    chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
 }
 
@@ -195,9 +194,9 @@ void MainWindow::processImage(QImage &image)
 #else
     auto format = image.format();
     if (format != QImage::Format_RGB32 && format != QImage::Format_ARGB32)
-        image.convertToFormat(QImage::Format_ARGB32); // 0xAARRGGBB
+        image = image.convertToFormat(QImage::Format_ARGB32); // 0xAARRGGBB
 
-    auto byteCount = image.byteCount();
+    auto byteCount = image.sizeInBytes();
     Q_ASSERT(byteCount % 4 == 0);
     auto pixelCount = byteCount / 4;
 
@@ -211,16 +210,16 @@ void MainWindow::processImage(QImage &image)
     }
 #endif
 
-    auto redLine = new QtCharts::QSplineSeries;
+    auto redLine = new QSplineSeries;
     redLine->setColor(Qt::GlobalColor::red);
 
-    auto greenLine = new QtCharts::QSplineSeries;
+    auto greenLine = new QSplineSeries;
     greenLine->setColor(Qt::GlobalColor::green);
 
-    auto blueLine = new QtCharts::QSplineSeries();
+    auto blueLine = new QSplineSeries();
     blueLine->setColor(Qt::GlobalColor::blue);
 
-    for (auto i = 0; i < ARRAYSIZE(reds); ++i)
+    for (std::size_t i = 0; i < ARRAYSIZE(reds); ++i)
     {
         redLine->append(i, reds[i]);
         greenLine->append(i, greens[i]);
@@ -235,12 +234,12 @@ void MainWindow::processImage(QImage &image)
     chart->createDefaultAxes();
 
     // X axis
-    auto axisX = chart->axisX();
+    auto axisX = chart->axes(Qt::Horizontal).at(0);
     axisX->setRange(-10, 260);
     axisX->setTitleText(tr("Color [0...255]"));
 
     // Y axis
-    auto axisY = chart->axisY();
+    auto axisY = chart->axes(Qt::Vertical).at(0);
     axisY->setTitleText(tr("Distribution of pixels' color"));
 }
 

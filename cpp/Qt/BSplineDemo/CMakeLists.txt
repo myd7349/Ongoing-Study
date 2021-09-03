@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.8)
 
 project(BSplineDemo C CXX)
 
-find_package(Qt5Widgets CONFIG REQUIRED)
+find_package(Qt6 COMPONENTS Widgets REQUIRED)
 
 set(CMAKE_AUTOMOC ON)
 SET(CMAKE_AUTOUIC ON)
@@ -48,8 +48,7 @@ target_include_directories(BSplineDemo PRIVATE "${TINYSPLINE_INCLUDE_DIRS}")
 target_link_libraries(
     BSplineDemo
     PRIVATE
-        Qt5::Widgets
-        Qt5::WidgetsPrivate
+        Qt6::Widgets
         ${TINYSPLINE_LIBRARIES}
         ${TINYSPLINECPP_LIBRARIES}
 )

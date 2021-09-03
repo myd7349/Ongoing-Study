@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 
 #include <QApplication>
-#include <QDesktopWidget>
+#include <QScreen>
 
 #include <dbt.h>
 
@@ -91,7 +91,7 @@ MainWindow::MainWindow(QWidget *parent)
             Qt::LeftToRight,
             Qt::AlignCenter,
             QSize(800, 640),
-            qApp->desktop()->availableGeometry()
+            qApp->primaryScreen()->availableGeometry()
         )
     );
 
@@ -106,7 +106,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::log(const QString &msg)
 {
-    QStringList lines = msg.split('\n', QString::SkipEmptyParts);
+    QStringList lines = msg.split('\n', Qt::SkipEmptyParts);
 
     for (QStringList::size_type i = 0; i < lines.size(); ++i)
     {
@@ -203,7 +203,7 @@ void MainWindow::onSettingChange(WPARAM wParam, LPARAM lParam)
 }
 
 
-bool MainWindow::nativeEvent(const QByteArray &eventType, void *message, long *result)
+bool MainWindow::nativeEvent(const QByteArray &eventType, void *message, qintptr *result)
 {
     MSG *msg = static_cast<MSG *>(message);
 

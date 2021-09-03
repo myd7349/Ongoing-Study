@@ -25,7 +25,7 @@ bool KnotSequenceMouseAction::mouseDoubleClickEvent(QObject *sender, QMouseEvent
         sequence.pop_back();
         return true;
     }
-    else if (event->button() == Qt::MidButton)
+    else if (event->button() == Qt::MiddleButton)
     {
         if (sequence.empty())
             return false;

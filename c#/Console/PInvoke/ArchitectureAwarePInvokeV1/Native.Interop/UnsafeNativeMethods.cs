@@ -717,3 +717,4 @@ namespace Native.Interop
 // https://github.com/HDFGroup/HDF.PInvoke/blob/master/HDF5/H5DLLImporter.cs
 // https://github.com/HDFGroup/HDF.PInvoke/blob/d281aa75f1562e677d1307cc1a234f9079cd76c3/HDF5/NativeDependencies.cs
 // https://github.com/chmorgan/sharppcap/blob/master/SharpPcap/LibPcap/NativeLibraryHelper.cs
+// https://github.com/squid-box/SevenZipSharp/blob/dev/SevenZip/LibraryManager.cs

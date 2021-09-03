@@ -1,3 +1,7 @@
+Tools:
+
+- [wxFormBuilder](https://github.com/wxFormBuilder/wxFormBuilder)
+
 Projects using wxWidgets:
 
 - [KiCAD](https://github.com/KiCad/kicad-source-mirror)

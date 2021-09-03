@@ -9,6 +9,7 @@
 - [mixxx](https://github.com/mixxxdj/mixxx)
 - [moonlight-qt](https://github.com/moonlight-stream/moonlight-qt)
 - [nodeeditor](https://github.com/paceholder/nodeeditor)
+- [plasma-nm](https://github.com/KDE/plasma-nm)
 - [PlotJuggler](https://github.com/facontidavide/PlotJuggler) :star:
 - [QAmigo](https://github.com/QAmigo/QAmigo)
 - [QGIS](https://github.com/qgis/QGIS)

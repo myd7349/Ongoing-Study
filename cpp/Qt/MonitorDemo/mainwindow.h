@@ -25,7 +25,7 @@ public:
     void log(const QString &msg);
 
 protected:
-    bool nativeEvent(const QByteArray &eventType, void *message, long *result);
+    bool nativeEvent(const QByteArray &eventType, void *message, qintptr *result);
 
 private:
     void onCreate();

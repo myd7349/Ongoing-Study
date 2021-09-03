@@ -3,7 +3,6 @@
 
 #include <QtGui/QPixmapCache>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QDesktopWidget>
 #include <QtWidgets/QStylePainter>
 
 #include "../../DesignPatterns/Singleton.hpp"
@@ -24,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
             Qt::LeftToRight,
             Qt::AlignCenter,
             QSize(800, 640),
-            qApp->desktop()->availableGeometry()
+            qApp->primaryScreen()->availableGeometry()
         )
     );
 
@@ -68,7 +67,7 @@ QPixmap MainWindow::render()
     QString key = QString("%1,%2").arg(w).arg(h);
 
     QPixmap pixmap;
-    if (!QPixmapCache::find(key, pixmap))
+    if (!QPixmapCache::find(key, &pixmap))
     {
         pixmap = QPixmap(w, h);
         QPixmapCache::insert(key, pixmap);

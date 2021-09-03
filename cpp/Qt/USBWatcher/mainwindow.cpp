@@ -77,7 +77,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-bool MainWindow::nativeEvent(const QByteArray &eventType, void *message, long *result)
+bool MainWindow::nativeEvent(const QByteArray &eventType, void *message, qintptr *result)
 {
 #if defined(Q_OS_WIN32)
     MSG *msg = reinterpret_cast<MSG *>(message);

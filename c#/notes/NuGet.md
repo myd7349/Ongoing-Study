@@ -21,3 +21,5 @@
 
 6. https://github.com/devlooped/nugetizer
 
+7. https://github.com/squid-box/SevenZipSharp
+
