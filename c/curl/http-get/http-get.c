@@ -9,7 +9,7 @@
 #include "dynamic_array.h"
 
 
-#define log_error_no_source_info(fmt, ...) std::fprintf(stderr, fmt, __VA_ARGS__)
+#define log_error_no_source_info(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
 
 #define log_error(fmt, ...) log_error_no_source_info("%s(%d)> " fmt, __FILE__, __LINE__, __VA_ARGS__)
 
@@ -183,6 +183,12 @@ void easy_http_get(const char *url)
 int main(int argc, char **argv)
 {
     int i;
+    CURLcode result = curl_global_init(CURL_GLOBAL_ALL);
+    if (result != CURLE_OK)
+    {
+        log_error("curl_global_init failed!\n");
+        return EXIT_FAILURE;
+    }
 
     if (argc <= 1)
     {
@@ -198,6 +204,8 @@ int main(int argc, char **argv)
             easy_http_get(argv[i]);
     }
 
+    curl_global_cleanup();
+
     return EXIT_SUCCESS;
 }
 
@@ -207,3 +215,9 @@ int main(int argc, char **argv)
 // https://curl.se/libcurl/c/CURLOPT_ERRORBUFFER.html
 // https://curl.se/libcurl/c/CURLINFO_RESPONSE_CODE.html
 // https://github.com/ibireme/yyjson/blob/master/doc/API.md#mutable-and-immutable
+// [When is curl_global_init() necessary at all?](https://stackoverflow.com/questions/6087886/when-is-curl-global-init-necessary-at-all/6087988)
+// https://curl.se/libcurl/c/curl_global_init.html
+// https://curl.se/libcurl/c/curl_global_cleanup.html
+// https://curl.se/libcurl/c/libcurl.html
+// [How to cleanup definitely a curl handle?](https://stackoverflow.com/questions/53882598/how-to-cleanup-definitely-a-curl-handle)
+// [how to properly reuse a curl handle](https://stackoverflow.com/questions/14911156/how-to-properly-reuse-a-curl-handle)

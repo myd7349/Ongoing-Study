@@ -236,3 +236,23 @@ https://github.com/libconfuse/libconfuse/blob/master/src/fmemopen.c
 20.
 
 https://github.com/bbc/audiowaveform/blob/master/src/madlld-1.1p1/bstdfile.c
+
+21. getline vs getdelim
+
+https://en.cppreference.com/w/c/experimental/dynamic/getline
+
+[Why does getline function works in K&R?](https://stackoverflow.com/questions/61160674/why-does-getline-function-works-in-kr)
+
+[Where/how to get the "getline" function if it is missing from stdio.h?](https://stackoverflow.com/questions/27381903/where-how-to-get-the-getline-function-if-it-is-missing-from-stdio-h)
+
+[Are there alternate implementations of GNU getline interface?](https://stackoverflow.com/questions/735126/are-there-alternate-implementations-of-gnu-getline-interface)
+
+[C getline() implementation](https://codereview.stackexchange.com/questions/119219/c-getline-implementation)
+
+https://github.com/lattera/glibc/blob/master/libio/iogetline.c
+
+https://github.com/lattera/glibc/blob/master/stdio-common/getline.c
+
+https://github.com/lattera/glibc/blob/master/libio/iogetdelim.c
+
+https://github.com/bminor/glibc/blob/master/libio/iogetline.c

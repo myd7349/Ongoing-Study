@@ -1,3 +1,5 @@
+https://github.com/CLIUtils/modern_cmake
+
 [CMake and the Future of C++ Package Management](https://ibob.bg/blog/2020/01/13/cmake-package-management/)
 
 https://github.com/cpm-cmake/CPM.cmake

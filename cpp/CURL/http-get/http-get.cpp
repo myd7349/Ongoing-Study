@@ -171,6 +171,13 @@ void easy_http_get(const char *url)
 
 int main(int argc, char **argv)
 {
+    CURLcode result = curl_global_init(CURL_GLOBAL_ALL);
+    if (result != CURLE_OK)
+    {
+        log_error("curl_global_init failed!\n");
+        return EXIT_FAILURE;
+    }
+
     if (argc <= 1)
     {
 #ifdef NDEBUG
@@ -185,6 +192,8 @@ int main(int argc, char **argv)
             easy_http_get(argv[i]);
     }
 
+    curl_global_cleanup();
+
     return EXIT_SUCCESS;
 }
 
@@ -195,3 +204,10 @@ int main(int argc, char **argv)
 // https://curl.se/libcurl/c/CURLINFO_RESPONSE_CODE.html
 // https://github.com/ibireme/yyjson/blob/master/doc/API.md#mutable-and-immutable
 // [How do I print out the contents of a vector?](https://stackoverflow.com/questions/10750057/how-do-i-print-out-the-contents-of-a-vector)
+// [When is curl_global_init() necessary at all?](https://stackoverflow.com/questions/6087886/when-is-curl-global-init-necessary-at-all/6087988)
+// https://curl.se/libcurl/c/curl_global_init.html
+// https://curl.se/libcurl/c/curl_global_cleanup.html
+// https://curl.se/libcurl/c/libcurl.html
+// [How to cleanup definitely a curl handle?](https://stackoverflow.com/questions/53882598/how-to-cleanup-definitely-a-curl-handle)
+// [C libcurl get output into a string](https://stackoverflow.com/questions/2329571/c-libcurl-get-output-into-a-string)
+// [how to properly reuse a curl handle](https://stackoverflow.com/questions/14911156/how-to-properly-reuse-a-curl-handle)

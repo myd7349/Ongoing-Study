@@ -26,4 +26,25 @@ https://stackoverflow.com/questions/51614543/perf-report-shows-this-function-mem
 
 [strdup](https://en.cppreference.com/w/c/experimental/dynamic/strdup)
 
+https://github.com/clibs/strdup/blob/master/strdup.c
+
+https://github.com/lattera/glibc/blob/master/string/strdup.c
+
+> ```c
+> char *
+> __strdup (const char *s)
+> {
+>   size_t len = strlen (s) + 1;
+>   void *new = malloc (len);
+> 
+>   if (new == NULL)
+>     return NULL;
+> 
+>   return (char *) memcpy (new, s, len);
+> }
+> ```
+
+[strlen not checking for NULL](https://stackoverflow.com/questions/5796103/strlen-not-checking-for-null)
+
 [strtok](https://github.com/FreeRDP/FreeRDP/blob/d4ae65dbb54683cb08bff4d50f9637c0a325fb9a/winpr/libwinpr/utils/ini.c#L68)
+

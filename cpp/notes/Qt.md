@@ -10,6 +10,7 @@
 - [moonlight-qt](https://github.com/moonlight-stream/moonlight-qt)
 - [nodeeditor](https://github.com/paceholder/nodeeditor)
 - [PlotJuggler](https://github.com/facontidavide/PlotJuggler) :star:
+- [QAmigo](https://github.com/QAmigo/QAmigo)
 - [QGIS](https://github.com/qgis/QGIS)
 - [QSanguosha](https://github.com/Mogara/QSanguosha)
 - [QtAV](https://github.com/wang-bin/QtAV)
@@ -32,5 +33,6 @@ Libraries:
 - [FakeVim](https://github.com/hluk/FakeVim)
 - [kconfigwidgets](https://github.com/KDE/kconfigwidgets)
 - [KDDockWidgets](https://github.com/KDAB/KDDockWidgets)
+- [QDeviceWatcher](https://github.com/wang-bin/qdevicewatcher)
 - [TTKWidgetTools](https://github.com/Greedysky/TTKWidgetTools)
 
