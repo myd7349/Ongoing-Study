@@ -3,15 +3,12 @@
 
 #include <QObject>
 #include <QLibrary>
-#include <QFileInfo>
-#include <QDebug>
-#include <QThread>
 
-#define kDllName "7z.dll"
 
 class Q7Zip : public QObject
 {
     Q_OBJECT
+
 public:
     explicit Q7Zip(QObject *parent = 0);
 
@@ -23,10 +20,10 @@ public:
     };
     Q_ENUM(Operation)
 
-    static Q7Zip * getInstance(void);
+    static Q7Zip *getInstance();
 
-    int init(void);
-    QString lzma_sdk_version(void);
+    int init();
+    QString lzma_sdk_version();
 
     int compress(const QString &archive_name, const QStringList &compress_filelist, const QString &working_path);
     int extract(const QString &archive_name, const QString &output_path);
@@ -44,10 +41,11 @@ signals:
 
     void extract_filesize_signal(const quint64 filesize);
     void extract_completeValue_signal(const quint64 completeValue);
+    void extract_percentage_signal(int percentage);
     void extracting_filename_signal(const QString filename);
 
 public slots:
-    void threadStarted(void);
+    void threadStarted();
     void operation_slot_compress(const QString archive_name, const QStringList compress_filelist, const QString working_path);
     void operation_slot_extract(const QString archive_name, const QString output_path);
 

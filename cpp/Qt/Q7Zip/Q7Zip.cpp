@@ -1,5 +1,9 @@
 #include "Q7Zip.h"
 
+#include <QDebug>
+
+#include "Common/Common.h"
+#include "Common/MyInitGuid.h"
 #include "Common/IntToString.h"
 #include "Common/StringConvert.h"
 
@@ -9,11 +13,16 @@
 #include "Windows/PropVariant.h"
 #include "Windows/PropVariantConv.h"
 
-#include "7Zip/Common/FileStreams.h"
-#include "7Zip/Archive/IArchive.h"
-#include "7Zip/IPassword.h"
+#include "7zip/Common/FileStreams.h"
+#include "7zip/Archive/IArchive.h"
+#include "7zip/IPassword.h"
 
 #include "C/7zVersion.h"
+
+#ifdef DEBUG_LOGOUT_ON
+#undef DEBUG_LOGOUT_ON
+#endif
+
 
 DEFINE_GUID(CLSID_CFormat7z,
   0x23170F69, 0x40C1, 0x278A, 0x10, 0x00, 0x00, 0x01, 0x10, 0x07, 0x00, 0x00);
@@ -26,6 +35,9 @@ DEFINE_GUID(CLSID_CFormatXz,
 using namespace NWindows;
 using namespace NFile;
 using namespace NDir;
+
+#define kDllName "7zra.dll"
+
 
 #if 1
 static void Convert_UString_to_AString(const UString &s, AString &temp)
@@ -43,14 +55,9 @@ static void Convert_UString_to_AString(const UString &s, AString &temp)
     UnicodeStringToMultiByte2(temp, s, (UINT)codePage);
 }
 
-static FString CmdStringToFString(const char *s)
-{
-    return us2fs(GetUnicodeString(s));
-}
 
 static void Print(const char *s)
 {
-    //fputs(s, stdout);
     qDebug("%s", s);
 }
 
@@ -167,9 +174,6 @@ STDMETHODIMP CArchiveOpenCallback::CryptoGetTextPassword(BSTR *password)
 }
 
 
-
-static const char * const kIncorrectCommand = "incorrect command";
-
 //
 // Archive Extracting callback class
 
@@ -258,6 +262,10 @@ STDMETHODIMP CArchiveExtractCallback::SetCompleted(const UInt64 * completeValue)
     qDebug("Extract %.2f%%", static_cast<float>(*completeValue) / FileSize * 100.0f );
 #endif
     emit Q7Zip::getInstance()->extract_completeValue_signal(*completeValue);
+
+    auto percentage = *completeValue == FileSize ? 100 : static_cast<int>(*completeValue * 100.0 / FileSize);
+    emit Q7Zip::getInstance()->extract_percentage_signal(percentage);
+
     return S_OK;
 }
 
@@ -386,8 +394,9 @@ STDMETHODIMP CArchiveExtractCallback::PrepareOperation(Int32 askExtractMode)
     switch (askExtractMode)
     {
     case NArchive::NExtract::NAskMode::kExtract:
-        //Print(kExtractingString);
+#ifdef DEBUG_LOGOUT_ON
         qDebug() << kExtractingString << filepath;
+#endif
         emit Q7Zip::getInstance()->extracting_filename_signal(filepath);
         break;
     case NArchive::NExtract::NAskMode::kTest:
@@ -723,6 +732,7 @@ STDMETHODIMP CArchiveUpdateCallback::CryptoGetTextPassword2(Int32 *passwordIsDef
 
 Q7Zip * Q7Zip::m_q7zip = NULL;
 
+
 Q7Zip::Q7Zip(QObject *parent) :
     QObject(parent),
     m_7zLib(kDllName)
@@ -732,7 +742,8 @@ Q7Zip::Q7Zip(QObject *parent) :
     static_cast<void>(QObject::connect(this, SIGNAL(operation_signal_extract(const QString, const QString)), this, SLOT(operation_slot_extract(const QString, const QString)), Qt::QueuedConnection));
 }
 
-Q7Zip *Q7Zip::getInstance(void)
+
+Q7Zip *Q7Zip::getInstance()
 {
     if(m_q7zip == NULL)
     {
@@ -741,7 +752,8 @@ Q7Zip *Q7Zip::getInstance(void)
     return m_q7zip;
 }
 
-int Q7Zip::init(void)
+
+int Q7Zip::init()
 {
     int init_result = 1;
     bool loadResult = m_7zLib.load();
@@ -760,7 +772,7 @@ int Q7Zip::init(void)
     return init_result;
 }
 
-QString Q7Zip::lzma_sdk_version(void)
+QString Q7Zip::lzma_sdk_version()
 {
     return QString(MY_VERSION " ("  MY_DATE  ")");
 }
@@ -952,6 +964,11 @@ void Q7Zip::operation_slot_extract(const QString archive_name, const QString out
     emit operation_result_signal(Q7Zip::Q7ZIP_EXTRACT, archive_name, operate_result);
 }
 
+
+// References:
+// [Referencing GUIDs](https://stackoverflow.com/questions/10980920/referencing-guids)
+// [COM IID in C, unresolved external symbol IID_IAudioClient](https://handmade.network/forums/t/3010-com_iid_in_c,_unresolved_external_symbol_iid_iaudioclient)
+// https://sourceforge.net/p/sevenzip/discussion/45798/thread/0499591f/
 
 /*
 ————————————————
