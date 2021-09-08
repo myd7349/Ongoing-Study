@@ -17,3 +17,4 @@
 - [Using RegisterDeviceNotification in a .NET app](https://stackoverflow.com/questions/1976573/using-registerdevicenotification-in-a-net-app)
 - [Detecting when a SerialPort gets disconnected](https://stackoverflow.com/questions/13408476/detecting-when-a-serialport-gets-disconnected)
 
+https://github.com/jcurl/SerialPortStream

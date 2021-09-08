@@ -47,3 +47,4 @@
 // [GitVersion: MSBuild Task](https://gitversion.net/docs/usage/msbuild)
 // https://gitversion.net/docs/usage/cli/assembly-patch
 // https://github.com/microsoft/wslg/blob/5e9419849c89863ad36753e7c1707f20f9e0d0cd/msi/updateversion.ps1#L48-L62
+// https://github.com/microsoft/dicom-server/blob/main/GitVersion.yml

@@ -23,3 +23,5 @@ https://github.com/de4dot/de4dot/blob/master/de4dot.cui/CommandLineParser.cs
 https://github.com/microsoft/perfview/blob/main/src/HeapDump/Program.cs
 
 https://github.com/spectreconsole/spectre.console/tree/main/src/Spectre.Console/Cli
+
+https://github.com/j-maly/CommandLineParser

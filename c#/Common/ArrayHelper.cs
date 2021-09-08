@@ -70,3 +70,7 @@ namespace Common
 // [StructuralComparisons for arrays](https://stackoverflow.com/questions/32095508/structuralcomparisons-for-arrays)
 // [Array.Fill Method](https://docs.microsoft.com/en-us/dotnet/api/system.array.fill?view=net-5.0)
 // [How to populate/instantiate a C# array with a single value?](https://stackoverflow.com/questions/1014005/how-to-populate-instantiate-a-c-sharp-array-with-a-single-value)
+// https://github.com/commandlineparser/commandline/blob/master/src/CommandLine/Infrastructure/ReferenceEqualityComparer.cs
+// https://github.com/commandlineparser/commandline/blob/master/src/CommandLine/Infrastructure/EnumerableExtensions.cs
+// https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.sequenceequal?view=net-5.0
+// https://github.com/commandlineparser/commandline/blob/master/src/CommandLine/ParserResult.cs

@@ -7,3 +7,10 @@ https://github.com/GowenGit/docnet
 https://github.com/UglyToad/PdfPig
 
 https://github.com/ComponentFactory/PdfReader
+
+https://github.com/BitMiracle/Docotic.Pdf.Samples
+
+[Two Pilots Virtual Printer](https://www.colorpilot.com/emfprinterpilot.html)
+
+[PDF Mosaic](https://www.colorpilot.com/pdfmosaic.html)
+

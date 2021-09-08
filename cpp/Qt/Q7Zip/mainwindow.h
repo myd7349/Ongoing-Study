@@ -5,7 +5,6 @@
 
 
 class Q7Zip;
-class QProgressDialog;
 
 
 namespace Ui
@@ -29,7 +28,6 @@ private:
     Ui::MainWindow *ui;
 
     Q7Zip *q7zip_;
-    QProgressDialog *progressDialog_;
 };
 
 #endif // MAINWINDOW_H

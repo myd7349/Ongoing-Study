@@ -161,3 +161,4 @@ int _tmain(int argc, _TCHAR *argv[])
 
 // References:
 // https://github.com/beejjorgensen/bgnet/blob/master/examples/talker.c
+// https://github.com/TheAlgorithms/C/blob/master/client_server/udp_client.c

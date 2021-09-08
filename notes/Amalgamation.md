@@ -8,7 +8,7 @@
 >* [JuceAmalgam](https://github.com/vinniefalco/DSPFilters/tree/master/shared/JuceAmalgam)
 >
 >## Tools:
-> * [EnTT/scripts/amalgamate.py](https://github.com/skypjack/entt/blob/master/scripts/amalgamate.py)
+>* [EnTT/scripts/amalgamate.py](https://github.com/skypjack/entt/blob/master/scripts/amalgamate.py)
 >* [Amalgamate](https://github.com/vinniefalco/Amalgamate)
 >* [amalgamate.py](https://github.com/edlund/amalgamate) - [nlohmann/json](https://github.com/nlohmann/json/tree/develop/third_party/amalgamate) uses this tool to create a single header only library.
 >* [amalgamate](https://gitlab.com/DerManu/QCustomPlot/blob/master/amalgamate)
@@ -31,8 +31,9 @@
 >* [argtable3/tools](https://github.com/argtable/argtable3/tree/master/tools)
 >* [cista/uniter](https://github.com/felixguendling/cista/blob/master/tools/uniter/uniter.cc)
 >* [constexpr-sql/generator.py](https://github.com/mkitzan/constexpr-sql)
-> * [libfort/amalgamate.py](https://github.com/seleznevae/libfort/blob/develop/amalgamate.py)
-> * [structopt](https://github.com/p-ranav/structopt/tree/master/utils/amalgamate)
+>* [libfort/amalgamate.py](https://github.com/seleznevae/libfort/blob/develop/amalgamate.py)
+>* [structopt](https://github.com/p-ranav/structopt/tree/master/utils/amalgamate)
+>* [single.py](https://github.com/soasis/text/blob/main/single/single.py)
 >
 >## Ideas:
 >* [The single-header code should be a build artifact](https://github.com/lemire/simdjson/issues/106)
@@ -40,3 +41,4 @@
 
 >## References:
 >[mio #23](https://github.com/mandreyel/mio/issues/23)
+

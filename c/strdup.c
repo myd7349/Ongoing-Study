@@ -38,3 +38,4 @@ char *strdup(const char *str)
 // https://github.com/clibs/strdup/blob/master/strdup.c
 // https://github.com/lattera/glibc/blob/master/string/strdup.c
 // [strlen not checking for NULL](https://stackoverflow.com/questions/5796103/strlen-not-checking-for-null)
+// https://github.com/ros2/rcutils/blob/master/src/strdup.c

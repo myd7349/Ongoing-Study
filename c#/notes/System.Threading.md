@@ -37,3 +37,7 @@
 > `Control.Invoke`: Executes on the UI thread, but calling thread waits for completion before continuing.
 >
 > `Control.BeginInvoke`: Executes on the UI thread, and calling thread doesn't wait for completion.
+
+[Thread.GetNamedDataSlot(String) Method](https://docs.microsoft.com/en-us/dotnet/api/system.threading.thread.getnameddataslot?view=net-5.0)
+
+- https://github.com/dotnet/runtime/blob/6b11f64ec09983013862c2fd85ba29c940c44eea/src/libraries/System.Drawing.Common/src/System/Drawing/Gdiplus.cs#L47-L61

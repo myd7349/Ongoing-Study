@@ -213,3 +213,4 @@
 // https://stackoverflow.com/questions/2245442/c-sharp-split-a-string-by-another-string
 // https://zhuanlan.zhihu.com/p/30653282
 // https://github.com/dotnet/runtime/blob/1fa304a14a8be27428399bd6f2cc51736cb1515a/src/libraries/Microsoft.Extensions.Configuration/tests/Common/TestStreamHelpers.cs#L108-L117
+// https://github.com/commandlineparser/commandline/blob/master/src/CommandLine/Infrastructure/StringExtensions.cs

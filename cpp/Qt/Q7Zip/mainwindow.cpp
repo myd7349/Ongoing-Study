@@ -34,9 +34,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->createArchivePushButton, SIGNAL(clicked()), this, SLOT(createArchive()));
 
     ui->statusBar->showMessage(tr("LZMA SDK version: ") + q7zip_->lzma_sdk_version());
-
-    progressDialog_ = new QProgressDialog(this);
-    progressDialog_->setWindowModality(Qt::WindowModal);
 }
 
 
@@ -55,16 +52,18 @@ void MainWindow::extractArchive()
         tr("Archive Files (*.7z *.zip);;All Files (*.*)"));
     if (!archiveFilePath.isEmpty())
     {
-        progressDialog_->setWindowTitle(tr("Extracting archive..."));
-        progressDialog_->setRange(0, 100);
-        progressDialog_->setValue(0);
+        auto progressDialog = new QProgressDialog(this);
+        progressDialog->setWindowModality(Qt::WindowModal);
+        progressDialog->setWindowTitle(tr("Extracting archive..."));
+        progressDialog->setRange(0, 100);
+        progressDialog->setValue(0);
 
         connect(q7zip_, SIGNAL(extracting_filename_signal(const QString)),
-            progressDialog_, SLOT(setLabelText(const QString &)));
+            progressDialog, SLOT(setLabelText(const QString &)));
         connect(q7zip_, SIGNAL(extract_percentage_signal(int)),
-            progressDialog_, SLOT(setValue(int)));
+            progressDialog, SLOT(setValue(int)));
 
-        q7zip_->extract(archiveFilePath, "D:\\test");
+        q7zip_->extract(archiveFilePath, "F:\\test");
     }
 }
 
@@ -77,3 +76,4 @@ void MainWindow::createArchive()
 
 // References:
 // [Qt 5 : update QProgressBar during QThread work via signal](https://stackoverflow.com/questions/35673201/qt-5-update-qprogressbar-during-qthread-work-via-signal/35673612)
+// [How can I set text of label when a function is running?](https://stackoverflow.com/questions/22715564/how-can-i-set-text-of-label-when-a-function-is-running)

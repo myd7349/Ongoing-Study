@@ -1,0 +1,12 @@
+{
+  "name": "hello-grpc",
+  "version-semver": "0.0.1",
+  "dependencies": [
+    {
+      "name": "grpc",
+      "features": [
+        "codegen"
+      ]
+    }
+  ]
+}

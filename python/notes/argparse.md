@@ -16,3 +16,7 @@
    >         print(cdecl_sym(dem))
    > ```
 
+2. [argparse metavar for nargs='+' to get numbered arguments in help info?](https://stackoverflow.com/questions/48429221/argparse-metavar-for-nargs-to-get-numbered-arguments-in-help-info)
+
+3. [Why is argparse not raising exceptions?](https://stackoverflow.com/questions/27458976/why-is-argparse-not-raising-exceptions)
+

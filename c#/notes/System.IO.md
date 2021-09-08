@@ -64,3 +64,8 @@ MemoryMapFile:
 https://github.com/microsoft/perfview/blob/7bc1b55ebf6773f8afcdf46a96d2e9ccc763aeee/src/FastSerialization/CompressedStream.cs
 
 [File IO improvements in .NET 6](https://devblogs.microsoft.com/dotnet/file-io-improvements-in-dotnet-6/)
+
+https://github.com/fo-dicom/fo-dicom/blob/development/DICOM/IO/Buffer/TempFileBuffer.cs
+
+https://github.com/fo-dicom/fo-dicom/blob/development/DICOM/IO/TemporaryFile.cs
+

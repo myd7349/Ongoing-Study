@@ -20,20 +20,26 @@
 - [QuickQanava](https://github.com/cneben/QuickQanava)
 - [Qv2ray](https://github.com/Qv2ray/Qv2ray)
 - [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager)
+- [robomongo](https://github.com/Studio3T/robomongo)
 - [rosbag_editor](https://github.com/facontidavide/rosbag_editor)
 - [sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)
+- [subsurface](https://github.com/subsurface/subsurface)
 - [synergy-core](https://github.com/symless/synergy-core)
 - [Telegram Desktop](https://github.com/telegramdesktop/tdesktop)
 - [tiled](https://github.com/mapeditor/tiled)
 - [TTKDownloader](https://github.com/Greedysky/TTKDownloader)
 - [TTKMusicplayer](https://github.com/Greedysky/TTKMusicplayer)
 - [WizQTClient](https://github.com/WizTeam/WizQTClient)
+- [WhatPulse2](https://whatpulse.org/)
 
 Libraries:
 
 - [FakeVim](https://github.com/hluk/FakeVim)
+- [framelesshelper](https://github.com/wangwenx190/framelesshelper)
 - [kconfigwidgets](https://github.com/KDE/kconfigwidgets)
 - [KDDockWidgets](https://github.com/KDAB/KDDockWidgets)
+- [PDF4QT](https://github.com/JakubMelka/PDF4QT)
+- [QAdvancedItemViews](https://github.com/Alexpux/QAdvancedItemViews)
 - [QDeviceWatcher](https://github.com/wang-bin/qdevicewatcher)
 - [TTKWidgetTools](https://github.com/Greedysky/TTKWidgetTools)
 

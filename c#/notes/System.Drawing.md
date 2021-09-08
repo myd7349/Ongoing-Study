@@ -37,3 +37,7 @@
    >         }
    >     }
    > ```
+
+2. Double Buffered Graphics
+   - [Double Buffered Graphics](https://docs.microsoft.com/en-us/dotnet/desktop/winforms/advanced/double-buffered-graphics?view=netframeworkdesktop-4.8)
+   - https://github.com/dotnet/runtime/blob/main/src/libraries/System.Drawing.Common/src/System/Drawing/BufferedGraphics.Windows.cs

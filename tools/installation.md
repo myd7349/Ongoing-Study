@@ -26,6 +26,7 @@
 ### AutoHotkey
 
 ### InnoSetup
+- https://github.com/wangwenx190/installer
 - https://github.com/ShareX/ShareX
 - https://github.com/Microsoft/vscode/tree/master/build/win32
 - https://github.com/cyanfish/naps2/blob/master/NAPS2/Setup/setup.iss

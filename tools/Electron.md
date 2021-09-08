@@ -1,0 +1,3 @@
+- Atom Editor
+- Microsoft Azure Storage Explorer
+- VS Code

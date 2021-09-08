@@ -15,3 +15,8 @@
         }
     }
 }
+
+
+// References:
+// https://docs.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.runtimehelpers.gethashcode?view=net-5.0
+// https://github.com/commandlineparser/commandline/blob/master/src/CommandLine/Infrastructure/ReferenceEqualityComparer.cs

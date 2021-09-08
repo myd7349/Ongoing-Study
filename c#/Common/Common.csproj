@@ -120,6 +120,7 @@
     <Compile Include="StructHelpers.cs" />
     <Compile Include="SwapHelper.cs" />
     <Compile Include="TabControlEx.cs" />
+    <Compile Include="TypeHelper.cs" />
     <Compile Include="UnmanagedBuffer.cs" />
     <Compile Include="ValueWithDefault.cs" />
     <Compile Include="Zip.cs" />

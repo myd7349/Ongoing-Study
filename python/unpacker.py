@@ -69,3 +69,5 @@ def unpack_data_from_file(file, fmt, offset=0):
 # References:
 # https://github.com/avalentino/hashsum/blob/1bc36e78439ee066626d7875fc4e8ae20f0aa2f8/hashsum.py#L59-L69
 # def blockiter(fd, blocksize=io.DEFAULT_BUFFER_SIZE):
+# [How do you split a list into evenly sized chunks?](https://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks)
+# [Iterating over every two elements in a list [duplicate]](https://stackoverflow.com/questions/5389507/iterating-over-every-two-elements-in-a-list)

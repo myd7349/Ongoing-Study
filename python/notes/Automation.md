@@ -13,3 +13,7 @@ Podcast:
 
 - [Little Automation Tools in Python](https://talkpython.fm/episodes/show/327/little-automation-tools-in-python)
 
+Tools:
+
+- [inspect](../../tools/inspect.md)
+

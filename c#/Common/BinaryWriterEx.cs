@@ -123,3 +123,12 @@
 // https://github.com/loory/MiscUtil/blob/master/Conversion/LittleEndianBitConverter.cs
 // https://github.com/dbrant/imageformats/blob/master/ImageFormats/Util.cs
 // [How to get a null terminated string from a C# string?](https://stackoverflow.com/questions/2793548/how-to-get-a-null-terminated-string-from-a-c-sharp-string)
+// https://docs.microsoft.com/en-us/uwp/api/windows.storage.streams.datawriter?view=winrt-20348
+// https://github.com/microsoft/BluetoothLEExplorer/blob/master/BluetoothLEExplorer/GattHelper/Converters/GattConvert.cs
+//        public static IBuffer ToIBuffer(bool data)
+//        {
+//            DataWriter writer = new DataWriter();
+//            writer.ByteOrder = ByteOrder.LittleEndian;
+//            writer.WriteBoolean(data);
+//            return writer.DetachBuffer();
+//        }

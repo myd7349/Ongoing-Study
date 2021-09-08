@@ -23,3 +23,5 @@
 
 7. https://github.com/squid-box/SevenZipSharp
 
+8. https://github.com/fo-dicom/fo-dicom/tree/development/Setup
+

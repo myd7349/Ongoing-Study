@@ -13,3 +13,6 @@ if hasattr(os, 'statvfs'):
 
 [Does Python have an ordered set?](https://stackoverflow.com/questions/1653970/does-python-have-an-ordered-set)
 
+[Equality overloading for namedtuple](https://stackoverflow.com/questions/34570814/equality-overloading-for-namedtuple)
+
+[How to cast namedtuple into tuple](https://stackoverflow.com/questions/55633358/how-to-cast-namedtuple-into-tuple)

@@ -13,4 +13,6 @@
 * [Vaadin Icons](https://vaadin.com/components/vaadin-icons) - Used by Typora
 * [system-uicons](https://github.com/CoreyGinnivan/system-uicons)
 * [vscode-icons](https://github.com/vscode-icons/vscode-icons)
+* [IconMoon]
+  - https://github.com/aykutkardas/react-icomoon
 

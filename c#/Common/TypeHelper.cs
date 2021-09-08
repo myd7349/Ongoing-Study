@@ -1,4 +1,4 @@
-﻿namespace GetInheritanceHierarchy
+﻿namespace Common
 {
     using System;
     using System.Collections.Generic;
@@ -27,3 +27,4 @@
 // References:
 // [Get inheritance tree of type](https://stackoverflow.com/questions/5716896/get-inheritance-tree-of-type)
 // [Convert String to Type in C#](https://stackoverflow.com/questions/11107536/convert-string-to-type-in-c-sharp)
+// https://github.com/commandlineparser/commandline/blob/d443a51aeb3a418425e970542b3b96e9da5f62e2/src/CommandLine/Core/ReflectionExtensions.cs

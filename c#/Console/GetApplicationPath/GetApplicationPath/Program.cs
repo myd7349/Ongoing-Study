@@ -31,3 +31,10 @@ namespace GetApplicationPath
 //            var exeAssembly = System.Reflection.Assembly.GetExecutingAssembly();
 //            var parentDir = Path.GetDirectoryName(Path.GetDirectoryName(exeAssembly.ManifestModule.FullyQualifiedName));
 //            string fileName = Path.Combine(parentDir, simpleName + ".dll");
+// https://github.com/commandlineparser/commandline/blob/master/src/CommandLine/Infrastructure/ReflectionHelper.cs
+//        private static Assembly GetExecutingOrEntryAssembly()
+//        {
+//            //resolve issues of null EntryAssembly in Xunit Test #392,424,389
+//            //return Assembly.GetEntryAssembly();
+//            return Assembly.GetEntryAssembly() ?? Assembly.GetCallingAssembly();
+//        }

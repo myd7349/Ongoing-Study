@@ -1,0 +1,1 @@
+[Iterating over every two elements in a list [duplicate]](https://stackoverflow.com/questions/5389507/iterating-over-every-two-elements-in-a-list)

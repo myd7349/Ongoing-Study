@@ -19,3 +19,6 @@ https://twitter.com/jedisct1/status/1413525125459333126
 https://github.com/edenhill/librd/blob/master/rdencoding.h
 
 https://github.com/jedisct1/d8code
+
+https://github.com/ibireme/yyjson/blob/37b56529f42bafb87e68c63a5e1f3e54c188237a/misc/make_tables.c#L256-L286
+

@@ -47,3 +47,7 @@ namespace Common
         private T defaultValue;
     }
 }
+
+
+// References:
+// https://github.com/commandlineparser/commandline/blob/d443a51aeb3a418425e970542b3b96e9da5f62e2/src/CommandLine/Infrastructure/CSharpx/Maybe.cs#L30

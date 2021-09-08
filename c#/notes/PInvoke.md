@@ -195,3 +195,8 @@ Microsoft.Win32.SafeHandles
 - [Can I use SafeHandle instead of IntPtr?](https://stackoverflow.com/questions/11973109/can-i-use-safehandle-instead-of-intptr)
 - https://github.com/chmorgan/sharppcap/commit/c19fc4da9c41658742379f8ab57ea8fb02b3a725
 
+GDI+ PInvoke:
+
+- https://github.com/dotnet/runtime/blob/main/src/libraries/System.Drawing.Common/src/System/Drawing/Gdiplus.cs
+- https://github.com/dotnet/runtime/blob/main/src/libraries/System.Drawing.Common/src/System/Drawing/GdiplusNative.Windows.cs
+- https://github.com/dotnet/runtime/blob/main/src/libraries/System.Drawing.Common/src/System/Drawing/Graphics.Windows.cs

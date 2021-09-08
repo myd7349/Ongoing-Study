@@ -139,3 +139,4 @@
 // https://stackoverflow.com/questions/8699053/how-to-check-if-a-class-inherits-another-class-without-instantiating-it
 // https://stackoverflow.com/questions/457676/check-if-a-class-is-derived-from-a-generic-class
 // https://github.com/de4dot/de4dot/blob/b7d5728fc0c82fb0ad758e3a4c0fbb70368a4853/de4dot.cui/Program.cs#L38-L50
+// https://github.com/j-maly/CommandLineParser/blob/master/src/CommandLineArgumentsParser/Compatibility/TypeExtensions.cs

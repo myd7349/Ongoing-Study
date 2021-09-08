@@ -123,3 +123,4 @@ int _tmain(int argc, _TCHAR *argv[])
 // References:
 // Beej's Guide to Network Programming Using Internet Sockets, Ch6.1
 // Ongoing-study/cpp/CMake/encoding_test
+// https://github.com/TheAlgorithms/C/blob/master/client_server/tcp_full_duplex_server.c
