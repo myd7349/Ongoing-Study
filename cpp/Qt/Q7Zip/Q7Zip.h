@@ -20,17 +20,13 @@ public:
     };
     Q_ENUM(Operation)
 
-    static Q7Zip *getInstance();
-
-    int init();
-    QString lzma_sdk_version();
-
     int compress(const QString &archive_name, const QStringList &compress_filelist, const QString &working_path);
     int extract(const QString &archive_name, const QString &output_path);
     int showfilelist(const QString &archive_name);
 
+    static QString lzma_sdk_version();
+
 signals:
-    void threadStarted_signal(int result);
     void operation_signal_compress(const QString archive_name, const QStringList compress_filelist, const QString working_path);
     void operation_signal_extract(const QString archive_name, const QString output_path);
     void operation_result_signal(Q7Zip::Operation operation, const QString archive_filename, int result);
@@ -45,12 +41,12 @@ signals:
     void extracting_filename_signal(const QString filename);
 
 public slots:
-    void threadStarted();
     void operation_slot_compress(const QString archive_name, const QStringList compress_filelist, const QString working_path);
     void operation_slot_extract(const QString archive_name, const QString output_path);
 
 private:
-    static Q7Zip * m_q7zip;
+    int init();
+
     QLibrary m_7zLib;
 };
 

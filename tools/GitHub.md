@@ -47,6 +47,8 @@ Awesome README.md:
 - https://github.com/willmcgugan/willmcgugan
 - https://github.com/orta/orta
 - https://github.com/ldqk/ldqk
+- https://github.com/evoluteur
+- https://github.com/laixintao/laixintao
 
 https://github.com/Tyrrrz/GitHubActionsTestLogger
 
@@ -57,3 +59,8 @@ https://github.blog/2020-12-15-token-authentication-requirements-for-git-operati
 https://github.com/haya14busa/action-update-semver
 
 https://github.com/reviewdog/action-languagetool
+
+GitHub Sponsors:
+
+https://github.com/faaxm/exmpl-cmake-grpc/blob/master/.github/FUNDING.yml
+

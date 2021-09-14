@@ -61,3 +61,4 @@ int main()
 
 // References:
 // https://www.zhihu.com/question/270085921
+// Regular Expressions Cookbook 4.5. Accurately Validate Traditional Date Formats: https://www.oreilly.com/library/view/regular-expressions-cookbook/9780596802837/ch04s05.html

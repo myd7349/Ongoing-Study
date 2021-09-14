@@ -1,6 +1,15 @@
+Cloud
+
+- [libcloud](https://github.com/apache/libcloud)
+
+- Table Storage
+  - [TableStorage.Abstractions](https://github.com/Tazmainiandevil/TableStorage.Abstractions)
+- [Cloudreve](https://github.com/cloudreve/Cloudreve)
+
 File System
 
 - [Enchilada](https://github.com/sparkeh9/Enchilada)
+- [gdrive](https://github.com/BYVoid/gdrive)
 
 Graphics
 

@@ -118,3 +118,4 @@ void *SRWLock::GetHandle()
 // Multithreading Applications in Win32, Ch07
 // ...\Microsoft Visual Studio\2017\...\VC\Tools\MSVC\14.14.26428\crt\src\stl\primitives.h
 // https://github.com/anydream/SharedReadWriteLock
+// https://github.com/cnr-isti-vclab/vcglib/blob/master/wrap/system/multithreading/rw_lock.h

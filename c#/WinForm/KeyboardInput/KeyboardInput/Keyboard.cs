@@ -78,3 +78,4 @@ namespace Common.WinForms.Input
 // [How to detect the currently pressed key?](http://stackoverflow.com/questions/1100285/how-to-detect-the-currently-pressed-key)
 // [How to detect if any key is pressed](http://stackoverflow.com/questions/12076107/how-to-detect-if-any-key-is-pressed)
 // [How can I convert 'System.Windows.Input.Key' to 'System.Windows.Forms.Keys'?](http://stackoverflow.com/questions/1153009/how-can-i-convert-system-windows-input-key-to-system-windows-forms-keys)
+// https://github.com/FlaUI/FlaUI/blob/master/src/FlaUI.Core/Input/Keyboard.cs

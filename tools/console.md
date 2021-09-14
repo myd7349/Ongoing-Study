@@ -7,3 +7,4 @@
 - https://github.com/alacritty/alacritty
 - https://github.com/rprichard/winpty
 - https://github.com/termux/termux-app
+- https://github.com/withfig/autocomplete

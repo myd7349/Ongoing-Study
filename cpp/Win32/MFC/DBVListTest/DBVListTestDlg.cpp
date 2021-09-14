@@ -85,6 +85,7 @@ BEGIN_MESSAGE_MAP(CDBVListTestDlg, CDialogEx)
     ON_BN_CLICKED(IDC_BTN_MODIFY, &CDBVListTestDlg::OnBnClickedBtnModify)
     ON_BN_CLICKED(IDC_BTN_DELETE, &CDBVListTestDlg::OnBnClickedBtnDelete)
     ON_NOTIFY(LVN_ENDLABELEDIT, IDC_EMP_LIST, &CDBVListTestDlg::OnLvnEndlabeleditEmpList)
+    ON_NOTIFY(NM_DBLCLK, IDC_EMP_LIST, &CDBVListTestDlg::OnNMDblclkEmpList)
 END_MESSAGE_MAP()
 
 void CDBVListTestDlg::GetDispInfo(LVITEM* pItem)
@@ -266,7 +267,7 @@ void CDBVListTestDlg::InitListControl()
 
     m_ctrlEmpList.ModifyStyle(0, LVS_EDITLABELS);
     m_ctrlEmpList.SetExtendedStyle(LVS_EX_FLATSB 
-        //| LVS_EX_FULLROWSELECT | LVS_EX_ONECLICKACTIVATE
+        | LVS_EX_FULLROWSELECT | LVS_EX_ONECLICKACTIVATE
         | LVS_EX_GRIDLINES | LVS_EX_HEADERDRAGDROP | LVS_EX_AUTOSIZECOLUMNS
         | LVS_EX_DOUBLEBUFFER);
 
@@ -536,4 +537,22 @@ void CDBVListTestDlg::OnBnClickedBtnDelete()
     END_CATCH_ALL
 
     UpdateFilterAndRecordCount(strPrevFilter);
+}
+
+
+void CDBVListTestDlg::OnNMDblclkEmpList(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
+
+    POSITION position = m_ctrlEmpList.GetFirstSelectedItemPosition();
+    if (position == nullptr)
+        return;
+
+    // Ongoing-Study\c#\Console\Automation\FlaUI\MFCUIAutomation
+    CString strCommandLine;
+    strCommandLine.Format(_T("MFCUIAutomation.exe %u"), GetCurrentProcessId());
+
+    ExecDaemonAsync(strCommandLine);
+
+    *pResult = 0;
 }

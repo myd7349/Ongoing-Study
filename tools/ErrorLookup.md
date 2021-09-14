@@ -1,0 +1,2 @@
+- errlook.exe
+- [The CertUtil program will decode Windows error codes, and in a variety of formats](https://devblogs.microsoft.com/oldnewthing/20210921-00/?p=105713)

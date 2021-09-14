@@ -248,3 +248,7 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
     
 36. https://github.com/desktop-app/cmake_helpers
 
+37. cmake_push_check_state
+
+    https://github.com/google/glog/pull/724/files
+

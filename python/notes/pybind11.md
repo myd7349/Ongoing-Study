@@ -17,5 +17,9 @@ Projects using `pybind11`
 * [flashlight](https://github.com/flashlight/flashlight/tree/master/bindings/python)
 * [pyworkflow](https://github.com/sogou/pyworkflow)
 * [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
+* [OpenXLSX](https://github.com/troldal/OpenXLSX/tree/master/Python)
 * [optima](https://github.com/reaktoro/optima/blob/master/python/bindings/CMakeLists.txt)
+* [pymeshlab](https://github.com/cnr-isti-vclab/PyMeshLab/tree/master/src/pymeshlab)
+* [pykokkos-base](https://github.com/kokkos/pykokkos-base)
+  - [pykokkos](https://github.com/kokkos/pykokkos)
 

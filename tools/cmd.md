@@ -51,3 +51,7 @@ https://github.com/dbohdan/messagebox
 > netstat  -ano | findstr "5037"
 >
 > tasklist| findstr "34652"
+
+https://github.com/SergeyPirogov/webdriver_manager/blob/master/webdriver_manager/utils.py
+
+>  reg query "HKEY_CURRENT_USER\Software\Google\Chrome\BLBeacon" /v version

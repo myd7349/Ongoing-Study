@@ -65,6 +65,7 @@ protected:
     afx_msg void OnBnClickedBtnSearch();
     afx_msg void OnBnClickedBtnModify();
     afx_msg void OnBnClickedBtnDelete();
+    afx_msg void OnNMDblclkEmpList(NMHDR *pNMHDR, LRESULT *pResult);
     DECLARE_MESSAGE_MAP()
 
 private:

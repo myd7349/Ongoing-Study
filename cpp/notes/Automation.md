@@ -1,0 +1,1 @@
+[Test automation tool/libraries/framework for C++ GUI desktop windows apps](https://stackoverflow.com/questions/5975184/test-automation-tool-libraries-framework-for-c-gui-desktop-windows-apps)

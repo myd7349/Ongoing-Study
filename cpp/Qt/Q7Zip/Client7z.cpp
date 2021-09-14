@@ -858,6 +858,7 @@ int Client7z::Extract(const std::wstring archiveFilePath, const std::wstring &ou
 
 // References:
 // [What preprocessor can I used to detect if QT is used to build my codes](https://stackoverflow.com/questions/30840176/what-preprocessor-can-i-used-to-detect-if-qt-is-used-to-build-my-codes)
+// https://github.com/pocoproject/poco/blob/master/SevenZip/include/Poco/SevenZip/Archive.h
 
 /*
 ————————————————

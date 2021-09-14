@@ -57,3 +57,4 @@ Packages:
 
 https://github.com/microsoft/Vipr/blob/master/src/Core/Vipr/FileWriter.cs
 
+https://github.com/phatboyg/GreenPipes

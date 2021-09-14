@@ -78,7 +78,12 @@ target_link_libraries(
         "${format7zr_output_lib}"
 )
 
-add_executable(Q7ZipApp main.cpp mainwindow.cpp)
+add_executable(Q7ZipApp
+    main.cpp
+    mainwindow.cpp
+    ExtractionWorker.cpp
+    CompressionWorker.cpp
+)
 target_link_libraries(Q7ZipApp PRIVATE Qt6::Widgets Q7Zip)
 
 add_custom_command(

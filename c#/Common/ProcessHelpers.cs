@@ -83,3 +83,4 @@ namespace Common
 // References:
 // https://stackoverflow.com/questions/2636721/bring-another-processes-window-to-foreground-when-it-has-showintaskbar-false
 // https://github.com/microsoft/perfview/blob/main/src/HeapDump/GCHeapDump.cs
+// [Restore application from system tray when clicking on desktop shortcut](https://stackoverflow.com/questions/10529370/restore-application-from-system-tray-when-clicking-on-desktop-shortcut)

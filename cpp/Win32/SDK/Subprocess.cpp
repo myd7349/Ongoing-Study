@@ -141,4 +141,5 @@ unsigned int __stdcall Subprocess::ProcessOutput(void *arg) {
 // https://stackoverflow.com/questions/46343789/cant-find-popen-and-pclose-with-windows-codeblocks-mingw-16-01
 // https://github.com/DaanDeMeyer/reproc
 // https://github.com/Genymobile/scrcpy/blob/master/app/src/util/process.h
+// https://github.com/kingsamchen/Eureka/tree/master/run-child-process
 // clang-format on

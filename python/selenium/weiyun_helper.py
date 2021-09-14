@@ -12,7 +12,14 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as Expect
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException, WebDriverException
+
+try:
+    import webdriver_manager  # pip install webdriver-manager
+    del webdriver_manager
+    webdriver_manager_available = True
+except (ModuleNotFoundError, ImportError):
+    webdriver_manager_available = False
 
 import weiyun_config
 
@@ -20,34 +27,9 @@ import weiyun_config
 class WeiYunHelper:
     def __init__(self, config):
         self._config = config
-
-        print('Browser:', self._config.browser)
-
-        if self._config.browser_driver_path and os.path.isdir(
-                self._config.browser_driver_path):
-            print('Browser driver searching path: {0}.'.format(
-                self._config.browser_driver_path))
-            sys.path.append(self._config.browser_driver_path)
-
-        if self._config.browser == 'Chrome':
-            driver_class = webdriver.Chrome
-        elif self._config.browser == 'Edge':
-            driver_class = webdriver.Edge
-        elif self._config.browser == 'Firefox':
-            driver_class = webdriver.Firefox
-        elif self._config.browser == 'Safari':
-            driver_class = webdriver.Safari
-        else:
-            assert False, 'Unknown browser.'
-
-        if os.path.isfile(self._config.browser_driver_path):
-            self._browser = driver_class(
-                executable_path=self._config.browser_driver_path)
-        else:
-            self._browser = driver_class()
-
         self._cookies_file_path = weiyun_config.get_cookies_file_path(
             self._config)
+        self._init_driver()
 
     def login(self, timeout_in_seconds=300):
         if os.path.exists(self._cookies_file_path):
@@ -91,6 +73,61 @@ class WeiYunHelper:
 
     def exit(self):
         self._browser.close()
+
+    def _init_driver(self):
+        if self._config.browser not in weiyun_config.KNOWN_BROWSERS:
+            raise RuntimeError('Unknown browser: {0}.'.format(
+                self._config.browser))
+
+        print('Browser:', self._config.browser)
+
+        if self._config.browser_driver_path and os.path.isdir(
+                self._config.browser_driver_path):
+            print('Browser driver searching path: {0}.'.format(
+                self._config.browser_driver_path))
+            sys.path.append(self._config.browser_driver_path)
+
+        if self._config.browser == 'Chrome':
+            driver_class = webdriver.Chrome
+        elif self._config.browser == 'Edge':
+            driver_class = webdriver.Edge
+        elif self._config.browser == 'Firefox':
+            driver_class = webdriver.Firefox
+        elif self._config.browser == 'Safari':
+            driver_class = webdriver.Safari
+        else:
+            assert False, 'Unknown browser.'
+
+        try:
+            if os.path.isfile(self._config.browser_driver_path):
+                self._browser = driver_class(
+                    executable_path=self._config.browser_driver_path)
+            else:
+                self._browser = driver_class()
+        except WebDriverException:
+            if webdriver_manager_available:
+                self._init_driver_via_manager()
+            else:
+                raise
+
+    def _init_driver_via_manager(self):
+        if self._config.browser == 'Chrome':
+            from webdriver_manager.chrome import ChromeDriverManager
+            from webdriver_manager.utils import ChromeType
+            self._browser = webdriver.Chrome(
+                ChromeDriverManager(chrome_type=ChromeType.GOOGLE).install())
+        elif self._config.browser == 'Edge':
+            from webdriver_manager.microsoft import EdgeChromiumDriverManager
+            self._browser = webdriver.Edge(
+                EdgeChromiumDriverManager().install())
+        elif self._config.browser == 'Firefox':
+            from webdriver_manager.firefox import GeckoDriverManager
+            self._browser = webdriver.Firefox(
+                executable_path=GeckoDriverManager().install())
+        elif self._config.browser == 'Safari':
+            raise NotImplementedError("Safari is not supported.")
+        else:
+            assert False, 'Unknown browser.'
 
     def _load_cookies(self):
         with open(self._cookies_file_path, 'r') as fp:
@@ -185,3 +222,4 @@ if __name__ == '__main__':
 # [Wait until page is loaded with Selenium WebDriver for Python](https://stackoverflow.com/questions/26566799/wait-until-page-is-loaded-with-selenium-webdriver-for-python)
 # [Open web in new tab Selenium + Python](https://stackoverflow.com/questions/28431765/open-web-in-new-tab-selenium-python)
 # [python-selenium-open-tab.md](https://gist.github.com/lrhache/7686903)
+# https://github.com/SergeyPirogov/webdriver_manager

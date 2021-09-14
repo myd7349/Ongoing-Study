@@ -25,3 +25,34 @@
 
 8. https://github.com/fo-dicom/fo-dicom/tree/development/Setup
 
+9. [NuGet: 'X' already has a dependency defined for 'Y'](https://stackoverflow.com/questions/25725545/nuget-x-already-has-a-dependency-defined-for-y)
+
+   In VS2010, `Install-Package FlaUI.Core` failed:
+   
+   > <MyProject> already has a dependency defined for `Microsoft.Win32.Registry`.
+   
+   > I faced this error on outdated version of Visual Studio 2010. Due to  project configuration I was not able to update this version to newer.  Therefore, update of NuGet advised above did not fix things for me. 
+   >
+   > Root reason for the error in this and similar situations is in  dependencies of the package you try to install, which are not compatible with .NET version available in your project. 
+   >
+   > Universal solution is not obligatory update of Visual Studio or .NET  but in installation of older NuGet versions of the same package  compatible with your system. 
+   >
+   > It is not possible to tell for sure, which of earlier versions will  work. In my case, this command installed the package without any NuGet  updates.
+   >
+   > ```powershell
+   > Install-Package X -Version [compatible version number]
+   > ```
+   
+   and another answer:
+   
+   > 1. Go to the link https://www.nuget.org/packages/
+   > 2. Search your NuGet packages 
+   > 3. See the all version of related packages
+   > 4. Install the lower version of packages
+   
+   at last:
+   
+   > Install-Package FlaUI.Core -Version 2.0.0-rc1
+   
+   works for me.
+

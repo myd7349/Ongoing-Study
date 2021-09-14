@@ -22,3 +22,6 @@ https://github.com/jedisct1/d8code
 
 https://github.com/ibireme/yyjson/blob/37b56529f42bafb87e68c63a5e1f3e54c188237a/misc/make_tables.c#L256-L286
 
+https://stackoverflow.com/questions/18717182/convert-jpeg-image-to-hex-format
+
+https://stackoverflow.com/questions/10698097/c-sharp-hex-string-to-byte-image-and-filtering

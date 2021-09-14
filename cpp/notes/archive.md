@@ -1,0 +1,11 @@
+- 7-zip
+  - https://github.com/pocoproject/poco/tree/master/SevenZip
+  - https://github.com/M2Team/NanaZip
+- libarchive
+- minizip
+- [XArchive](https://github.com/horsicq/XArchive)
+- zlib
+- zstd
+  - [zstdmt](https://github.com/mcmilk/zstdmt)
+    - [7-Zip-zstd](https://github.com/mcmilk/7-Zip-zstd)
+

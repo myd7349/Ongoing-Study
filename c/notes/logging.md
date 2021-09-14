@@ -1,0 +1,3 @@
+- https://github.com/HardySimpson/zlog
+- http://log4c.sourceforge.net/
+- https://github.com/gnif/ADL/blob/master/include/adl/logging.h

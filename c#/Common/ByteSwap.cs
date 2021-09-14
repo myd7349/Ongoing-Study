@@ -116,3 +116,4 @@
 // https://stackoverflow.com/questions/19560436/bitwise-endian-swap-for-various-types
 // https://github.com/nemequ/portable-snippets/blob/77654dbc376e0465aaae096553eeb2e95a9f2735/builtin/builtin.h#L974-L980
 // https://github.com/dbrant/imageformats/blob/master/ImageFormats/Util.cs
+// https://github.com/ciniml/WireGuard-ESP32-Arduino/blob/main/src/crypto.h

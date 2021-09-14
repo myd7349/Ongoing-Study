@@ -191,8 +191,10 @@ int parse_arguments(int argc, char *argv[], method_t *method, const char **url, 
 void handle_url(const char *url, method_t method, int utf8)
 {
     char *out_url;
+#ifdef ENABLE_WCONV
     char *url_utf8;
     char *url_ansi;
+#endif
 
     if (utf8)
     {

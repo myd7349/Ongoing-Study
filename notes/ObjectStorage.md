@@ -6,5 +6,7 @@
 - [lakeFS](https://github.com/treeverse/lakeFS)
 - MinIO
 - SeaweedFS
+- [STORJ](https://storj.io/)
+  - https://twitter.com/SLPL__/status/1449186396313378817
 - XtreemFS
 

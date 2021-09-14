@@ -20,3 +20,5 @@
 
 3. [Why is argparse not raising exceptions?](https://stackoverflow.com/questions/27458976/why-is-argparse-not-raising-exceptions)
 
+4. https://github.com/kblin/ncbi-genome-download/blob/master/ncbi_genome_download/core.py
+

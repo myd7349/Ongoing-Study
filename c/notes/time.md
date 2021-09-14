@@ -2,6 +2,12 @@
 
 https://github.com/protocolbuffers/protobuf/blob/77f03d932a35e8aa0a98c0c728ad3f5aacfe30ce/php/ext/google/protobuf/upb.c#L10490
 
+MFC CTime
+
+Note that:
+
+CTime can not supports date time that is earlier than 1970-01-01 00:00:00, but COleDateTime can. 
+
 2. Wall-clock time
 
 >Class std::chrono::steady_clock represents a monotonic clock. The time points of this clock cannot decrease as physical time moves forward. This clock is not related to wall clock time (for example, it can be time since last reboot), and is most suitable for measuring intervals.
@@ -94,3 +100,11 @@ and another example:
 >     ConsoleWriteLn(u8"LOCAL: " + CurrentISO8601DateTime(false));
 > }
 > ```
+
+3. strptime
+
+- [Is there an available and licensed version of strptime.h that will compile in Visual Studio?](https://stackoverflow.com/questions/11688565/is-there-an-available-and-licensed-version-of-strptime-h-that-will-compile-in-vi)
+  - https://github.com/UC-c0de/googlesitemapgenerator/blob/master/src/common/timesupport.cc
+- http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libc/time/strptime.c?rev=HEAD
+- [Parsing date/time strings problem](https://stackoverflow.com/questions/4325847/parsing-date-time-strings-problem)
+

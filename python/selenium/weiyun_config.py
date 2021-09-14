@@ -19,7 +19,7 @@ WEIYUN_UPLOAD_BUTTON_XPATH = '/html/body/div[1]/div/div[1]/div/div[2]/div[1]/div
 WEIYUN_SAVE_BUTTON_XPATH = '/html/body/div/div/div[2]/div/div/div[1]/div[1]/div/div/div[1]/div[1]/div/div'
 WEIYUN_SAVE_OK_BUTTON_XPATH = '/html/body/div[2]/div/div[3]/button[2]'
 
-KNOWN_BROWSERS = ('Chrome', 'Edge', 'Firefox', 'Safari')
+KNOWN_BROWSERS = frozenset(('Chrome', 'Edge', 'Firefox', 'Safari'))
 
 COOKIES_FILE_NAME_DICT = {
     'Chrome': 'cookies.chrome.json',

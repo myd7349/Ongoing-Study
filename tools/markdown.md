@@ -17,7 +17,6 @@ index d6f75cf..1d2cfdf 100755
 
 ```
 
-
 2 [TODO List](https://github.com/itchio/capsule/blob/master/README.md)
 
 ### Linux
@@ -28,8 +27,9 @@ index d6f75cf..1d2cfdf 100755
     * [x] OpenGL capture
     * [ ] Vulkan capture
 
-
 3 https://github.com/guodongxiaren/README
+
+4 [How do I display local image in markdown?](https://stackoverflow.com/questions/41604263/how-do-i-display-local-image-in-markdown)
 
 Softwares:
 
@@ -41,4 +41,5 @@ Softwares:
 Libraries:
 
 - [milkdown](https://github.com/Saul-Mirone/milkdown)
+- [MdXaml](https://github.com/whistyun/MdXaml)
 

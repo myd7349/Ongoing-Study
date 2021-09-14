@@ -1,0 +1,2 @@
+- [pep8speaks](https://github.com/OrkoHunter/pep8speaks)
+  - https://github.com/SergeyPirogov/webdriver_manager/pull/228

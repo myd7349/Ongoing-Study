@@ -166,3 +166,4 @@ inline ResultList split_by_tokens(const CharT *s, const CharT *tokens, bool keep
 // Qt:QString::split
 // https://www.zhihu.com/question/36642771
 // https://github.com/imageworks/pystring/blob/master/pystring.h
+// https://github.com/xqq/libwtfdanmaku/blob/master/src/StringUtils.cpp

@@ -25,3 +25,4 @@
 // https://github.com/edenhill/librdkafka/blob/master/src/snappy_compat.h
 // http://man7.org/linux/man-pages/man3/bswap.3.html
 // https://github.com/nemequ/portable-snippets/blob/master/builtin/builtin.h
+// https://github.com/ciniml/WireGuard-ESP32-Arduino/blob/main/src/crypto.h

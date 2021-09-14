@@ -129,3 +129,4 @@ BOOL Execute(
 // https://www.zhihu.com/question/37334646/answer/409253134
 // TortoiseGit/src/Utils/CreateProcessHelper.h
 // [AfxPumpMessage() is using for?](https://stackoverflow.com/questions/21304232/afxpumpmessage-is-using-for)
+// [How to wait for ShellExecute to run?](https://stackoverflow.com/questions/17638674/how-to-wait-for-shellexecute-to-run)

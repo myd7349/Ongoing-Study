@@ -256,3 +256,23 @@ https://github.com/lattera/glibc/blob/master/stdio-common/getline.c
 https://github.com/lattera/glibc/blob/master/libio/iogetdelim.c
 
 https://github.com/bminor/glibc/blob/master/libio/iogetline.c
+
+22. [how do I write to stdout from an MFC program?](https://stackoverflow.com/questions/5094502/how-do-i-write-to-stdout-from-an-mfc-program)
+
+> ```c
+> void EnablePrintfAtMFC()
+> {
+>     if (AttachConsole(ATTACH_PARENT_PROCESS))
+>     {
+>         FILE* pCout;
+>         freopen_s(&pCout, "CONOUT$", "w", stdout);
+>         std::cout.clear();
+>         std::wcout.clear();
+>     }
+> }
+> ```
+
+
+
+
+

@@ -233,3 +233,4 @@ namespace Common.IO
 // https://github.com/microsoft/perfview/blob/main/src/Utilities/FileUtilities.cs
 // https://github.com/microsoft/perfview/blob/main/src/Utilities/DirectoryUtilities.cs
 // https://github.com/microsoft/perfview/blob/main/src/Utilities/StreamUtilities.cs
+// https://github.com/microsoft/accessibility-insights-windows/blob/main/src/AccessibilityInsights.SetupLibrary/FileHelpers.cs

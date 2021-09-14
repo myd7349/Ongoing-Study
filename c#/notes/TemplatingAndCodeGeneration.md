@@ -2,6 +2,8 @@
 
   - [用T4生成EF框架下的DAL、IDAL、BLL、IBLL](https://www.cnblogs.com/zhaoshujie/p/12052409.html)
 
+- [T5](https://github.com/atifaziz/t5)
+
 - [LLBLGen](https://www.llblgen.com/)
 
   - [Any tools to auto-generate generic BLL code?](https://forums.asp.net/t/1237285.aspx?Any+tools+to+auto+generate+generic+BLL+code+)
@@ -21,4 +23,8 @@
 - [netTierGenerator](https://www.codeproject.com/Articles/31365/netTierGenerator)
 
 - [动软代码生成器](http://www.maticsoft.com/default.htm)
+
+- [WebFirst](https://github.com/donet5/WebFirst)
+
+- [AntData.ORM](https://github.com/yuzd/AntData.ORM)
 

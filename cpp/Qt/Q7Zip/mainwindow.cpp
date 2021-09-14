@@ -2,20 +2,21 @@
 #include "ui_mainwindow.h"
 
 #include <QtCore/QDir>
+#include <QtCore/QThread>
 #include <QtGui/QScreen>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QProgressDialog>
 #include <QtWidgets/QStylePainter>
 
-#include "Q7Zip.h"
+#include "ExtractionWorker.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    q7zip_ = Q7Zip::getInstance();
+    q7zip_ = new Q7Zip(this);
 
     ui->setupUi(this);
 
@@ -52,6 +53,15 @@ void MainWindow::extractArchive()
         tr("Archive Files (*.7z *.zip);;All Files (*.*)"));
     if (!archiveFilePath.isEmpty())
     {
+        QThread* thread = new QThread(this);
+
+        ExtractionWorker *extractionWorker = new ExtractionWorker;
+        extractionWorker->moveToThread(thread);
+
+        connect(thread, SIGNAL(started()), extractionWorker, SLOT(extract()));
+
+        thread->start();
+
         auto progressDialog = new QProgressDialog(this);
         progressDialog->setWindowModality(Qt::WindowModal);
         progressDialog->setWindowTitle(tr("Extracting archive..."));
@@ -77,3 +87,8 @@ void MainWindow::createArchive()
 // References:
 // [Qt 5 : update QProgressBar during QThread work via signal](https://stackoverflow.com/questions/35673201/qt-5-update-qprogressbar-during-qthread-work-via-signal/35673612)
 // [How can I set text of label when a function is running?](https://stackoverflow.com/questions/22715564/how-can-i-set-text-of-label-when-a-function-is-running)
+// [what is the correct way to implement a QThread](https://stackoverflow.com/questions/4093159/what-is-the-correct-way-to-implement-a-qthread-example-please)
+// [How To Really, Truly Use QThreads; The Full Explanation](https://mayaposch.wordpress.com/2011/11/01/how-to-really-truly-use-qthreads-the-full-explanation/)
+// [Threading without the headache](https://www.qt.io/blog/2006/12/04/threading-without-the-headache)
+// [Is Qt's QBuffer thread safe?](https://stackoverflow.com/questions/13865232/is-qts-qbuffer-thread-safe)
+// [Qt signal argument thread safety](https://stackoverflow.com/questions/31118507/qt-signal-argument-thread-safety)

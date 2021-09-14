@@ -119,3 +119,7 @@
   ```
 
 - https://github.com/GothenburgBitFactory/libshared/blob/master/src/Configuration.h
+
+- https://github.com/pocoproject/poco/blob/master/Util/include/Poco/Util/IniFileConfiguration.h
+
+  - https://github.com/MayaPosch/NymphCast/blob/ecd40894838f84c3ced866992a28c0f10862a868/src/server/config_parser.h#L25

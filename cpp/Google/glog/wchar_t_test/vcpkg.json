@@ -1,0 +1,7 @@
+{
+  "name": "wchar-test",
+  "version-semver": "0.0.1",
+  "dependencies": [
+    "glog"
+  ]
+}

@@ -212,6 +212,8 @@ public:
     STDMETHOD(CryptoGetTextPassword)(BSTR *aPassword);
 
 private:
+    Q7Zip &_q7zip;
+
     CMyComPtr<IInArchive> _archiveHandler;
     FString _directoryPath;  // Output directory
     UString _filePath;       // name inside arcvhive
@@ -237,7 +239,11 @@ public:
     UString Password;
     UInt64 FileSize;
 
-    CArchiveExtractCallback() : PasswordIsDefined(false) {}
+    CArchiveExtractCallback(Q7Zip &q7zip)
+        : _q7zip(q7zip)
+        , PasswordIsDefined(false)
+    {
+    }
 };
 
 void CArchiveExtractCallback::Init(IInArchive *archiveHandler, const FString &directoryPath)
@@ -251,7 +257,7 @@ void CArchiveExtractCallback::Init(IInArchive *archiveHandler, const FString &di
 STDMETHODIMP CArchiveExtractCallback::SetTotal(UInt64 size)
 {
     FileSize = size;
-    emit Q7Zip::getInstance()->extract_filesize_signal(FileSize);
+    emit _q7zip.extract_filesize_signal(FileSize);
     return S_OK;
 }
 
@@ -261,10 +267,10 @@ STDMETHODIMP CArchiveExtractCallback::SetCompleted(const UInt64 * completeValue)
 #ifdef DEBUG_LOGOUT_ON
     qDebug("Extract %.2f%%", static_cast<float>(*completeValue) / FileSize * 100.0f );
 #endif
-    emit Q7Zip::getInstance()->extract_completeValue_signal(*completeValue);
+    emit _q7zip.extract_completeValue_signal(*completeValue);
 
     auto percentage = *completeValue == FileSize ? 100 : static_cast<int>(*completeValue * 100.0 / FileSize);
-    emit Q7Zip::getInstance()->extract_percentage_signal(percentage);
+    emit _q7zip.extract_percentage_signal(percentage);
 
     return S_OK;
 }
@@ -397,7 +403,7 @@ STDMETHODIMP CArchiveExtractCallback::PrepareOperation(Int32 askExtractMode)
 #ifdef DEBUG_LOGOUT_ON
         qDebug() << kExtractingString << filepath;
 #endif
-        emit Q7Zip::getInstance()->extracting_filename_signal(filepath);
+        emit _q7zip.extracting_filename_signal(filepath);
         break;
     case NArchive::NExtract::NAskMode::kTest:
         //Print(kTestingString);
@@ -533,6 +539,9 @@ public:
 
     STDMETHOD(CryptoGetTextPassword2)(Int32 *passwordIsDefined, BSTR *password);
 
+private:
+    Q7Zip &_q7zip;
+
 public:
     CRecordVector<UInt64> VolumesSizes;
     UString VolName;
@@ -551,7 +560,13 @@ public:
     CRecordVector<HRESULT> FailedCodes;
     UInt64 FileSize;
 
-    CArchiveUpdateCallback(): PasswordIsDefined(false), AskPassword(false), DirItems(0) {};
+    CArchiveUpdateCallback(Q7Zip &q7zip)
+        : _q7zip(q7zip)
+        ,  PasswordIsDefined(false)
+        , AskPassword(false)
+        , DirItems(0)
+    {
+    }
 
     ~CArchiveUpdateCallback() { Finilize(); }
     HRESULT Finilize();
@@ -568,7 +583,7 @@ public:
 STDMETHODIMP CArchiveUpdateCallback::SetTotal(UInt64 size)
 {
     FileSize = size;
-    emit Q7Zip::getInstance()->compress_filesize_signal(FileSize);
+    emit _q7zip.compress_filesize_signal(FileSize);
     return S_OK;
 }
 
@@ -578,7 +593,7 @@ STDMETHODIMP CArchiveUpdateCallback::SetCompleted(const UInt64 * completeValue)
 #ifdef DEBUG_LOGOUT_ON
     qDebug("Compress %.2f%%", static_cast<float>(*completeValue) / FileSize * 100.0f );
 #endif
-    emit Q7Zip::getInstance()->compress_completeValue_signal(*completeValue);
+    emit _q7zip.compress_completeValue_signal(*completeValue);
     return S_OK;
 }
 
@@ -641,7 +656,6 @@ static void GetStream2(const wchar_t *name)
 #ifdef DEBUG_LOGOUT_ON
     qDebug() << "Compressing " << QString::fromWCharArray(name);
 #endif
-    emit Q7Zip::getInstance()->compressing_filename_signal(QString::fromWCharArray(name));
 }
 
 STDMETHODIMP CArchiveUpdateCallback::GetStream(UInt32 index, ISequentialInStream **inStream)
@@ -650,6 +664,8 @@ STDMETHODIMP CArchiveUpdateCallback::GetStream(UInt32 index, ISequentialInStream
 
     const CDirItem &dirItem = (*DirItems)[index];
     GetStream2(dirItem.Name);
+
+    emit _q7zip.compressing_filename_signal(QString::fromWCharArray(dirItem.Name));
 
     if (dirItem.isDir())
         return S_OK;
@@ -730,26 +746,16 @@ STDMETHODIMP CArchiveUpdateCallback::CryptoGetTextPassword2(Int32 *passwordIsDef
 }
 #endif
 
-Q7Zip * Q7Zip::m_q7zip = NULL;
-
 
 Q7Zip::Q7Zip(QObject *parent) :
     QObject(parent),
     m_7zLib(kDllName)
 {
+    init();
+
     qRegisterMetaType<Q7Zip::Operation>();
     static_cast<void>(QObject::connect(this, SIGNAL(operation_signal_compress(const QString, const QStringList, const QString)), this, SLOT(operation_slot_compress(const QString, const QStringList, const QString)), Qt::QueuedConnection));
     static_cast<void>(QObject::connect(this, SIGNAL(operation_signal_extract(const QString, const QString)), this, SLOT(operation_slot_extract(const QString, const QString)), Qt::QueuedConnection));
-}
-
-
-Q7Zip *Q7Zip::getInstance()
-{
-    if(m_q7zip == NULL)
-    {
-        m_q7zip = new Q7Zip;
-    }
-    return m_q7zip;
 }
 
 
@@ -772,10 +778,6 @@ int Q7Zip::init()
     return init_result;
 }
 
-QString Q7Zip::lzma_sdk_version()
-{
-    return QString(MY_VERSION " ("  MY_DATE  ")");
-}
 
 int Q7Zip::compress(const QString &archive_name, const QStringList &compress_filelist, const QString &working_path)
 {
@@ -830,7 +832,7 @@ int Q7Zip::compress(const QString &archive_name, const QStringList &compress_fil
         return 1;
     }
 
-    CArchiveUpdateCallback *updateCallbackSpec = new CArchiveUpdateCallback;
+    CArchiveUpdateCallback *updateCallbackSpec = new CArchiveUpdateCallback(*this);
     CMyComPtr<IArchiveUpdateCallback2> updateCallback(updateCallbackSpec);
     updateCallbackSpec->Init(&dirItems);
 
@@ -898,7 +900,7 @@ int Q7Zip::extract(const QString &archive_name, const QString &output_path)
     }
 
     // Extract command
-    CArchiveExtractCallback *extractCallbackSpec = new CArchiveExtractCallback;
+    CArchiveExtractCallback *extractCallbackSpec = new CArchiveExtractCallback(*this);
     CMyComPtr<IArchiveExtractCallback> extractCallback(extractCallbackSpec);
     extractCallbackSpec->Init(archive, FString(output_path.toStdWString().c_str())); // second parameter is output folder path
     extractCallbackSpec->PasswordIsDefined = false;
@@ -934,17 +936,19 @@ int Q7Zip::extract(const QString &archive_name, const QString &output_path)
     return 0;
 }
 
+
 int Q7Zip::showfilelist(const QString &archive_name)
 {
     Q_UNUSED(archive_name);
     return 0;
 }
 
-void Q7Zip::threadStarted(void)
+
+QString Q7Zip::lzma_sdk_version()
 {
-    int init_result = init();
-    emit threadStarted_signal(init_result);
+    return QString(MY_VERSION " ("  MY_DATE  ")");
 }
+
 
 void Q7Zip::operation_slot_compress(const QString archive_name, const QStringList compress_filelist, const QString working_path)
 {
@@ -954,6 +958,7 @@ void Q7Zip::operation_slot_compress(const QString archive_name, const QStringLis
 
     emit operation_result_signal(Q7Zip::Q7ZIP_COMPRESS, archive_name, operate_result);
 }
+
 
 void Q7Zip::operation_slot_extract(const QString archive_name, const QString output_path)
 {
@@ -969,7 +974,8 @@ void Q7Zip::operation_slot_extract(const QString archive_name, const QString out
 // [Referencing GUIDs](https://stackoverflow.com/questions/10980920/referencing-guids)
 // [COM IID in C, unresolved external symbol IID_IAudioClient](https://handmade.network/forums/t/3010-com_iid_in_c,_unresolved_external_symbol_iid_iaudioclient)
 // https://sourceforge.net/p/sevenzip/discussion/45798/thread/0499591f/
-
+// https://github.com/pocoproject/poco/blob/master/SevenZip/include/Poco/SevenZip/Archive.h
+// https://github.com/horsicq/XArchive
 /*
 ————————————————
 版权声明：本文为CSDN博主「AsukaV_V」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。

@@ -23,3 +23,6 @@ string version = fvi.FileVersion;
 > #endif
 > ```
 
+[Output System.Diagnostics.Debug to Console](https://stackoverflow.com/questions/37885587/output-system-diagnostics-debug-to-console)
+
+[Start new process, without being a child of the spawning process](https://stackoverflow.com/questions/8434379/start-new-process-without-being-a-child-of-the-spawning-process)

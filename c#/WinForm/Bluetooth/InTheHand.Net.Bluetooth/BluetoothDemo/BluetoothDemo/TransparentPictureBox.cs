@@ -45,3 +45,4 @@
 
 // References:
 // [Show Transparent Loading Spinner above other Controls](https://stackoverflow.com/questions/37220327/show-transparent-loading-spinner-above-other-controls)
+// [Showing a spinner while a Windows Forms program is "processing", similar to ajaxStart/ajaxStop?](https://stackoverflow.com/questions/9007152/showing-a-spinner-while-a-windows-forms-program-is-processing-similar-to-ajax)

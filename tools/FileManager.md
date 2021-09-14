@@ -1,0 +1,6 @@
+- Far Manager
+- fman
+- Free Commander
+- Midnight Commander
+- Norton Commander
+- Total Commander

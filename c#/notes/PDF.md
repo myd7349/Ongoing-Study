@@ -14,3 +14,4 @@ https://github.com/BitMiracle/Docotic.Pdf.Samples
 
 [PDF Mosaic](https://www.colorpilot.com/pdfmosaic.html)
 
+https://github.com/PDFium/PDFium has a C# binding.

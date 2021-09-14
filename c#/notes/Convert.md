@@ -2,3 +2,4 @@
 
 [How to make a Generic Type Cast function](https://stackoverflow.com/questions/6884653/how-to-make-a-generic-type-cast-function)
 
+https://github.com/shadowsocks/shadowsocks-windows/blob/main/Shadowsocks/Utilities/Base64Url.cs

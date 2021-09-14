@@ -1,5 +1,29 @@
+Servers:
+
+- [Bonobo](https://github.com/jakubgarfield/Bonobo-Git-Server)
+
+- [git](https://github.com/msysgit/msysgit/wiki/Setting-up-a-Git-server-on-Windows-using-Git-for-Windows-and-CopSSH)
+
+- gogs
+
+Clients:
+
+- [Fork](https://git-fork.com/)
+- [SmartGit](https://www.syntevo.com/smartgit/)
+- Source Tree
+- TortoiseGit
+- [Tower](https://www.git-tower.com/)
+
+CI/CD:
+
+- [Bamboo](https://confluence.atlassian.com/bamboo)
+
+Tools:
+
+- [git-big-picture](https://github.com/git-big-picture/git-big-picture)
 
 [Setting your Git username for every repository](https://help.github.com/articles/setting-your-username-in-git/)
+
 ```bash
 $ git config --global user.name "Mona Lisa"
 $ git config --global user.name
@@ -362,3 +386,7 @@ git config --system core.longpaths true
 [gitfs](https://github.com/presslabs/gitfs)
 
 https://github.com/klaussilveira/gitlist
+
+https://github.com/chriswalz/bit
+
+In PowerShell, `git push origin -d v1.2.3(2021.08.30)` will try to delete tag `v1.2.3` instead of `v1.2.3(2021.08.30)`.

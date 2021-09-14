@@ -41,3 +41,7 @@
 [Thread.GetNamedDataSlot(String) Method](https://docs.microsoft.com/en-us/dotnet/api/system.threading.thread.getnameddataslot?view=net-5.0)
 
 - https://github.com/dotnet/runtime/blob/6b11f64ec09983013862c2fd85ba29c940c44eea/src/libraries/System.Drawing.Common/src/System/Drawing/Gdiplus.cs#L47-L61
+
+[Recursive (Re-entrant) Locks](https://blog.stephencleary.com/2013/04/recursive-re-entrant-locks.html)
+
+> Traditionally, recursive locks have been the default on Microsoft platforms. The `lock` statement, `Monitor`, `Mutex`, and `ReaderWriterLock` are all recursive. However, newer types are starting to change this; `SpinLock` is not recursive, and `ReaderWriterLockSlim` is not recursive by default (it does provide recursion as an option).

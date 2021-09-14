@@ -165,6 +165,24 @@ def get_group_members(wechat, group_name):
     return members
 
 
+def is_member_in_group(member, group_members, match_by='both'):
+    # TODO: It is too slow.
+    names = [m.name for m in group_members]
+    nicknames = [m.nickname for m in group_members]
+
+    if match_by == 'both':
+        result = member in group_members
+        if result:
+            return str(result)
+        else:
+            return '{0}({1},{2})'.format(result, member.name in names,
+                                         member.nickname in nicknames)
+    elif match_by == 'name':
+        return str(member.name in names)
+    elif match_by == 'nickname':
+        return str(member.nickname in nicknames)
+
+
 def clear_worksheet(worksheet):
     worksheet.delete_rows(worksheet.min_row,
                           worksheet.max_row - worksheet.min_row + 1)
@@ -177,7 +195,7 @@ def save_to_worksheet(worksheet, members):
         worksheet.append(tuple(member))
 
 
-def save_summary(worksheet, reference_group, group_members_dict):
+def save_summary(worksheet, reference_group, group_members_dict, match_by):
     assert reference_group in group_members_dict
 
     clear_worksheet(worksheet)
@@ -193,7 +211,8 @@ def save_summary(worksheet, reference_group, group_members_dict):
 
     for member in members:
         row = tuple(member) + tuple(
-            (member in group_members_dict[group] for group in other_groups))
+            (is_member_in_group(member, group_members_dict[group], match_by)
+             for group in other_groups))
         worksheet.append(row)
 
 
@@ -210,45 +229,55 @@ def parse_args():
                         nargs='+',
                         required=True,
                         help='Specify a list of group names.')
+    parser.add_argument('-s',
+                        '--summary',
+                        action='store_true',
+                        help='Create summary report.')
+    parser.add_argument('-m',
+                        '--match-by',
+                        choices=['name', 'nickname', 'both'],
+                        default='both',
+                        help='Match strategy.')
 
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
-    if args.groups:
-        wechat = get_wechat_v2()
-        #wechat.Properties.print_control_identifiers()
 
-        if win32gui_available:
-            bring_to_foreground_win32gui('WeChatMainWndForPC', '微信')
+    wechat = get_wechat_v2()
+    #wechat.Properties.print_control_identifiers()
 
-        group_members_dict = {}
+    if win32gui_available:
+        bring_to_foreground_win32gui('WeChatMainWndForPC', '微信')
 
-        for group in args.groups:
-            if group in group_members_dict:
-                print('Group "{0}" already handled.'.format(group))
-                continue
+    group_members_dict = {}
 
-            members = get_group_members(wechat, group)
-            group_members_dict[group] = members
+    for group in args.groups:
+        if group in group_members_dict:
+            print('Group "{0}" already handled.'.format(group))
+            continue
 
-            workbook = openpyxl.Workbook()
-            worksheet = workbook.active
+        members = get_group_members(wechat, group)
+        group_members_dict[group] = members
 
-            save_to_worksheet(worksheet, members)
+        workbook = openpyxl.Workbook()
+        worksheet = workbook.active
 
-            workbook.save('{0}.xlsx'.format(group))
-            workbook.close()
+        save_to_worksheet(worksheet, members)
 
-        if len(args.groups) > 1:
-            workbook = openpyxl.Workbook()
-            worksheet = workbook.active
+        workbook.save('{0}.xlsx'.format(group))
+        workbook.close()
 
-            save_summary(worksheet, args.groups[0], group_members_dict)
+    if len(args.groups) > 1 and args.summary:
+        workbook = openpyxl.Workbook()
+        worksheet = workbook.active
 
-            workbook.save('NotOneLess.xlsx')
-            workbook.close()
+        save_summary(worksheet, args.groups[0], group_members_dict,
+                     args.match_by)
+
+        workbook.save('NotOneLess.xlsx')
+        workbook.close()
 
 
 if __name__ == '__main__':

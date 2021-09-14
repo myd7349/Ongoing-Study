@@ -68,3 +68,7 @@ $ Get-Alias -Definition Invoke-Expression
 ```
 
 > Set-ExecutionPolicy RemoteSigned
+
+https://github.com/RehanSaeed/Windows
+
+https://github.com/JanDeDobbeleer/oh-my-posh

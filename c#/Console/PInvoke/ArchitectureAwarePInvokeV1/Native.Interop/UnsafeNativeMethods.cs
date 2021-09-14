@@ -718,3 +718,4 @@ namespace Native.Interop
 // https://github.com/HDFGroup/HDF.PInvoke/blob/d281aa75f1562e677d1307cc1a234f9079cd76c3/HDF5/NativeDependencies.cs
 // https://github.com/chmorgan/sharppcap/blob/master/SharpPcap/LibPcap/NativeLibraryHelper.cs
 // https://github.com/squid-box/SevenZipSharp/blob/dev/SevenZip/LibraryManager.cs
+// https://github.com/libimobiledevice-win32/imobiledevice-net/blob/master/iMobileDevice-net/LibraryResolver.cs

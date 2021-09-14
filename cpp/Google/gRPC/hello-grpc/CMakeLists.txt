@@ -4,25 +4,6 @@ project(hello-grpc LANGUAGES C CXX)
 
 find_package(gRPC CONFIG REQUIRED)
 
-#protobuf_generate(
-#    LANGUAGE grpc
-#    PROTOS ${CMAKE_CURRENT_LIST_DIR}/helloworld.proto
-#    PLUGIN gRPC::grpc_cpp_plugin
-#    GENERATE_EXTENSIONS .grpc.pb.h .grpc.pb.cc
-#    #OUT_DIR ${CMAKE_CURRENT_BINARY_DIR}
-#    OUT_VAR generated_sources
-#)
-
-#add_executable(greeter_server greeter_server.cc)
-#target_sources(greeter_server PRIVATE ${generated_sources})
-#target_include_directories(greeter_server PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-#target_link_libraries(greeter_server PRIVATE gRPC::grpc++)
-
-#add_executable(greeter_client greeter_client.cc)
-#target_sources(greeter_client PRIVATE ${generated_sources})
-#target_include_directories(greeter_client PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-#target_link_libraries(greeter_client PRIVATE gRPC::grpc++)
-
 set(proto_files
     helloworld.proto
 )
@@ -30,8 +11,6 @@ set(proto_files
 add_library(greeter_proto ${proto_files})
 target_link_libraries(greeter_proto
     PUBLIC
-        #protobuf::libprotobuf
-        #gRPC::grpc
         gRPC::grpc++
         gRPC::grpc++_reflection
 )
@@ -54,11 +33,9 @@ protobuf_generate(
 
 add_executable(greeter_server greeter_server.cc)
 target_link_libraries(greeter_server PRIVATE greeter_proto)
-#target_compile_definitions(greeter_server PUBLIC $<$<CXX_COMPILER_ID:MSVC>:/wd4251>)
 
 add_executable(greeter_client greeter_client.cc)
 target_link_libraries(greeter_client PRIVATE greeter_proto)
-#target_compile_options(greeter_client PUBLIC $<$<CXX_COMPILER_ID:MSVC>:/wd4251>)
 
 
 # References:

@@ -26,3 +26,4 @@
 >     logging.info('Doing something')
 > ```
 
+https://github.com/SergeyPirogov/webdriver_manager/blob/master/webdriver_manager/logger.py

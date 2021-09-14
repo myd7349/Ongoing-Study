@@ -38,3 +38,11 @@ https://github.com/triton-inference-server/client/blob/d07efb84f938bce126e4d0a05
 >         shutil.copyfile(name, source)
 > ```
 
+Regex for datetime:
+
+- [YYYY-MM-DD](https://www.regextester.com/96683)
+
+  > [12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])
+
+- Regular Expressions Cookbook 4.5. Accurately Validate Traditional Date Formats: https://www.oreilly.com/library/view/regular-expressions-cookbook/9780596802837/ch04s05.html
+

@@ -60,3 +60,7 @@
 
 [Can BeginInvoke interrupt code already running on the UI thread?](https://stackoverflow.com/questions/2048491/can-begininvoke-interrupt-code-already-running-on-the-ui-thread)
 
+[Showing a spinner while a Windows Forms program is "processing", similar to ajaxStart/ajaxStop?](https://stackoverflow.com/questions/9007152/showing-a-spinner-while-a-windows-forms-program-is-processing-similar-to-ajax)
+
+[Gif viewer / Snipper Control](https://www.codeproject.com/Tips/1004624/Gif-viewer-Snipper-control)
+

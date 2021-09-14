@@ -211,3 +211,4 @@ int main(int argc, char **argv)
 // [How to cleanup definitely a curl handle?](https://stackoverflow.com/questions/53882598/how-to-cleanup-definitely-a-curl-handle)
 // [C libcurl get output into a string](https://stackoverflow.com/questions/2329571/c-libcurl-get-output-into-a-string)
 // [how to properly reuse a curl handle](https://stackoverflow.com/questions/14911156/how-to-properly-reuse-a-curl-handle)
+// https://gist.github.com/whoshuu/2dc858b8730079602044
