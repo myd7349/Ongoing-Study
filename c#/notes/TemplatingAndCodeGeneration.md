@@ -28,3 +28,5 @@
 
 - [AntData.ORM](https://github.com/yuzd/AntData.ORM)
 
+- [SourceGeneratorTemplate](https://github.com/davidwengier/SourceGeneratorTemplate)
+

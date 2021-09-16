@@ -1,5 +1,6 @@
 Applications:
 
+- [AssetStudio](https://github.com/Perfare/AssetStudio)
 - [BaiduPanDownloadWinform](https://github.com/Accelerider/BaiduPanDownloadWinform)
 - [BingWallpaper](https://github.com/kfstorm/BingWallpaper)
 - [ImageGlass](https://github.com/d2phap/ImageGlass)

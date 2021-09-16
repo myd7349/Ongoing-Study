@@ -11,3 +11,5 @@ KyBook3 - iPhone
 https://github.com/apachecn/epub-crawler
 
 https://github.com/Kenshin/simpread
+
+[微信读书墨水屏版](https://ink.qq.com/)

@@ -1,5 +1,6 @@
 Projects using WiXToolset:
 
+* [Explorer++](https://github.com/derceg/explorerplusplus)
 * TortoiseGit
 * [DebugView++](https://github.com/CobaltFusion/DebugViewPP)
 * [LibgenDesktop](https://github.com/libgenapps/LibgenDesktop)

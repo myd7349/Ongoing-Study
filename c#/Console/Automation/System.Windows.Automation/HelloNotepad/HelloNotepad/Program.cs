@@ -13,7 +13,7 @@
             var notepadProcess = Process.Start("notepad.exe");
             WaitUntilWindowIsVisible(notepadProcess.MainWindowHandle);
 
-#if false
+#if true
             var notepadWindow = AutomationElement.FromHandle(notepadProcess.MainWindowHandle);
 #else
             var notepadWindow = AutomationElement.RootElement.FindFirstChild("无标题 - 记事本", ControlType.Window);
@@ -51,3 +51,4 @@
 // [Invoke method not working on a windows open dialog box](https://stackoverflow.com/questions/58022941/invoke-method-not-working-on-a-windows-open-dialog-box)
 // [UIAutomation - InvokePattern only works while Debugging - Button is not Recognized as a Button](https://stackoverflow.com/questions/18641521/uiautomation-invokepattern-only-works-while-debugging-button-is-not-recogniz)
 // [Microsoft UIAutomation isn't ALWAYS working on some computers. C#](https://stackoverflow.com/questions/25613115/microsoft-uiautomation-isnt-always-working-on-some-computers-c-sharp)
+// [Expose the Content of a Table Using UI Automation](https://docs.microsoft.com/en-us/dotnet/framework/ui-automation/expose-the-content-of-a-table-using-ui-automation)

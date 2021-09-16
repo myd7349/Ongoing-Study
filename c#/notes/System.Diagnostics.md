@@ -26,3 +26,10 @@ string version = fvi.FileVersion;
 [Output System.Diagnostics.Debug to Console](https://stackoverflow.com/questions/37885587/output-system-diagnostics-debug-to-console)
 
 [Start new process, without being a child of the spawning process](https://stackoverflow.com/questions/8434379/start-new-process-without-being-a-child-of-the-spawning-process)
+
+[Capturing console output from a .NET application (C#)](https://stackoverflow.com/questions/186822/capturing-console-output-from-a-net-application-c)
+
+- https://github.com/slavagu/ConsoleAppLauncher
+
+[How to spawn a process and capture its STDOUT in .NET?](https://stackoverflow.com/questions/285760/how-to-spawn-a-process-and-capture-its-stdout-in-net)
+

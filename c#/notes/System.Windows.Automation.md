@@ -8,3 +8,8 @@
 
 [Invoke method not working on a windows open dialog box](https://stackoverflow.com/questions/58022941/invoke-method-not-working-on-a-windows-open-dialog-box)
 
+[AutomationElement.FindAll() performance issue](https://stackoverflow.com/questions/32970247/automationelement-findall-performance-issue)
+
+[My automationelement FindFirst/FindAll seems to be very slow. How to improve the performance?](https://stackoverflow.com/questions/19631284/my-automationelement-findfirst-findall-seems-to-be-very-slow-how-to-improve-the)
+
+[System.Windows.Automation is very slow at enumerating table rows vs. UIAutomationCore](https://stackoverflow.com/questions/28353671/system-windows-automation-is-very-slow-at-enumerating-table-rows-vs-uiautomatio)

@@ -127,49 +127,35 @@
 
    - [argparse](https://github.com/cofyc/argparse) - C
    - [argparse](https://github.com/p-ranav/argparse) - C++
-
-   - CLI11
-
+- CLI11
    - [cmdline](https://github.com/tanakh/cmdline)
-
-   - docopt.cpp
-
+- docopt.cpp
    - gflags
-
-   - https://github.com/polybar/polybar/blob/master/include/components/command_line.hpp
-
+- https://github.com/polybar/polybar/blob/master/include/components/command_line.hpp
    - https://github.com/danmar/checkheaders/blob/master/src/main.cpp
-
-   - https://github.com/ros2/rcutils/blob/master/include/rcutils/cmdline_parser.h
-
+- https://github.com/ros2/rcutils/blob/master/include/rcutils/cmdline_parser.h
    - https://github.com/MayaPosch/Sarge
-
-   - https://github.com/hasherezade/paramkit
-
-     - https://github.com/hasherezade/pe-sieve
-
-   - https://chromium.googlesource.com/chromium/src/+/refs/heads/main/base/command_line.h
-
-   - [Parsing Command Line Arguments in C++? [closed\]](https://stackoverflow.com/questions/865668/parsing-command-line-arguments-in-c)
-
-   - [TCLAP](http://tclap.sourceforge.net/)
-
-     - https://github.com/BYVoid/OpenCC/blob/master/src/tools/CommandLine.cpp
-
-   - [CLAP](https://www.cs.bgu.ac.il/~cgproj/CLAP/)
-
-   - GNU getopt
-
-     - https://github.com/r4start/getoptpp
-
-     - https://github.com/microsoft/VisualTrueType/blob/main/src/getopt.h
-
-     - https://github.com/wolfpld/tracy/blob/master/capture/src/capture.cpp
-
-     - [getopt_long() -- proper way to use it?](https://stackoverflow.com/questions/7489093/getopt-long-proper-way-to-use-it)
-     - [getopt_long() -- proper way to use it?](https://stackoverflow.com/questions/7489093/getopt-long-proper-way-to-use-it)
-
-   - popt
-
+- https://github.com/hasherezade/paramkit
    
+  - https://github.com/hasherezade/pe-sieve
+   - https://chromium.googlesource.com/chromium/src/+/refs/heads/main/base/command_line.h
+- https://github.com/moya-lang/Arguments
+   - [Parsing Command Line Arguments in C++?](https://stackoverflow.com/questions/865668/parsing-command-line-arguments-in-c)
+- [TCLAP](http://tclap.sourceforge.net/)
+   
+  - https://github.com/BYVoid/OpenCC/blob/master/src/tools/CommandLine.cpp
+   - [CLAP](https://www.cs.bgu.ac.il/~cgproj/CLAP/)
+- GNU getopt
+   
+  - https://github.com/r4start/getoptpp
+   
+  - https://github.com/microsoft/VisualTrueType/blob/main/src/getopt.h
+   
+  - https://github.com/wolfpld/tracy/blob/master/capture/src/capture.cpp
+   
+  - [getopt_long() -- proper way to use it?](https://stackoverflow.com/questions/7489093/getopt-long-proper-way-to-use-it)
+     - [getopt_long() -- proper way to use it?](https://stackoverflow.com/questions/7489093/getopt-long-proper-way-to-use-it)
+- popt
+   
+
 

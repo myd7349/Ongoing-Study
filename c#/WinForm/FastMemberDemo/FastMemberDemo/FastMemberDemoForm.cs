@@ -25,6 +25,7 @@
 
         private void FastMemberDemoForm_Load(object sender, EventArgs e)
         {
+#if false
             var students = new Student[]
             {
                 new Student() { Name = "Tom", Age = 12, Address = "NYC" },
@@ -32,6 +33,18 @@
                 new Student() { Name = "Lily", Age = 14, Address = "LA" },
                 new Student() { Name = "Rick", Age = 66, Address = "LA" },
             };
+#else
+            var students = new List<Student>();
+            for (int i = 0; i < 100; ++i)
+            {
+                var student = new Student();
+                student.Name = Faker.Name.First();
+                student.Address = Faker.Address.City();
+                student.Age = Faker.RandomNumber.Next(10, 100);
+
+                students.Add(student);
+            }
+#endif
 
             var dataTable = new DataTable();
             using (var reader = ObjectReader.Create(students, "Name", "Age", "Address"))

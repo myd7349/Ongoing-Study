@@ -15,6 +15,8 @@ namespace GetWeChatGroupMembers
     using FlaUI.UIA2;
 #endif
 
+    using FlaUI.Extensions;
+
     class WeChatAssistant : IDisposable
     {
         public WeChatAssistant()

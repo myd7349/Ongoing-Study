@@ -1,6 +1,7 @@
 - 7-zip
   - https://github.com/pocoproject/poco/tree/master/SevenZip
   - https://github.com/M2Team/NanaZip
+  - https://github.com/kornelski/7z
 - libarchive
 - minizip
 - [XArchive](https://github.com/horsicq/XArchive)

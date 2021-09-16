@@ -2,6 +2,7 @@ Code Editors:
 
 - CotEditor
   - https://twitter.com/Megabits_mzq/status/1427546332923789314
+- [Edi](https://github.com/Dirkster99/Edi)
 - EditPlus
 - Emacs
 - gedit

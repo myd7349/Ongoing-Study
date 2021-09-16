@@ -95,6 +95,7 @@
     </Compile>
     <Compile Include="ListHelper.cs" />
     <Compile Include="MinMax.cs" />
+    <Compile Include="MsgBox.cs" />
     <Compile Include="MSVCRTHelper.cs" />
     <Compile Include="NotifyProperty.cs" />
     <Compile Include="ObservableCollectionEx.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="PropertyChangedExEventArgs.cs" />
     <Compile Include="PropertyChangedExEventHandler.cs" />
     <Compile Include="RandomExtension.cs" />
+    <Compile Include="RectangleExtension.cs" />
     <Compile Include="RegistryHelper.cs" />
     <Compile Include="RegistryKeyExtension.cs" />
     <Compile Include="SerialPortEx.cs">

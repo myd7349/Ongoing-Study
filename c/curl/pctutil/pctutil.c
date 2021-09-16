@@ -6,6 +6,12 @@
 
 #include <curl/curl.h>
 
+#ifdef HAVE_GETOPT_LONG
+# include <unistd.h>
+#elif defined(HAVE_GETOPT_LONG_WIN32)
+# include <getopt.h>
+#endif
+
 #include "strdup.h"
 
 #ifdef ENABLE_WCONV
@@ -110,6 +116,83 @@ void print_usage(void)
 }
 
 
+#if defined(HAVE_GETOPT_LONG) || defined(HAVE_GETOPT_LONG_WIN32)
+int parse_arguments(int argc, char *argv[], method_t *method, const char **url, int *utf8)
+{
+    struct option options[] =
+    {
+        { "method", required_argument, NULL, 'm' },
+        { "url", required_argument, NULL, 'u' },
+#ifdef ENABLE_WCONV
+        { "utf8", no_argument, utf8, 1 },
+#endif
+        { "help", no_argument, NULL, 'h' },
+        { NULL, 0, NULL, 0 }
+    };
+
+    int result;
+    int index = -1;
+
+    *utf8 = 0;
+
+    while ((result = getopt_long(argc, argv, ":m:u:h", options, &index)) != -1)
+    {
+        switch (result)
+        {
+        case 0:
+            if (streq(options[index].name, "utf8"))
+                assert(*utf8 == 1);
+            else
+                assert(0);
+            break;
+        case 'm':
+            if (streq(optarg, "unescape"))
+            {
+                *method = UNESCAPE;
+            }
+            else if (streq(optarg, "escape"))
+            {
+                *method = ESCAPE;
+            }
+            else
+            {
+                printf("Unrecognized method \"%s\".\n", optarg);
+                return 0;
+            }
+            break;
+        case 'u':
+            *url = optarg;
+            break;
+        case 'h':
+            print_usage();
+            return 0;
+            break;
+        case '?':
+            printf("Unrecognized option \"%s\".\n", argv[optind - 1]);
+            return 0;
+            break;
+        case ':':
+            printf("Missing argument for option \"%s\".\n", argv[optind - 1]);
+            return 0;
+            break;
+        default:
+            assert(0);
+            break;
+        }
+    }
+
+    if (optind < argc)
+    {
+        printf("Unhandled arguments:\n");
+        for (index = optind; index < argc; ++index)
+            printf("%s\n", argv[index]);
+
+        return 0;
+    }
+
+    return 1;
+}
+#else
 int parse_arguments(int argc, char *argv[], method_t *method, const char **url, int *utf8)
 {
     int help_wanted = 0;
@@ -186,6 +269,7 @@ int parse_arguments(int argc, char *argv[], method_t *method, const char **url, 
 
     return 1;
 }
+#endif
 
 
 void handle_url(const char *url, method_t method, int utf8)

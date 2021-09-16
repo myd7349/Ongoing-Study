@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Faker.Net" Version="1.5.150" />
+    <PackageReference Include="FastMember" Version="1.5.0" />
+    <PackageReference Include="UIA.Extensions" Version="1.0.34" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Console\Automation\FlaUI\UIAutomation.DotNet\UIAutomation.DotNet\UIAutomation.DotNet.csproj" />
+  </ItemGroup>
+
+</Project>

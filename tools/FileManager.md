@@ -1,3 +1,4 @@
+- [Explorer++](https://github.com/derceg/explorerplusplus)
 - Far Manager
 - fman
 - Free Commander

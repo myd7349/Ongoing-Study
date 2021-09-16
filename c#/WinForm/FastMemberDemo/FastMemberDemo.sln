@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastMemberDemo", "FastMembe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIAutomation", "..\..\Console\Automation\FlaUI\UIAutomation\UIAutomation\UIAutomation.csproj", "{AD3869E7-0205-4051-83B1-D960B68974B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlaUI.Extensions", "..\..\Console\Automation\FlaUI\FlaUI.Extensions\FlaUI.Extensions.csproj", "{24008BC4-682C-4A0E-90D1-BAB11218F0AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\..\Common\Common.csproj", "{B5EBAD3E-67DF-4E3B-9B16-E977BD49376D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{AD3869E7-0205-4051-83B1-D960B68974B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD3869E7-0205-4051-83B1-D960B68974B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD3869E7-0205-4051-83B1-D960B68974B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24008BC4-682C-4A0E-90D1-BAB11218F0AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24008BC4-682C-4A0E-90D1-BAB11218F0AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24008BC4-682C-4A0E-90D1-BAB11218F0AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24008BC4-682C-4A0E-90D1-BAB11218F0AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5EBAD3E-67DF-4E3B-9B16-E977BD49376D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5EBAD3E-67DF-4E3B-9B16-E977BD49376D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5EBAD3E-67DF-4E3B-9B16-E977BD49376D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5EBAD3E-67DF-4E3B-9B16-E977BD49376D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

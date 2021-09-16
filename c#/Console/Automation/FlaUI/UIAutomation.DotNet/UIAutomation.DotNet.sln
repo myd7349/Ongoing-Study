@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UIAutomation.DotNet", "UIAutomation.DotNet\UIAutomation.DotNet.csproj", "{149EF008-65B9-4BA3-B648-5E97BCD10E87}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlaUI.Extensions.DotNet", "..\FlaUI.Extensions.DotNet\FlaUI.Extensions.DotNet.csproj", "{445BE27C-6AB0-4225-A8E4-895AECDEE804}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{149EF008-65B9-4BA3-B648-5E97BCD10E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{149EF008-65B9-4BA3-B648-5E97BCD10E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{149EF008-65B9-4BA3-B648-5E97BCD10E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{149EF008-65B9-4BA3-B648-5E97BCD10E87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{445BE27C-6AB0-4225-A8E4-895AECDEE804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{445BE27C-6AB0-4225-A8E4-895AECDEE804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{445BE27C-6AB0-4225-A8E4-895AECDEE804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{445BE27C-6AB0-4225-A8E4-895AECDEE804}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A063E38-4295-4217-BB71-9721E28410DB}
+	EndGlobalSection
+EndGlobal

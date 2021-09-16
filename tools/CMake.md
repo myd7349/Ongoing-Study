@@ -251,4 +251,8 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
 37. cmake_push_check_state
 
     https://github.com/google/glog/pull/724/files
+    
+38. [How to check for a symbol that requires two header files in CMake?](https://stackoverflow.com/questions/13611847/how-to-check-for-a-symbol-that-requires-two-header-files-in-cmake)
+
+    > check_symbol_exists (getifaddrs "sys/types.h;ifaddrs.h" SP_HAVE_IFADDRS)
 

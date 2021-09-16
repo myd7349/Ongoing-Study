@@ -7,6 +7,8 @@
     using FlaUI.Core.Definitions;
     using FlaUI.UIA2;
 
+    using FlaUI.Extensions;
+
     class Program
     {
         static void Main(string[] args)

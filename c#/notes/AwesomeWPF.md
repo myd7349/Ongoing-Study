@@ -12,6 +12,8 @@ Applications:
 - [MindLated](https://github.com/Sato-Isolated/MindLated)
 - [NodeNetwork](https://github.com/Wouterdek/NodeNetwork)
 - [perfview](https://github.com/microsoft/perfview)
+- [QSanguosha](https://github.com/Mogara/QSanguosha)
+- [QSanguosha-v2](https://github.com/Mogara/QSanguosha-v2)
 - [QuickLook](https://github.com/QL-Win/QuickLook)
 - [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows)
 - [snoopwpf](https://github.com/snoopwpf/snoopwpf)
@@ -24,6 +26,8 @@ Applications:
 Libraries:
 
 - [Accelerider.Windows](https://github.com/Accelerider/Accelerider.Windows)
+
+- [AvalonDock](https://github.com/Dirkster99/AvalonDock)
 
 - [Catel](https://github.com/Catel/Catel)
 
@@ -53,11 +57,15 @@ Libraries:
 
 - [mvvm-dialogs](https://github.com/FantasticFiasco/mvvm-dialogs)
 
+- [NumericUpDownLib](https://github.com/Dirkster99/NumericUpDownLib)
+
 - [Ookii.Dialogs.Wpf](https://github.com/ookii-dialogs/ookii-dialogs-wpf)
 
 - [Orchestra](https://github.com/WildGums/Orchestra)
 
 - [Panuon.UI.Silver](https://github.com/Panuon/Panuon.UI.Silver)
+
+- [PanuonUI.Silver](https://github.com/Mochengvia/PanuonUI.Silver)
 
 - [Stylet](https://github.com/canton7/Stylet)
 

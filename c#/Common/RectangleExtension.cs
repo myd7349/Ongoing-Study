@@ -1,4 +1,4 @@
-﻿namespace GetWeChatGroupMembers
+﻿namespace Common
 {
     using System.Drawing;
 
