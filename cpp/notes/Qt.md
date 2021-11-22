@@ -1,3 +1,5 @@
+Applications:
+
 - [albert](https://github.com/albertlauncher/albert)
 - [Ascii-Design](https://github.com/Faster3ck/Ascii-Design)
 - [Converseen](https://github.com/Faster3ck/Converseen)
@@ -7,13 +9,20 @@
 - [FreeCAD](https://github.com/FreeCAD/FreeCAD)
 - [goldendict](https://github.com/goldendict/goldendict)
 - [Groot](https://github.com/BehaviorTree/Groot)
+- [Hanoi-Towers](https://github.com/QuasarApp/Hanoi-Towers)
+- [heaptrack](https://github.com/KDE/heaptrack)
 - [JetSqlConsole](https://github.com/aaron-reeves/JetSqlConsole)
+- [kdeconnect-kde](https://github.com/KDE/kdeconnect-kde)
+- [kdenlive](https://github.com/KDE/kdenlive)
+- [krita](https://github.com/KDE/krita)
 - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
+- [LeoCAD](https://github.com/leozide/leocad) - https://www.leocad.org/
 - [liteide](https://github.com/visualfc/liteide)
 - [mixxx](https://github.com/mixxxdj/mixxx)
 - [moonlight-qt](https://github.com/moonlight-stream/moonlight-qt)
 - [nodeeditor](https://github.com/paceholder/nodeeditor)
 - [NymphCast](https://github.com/MayaPosch/NymphCast)
+- [OpenMW](https://github.com/OpenMW/openmw)
 - [opencc-gui](https://github.com/BYVoid/opencc-gui)
 - [plasma-nm](https://github.com/KDE/plasma-nm)
 - [PlotJuggler](https://github.com/facontidavide/PlotJuggler) :star:
@@ -51,10 +60,19 @@ Libraries:
 - [KDDockWidgets](https://github.com/KDAB/KDDockWidgets)
 - [PDF4QT](https://github.com/JakubMelka/PDF4QT)
 - [QAdvancedItemViews](https://github.com/Alexpux/QAdvancedItemViews)
+- [qca](https://github.com/KDE/qca)
+- [QCefWidget](https://github.com/winsoft666/QCefWidget)
 - [QDeviceWatcher](https://github.com/wang-bin/qdevicewatcher)
 - [QHexView](https://github.com/horsicq/QHexView)
 - [qtcompress](https://github.com/nezticle/qtcompress)
+- [Qt-FramelessWindow](https://github.com/winsoft666/Qt-FramelessWindow)
+- [Qt-Secret](https://github.com/QuasarApp/Qt-Secret)
+- [SingleApplication](https://github.com/itay-grudev/SingleApplication)
 - [spix](https://github.com/faaxm/spix) - UI test automation.
 - [TTKWidgetTools](https://github.com/Greedysky/TTKWidgetTools)
 - [XShortcuts](https://github.com/horsicq/XShortcuts)
+
+Tools:
+
+- [CQtDeployer](https://github.com/QuasarApp/CQtDeployer)
 

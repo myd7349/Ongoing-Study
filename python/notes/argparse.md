@@ -22,3 +22,7 @@
 
 4. https://github.com/kblin/ncbi-genome-download/blob/master/ncbi_genome_download/core.py
 
+5. [argparse 的高级用法](https://frostming.com/2021/11-23/advanced-argparse/)
+
+   - https://github.com/pdm-project/pdm/tree/main/pdm/cli/commands
+

@@ -62,3 +62,4 @@ int main(void)
 // [Console Virtual Terminal Sequences](https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences)
 // [Console Virtual Terminal Sequences](https://github.com/MicrosoftDocs/Console-Docs/blob/master/docs/console-virtual-terminal-sequences.md)
 // [How to make win32 console recognize ANSI/VT100 escape sequences?](https://stackoverflow.com/questions/16755142/how-to-make-win32-console-recognize-ansi-vt100-escape-sequences)
+// https://github.com/s9w/oof#performance--os-specific-details

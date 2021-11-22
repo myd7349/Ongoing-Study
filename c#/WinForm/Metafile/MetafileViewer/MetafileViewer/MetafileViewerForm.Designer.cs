@@ -31,6 +31,8 @@ namespace MetafileViewer
         {
             this.openButton_ = new System.Windows.Forms.Button();
             this.saveAsButton_ = new System.Windows.Forms.Button();
+            this.pictureBox_ = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_)).BeginInit();
             this.SuspendLayout();
             // 
             // openButton_
@@ -54,11 +56,23 @@ namespace MetafileViewer
             this.saveAsButton_.Text = "Save As...";
             this.saveAsButton_.UseVisualStyleBackColor = true;
             // 
+            // pictureBox_
+            // 
+            this.pictureBox_.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox_.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox_.Name = "pictureBox_";
+            this.pictureBox_.Size = new System.Drawing.Size(662, 447);
+            this.pictureBox_.TabIndex = 2;
+            this.pictureBox_.TabStop = false;
+            // 
             // MetafileViewerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox_);
             this.Controls.Add(this.saveAsButton_);
             this.Controls.Add(this.openButton_);
             this.Name = "MetafileViewerForm";
@@ -67,6 +81,7 @@ namespace MetafileViewer
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MetafileViewerForm_Paint);
             this.Layout += new System.Windows.Forms.LayoutEventHandler(this.MetafileViewerForm_Layout);
             this.Resize += new System.EventHandler(this.MetafileViewerForm_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -75,6 +90,7 @@ namespace MetafileViewer
 
         private System.Windows.Forms.Button openButton_;
         private System.Windows.Forms.Button saveAsButton_;
+        private System.Windows.Forms.PictureBox pictureBox_;
     }
 }
 

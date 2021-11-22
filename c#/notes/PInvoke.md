@@ -15,8 +15,13 @@
      - [New Source Generator based approach to getting all the Win32 methods and types you need](https://github.com/dotnet/pinvoke/issues/565)
    - [Making Win32 APIs More Accessible to More Languages](https://blogs.windows.com/windowsdeveloper/2021/01/21/making-win32-apis-more-accessible-to-more-languages/)
    * https://github.com/contre/Windows-API-Code-Pack-1.1
+   * https://github.com/terrafx/terrafx.interop.windows
 
 3. SWIG, CXXI, CppSharp
+
+4. [CppAst](./CppAst.md)
+
+   [CppAst.CodeGen](https://github.com/xoofx/CppAst.CodeGen) - An extensible library providing C# PInvoke codegen from C/C++ files for .NET.
 
 4. [C#/Win32 P/Invoke Source Generator](https://github.com/microsoft/CsWin32)
 
@@ -200,3 +205,7 @@ GDI+ PInvoke:
 - https://github.com/dotnet/runtime/blob/main/src/libraries/System.Drawing.Common/src/System/Drawing/Gdiplus.cs
 - https://github.com/dotnet/runtime/blob/main/src/libraries/System.Drawing.Common/src/System/Drawing/GdiplusNative.Windows.cs
 - https://github.com/dotnet/runtime/blob/main/src/libraries/System.Drawing.Common/src/System/Drawing/Graphics.Windows.cs
+
+HRESULT:
+
+- https://github.com/hughbe/Interop-Repro/blob/master/Interop/Interop.HRESULT.cs

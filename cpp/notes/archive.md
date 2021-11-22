@@ -2,11 +2,15 @@
   - https://github.com/pocoproject/poco/tree/master/SevenZip
   - https://github.com/M2Team/NanaZip
   - https://github.com/kornelski/7z
+  - https://github.com/WinMerge/winmerge/tree/master/ArchiveSupport/Merge7z
 - libarchive
 - minizip
 - [XArchive](https://github.com/horsicq/XArchive)
+- [zip](https://github.com/kuba--/zip)
 - zlib
 - zstd
   - [zstdmt](https://github.com/mcmilk/zstdmt)
     - [7-Zip-zstd](https://github.com/mcmilk/7-Zip-zstd)
+- [microtar](https://github.com/rxi/microtar)
+  - [ImHex](https://github.com/WerWolv/ImHex)
 

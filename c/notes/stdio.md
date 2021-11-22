@@ -262,17 +262,36 @@ https://github.com/bminor/glibc/blob/master/libio/iogetline.c
 > ```c
 > void EnablePrintfAtMFC()
 > {
->     if (AttachConsole(ATTACH_PARENT_PROCESS))
->     {
->         FILE* pCout;
->         freopen_s(&pCout, "CONOUT$", "w", stdout);
->         std::cout.clear();
->         std::wcout.clear();
->     }
+>  if (AttachConsole(ATTACH_PARENT_PROCESS))
+>  {
+>      FILE* pCout;
+>      freopen_s(&pCout, "CONOUT$", "w", stdout);
+>      std::cout.clear();
+>      std::wcout.clear();
+>  }
 > }
 > ```
 
+23. https://github.com/Tencent/rapidjson/blob/master/example/prettyauto/prettyauto.cpp
 
+> ```c
+> // https://github.com/Tencent/rapidjson/blob/0d4517f15a8d7167ba9ae67f3f22a559ca841e3b/example/prettyauto/prettyauto.cpp#L19-L23
+> #ifdef _WIN32
+>     // Prevent Windows converting between CR+LF and LF
+>     _setmode(_fileno(stdin), _O_BINARY);    // NEW
+>     _setmode(_fileno(stdout), _O_BINARY);   // NEW
+> #endif
+> ```
+
+24. [How can one print a size_t variable portably using the printf family?](https://stackoverflow.com/questions/2524611/how-can-one-print-a-size-t-variable-portably-using-the-printf-family)
+
+> ```c
+> size_t x = ...;
+> ssize_t y = ...;
+> printf("%zu\n", x);  // prints as unsigned decimal
+> printf("%zx\n", x);  // prints as hex
+> printf("%zd\n", y);  // prints as signed decimal
+> ```
 
 
 

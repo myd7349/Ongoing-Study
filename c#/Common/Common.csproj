@@ -100,6 +100,7 @@
     <Compile Include="NotifyProperty.cs" />
     <Compile Include="ObservableCollectionEx.cs" />
     <Compile Include="Pair.cs" />
+    <Compile Include="ControlExtension.cs" />
     <Compile Include="PinnedObject.cs" />
     <Compile Include="ProcessHelpers.cs" />
     <Compile Include="ProgressBarHelper.cs" />

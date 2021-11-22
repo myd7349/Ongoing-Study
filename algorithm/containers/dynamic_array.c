@@ -887,3 +887,4 @@ void dyarr_apply(dyarr_t arr, void(*apply_fn)(size_t, void *))
 // https://github.com/caryll/otfcc/blob/master/lib/support/vector-impl.h
 // https://github.com/LLNL/zfp
 // https://github.com/tylov/STC/blob/master/include/stc/carray.h
+// https://github.com/mortie/snow/blob/master/exampleproject/src/vector.c

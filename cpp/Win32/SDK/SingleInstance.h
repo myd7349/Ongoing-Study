@@ -75,3 +75,4 @@ private:
 // https://stackoverflow.com/questions/9660218/using-mutex-to-enforce-single-instance
 // https://stackoverflow.com/questions/4191465/how-to-run-only-one-instance-of-application
 // QtSingleApplication
+// https://github.com/itay-grudev/SingleApplication

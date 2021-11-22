@@ -9,3 +9,7 @@ https://github.com/sharpdx/SharpDX
 https://github.com/terrafx/terrafx.interop.windows
 
 https://www.nuget.org/packages/WindowsAPICodePack-DirectX/
+
+https://github.com/terrafx/terrafx.interop.windows
+
+https://github.com/smourier/DirectN

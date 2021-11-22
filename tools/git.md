@@ -3,7 +3,6 @@ Servers:
 - [Bonobo](https://github.com/jakubgarfield/Bonobo-Git-Server)
 
 - [git](https://github.com/msysgit/msysgit/wiki/Setting-up-a-Git-server-on-Windows-using-Git-for-Windows-and-CopSSH)
-
 - gogs
 
 Clients:

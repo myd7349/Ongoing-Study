@@ -1,3 +1,7 @@
+### Project Management
+
+- [ZenHub](https://www.zenhub.com/)
+
 [Quote code](https://github.com/lemire/simdjson/pull/138)
 
 [Change the base branch](https://github.com/microsoft/mimalloc/pull/32)
@@ -49,6 +53,7 @@ Awesome README.md:
 - https://github.com/ldqk/ldqk
 - https://github.com/evoluteur
 - https://github.com/laixintao/laixintao
+- https://github.com/dlemstra
 
 https://github.com/Tyrrrz/GitHubActionsTestLogger
 

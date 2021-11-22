@@ -223,3 +223,27 @@ BOOL IsEquivalentPath(LPCTSTR lpcszPath1, LPCTSTR lpcszPath2)
 // References:
 // [Best way to determine if two path reference to same file in Windows?](https://stackoverflow.com/questions/562701/best-way-to-determine-if-two-path-reference-to-same-file-in-windows)
 // https://github.com/MaskRay/ccls/blob/master/src/filesystem.cc
+// [Generate temporary files with any extension](https://www.codeproject.com/Tips/314160/Generate-temporary-files-with-any-extension)
+/*
+BOOL GetTemporaryFilePath(CString strExtension, CString& strFileName)
+{
+     TCHAR lpszTempPath[MAX_PATH] = { 0 };
+     if (!GetTempPath(MAX_PATH, lpszTempPath))
+         return FALSE;
+
+     TCHAR lpszFilePath[MAX_PATH] = { 0 };
+     do {
+         if (!GetTempFileName(lpszTempPath, NULL, 0, lpszFilePath))
+             return FALSE;
+
+         strFileName = lpszFilePath;
+         VERIFY(::DeleteFile(strFileName));
+         strFileName.Replace(_T(".tmp"), strExtension);
+     }
+     while (_taccess(strFileName, 00) != -1);
+
+     OutputDebugString(_T("GetTemporaryFilePath = '") + strFileName + _T("'\n"));
+     return TRUE;
+}
+*/
+

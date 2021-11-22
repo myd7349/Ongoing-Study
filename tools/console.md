@@ -8,3 +8,4 @@
 - https://github.com/rprichard/winpty
 - https://github.com/termux/termux-app
 - https://github.com/withfig/autocomplete
+- https://github.com/xtermjs/xterm.js

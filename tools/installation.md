@@ -33,6 +33,8 @@
 - https://github.com/canton7/SyncTrayzor/tree/master/installer
 - https://github.com/xroche/httrack-windows/tree/master/InnoSetup
 - https://github.com/samhocevar/wincompose/blob/master/src/installer/installer.iss
+- https://github.com/Sigil-Ebook/Sigil/tree/master/installer
+- [WinMerge](https://github.com/WinMerge/winmerge/tree/master/Installer)
 
 ### Advanced Installer
 
@@ -48,3 +50,6 @@
 
 ### [Squirrel/Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)
 - [Wox Launcher](https://github.com/Wox-launcher/Wox)
+
+### [CQtDeployer](https://github.com/QuasarApp/CQtDeployer)
+

@@ -90,6 +90,8 @@ Tools:
 
 - [libemf2svg](https://github.com/kakwa/libemf2svg)
 
+- [htmldoc](https://github.com/michaelrsweet/htmldoc)
+
 EMF
 
 - [How to render the PDF page as EMF or meta file in PDFium](https://stackoverflow.com/questions/49153715/how-to-render-the-pdf-page-as-emf-or-meta-file-in-pdfium)
@@ -107,6 +109,12 @@ PDF Printers:
 - [List of virtual printer software](https://en.wikipedia.org/wiki/List_of_virtual_printer_software)
 
 - [Windows programmable virtual printer "device"](https://stackoverflow.com/questions/50078444/windows-programmable-virtual-printer-device)
+
+- doPDF
+
+- PDF24 Creator
+
+- PDFCreator
 
 - PDF Factory
 
@@ -127,6 +135,8 @@ PDF Printers:
 - [PdfScribe](https://github.com/stchan/PdfScribe)
 
   It depends on Ghostscript.
+  
+- Zan Image Printer
 
 Articles:
 

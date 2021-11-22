@@ -1,6 +1,8 @@
+https://github.com/takuya-takeuchi/LibSvmDotNet/blob/develop/src/LibSvmDotNet/DisposableObject.cs
+
 [Is it abusive to use IDisposable and “using” as a means for getting “scoped behavior” for exception safety?](https://stackoverflow.com/questions/2101524/is-it-abusive-to-use-idisposable-and-using-as-a-means-for-getting-scoped-beha)
 
-[Using IDisposable for managing a reference count [duplicate\]](https://stackoverflow.com/questions/25827668/using-idisposable-for-managing-a-reference-count)
+[Using IDisposable for managing a reference count](https://stackoverflow.com/questions/25827668/using-idisposable-for-managing-a-reference-count)
 
 [C# Reference Counting](https://stackoverflow.com/questions/35005219/c-sharp-reference-counting)
 

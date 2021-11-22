@@ -38,3 +38,7 @@ Makefile:135: recipe for target 'WavelibTest' failed
 
 [Static library debug symbols](https://stackoverflow.com/questions/7575298/static-library-debug-symbols)
 
+[cross_compiler_call](https://github.com/jbandela/cross_compiler_call)
+
+[Technically, how do variadic functions work? How does printf work?](https://stackoverflow.com/questions/23104628/technically-how-do-variadic-functions-work-how-does-printf-work)
+

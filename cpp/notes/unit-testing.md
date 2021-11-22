@@ -1,3 +1,9 @@
+Boost.Test
+
+Catch2
+
+https://github.com/onqtam/doctest
+
 https://github.com/approvals/ApprovalTests.cpp
 
 https://github.com/troydhanson/uthash/blob/master/tests/do_tests
@@ -13,4 +19,6 @@ https://github.com/imageworks/pystring/blob/master/unittest.h
 https://github.com/cpptest/cpptest
 
 https://github.com/boost-ext/ut
+
+[GoogleTestAdapter](https://github.com/csoltenborn/GoogleTestAdapter)
 

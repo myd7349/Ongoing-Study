@@ -75,3 +75,22 @@ void free(void *alloc) {
 - https://github.com/google/marl/issues/17
 - [Using stdlib's rand() from multiple threads](https://stackoverflow.com/questions/6161322/using-stdlibs-rand-from-multiple-threads)
 
+max and min:
+
+```c
+// https://github.com/Tencent/ncnn/blob/master/src/simpleocv.h
+#if defined(_MSC_VER) || defined(__GNUC__)
+#pragma push_macro("min")
+#pragma push_macro("max")
+#undef min
+#undef max
+#endif
+
+// ...
+
+#if defined(_MSC_VER) || defined(__GNUC__)
+#pragma pop_macro("min")
+#pragma pop_macro("max")
+#endif
+```
+

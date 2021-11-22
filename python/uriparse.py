@@ -109,3 +109,7 @@ if __name__ == '__main__':
                              urllib.parse.unquote(wiki_page))
                 
     unittest.main()
+
+
+# References:
+# https://www.codeproject.com/Articles/7828/CHttpClient-A-Helper-Class-Using-WinInet

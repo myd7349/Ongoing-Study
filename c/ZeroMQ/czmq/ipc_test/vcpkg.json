@@ -1,6 +1,6 @@
 {
   "name": "ipc-test",
-  "version": "0.0.1",
+  "version-semver": "0.0.1",
   "dependencies": [
     {
       "name": "czmq",

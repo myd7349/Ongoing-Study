@@ -2,4 +2,5 @@
 - CapCut/ViaMaker：视频编辑应用“剪映”的海外版本
 - iMovie
 - Final Cut Pro
+- [kdenlive](https://github.com/KDE/kdenlive)
 

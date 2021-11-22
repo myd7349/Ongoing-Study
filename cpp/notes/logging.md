@@ -13,4 +13,6 @@
 - plog
 - spdlog
 - [File Rotator](https://www.codeproject.com/Articles/34203/File-Rotator)
+- [EasyLogger](https://github.com/armink/EasyLogger)
+- [zlog](https://github.com/HardySimpson/zlog)
 

@@ -5,6 +5,7 @@
     using FlaUI.Core.AutomationElements;
     using FlaUI.Core.Conditions;
     using FlaUI.Core.Definitions;
+    using FlaUI.Core.Identifiers;
     using FlaUI.Core.Input;
     using FlaUI.Core.Tools;
 
@@ -88,6 +89,16 @@
             Wait.UntilInputIsProcessed();
 
             return element;
+        }
+
+        public static string GetValue(this AutomationElement element)
+        {
+            if (element.Patterns.Value.IsSupported)
+                return element.Patterns.Value.Pattern.Value;
+            else if (element.Patterns.LegacyIAccessible.IsSupported)
+                return element.Patterns.LegacyIAccessible.Pattern.Value;
+
+            throw new NotImplementedException("Value");
         }
     }
 }

@@ -34,6 +34,7 @@
 >* [libfort/amalgamate.py](https://github.com/seleznevae/libfort/blob/develop/amalgamate.py)
 >* [structopt](https://github.com/p-ranav/structopt/tree/master/utils/amalgamate)
 >* [single.py](https://github.com/soasis/text/blob/main/single/single.py)
+>* [generate_amalgamation.py](https://github.com/wren-lang/wren/blob/main/util/generate_amalgamation.py)
 >
 >## Ideas:
 >* [The single-header code should be a build artifact](https://github.com/lemire/simdjson/issues/106)

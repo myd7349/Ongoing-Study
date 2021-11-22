@@ -7,6 +7,7 @@ Code Editors:
 - Emacs
 - gedit
 - [HTML Notepad](https://html-notepad.com/)
+- [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit)
 - [kilo](https://github.com/snaptoken/kilo-src)
   - https://github.com/jupyter-xeus/cpp-terminal/blob/master/examples/kilo.cpp
 - Nano Editor

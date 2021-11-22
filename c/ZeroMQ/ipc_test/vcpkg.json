@@ -1,0 +1,7 @@
+{
+  "name": "ipc-test",
+  "version-semver": "0.0.1",
+  "dependencies": [
+    "zeromq"
+  ]
+}

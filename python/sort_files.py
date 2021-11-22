@@ -14,7 +14,7 @@ def main():
 
     count = 1
     for file in files_sorted:
-        print('{0:03d}: {1}'.format(count, file))
+        print('{0:03d}: {1} {2}'.format(count, os.path.getctime(file), file))
         count += 1
 
 

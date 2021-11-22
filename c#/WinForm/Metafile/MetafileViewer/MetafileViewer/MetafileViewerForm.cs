@@ -54,20 +54,19 @@
                         metafile_.Dispose();
 
                     metafile_ = new Metafile(openFileDialog.FileName);
-                    Invalidate();
+                    pictureBox_.Image = metafile_;
+                    pictureBox_.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }
         }
-    }
 
-    public partial class MetafileViewerForm : Form
-    {
         private void Render(Graphics graphics)
         {
             if (metafile_ != null)
             {
-                //graphics.TranslateTransform(metafile_.Height, 0F);
-                graphics.RotateTransform(45F);
+                graphics.ScaleTransform(0.2f, 0.2f);
+                //graphics.TranslateTransform(metafile_.Height / 2, 0F);
+                //graphics.RotateTransform(45F);
                 graphics.EnumerateMetafile(metafile_, Point.Empty, MetafileCallback);
             }
         }
@@ -100,3 +99,4 @@
 // [How to synchronise an asynchronous operation?](https://stackoverflow.com/questions/21173429/how-to-synchronise-an-asynchronous-operation)
 // [Non-Generic TaskCompletionSource or alternative](https://stackoverflow.com/questions/11969208/non-generic-taskcompletionsource-or-alternative)
 // [C# - asynchronous drawing on a panel](https://stackoverflow.com/questions/53570336/c-sharp-asynchronous-drawing-on-a-panel)
+// [How to: Load and Display Metafiles](https://docs.microsoft.com/en-us/dotnet/desktop/winforms/advanced/how-to-load-and-display-metafiles?view=netframeworkdesktop-4.8)

@@ -46,3 +46,5 @@
 [How to make NLog terminate application on fatal errors?](https://stackoverflow.com/questions/19225402/how-to-make-nlog-terminate-application-on-fatal-errors)
 
 https://github.com/microsoft/Vipr/blob/master/src/Core/Vipr/NLog.config
+
+[LineEnding](https://nlog-project.org/documentation/v4.4.0/html/P_NLog_Targets_FileTarget_LineEnding.htm)

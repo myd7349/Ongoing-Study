@@ -1,3 +1,7 @@
+- click
+
+  - [argparse 的高级用法](https://frostming.com/2021/11-23/advanced-argparse/)
+
 - [colorama](https://github.com/tartley/colorama)
 
 - [ConsoleDraw](https://github.com/Matthias1590/ConsoleDraw)
@@ -8,6 +12,8 @@
 
 - [progressbar2](https://github.com/WoLpH/python-progressbar)
 
+- [Pylsy](https://github.com/Leviathan1995/Pylsy)
+
 - [python-gflags](https://github.com/gflags/python-gflags)
 
   - [python-gflags](https://github.com/google/python-gflags)
@@ -16,5 +22,8 @@
 
 - [rich](https://github.com/willmcgugan/rich)
 
+- tabulate
+
 - [tqdm](https://github.com/tqdm/tqdm)
+
 

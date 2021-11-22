@@ -12,6 +12,10 @@ string[] standardFormats = {"d", "D", "f", "F", "g", "G", "m", "o", "R", "s", "t
 var now = DateTime.Now;
 foreach (var format in standardFormats)
     Console.WriteLine("{0}: {1}", format, now.ToString(format));
+Console.WriteLine("LongDateString: {0}", now.ToLongDateString());
+Console.WriteLine("ShortDateString: {0}", now.ToShortDateString());
+Console.WriteLine("LongTimeString: {0}", now.ToLongTimeString());
+Console.WriteLine("ShortTimeString: {0}", now.ToShortTimeString());
 Console.WriteLine("--------------------------------------------------------------------------------------------------");
 
 var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);

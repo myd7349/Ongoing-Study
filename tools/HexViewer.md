@@ -27,3 +27,5 @@ linux unhex command
 - https://github.com/zTrix/zio
 
 https://github.com/abbaye/WpfHexEditorControl
+
+https://github.com/WerWolv/ImHex

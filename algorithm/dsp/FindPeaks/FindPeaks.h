@@ -29,7 +29,7 @@ extern "C"
 {
 #endif
 
-HNALGO_API std::size_t FindPeaks(const double *data, std::size_t length,
+std::size_t FindPeaks(const double *data, std::size_t length,
     std::size_t *peaks,
     double mph,
     std::size_t mpd = 1,

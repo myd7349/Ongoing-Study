@@ -387,8 +387,6 @@ int main(int argc, char *argv[])
                 putchar('\n');
                 free(line);        
             }
-
-            free(line);
 #else
             while (fgets(line, MAXMIMUM_LINE_LENGTH, stdin) != NULL)
             {
@@ -421,3 +419,4 @@ int main(int argc, char *argv[])
 // [pointer to a const pointer to an int](https://stackoverflow.com/questions/16720921/pointer-to-a-const-pointer-to-an-int)
 // https://github.com/danmar/checkheaders/blob/master/src/main.cpp
 // https://en.cppreference.com/w/c/experimental/dynamic/getline
+// https://www.codeproject.com/Articles/7828/CHttpClient-A-Helper-Class-Using-WinInet

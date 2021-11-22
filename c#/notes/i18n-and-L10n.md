@@ -1,2 +1,2 @@
 - https://github.com/cyanfish/naps2/tree/master/NAPS2.Localization
-
+- https://github.com/typora/Typora-i18n

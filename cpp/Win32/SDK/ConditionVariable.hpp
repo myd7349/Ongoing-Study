@@ -131,3 +131,4 @@ private:
 // https://stackoverflow.com/questions/1218716/implementing-condition-variables-for-critical-sections-for-winthreads-for-xp
 // https://stackoverflow.com/questions/11706985/win32-thread-safe-queue-implementation-using-native-windows-api
 // https://docs.microsoft.com/zh-cn/windows/desktop/Sync/condition-variables
+// https://github.com/tinycthread/tinycthread/blob/6957fc8383d6c7db25b60b8c849b29caab1caaee/source/tinycthread.h#L252-L261

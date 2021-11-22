@@ -403,3 +403,5 @@ void *easy_base64_decode(const char *base64, void *data, size_t *out_len)
 // https://chromium.googlesource.com/chromium/src/+/refs/heads/main/base/base64.cc
 // https://chromium.googlesource.com/chromium/src/+/refs/heads/main/base/base64url.cc
 // https://github.com/ncbi/ncbi-cxx-toolkit-public/blob/master/include/connect/ncbi_base64.h
+// https://github.com/qiniu/c-sdk/tree/master/b64
+// https://github.com/nanomsg/nng/blob/master/src/supplemental/base64/base64.c

@@ -1,18 +1,30 @@
 # Awesome Style Guides
 
 - [Awesome Guidelines](https://github.com/Kristories/awesome-guidelines)
+
 - [awesome-styleguides](https://github.com/streamich/awesome-styleguides)
+
 - [Google Style Guide](https://github.com/google/styleguide) - [中文版](https://github.com/zh-google-styleguide/zh-google-styleguide)
+
 - [Design and development guides](https://github.com/NARKOZ/guides)
+
 - [fex-team/styleguide](https://github.com/fex-team/styleguide)
+
 - [Microsoft REST API Guidelines](https://github.com/Microsoft/api-guidelines)
 
+- C
+
+    - [SEI CERT C Coding Standard](https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard)
+
 - C++
+
+    - [SEI CERT C++ Coding Standard](https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=88046682)
+
     - [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
     - [C++ Coding Styles](https://github.com/fffaraz/awesome-cpp#coding-style)
     - [Orthodox C++](https://gist.github.com/bkaradzic/2e39896bc7d8c34e042b)
       - https://github.com/floooh/oryol
-    
+
 - C#
     - [C# Style Guide](https://github.com/quozd/awesome-dotnet#style-guide)
 

@@ -1,35 +1,26 @@
 cmake_minimum_required(VERSION 3.8)
 
-#if(WIN32 AND DEFINED ENV{VCPKG_ROOT} AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
-#    set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
-#    set(VCPKG_TARGET_TRIPLET x64-windows-static)
-#    set(CMAKE_GENERATOR_PLATFORM x64)
-#endif()
-
-project(ipc_test CXX)
-
-option(TEST_IPC "Test IPC" ON)
-if(TEST_IPC)
-    add_definitions(-DTEST_IPC=1)
-    add_definitions(-DTEST_INPROC=0)
-else()
-    add_definitions(-DTEST_IPC=0)
-    add_definitions(-DTEST_INPROC=1)
-endif()
+project(ipc_test LANGUAGES C CXX)
 
 find_package(czmq CONFIG REQUIRED)
 
-add_executable(ipc_test "ipc_test.cpp")
+function(create_executable target)
+    add_executable(${target} ipc_test.cpp)
 
-#if(VCPKG_TARGET_TRIPLET MATCHES "^.+-static$" OR VCPKG_TARGET_TRIPLET STREQUAL "x64-linux")
-#    message("Linked to czmq-static.")
-#    target_link_libraries(ipc_test PRIVATE czmq-static)
-#else()
-#    message("Linked to czmq.")
-#    target_link_libraries(ipc_test PRIVATE czmq)
-#endif()
+    if(TARGET czmq)
+        target_link_libraries(${target} PRIVATE czmq)
+    else()
+        target_link_libraries(${target} PRIVATE czmq-static)
+    endif()
+endfunction()
 
-target_link_libraries(ipc_test PRIVATE czmq czmq-static)
+create_executable(ipc_test)
+target_compile_definitions(ipc_test PRIVATE TEST_IPC)
+
+create_executable(inproc_test)
+target_compile_definitions(inproc_test PRIVATE TEST_INPROC)
+
+create_executable(tcp_test)
 
 # References:
 # https://github.com/Microsoft/vcpkg/blob/master/docs/users/integration.md

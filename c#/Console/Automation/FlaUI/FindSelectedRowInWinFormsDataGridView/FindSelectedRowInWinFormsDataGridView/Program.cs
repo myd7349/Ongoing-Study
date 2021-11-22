@@ -81,7 +81,7 @@
                             cells = row.FindAllChildren(ControlType.Edit); // In .NET 4.7.2
 
                         var rowContent = string.Join("\n",
-                            cells.Select(element => element.Patterns.Value.Pattern.Value.ToString()));
+                            cells.Select(element => element.GetValue()));
                         Information("Current selected row: {0}, and row content is:\n{1}",
                             row.Name, rowContent);
                         break;

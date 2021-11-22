@@ -1,2 +1,5 @@
 - [ICSharpCode.SharpZipLib](https://github.com/icsharpcode/SharpZipLib)
   - https://github.com/Bunny83/SimpleJSON/blob/master/SimpleJSONBinary.cs
+- [SevenZipSharp](https://github.com/squid-box/SevenZipSharp)
+- System.IO.Compression
+  - https://github.com/2dust/v2rayN/blob/master/v2rayN/v2rayUpgrade/MainForm.cs

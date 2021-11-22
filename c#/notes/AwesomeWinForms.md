@@ -3,9 +3,11 @@ Applications:
 - [AssetStudio](https://github.com/Perfare/AssetStudio)
 - [BaiduPanDownloadWinform](https://github.com/Accelerider/BaiduPanDownloadWinform)
 - [BingWallpaper](https://github.com/kfstorm/BingWallpaper)
+- [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)
 - [ImageGlass](https://github.com/d2phap/ImageGlass)
 - [naps2](https://github.com/cyanfish/naps2)
 - [NodeEditorWinforms](https://github.com/komorra/NodeEditorWinforms)
+- [v2rayN](https://github.com/2dust/v2rayN)
 
 Libraries:
 

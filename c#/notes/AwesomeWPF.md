@@ -4,6 +4,7 @@ Applications:
 
 - [BililiveRecorder](https://github.com/Bililive/BililiveRecorder)
 - [Core2D](https://github.com/wieslawsoltes/Core2D)
+- [CsvTextEditor](https://github.com/WildGums/CsvTextEditor)
 - [dotnetpad](https://github.com/jbe2277/dotnetpad)
 - [DoubanFM](https://github.com/kfstorm/DoubanFM)
 - [Files](https://github.com/files-community/Files)
@@ -16,8 +17,10 @@ Applications:
 - [QSanguosha-v2](https://github.com/Mogara/QSanguosha-v2)
 - [QuickLook](https://github.com/QL-Win/QuickLook)
 - [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows)
+- [simple-music-player](https://github.com/punker76/simple-music-player)
 - [snoopwpf](https://github.com/snoopwpf/snoopwpf)
 - [SyncTrayzor](https://github.com/canton7/SyncTrayzor)
+- [XstReader](https://github.com/Dijji/XstReader)
 - [YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)
 - [WeatherCS](https://github.com/crashmax-dev/WeatherCS)
 - [WinCompose](https://github.com/samhocevar/wincompose)
@@ -27,7 +30,19 @@ Libraries:
 
 - [Accelerider.Windows](https://github.com/Accelerider/Accelerider.Windows)
 
+- [AduSkin](https://github.com/aduskin/AduSkin)
+
+- [Aura.UI](https://github.com/PieroCastillo/Aura.UI)
+
 - [AvalonDock](https://github.com/Dirkster99/AvalonDock)
+
+  - [Gemini](https://github.com/tgjones/gemini)
+
+- [AvalonEdit](https://github.com/icsharpcode/AvalonEdit)
+
+- [Caliburn.Micro](https://github.com/Caliburn-Micro/Caliburn.Micro)
+
+  - [Gemini](https://github.com/tgjones/gemini)
 
 - [Catel](https://github.com/Catel/Catel)
 
@@ -53,13 +68,27 @@ Libraries:
 
 - [MahApps.Metro](https://github.com/MahApps/MahApps.Metro)
 
+  - [NextBootOSSelector](https://github.com/takuya-takeuchi/NextBootOSSelector)
+
+- [MahApps.Metro.IconPacks](https://github.com/MahApps/MahApps.Metro.IconPacks)
+
 - [MaterialDesignInXamlToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
 
+  - [NextBootOSSelector](https://github.com/takuya-takeuchi/NextBootOSSelector)
+
 - [mvvm-dialogs](https://github.com/FantasticFiasco/mvvm-dialogs)
+
+- [MVVM Light Toolkit](https://github.com/lbugnion/mvvmlight)
+
+  - [NextBootOSSelector](https://github.com/takuya-takeuchi/NextBootOSSelector)
 
 - [NumericUpDownLib](https://github.com/Dirkster99/NumericUpDownLib)
 
 - [Ookii.Dialogs.Wpf](https://github.com/ookii-dialogs/ookii-dialogs-wpf)
+
+- [Orc.Controls](https://github.com/WildGums/Orc.Controls)
+
+- [Orc.Wizard](https://github.com/WildGums/Orc.Wizard)
 
 - [Orchestra](https://github.com/WildGums/Orchestra)
 
@@ -86,6 +115,8 @@ Libraries:
 
 - [WindowsCommunityToolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit)
 
+  - [Microsoft.Toolkit.Mvvm](https://docs.microsoft.com/zh-cn/windows/communitytoolkit/mvvm/introduction)
+  
   - [Microsoft.Toolkit.Win32](https://github.com/CommunityToolkit/Microsoft.Toolkit.Win32)
   
 - [WPF-AutoComplete-TextBox](https://github.com/quicoli/WPF-AutoComplete-TextBox)

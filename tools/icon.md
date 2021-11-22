@@ -17,4 +17,7 @@
   - https://github.com/aykutkardas/react-icomoon
 * [Icons8](https://icons8.com) - Used by [Explorer++](https://github.com/derceg/explorerplusplus).
 * [fluentui-system-icons](https://github.com/microsoft/fluentui-system-icons) - Used by [Explorer++](https://github.com/derceg/explorerplusplus).
+* [Modern UI Icons](http://modernuiicons.com/) - Used by [NextBootOSSelector](https://github.com/takuya-takeuchi/NextBootOSSelector).
+* [iconfont](https://www.iconfont.cn/) - Used by [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager).
+* [MahApps.Metro.IconPacks](https://github.com/MahApps/MahApps.Metro.IconPacks)
 

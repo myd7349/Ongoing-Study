@@ -123,3 +123,38 @@
 - https://github.com/pocoproject/poco/blob/master/Util/include/Poco/Util/IniFileConfiguration.h
 
   - https://github.com/MayaPosch/NymphCast/blob/ecd40894838f84c3ced866992a28c0f10862a868/src/server/config_parser.h#L25
+  
+- https://github.com/WerWolv/libtesla/blob/640629f49f9e8997ef0769b21b26f4fc177c736f/include/tesla.hpp#L320-L352
+
+  > ```cpp
+  > using IniData = std::map<std::string, std::map<std::string, std::string>>;
+  > 
+  > /**
+  >  * @brief Parses a ini string
+  >  *
+  >  * @param str String to parse
+  >  * @return Parsed data
+  >  */
+  > static IniData parseIni(const std::string &str) {
+  >     IniData iniData;
+  > 
+  >     auto lines = split(str, '\n');
+  > 
+  >     std::string lastHeader = "";
+  >     for (auto& line : lines) {
+  >         line.erase(std::remove_if(line.begin(), line.end(), ::isspace), line.end());
+  > 
+  >         if (line[0] == '[' && line[line.size() - 1] == ']') {
+  >             lastHeader = line.substr(1, line.size() - 2);
+  >             iniData.emplace(lastHeader, std::map<std::string, std::string>{});
+  >         }
+  >         else if (auto keyValuePair = split(line, '='); keyValuePair.size() == 2) {
+  >             iniData[lastHeader].emplace(keyValuePair[0], keyValuePair[1]);
+  >         }
+  >     }
+  > 
+  >     return iniData;
+  > }
+  > ```
+
+- https://github.com/JakubFornadel/ConfReader

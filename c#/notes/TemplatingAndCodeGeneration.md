@@ -30,3 +30,7 @@
 
 - [SourceGeneratorTemplate](https://github.com/davidwengier/SourceGeneratorTemplate)
 
+- [html-generator](https://github.com/hughbe/html-generator)
+
+- [DocNet](https://github.com/FransBouma/DocNet)
+

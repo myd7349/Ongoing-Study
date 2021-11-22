@@ -1,10 +1,13 @@
 Cloud
 
 - [libcloud](https://github.com/apache/libcloud)
-
 - Table Storage
   - [TableStorage.Abstractions](https://github.com/Tazmainiandevil/TableStorage.Abstractions)
 - [Cloudreve](https://github.com/cloudreve/Cloudreve)
+
+Communication
+
+- [mahi-com](https://github.com/mahilab/mahi-com)
 
 File System
 

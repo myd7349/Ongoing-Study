@@ -173,3 +173,5 @@ int main(int argc, char *argv[])
 // https://stackoverflow.com/questions/1716274/fill-the-holes-in-opencv
 // https://www.learnopencv.com/filling-holes-in-an-image-using-opencv-python-c/
 // https://www.geometrictools.com/Source/ComputationalGeometry.html
+// [graphicsmagick how to remove transparent area and shrink the canvas size of a 32-bit image](https://stackoverflow.com/questions/19827613/graphicsmagick-how-to-remove-transparent-area-and-shrink-the-canvas-size-of-a-32)
+// > gm convert input.png -trim +repage output.png

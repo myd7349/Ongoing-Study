@@ -31,3 +31,5 @@ https://github.com/j-maly/CommandLineParser
 https://github.com/HinTak/Font-Validator/blob/master/FontValidator/CmdLineInterface.cs
 
 https://github.com/adrianaisemberg/CLAP
+
+https://github.com/smourier/SQLNado/blob/master/SqlNado.Cli/CommandLine.cs

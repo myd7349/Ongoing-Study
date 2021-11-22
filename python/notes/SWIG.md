@@ -10,3 +10,5 @@
 
 [WiredTiger](https://github.com/wiredtiger/wiredtiger/blob/develop/lang/python/wiredtiger.i)
 
+[TBB](https://github.com/oneapi-src/oneTBB/blob/master/python/tbb/api.i)
+

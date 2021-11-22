@@ -32,12 +32,7 @@ https://github.com/FlaUI/FlaUInspect
 
 https://gitter.im/FlaUI/Lobby?at=5943c09b6549436c7d52c510
 
-> if microsoft didn't implement the grid pattern in their winforms datagridview, there is not much flaui can do
-> but working with the headers and the rows is also possible without the grid patter
-> you can also check for modified datagridview controls
-> like above or here: https://github.com/northwoodspd/UIA.Extensions#datagridview
-> they expose some things to uia
-> but I havent tried that
+> if microsoft didn't implement the grid pattern in their winforms datagridview, there is not much flaui can do but working with the headers and the rows is also possible without the grid patter you can also check for modified datagridview controls like above or here: https://github.com/northwoodspd/UIA.Extensions#datagridview they expose some things to uia but I havent tried that
 
 [Element finding mechanisms in FlaUI | Windows Automation](https://www.youtube.com/watch?v=7OwF3oXhw14)
 
@@ -77,6 +72,8 @@ https://github.com/dotnet/docs/tree/main/docs/framework/ui-automation
 > The solution to slow performance is to use the new **IUIAutomationElement** COM interface instead of the old System.Windows.Automation C# interface. After that the code will be running **lightning fast**! 
 >
 > Apart from that the new interface offers much more patterns and  Microsoft is extending it continously. In the Windows 10 SDK  (UIAutomationClient.h and UIAutomationCore.h) several patterns and  properties have been added which are not available in the .NET  Automation framework.
+
+> For **.NET Forms applications** Microsoft did not make much effort to support them. The .NET **Calendar** control cannot be automated at all. The entire control is not even  recognized as Calendar. It has the ControlType "Pane" with no child  elements in it. The same applies to the **DateTimePicker**. And for complex controls like **DataGrid** and **PropertyGrid** the only implemented pattern is `LegacyIAccessible` which is a poor support. These controls should implement at least the `Table` and the `Grid` and the `ScrollItem` pattern.
 
 [Using UI Automation, Winforms Button Invoking multiple times](https://stackoverflow.com/questions/12591649/using-ui-automation-winforms-button-invoking-multiple-times)
 

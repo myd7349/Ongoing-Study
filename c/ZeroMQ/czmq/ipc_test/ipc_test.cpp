@@ -3,28 +3,18 @@
 #include <czmq.h>
 
 
-#ifndef TEST_IPC
-# define TEST_IPC (1)
-#endif
-
-
-#ifndef TEST_INPROC
-# define TEST_INPROC (0)
-#endif
-
-
 int main(void)
 {
     zsock_t *req = zsock_new(ZMQ_REQ);
     zsock_t *rep = zsock_new(ZMQ_REP);
 
     int port;
-#if TEST_IPC
+#if defined TEST_IPC
     port = zsock_bind(req, "ipc://reqvsrep.ipc");
     printf("%d\n", port);
     port = zsock_connect(rep, "ipc://reqvsrep.ipc");
     printf("%d\n", port);
-#elif TEST_INPROC
+#elif defined TEST_INPROC
     port = zsock_bind(req, "inproc://backend");
     printf("%d\n", port);
     port = zsock_connect(rep, "inproc://backend");

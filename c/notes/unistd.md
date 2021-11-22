@@ -153,3 +153,40 @@ getopt
 
 - [Using getopt in C with non-option arguments](https://stackoverflow.com/questions/18079340/using-getopt-in-c-with-non-option-arguments)
 
+- https://github.com/nihui/waifu2x-ncnn-vulkan/blob/master/src/main.cpp
+
+  > ```c
+  > #if _WIN32
+  > #include <wchar.h>
+  > static wchar_t* optarg = NULL;
+  > static int optind = 1;
+  > static wchar_t getopt(int argc, wchar_t* const argv[], const wchar_t* optstring)
+  > {
+  >     if (optind >= argc || argv[optind][0] != L'-')
+  >         return -1;
+  > 
+  >     wchar_t opt = argv[optind][1];
+  >     const wchar_t* p = wcschr(optstring, opt);
+  >     if (p == NULL)
+  >         return L'?';
+  > 
+  >     optarg = NULL;
+  > 
+  >     if (p[1] == L':')
+  >     {
+  >         optind++;
+  >         if (optind >= argc)
+  >             return L'?';
+  > 
+  >         optarg = argv[optind];
+  >     }
+  > 
+  >     optind++;
+  > 
+  >     return opt;
+  > }
+  > #endif
+  > ```
+
+  
+

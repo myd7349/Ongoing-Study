@@ -43,3 +43,7 @@ Libraries:
 - [milkdown](https://github.com/Saul-Mirone/milkdown)
 - [MdXaml](https://github.com/whistyun/MdXaml)
 
+Tools:
+
+- [htmldoc](https://github.com/michaelrsweet/htmldoc)
+
