@@ -35,6 +35,8 @@ https://github.com/lukka/run-vcpkg/issues/66
 
 [GitHub520](https://github.com/521xueweihan/GitHub520)
 
+[FastGithub](https://github.com/dotnetcore/FastGithub)
+
 Awesome README.md:
 
 - https://github.com/yihong0618/yihong0618
@@ -54,6 +56,10 @@ Awesome README.md:
 - https://github.com/evoluteur
 - https://github.com/laixintao/laixintao
 - https://github.com/dlemstra
+- https://github.com/Abhijnan-Bajpai
+- https://github.com/luisfelipesdn12
+- https://github.com/3F
+- https://github.com/HFO4
 
 https://github.com/Tyrrrz/GitHubActionsTestLogger
 
@@ -69,3 +75,14 @@ GitHub Sponsors:
 
 https://github.com/faaxm/exmpl-cmake-grpc/blob/master/.github/FUNDING.yml
 
+GitHub Actions:
+
+https://github.com/Yelp/dumb-init/blob/master/.pre-commit-config.yaml
+
+https://github.com/amorriscode/book-box
+
+- https://gist.github.com/ashtom/e5865c72d499b5bf966673e9791e601d
+
+https://github.com/refined-github/refined-github
+
+[OpenFunction](https://github.com/OpenFunction/OpenFunction/)

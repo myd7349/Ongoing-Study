@@ -57,3 +57,5 @@ while(inStream >> data) {
 > outFile.rdbuf()->pubsetbuf(0, 0);
 > ```
 
+[What is the most elegant way to read a text file with c++?](https://stackoverflow.com/questions/195323/what-is-the-most-elegant-way-to-read-a-text-file-with-c)
+

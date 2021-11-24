@@ -14,3 +14,9 @@ https://github.com/itext/itextsharp/blob/develop/src/core/iTextSharp/text/pdf/Ac
 QuickReport
 
 RaveReport
+
+Crystal Reports
+
+[FlexReport](https://marketplace.visualstudio.com/items?itemName=GrapeCityinc.ReportsforWinForms)
+
+[Seal-Report](https://github.com/ariacom/Seal-Report)

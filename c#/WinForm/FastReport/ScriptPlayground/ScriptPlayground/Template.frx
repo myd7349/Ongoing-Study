@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Author="myd7349" ReportInfo.Created="11/20/2021 18:01:57" ReportInfo.Modified="11/21/2021 17:46:53" ReportInfo.CreatorVersion="2020.1.0.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+    public class TextObjectPair
+    {
+        public TextObjectPair(TextObject labelObject, TextObject textObject)
+        {
+            LabelObject = labelObject;
+            TextObject = textObject;
+
+            distance_ = TextObject.Left - LabelObject.Left;
+        }
+
+        public TextObject LabelObject { get; private set; }
+
+        public TextObject TextObject { get; private set; }
+
+        public PointF Position { get; set; }
+
+        public bool Visible { get; set; }
+
+        public float Width { get; set; }
+
+        private float distance_;
+    }
+
+    public class ReportScript
+    {
+        private void PageHeader1_BeforePrint(object sender, EventArgs e)
+        {
+            Page1.Landscape = false;
+            MessageBox.Show(&quot;Before Print&quot;);
+            var unitsCentimeters = String.Format(&quot;Units.Centimeters: {0}&quot;, Units.Centimeters);
+            MessageBox.Show(unitsCentimeters);
+            string message = string.Format(&quot;Height: {0}, Width: {1}&quot;,
+                PageHeader1.Height / Units.Centimeters, PageHeader1.Width / Units.Centimeters);
+            MessageBox.Show(message);
+            MessageBox.Show(Name.Text);
+
+            TextObjectPair[] textObjectPairs = new TextObjectPair[]
+            {
+                new TextObjectPair(NameLabel, Name),
+                new TextObjectPair(AgeLabel, Age),
+                new TextObjectPair(GenderLabel, Gender),
+                new TextObjectPair(IDLabel, ID),
+                new TextObjectPair(AddressLabel, Address),
+                new TextObjectPair(PhoneLabel, Phone),
+            };
+        }
+
+        private void PageHeader1_AfterData(object sender, EventArgs e)
+        {
+            MessageBox.Show(&quot;After data&quot;);
+            var nameProperties = string.Format(&quot;Name:\r\nText: {0}\r\nLeft: {1}\r\nWidth: {2}&quot;,
+                Name.Text, Name.Left / Units.Centimeters, Name.CalcWidth() / Units.Centimeters);
+            Name.Top += 1 * Units.Centimeters;
+            MessageBox.Show(nameProperties);
+            var labelProperties = string.Format(&quot;NameLabel left: {0}, PhoneLabel left: {1}&quot;,
+                NameLabel.Left / Units.Centimeters, PhoneLabel.Left / Units.Centimeters);
+            MessageBox.Show(labelProperties);
+        }
+    }
+}
+
+// References:
+// https://www.fast-report.com/documentation/UserMan/example_of_using_the_onbeforeprint_event.htm
+// [Scripting inside report](https://github.com/FastReports/FastReport/issues/176)
+</ScriptText>
+  <Dictionary>
+    <Parameter Name="Name" DataType="System.String"/>
+    <Parameter Name="Age" DataType="System.Int32"/>
+    <Parameter Name="Gender" DataType="System.String"/>
+    <Parameter Name="ID" DataType="System.String"/>
+    <Parameter Name="Address" DataType="System.String"/>
+    <Parameter Name="Phone" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15" Border.Lines="All" Watermark.Font="宋体, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="37.8"/>
+    <PageHeaderBand Name="PageHeader1" Top="41.76" Width="1047.06" Height="28.35" BeforePrintEvent="PageHeader1_BeforePrint" AfterDataEvent="PageHeader1_AfterData">
+      <TextObject Name="NameLabel" Width="47.25" Height="18.9" Text="Name:" Font="宋体, 9pt"/>
+      <TextObject Name="Name" Left="47.25" Width="94.5" Height="18.9" Text="[Name]" Font="宋体, 9pt"/>
+      <TextObject Name="AgeLabel" Left="170.1" Width="47.25" Height="18.9" Text="Age:" Font="宋体, 9pt"/>
+      <TextObject Name="Age" Left="217.35" Width="94.5" Height="18.9" Text="[Age]" Font="宋体, 9pt"/>
+      <TextObject Name="GenderLabel" Left="349.65" Width="56.7" Height="18.9" Text="Gender:" Font="宋体, 9pt"/>
+      <TextObject Name="Gender" Left="406.35" Width="94.5" Height="18.9" Text="[Gender]" Font="宋体, 9pt"/>
+      <TextObject Name="IDLabel" Left="538.65" Width="47.25" Height="18.9" Text="ID:" Font="宋体, 9pt"/>
+      <TextObject Name="ID" Left="585.9" Width="94.5" Height="18.9" Text="[ID]" Font="宋体, 9pt"/>
+      <TextObject Name="AddressLabel" Left="699.3" Width="66.15" Height="18.9" Text="Address:" Font="宋体, 9pt"/>
+      <TextObject Name="Address" Left="765.45" Width="85.05" Height="18.9" Text="[Address]" Font="宋体, 9pt"/>
+      <TextObject Name="PhoneLabel" Left="878.85" Width="47.25" Height="18.9" Text="Phone:" Font="宋体, 9pt"/>
+      <TextObject Name="Phone" Left="926.1" Width="94.5" Height="18.9" Text="[Phone]" Font="宋体, 9pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="74.07" Width="1047.06" Height="75.6"/>
+    <PageFooterBand Name="PageFooter1" Top="153.63" Width="1047.06" Height="18.9"/>
+  </ReportPage>
+</Report>

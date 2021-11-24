@@ -1,6 +1,8 @@
 - [T4](https://en.wikipedia.org/wiki/Text_Template_Transformation_Toolkit) - [GitHub](https://github.com/mono/t4)
 
   - [用T4生成EF框架下的DAL、IDAL、BLL、IBLL](https://www.cnblogs.com/zhaoshujie/p/12052409.html)
+  - [Code Generation and T4 Text Templates](https://docs.microsoft.com/en-us/visualstudio/modeling/code-generation-and-t4-text-templates?view=vs-2022)
+  - https://github.com/ericsink/SQLitePCL.raw/tree/master/src/providers
 
 - [T5](https://github.com/atifaziz/t5)
 

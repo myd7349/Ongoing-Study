@@ -27,4 +27,51 @@ Projects using `pybind11`
 * [pytomlpp](https://github.com/bobfang1992/pytomlpp)
 * [PyFastPFor](https://github.com/searchivarius/PyFastPFor)
 * [qdb-api-python](https://github.com/bureau14/qdb-api-python)
+* [OpenCC](https://github.com/BYVoid/OpenCC/blob/master/src/py_opencc.cpp)
+* [traji](https://github.com/cmpute/traji)
 
+# Notes
+
+1. https://pybind11.readthedocs.io/en/stable/compiling.html
+
+   > ```python
+   > from glob import glob
+   > from setuptools import setup
+   > from pybind11.setup_helpers import Pybind11Extension
+   > 
+   > ext_modules = [
+   >  Pybind11Extension(
+   >      "python_example",
+   >      sorted(glob("src/*.cpp")),  # Sort source files for reproducibility
+   >  ),
+   > ]
+   > 
+   > setup(..., ext_modules=ext_modules)
+   > ```
+   
+2. pybind11_add_module
+
+   > ```cmake
+   > # Ongoing-Study/algorithm/dsp/FindPeaks/CMakeLists.txt
+   > if(BUILD_PYFINDPEAKS)
+   >     include(FetchContent)
+   > 
+   >     FetchContent_Declare(
+   >         pybind11
+   >         GIT_REPOSITORY https://github.com/pybind/pybind11
+   >         GIT_TAG        v2.8.1
+   >     )
+   > 
+   >     FetchContent_GetProperties(pybind11)
+   >     if(NOT pybind11_POPULATED)
+   >         FetchContent_Populate(pybind11)
+   >         add_subdirectory(${pybind11_SOURCE_DIR} ${pybind11_BINARY_DIR})
+   >     endif()
+   > 
+   >     pybind11_add_module(PyFindPeaks PyFindPeaksImpl.cpp)
+   >     target_link_libraries(PyFindPeaks PRIVATE FindPeaks)
+   > endif()
+   > ```
+   >
+   
+   

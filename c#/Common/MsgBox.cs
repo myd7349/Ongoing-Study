@@ -4,7 +4,7 @@
 
     public static class MsgBox
     {
-        public static DialogResult Information(string format, params object[] args)
+        public static DialogResult InformationFmt(string format, params object[] args)
         {
             return Information(string.Format(format, args));
         }
@@ -19,7 +19,7 @@
             return MessageBox.Show(owner, text, caption, buttons, MessageBoxIcon.Information);
         }
 
-        public static DialogResult Question(string format, params object[] args)
+        public static DialogResult QuestionFmt(string format, params object[] args)
         {
             return Question(string.Format(format, args));
         }
@@ -34,7 +34,7 @@
             return MessageBox.Show(owner, text, caption, buttons, MessageBoxIcon.Question);
         }
 
-        public static DialogResult Warning(string format, params object[] args)
+        public static DialogResult WarningFmt(string format, params object[] args)
         {
             return Warning(string.Format(format, args));
         }
@@ -49,12 +49,19 @@
             return MessageBox.Show(owner, text, caption, buttons, MessageBoxIcon.Warning);
         }
 
+        // TODO:
+        // Error("{0}", "42") will not call this one.
         public static DialogResult Error(string format, params object[] args)
         {
             return Error(string.Format(format, args));
         }
 
-        public static DialogResult Error(string text, string caption = "", MessageBoxButtons buttons = MessageBoxButtons.OK)
+        public static DialogResult ErrorFmt(string format, params object[] args)
+        {
+            return Error(string.Format(format, args));
+        }
+
+        public static DialogResult Error(string text, string caption = "Error:", MessageBoxButtons buttons = MessageBoxButtons.OK)
         {
             return MessageBox.Show(text, caption, buttons, MessageBoxIcon.Error);
         }

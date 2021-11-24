@@ -4,11 +4,16 @@
     using System.Collections.Generic;
     using System.Drawing;
     using System.IO;
+    using System.Linq;
 
     using CommandLine;
     using CommandLine.Text;
     using FastReport;
+    using FastReport.Export;
     using FastReport.Export.Image;
+    using FastReport.Export.PdfSimple;
+
+    using Common;
 
     class Program
     {
@@ -71,6 +76,68 @@
                     report.SetParameterValue(parameterParts[0], parameterParts[1]);
                 }
 
+                foreach (var picture in options.Pictures)
+                {
+                    var parts = picture.Split(new char[] { '=' }, 2);
+                    if (parts.Length != 2 || string.IsNullOrWhiteSpace(parts[0]))
+                    {
+                        Console.WriteLine("Invalid picture object name-location pair: {0}.", picture);
+                        return 1;
+                    }
+
+                    var pictureObjectName = parts[0];
+                    var pictureLocation = parts[1];
+
+                    var reportObject = report.FindObject(pictureObjectName);
+                    if (reportObject == null)
+                    {
+                        Console.WriteLine("Couldn't find a picture object with name: {0}.", pictureObjectName);
+                        return 1;
+                    }
+
+                    var pictureObject = reportObject as PictureObject;
+                    if (pictureObject == null)
+                    {
+                        Console.WriteLine("Object \"{0}\" is not a picture object.", pictureObjectName);
+                        return 1;
+                    }
+
+                    Image image = null;
+                    if (!string.IsNullOrEmpty(pictureLocation))
+                    {
+                        if (File.Exists(pictureLocation))
+                        {
+                            try
+                            {
+                                image = Image.FromFile(pictureLocation);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine("Failed to load picture from location {0}:\r\n{1}",
+                                    pictureLocation, ex.ToString());
+                            }
+                        }
+                        else if (Base64Helper.IsBase64String(pictureLocation))
+                        {
+                            try
+                            {
+                                image = ImageHelper.LoadFromBase64(pictureLocation);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine("Failed to load picture from base64 string {0}:\r\n{1}.",
+                                    pictureLocation, ex.ToString());
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Picture file \"{0}\" doesn't exist.", pictureLocation);
+                        }
+                    }
+
+                    pictureObject.Image = image;
+                }
+
                 if (!report.Prepare())
                 {
                     Console.WriteLine("Failed to prepare report.");
@@ -79,10 +146,10 @@
 
                 if (string.IsNullOrWhiteSpace(options.OutputFilePath))
                 {
-                    string extension = ImageFormatToExtension(options.Format);
+                    string extension = FormatHelper.ExportFormatToExtension(options.Format);
                     if (string.IsNullOrWhiteSpace(extension))
                     {
-                        Console.WriteLine("Unknown image format \"{0}\".", options.Format);
+                        Console.WriteLine("Unknown export format \"{0}\".", options.Format);
                         return 1;
                     }
 
@@ -110,49 +177,80 @@
 
                     options.OutputFilePath = outputFilePath;
                 }
-
-                using (var imageExporter = new ImageExport())
+                else
                 {
-                    imageExporter.ImageFormat = options.Format;
-                    if (options.Resolution > 0)
+                    string extension = Path.GetExtension(options.OutputFilePath);
+                    if (!string.IsNullOrEmpty(extension))
                     {
-                        imageExporter.Resolution = options.Resolution;
-                    }
-                    else if (options.ResolutionX > 0 && options.ResolutionY > 0)
-                    {
-                        imageExporter.ResolutionX = options.ResolutionX;
-                        imageExporter.ResolutionY = options.ResolutionY;
-                    }
+                        // .\ReportGenerator.exe -i in.frx -o out.pdf
+                        // will generate a .emf file, not a PDF file.
+                        // So we need to fix it.
+                        var expectedFormat = FormatHelper.ExportFormatFromExtension(extension);
+                        if (expectedFormat != ExportFormat.Invalid && options.Format != expectedFormat)
+                        {
+                            if (options.Format != ExportFormat.Metafile)
+                            {
+                                Console.WriteLine("Incompatible formats are detected:\r\nFormat specified: {0}\r\nFormat guessed from extension: {1}\r\n",
+                                    options.Format, expectedFormat);
+                            }
 
-                    report.Export(imageExporter, options.OutputFilePath);
+                            options.Format = expectedFormat;
+                        }
+                    }
                 }
-            }
 
-            if (options.RotateFlip != RotateFlipType.RotateNoneFlipNone)
-            {
-                using (var bitmap = Bitmap.FromFile(options.OutputFilePath))
+                if (options.Format == ExportFormat.Invalid)
                 {
-                    bitmap.RotateFlip(options.RotateFlip);
-                    bitmap.Save(options.OutputFilePath);
+                    Console.WriteLine("Invalid export format: {0}.", options.Format);
+                    return 1;
+                }
+
+                if (options.Format == ExportFormat.Pdf)
+                {
+                    using (var pdfExporter = new PDFSimpleExport())
+                    {
+                        if (options.Resolution > 0)
+                            pdfExporter.ImageDpi = options.Resolution;
+
+                        if (options.Quality >= 0 && options.Quality <= 100)
+                            pdfExporter.JpegQuality = options.Quality;
+
+                        report.Export(pdfExporter, options.OutputFilePath);
+                    }
+                }
+                else
+                {
+                    using (var imageExporter = new ImageExport())
+                    {
+                        imageExporter.ImageFormat = FormatHelper.ExportFormatToImageExportFormat(options.Format);
+                        if (options.Resolution > 0)
+                        {
+                            imageExporter.Resolution = options.Resolution;
+                        }
+                        else if (options.ResolutionX > 0 && options.ResolutionY > 0)
+                        {
+                            imageExporter.ResolutionX = options.ResolutionX;
+                            imageExporter.ResolutionY = options.ResolutionY;
+                        }
+
+                        if (options.Quality >= 0 && options.Quality <= 100)
+                            imageExporter.JpegQuality = options.Quality;
+
+                        report.Export(imageExporter, options.OutputFilePath);
+                    }
+
+                    if (options.RotateFlip != RotateFlipType.RotateNoneFlipNone)
+                    {
+                        using (var bitmap = Bitmap.FromFile(options.OutputFilePath))
+                        {
+                            bitmap.RotateFlip(options.RotateFlip);
+                            bitmap.Save(options.OutputFilePath);
+                        }
+                    }
                 }
             }
 
             return 0;
-        }
-
-        private static string ImageFormatToExtension(ImageExportFormat format)
-        {
-            switch (format)
-            {
-                case ImageExportFormat.Bmp: return ".bmp";
-                case ImageExportFormat.Gif: return ".gif";
-                case ImageExportFormat.Jpeg: return ".jpg";
-                case ImageExportFormat.Metafile: return ".emf";
-                case ImageExportFormat.Png: return ".png";
-                case ImageExportFormat.Tiff: return ".tiff";
-            }
-
-            return "";
         }
 
         private static void DisplayHelp(ParserResult<Options> result, IEnumerable<Error> errors)
@@ -178,3 +276,5 @@
 // [How do I rotate a picture in WinForms](https://stackoverflow.com/questions/2163829/how-do-i-rotate-a-picture-in-winforms)
 // [in C# how to rotate picturebox with its image?](https://stackoverflow.com/questions/5016081/in-c-sharp-how-to-rotate-picturebox-with-its-image)
 // [How to rotate an ATL::CImage object](https://stackoverflow.com/questions/9492169/how-to-rotate-an-atlcimage-object)
+// [Export FASTREPORT print as PDF](https://stackoverflow.com/questions/16895574/export-fastreport-print-as-pdf/17004059)
+// [How to set a picture in a report from the user application code](https://www.fast-report.com/en/blog/show/picture-from-user-code/)

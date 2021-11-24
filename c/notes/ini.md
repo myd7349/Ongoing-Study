@@ -158,3 +158,8 @@
   > ```
 
 - https://github.com/JakubFornadel/ConfReader
+
+- [INIditor](https://github.com/Jeroen6/INIditor)
+
+- https://github.com/zhicheng/configparser
+

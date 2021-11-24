@@ -2,9 +2,11 @@
 
 - Ceph
 - FastDFS
+- [gobeansdb](https://github.com/douban/gobeansdb)
 - JuiceFS
 - [lakeFS](https://github.com/treeverse/lakeFS)
 - MinIO
+- [seafile](https://github.com/haiwen/seafile)
 - SeaweedFS
 - [STORJ](https://storj.io/)
   - https://twitter.com/SLPL__/status/1449186396313378817

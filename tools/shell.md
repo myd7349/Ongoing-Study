@@ -2,3 +2,9 @@
   - https://github.com/romkatv/powerlevel10k
 
 https://github.com/fukuchi/quit
+
+https://github.com/xxh/xxh
+
+https://github.com/tsl0922/ttyd
+
+https://github.com/asciinema/asciinema

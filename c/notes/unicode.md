@@ -21,3 +21,5 @@ However, `W2A_CP(L"早上好", CP_UTF8)` not works for me.
 [Every other character is NULL after reading a binary file in Visual C++, not other compilers](https://stackoverflow.com/questions/20688956/every-other-character-is-null-after-reading-a-binary-file-in-visual-c-not-oth)
 
 https://github.com/simdutf/simdutf
+
+https://github.com/lemire/talks/blob/master/2021/spire/spire.pdf

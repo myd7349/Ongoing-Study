@@ -47,3 +47,5 @@
 > Traditionally, recursive locks have been the default on Microsoft platforms. The `lock` statement, `Monitor`, `Mutex`, and `ReaderWriterLock` are all recursive. However, newer types are starting to change this; `SpinLock` is not recursive, and `ReaderWriterLockSlim` is not recursive by default (it does provide recursion as an option).
 
 https://github.com/microsoft/vs-threading
+
+https://github.com/microsoft/coyote

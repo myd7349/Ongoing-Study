@@ -7,6 +7,7 @@
 ### Visual Studio Installer Project
 
 ### WiX toolset
+
 - http://wudt.codeplex.com/releases/view/37074
 - https://github.com/yingDev/WGestures
 - https://github.com/python/cpython/blob/master/Tools/msi/wix.props
@@ -15,17 +16,24 @@
 - https://github.com/Wox-launcher/Wox/tree/master/Wox.Installer
 - https://github.com/QL-Win/QuickLook/tree/master/QuickLook.Installer
 - https://github.com/mixxxdj/mixxx/tree/main/packaging
+- https://github.com/flameshot-org/flameshot/blob/master/CMakeLists.txt
+- https://github.com/tom-englert/Wax
 
 ### NSIS
+
 - https://github.com/wireshark/wireshark/tree/master/packaging/nsis
 - https://github.com/vim/vim/tree/master/nsis
 - https://github.com/FreeCAD/FreeCAD/tree/master/src/WindowsInstaller
+- https://github.com/cairoshell/cairoshell/tree/master/Installer
 
 ### CPack
+
+- https://github.com/flameshot-org/flameshot/blob/master/CMakeLists.txt
 
 ### AutoHotkey
 
 ### InnoSetup
+
 - https://github.com/wangwenx190/installer
 - https://github.com/ShareX/ShareX
 - https://github.com/Microsoft/vscode/tree/master/build/win32
@@ -35,21 +43,32 @@
 - https://github.com/samhocevar/wincompose/blob/master/src/installer/installer.iss
 - https://github.com/Sigil-Ebook/Sigil/tree/master/installer
 - [WinMerge](https://github.com/WinMerge/winmerge/tree/master/Installer)
+- https://github.com/ActivityWatch/activitywatch
 
 ### Advanced Installer
 
 - https://github.com/d2phap/ImageGlass/tree/develop/Setup/AdvancedInstaller
 
 ### [PortableApps.com](http://portableapps.com/apps/development/portableapps.com_installer)
+
 - https://github.com/greenshot/greenshot
 
-### [WinGUp](https://wingup.org/)
+### [WinGUp](https://wingup.org/) - [GitHub](https://github.com/gup4win/wingup)
+
 - NotePad++
 
-### [WinSparkle](https://winsparkle.org/)
+### [WinSparkle](https://winsparkle.org/) - [GitHub](https://github.com/vslavik/winsparkle)
+
+- [cairoshell](https://github.com/cairoshell/cairoshell/tree/master/Dependencies/WinSparkle)
 
 ### [Squirrel/Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)
+
+- [Fork](https://fork.dev/)
+
 - [Wox Launcher](https://github.com/Wox-launcher/Wox)
 
 ### [CQtDeployer](https://github.com/QuasarApp/CQtDeployer)
 
+### MakeAppx
+
+- [Add MSIX installer to GitHub workflow by davidanthoff · Pull Request #3331 · git-for-windows/git · GitHub](https://github.com/git-for-windows/git/pull/3331/files)

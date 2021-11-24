@@ -3,20 +3,27 @@ Applications:
 - [AssetStudio](https://github.com/Perfare/AssetStudio)
 - [BaiduPanDownloadWinform](https://github.com/Accelerider/BaiduPanDownloadWinform)
 - [BingWallpaper](https://github.com/kfstorm/BingWallpaper)
+- [BingWallpaper](https://github.com/eaglexiang/BingWallpaper)
 - [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)
+- [DllExport](https://github.com/3F/DllExport)
 - [ImageGlass](https://github.com/d2phap/ImageGlass)
+- [mooc-downloader](https://github.com/xixixixixiao/mooc-downloader)
 - [naps2](https://github.com/cyanfish/naps2)
 - [NodeEditorWinforms](https://github.com/komorra/NodeEditorWinforms)
+- [Serial-Oscilloscope](https://github.com/xioTechnologies/Serial-Oscilloscope)
 - [v2rayN](https://github.com/2dust/v2rayN)
 
 Libraries:
 
+- [advanceddatagridview](https://github.com/davidegironi/advanceddatagridview)
 - [CefSharp](https://github.com/cefsharp/CefSharp)
+- [CSharp-ChatUI-Winforms](https://github.com/AbdisamadMoh/CSharp-ChatUI-Winforms)
 - [CSLA.NET](https://github.com/MarimerLLC/csla)
 - [DarkUI](https://github.com/RobinPerris/DarkUI)
 - [DockPanel Suite](https://github.com/dockpanelsuite/dockpanelsuite)
   - [How to make a floating control](https://stackoverflow.com/questions/4390300/how-to-make-a-floating-control)
   - https://sourceforge.net/projects/dockpanelsuite/
+- [FastColoredTextBox](https://github.com/PavelTorgashov/FastColoredTextBox)
 - [groupcontrols](https://github.com/dahall/groupcontrols)
 - [Krypton](https://github.com/ComponentFactory/Krypton)
   - [Standard-Toolkit](https://github.com/Krypton-Suite/Standard-Toolkit)
@@ -42,5 +49,6 @@ Libraries:
 - [Live-Charts](https://github.com/Live-Charts/Live-Charts)
 - [LiveCharts2](https://github.com/beto-rodriguez/LiveCharts2)
 - [OxyPlot](https://github.com/oxyplot/oxyplot)
+- [ScottPlot](https://github.com/ScottPlot/ScottPlot)
 - [winforms-datavisualization](https://github.com/dotnet/winforms-datavisualization)
 

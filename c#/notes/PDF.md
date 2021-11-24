@@ -16,7 +16,3 @@ https://github.com/BitMiracle/Docotic.Pdf.Samples
 
 https://github.com/PDFium/PDFium has a C# binding.
 
-https://github.com/empira/PDFsharp
-
-- https://github.com/wieslawsoltes/Core2D/tree/master/src/Core2D/Modules/FileWriter.PdfSharp
-

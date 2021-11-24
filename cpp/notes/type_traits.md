@@ -1,7 +1,7 @@
 1. is_same_v
-
+   
    https://github.com/s9w/oof#performance--os-specific-details
-
+   
    ```c++
    template<typename char_type>
    auto fast_print(const std::basic_string<char_type>& sss) -> void
@@ -15,4 +15,6 @@
    }
    ```
 
+2. decay_t
    
+   [morphologica/HdfData.h at main · ABRG-Models/morphologica · GitHub](https://github.com/ABRG-Models/morphologica/blob/main/morph/HdfData.h)

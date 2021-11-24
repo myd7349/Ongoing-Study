@@ -12,3 +12,5 @@ PS C:\Users\myd> py -m pip install -U pywinauto
 > ```
 > python -m pip install -r requirements.txt
 > ```
+
+- [PyCon China 2021 演讲——Python 打包 101](https://frostming.com/2021/10-20/pycon-china-2021/)

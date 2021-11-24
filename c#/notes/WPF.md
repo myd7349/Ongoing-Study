@@ -10,3 +10,5 @@ Awesome WPF projects:
 
 - https://github.com/files-community/Files
 
+[WPF Dynamic GUI elements](https://stackoverflow.com/questions/2382704/wpf-dynamic-gui-elements)
+

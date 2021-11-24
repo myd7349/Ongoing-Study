@@ -5,8 +5,10 @@ Fonts:
 - [IBM Plex Mono](https://www.ibm.com/plex/)
 - [Coding Font](https://www.codingfont.com/)
 - [googlefonts](https://github.com/googlefonts)
+- [FiraCode](https://github.com/tonsky/FiraCode)
 
 Softwares:
 
+- [Character-Map-UWP](https://github.com/character-map-uwp/Character-Map-UWP)
 - [mactype](https://github.com/snowie2000/mactype)
 

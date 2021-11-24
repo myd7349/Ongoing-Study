@@ -1,4 +1,9 @@
-- IDM
+- BitComet
 - FDM
+- IDM
+- Motrix
+- Qdown
+- [qBittorrent](https://www.qbittorrent.org/)
 - [Synology Download Station](https://www.synology.cn/zh-cn/dsm/packages/DownloadStation)
-
+- Xdown
+- utorrent

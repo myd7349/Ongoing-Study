@@ -14,8 +14,8 @@
         [Option('o', "output", HelpText = "Output file path.")]
         public string OutputFilePath { get; set; }
 
-        [Option('f', "format", Default = ImageExportFormat.Metafile, HelpText = "Output file format.")]
-        public ImageExportFormat Format { get; set; }
+        [Option('f', "format", Default = ExportFormat.Metafile, HelpText = "Output file format.")]
+        public ExportFormat Format { get; set; }
 
         [Option('r', "resolution", HelpText = "Output file resolution.")]
         public int Resolution { get; set; }
@@ -26,10 +26,16 @@
         [Option('y', "resolution-y", HelpText = "Output file resolution (vertical).")]
         public int ResolutionY { get; set; }
 
+        [Option('q', "quality", Default = -1, HelpText = "Jpeg Quality.")]
+        public int Quality { get; set; }
+
         [Option('t', "transform", Default = RotateFlipType.RotateNoneFlipNone, HelpText = "Rotate or flip.")]
         public RotateFlipType RotateFlip { get; set; }
 
         [Option('p', "parameter", HelpText = "Specify report parameter (key=value).")]
         public IEnumerable<string> Parameters { get; set; }
+
+        [Option("picture", HelpText = "Specify picture object location (name=location).")]
+        public IEnumerable<string> Pictures { get; set; }
     }
 }

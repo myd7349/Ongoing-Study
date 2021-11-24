@@ -120,7 +120,7 @@ char *ansi_to_utf8(const char *str)
 
 char *utf8_to_ansi(const char *u8s)
 {
-    char *str;
+    char *str = NULL;
 
     wchar_t *wstr = utf8_to_wchar(u8s);
     if (wstr != NULL)

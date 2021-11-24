@@ -95,3 +95,4 @@ if __name__ == '__main__':
 # References:
 # [Beautiful Soup Documentation](http://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 # [XPath](http://www.w3.org/TR/xpath/)
+# https://gist.github.com/yihong0618/0073ef00129db3459e4b5b2814f0408f

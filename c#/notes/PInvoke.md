@@ -1,39 +1,67 @@
+### Calling C# from C or C++
+
+[Calling C# code from C++](https://stackoverflow.com/questions/778590/calling-c-sharp-code-from-c)
+
+[Exposing .NET components to COM](https://docs.microsoft.com/en-us/dotnet/framework/interop/exposing-dotnet-components-to-com)
+
+[Unmanaged Exports](https://sites.google.com/site/robertgiesecke/Home/uploads/unmanagedexports) - [NuGet package](https://www.nuget.org/packages/UnmanagedExports)
+
+[DllExport](https://github.com/3F/DllExport)
+
+- [NotepadPlusPlusPluginPack.Net](https://github.com/kbilsted/NotepadPlusPlusPluginPack.Net)
+  - [MarkdownViewerPlusPlus](https://github.com/nea/MarkdownViewerPlusPlus)
+
+[Conari](https://github.com/3F/Conari)
+
+[Simple Method of DLL Export without C++/CLI](https://www.codeproject.com/Articles/37675/Simple-Method-of-DLL-Export-without-C-CLI)
+
+[DNNE](https://github.com/AaronRobinsonMSFT/DNNE)
+
+[CoreRT](https://github.com/dotnet/corert/tree/master/samples/NativeLibrary)
+
+- [NativeAOT](https://github.com/dotnet/runtimelab/tree/feature/NativeAOT)
+
+### Calling C or C++ from C#
+
 [Platform Invocation Services](https://en.wikipedia.org/wiki/Platform_Invocation_Services)
+
+[Conari](https://github.com/3F/Conari)
 
 [C# 调用 C++ API 时，函数的参数类型该怎么转换？](https://www.zhihu.com/question/34670135/answer/100024595)
 
-1.  [PInvoke Interop Assistant/clrinterop](https://archive.codeplex.com/?p=clrinterop)
+1. [PInvoke Interop Assistant/clrinterop](https://archive.codeplex.com/?p=clrinterop)
 
 2. If you want to use Win32 APIs in C#, then you should take a look at [pinvoke.net](http://pinvoke.net/). BTW, a Visual Studio plugin for `pinvoke.net` is also available.
-
+   
    _Update_: Finally, we have pre-built binarys:
-
+   
    * [PInvoke.Kernel32](https://www.nuget.org/packages/PInvoke.Kernel32/)
-
+   
    * [dotnet/pinvoke](https://github.com/dotnet/pinvoke)
-
+     
      - [New Source Generator based approach to getting all the Win32 methods and types you need](https://github.com/dotnet/pinvoke/issues/565)
    - [Making Win32 APIs More Accessible to More Languages](https://blogs.windows.com/windowsdeveloper/2021/01/21/making-win32-apis-more-accessible-to-more-languages/)
    * https://github.com/contre/Windows-API-Code-Pack-1.1
+   
    * https://github.com/terrafx/terrafx.interop.windows
 
 3. SWIG, CXXI, CppSharp
 
 4. [CppAst](./CppAst.md)
-
+   
    [CppAst.CodeGen](https://github.com/xoofx/CppAst.CodeGen) - An extensible library providing C# PInvoke codegen from C/C++ files for .NET.
 
-4. [C#/Win32 P/Invoke Source Generator](https://github.com/microsoft/CsWin32)
-
+5. [C#/Win32 P/Invoke Source Generator](https://github.com/microsoft/CsWin32)
+   
    - [win32metadata](https://github.com/microsoft/win32metadata)
 
-5. [Vanara](https://github.com/dahall/Vanara) - A set of .NET libraries for Windows implementing PInvoke calls to many native Windows APIs with supporting wrappers.
-
+6. [Vanara](https://github.com/dahall/Vanara) - A set of .NET libraries for Windows implementing PInvoke calls to many native Windows APIs with supporting wrappers.
+   
    Projects using `Vanara`:
-
+   
    - [Files](https://github.com/files-community/Files/blob/cf12811c32053ac9cd72e727d8627ca83581ec7f/Files.Launcher/LogWriter.cs#L8)
 
-6. Book: [.NET and COM: The Complete Interoperability Guide](https://www.oreilly.com/library/view/net-and-com/9780672333583/)
+7. Book: [.NET and COM: The Complete Interoperability Guide](https://www.oreilly.com/library/view/net-and-com/9780672333583/)
 
 [NNanomsg](https://github.com/mhowlett/NNanomsg/blob/master/NNanomsg/Interop.cs)
 
@@ -46,6 +74,7 @@ https://github.com/labstreaminglayer/liblsl-Csharp/blob/master/LSL.cs
 [PInvoke for C function that returns char \*](https://stackoverflow.com/questions/370079/pinvoke-for-c-function-that-returns-char)
 
 C:
+
 ```c
 TCHAR *ReadFileContents(LPCTSTR lpcszFilePath)
 {
@@ -68,6 +97,7 @@ void FreeFileContents(TCHAR *pszText)
 ```
 
 C#
+
 ```csharp
 using System.Runtime.InteropServices;
 
@@ -165,9 +195,9 @@ https://github.com/flibitijibibo/SDL2-CS/blob/904eed3cb04319c4e3e360360943e39080
 > ```csharp
 > [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 > public delegate long SDLRWopsSeekCallback(
-> 	IntPtr context,
-> 	long offset,
-> 	int whence
+>     IntPtr context,
+>     long offset,
+>     int whence
 > );
 > ```
 
@@ -176,19 +206,19 @@ https://github.com/flibitijibibo/SDL2-CS/blob/904eed3cb04319c4e3e360360943e39080
 > ```csharp
 > [DllImport(nativeLibName, EntryPoint = "SDL_LogVerbose", CallingConvention = CallingConvention.Cdecl)]
 > private static extern unsafe void INTERNAL_SDL_LogVerbose(
-> 	int category,
-> 	byte* fmtAndArglist
+>     int category,
+>     byte* fmtAndArglist
 > );
 > public static unsafe void SDL_LogVerbose(
-> 	int category,
-> 	string fmtAndArglist
+>     int category,
+>     string fmtAndArglist
 > ) {
-> 	int utf8FmtAndArglistBufSize = Utf8Size(fmtAndArglist);
-> 	byte* utf8FmtAndArglist = stackalloc byte[utf8FmtAndArglistBufSize];
-> 	INTERNAL_SDL_LogVerbose(
-> 		category,
-> 		Utf8Encode(fmtAndArglist, utf8FmtAndArglist, utf8FmtAndArglistBufSize)
-> 	);
+>     int utf8FmtAndArglistBufSize = Utf8Size(fmtAndArglist);
+>     byte* utf8FmtAndArglist = stackalloc byte[utf8FmtAndArglistBufSize];
+>     INTERNAL_SDL_LogVerbose(
+>         category,
+>         Utf8Encode(fmtAndArglist, utf8FmtAndArglist, utf8FmtAndArglistBufSize)
+>     );
 > }
 > ```
 
@@ -209,3 +239,13 @@ GDI+ PInvoke:
 HRESULT:
 
 - https://github.com/hughbe/Interop-Repro/blob/master/Interop/Interop.HRESULT.cs
+
+https://github.com/ericsink/SQLitePCL.raw#provider-names
+
+> There is a `dynamic` provider which does not use a hard-coded DllImport string.  This one is used as often as possible.
+
+https://github.com/ericsink/SQLitePCL.raw/tree/master/src/providers
+
+### Cesium
+
+[Cesium](https://github.com/ForNeVeR/Cesium) - Cesium compiles standard C source code to a .NET assembly.

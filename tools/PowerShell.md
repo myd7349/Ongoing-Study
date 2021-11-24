@@ -72,3 +72,5 @@ $ Get-Alias -Definition Invoke-Expression
 https://github.com/RehanSaeed/Windows
 
 https://github.com/JanDeDobbeleer/oh-my-posh
+
+https://github.com/star2000/BingWallpaper

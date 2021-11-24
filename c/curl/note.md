@@ -31,3 +31,4 @@ Please read [`curl/winbuild/README.md`](https://github.com/curl/curl/blob/master
 
 http://www.dll-files.com/dllindex/dll-files.shtml?normaliz
 
+https://github.com/curl/curl-for-win

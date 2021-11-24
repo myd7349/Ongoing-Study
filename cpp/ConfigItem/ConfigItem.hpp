@@ -84,8 +84,10 @@ struct ConfigItem
 
         return value_;
     }
-    
-    T operator()() const
+
+    // Not:
+    // T operator()() const
+    operator T() const
     {
         return GetValue();
     }
@@ -214,3 +216,12 @@ typedef ConfigItem<int>          IntItem;
 typedef ConfigItem<bool>         BoolItem;
 typedef ConfigItem<double>       DoubleItem;
 typedef ConfigItem<std::wstring> StringItem;
+
+
+// References:
+// https://github.com/OzanCansel/fsconfig
+// https://github.com/ABRG-Models/morphologica/blob/main/morph/Config.h
+// https://github.com/slowburn-dev/DataConfig
+// https://en.cppreference.com/w/cpp/language/implicit_conversion
+// [Why override operator()?](https://stackoverflow.com/questions/317450/why-override-operator)
+// [What is an "operator int" function?](https://stackoverflow.com/questions/3814865/what-is-an-operator-int-function)

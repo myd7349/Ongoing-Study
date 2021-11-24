@@ -42,3 +42,32 @@ https://docs.python.org/3/library/os.html
 
 > If you want cross-platform overwriting of the destination, use [`replace()`](https://docs.python.org/3/library/os.html#os.replace).
 
+##### Number of CPUs
+
+https://github.com/wxWidgets/Phoenix/blob/master/buildtools/build_wxwidgets.py
+
+```python
+def numCPUs():
+    """
+    Detects the number of CPUs on a system.
+    This approach is from detectCPUs here: http://www.artima.com/weblogs/viewpost.jsp?thread=230001
+    """
+    # Linux, Unix and MacOS:
+    if hasattr(os, "sysconf"):
+        if "SC_NPROCESSORS_ONLN" in os.sysconf_names:
+            # Linux & Unix:
+            ncpus = os.sysconf("SC_NPROCESSORS_ONLN")
+            if isinstance(ncpus, int) and ncpus > 0:
+                return ncpus
+        else: # OSX:
+            p = subprocess.Popen("sysctl -n hw.ncpu", shell=True, stdout=subprocess.PIPE)
+            return p.stdout.read()
+
+    # Windows:
+    if "NUMBER_OF_PROCESSORS" in os.environ:
+            ncpus = int(os.environ["NUMBER_OF_PROCESSORS"]);
+            if ncpus > 0:
+                return ncpus
+    return 1 # Default
+```
+

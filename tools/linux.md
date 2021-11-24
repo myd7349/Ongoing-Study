@@ -4,3 +4,6 @@
 [How do I clear the terminal History?](https://unix.stackexchange.com/questions/203290/how-do-i-clear-the-terminal-history)
 > history -c
 
+[exodus](https://github.com/intoli/exodus)
+
+- [tabdeeli](https://github.com/typon/tabdeeli#linux)

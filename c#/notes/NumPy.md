@@ -7,3 +7,5 @@ https://github.com/SciSharp/NumSharp
 https://github.com/SciSharp/NumSharp.Lite
 
 https://github.com/takuya-takeuchi/DlibDotNet/blob/master/src/DlibDotNet/Array2D/Array2D.cs
+
+[SciSharp/Numpy.NET](https://github.com/SciSharp/Numpy.NET)

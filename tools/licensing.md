@@ -21,3 +21,4 @@ https://stackoverflow.com/questions/8294475/c-api-license-management-to-protect-
 https://www.codeproject.com/articles/8902/a-simple-software-key-useful-to-protect-software-c
 
 http://activelock.sourceforge.net/documents/tutorials/BasicTutorial.html
+

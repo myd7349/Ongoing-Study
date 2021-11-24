@@ -59,3 +59,4 @@ int inet_pton_c(int af, const _TCHAR *src, void *dst)
 // [2] http://man7.org/linux/man-pages/man3/inet_pton.3.html
 // [3] https://docs.microsoft.com/en-us/windows/desktop/api/ws2tcpip/nf-ws2tcpip-inet_pton
 // [4] https://stackoverflow.com/questions/15370033/how-to-use-inet-pton-with-the-mingw-compiler
+// https://github.com/curl/curl/blob/master/lib/inet_pton.c

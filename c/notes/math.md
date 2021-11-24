@@ -80,4 +80,7 @@ https://www.gnu.org/software/libc/manual/html_node/Floating-Point-Classes.html#F
 
 https://www.oreilly.com/library/view/c-in-a/0596006977/re122.html
 
+https://github.com/abolz/Drachennest/blob/master/src/schubfach_64.cc
+
+[Questions about the implemenation of f64_bin_to_dec](https://github.com/ibireme/yyjson/issues/54)
 

@@ -405,3 +405,6 @@ void *easy_base64_decode(const char *base64, void *data, size_t *out_len)
 // https://github.com/ncbi/ncbi-cxx-toolkit-public/blob/master/include/connect/ncbi_base64.h
 // https://github.com/qiniu/c-sdk/tree/master/b64
 // https://github.com/nanomsg/nng/blob/master/src/supplemental/base64/base64.c
+// https://github.com/aklomp/base64
+// https://github.com/zhicheng/base64
+// https://github.com/joedf/base64.c

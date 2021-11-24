@@ -48,3 +48,9 @@
 https://github.com/microsoft/Vipr/blob/master/src/Core/Vipr/NLog.config
 
 [LineEnding](https://nlog-project.org/documentation/v4.4.0/html/P_NLog_Targets_FileTarget_LineEnding.htm)
+
+[Using NLog with WPF richtextbox](https://stackoverflow.com/questions/48809045/using-nlog-with-wpf-richtextbox)
+
+[How can I use a RichTextBox as a NLog Target in a WPF application?](https://stackoverflow.com/questions/6617689/how-can-i-use-a-richtextbox-as-a-nlog-target-in-a-wpf-application)
+
+https://github.com/erizet/NlogViewer

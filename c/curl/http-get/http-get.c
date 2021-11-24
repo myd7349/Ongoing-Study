@@ -221,3 +221,4 @@ int main(int argc, char **argv)
 // https://curl.se/libcurl/c/libcurl.html
 // [How to cleanup definitely a curl handle?](https://stackoverflow.com/questions/53882598/how-to-cleanup-definitely-a-curl-handle)
 // [how to properly reuse a curl handle](https://stackoverflow.com/questions/14911156/how-to-properly-reuse-a-curl-handle)
+// https://github.com/git/git/blob/v2.34.1/http.c

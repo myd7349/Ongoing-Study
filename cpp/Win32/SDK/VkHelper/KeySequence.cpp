@@ -234,3 +234,5 @@ bool KeySequence::CreateFromString(const std::wstring &keySequence, const std::w
     return true;
 }
 
+// References:
+// https://doc.qt.io/qt-5/qkeysequence.html

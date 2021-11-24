@@ -49,3 +49,4 @@ Otherwise, the compiler will give this error:
 
 [Delegates as Properties: Bad Idea?](https://stackoverflow.com/questions/7575059/delegates-as-properties-bad-idea)
 
+https://github.com/Fody/PropertyChanged

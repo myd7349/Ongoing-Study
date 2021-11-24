@@ -10,3 +10,7 @@ Projects using `isort`:
 
 - [cppimport](https://github.com/tbenthompson/cppimport/blob/a3ac34b575cf586fa762adef7dce1f6c10abcc86/.pre-commit-config.yaml#L15)
 
+Alternatives:
+
+- [reorder_python_imports](https://github.com/asottile/reorder_python_imports)
+  - https://github.com/Yelp/dumb-init/blob/master/.pre-commit-config.yaml

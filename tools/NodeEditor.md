@@ -8,7 +8,10 @@
 - [imgui-node-editor](https://github.com/thedmd/imgui-node-editor): C++, ImGui
 - [ImNodes](https://github.com/rokups/ImNodes): C++, ImGui
 - [imnodes](https://github.com/Nelarius/imnodes): C++, imgui
+  - [DearPyGui](https://github.com/hoffstadt/DearPyGui)
 - [light-flow-editor](https://github.com/ArthurSonzogni/light-flow-editor)
 - [smkflow](https://github.com/ArthurSonzogni/smkflow)
 - [Core2D](https://github.com/wieslawsoltes/Core2D): C#, WPF
+- [NodeEditor](https://github.com/wieslawsoltes/NodeEditor)
 
+- [Code-Node-Editor](https://github.com/simeonradivoev/Code-Node-Editor)

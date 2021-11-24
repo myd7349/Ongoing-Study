@@ -1,4 +1,6 @@
+- [Cloudreve](https://github.com/cloudreve/Cloudreve)
 - [Explorer++](https://github.com/derceg/explorerplusplus)
+- [filebrowser: Web File Browser](https://github.com/filebrowser/filebrowser)
 - Far Manager
 - [File](https://github.com/files-community/Files)
 - fman
@@ -9,4 +11,5 @@
 - [RX-Explorer](https://github.com/zhuxb711/RX-Explorer)
 - Total Commander
 - [Windows File Manager](https://github.com/microsoft/winfile)
+
 

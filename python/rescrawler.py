@@ -244,3 +244,4 @@ if __name__ == '__main__':
 #   File "C:\Users\myd\Ongoing-Study\python\uriutils.py", line 22, in fetch_page
 #     yield line.decode(charset)
 # UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+# https://github.com/0xHJK/Proxies

@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Common</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Common\ActivatorHelper.cs" Link="ActivatorHelper.cs" />
+    <Compile Include="..\Common\ArrayHelper.cs" Link="ArrayHelper.cs" />
+    <Compile Include="..\Common\AssemblyHelper.cs" Link="AssemblyHelper.cs" />
+    <Compile Include="..\Common\AutoRunHelper.cs" Link="AutoRunHelper.cs" />
+    <Compile Include="..\Common\Base64Helper.cs" Link="Base64Helper.cs" />
+    <Compile Include="..\Common\BinaryReaderEx.cs" Link="BinaryReaderEx.cs" />
+    <Compile Include="..\Common\BinaryWriterBE.cs" Link="BinaryWriterBE.cs" />
+    <Compile Include="..\Common\BinaryWriterEx.cs" Link="BinaryWriterEx.cs" />
+    <Compile Include="..\Common\BitConverterEx.cs" Link="BitConverterEx.cs" />
+    <Compile Include="..\Common\ByteSwap.cs" Link="ByteSwap.cs" />
+    <Compile Include="..\Common\CircularBuffer.cs" Link="CircularBuffer.cs" />
+    <Compile Include="..\Common\Common.cs" Link="Common.cs" />
+    <Compile Include="..\Common\ConvertEx.cs" Link="ConvertEx.cs" />
+    <Compile Include="..\Common\DateTimeHelper.cs" Link="DateTimeHelper.cs" />
+    <Compile Include="..\Common\DiagnosticsHelper.cs" Link="DiagnosticsHelper.cs" />
+    <Compile Include="..\Common\DictionaryExtension.cs" Link="DictionaryExtension.cs" />
+    <Compile Include="..\Common\DoubleConverter.cs" Link="DoubleConverter.cs" />
+    <Compile Include="..\Common\EndianUtility.cs" Link="EndianUtility.cs" />
+    <Compile Include="..\Common\EnumHelper.cs" Link="EnumHelper.cs" />
+    <Compile Include="..\Common\FileStreamExtension.cs" Link="FileStreamExtension.cs" />
+    <Compile Include="..\Common\ForEach.cs" Link="ForEach.cs" />
+    <Compile Include="..\Common\HashHelpers.cs" Link="HashHelpers.cs" />
+    <Compile Include="..\Common\ImageHelper.cs" Link="ImageHelper.cs" />
+    <Compile Include="..\Common\IniFile.cs" Link="IniFile.cs" />
+    <Compile Include="..\Common\IniFile2.cs" Link="IniFile2.cs" />
+    <Compile Include="..\Common\IniFile2.Extension.cs" Link="IniFile2.Extension.cs" />
+    <Compile Include="..\Common\IntegerHelper.cs" Link="IntegerHelper.cs" />
+    <Compile Include="..\Common\Kernel32.WinBase.Profile.cs" Link="Kernel32.WinBase.Profile.cs" />
+    <Compile Include="..\Common\MSVCRTHelper.cs" Link="MSVCRTHelper.cs" />
+    <Compile Include="..\Common\RegistryKeyExtension.cs" Link="RegistryKeyExtension.cs" />
+    <Compile Include="..\Common\StringExtension.cs" Link="StringExtension.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>

@@ -22,3 +22,4 @@ https://github.com/boost-ext/ut
 
 [GoogleTestAdapter](https://github.com/csoltenborn/GoogleTestAdapter)
 
+https://github.com/sheredom/utest.h

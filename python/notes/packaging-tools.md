@@ -60,3 +60,8 @@ https://github.com/PedramNavid/GooeyPi
 
 [The State of Python Packaging in 2021](https://venthur.de/2021-06-26-python-packaging.html)
 
+https://github.com/pypa/cibuildwheel
+
+https://github.com/scikit-build/scikit-build
+
+- https://github.com/cmpute/traji/blob/main/python/setup.py

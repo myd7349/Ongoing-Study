@@ -12,3 +12,5 @@
 
 [TBB](https://github.com/oneapi-src/oneTBB/blob/master/python/tbb/api.i)
 
+[bolt](https://github.com/dblalock/bolt)
+

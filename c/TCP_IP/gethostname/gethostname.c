@@ -49,3 +49,4 @@ int _tmain()
 
 // References:
 // [Fix compilation on systems that do not define HOST_NAME_MAX](https://github.com/PowerDNS/pdns/pull/9127)
+// https://github.com/curl/curl/blob/e28628ffc22f3516a6560fbd6d8a19c50fa74306/lib/curl_gethostname.c

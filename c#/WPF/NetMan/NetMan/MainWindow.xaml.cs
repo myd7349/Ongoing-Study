@@ -1,10 +1,17 @@
 ﻿namespace NetMan
 {
+    using System;
     using System.Diagnostics;
     using System.Linq;
     using System.Windows;
+    using System.Windows.Threading;
 
     using MahApps.Metro.Controls;
+    using ToastNotifications;
+    using ToastNotifications.Core;
+    using ToastNotifications.Lifetime;
+    using ToastNotifications.Messages;
+    using ToastNotifications.Position;
 
     using ROOT.CIMV2.Win32;
 
@@ -18,16 +25,42 @@
         {
             InitializeComponent();
 
+            notifier_ = new Notifier(
+                config =>
+                {
+                    config.PositionProvider = new PrimaryScreenPositionProvider(Corner.BottomRight, 5, 5);
+                    config.LifetimeSupervisor = new TimeAndCountBasedLifetimeSupervisor(
+                        TimeSpan.FromSeconds(5), MaximumNotificationCount.FromCount(5));
+                    //config.Dispatcher = Dispatcher.CurrentDispatcher;
+                    config.DisplayOptions.TopMost = true;
+                    config.DisplayOptions.Width = 420;
+                });
+
+            Application.Current.MainWindow.Closing += MainWindow_Closing;
+
             FetchNetworkAdapterStatus();
 
             eventWatcher = new NetworkAdapterEventWatcher();
             eventWatcher.NetworkAdapterEventArrived += EventWatcher_NetworkAdapterEventArrived;
         }
 
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            notifier_?.Dispose();
+        }
+
         private void EventWatcher_NetworkAdapterEventArrived(object sender, NetworkAdapter e)
         {
-            MessageBox.Show(e.Name + (e.NetEnabled ? " Enabled" : " not Enabled")
-                + (e.NetConnectionStatus == 2 ? " , Connected" : " , Disconnected"));
+            var message = string.Format("{0}:\r\nEnabled: {1}\r\nConnected: {2}",
+                e.Name, e.NetEnabled, e.NetConnectionStatus == 2);
+
+            var messageOptions = new MessageOptions
+            {
+                FreezeOnMouseEnter = true,
+                ShowCloseButton = true,
+                FontSize = 15,
+            };
+            notifier_.ShowInformation(message, messageOptions);
 
             FetchNetworkAdapterStatus();
         }
@@ -67,6 +100,7 @@
         }
 
         private NetworkAdapterEventWatcher eventWatcher;
+        private Notifier notifier_;
     }
 }
 

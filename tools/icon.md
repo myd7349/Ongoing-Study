@@ -20,4 +20,10 @@
 * [Modern UI Icons](http://modernuiicons.com/) - Used by [NextBootOSSelector](https://github.com/takuya-takeuchi/NextBootOSSelector).
 * [iconfont](https://www.iconfont.cn/) - Used by [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager).
 * [MahApps.Metro.IconPacks](https://github.com/MahApps/MahApps.Metro.IconPacks)
-
+* [tabler-icons](https://github.com/tabler/tabler-icons)
+* [iconarchive](https://iconarchive.com/)
+* [iconicss](https://github.com/Viglino/iconicss)
+* [flaticon](https://www.flaticon.com/)
+  - [cclose](https://github.com/chaohershi/cclose)
+  
+  - [simplemouseclicker](https://github.com/chaohershi/simplemouseclicker)

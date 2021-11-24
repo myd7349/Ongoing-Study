@@ -67,6 +67,12 @@ namespace Common
             return Enum.GetNames(type).Select(name => GetDescriptionFromName(type, name)).ToArray();
         }
 
+        public static bool HasDuplicateValues<T>()
+        {
+            var values = (T[])Enum.GetValues(typeof(T));
+            return values.Count() != values.Distinct().Count();
+        }
+
         private static string GetDescriptionFromName(Type type, string name)
         {
             if (name != null)
@@ -92,3 +98,4 @@ namespace Common
 // [Enum ToString with user friendly strings](https://stackoverflow.com/questions/479410/enum-tostring-with-user-friendly-strings)
 // [Can my enums have friendly names?](https://stackoverflow.com/questions/1415140/can-my-enums-have-friendly-names)
 // [Enum Size in Bytes](https://stackoverflow.com/questions/20944585/enum-size-in-bytes)
+// [How to prevent duplicate values in enum?](https://stackoverflow.com/questions/1425777/how-to-prevent-duplicate-values-in-enum)

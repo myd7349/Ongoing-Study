@@ -70,3 +70,4 @@ const _TCHAR *inet_ntop_c(int af, const void *src, _TCHAR *dst, socklen_t size)
 // [1] Beej's Guide to Network Programming Using Internet Sockets, 9.14
 // [2] http://man7.org/linux/man-pages/man3/inet_ntop.3.html
 // [3] https://docs.microsoft.com/en-us/windows/desktop/api/wsipv6ok/nf-wsipv6ok-inet_addr
+// https://github.com/curl/curl/blob/master/lib/inet_ntop.c

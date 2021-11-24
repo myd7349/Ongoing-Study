@@ -7,6 +7,18 @@
 #include <process.h>
 // clang-format on
 
+#ifdef USE_RAII_HANDLE_CLASS
+#define CLOSE_HANDLE(h) ((h).Close())
+#else
+#define CLOSE_HANDLE(h)   \
+  do {                    \
+    if ((h) != nullptr) { \
+      CloseHandle((h));   \
+      (h) = nullptr;      \
+    }                     \
+  } while (0)
+#endif
+
 void Subprocess::Run(const Config &config) {
   assert(childProcess_ == NULL);
 
@@ -27,8 +39,8 @@ void Subprocess::Run(const Config &config) {
     // Ensure the read handle to the pipe for STDOUT is not inherited.
     if (!SetHandleInformation(stdoutReadPipe_, HANDLE_FLAG_INHERIT, 0)) {
       lastErrorHint_ = TEXT("SetHandleInformation");
-      stdoutReadPipe_.Close();
-      stdoutWritePipe_.Close();
+      CLOSE_HANDLE(stdoutReadPipe_);
+      CLOSE_HANDLE(stdoutWritePipe_);
       return;
     }
   }
@@ -59,20 +71,29 @@ void Subprocess::Run(const Config &config) {
       arguments_.empty() ? nullptr : &arguments_[0], NULL, NULL, TRUE,
       dwCreationFlags, NULL, config.CurrentDirectory, &si, &pi);
   if (!bSuccess) {
-    stdoutReadPipe_.Close();
-    stdoutWritePipe_.Close();
+    CLOSE_HANDLE(stdoutReadPipe_);
+    CLOSE_HANDLE(stdoutWritePipe_);
     lastErrorHint_ = TEXT("CreateProcess");
     return;
   }
 
   CloseHandle(pi.hThread);
 
+#ifdef USE_RAII_HANDLE_CLASS
   childProcess_.Attach(pi.hProcess);
+#else
+  childProcess_ = pi.hProcess;
+#endif
 
   if (processOutput_) {
     HANDLE hThread =
         (HANDLE)_beginthreadex(NULL, 0, ProcessOutput, this, 0, NULL);
-    if (hThread != NULL) thread_.Attach(hThread);
+    if (hThread != NULL)
+#ifdef USE_RAII_HANDLE_CLASS
+      thread_.Attach(hThread);
+#else
+      thread_ = hThread;
+#endif
   }
 }
 
@@ -92,9 +113,9 @@ bool Subprocess::Wait(DWORD &dwExitCode) {
       if (!GetExitCodeProcess(childProcess_, &dwExitCode))
         lastErrorHint_ = TEXT("GetExitCodeProcess");
 
-      childProcess_.Close();
-      stdoutWritePipe_.Close();  // Close it, otherwise ProcessOutput
-                                 // will hang with `ReadFile`.
+      CLOSE_HANDLE(childProcess_);
+      CLOSE_HANDLE(stdoutWritePipe_);  // Close it, otherwise ProcessOutput
+                                       // will hang with `ReadFile`.
       break;
     default:
       assert(FALSE);
@@ -103,10 +124,10 @@ bool Subprocess::Wait(DWORD &dwExitCode) {
 
   if (thread_) {
     WaitForSingleObject(thread_, INFINITE);
-    thread_.Close();
+    CLOSE_HANDLE(thread_);
   }
 
-  if (stdoutReadPipe_) stdoutReadPipe_.Close();
+  if (stdoutReadPipe_) CLOSE_HANDLE(stdoutReadPipe_);
 
   return true;
 }
@@ -142,4 +163,5 @@ unsigned int __stdcall Subprocess::ProcessOutput(void *arg) {
 // https://github.com/DaanDeMeyer/reproc
 // https://github.com/Genymobile/scrcpy/blob/master/app/src/util/process.h
 // https://github.com/kingsamchen/Eureka/tree/master/run-child-process
+// https://github.com/sheredom/subprocess.h
 // clang-format on

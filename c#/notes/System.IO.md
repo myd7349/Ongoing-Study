@@ -69,3 +69,6 @@ https://github.com/fo-dicom/fo-dicom/blob/development/DICOM/IO/Buffer/TempFileBu
 
 https://github.com/fo-dicom/fo-dicom/blob/development/DICOM/IO/TemporaryFile.cs
 
+[How do I check if a given string is a legal/valid file name under Windows?](https://stackoverflow.com/questions/62771/how-do-i-check-if-a-given-string-is-a-legal-valid-file-name-under-windows)
+
+> You can get a list of invalid characters from [`Path.GetInvalidPathChars`](http://msdn.microsoft.com/en-us/library/system.io.path.getinvalidpathchars.aspx) and [`GetInvalidFileNameChars`](http://msdn.microsoft.com/en-us/library/system.io.path.getinvalidfilenamechars.aspx).

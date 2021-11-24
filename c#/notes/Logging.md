@@ -1,11 +1,5 @@
 Libraries:
 
-- [NLog](https://github.com/NLog/NLog)
-- [serilog](https://github.com/serilog/serilog)
-  - [serilog-sinks-http](https://github.com/FantasticFiasco/serilog-sinks-http)
-  - [logging-dotnet](https://github.com/felfel/logging-dotnet)
-- [common-logging](https://github.com/net-commons/common-logging)
-  - https://github.com/itext/itext7-dotnet
 - [MSBuildStructuredLog](https://github.com/KirillOsenkov/MSBuildStructuredLog)
 - https://github.com/Catel/Catel
 

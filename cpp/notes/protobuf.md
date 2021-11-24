@@ -10,3 +10,4 @@ codex
 
   > codex是Google内最常用的一个工具程序。它可以解析任意文件中的 protocol message 内容，并且把这些内容打印成人能方便的阅读的格式。
 
+https://github.com/alecthomas/protoparser

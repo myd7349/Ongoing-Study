@@ -3,11 +3,13 @@ Servers:
 - [Bonobo](https://github.com/jakubgarfield/Bonobo-Git-Server)
 
 - [git](https://github.com/msysgit/msysgit/wiki/Setting-up-a-Git-server-on-Windows-using-Git-for-Windows-and-CopSSH)
+
 - gogs
 
 Clients:
 
 - [Fork](https://git-fork.com/)
+- [GitTouch](https://github.com/git-touch)
 - [SmartGit](https://www.syntevo.com/smartgit/)
 - Source Tree
 - TortoiseGit
@@ -20,6 +22,11 @@ CI/CD:
 Tools:
 
 - [git-big-picture](https://github.com/git-big-picture/git-big-picture)
+- [git-crypt](https://github.com/AGWA/git-crypt)
+
+Software
+
+- [SparkleShare](https://github.com/hbons/SparkleShare)
 
 [Setting your Git username for every repository](https://help.github.com/articles/setting-your-username-in-git/)
 
@@ -47,30 +54,29 @@ How to ignore files from commit?
 - [Can I 'git commit' a file and ignore its content changes?](https://stackoverflow.com/questions/3319479/can-i-git-commit-a-file-and-ignore-its-content-changes)
 - [GIT — Exclude / Ignore Files from commit](https://stackoverflow.com/questions/7070659/git-exclude-ignore-files-from-commit)
 
-
 clone from SVN repo:
+
 ```bash
 git svn clone --stdlayout <SVN repo link>
 ```
 
-
 [Revert the most recent commit:](https://stackoverflow.com/questions/927358/how-to-undo-the-most-recent-commits-in-git)
+
 ```
 git reset HEAD~
 ```
 
-
 [Change the author and committer name and e-mail of multiple commits in Git](https://stackoverflow.com/questions/750172/change-the-author-and-committer-name-and-e-mail-of-multiple-commits-in-git)
 
-
 [Undo the most recent push:](http://christoph.ruegg.name/blog/git-howto-revert-a-commit-already-pushed-to-a-remote-reposit.html)
+
 ```
 git reset HEAD^ [--hard]
 git push -f
 ```
 
-
 [Remove a submodule](https://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule)
+
 ```bash
 mv <submodule_path> <submodule_path>_tmp  # Rename the submodule path
 git submodule deinit -f -- <submodule_path>
@@ -79,8 +85,8 @@ git rm -f <submodule_path>
 rm -rf <submodule_path>_tmp
 ```
 
-
 [Check out a specific commit of a submodule](https://stackoverflow.com/questions/10914022/how-to-check-out-specific-version-of-a-submodule-using-git-submodule)
+
 ```bash
 git submodule add git://some_repository.git <some_repository_local_name>
 cd <some_repository_local_name>
@@ -88,42 +94,43 @@ git checkout <some_commit>
 ```
 
 [Undo checkout](https://stackoverflow.com/questions/3601911/how-do-i-undo-a-checkout-in-git)
+
 ```bash
 git checkout master
 ```
 
-
 [Update submodule]
+
 ```bash
 git submodule update --remote
 ```
 
-
 [Abort a merge](https://stackoverflow.com/questions/22565184/git-how-to-revert-after-a-merge-conflict-corruption)
+
 ```bash
 git merge --abort
 ```
 
-
 [Revert local changes](https://stackoverflow.com/questions/1146973/how-do-i-revert-all-local-changes-in-git-managed-project-to-previous-state)
+
 ```bash
 git checkout .
 ```
 
-
 [Delete a remote branch](https://makandracards.com/makandra/621-git-delete-a-branch-local-or-remote)
+
 ```bash
 git push origin --delete <remote_branch_name>
 ```
 
-
 [Specify author when committing](https://www.amazon.com/Version-Control-Git-collaborative-development/dp/1449316387)
+
 ```bash
 git commit -m "Initial commit" --author="abc abc@def.com"
 ```
 
-
 [Show difference between two commits](https://www.amazon.com/Version-Control-Git-collaborative-development/dp/1449316387)
+
 ```bash
 git diff 34217e9 ec232cd
 ```
@@ -142,8 +149,8 @@ or
 git mv foo.html bar.html
 ```
 
-
 [Commit changes to a new branch](https://stackoverflow.com/questions/14655816/how-to-commit-changes-to-new-branch)
+
 ```bash
 git checkout -b your-new-branch
 git add <files>
@@ -151,12 +158,11 @@ git commit -m <message>
 git push origin your-new-branch
 ```
 
-
 [Pretty git branch graphs](https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs)
+
 ```bash
 git log --all --decorate --oneline --graph
 ```
-
 
 https://stackoverflow.com/questions/2765421/how-do-i-push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too
 
@@ -170,7 +176,6 @@ List all authors:
     - [List all developers on a project in Git](https://stackoverflow.com/questions/9597410/list-all-developers-on-a-project-in-git)
     - [List of authors in git since a given commit](https://stackoverflow.com/questions/6482436/list-of-authors-in-git-since-a-given-commit)
     - [List all authors of a particular git project](https://www.commandlinefu.com/commands/view/4519/list-all-authors-of-a-particular-git-project)
-
 
 [How to delete a git remote tag?](https://stackoverflow.com/questions/5480258/how-to-delete-a-git-remote-tag)
 
@@ -259,6 +264,7 @@ https://github.com/magicmonty/bash-git-prompt
 [GitHub: How to make a fork of public repository private?](https://stackoverflow.com/questions/10065526/github-how-to-make-a-fork-of-public-repository-private/30352360#30352360)
 
 [How to properly mirror a git repository](http://blog.plataformatec.com.br/2013/05/how-to-properly-mirror-a-git-repository/)
+
 ```bash
 $ git clone --mirror git@example.com/upstream-repository.git
 $ cd upstream-repository.git
@@ -276,6 +282,7 @@ Client:
 * [SmartGit](https://www.syntevo.com/smartgit/)
 
 [Mirror a repo](http://blog.plataformatec.com.br/2013/05/how-to-properly-mirror-a-git-repository/)
+
 > However, what we want with mirroring is to replicate the state of an origin repository (or upstream repository). By state, we mean all the branches (including master) and all the tags as well.
 
 ```bash
@@ -289,6 +296,7 @@ $ git push --mirror git@example.com/new-location.git
 [git hook](https://githooks.com/)
 
 [How can one change the timestamp of an old commit in Git?](https://stackoverflow.com/questions/454734/how-can-one-change-the-timestamp-of-an-old-commit-in-git)
+
 ```bash
 git filter-branch --env-filter \
     'if [ $GIT_COMMIT = 119f9ecf58069b265ab22f1f97d2b648faf932e0 ]
@@ -299,6 +307,7 @@ git filter-branch --env-filter \
 ```
 
 [GIT: change commit date to author date](https://stackoverflow.com/questions/28536980/git-change-commit-date-to-author-date)
+
 > git rebase --committer-date-is-author-date
 
 [How can I get the Git commit hash in my PS script?](https://stackoverflow.com/questions/43962860/how-can-i-get-the-git-commit-hash-in-my-ps-script)
@@ -310,9 +319,11 @@ git filter-branch --env-filter \
 [Configure Git to use a proxy](https://gist.github.com/evantoli/f8c23a37eb3558ab8765)
 
 [Git apply error : unrecognized input](https://stackoverflow.com/questions/51542622/git-apply-error-unrecognized-input)
+
 > git diff --no-color
 
 What does `feat` mean in git commit message? For example, [feat: :sparkles: lambda closure](https://github.com/Danielmelody/Ruschm/pull/29). By searching `git feat` in popular search engines, I found these articles:
+
 - [Semantic Commit Messages](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
 - [Commit message 和 Change log 编写指南](https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 - [AngularJS Git Commit Message Conventions](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit)
@@ -321,10 +332,10 @@ What does `feat` mean in git commit message? For example, [feat: :sparkles: lamb
 
 In the last article listed above, it mentioned `commitlint` and `husky`, which can both be installed via `npm`.
 
-
 > git config --global http.proxy http://127.0.0.1:7079
 
 [Reset git proxy to default configuration](https://stackoverflow.com/questions/11265463/reset-git-proxy-to-default-configuration)
+
 > git config --global --unset core.gitproxy
 > git config --global --unset https.proxy
 
@@ -389,3 +400,36 @@ https://github.com/klaussilveira/gitlist
 https://github.com/chriswalz/bit
 
 In PowerShell, `git push origin -d v1.2.3(2021.08.30)` will try to delete tag `v1.2.3` instead of `v1.2.3(2021.08.30)`.
+
+https://github.com/flameshot-org/flameshot/blob/ce336a6a70725ba47db54092026caab8c1f84c52/src/CMakeLists.txt#L221
+
+> ```cmake
+> execute_process(COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD OUTPUT_VARIABLE FLAMESHOT_GIT_HASH)
+> ```
+> 
+> ```cpp
+> // https://github.com/flameshot-org/flameshot/blob/ce336a6a70725ba47db54092026caab8c1f84c52/src/utils/globalvalues.cpp#L15
+> QString GlobalValues::versionInfo()
+> {
+>     return QStringLiteral("Flameshot " APP_VERSION " (" FLAMESHOT_GIT_HASH ")"
+>         "\nCompiled with Qt " QT_VERSION_STR);
+> }
+> ```
+
+https://github.com/jesseduffield/lazygit
+
+[别想偷我源码：通用的针对源码泄露利用程序的反制（常见工具集体沦陷）](https://drivertom.blogspot.com/2021/08/git.html)
+
+> index文件中包含了这个项目中的各个文件的信息，包括文件路径和Git对象的对应的40位哈希值。在这里我们不需要对Git对象理解的很深入，只需要知道里面包含了文件内容，是让攻击者垂涎欲滴的东西就可以了。
+> 
+> 想要拿到Git对象，就需要转去objects目录。objects目录存放了所有的git对象，对于一个git对象，40位哈希的前两位会作为目录名，而后面的38位会作为文件名，存在objects下面。举个例子，一个Git对象那个的hash是cb75d8439f004f41d5f85ffa5f8d017df395651a，那么它就会被存在cb/75d8439f004f41d5f85ffa5f8d017df395651a。
+> 
+> 知道了这些信息之后，就可以知道Git泄露攻击是如何进行的了，首先攻击者访问index文件，解析后得到文件名和对象哈希。接着按着对象哈希一个一个去objects目录获取到Git对象，解析后得到文件。
+
+[Git - index-format Documentation](https://git-scm.com/docs/index-format)
+
+[gum](https://github.com/gauseen/gum)
+
+https://twitter.com/yihong0618/status/1475472422836924417
+
+[lazygit](https://github.com/jesseduffield/lazygit)

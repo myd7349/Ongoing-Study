@@ -94,3 +94,34 @@ max and min:
 #endif
 ```
 
+https://github.com/curl/curl/blob/e28628ffc22f3516a6560fbd6d8a19c50fa74306/lib/strdup.c#L114-L121
+
+> ```c
+> /***************************************************************************
+>  *
+>  * Curl_saferealloc(ptr, size)
+>  *
+>  * Does a normal realloc(), but will free the data pointer if the realloc
+>  * fails. If 'size' is non-zero, it will free the data and return a failure.
+>  *
+>  * This convenience function is provided and used to help us avoid a common
+>  * mistake pattern when we could pass in a zero, catch the NULL return and end
+>  * up free'ing the memory twice.
+>  *
+>  * Returns the new pointer or NULL on failure.
+>  *
+>  ***************************************************************************/
+> void *Curl_saferealloc(void *ptr, size_t size)
+> {
+>   void *datap = realloc(ptr, size);
+>   if(size && !datap)
+>     /* only free 'ptr' if size was non-zero */
+>     free(ptr);
+>   return datap;
+> }
+> ```
+
+https://en.cppreference.com/w/c/memory/realloc
+
+> If there is not enough memory, the old memory block is not freed and null pointer is returned.
+

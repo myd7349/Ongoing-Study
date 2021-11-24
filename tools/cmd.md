@@ -55,3 +55,41 @@ https://github.com/dbohdan/messagebox
 https://github.com/SergeyPirogov/webdriver_manager/blob/master/webdriver_manager/utils.py
 
 >  reg query "HKEY_CURRENT_USER\Software\Google\Chrome\BLBeacon" /v version
+
+[How can I pass arguments to a batch file?](https://stackoverflow.com/questions/26551/how-can-i-pass-arguments-to-a-batch-file)
+
+[How to "comment-out" (add comment) in a batch/cmd?](https://stackoverflow.com/questions/11269338/how-to-comment-out-add-comment-in-a-batch-cmd)
+
+[What is the significance of a dot after a command in Batch?](https://superuser.com/questions/739041/what-is-the-significance-of-a-dot-after-a-command-in-batch)
+
+[Something like a function/method in batch files?](https://stackoverflow.com/questions/10149194/something-like-a-function-method-in-batch-files)
+
+[DOS Batch - Function Tutorial](https://www.dostips.com/DtTutoFunctions.php)
+
+[How to use if - else structure in a batch file?](https://stackoverflow.com/questions/11081735/how-to-use-if-else-structure-in-a-batch-file)
+
+[If](https://ss64.com/nt/if.html)
+
+[Check if a string variable is empty in batch script](https://stackoverflow.com/questions/39679344/check-if-a-string-variable-is-empty-in-batch-script)
+
+[Batch not-equal (inequality) operator](https://stackoverflow.com/questions/1421441/batch-not-equal-inequality-operator)
+
+[What is the proper way to test if a parameter is empty in a batch file?](https://stackoverflow.com/questions/2541767/what-is-the-proper-way-to-test-if-a-parameter-is-empty-in-a-batch-file)
+
+[IF ELSE syntax error within batch file?](https://stackoverflow.com/questions/25468488/if-else-syntax-error-within-batch-file)
+
+[Square bracket notation around variable in cmd / DOS batch scripts](https://stackoverflow.com/questions/23552267/square-bracket-notation-around-variable-in-cmd-dos-batch-scripts)
+
+[Parenthesis in variables inside IF blocks](https://stackoverflow.com/questions/11944074/parenthesis-in-variables-inside-if-blocks)
+
+```
+set xyz=123
+if %xyz% == 123 ( echo [(^)] )
+```
+
+[windows batch SET inside IF not working](https://stackoverflow.com/questions/9102422/windows-batch-set-inside-if-not-working)
+
+```
+:: https://github.com/SkewwG/domainTools
+reg query "HKLM\SOFTWARE\MICROSOFT\CRYPTOGRAPHY" /v "MachineGuid"
+```

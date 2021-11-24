@@ -6,7 +6,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:NetMan"
         mc:Ignorable="d"
-        Title="NetMan" Height="620" Width="815"
+        Title="NetMan" Height="620" Width="880" WindowStartupLocation="CenterScreen"
         Controls:ControlsHelper.ContentCharacterCasing="Normal">
     <Controls:MetroWindow.Resources>
         <local:InverseBooleanConverter x:Key="InverseBooleanConverter" />

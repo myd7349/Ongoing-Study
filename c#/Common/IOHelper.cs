@@ -55,6 +55,26 @@ namespace Common.IO
                 }
             }
         }
+
+        public static bool LocateFileInExplorer(string filePath)
+        {
+            if (!File.Exists(filePath))
+                return false;
+
+            // Clean up file path so it can be navigated OK
+            filePath = Path.GetFullPath(filePath);
+            try
+            {
+                ProcessHelpers.StartProcessAsync("explorer.exe", string.Format("/select,\"{0}\"", filePath));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return false;
+            }
+
+            return true;
+        }
     }
 
     public static class PathUtils
@@ -234,3 +254,4 @@ namespace Common.IO
 // https://github.com/microsoft/perfview/blob/main/src/Utilities/DirectoryUtilities.cs
 // https://github.com/microsoft/perfview/blob/main/src/Utilities/StreamUtilities.cs
 // https://github.com/microsoft/accessibility-insights-windows/blob/main/src/AccessibilityInsights.SetupLibrary/FileHelpers.cs
+// [How to open Explorer with a specific file selected?](https://stackoverflow.com/questions/13680415/how-to-open-explorer-with-a-specific-file-selected)

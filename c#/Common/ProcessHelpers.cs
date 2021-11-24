@@ -5,6 +5,7 @@ namespace Common
     using System.Diagnostics;
     using System.Linq;
     using System.Runtime.InteropServices;
+    using System.Threading.Tasks;
 
     public static class ProcessHelpers
     {
@@ -66,6 +67,31 @@ namespace Common
             SetForegroundWindow(handle);
         }
 
+        public static Task<int> StartProcessAsync(string fileName, string arguments)
+        {
+            var tcs = new TaskCompletionSource<int>();
+
+            var process = new Process
+            {
+                StartInfo =
+                {
+                    FileName = fileName,
+                    Arguments = arguments,
+                },
+                EnableRaisingEvents = true
+            };
+
+            process.Exited += (sender, args) =>
+            {
+                tcs.SetResult(process.ExitCode);
+                process.Dispose();
+            };
+
+            process.Start();
+
+            return tcs.Task;
+        }
+
         const int SW_RESTORE = 9;
 
         [DllImport("User32.dll")]
@@ -84,3 +110,4 @@ namespace Common
 // https://stackoverflow.com/questions/2636721/bring-another-processes-window-to-foreground-when-it-has-showintaskbar-false
 // https://github.com/microsoft/perfview/blob/main/src/HeapDump/GCHeapDump.cs
 // [Restore application from system tray when clicking on desktop shortcut](https://stackoverflow.com/questions/10529370/restore-application-from-system-tray-when-clicking-on-desktop-shortcut)
+// [Is there any async equivalent of Process.Start?](https://stackoverflow.com/questions/10788982/is-there-any-async-equivalent-of-process-start)

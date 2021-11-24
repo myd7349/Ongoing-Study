@@ -1,5 +1,7 @@
 Projects using WiXToolset:
 
+- [accessibility-insights](https://github.com/microsoft/accessibility-insights-windows)
+
 * [Explorer++](https://github.com/derceg/explorerplusplus)
 * TortoiseGit
 * [DebugView++](https://github.com/CobaltFusion/DebugViewPP)

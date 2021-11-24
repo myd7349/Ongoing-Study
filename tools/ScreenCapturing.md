@@ -19,4 +19,4 @@
 - [flameshot](https://github.com/flameshot-org/flameshot)
 - https://github.com/shutter-project/shutter
 - [win32screenshot](https://github.com/northwoodspd/win32screenshot)
-
+- https://github.com/asciinema/asciinema

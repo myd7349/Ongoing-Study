@@ -6,7 +6,7 @@ var objs = new object[] { 42, 3.14, 8080, "Hello, world!", 21 };
 // Print all integers in objs
 foreach (var i in objs.Where(elem => elem is int).Cast<int>())
     Console.WriteLine(i);
-    
+
 // Use `OfType` instead of `Where`+`Cast`
 foreach (var i in objs.OfType<int>())
     Console.WriteLine(i);
@@ -14,9 +14,10 @@ foreach (var i in objs.OfType<int>())
 
 C# 6.0 in a Nutshell
 
->Cast and OfType differ in their behavior when encountering an input element that’s of an incompatible type. Cast throws an exception; OfType ignores the incompatible element.
->
->The internal implementation of OfType:
+> Cast and OfType differ in their behavior when encountering an input element that’s of an incompatible type. Cast throws an exception; OfType ignores the incompatible element.
+> 
+> The internal implementation of OfType:
+
 ```csharp
 public static IEnumerable<TSource> OfType <TSource> (IEnumerable source)
 {
@@ -26,7 +27,8 @@ public static IEnumerable<TSource> OfType <TSource> (IEnumerable source)
 }
 ```
 
->Cast has an identical implementation, except that it omits the type compatibility test:
+> Cast has an identical implementation, except that it omits the type compatibility test:
+
 ```csharp
 public static IEnumerable<TSource> Cast <TSource> (IEnumerable source)
 {
@@ -86,7 +88,7 @@ if (a is int b)
 {
     // CS0019 Operator '+' cannot be applied to operand of type 'object' and 'int'
     //Console.WriteLine(a + 1);
-    
+
     // OK
     Console.WriteLine(b + 1); // 2
 }
@@ -152,9 +154,11 @@ public static class MyFunkyExtensions
 ```
 
 [Generate number sequences with LINQ](https://stackoverflow.com/questions/2737090/generate-number-sequences-with-linq)
+
 > Enumerable.Range(start, count);
 
 [How do you do *integer* exponentiation in C#?](https://stackoverflow.com/questions/383587/how-do-you-do-integer-exponentiation-in-c)
+
 ```csharp
 public static int Pow(this int bas, int exp)
 {
@@ -173,7 +177,7 @@ public static int Pow(this int bas, int exp)
 [Using Linq extension on Array class](https://stackoverflow.com/questions/5729729/using-linq-extension-on-array-class)
 
 > Use [OfType](http://msdn.microsoft.com/en-us/library/bb360913.aspx) method to get an `IEnumerable<T>` that can be queried using LINQ:
->
+> 
 > ```cs
 > var values = Enum.GetValues(typeof(MyEnum));
 > var test = values.OfType<int>().Select(x => x);
@@ -209,3 +213,4 @@ void SelectManyTest()
 
 [Select All distinct values in a column using LINQ](https://stackoverflow.com/questions/19548043/select-all-distinct-values-in-a-column-using-linq)
 
+[.net - Basic LINQ expression for an ItemCollection](https://stackoverflow.com/questions/1160854/basic-linq-expression-for-an-itemcollection)

@@ -29,3 +29,11 @@ unique_ptr vs HANDLE
 - [用 unique_ptr 管理 Windows HANDLE](https://kingsamchen.github.io/2021/06/14/wrap-win32-handle-into-unique-ptr/) - [unique-ptr-as-scoped-handle](https://github.com/kingsamchen/Eureka/tree/master/unique-ptr-as-scoped-handle)
 - https://chromium.googlesource.com/chromium/src/+/refs/heads/main/base/win/scoped_handle.h
 
+[Making a HANDLE RAII-compliant using shared_ptr with a custom deleter](https://stackoverflow.com/questions/1562421/making-a-handle-raii-compliant-using-shared-ptr-with-a-custom-deleter)
+
+> ```cpp
+> HANDLE h;
+> OpenProcessToken(...., &h);
+> shared_ptr<void> safe_h(h, &::CloseHandle);
+> ```
+

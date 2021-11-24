@@ -8,12 +8,16 @@ Browser automation frameworks:
 Win32 automation frameworks:
 
 - Appium
+  
   - [Introduction to Winforms UI Automation with Python & Appium](https://hackernoon.com/introduction-to-winforms-ui-automation-with-python-and-appium-tn2h24pe)
   - [聊聊 PC 端自动化最佳方案 - WinAppDriver](https://www.itread01.com/details/MndkOA==.html)
-  
+
 - [pywinauto](https://github.com/pywinauto/pywinauto)
+
 - [pyautogui](https://github.com/asweigart/pyautogui)
+
 - [Python-UIAutomation-for-Windows](https://github.com/yinkaisheng/Python-UIAutomation-for-Windows)
+
 - [pyrobot](https://github.com/chriskiehl/pyrobot)
 
 Podcast:
@@ -24,3 +28,6 @@ Tools:
 
 - [inspect](../../tools/inspect.md)
 
+IT Automation:
+
+- [ansible](https://github.com/ansible/ansible)

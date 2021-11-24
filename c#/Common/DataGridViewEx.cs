@@ -39,4 +39,5 @@ namespace Common.WinForms
 // [Resize DataGridView width to fit Columns](https://stackoverflow.com/questions/23691433/resize-datagridview-width-to-fit-columns)
 // [Why does the DoubleBuffered property default to false on a DataGridView and why is it protected?](https://stackoverflow.com/questions/252689/why-does-the-doublebuffered-property-default-to-false-on-a-datagridview-and-why)
 // [Double Buffering a DataGridview](https://www.codeproject.com/tips/654101/double-buffering-a-datagridview)
-
+// https://github.com/davidegironi/advanceddatagridview
+// https://github.com/3F/DllExport/blob/master/Wizard/UI/Components/DataGridViewExt.cs

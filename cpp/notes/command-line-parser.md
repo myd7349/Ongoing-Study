@@ -160,4 +160,10 @@
    - [flags](https://github.com/google/neper/blob/master/flags.c)
 - https://github.com/auscaster/cpp-optparse
 - https://github.com/nanomsg/nng/blob/master/src/supplemental/util/options.c
-
+- https://github.com/procxx/cxx20opts
+- https://github.com/flameshot-org/flameshot/blob/master/src/cli/commandlineparser.h
+- https://github.com/Jeroen6/bin2c/blob/original/src/main.c
+- https://github.com/abolz/CmdLine
+- https://github.com/abolz/CmdLine2
+- https://github.com/muellan/clipp
+- https://github.com/git/git/blob/master/http.c

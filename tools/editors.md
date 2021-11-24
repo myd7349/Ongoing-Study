@@ -1,6 +1,6 @@
 Code Editors:
 
-- CotEditor
+- [CotEditor](https://github.com/coteditor/CotEditor)
   - https://twitter.com/Megabits_mzq/status/1427546332923789314
 - [Edi](https://github.com/Dirkster99/Edi)
 - EditPlus
@@ -10,6 +10,7 @@ Code Editors:
 - [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit)
 - [kilo](https://github.com/snaptoken/kilo-src)
   - https://github.com/jupyter-xeus/cpp-terminal/blob/master/examples/kilo.cpp
+- [lapce](https://github.com/lapce/lapce)
 - Nano Editor
 - [ne, the nice editor](https://ne.di.unimi.it/)
 - NeoVim
@@ -22,12 +23,14 @@ Code Editors:
 - vi/Vim
 - Visual Studio Code
 - [XI Editor](https://github.com/xi-editor/xi-mac)
+  - [xi-editor](https://github.com/xi-editor/xi-editor)
 - [Zep](https://github.com/Rezonality/zep)
 
 Markdown Editors:
 
 - [md](https://github.com/doocs/md)
-
+- [marktext](https://github.com/marktext/marktext)
+- [milkdowns](https://github.com/Saul-Mirone/milkdown)
 - [MWeb](https://twitter.com/Megabits_mzq/status/1427640637285875735)
 - Typora
 

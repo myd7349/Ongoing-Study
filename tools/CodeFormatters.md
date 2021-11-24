@@ -3,6 +3,7 @@
 - AStyle
   - [google-astyle](https://github.com/xuy/google-astyle)
 - clang-format
+- [CodeMaid](https://github.com/codecadwallader/codemaid)
 - [prettier](https://github.com/prettier/prettier)
 - uncrustify
 - yapf

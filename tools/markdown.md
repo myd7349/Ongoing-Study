@@ -14,18 +14,17 @@ index d6f75cf..1d2cfdf 100755
  else()
         set(WEBVIEW_COMPILE_DEFS "-DWEBVIEW_GTK=1")
         find_package(PkgConfig REQUIRED)
-
 ```
 
 2 [TODO List](https://github.com/itchio/capsule/blob/master/README.md)
 
 ### Linux
 
-  * Control
-    * [x] X11 recording hotkey support (hardcoded to F9)
-  * Video
-    * [x] OpenGL capture
-    * [ ] Vulkan capture
+* Control
+  * [x] X11 recording hotkey support (hardcoded to F9)
+* Video
+  * [x] OpenGL capture
+  * [ ] Vulkan capture
 
 3 https://github.com/guodongxiaren/README
 
@@ -33,17 +32,25 @@ index d6f75cf..1d2cfdf 100755
 
 Softwares:
 
+- [StackEdit](https://stackedit.io/)
 - Typora
+- [marktext](https://github.com/marktext/marktext)
+- [milkdowns](https://github.com/Saul-Mirone/milkdown)
 - [Notable](https://github.com/notable/notable)
 - [Obsidian](https://obsidian.md/)
 - [turndown](https://github.com/mixmark-io/turndown)
+- [MarkdownViewerPlusPlus](https://github.com/nea/MarkdownViewerPlusPlus)
 
 Libraries:
 
+- [ByteMD](https://github.com/bytedance/bytemd)
+
+- [hoedown](https://github.com/hoedown/hoedown)
+
 - [milkdown](https://github.com/Saul-Mirone/milkdown)
+
 - [MdXaml](https://github.com/whistyun/MdXaml)
 
 Tools:
 
 - [htmldoc](https://github.com/michaelrsweet/htmldoc)
-
