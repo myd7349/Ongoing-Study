@@ -3,9 +3,11 @@
     using System;
     using System.Drawing;
     using System.Drawing.Imaging;
+    using System.IO;
     using System.Runtime.InteropServices;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
+
+    using Common;
 
     public partial class MetafileViewerForm : Form
     {
@@ -14,6 +16,10 @@
             BackColor = Color.White;
 
             InitializeComponent();
+
+            AllowDrop = true;
+            DragEnter += MetafileViewerForm_DragEnter;
+            DragDrop += MetafileViewerForm_DragDrop;
         }
 
         private void MetafileViewerForm_Load(object sender, System.EventArgs e)
@@ -36,6 +42,36 @@
             Render(e.Graphics);
         }
 
+        private void MetafileViewerForm_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Copy;
+        }
+
+        private void MetafileViewerForm_DragDrop(object sender, DragEventArgs e)
+        {
+            var files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (files.Length != 1)
+                return;
+
+            if (!File.Exists(files[0]))
+                return;
+
+            Metafile metafile;
+            try
+            {
+                metafile = new Metafile(files[0]);
+            }
+            catch (Exception ex)
+            {
+                MsgBox.Error("Failed to open metafile {0}.\r\n{1}", files[0], ex.Message);
+                return;
+            }
+
+            metafile_ = metafile;
+            pictureBox_.Image = metafile_;
+        }
+
         private void openButton__Click(object sender, System.EventArgs e)
         {
             using (var openFileDialog = new OpenFileDialog())
@@ -55,7 +91,6 @@
 
                     metafile_ = new Metafile(openFileDialog.FileName);
                     pictureBox_.Image = metafile_;
-                    pictureBox_.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }
         }
@@ -100,3 +135,9 @@
 // [Non-Generic TaskCompletionSource or alternative](https://stackoverflow.com/questions/11969208/non-generic-taskcompletionsource-or-alternative)
 // [C# - asynchronous drawing on a panel](https://stackoverflow.com/questions/53570336/c-sharp-asynchronous-drawing-on-a-panel)
 // [How to: Load and Display Metafiles](https://docs.microsoft.com/en-us/dotnet/desktop/winforms/advanced/how-to-load-and-display-metafiles?view=netframeworkdesktop-4.8)
+// [PlayEnhMetaFile function (wingdi.h)](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-playenhmetafile)
+// [Opening an Enhanced Metafile and Displaying Its Contents](https://docs.microsoft.com/en-us/windows/win32/gdi/opening-an-enhanced-metafile-and-displaying-its-contents)
+// [How do I drag and drop files into an application?](https://stackoverflow.com/questions/68598/how-do-i-drag-and-drop-files-into-an-application/89470)
+// [Walkthrough: Performing a Drag-and-Drop Operation in Windows Forms](https://docs.microsoft.com/en-us/dotnet/desktop/winforms/advanced/walkthrough-performing-a-drag-and-drop-operation-in-windows-forms?view=netframeworkdesktop-4.8)
+// [How to drag & drop only one file on form window](https://stackoverflow.com/questions/26752826/how-to-drag-drop-only-one-file-on-form-window)
+// [Control.DoDragDrop(Object, DragDropEffects) Method](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.control.dodragdrop?view=windowsdesktop-6.0)

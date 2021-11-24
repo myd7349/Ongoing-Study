@@ -14,3 +14,4 @@
 
 [bolt](https://github.com/dblalock/bolt)
 
+[annoy](https://github.com/spotify/annoy)

@@ -29,11 +29,12 @@ Projects using `pybind11`
 * [qdb-api-python](https://github.com/bureau14/qdb-api-python)
 * [OpenCC](https://github.com/BYVoid/OpenCC/blob/master/src/py_opencc.cpp)
 * [traji](https://github.com/cmpute/traji)
+* [pedalboard](https://github.com/spotify/pedalboard)
 
 # Notes
 
 1. https://pybind11.readthedocs.io/en/stable/compiling.html
-
+   
    > ```python
    > from glob import glob
    > from setuptools import setup
@@ -48,9 +49,9 @@ Projects using `pybind11`
    > 
    > setup(..., ext_modules=ext_modules)
    > ```
-   
-2. pybind11_add_module
 
+2. pybind11_add_module
+   
    > ```cmake
    > # Ongoing-Study/algorithm/dsp/FindPeaks/CMakeLists.txt
    > if(BUILD_PYFINDPEAKS)
@@ -72,6 +73,3 @@ Projects using `pybind11`
    >     target_link_libraries(PyFindPeaks PRIVATE FindPeaks)
    > endif()
    > ```
-   >
-   
-   

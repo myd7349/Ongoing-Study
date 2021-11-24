@@ -1,8 +1,13 @@
 Cloud
 
+- [go-storage](https://github.com/beyondstorage/go-storage)
+
 - [libcloud](https://github.com/apache/libcloud)
+
 - Table Storage
+  
   - [TableStorage.Abstractions](https://github.com/Tazmainiandevil/TableStorage.Abstractions)
+
 - [Cloudreve](https://github.com/cloudreve/Cloudreve)
 
 Communication
@@ -11,8 +16,15 @@ Communication
 
 File System
 
+- [alist](https://github.com/Xhofe/alist)
+
 - [Enchilada](https://github.com/sparkeh9/Enchilada)
+
 - [gdrive](https://github.com/BYVoid/gdrive)
+
+- [pyfilesystem2](https://github.com/PyFilesystem/pyfilesystem2)
+  
+  - [s3fs](https://github.com/PyFilesystem/s3fs): Amazon S3 filesystem for PyFilesystem2
 
 Graphics
 
@@ -25,4 +37,3 @@ Hardware
 Scripting
 
 - [ScriptX](https://github.com/Tencent/ScriptX)
-

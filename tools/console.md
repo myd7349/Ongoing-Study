@@ -1,4 +1,5 @@
 - Windows Terminal
+- [fish-shell](https://github.com/fish-shell/fish-shell)
 - Fluent Terminal
 - ConEmu
 - [Cmder](https://github.com/cmderdev/cmder)
@@ -11,3 +12,24 @@
 - https://github.com/xtermjs/xterm.js
 - https://github.com/kovidgoyal/kitty
 - [Qonsole](https://github.com/joedf/Qonsole)
+- [cool-retro-term](https://github.com/Swordfish90/cool-retro-term)
+
+Terminal emulators supported by [system-terminal](https://github.com/alexrp/system-terminal):
+
+- [Alacritty](https://github.com/alacritty/alacritty)
+- [ConEmu](https://conemu.github.io)
+- [foot](https://codeberg.org/dnkl/foot)
+- [GNOME Terminal](https://help.gnome.org/users/gnome-terminal/stable)
+- [iTerm2](https://iterm2.com)
+- [kitty](https://sw.kovidgoyal.net/kitty)
+- [Konsole](https://konsole.kde.org)
+- [mintty](https://mintty.github.io)
+- [mlterm](http://mlterm.sourceforge.net)
+- [PuTTY](https://www.putty.org)
+- [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html)
+- [Terminal.app](https://support.apple.com/guide/terminal/welcome/mac)
+- [Terminology](https://terminolo.gy)
+- [WezTerm](https://wezfurlong.org/wezterm)
+- [Windows Console](https://docs.microsoft.com/en-us/windows/console)
+- [Windows Terminal](https://aka.ms/terminal)
+- [xterm](https://invisible-island.net/xterm)

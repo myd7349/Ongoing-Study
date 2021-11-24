@@ -49,11 +49,13 @@ function getLastCommitHash()
 ```
 
 [touch](https://stackoverflow.com/questions/51841259/touch-function-in-powershell)
+
 ```powershell
 echo $null > .gitkeep
 ```
 
 [Use PowerShell to Set Environment Variables](https://www.tachytelic.net/2019/03/powershell-environment-variables/)
+
 ```
 $env:HTTP_PROXY='127.0.0.1:7079'
 Get-ChildItem Env:HTTP_PROXY
@@ -74,3 +76,9 @@ https://github.com/RehanSaeed/Windows
 https://github.com/JanDeDobbeleer/oh-my-posh
 
 https://github.com/star2000/BingWallpaper
+
+[PowerRemoteDesktop](https://github.com/DarkCoderSc/PowerRemoteDesktop): Remote Desktop entirely coded in PowerShell.
+
+[PowerRunAsAttached](https://github.com/DarkCoderSc/PowerRunAsAttached): This script allows to spawn a new interactive console as another user account in the same calling console (console instance/window).
+
+[PowerAssembly](https://github.com/DarkCoderSc/PowerAssembly): Map remote .NET assemblies to memory for further invocation.

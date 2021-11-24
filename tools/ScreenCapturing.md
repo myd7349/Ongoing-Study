@@ -20,3 +20,4 @@
 - https://github.com/shutter-project/shutter
 - [win32screenshot](https://github.com/northwoodspd/win32screenshot)
 - https://github.com/asciinema/asciinema
+- [wcap](https://github.com/mmozeiko/wcap)

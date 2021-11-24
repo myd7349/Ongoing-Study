@@ -15,3 +15,7 @@ Libraries:
   - [CrashReporter](https://github.com/RedisDesktop/CrashReporter)
 
 - [OopsyPad](https://github.com/RedisDesktop/OopsyPad)
+
+Tools:
+
+- [Socorro](https://github.com/mozilla-services/socorro)

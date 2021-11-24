@@ -14,6 +14,7 @@
 * [system-uicons](https://github.com/CoreyGinnivan/system-uicons)
 * [vscode-icons](https://github.com/vscode-icons/vscode-icons)
 * IconMoon
+  
   - https://github.com/aykutkardas/react-icomoon
 * [Icons8](https://icons8.com) - Used by [Explorer++](https://github.com/derceg/explorerplusplus).
 * [fluentui-system-icons](https://github.com/microsoft/fluentui-system-icons) - Used by [Explorer++](https://github.com/derceg/explorerplusplus).
@@ -24,6 +25,15 @@
 * [iconarchive](https://iconarchive.com/)
 * [iconicss](https://github.com/Viglino/iconicss)
 * [flaticon](https://www.flaticon.com/)
+  
   - [cclose](https://github.com/chaohershi/cclose)
   
   - [simplemouseclicker](https://github.com/chaohershi/simplemouseclicker)
+* [graphicex](https://graphicex.com/icon-and-logo/15983-flat-alphabet-in-9-colors-with-long-shadow-6913875.html)
+  
+  - [Locale-Emulator](https://github.com/xupefei/Locale-Emulator)
+* [Fugue Icons](https://p.yusukekamiyamane.com/)
+  
+  - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
+* [iconoir](https://github.com/lucaburgio/iconoir)
+* [macOS Icons](https://macosicons.com/)

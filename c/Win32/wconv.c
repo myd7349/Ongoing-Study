@@ -150,3 +150,4 @@ void wconv_free(void *ptr)
 // https://github.com/CrashRpt/crashrpt2/blob/master/reporting/crashrpt/strconv.h
 // https://github.com/flibitijibibo/SDL2-CS/blob/904eed3cb04319c4e3e360360943e39080f80d7b/src/SDL2.cs#L46-L143
 // https://github.com/wiredtiger/wiredtiger/blob/develop/src/os_win/os_utf8.c
+// https://github.com/frang75/nappgui_src/blob/main/src/sewer/unicode.c

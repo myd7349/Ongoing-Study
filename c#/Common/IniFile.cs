@@ -243,3 +243,7 @@
         }
     }
 }
+
+
+// References:
+// https://github.com/greenshot/greenshot/tree/release/1.3/src/Greenshot.Base/IniFile

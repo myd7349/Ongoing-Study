@@ -21,7 +21,12 @@ CI/CD:
 
 Tools:
 
+- [commitlint](https://github.com/conventional-changelog/commitlint)
+
+- [dura](https://github.com/tkellogg/dura) - You shouldn't ever lose your work if you're using Git.
+
 - [git-big-picture](https://github.com/git-big-picture/git-big-picture)
+
 - [git-crypt](https://github.com/AGWA/git-crypt)
 
 Software
@@ -433,3 +438,10 @@ https://github.com/jesseduffield/lazygit
 https://twitter.com/yihong0618/status/1475472422836924417
 
 [lazygit](https://github.com/jesseduffield/lazygit)
+
+[dvc](https://github.com/iterative/dvc) - Data Version Control | Git for Data & Models.
+
+[git bundle](https://git-scm.com/docs/git-bundle)
+
+- [How to generate a patch that includes the commit SHA?](https://stackoverflow.com/questions/45921595/how-to-generate-a-patch-that-includes-the-commit-sha)
+- [Git over Email?](https://stackoverflow.com/questions/85051/git-over-email)

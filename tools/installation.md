@@ -44,6 +44,8 @@
 - https://github.com/Sigil-Ebook/Sigil/tree/master/installer
 - [WinMerge](https://github.com/WinMerge/winmerge/tree/master/Installer)
 - https://github.com/ActivityWatch/activitywatch
+- [greenshot/installer/innosetup at release/1.3 · greenshot/greenshot · GitHub](https://github.com/greenshot/greenshot/tree/release/1.3/installer/innosetup)
+- [Pinta](https://github.com/PintaProject/Pinta/blob/master/installer/windows/installer.iss)
 
 ### Advanced Installer
 
@@ -60,6 +62,7 @@
 ### [WinSparkle](https://winsparkle.org/) - [GitHub](https://github.com/vslavik/winsparkle)
 
 - [cairoshell](https://github.com/cairoshell/cairoshell/tree/master/Dependencies/WinSparkle)
+- [NetSparkle](https://github.com/NetSparkleUpdater/NetSparkle)
 
 ### [Squirrel/Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)
 
@@ -72,3 +75,7 @@
 ### MakeAppx
 
 - [Add MSIX installer to GitHub workflow by davidanthoff · Pull Request #3331 · git-for-windows/git · GitHub](https://github.com/git-for-windows/git/pull/3331/files)
+
+### DIY
+
+- [Locale-Emulator/LEInstaller](https://github.com/xupefei/Locale-Emulator/tree/master/LEInstaller)

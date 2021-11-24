@@ -3,6 +3,8 @@
     using System.IO;
     using System.Reflection;
 
+    using Common;
+
     public struct Settings
     {
         static Settings()

@@ -1,6 +1,7 @@
 - [winpr/ini.h](https://github.com/FreeRDP/FreeRDP/blob/master/winpr/include/winpr/ini.h), [winpr/ini.c](https://github.com/FreeRDP/FreeRDP/blob/master/winpr/libwinpr/utils/ini.c)
-  - https://github.com/microsoft/wslg/blob/5e9419849c89863ad36753e7c1707f20f9e0d0cd/WSLGd/precomp.h#L30-L32
   
+  - https://github.com/microsoft/wslg/blob/5e9419849c89863ad36753e7c1707f20f9e0d0cd/WSLGd/precomp.h#L30-L32
+
 - [inih](https://github.com/benhoyt/inih)
 
 - [inih](https://github.com/jtilly/inih)
@@ -10,7 +11,7 @@
 - [mINI](https://github.com/pulzed/mINI)
 
 - https://github.com/dotnet/runtime/blob/1fa304a14a8be27428399bd6f2cc51736cb1515a/src/libraries/Microsoft.Extensions.Configuration.Ini/src/IniStreamConfigurationProvider.cs#L26-L81
-
+  
   ```csharp
   public static IDictionary<string, string> Read(Stream stream)
   {
@@ -71,7 +72,7 @@
   ```
 
 - [Doubt in reading numeric values from INI file](https://www.codeproject.com/Questions/242867/Doubt-in-INI-file-reading)
-
+  
   ```c++
   long ReadIntegerValueFromIni( const CString& csAppName_i,
                                 const CString& csKeyName_i,
@@ -121,11 +122,11 @@
 - https://github.com/GothenburgBitFactory/libshared/blob/master/src/Configuration.h
 
 - https://github.com/pocoproject/poco/blob/master/Util/include/Poco/Util/IniFileConfiguration.h
-
-  - https://github.com/MayaPosch/NymphCast/blob/ecd40894838f84c3ced866992a28c0f10862a868/src/server/config_parser.h#L25
   
-- https://github.com/WerWolv/libtesla/blob/640629f49f9e8997ef0769b21b26f4fc177c736f/include/tesla.hpp#L320-L352
+  - https://github.com/MayaPosch/NymphCast/blob/ecd40894838f84c3ced866992a28c0f10862a868/src/server/config_parser.h#L25
 
+- https://github.com/WerWolv/libtesla/blob/640629f49f9e8997ef0769b21b26f4fc177c736f/include/tesla.hpp#L320-L352
+  
   > ```cpp
   > using IniData = std::map<std::string, std::map<std::string, std::string>>;
   > 
@@ -163,3 +164,4 @@
 
 - https://github.com/zhicheng/configparser
 
+- https://github.com/greenshot/greenshot/tree/release/1.3/src/Greenshot.Base/IniFile

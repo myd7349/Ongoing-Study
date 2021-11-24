@@ -1,3 +1,11 @@
+### Audio
+
+- [pedalboard](https://github.com/spotify/pedalboard)
+
+### Charting
+
+- [chartify](https://github.com/spotify/chartify)
+
 ### CLI
 
 - click
@@ -14,6 +22,8 @@
 
 - [jc](https://github.com/kellyjonbrazil/jc)
 
+- [nurses_2](https://github.com/salt-die/nurses_2)
+
 - [plumbum](https://github.com/tomerfiliba/plumbum)
 
 - [progressbar2](https://github.com/WoLpH/python-progressbar)
@@ -27,10 +37,40 @@
     Now a part of [abseil-py](https://github.com/abseil/abseil-py).
 
 - [rich](https://github.com/willmcgugan/rich)
+  
+  - [wordle-tui](https://github.com/frostming/wordle-tui)
 
 - tabulate
 
+- [Textual](https://github.com/Textualize/textual)
+  
+  - [wordle-tui](https://github.com/frostming/wordle-tui)
+
 - [tqdm](https://github.com/tqdm/tqdm)
+
+- [Typer](https://github.com/tiangolo/typer)
+
+### Clipboard
+
+- [pyperclip](https://github.com/asweigart/pyperclip)
+  
+  - [wordle-tui](https://github.com/frostming/wordle-tui)
+
+### Database
+
+- [orm](https://github.com/encode/orm)
+
+### File System
+
+- [platformdirs](https://github.com/platformdirs/platformdirs)
+  
+  - [wordle-tui](https://github.com/frostming/wordle-tui)
+
+- [pyfilesystem2](https://github.com/PyFilesystem/pyfilesystem2)
+
+- [PythonFinder](https://github.com/sarugaku/pythonfinder)
+
+- [watchgod](https://github.com/samuelcolvin/watchgod)
 
 ### GUI
 
@@ -47,6 +87,10 @@
 * [kivy](https://github.com/kivy/kivy)
 
 * [PySimpleGUI](https://github.com/PySimpleGUI/PySimpleGUI)
+  
+  - [duplicateFileFinder](https://github.com/nav9/duplicateFileFinder)
+    
+    - [Finding duplicate files and removing them](https://stackoverflow.com/questions/748675/finding-duplicate-files-and-removing-them)
 
 * [textual](https://github.com/willmcgugan/textual)
 - [toga](https://github.com/beeware/toga)
@@ -59,6 +103,16 @@
   
   - [wxPython-Classic](https://github.com/wxWidgets/wxPython-Classic)
   - [Phoenix](https://github.com/wxWidgets/Phoenix)
+
+### IDE
+
+- [pyscripter](https://github.com/pyscripter/pyscripter)
+
+- [ulipad](https://github.com/limodou/ulipad)
+
+### Networking
+
+- [httpx](https://github.com/encode/httpx)
 
 ### Package Management
 
@@ -76,6 +130,12 @@
 
 - [asdf](https://github.com/asdf-vm/asdf)
 
+### Web Framework
+
+- [django-rest-framework](https://github.com/encode/django-rest-framework)
+
+- [sanic](https://github.com/sanic-org/sanic)
+
 ### Miscellaneous
 
-- [PythonFinder](https://github.com/sarugaku/pythonfinder)
+- [pydantic](https://github.com/samuelcolvin/pydantic): Data parsing and validation using Python type hints.

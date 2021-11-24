@@ -49,3 +49,7 @@ https://github.com/sheredom/utf8.h
 [GitHub - haipome/utf8: A simple utf8 decode/encode lib in c](https://github.com/haipome/utf8)
 
 [llvm/ConvertUTF.h at master · llvm-mirror/llvm · GitHub](https://github.com/llvm-mirror/llvm/blob/master/include/llvm/Support/ConvertUTF.h)
+
+https://github.com/frang75/nappgui_src/blob/main/src/sewer/unicode.c
+
+[readunicode](https://github.com/kiwirafe/readunicode)

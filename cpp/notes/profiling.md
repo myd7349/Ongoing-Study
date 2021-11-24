@@ -1,3 +1,5 @@
+- [CxxProfiler](https://github.com/mmozeiko/CxxProfiler)
 - [heaptrack](https://github.com/KDE/heaptrack)
 - [MTuner](https://github.com/milostosic/MTuner)
+- [orbit](https://github.com/google/orbit)
 - [tracy](https://github.com/wolfpld/tracy)

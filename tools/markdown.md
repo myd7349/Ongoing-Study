@@ -40,12 +40,15 @@ Softwares:
 - [Obsidian](https://obsidian.md/)
 - [turndown](https://github.com/mixmark-io/turndown)
 - [MarkdownViewerPlusPlus](https://github.com/nea/MarkdownViewerPlusPlus)
+- [WeChat Markdown Editor](https://github.com/doocs/md)
 
 Libraries:
 
 - [ByteMD](https://github.com/bytedance/bytemd)
 
 - [hoedown](https://github.com/hoedown/hoedown)
+
+- [imgui_markdown](https://github.com/juliettef/imgui_markdown)
 
 - [milkdown](https://github.com/Saul-Mirone/milkdown)
 

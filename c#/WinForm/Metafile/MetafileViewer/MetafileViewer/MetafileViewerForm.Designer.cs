@@ -64,6 +64,7 @@ namespace MetafileViewer
             this.pictureBox_.Location = new System.Drawing.Point(2, 2);
             this.pictureBox_.Name = "pictureBox_";
             this.pictureBox_.Size = new System.Drawing.Size(662, 447);
+            this.pictureBox_.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_.TabIndex = 2;
             this.pictureBox_.TabStop = false;
             // 

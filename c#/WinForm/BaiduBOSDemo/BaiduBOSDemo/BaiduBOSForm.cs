@@ -17,6 +17,8 @@
 
     using MetroFramework.Forms;
 
+    using Common;
+
     public partial class BaiduBOSForm : MetroForm
     {
         public BaiduBOSForm()

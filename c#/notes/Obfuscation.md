@@ -2,4 +2,4 @@
 - [Can't Decompile .NET-built executable](https://stackoverflow.com/questions/9077728/cant-decompile-net-built-executable)
 - [de4dot](https://github.com/de4dot/de4dot) - .NET deobfuscator and unpacker.
 - [MindLated](https://github.com/Sato-Isolated/MindLated)
-
+- [Agile.NET](https://github.com/ribthegreat99OrN0P/Agile.NET-Deobfuscator-Latest)

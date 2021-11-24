@@ -309,3 +309,5 @@
 // [c# P/Invoke : Pass Enum value with IntPtr to Function; AccessViolationException](https://stackoverflow.com/questions/47723953/c-sharp-p-invoke-pass-enum-value-with-intptr-to-function-accessviolationexcep)
 // [How to convert from System.Enum to base integer?](https://stackoverflow.com/questions/908543/how-to-convert-from-system-enum-to-base-integer)
 // SafeHeapBlock: https://github.com/dahall/Vanara/blob/56cda5a8f4d6648563651996d99f471f9e49e56f/PInvoke/Kernel32/HeapApi.cs#L1411
+// https://github.com/dahall/Vanara/blob/8ca58cc2c8d5ca87c19a434f06b6b2f6810aa313/Core/InteropServices/SafeHGlobalHandle.cs#L117
+// public static SafeHGlobalHandle CreateFromStructure<T>(in T value = default) => new SafeHGlobalHandle(InteropExtensions.MarshalToPtr(value, mm.AllocMem, out int s), s);

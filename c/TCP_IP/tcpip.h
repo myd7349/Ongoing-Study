@@ -12,9 +12,11 @@
 
 #include <WinSock2.h>
 #include <WS2tcpip.h>
+#include <iphlpapi.h> // GetAdaptersAddresses
 
 #ifdef _MSC_VER
 #pragma comment(lib, "Ws2_32.lib")
+#pragma comment(lib, "IPHLPAPI.lib")
 #pragma warning(disable: 4996)
 #endif
 
@@ -60,6 +62,7 @@ typedef SOCKET socket_t;
 #include <netinet/in.h>
 #include <unistd.h> // gethostname
 #include <stdio.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 

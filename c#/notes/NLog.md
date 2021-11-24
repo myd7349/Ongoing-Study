@@ -54,3 +54,111 @@ https://github.com/microsoft/Vipr/blob/master/src/Core/Vipr/NLog.config
 [How can I use a RichTextBox as a NLog Target in a WPF application?](https://stackoverflow.com/questions/6617689/how-can-i-use-a-richtextbox-as-a-nlog-target-in-a-wpf-application)
 
 https://github.com/erizet/NlogViewer
+
+[How to tell NLog to log exceptions? - Stack Overflow](https://stackoverflow.com/questions/9199073/how-to-tell-nlog-to-log-exceptions)
+
+[How to format NLog exception output to get a line separator?](https://stackoverflow.com/questions/44654276/how-to-format-nlog-exception-output-to-get-a-line-separator)
+
+> ```xml
+> layout="-------------------------------------------------------------- 
+>      ${newline}${date:universalTime=false:format=yyyy-MM-dd HH\:mm\:ss}| 
+>        ${aspnet- session:Variable=SessionKey} ${message} | 
+>        ${exception:format=type,message,StackTrace}" 
+>        fileName="${basedir}/App_Data/Log/ 
+>        ${date:universalTime=false:format=yyyyMMdd}.log"
+> ```
+
+[Log Header is printed only once per file · Issue #1713 · NLog/NLog · GitHub](https://github.com/NLog/NLog/issues/1713)
+
+> ```xml
+> <?xml version="1.0" encoding="utf-8" ?>
+> <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
+>       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>       xsi:schemaLocation="http://www.nlog-project.org/schemas/NLog.xsd NLog.xsd"
+>       autoReload="true"
+>       throwExceptions="false"
+>       internalLogLevel="Off"
+>       internalLogFile="c:\temp\nlog-internal.log">
+> 
+>     <targets xsi:type="NLogTargets" async="false">
+> 
+>         <target xsi:type="File"
+>                 name="fileTarget"
+>                 fileName="${basedir}/logs/SvnBootstrapper.log"
+>                 lineEnding="CRLF"
+>                 archiveAboveSize="5048576"
+>                 maxArchiveFiles="1"
+>                 archiveNumbering="Rolling"
+>                 header="${newline}
+> ======================================================================================================================================================${newline}
+> Logging start = ${longdate}${newline}
+> Base dirctory = ${basedir}${newline}
+> Machine name  = ${machinename}${newline}
+> ------------------------------------------------------------------------------------------------------------------------------------------------------${newline}
+> Date and Time            | Level | Module                                                | Message${newline}
+> ------------------------------------------------------------------------------------------------------------------------------------------------------"
+>                 layout=" ${longdate} | ${level:uppercase=true:padding=-5} | ${Logger:shortName=true:padding=20} | ${callsite:includeSourcePath=false:className=false:padding=30:fixedLength=true} | ${message} ${exception:format=message}"
+>                 footer="${newline}
+> ------------------------------------------------------------------------------------------------------------------------------------------------------${newline}
+> Logging end   = ${longdate}${newline}
+> ======================================================================================================================================================" />
+>     </targets>
+> 
+>     <rules>
+> 
+>         <logger name="*" minlevel="Info" writeTo="fileTarget" />
+> 
+>     </rules>
+> </nlog>
+> ```
+
+Log exception V1:
+
+```xml
+<target xsi:type="File" name="logFile" fileName="${basedir}/Logs/${shortdate}.log"
+        layout="${longdate} ${level:uppercase=false:padding=-5}: ${message} {exception:format=tostring}"
+        optimizeBufferReuse="true" />
+```
+
+Log exception V2:
+
+```xml
+<target xsi:type="File" name="logFile" fileName="${basedir}/Logs/${shortdate}.log"
+        layout="${longdate} ${level:uppercase=false:padding=-5}: ${message}${newline}${exception:format=tostring}"
+        optimizeBufferReuse="true" />
+```
+
+Log exception V3, doesn't work as expected:
+
+```xml
+<target xsi:type="File" name="logFile" fileName="${basedir}/Logs/${shortdate}.log"
+        layout="${longdate} ${level:uppercase=false:padding=-5}: ${message}{exception:format=newline,tostring}"
+        optimizeBufferReuse="true" />
+```
+
+https://www.nuget.org/packages/NLog.IndentException
+
+[Newline in exception formatt · Issue #2248 · NLog/NLog · GitHub](https://github.com/NLog/NLog/issues/2248)
+
+> ```xml
+> ${exception:format=tostring,data:maxInnerExceptionLevel=10:separator=\r\n}
+> ```
+
+[Nlog output characters if exception not null](https://stackoverflow.com/questions/34139072/nlog-output-characters-if-exception-not-null)
+
+> ```xml
+> <variable name="StdLayout" 
+> value="${longdate} | ${level} | ${logger} | ${message:exceptionSeparator= }${exception:format=tostring}" />
+> ```
+
+Log exception V3, doesn't work as expected:
+
+```xml
+<target xsi:type="File" name="logFile" fileName="${basedir}/Logs/${shortdate}.log"
+        layout="${longdate} ${level:uppercase=false:padding=-5}: ${message}${message:exceptionSeparator=${newline}}{exception:format=tostring}"
+        optimizeBufferReuse="true" />
+```
+
+```xml
+
+```

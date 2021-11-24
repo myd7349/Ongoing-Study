@@ -223,6 +223,15 @@
                     using (var imageExporter = new ImageExport())
                     {
                         imageExporter.ImageFormat = FormatHelper.ExportFormatToImageExportFormat(options.Format);
+
+                        // FastReport uses 96 DPI by default. If you specify a different
+                        // DPI (e.g. 600 dpi, which is common for printers) here, FastReport
+                        // will do some coordinate conversion when generating reports.
+                        // In some older versions of FastReport, there is a problem when
+                        // doing coordinate conversion, which results in incorrectly sized
+                        // reports being generated.
+                        // A test:
+                        // ..\Templates\different_dpi_test.bat
                         if (options.Resolution > 0)
                         {
                             imageExporter.Resolution = options.Resolution;

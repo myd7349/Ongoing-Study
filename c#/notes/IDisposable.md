@@ -1,4 +1,4 @@
-https://github.com/takuya-takeuchi/LibSvmDotNet/blob/develop/src/LibSvmDotNet/DisposableObject.cs
+[GitHub - DotNetAnalyzers/IDisposableAnalyzers: Roslyn analyzers for IDisposable](https://github.com/DotNetAnalyzers/IDisposableAnalyzers)
 
 [Is it abusive to use IDisposable and “using” as a means for getting “scoped behavior” for exception safety?](https://stackoverflow.com/questions/2101524/is-it-abusive-to-use-idisposable-and-using-as-a-means-for-getting-scoped-beha)
 

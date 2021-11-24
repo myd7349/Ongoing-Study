@@ -1,5 +1,7 @@
 Projects using MFC:
 
+- [BowPad](https://github.com/stefankueng/BowPad)
+
 - [ExifPro](https://github.com/mikekov/ExifPro)
   
   - [Shutter-cn](https://github.com/dream7180/Shutter-cn)
@@ -7,6 +9,8 @@ Projects using MFC:
 - [MPC-HC](https://github.com/mpc-hc/mpc-hc)
 
 - [TortoiseGit](https://github.com/TortoiseGit/TortoiseGit)
+
+- [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)
 
 - [WinMerge](https://github.com/WinMerge/winmerge)
 

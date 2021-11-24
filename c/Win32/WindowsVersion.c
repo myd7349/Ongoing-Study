@@ -101,3 +101,4 @@ WindowsVersion GetWindowsVersion(void)
 // https://stackoverflow.com/questions/34235151/get-windows-version
 // https://github.com/wixtoolset/issues/issues/4061/
 // https://stackoverflow.com/questions/27246562/how-to-get-the-os-version-in-win8-1-as-getversion-getversionex-are-deprecated
+// https://github.com/novotnyllc/OSVersionHelper

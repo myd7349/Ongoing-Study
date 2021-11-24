@@ -1,8 +1,8 @@
-- https://github.com/albertlauncher/albert
+- [albert](https://github.com/albertlauncher/albert)
 - Alfred
 - Launchbar
 - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
-- https://github.com/Wox-launcher/Wox
+- Manico
 - [kbar](https://github.com/timc1/kbar)
 - Raycast
 - [Wox](http://www.wox.one/) - [GitHub](https://github.com/Wox-launcher/Wox)

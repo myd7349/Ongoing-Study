@@ -6,10 +6,12 @@ Applications:
 - [BingWallpaper](https://github.com/ypingcn/BingWallpaper)
 - [Converseen](https://github.com/Faster3ck/Converseen)
 - [CopyQ](https://github.com/hluk/CopyQ)
+- [cool-retro-term](https://github.com/Swordfish90/cool-retro-term)
 - [DIE-engine](https://github.com/horsicq/DIE-engine)
 - [filemanager](https://github.com/cutefishos/filemanager)
 - [flameshot](https://github.com/flameshot-org/flameshot)
 - [FreeCAD](https://github.com/FreeCAD/FreeCAD)
+- [Fritzing](https://github.com/fritzing/fritzing-app)
 - [goldendict](https://github.com/goldendict/goldendict)
 - [Groot](https://github.com/BehaviorTree/Groot)
 - [Hanoi-Towers](https://github.com/QuasarApp/Hanoi-Towers)
@@ -33,6 +35,8 @@ Applications:
 - [opencc-gui](https://github.com/BYVoid/opencc-gui)
 - [OpenMW](https://github.com/OpenMW/openmw)
 - [OpenSCAD](https://github.com/openscad/openscad/)
+- [ParaView](https://www.paraview.org/) - [source](https://gitlab.kitware.com/paraview/paraview)
+  - [gismo](https://github.com/gismo/gismo)
 - [pcmanfm-qt](https://github.com/lxqt/pcmanfm-qt)
 - [plasma-nm](https://github.com/KDE/plasma-nm)
 - [PlotJuggler](https://github.com/facontidavide/PlotJuggler) :star:
@@ -55,6 +59,8 @@ Applications:
 - [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager)
 - [robomongo](https://github.com/Studio3T/robomongo)
 - [rosbag_editor](https://github.com/facontidavide/rosbag_editor)
+- [Rythem](https://github.com/AlloyTeam/Rythem)
+- [Sanmill](https://github.com/calcitem/Sanmill)
 - [screenlocker](https://github.com/cutefishos/screenlocker)
 - [seafile-client](https://github.com/haiwen/seafile-client)
 - [sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)
@@ -106,3 +112,7 @@ Tools:
     - [rocketpilot-driver](https://github.com/uglide/rocketpilot-driver)
 
 - [CQtDeployer](https://github.com/QuasarApp/CQtDeployer)
+
+Deployment:
+
+- [windeployqt](https://doc.qt.io/qt-5/windows-deployment.html)

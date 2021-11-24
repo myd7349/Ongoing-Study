@@ -67,7 +67,8 @@
 
         private void FetchNetworkAdapterStatus()
         {
-            networkAdaptersListView.DataContext = new NetworkAdaptersModel().Results;
+            Dispatcher.BeginInvoke(new Action(
+                () => networkAdaptersListView.DataContext = new NetworkAdaptersModel().Results));
         }
 
         private void ToggleSwitchButton_Click(object sender, RoutedEventArgs e)

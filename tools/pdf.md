@@ -20,6 +20,8 @@ PDF Viewers:
 
 - [Okular](https://github.com/KDE/okular)
 
+- [Reader for iOS](https://github.com/vfr/Reader)
+
 - [XpdfReader](https://www.xpdfreader.com/about.html)
 
 Tools:
@@ -103,6 +105,8 @@ Tools:
 - [htmldoc](https://github.com/michaelrsweet/htmldoc)
 
 - [PDFtk](https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/)
+
+- [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
 
 EMF
 

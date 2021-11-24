@@ -212,3 +212,5 @@ int main(int argc, char **argv)
 // [C libcurl get output into a string](https://stackoverflow.com/questions/2329571/c-libcurl-get-output-into-a-string)
 // [how to properly reuse a curl handle](https://stackoverflow.com/questions/14911156/how-to-properly-reuse-a-curl-handle)
 // https://gist.github.com/whoshuu/2dc858b8730079602044
+// https://nappgui.com/en/inet/httpreq.html#f16
+// https://github.com/frang75/nappgui_src/blob/main/src/inet/linux/oshttpreq.c

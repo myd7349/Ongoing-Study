@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/23/2021 19:26:15" ReportInfo.Modified="11/23/2021 19:29:54" ReportInfo.CreatorVersion="2020.1.0.0">
+  <Dictionary/>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" Watermark.Font="宋体, 60pt">
+    <DataBand Name="Data1" Width="1047.06" Height="718.2">
+      <PictureObject Name="Picture1" Width="1047.06" Height="718.2" Border.Lines="All" Image=""/>
+    </DataBand>
+  </ReportPage>
+</Report>

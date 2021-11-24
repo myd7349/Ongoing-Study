@@ -213,3 +213,6 @@ ModelManifest.xml
 *.opendb
 c#/AlgorithmInterfaceBenchmark/AlgorithmInterfaceBenchmark.VC.db
 .vscode/
+
+githash.txt
+AssemblyInfo.githash.cs

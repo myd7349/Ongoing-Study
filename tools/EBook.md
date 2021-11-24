@@ -9,3 +9,5 @@ Neat Reader
 稻壳阅读器
 
 [Reader](https://github.com/binbyu/Reader)
+
+[QuickLook.Plugin.EpubViewer](https://github.com/QL-Win/QuickLook.Plugin.EpubViewer)

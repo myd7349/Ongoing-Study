@@ -3,3 +3,5 @@
 [How to check opened/closed ports on my computer?](https://askubuntu.com/questions/538208/how-to-check-opened-closed-ports-on-my-computer)
 
 > netstat -atn
+> 
+> netstat -ant | findstr "TIME_WAIT"

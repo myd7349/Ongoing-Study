@@ -25,3 +25,4 @@ namespace Common
 // References:
 // [Is there any generic Parse() function that will convert a string to any type using parse?](https://stackoverflow.com/questions/3502493/is-there-any-generic-parse-function-that-will-convert-a-string-to-any-type-usi)
 // [How to make a Generic Type Cast function](https://stackoverflow.com/questions/6884653/how-to-make-a-generic-type-cast-function)
+// https://github.com/dahall/Vanara/blob/8ca58cc2c8d5ca87c19a434f06b6b2f6810aa313/Core/InteropServices/IntPtrConverter.cs#L36-L108

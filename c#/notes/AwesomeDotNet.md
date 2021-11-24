@@ -18,12 +18,18 @@
 - [ICSharpCode.SharpZipLib](https://github.com/icsharpcode/SharpZipLib)
   
   - https://github.com/Bunny83/SimpleJSON/blob/master/SimpleJSONBinary.cs
+  - [Pinta](https://github.com/PintaProject/Pinta)
+
+- [K4os.Compression.LZ4](https://github.com/MiloszKrajewski/K4os.Compression.LZ4)
+  
+  - [Pinta](https://github.com/PintaProject/Pinta)
 
 - [SevenZipSharp](https://github.com/squid-box/SevenZipSharp)
 
 - [SharpCompress](https://github.com/adamhathcock/sharpcompress)
   
   - [Fork](https://fork.dev/)
+  - [On the Shoulders of Giants · QL-Win/QuickLook Wiki · GitHub](https://github.com/QL-Win/QuickLook/wiki/On-the-Shoulders-of-Giants)
 
 - System.IO.Compression
   
@@ -31,16 +37,30 @@
 
 ### ASP.NET
 
+- [dotvvm](https://github.com/riganti/dotvvm)
+
+- [OrchardCore](https://github.com/OrchardCMS/OrchardCore)
+
 - [SignalR](https://github.com/SignalR/SignalR)
+  
   - [JabbR](https://github.com/JabbR/JabbR)
 
 ### Audio
 
+- [EarTrumpet](https://github.com/File-New-Project/EarTrumpet): Volume Control for Windows.
+
 - [FAudio](https://github.com/FNA-XNA/FAudio)
+
 - FMOD
+  
   - [simple-music-player](https://github.com/punker76/simple-music-player)
+
 - NAudio
+
+- [NetCoreAudio](https://github.com/mobiletechtracker/NetCoreAudio)
+
 - [terrafx](https://github.com/terrafx/terrafx)
+
 - XAudio
 
 ### Automation
@@ -53,6 +73,18 @@
   
   - [Quicker](https://github.com/cuiliang/Quicker)
 
+### Benchmark
+
+- [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet)
+
+- [crank](https://github.com/dotnet/crank)
+
+- [MethodTimer](https://github.com/Fody/MethodTimer)
+
+- [PowerUp](https://github.com/badamczewski/PowerUp)
+
+- [skynet](https://github.com/atemerev/skynet): Skynet 1M threads microbenchmark
+
 ### Blog System
 
 - [Moonglade](https://github.com/EdiWang/Moonglade)
@@ -60,11 +92,15 @@
 ### CLI
 
 - [CliWrap](https://github.com/Tyrrrz/CliWrap)
+- [ColoredPrintf](https://github.com/vbfox/ColoredPrintf)
 - [ConsoleAppFramework](https://github.com/Cysharp/ConsoleAppFramework)
 - [ConsoleAppLauncher](https://github.com/slavagu/ConsoleAppLauncher)
   - [Capturing console output from a .NET application (C#)](https://stackoverflow.com/questions/186822/capturing-console-output-from-a-net-application-c)
+- Mono.Options
+  - [Pinta](https://github.com/PintaProject/Pinta/blob/master/Pinta/Main.cs)
 - [`Spectre.Console`](https://github.com/spectreconsole/spectre.console)
   - https://github.com/devlead/Devlead.Console.Template/blob/develop/src/Devlead.Console.Template/templates/devleadconsole/Devlead.Console/Program.cs
+- [system-terminal](https://github.com/alexrp/system-terminal)
 - [Utility.CommandLine.Arguments](https://github.com/jpdillingham/Utility.CommandLine.Arguments)
 
 ### Computer Vision
@@ -74,11 +110,19 @@
 
 ### Configuration
 
+- [greenshot/src/Greenshot.Base/IniFile at release/1.3 · greenshot/greenshot · GitHub](https://github.com/greenshot/greenshot/tree/release/1.3/src/Greenshot.Base/IniFile)
+
 - [magic-chunks-dotnetcore](https://github.com/magic-chunks/magic-chunks-dotnetcore)
 
 ### Crypto
 
 - [Bouncy Castle](https://github.com/bcgit/bc-csharp)
+
+### CSV
+
+- [CsvHelper](https://joshclose.github.io/CsvHelper/)
+  
+  - [On the Shoulders of Giants · QL-Win/QuickLook Wiki · GitHub](https://github.com/QL-Win/QuickLook/wiki/On-the-Shoulders-of-Giants)
 
 ### Database
 
@@ -131,6 +175,8 @@
 
 ### Design Patterns
 
+- [Grace](https://github.com/ipjohnson/Grace)
+
 - [Ninject](https://github.com/ninject/Ninject)
   
   - [naps2](https://github.com/cyanfish/naps2/blob/9ffd24bb4186b7a81d4f1d686ee946d2684e8239/NAPS2.DI/Modules/WinFormsModule.cs)
@@ -145,24 +191,66 @@
 
 ### Graphics
 
+- CairoSharp
+  
+  - [Pinta](https://github.com/PintaProject/Pinta)
+
+- [Clipper](https://sourceforge.net/projects/polyclipping/)
+  
+  - [Pinta](https://github.com/PintaProject/Pinta)
+
 - [CrossGraphics](https://github.com/praeclarum/CrossGraphics)
+
 - [Microsoft.Maui.Graphics](https://github.com/dotnet/Microsoft.Maui.Graphics)
+
 - [NGraphics](https://github.com/praeclarum/NGraphics)
+
 - [splat](https://github.com/reactiveui/splat)
+
 - [SVG](https://github.com/svg-net/SVG)
+
 - [terrafx](https://github.com/terrafx/terrafx)
+
+### GUI
+
+- GTK#
+  
+  - [Pinta](https://github.com/PintaProject/Pinta)
+
+- [xwt](https://github.com/mono/xwt)
+
+### Hashing
+
+- [Crc32.NET](https://github.com/force-net/Crc32.NET)
 
 ### HotKey
 
 - [GlobalHotKey](https://github.com/kyrylomyr/GlobalHotKey)
   - https://github.com/shadowsocks/shadowsocks-windows
+- [globalmousekeyhook](https://github.com/gmamaladze/globalmousekeyhook)
+  - [Magpie](https://github.com/Blinue/Magpie)
 
 ### Internationalization and localization
 
+- [greenshot/src/Greenshot/Languages at release/1.3 · greenshot/greenshot · GitHub](https://github.com/greenshot/greenshot/tree/release/1.3/src/Greenshot/Languages)
+
+- [Locale-Emulator](https://github.com/xupefei/Locale-Emulator)
+
+- [NGettext](https://github.com/VitaliiTsilnyk/NGettext)
+  
+  - [Pinta](https://github.com/PintaProject/Pinta)
+
 - [ResXResourceManager](https://github.com/dotnet/ResXResourceManager)
+  
   - [CodeMaid](https://github.com/codecadwallader/codemaid/pull/506)
 
+- [国际化和本地化 · Issue #12 · wmjordan/PDFPatcher · GitHub](https://github.com/wmjordan/PDFPatcher/issues/12)
+
 ### Image Processing
+
+- [FreeImage.NET](https://www.nuget.org/packages/FreeImageNET)
+  
+  - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
 
 - [ImageProcessor](https://github.com/JimBobSquarePants/ImageProcessor)
   
@@ -173,6 +261,10 @@
   Projects using this lib:
   
   - https://github.com/fo-dicom/fo-dicom
+
+- [Magick.NET](https://github.com/dlemstra/Magick.NET)
+  
+  - [On the Shoulders of Giants · QL-Win/QuickLook Wiki · GitHub](https://github.com/QL-Win/QuickLook/wiki/On-the-Shoulders-of-Giants)
 
 - SkiaSharp
 
@@ -192,9 +284,29 @@
 
 ##### C -> C#
 
+- [C# 调用 C++ API 时，函数的参数类型该怎么转换？](https://www.zhihu.com/question/34670135/answer/100024595)
+
 - [Cesium](https://github.com/ForNeVeR/Cesium) - Cesium compiles standard C source code to a .NET assembly.
 
+- [CppSharp](https://github.com/mono/CppSharp)
+
+- [DInvoke](https://github.com/TheWover/DInvoke): Dynamically invoke arbitrary unmanaged code from managed code without PInvoke.
+
+- CXXI
+
 - SWIG
+
+##### C -> C# [S2S Compiler](https://en.wikipedia.org/wiki/Source-to-source_compiler)
+
+- [Iril](https://github.com/praeclarum/Iril)
+
+##### C# -> C++ S2S Compiler
+
+- [il2cpp](https://github.com/anydream/il2cpp)
+
+- Unity IL2CPP
+  
+  - [Il2CppDumper](https://github.com/Perfare/Il2CppDumper)
 
 ##### Win32 API
 
@@ -241,26 +353,42 @@
 
 - [Orc.LicenseManager](https://github.com/WildGums/Orc.LicenseManager)
 
-# 
-
 ### Logging
 
 - [common-logging](https://github.com/net-commons/common-logging)
+  
   - http://netcommon.sourceforge.net/
   - https://github.com/itext/itext7-dotnet
+  - [FastReport Designer Community Edition](https://fastreports.github.io/FastReport.Documentation/FastReportDesignerCommunityEdition.html)
+
 - [log4net](https://github.com/apache/logging-log4net)
+  
+  - [greenshot](https://github.com/greenshot/greenshot)
+  
   - [Quicker](https://github.com/cuiliang/Quicker)
+  
   - [winsw](https://github.com/winsw/winsw)
+
 - [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/)
+  
   - [Logging in .NET Core and ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-5.0)
   - https://github.com/devlead/Devlead.Console.Template/blob/develop/src/Devlead.Console.Template/templates/devleadconsole/Devlead.Console/Program.cs
   - https://github.com/maikebing/CAP.Extensions/blob/master/src/MaiKeBing.CAP.ZeroMQ/ITransport.ZeroMQ.cs
+
 - [NLog](https://github.com/NLog/NLog)
+
 - [serilog](https://github.com/serilog/serilog)
+  
   - [serilog-sinks-http](https://github.com/FantasticFiasco/serilog-sinks-http)
   - [logging-dotnet](https://github.com/felfel/logging-dotnet)
+
 - [Splat](https://github.com/reactiveui/splat)
+
 - [ZLogger](https://github.com/Cysharp/ZLogger)
+
+##### Blogs
+
+- [A New Pattern for Exception Logging](https://blog.stephencleary.com/2020/06/a-new-pattern-for-exception-logging.html)
 
 ### Math
 
@@ -275,6 +403,10 @@
   - [Quicker](https://github.com/cuiliang/Quicker)
 
 - [ExpressionEvaluator](https://github.com/codingseb/ExpressionEvaluator)
+
+- [FastReport.CalcExpression](https://github.com/FastReports/FastReport/blob/d266d9bc2840d46515c38caafca773926a22dba3/FastReport.Base/Code/AssemblyDescriptor.cs#L649-L656)
+
+- [Mathfs](https://github.com/FreyaHolmer/Mathfs)
 
 - [MathParser](https://github.com/KirillOsenkov/MathParser)
   
@@ -302,8 +434,10 @@
 - [Downloader](https://github.com/bezzad/Downloader)
 - [NetMQ](https://github.com/zeromq/netmq)
   - [CAP.Extensions](https://github.com/maikebing/CAP.Extensions)
+- [RestSharp](https://github.com/restsharp/RestSharp)
 - [sipsorcery](https://github.com/sipsorcery-org/sipsorcery) - A WebRTC, SIP and VoIP library for C# and .NET. Designed for real-time communications apps.
   - [GB28181.Solution](https://github.com/GB28181/GB28181.Solution)
+- [whois](https://github.com/flipbit/whois)
 
 ### Office
 
@@ -323,19 +457,32 @@
 - [ClosedXML](https://github.com/ClosedXML/ClosedXML)
   - [ClosedXML.Report](https://github.com/ClosedXML/ClosedXML.Report)
 - [excel-mapper](https://github.com/hughbe/excel-mapper)
+- [excellibrary](https://github.com/darknessomi/excellibrary)
 - [MiniExcel](https://github.com/shps951023/MiniExcel)
+
+### Online Compiler
+
+- [dotnetfiddle](https://dotnetfiddle.net/)
 
 ### PDF
 
 - [Ghostscript.NET](https://github.com/jhabjan/Ghostscript.NET)
-- https://github.com/empira/PDFsharp
+- [PDFiumSharp](https://github.com/ArgusMagnus/PDFiumSharp)
+  - [On the Shoulders of Giants · QL-Win/QuickLook Wiki · GitHub](https://github.com/QL-Win/QuickLook/wiki/On-the-Shoulders-of-Giants)
+- [PDFsharp](https://github.com/empira/PDFsharp)
   - https://github.com/wieslawsoltes/Core2D/tree/master/src/Core2D/Modules/FileWriter.PdfSharp
   - [Quicker](https://github.com/cuiliang/Quicker)
+- [SharpMuPDF](https://github.com/wmjordan/SharpMuPDF)
+  - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
 
 ### Plugin System
 
 - [DotNetCorePlugins](https://github.com/natemcmaster/DotNetCorePlugins)
+- [Greenshot Plugins](https://github.com/greenshot/greenshot/tree/release/1.3/src)
 - [Prise](https://github.com/merken/Prise)
+- [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
+- [QoiFileTypeNet](https://github.com/iOrange/QoiFileTypeNet)
+- [QuickLook.Plugin](https://github.com/QL-Win/QuickLook/tree/master/QuickLook.Plugin)
 - [WinSW.Plugins](https://github.com/winsw/winsw/tree/v3/src/WinSW.Plugins)
 
 ### QR Code
@@ -350,7 +497,9 @@
 
 - [ClearScript](https://github.com/microsoft/ClearScript)
 
-- https://github.com/pvginkel/Expressions: C#, VB.NET
+- [Expressions](https://github.com/pvginkel/Expressions): C#, VB.NET
+
+- [jint](https://github.com/sebastienros/jint): Javascript Interpreter for .NET
 
 - [jurassic](https://github.com/paulbartrum/jurassic): JavaScript
   
@@ -362,17 +511,46 @@
 
 - [ysoserial.net](https://github.com/pwntester/ysoserial.net)
 
+### Static Analysis
+
+- [.NET Analyzers](https://github.com/DotNetAnalyzers)
+  
+  - [IDisposableAnalyzers](https://github.com/DotNetAnalyzers/IDisposableAnalyzers)
+  
+  - [PropertyChangedAnalyzers](https://github.com/DotNetAnalyzers/PropertyChangedAnalyzers)
+  
+  - [ReflectionAnalyzers](https://github.com/DotNetAnalyzers/ReflectionAnalyzers)
+  
+  - [UnitTestAnalyzers](https://github.com/DotNetAnalyzers/UnitTestAnalyzers)
+  
+  - [VarUsageAnalyzer](https://github.com/DotNetAnalyzers/VarUsageAnalyzer)
+  
+  - [WpfAnalyzers](https://github.com/DotNetAnalyzers/WpfAnalyzers)
+
+- [Echo](https://github.com/Washi1337/Echo)
+
 ### String
 
 - [ZString](https://github.com/Cysharp/ZString) - Zero Allocation StringBuilder for .NET Core and Unity.
 
+### Templating
+
+- [fluid](https://github.com/sebastienros/fluid)
+
 ### Text
 
 - [diffplex](https://github.com/mmanela/diffplex)
+- [tokenizer](https://github.com/flipbit/tokenizer)
 
 ### Threading
 
 - [UniTask](https://github.com/Cysharp/UniTask)
+
+### Unicode
+
+- [UTF-unknown](https://github.com/CharsetDetector/UTF-unknown)
+  
+  - [On the Shoulders of Giants · QL-Win/QuickLook Wiki · GitHub](https://github.com/QL-Win/QuickLook/wiki/On-the-Shoulders-of-Giants)
 
 ### Unit Testing
 

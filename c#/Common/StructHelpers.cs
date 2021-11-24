@@ -117,3 +117,7 @@ unsafe struct ExampleClass
    }
 }
 */
+// https://github.com/dahall/Vanara/blob/8ca58cc2c8d5ca87c19a434f06b6b2f6810aa313/Core/InteropServices/SafeHGlobalHandle.cs#L117
+// public static SafeHGlobalHandle CreateFromStructure<T>(in T value = default) => new SafeHGlobalHandle(InteropExtensions.MarshalToPtr(value, mm.AllocMem, out int s), s);
+// https://github.com/dahall/Vanara/blob/8ca58cc2c8d5ca87c19a434f06b6b2f6810aa313/PInvoke/Gdi32/WinGdi.Metafile.cs#L1136
+// return mem.ToStructure<ENHMETAHEADER>();

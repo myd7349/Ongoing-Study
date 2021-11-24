@@ -30,6 +30,8 @@
 [C# 调用 C++ API 时，函数的参数类型该怎么转换？](https://www.zhihu.com/question/34670135/answer/100024595)
 
 1. [PInvoke Interop Assistant/clrinterop](https://archive.codeplex.com/?p=clrinterop)
+   
+   - [PInvoke Interop Assistant](https://github.com/jaredpar/pinvoke-interop-assistant)
 
 2. If you want to use Win32 APIs in C#, then you should take a look at [pinvoke.net](http://pinvoke.net/). BTW, a Visual Studio plugin for `pinvoke.net` is also available.
    
@@ -249,3 +251,5 @@ https://github.com/ericsink/SQLitePCL.raw/tree/master/src/providers
 ### Cesium
 
 [Cesium](https://github.com/ForNeVeR/Cesium) - Cesium compiles standard C source code to a .NET assembly.
+
+[SharpMuPDF)](https://github.com/wmjordan/SharpMuPDF)

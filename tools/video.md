@@ -3,4 +3,6 @@
 - iMovie
 - Final Cut Pro
 - [kdenlive](https://github.com/KDE/kdenlive)
-
+- [IINA](https://iina.io/)
+- [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)
+- [Seven Converter](https://github.com/SevenbytesSoftware/SevenConverter)

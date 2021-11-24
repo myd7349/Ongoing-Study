@@ -1,4 +1,6 @@
+- [ddddocr](https://github.com/sml2h3/ddddocr)
 - [EasyOCR](https://github.com/JaidedAI/EasyOCR)
 - [OCRmyPDF](https://github.com/jbarlow83/OCRmyPDF)
 - [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
-
+- [Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
+  - [tesseract.js](https://github.com/naptha/tesseract.js)

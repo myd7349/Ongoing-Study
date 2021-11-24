@@ -45,3 +45,4 @@ BOOL IsWindowsServer()
 // References:
 // https://stackoverflow.com/questions/34235151/get-windows-version
 // https://github.com/dahall/Vanara/blob/56cda5a8f4d6648563651996d99f471f9e49e56f/PInvoke/Kernel32/VersionHelpers.cs#L49
+// https://github.com/novotnyllc/OSVersionHelper

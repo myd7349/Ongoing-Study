@@ -130,3 +130,4 @@ BOOL Execute(
 // TortoiseGit/src/Utils/CreateProcessHelper.h
 // [AfxPumpMessage() is using for?](https://stackoverflow.com/questions/21304232/afxpumpmessage-is-using-for)
 // [How to wait for ShellExecute to run?](https://stackoverflow.com/questions/17638674/how-to-wait-for-shellexecute-to-run)
+// https://github.com/xupefei/Locale-Emulator/blob/master/LECommonLibrary/SystemHelper.cs

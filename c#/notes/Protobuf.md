@@ -2,3 +2,4 @@
   - https://github.com/AqlaSolutions/AqlaSerializer
 - https://github.com/jskeet/protobuf-csharp-port
 - https://github.com/googleapis/gapic-generator-csharp
+- https://github.com/BlueMatthew/ProtobufInspector

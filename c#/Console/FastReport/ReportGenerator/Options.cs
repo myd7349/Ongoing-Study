@@ -4,7 +4,6 @@
     using System.Drawing;
 
     using CommandLine;
-    using FastReport.Export.Image;
 
     class Options
     {
@@ -39,3 +38,7 @@
         public IEnumerable<string> Pictures { get; set; }
     }
 }
+
+
+// References:
+// [System.Drawing.Common only supported on Windows](https://docs.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)

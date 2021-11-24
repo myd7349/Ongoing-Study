@@ -39,3 +39,4 @@ namespace Common
 // [2] http://www.cnblogs.com/dc10101/archive/2009/11/24/1609146.html
 // [Restore application from system tray when clicking on desktop shortcut](https://stackoverflow.com/questions/10529370/restore-application-from-system-tray-when-clicking-on-desktop-shortcut)
 //     > GC.KeepAlive(mutex);
+// https://github.com/novotnyllc/SingleInstanceHelper

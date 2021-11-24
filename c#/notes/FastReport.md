@@ -1,3 +1,5 @@
+[FastReport Designer Community Edition](https://fastreports.github.io/FastReport.Documentation/FastReportDesignerCommunityEdition.html)
+
 https://fastreports.github.io/FastReport.Documentation/
 
 [FastReport Comparison](https://www.fast-report.com/en/fast-report-comparison/)
@@ -57,14 +59,18 @@ report.Show();
 FRNetUserManual-en.pdf P383:
 
 > Reference to report objects
->
+> 
 > Note that reports's native unit of measurement is screen pixels. Keep it in mind when using such object's properties like Left, Top, Width, and Height. To convert pixels into centimeters and back, use the constants, defined in the "Units" class:
->
+> 
 > ```csharp
 > float heightInPixels = Text1.Height;
 > float heightInCM = heightInPixels / Units.Centimeters;
 > Text1.Height = Units.Centimeters * 5; // 5cm
 > ```
+
+https://github.com/FastReports/FastReport/blob/d266d9bc2840d46515c38caafca773926a22dba3/FastReport.Base/ReportPage.cs#L307-L349
+
+`ReportPage`'s `LeftMargin`, `TopMargin`, `RightMargin`, `BottomMargin`, `PaperWidth`, `PaperHeight` have a millimeter unit.
 
 [FastReport page orientation change in Delphi](https://stackoverflow.com/questions/1973876/fastreport-page-orientation-change-in-delphi)
 
@@ -77,4 +83,3 @@ https://github.com/FastReports/FastReport/blob/dd337ea7c72fccb079db3d43f3a114f91
 > ```csharp
 > public bool Landscape { get; set; }
 > ```
-

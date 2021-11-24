@@ -87,3 +87,4 @@ References:
 * [Launch SnippingTool.exe from c++ program](http://www.cplusplus.com/forum/general/79335/)
 */
 // [Windows平台下System32和SysWOW64文件夹](https://blog.wangzhl.com/posts/windows-system32-and-syswow64/)
+// https://github.com/xupefei/Locale-Emulator/blob/db03abf6914beeca09ee975120ff5ce2091c8dca/LECommonLibrary/SystemHelper.cs#L38-L46

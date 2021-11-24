@@ -1,4 +1,4 @@
 - FileZilla
+- [LightFTP](https://github.com/hfiref0x/LightFTP)
 - SecureFX
 - [ForkLift](https://twitter.com/Megabits_mzq/status/1427547974037479427)
-

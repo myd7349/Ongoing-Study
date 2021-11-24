@@ -36,6 +36,7 @@ namespace MetafileViewer
             this.transparentRadioButton_ = new System.Windows.Forms.RadioButton();
             this.metafileCanvas_ = new MetafileViewer.MetafileCanvas();
             this.propertiesButton_ = new System.Windows.Forms.Button();
+            this.exportAsButton_ = new System.Windows.Forms.Button();
             this.backgroundGroupBox_.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@ namespace MetafileViewer
             this.sizeModeComboBox_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sizeModeComboBox_.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sizeModeComboBox_.FormattingEnabled = true;
-            this.sizeModeComboBox_.Location = new System.Drawing.Point(691, 91);
+            this.sizeModeComboBox_.Location = new System.Drawing.Point(691, 123);
             this.sizeModeComboBox_.Name = "sizeModeComboBox_";
             this.sizeModeComboBox_.Size = new System.Drawing.Size(107, 20);
             this.sizeModeComboBox_.TabIndex = 1;
@@ -66,7 +67,7 @@ namespace MetafileViewer
             this.backgroundGroupBox_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.backgroundGroupBox_.Controls.Add(this.colorRadioButton_);
             this.backgroundGroupBox_.Controls.Add(this.transparentRadioButton_);
-            this.backgroundGroupBox_.Location = new System.Drawing.Point(691, 129);
+            this.backgroundGroupBox_.Location = new System.Drawing.Point(691, 149);
             this.backgroundGroupBox_.Name = "backgroundGroupBox_";
             this.backgroundGroupBox_.Size = new System.Drawing.Size(107, 67);
             this.backgroundGroupBox_.TabIndex = 3;
@@ -112,7 +113,7 @@ namespace MetafileViewer
             // propertiesButton_
             // 
             this.propertiesButton_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.propertiesButton_.Location = new System.Drawing.Point(691, 49);
+            this.propertiesButton_.Location = new System.Drawing.Point(691, 86);
             this.propertiesButton_.Name = "propertiesButton_";
             this.propertiesButton_.Size = new System.Drawing.Size(107, 31);
             this.propertiesButton_.TabIndex = 4;
@@ -120,11 +121,23 @@ namespace MetafileViewer
             this.propertiesButton_.UseVisualStyleBackColor = true;
             this.propertiesButton_.Click += new System.EventHandler(this.propertiesButton__Click);
             // 
+            // exportAsButton_
+            // 
+            this.exportAsButton_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exportAsButton_.Location = new System.Drawing.Point(691, 49);
+            this.exportAsButton_.Name = "exportAsButton_";
+            this.exportAsButton_.Size = new System.Drawing.Size(107, 31);
+            this.exportAsButton_.TabIndex = 5;
+            this.exportAsButton_.Text = "Export As...";
+            this.exportAsButton_.UseVisualStyleBackColor = true;
+            this.exportAsButton_.Click += new System.EventHandler(this.exportAsButton__Click);
+            // 
             // MetafileViewerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 450);
+            this.Controls.Add(this.exportAsButton_);
             this.Controls.Add(this.propertiesButton_);
             this.Controls.Add(this.backgroundGroupBox_);
             this.Controls.Add(this.metafileCanvas_);
@@ -148,6 +161,7 @@ namespace MetafileViewer
         private System.Windows.Forms.RadioButton colorRadioButton_;
         private System.Windows.Forms.RadioButton transparentRadioButton_;
         private System.Windows.Forms.Button propertiesButton_;
+        private System.Windows.Forms.Button exportAsButton_;
     }
 }
 

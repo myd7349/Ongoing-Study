@@ -36,7 +36,9 @@ public class MyClass
     }
 }
 ```
+
 Otherwise, the compiler will give this error:
+
 > error CS0840: 'MyClass.Foo.get' must declare a body because it is not marked abstract or extern. Automatically implemented properties must define both get and set accessors.
 
 [CA1819: Properties should not return arrays. Does this happen only with arrays? If yes, why?](https://softwareengineering.stackexchange.com/questions/210922/ca1819-properties-should-not-return-arrays-does-this-happen-only-with-arrays)
@@ -50,3 +52,7 @@ Otherwise, the compiler will give this error:
 [Delegates as Properties: Bad Idea?](https://stackoverflow.com/questions/7575059/delegates-as-properties-bad-idea)
 
 https://github.com/Fody/PropertyChanged
+
+[Init only setters - C# 9.0 draft specifications | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-9.0/init)
+
+- [command-line-api/Option{T}.cs at 941a651515db4a3889f9f43f124281a5fffb5f81 · dotnet/command-line-api · GitHub](https://github.com/dotnet/command-line-api/blob/941a651515db4a3889f9f43f124281a5fffb5f81/src/System.CommandLine/Option%7BT%7D.cs#L68)

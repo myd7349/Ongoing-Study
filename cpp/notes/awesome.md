@@ -6,6 +6,12 @@
 
 - [SSRC](https://github.com/shibatch/SSRC)
 
+### Benchmark
+
+- [Quick C++ Benchmark](https://quick-bench.com/)
+  
+  - [C 语言有什么奇技淫巧？](https://www.zhihu.com/question/27417946/answer/1253126563)
+
 ### Charting
 
 - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
@@ -36,11 +42,32 @@
 
 - [Configuru](https://github.com/emilk/Configuru)
 
+### Cryptography
+
+- [tink](https://github.com/google/tink)
+
+### Database
+
+- [serverless-sqlite](https://github.com/leizongmin/serverless-sqlite)
+
+- [verneuil](https://github.com/backtrace-labs/verneuil)
+
+### Game Programming
+
+- [flecs](https://github.com/SanderMertens/flecs): A fast entity component system (ECS) for C & C++.
+
 ### Graphics
+
+- [freetype-gl](https://github.com/rougier/freetype-gl)
 
 - [WickedEngine](https://github.com/turanszkij/WickedEngine)
 
-### Cryptography
+- [Window.js](https://github.com/windowjs/windowjs)
+
+### GUI
+
+- [NAppGUI](https://github.com/frang75/nappgui_src)
+- [SixtyFPS](https://github.com/sixtyfpsui/sixtyfps)
 
 ### Hashing
 
@@ -49,6 +76,7 @@
 ### Image Processing
 
 - [libvips](https://github.com/libvips/libvips)
+- [pngquant](https://github.com/kornelski/pngquant)
 
 ### IO
 
@@ -56,7 +84,33 @@
 
 ### JSON
 
+- [daw_json_link](https://github.com/beached/daw_json_link)
+  
+  - [json_to_cpp](https://github.com/beached/json_to_cpp)
+
 - [json.h](https://github.com/sheredom/json.h)
+
+### Language Interoperability
+
+##### C++ -> Julia
+
+- [Cxx.jl](https://github.com/JuliaInterop/Cxx.jl)
+
+- [CxxWrap.jl](https://github.com/JuliaInterop/CxxWrap.jl)
+
+##### C++ -> Python
+
+- [pybind11](https://github.com/pybind/pybind11)
+  
+  - [cppimport](https://github.com/tbenthompson/cppimport)
+
+##### Lua
+
+- [LuaBridge](https://github.com/vinniefalco/LuaBridge)
+
+### Logging
+
+- [lwlog](https://github.com/ChristianPanov/lwlog)
 
 ### Math
 
@@ -82,6 +136,10 @@
 
 - [MLS++](https://github.com/cisco/mlspp)
 
+- [OpenAPI](https://github.com/openapitools/openapi-generator)
+  
+  - [FastReport-Cloud-Cpp](https://github.com/FastReports/FastReport-Cloud-Cpp)
+
 ### PDF
 
 - [PDFlib](https://www.pdflib.com/)
@@ -94,8 +152,25 @@
 - [Guile](https://www.gnu.org/software/guile/)
   
   - [libfive](https://github.com/libfive/libfive)
+  - [zrythm](https://github.com/zrythm/zrythm)
+
+- [quickjs](https://github.com/bellard/quickjs)
+  
+  - [jssh](https://github.com/leizongmin/jssh)
+
+- [sol](https://github.com/ThePhD/sol2)
+  
+  - [ObEngine](https://github.com/ObEngine/ObEngine)
 
 - [wren](https://github.com/wren-lang/wren)
+
+### Templating
+
+- [kiss-templates](https://github.com/rbock/kiss-templates)
+
+### Unit Testing
+
+- [boost-ext-ut](https://github.com/boost-ext/ut)
 
 ### UUID
 

@@ -1,3 +1,5 @@
+[gh-trends: GitHub star history plots](https://github.com/nschloe/gh-trends)
+
 ### Project Management
 
 - [ZenHub](https://www.zenhub.com/)
@@ -37,6 +39,8 @@ https://github.com/lukka/run-vcpkg/issues/66
 
 [FastGithub](https://github.com/dotnetcore/FastGithub)
 
+[dev-sidecar](https://github.com/docmirror/dev-sidecar)
+
 Awesome README.md:
 
 - https://github.com/yihong0618/yihong0618
@@ -60,6 +64,7 @@ Awesome README.md:
 - https://github.com/luisfelipesdn12
 - https://github.com/3F
 - https://github.com/HFO4
+- https://github.com/dontpanic92
 
 https://github.com/Tyrrrz/GitHubActionsTestLogger
 

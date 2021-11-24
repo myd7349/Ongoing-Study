@@ -10,8 +10,10 @@ Applications:
 - [dotnetpad](https://github.com/jbe2277/dotnetpad)
 - [DoubanFM](https://github.com/kfstorm/DoubanFM)
 - [downkyi](https://github.com/leiurayer/downkyi)
+- [EarTrumpet](https://github.com/File-New-Project/EarTrumpet): Volume Control for Windows.
 - [Files](https://github.com/files-community/Files)
 - [live-draw](https://github.com/antfu/live-draw)
+- [Magpie](https://github.com/Blinue/Magpie)
 - [MindLated](https://github.com/Sato-Isolated/MindLated)
 - [NodeNetwork](https://github.com/Wouterdek/NodeNetwork)
 - [perfview](https://github.com/microsoft/perfview)
@@ -22,12 +24,14 @@ Applications:
 - [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows)
 - [simple-music-player](https://github.com/punker76/simple-music-player)
 - [snoopwpf](https://github.com/snoopwpf/snoopwpf)
+- [SvgToXaml](https://github.com/BerndK/SvgToXaml)
 - [SyncTrayzor](https://github.com/canton7/SyncTrayzor)
 - [XstReader](https://github.com/Dijji/XstReader)
 - [YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)
 - [WeatherCS](https://github.com/crashmax-dev/WeatherCS)
 - [WinCompose](https://github.com/samhocevar/wincompose)
 - [Wox](https://github.com/Wox-launcher/Wox)
+- [WpfDesigner](https://github.com/icsharpcode/WpfDesigner)
 
 Libraries:
 
@@ -73,9 +77,15 @@ Libraries:
   
   - [Quicker](https://github.com/cuiliang/Quicker)
 
+- [globalmousekeyhook](https://github.com/gmamaladze/globalmousekeyhook)
+  
+  - [Magpie](https://github.com/Blinue/Magpie)
+
 - [gong-wpf-dragdrop](https://github.com/punker76/gong-wpf-dragdrop)
   
   - [Quicker](https://github.com/cuiliang/Quicker)
+
+- [Gu.Wpf.DataGrid2D](https://github.com/GuOrg/Gu.Wpf.DataGrid2D)
 
 - [HandyControls](https://github.com/ghost1372/HandyControls)
   
@@ -93,6 +103,8 @@ Libraries:
   
   - [NextBootOSSelector](https://github.com/takuya-takeuchi/NextBootOSSelector)
 
+- [ModernWpf](https://github.com/Kinnara/ModernWpf)
+  
 - [mvvm-dialogs](https://github.com/FantasticFiasco/mvvm-dialogs)
 
 - [MVVM Light Toolkit](https://github.com/lbugnion/mvvmlight)
@@ -127,6 +139,8 @@ Libraries:
   - Microsoft Support and Recovery Assistant
   - [Prism-Samples-Wpf](https://github.com/PrismLibrary/Prism-Samples-Wpf)
   - [WeUiSharp](https://github.com/IUpdatable/WeUiSharp)
+
+- [ReactiveProperty](https://github.com/runceel/ReactiveProperty)
 
 - [ReactiveUI](https://github.com/reactiveui/ReactiveUI)
 
@@ -179,3 +193,7 @@ Charting:
   - [PingMonitor](https://github.com/kfstorm/PingMonitor)
 - [OxyPlot](https://github.com/oxyplot/oxyplot)
 - [ScottPlot](https://github.com/ScottPlot/ScottPlot)
+
+Tools:
+
+- [WpfAnalyzers](https://github.com/DotNetAnalyzers/WpfAnalyzers)

@@ -60,3 +60,9 @@ https://github.com/microsoft/Vipr/blob/master/src/Core/Vipr/FileWriter.cs
 https://github.com/phatboyg/GreenPipes
 
 https://github.com/microsoft/FASTER
+
+[Task.Factory.StartNew vs Task.Factory.FromAsync](https://stackoverflow.com/questions/17432306/task-factory-startnew-vs-task-factory-fromasync)
+
+[Do you have to put Task.Run in a method to make it async?](https://stackoverflow.com/questions/17119075/do-you-have-to-put-task-run-in-a-method-to-make-it-async)
+
+[Async and Await](https://blog.stephencleary.com/2012/02/async-and-await.html)

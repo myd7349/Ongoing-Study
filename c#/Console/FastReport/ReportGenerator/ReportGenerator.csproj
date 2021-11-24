@@ -41,12 +41,12 @@
       <HintPath>packages\CommandLineParser.2.7.82\lib\net40\CommandLine.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FastReport, Version=2019.3.19.0, Culture=neutral, PublicKeyToken=5ceb240df42bf6e8, processorArchitecture=MSIL">
-      <HintPath>packages\FastReport.OpenSource.2019.3.19\lib\net40\FastReport.dll</HintPath>
+    <Reference Include="FastReport, Version=2020.3.0.0, Culture=neutral, PublicKeyToken=5ceb240df42bf6e8, processorArchitecture=MSIL">
+      <HintPath>packages\FastReport.OpenSource.2020.3.0\lib\net40\FastReport.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FastReport.OpenSource.Export.PdfSimple, Version=2019.3.19.0, Culture=neutral, PublicKeyToken=b33a9a06fcc00c4c, processorArchitecture=MSIL">
-      <HintPath>packages\FastReport.OpenSource.Export.PdfSimple.2019.3.19\lib\net40\FastReport.OpenSource.Export.PdfSimple.dll</HintPath>
+    <Reference Include="FastReport.OpenSource.Export.PdfSimple, Version=2020.3.0.0, Culture=neutral, PublicKeyToken=b33a9a06fcc00c4c, processorArchitecture=MSIL">
+      <HintPath>packages\FastReport.OpenSource.Export.PdfSimple.2020.3.0\lib\net40\FastReport.OpenSource.Export.PdfSimple.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -54,6 +54,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\..\Common\Base64Helper.cs">
@@ -65,6 +69,7 @@
     <Compile Include="..\..\..\Common\ImageHelper.cs">
       <Link>ImageHelper.cs</Link>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.githash.cs" />
     <Compile Include="ExportFormat.cs" />
     <Compile Include="FormatHelper.cs" />
     <Compile Include="Options.cs" />
@@ -76,6 +81,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>if EXIST "$(ProjectDir)VERSION.txt" (
+    "$(ProjectDir)GetVersion.bat" csharp "$(ProjectDir)VERSION.txt" "$(ProjectDir)githash.txt" "$(ProjectDir)\Properties\AssemblyInfo.githash.cs"
+) else (
+    if EXIST "$(SolutionDir)VERSION.txt" (
+        "$(ProjectDir)GetVersion.bat" csharp "$(SolutionDir)VERSION.txt" "$(ProjectDir)githash.txt" "$(ProjectDir)\Properties\AssemblyInfo.githash.cs"
+    ) else (
+        "$(ProjectDir)GetVersion.bat" csharp IGNORE_VERSION.txt "$(ProjectDir)githash.txt" "$(ProjectDir)\Properties\AssemblyInfo.githash.cs"
+    )
+)</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

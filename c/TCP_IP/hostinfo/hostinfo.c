@@ -185,7 +185,7 @@ int _tmain(int argc, _TCHAR *argv[])
                 _TCHAR serv[NI_MAXSERV];
 
                 printf("  Host: ");
-                result = getnameinfo(ptr->ai_addr, ptr->ai_addrlen, host, NI_MAXHOST, serv, NI_MAXSERV, 0);
+                result = getnameinfo(ptr->ai_addr, (socklen_t)ptr->ai_addrlen, host, NI_MAXHOST, serv, NI_MAXSERV, 0);
                 if (result == 0)
                     _tprintf(_T("%s:%s\n"), host, serv);
                 else
@@ -207,7 +207,7 @@ int _tmain(int argc, _TCHAR *argv[])
                 _TCHAR serv[NI_MAXSERV];
 
                 printf("  Host: ");
-                result = getnameinfo(ptr->ai_addr, ptr->ai_addrlen, host, NI_MAXHOST, serv, NI_MAXSERV, 0);
+                result = getnameinfo(ptr->ai_addr, (socklen_t)ptr->ai_addrlen, host, NI_MAXHOST, serv, NI_MAXSERV, 0);
                 if (result == 0)
                     _tprintf(_T("%s:%s\n"), host, serv);
                 else
@@ -287,3 +287,4 @@ int _tmain(int argc, _TCHAR *argv[])
 // https://tools.ietf.org/html/rfc3493
 // https://stackoverflow.com/questions/5956516/getaddrinfo-and-ipv6
 // Ongoing-study/cpp/CMake/encoding_test
+// [TCP/IP connection on a specific interface](https://stackoverflow.com/questions/14697963/tcp-ip-connection-on-a-specific-interface)

@@ -1,2 +1,5 @@
 - SetProcessDPIAware
   - https://github.com/kingsamchen/Eureka/blob/88308b7f464344f77203e4c652c08f2114d5a4ee/hey-i-am-still-working/himsw/main.cpp#L262
+- https://github.com/binbyu/Reader
+- [Locale-Emulator/SystemHelper.cs at master · xupefei/Locale-Emulator · GitHub](https://github.com/xupefei/Locale-Emulator/blob/master/LECommonLibrary/SystemHelper.cs)
+- [TortoiseGit/DPIAware.h at master · TortoiseGit/TortoiseGit · GitHub](https://github.com/TortoiseGit/TortoiseGit/blob/master/src/Utils/DPIAware.h)

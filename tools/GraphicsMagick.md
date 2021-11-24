@@ -11,7 +11,7 @@ http://www.graphicsmagick.org/convert.html
 [ImageMagick: How to thicken lines](https://unix.stackexchange.com/questions/299218/imagemagick-how-to-thicken-lines)
 
 > convert in.emf -monochrome out.png
->
+> 
 > convert in.emf -density 300x300 -auto-orient -morphology Erode Octagon out.png
 
 [graphicsmagick how to remove transparent area and shrink the canvas size of a 32-bit image](https://stackoverflow.com/questions/19827613/graphicsmagick-how-to-remove-transparent-area-and-shrink-the-canvas-size-of-a-32)
@@ -47,4 +47,3 @@ And 1inch equals to 2.54cm.
 > ```
 > convert image.png -background white -alpha remove -alpha off white.png
 > ```
-

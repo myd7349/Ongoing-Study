@@ -76,6 +76,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Common\JsonHelper.cs">
+      <Link>JsonHelper.cs</Link>
+    </Compile>
     <Compile Include="AddNewBucketForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,7 +98,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="BOSObjectTableColumnBinder.cs" />
-    <Compile Include="JsonHelper.cs" />
     <Compile Include="ObjectMetaDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
