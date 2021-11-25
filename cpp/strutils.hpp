@@ -260,3 +260,4 @@ std::string ws2s(const std::wstring &str)
 // [Trim whitespace from a String](https://stackoverflow.com/questions/25829143/trim-whitespace-from-a-string)
 // https://github.com/microsoft/PowerToys/blob/master/src/common/string_utils.h
 // https://github.com/imageworks/pystring/blob/master/pystring.h
+// https://github.com/Blinue/Magpie/blob/main/Runtime/StrUtils.h

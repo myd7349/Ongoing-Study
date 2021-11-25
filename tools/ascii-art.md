@@ -1,8 +1,10 @@
 - [ADia](https://github.com/pylover/adia)
 - [art](https://github.com/sepandhaghighi/art)
+- [ascii_art](https://github.com/symisc/ascii_art)
+- [AsciiEngine](https://github.com/RandyGaul/AsciiEngine)
 - [asciinema](https://asciinema.org/explore)
   - [pingtop](https://github.com/laixintao/pingtop)
 - [Diagon](https://github.com/ArthurSonzogni/Diagon)
 - [figlet](http://www.figlet.org/)
   - [Ascii-Design](https://github.com/Faster3ck/Ascii-Design)
-
+- [Image-to-Braille](https://github.com/505e06b2/Image-to-Braille)

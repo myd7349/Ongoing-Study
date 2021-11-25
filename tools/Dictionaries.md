@@ -12,7 +12,11 @@
 
 - MDict
 
+- [QTranslate](https://quest-app.appspot.com/)
+
 - StarDict
+
+- [translator](https://github.com/skywind3000/translator)
 
 - 灵格斯
 
@@ -27,5 +31,7 @@
 - [Openwall wordlists collection](https://www.openwall.com/wordlists/)
 
 - [ECDICT](https://github.com/skywind3000/ECDICT)
+
 - [english-words](https://github.com/dwyl/english-words)
+
 - [wordlist](http://www-personal.umich.edu/~jlawler/wordlist)

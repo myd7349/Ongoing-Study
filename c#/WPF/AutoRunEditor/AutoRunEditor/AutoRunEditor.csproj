@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop"
+  InitialTargets="GetVersion">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <Target Name="GetVersion">
+    <Exec Command="powershell -ExecutionPolicy Bypass -File &quot;$(ProjectDir)/../../../../tools/GetVersion.ps1&quot; -Template dotnet -TargetFramework netcoreapp3.1 -VersionSource &quot;$(ProjectDir)/../VERSION.txt&quot; -OutputFile &quot;$(SolutionDir)/Directory.Build.props&quot;" />
+  </Target>
+
+  <!--
+  References:
+  https://github.com/Tyrrrz/YoutubeDownloader/blob/2d3f0571c19ada5113a1add8313190ecb6ab1eab/YoutubeDownloader/YoutubeDownloader.csproj#L31-L45
+  https://docs.microsoft.com/en-us/visualstudio/msbuild/target-build-order?view=vs-2022
+  -->
+</Project>

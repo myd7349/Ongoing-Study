@@ -52,7 +52,7 @@ static inline string ReadEntireFile(FILE * file) {
 
 https://stackoverflow.com/questions/33327720/how-to-use-fread-to-read-the-entire-file-in-a-loop
 
->Note that this differs from the underlying read(2) POSIX system call. read() can return less than a full buffer if interrupted, or after a packet from a socket, or after a line on a line-buffered tty, and stuff like that. fread() keeps calling read until the buffer is full or it reaches EOF.
+> Note that this differs from the underlying read(2) POSIX system call. read() can return less than a full buffer if interrupted, or after a packet from a socket, or after a line on a line-buffered tty, and stuff like that. fread() keeps calling read until the buffer is full or it reaches EOF.
 
 4.
 
@@ -61,8 +61,9 @@ https://github.com/google/glog/blob/ba8a9f6952d04d1403b97df24e6836227751454e/src
 The class is used for formatting error messages.  We don't use printf() as it's not async signal safe.
 
 UNPv1 Ch5.9:
->警告：在信号处理函数中调用诸如 printf 这样的标准 I/O 函数是不合适的，其原因将在 11.18 节讨论。
->https://stackoverflow.com/questions/25327519/how-to-send-udp-packet-every-1-ms
+
+> 警告：在信号处理函数中调用诸如 printf 这样的标准 I/O 函数是不合适的，其原因将在 11.18 节讨论。
+> https://stackoverflow.com/questions/25327519/how-to-send-udp-packet-every-1-ms
 
 5.
 
@@ -173,10 +174,10 @@ if ((readBytes = fread(header, sizeof(header), 1, file)) != sizeof(header)) { //
 [c++: subprocess output to stdin](https://stackoverflow.com/questions/8438277/c-subprocess-output-to-stdin)
 
 Internally, `popen(<command>)` is interpreted as:
+
 > cmd /c <command>
 
 If `<command>` contains spaces in it, quote the whole command just before passing it to `popen`.
-
 
 [Creating a Child Process with Redirected Input and Output](https://docs.microsoft.com/en-us/windows/win32/procthread/creating-a-child-process-with-redirected-input-and-output)
 
@@ -187,12 +188,14 @@ If `<command>` contains spaces in it, quote the whole command just before passin
 15.
 
 [fgets to read line by line in files](https://stackoverflow.com/questions/21180248/fgets-to-read-line-by-line-in-files)
+
 ```c
     while (fgets(line, MAX_LINE_SIZE, fp) != NULL)
         ++col;
 ```
 
 [fwrite vs stdout](https://stackoverflow.com/questions/17259250/fwrite-doesnt-print-anything-to-stdout)
+
 ```
 char s[5] = { 'H', 'e', 'l', 'l', 'o' };
 fwrite(s, 1, 5, stdout);
@@ -293,5 +296,22 @@ https://github.com/bminor/glibc/blob/master/libio/iogetline.c
 > printf("%zd\n", y);  // prints as signed decimal
 > ```
 
+25. [Do progress reports/logging information belong on stderr or stdout?](https://unix.stackexchange.com/questions/331611/do-progress-reports-logging-information-belong-on-stderr-or-stdout)
 
+> FWIW, in Python, `stdout` is line-buffered by default whereas `stderr` is unbuffered, so `stderr` is the natural choice for writing progress text / bars / spinners that don't contain a newline. (If you write such text on `stdout` you need to clutter up your progress output calls with `stdout.flush()` to make it visible).
 
+https://git-scm.com/docs/git-bundle
+
+> --quiet 
+> 
+> This flag makes the command not to report its progress on the standard error stream.
+
+[C# progressbar update from c++ using managed c++ cli](https://stackoverflow.com/questions/37270112/c-sharp-progressbar-update-from-c-using-managed-c-cli)
+
+26. [GitHub - MaJerle/lwprintf: Lightweight printf library optimized for embedded systems](https://github.com/MaJerle/lwprintf)
+
+27. [wurlitzer.py](https://github.com/minrk/wurlitzer/blob/main/wurlitzer.py)
+
+28. freopen
+    
+    - [PyStand/PyStand.cpp at 164a7b929d1d3c35f299da2669dc112775e724d7 · skywind3000/PyStand · GitHub](https://github.com/skywind3000/PyStand/blob/164a7b929d1d3c35f299da2669dc112775e724d7/PyStand.cpp#L324-L348)

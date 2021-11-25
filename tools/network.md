@@ -2,17 +2,22 @@
 
 - [clumsy](https://github.com/jagt/clumsy)
 - [curlie](https://github.com/rs/curlie)
+- [ephemeral-port-reserve](https://github.com/Yelp/ephemeral-port-reserve): Find an unused port, reliably
 - Fiddler
   - [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
 - [hping](https://github.com/antirez/hping)
 - [httpie](https://httpie.io/)
+- [IO Ninja](https://ioninja.com/)
+  - [protolesshooks](https://github.com/vovkos/protolesshooks)
 - [joy](https://github.com/cisco/joy)
 - [LANDrop](https://github.com/LANDrop/LANDrop)
 - [NamedPipeCapture](https://github.com/Vatyx/NamedPipeCapture)
 - [net-search](https://github.com/wsdassssss/net-search)
+- [netdata](https://github.com/netdata/netdata)
 - [networkit](https://github.com/networkit/networkit)
 - networkQuality - macOS
 - [pingtop](https://github.com/laixintao/pingtop)
 - [termshark](https://github.com/gcla/termshark)
 - [WebBench](https://github.com/EZLippi/WebBench)
+- [WiFiManager](https://github.com/tzapu/WiFiManager)
 - WireShark

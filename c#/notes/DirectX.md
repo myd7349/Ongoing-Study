@@ -6,6 +6,8 @@ https://github.com/SlimDX
 
 https://github.com/sharpdx/SharpDX
 
+- https://github.com/lepoco/dxnet
+
 https://github.com/terrafx/terrafx.interop.windows
 
 https://www.nuget.org/packages/WindowsAPICodePack-DirectX/

@@ -18,6 +18,15 @@
 
         [Option('m', "margin", Default = false, HelpText = "Take report page margins in to consideration.")]
         public bool Margin { get; set; }
+
+        [Option('r', "recursive", Default = false, HelpText = "Take parent position into account when using Bounds.")]
+        public bool Recursive { get; set; }
+
+        [Option('a', "abs", Default = false, HelpText = "Use AbsBounds instead of Bounds.")]
+        public bool Abs { get; set; }
+
+        [Option('p', "prepare", Default = false, HelpText = "Prepare the report.")]
+        public bool Prepare { get; set; }
     }
 }
 

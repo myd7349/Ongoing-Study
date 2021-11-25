@@ -4,6 +4,7 @@ Applications:
 - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
 - [Ascii-Design](https://github.com/Faster3ck/Ascii-Design)
 - [BingWallpaper](https://github.com/ypingcn/BingWallpaper)
+- [Clementine](https://github.com/clementine-player/Clementine): Clementine Music Player
 - [Converseen](https://github.com/Faster3ck/Converseen)
 - [CopyQ](https://github.com/hluk/CopyQ)
 - [cool-retro-term](https://github.com/Swordfish90/cool-retro-term)
@@ -14,6 +15,7 @@ Applications:
 - [Fritzing](https://github.com/fritzing/fritzing-app)
 - [goldendict](https://github.com/goldendict/goldendict)
 - [Groot](https://github.com/BehaviorTree/Groot)
+- [gyroflow](https://github.com/gyroflow/gyroflow): Video stabilization using gyroscope data.
 - [Hanoi-Towers](https://github.com/QuasarApp/Hanoi-Towers)
 - [heaptrack](https://github.com/KDE/heaptrack)
 - [INIditor](https://github.com/Jeroen6/INIditor)
@@ -66,6 +68,8 @@ Applications:
 - [sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)
 - [subsurface](https://github.com/subsurface/subsurface)
 - [synergy-core](https://github.com/symless/synergy-core)
+- [tasky](https://sourceforge.net/projects/tasky-launchy/)
+  - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
 - [Telegram Desktop](https://github.com/telegramdesktop/tdesktop)
 - [terminal](https://github.com/cutefishos/terminal)
 - [tiled](https://github.com/mapeditor/tiled)
@@ -80,24 +84,56 @@ Applications:
 
 Libraries:
 
+- [Chart.qml](https://github.com/qyvlik/Chart.qml): Chart.qml like Chart.js
+
 - [FakeVim](https://github.com/hluk/FakeVim)
+
 - [framelesshelper](https://github.com/wangwenx190/framelesshelper)
+
 - [kconfigwidgets](https://github.com/KDE/kconfigwidgets)
+
 - [KDDockWidgets](https://github.com/KDAB/KDDockWidgets)
+
 - [libcrashreporter-qt](https://github.com/dschmidt/libcrashreporter-qt)
+  
   - [CrashReporter](https://github.com/RedisDesktop/CrashReporter)
+
 - [PDF4QT](https://github.com/JakubMelka/PDF4QT)
+
 - [QAdvancedItemViews](https://github.com/Alexpux/QAdvancedItemViews)
+
+- [Qaterial](https://github.com/OlivierLDff/Qaterial)
+
 - [qca](https://github.com/KDE/qca)
+
 - [QCefWidget](https://github.com/winsoft666/QCefWidget)
+
+- [QCustomPlot](https://www.qcustomplot.com/)
+  
+  - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
+
 - [QDeviceWatcher](https://github.com/wang-bin/qdevicewatcher)
+
 - [QHexView](https://github.com/horsicq/QHexView)
+
 - [qtcompress](https://github.com/nezticle/qtcompress)
+
 - [Qt-FramelessWindow](https://github.com/winsoft666/Qt-FramelessWindow)
+
 - [Qt-Secret](https://github.com/QuasarApp/Qt-Secret)
+
+- [qglobalshortcut](https://github.com/mitei/qglobalshortcut)
+  
+  - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
+
 - [SingleApplication](https://github.com/itay-grudev/SingleApplication)
+  
+  - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
+
 - [spix](https://github.com/faaxm/spix) - UI test automation.
+
 - [TTKWidgetTools](https://github.com/Greedysky/TTKWidgetTools)
+
 - [XShortcuts](https://github.com/horsicq/XShortcuts)
 
 Tools:

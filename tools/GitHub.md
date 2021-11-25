@@ -41,6 +41,12 @@ https://github.com/lukka/run-vcpkg/issues/66
 
 [dev-sidecar](https://github.com/docmirror/dev-sidecar)
 
+[gh-proxy](https://github.com/hunshcn/gh-proxy)
+
+- [基于Cloudflare搭建属于自己的GitHub加速站 | ahhhhfs - A姐分享](https://www.abskoop.com/11425/)
+
+[hosts](https://github.com/ineo6/hosts)
+
 Awesome README.md:
 
 - https://github.com/yihong0618/yihong0618
@@ -91,3 +97,5 @@ https://github.com/amorriscode/book-box
 https://github.com/refined-github/refined-github
 
 [OpenFunction](https://github.com/OpenFunction/OpenFunction/)
+
+[GitHub - Justineo/github-hovercard: Neat hovercards for GitHub.](https://github.com/Justineo/github-hovercard)

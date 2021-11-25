@@ -133,3 +133,7 @@ void EasyCreateBMPFile(LPTSTR pszFile, HBITMAP hBitmap, HDC hDC) {
 
   LocalFree(pbmi);
 }
+
+
+// References:
+// https://github.com/skywind3000/BasicBitmap

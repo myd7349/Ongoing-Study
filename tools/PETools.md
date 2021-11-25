@@ -46,7 +46,9 @@
 
 - [Cutter](https://github.com/rizinorg/cutter)
 - [hackingtool](https://github.com/Z4nzu/hackingtool)
+- IDA
 - [OpenArk](https://github.com/BlackINT3/OpenArk)
+- [radare2](https://github.com/radareorg/radare2)
 - [regenny](https://github.com/cursey/regenny)
 
 ### Resource Editor
@@ -72,3 +74,5 @@
 - [iced](https://github.com/icedland/iced)
 
 - [PeNet](https://github.com/secana/PeNet)
+
+- [Ressy](https://github.com/Tyrrrz/Ressy): Library for managing native resources in PE files

@@ -172,3 +172,4 @@ private:
 // https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/ia-32-ia-64-benchmark-code-execution-paper.pdf
 // https://www.linuxquestions.org/questions/programming-9/how-to-convert-tsc-cpu-cycles-into-seconds-in-c-833190/
 // https://msdn.microsoft.com/en-us/library/twchhe95.aspx
+// https://github.com/Blinue/Magpie/blob/main/Runtime/StepTimer.h

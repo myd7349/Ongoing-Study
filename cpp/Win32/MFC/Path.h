@@ -13,3 +13,7 @@ BOOL OpenFolderAndSelectItems(LPCTSTR lpcszFileDir, LPCTSTR lpcszFileName, ...);
 int DeleteFile(LPCTSTR lpcszPath, bool bPermanentDelete);
 
 BOOL IsEquivalentPath(LPCTSTR lpcszPath1, LPCTSTR lpcszPath2);
+
+// IsFile
+// IsDirectory
+// https://github.com/Blinue/Magpie/blob/e552e60621e6acbf9d87fec1770e797dcf74f546/Runtime/Utils.h#L58-L67

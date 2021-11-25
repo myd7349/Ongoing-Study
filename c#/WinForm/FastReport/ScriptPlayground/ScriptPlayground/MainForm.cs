@@ -75,7 +75,7 @@
                     person.Age = age;
             }
 
-            if (genderComboBox_.Enabled)
+            if (genderComboBox_.Enabled && genderComboBox_.SelectedItem != null)
                 person.Gender = genderComboBox_.SelectedItem.ToString();
 
             if (idTextBox_.Enabled)

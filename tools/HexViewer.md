@@ -29,3 +29,13 @@ linux unhex command
 https://github.com/abbaye/WpfHexEditorControl
 
 https://github.com/WerWolv/ImHex
+
+010 Editor
+
+[Hex Fiend](https://hexfiend.com/) - [GitHub](https://github.com/HexFiend/HexFiend)
+
+WinHex
+
+[VSCode HexEditor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor)
+
+https://hexed.it/

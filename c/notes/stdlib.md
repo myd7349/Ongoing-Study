@@ -125,3 +125,8 @@ https://en.cppreference.com/w/c/memory/realloc
 
 > If there is not enough memory, the old memory block is not freed and null pointer is returned.
 
+[Is it bad practice to allocate memory in a DLL and give a pointer to it to a client app?](https://stackoverflow.com/questions/13625388/is-it-bad-practice-to-allocate-memory-in-a-dll-and-give-a-pointer-to-it-to-a-cli)
+
+> **Avoids mismatching the allocator and deallocator.** As mentioned in [Aesthete's answer](https://stackoverflow.com/a/13625555/179715), if the DLL allocates a pointer and returns it, the caller *must* call the corresponding deallocator to free it. This is not necessarily
+>  trivial: the DLL might be statically linked against one version of, 
+> say, `malloc`/`free` while the `.exe` is linked against a different version of `malloc`/`free`. (For example, the DLL could be using release versions while the `.exe` is using specialized debug versions.)

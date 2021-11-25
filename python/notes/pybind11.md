@@ -2,7 +2,10 @@ Binding Generators
 ====
 
 * [binder](https://github.com/RosettaCommons/binder)
+
 * [cppimport](https://github.com/tbenthompson/cppimport)
+  
+  BTW, Cython also provides a similar tool: [pyximport](https://github.com/cython/cython/tree/master/pyximport).
 
 Projects using `pybind11`
 ====
@@ -30,6 +33,8 @@ Projects using `pybind11`
 * [OpenCC](https://github.com/BYVoid/OpenCC/blob/master/src/py_opencc.cpp)
 * [traji](https://github.com/cmpute/traji)
 * [pedalboard](https://github.com/spotify/pedalboard)
+* [NumPyEigen](https://github.com/fwilliams/numpyeigen)
+  - [libigl-python-bindings](https://github.com/libigl/libigl-python-bindings)
 
 # Notes
 

@@ -14,6 +14,9 @@
                 case "ReportPage":
                     InspectReportPage(reportObject as ReportPage);
                     break;
+                case "DataBand":
+                    InspectDataBand(reportObject as DataBand);
+                    break;
                 case "PictureObject":
                     InspectPictureObject(reportObject as PictureObject);
                     break;
@@ -36,7 +39,9 @@
             InspectBase(reportObject);
 
             Console.WriteLine($"LTRB: {reportObject.Left}, {reportObject.Top}, {reportObject.Right}, {reportObject.Bottom}");
+            Console.WriteLine($"LTRB(in mm): {reportObject.Left / Units.Millimeters}, {reportObject.Top / Units.Millimeters}, {reportObject.Right / Units.Millimeters}, {reportObject.Bottom / Units.Millimeters}");
             Console.WriteLine($"Abs LTRB: {reportObject.AbsLeft}, {reportObject.AbsTop}, {reportObject.AbsRight}, {reportObject.AbsBottom}");
+            Console.WriteLine($"Abs LTRB(in mm): {reportObject.AbsLeft / Units.Millimeters}, {reportObject.AbsTop / Units.Millimeters}, {reportObject.AbsRight / Units.Millimeters}, {reportObject.AbsBottom / Units.Millimeters}");
             Console.WriteLine($"Width: {reportObject.Width}");
             Console.WriteLine($"Height: {reportObject.Height}");
             Console.WriteLine($"Width(in mm): {reportObject.Width / Units.Millimeters}");
@@ -52,12 +57,33 @@
             InspectComponentBase(reportObject);
         }
 
+        /*
+        namespace FastReport.Export
+        {
+            public static class ExportUtils
+            {
+                public static float GetPageWidth(ReportPage page)
+                {
+                    if (page.UnlimitedWidth)
+                        return page.UnlimitedWidthValue / Units.Millimeters;
+                    else
+                        return page.PaperWidth;
+                }
+            }
+        }
+        */
         private static void InspectReportPage(ReportPage reportPage)
         {
             InspectPageBase(reportPage);
 
+            Console.WriteLine($"UnlimitedWidth: {reportPage.UnlimitedWidth}");
+            Console.WriteLine($"UnlimitedHeight: {reportPage.UnlimitedHeight}");
+            Console.WriteLine($"UnlimitedWidthValue: {reportPage.UnlimitedWidthValue}");
+            Console.WriteLine($"UnlimitedHeightValue: {reportPage.UnlimitedHeightValue}");
             Console.WriteLine($"Paper Width: {reportPage.PaperWidth}");
             Console.WriteLine($"Paper Height: {reportPage.PaperHeight}");
+            Console.WriteLine($"Page Width: {reportPage.Report.Engine?.PageWidth}");
+            Console.WriteLine($"Page Height: {reportPage.Report.Engine?.PageHeight}");
             Console.WriteLine($"Width(in pixels): {reportPage.WidthInPixels}");
             Console.WriteLine($"Height(in pixels): {reportPage.HeightInPixels}");
             Console.WriteLine($"Landscape: {reportPage.Landscape}");
@@ -67,6 +93,16 @@
         private static void InspectReportComponentBase(ReportComponentBase component)
         {
             InspectComponentBase(component);
+        }
+
+        private static void InspectBandBase(BandBase band)
+        {
+            InspectBreakableComponent(band);
+        }
+
+        private static void InspectDataBand(DataBand dataBand)
+        {
+            InspectBandBase(dataBand);
         }
 
         private static void InspectPictureObjectBase(PictureObjectBase pictureObject)
@@ -123,6 +159,8 @@
 
 
 // References:
+// https://www.fast-report.com/public_download/docs/dba/html/doc/designer/ReportObjectsFundamentals.html
+// https://fastreports.github.io/FastReport.Documentation/ClassReference/api/FastReport.PictureObject.html
 // [How to use System.Windows.Forms in .NET Core class library](https://stackoverflow.com/questions/38460253/how-to-use-system-windows-forms-in-net-core-class-library)
 // [Add reference of System.Windows.forms in .Net Core](https://stackoverflow.com/questions/54241072/add-reference-of-system-windows-forms-in-net-core)
 // [Using System.Windows.Forms classes in a .net core 3.0 preview9 project](https://stackoverflow.com/questions/57908184/using-system-windows-forms-classes-in-a-net-core-3-0-preview9-project)

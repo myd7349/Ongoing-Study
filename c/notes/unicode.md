@@ -23,3 +23,5 @@ However, `W2A_CP(L"早上好", CP_UTF8)` not works for me.
 https://github.com/simdutf/simdutf
 
 https://github.com/lemire/talks/blob/master/2021/spire/spire.pdf
+
+[ell/utf8.h at master · MaskRay/ell · GitHub](https://github.com/MaskRay/ell/blob/master/ell/utf8.h)

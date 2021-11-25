@@ -1,3 +1,7 @@
+### AI
+
+- [pycaret](https://github.com/pycaret/pycaret)
+
 ### Audio
 
 - [pedalboard](https://github.com/spotify/pedalboard)
@@ -56,6 +60,10 @@
   
   - [wordle-tui](https://github.com/frostming/wordle-tui)
 
+### Configuration
+
+- [environ-config](https://github.com/hynek/environ-config)
+
 ### Database
 
 - [orm](https://github.com/encode/orm)
@@ -86,6 +94,12 @@
 
 * [kivy](https://github.com/kivy/kivy)
 
+* [PyGUI](https://github.com/gcewing/PyGUI)
+
+* PyQt
+  
+  - Persepolis Download Manager
+
 * [PySimpleGUI](https://github.com/PySimpleGUI/PySimpleGUI)
   
   - [duplicateFileFinder](https://github.com/nav9/duplicateFileFinder)
@@ -110,9 +124,18 @@
 
 - [ulipad](https://github.com/limodou/ulipad)
 
+### Logging
+
+- [structlog](https://github.com/hynek/structlog)
+
 ### Networking
 
 - [httpx](https://github.com/encode/httpx)
+- whatismyip
+
+### OOP
+
+- [attrs](https://github.com/python-attrs/attrs)
 
 ### Package Management
 
@@ -135,6 +158,12 @@
 - [django-rest-framework](https://github.com/encode/django-rest-framework)
 
 - [sanic](https://github.com/sanic-org/sanic)
+
+### Web Server
+
+- [webby](https://github.com/deplinenoise/webby)
+  
+  - [remoteimgui](https://github.com/JordiRos/remoteimgui)
 
 ### Miscellaneous
 

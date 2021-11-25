@@ -19,10 +19,10 @@
         [Option('r', "resolution", HelpText = "Output file resolution.")]
         public int Resolution { get; set; }
 
-        [Option('x', "resolution-x", HelpText = "Output file resolution (horizontal).")]
+        [Option('x', "resolution-x", HelpText = "Output TIFF file resolution (horizontal).")]
         public int ResolutionX { get; set; }
 
-        [Option('y', "resolution-y", HelpText = "Output file resolution (vertical).")]
+        [Option('y', "resolution-y", HelpText = "Output TIFF file resolution (vertical).")]
         public int ResolutionY { get; set; }
 
         [Option('q', "quality", Default = -1, HelpText = "Jpeg Quality.")]

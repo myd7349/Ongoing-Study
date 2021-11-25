@@ -408,3 +408,4 @@ void *easy_base64_decode(const char *base64, void *data, size_t *out_len)
 // https://github.com/aklomp/base64
 // https://github.com/zhicheng/base64
 // https://github.com/joedf/base64.c
+// https://github.com/MaskRay/ell/blob/master/ell/base64.h

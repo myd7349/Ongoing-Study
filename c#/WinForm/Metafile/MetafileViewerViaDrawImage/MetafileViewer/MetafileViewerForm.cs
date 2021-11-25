@@ -1,6 +1,7 @@
 ﻿namespace MetafileViewer
 {
     using System;
+    using System.Diagnostics;
     using System.Drawing;
     using System.Drawing.Imaging;
     using System.IO;
@@ -31,10 +32,14 @@
 
         private void MetafileViewerForm_Load(object sender, EventArgs e)
         {
+            metafileCanvas_.IsDoubleBuffered = true;
+
             sizeModeComboBox_.DataSource = Enum.GetValues(typeof(PictureBoxSizeMode));
             sizeModeComboBox_.SelectedItem = PictureBoxSizeMode.Zoom;
 
             transparentRadioButton_.Checked = true;
+            zeroDegreeRadioButton_.Checked = true;
+            doubleBufferedCheckBox_.Checked = metafileCanvas_.IsDoubleBuffered;
         }
 
 
@@ -85,7 +90,7 @@
                     "Bitmap Files (*.bmp;*.dib)|*.bmp;*.dib",
                     "JPEG Files (*.jpg;*.jpeg)|*.jpg;*.jpeg",
                     "PNG Files (*.png)|*.png",
-                    "Windows Meta Files (*.wmf)|*.wmf",
+                    "Windows Meta Files (*.emf;*.wmf)|*.emf;*.wmf",
                     "All Files (*.*)|*.*",
                 };
 
@@ -97,8 +102,22 @@
                 {
                     switch (Path.GetExtension(saveFileDialog.FileName).ToLower())
                     {
+                        case ".emf":
+#if false
+                            // TODO:
+                            // If orientation is changed, then the exported emf file can not be opened with
+                            // this application anymore.
+                            metafileCanvas_.Metafile.Save(saveFileDialog.FileName, ImageFormat.Emf);
+#else
+                            var metafile = metafileCanvas_.Metafile;
+                            MetafileUtility.CopyMetafile(ref metafile, saveFileDialog.FileName);
+                            metafileCanvas_.Metafile = metafile;
+#endif
+                            break;
                         case ".wmf":
-                            MetafileUtility.MetafileToWMF(metafileCanvas_.Metafile, saveFileDialog.FileName);
+                            metafile = metafileCanvas_.Metafile;
+                            MetafileUtility.MetafileToWMF(ref metafile, saveFileDialog.FileName);
+                            metafileCanvas_.Metafile = metafile;
                             break;
                         default:
                             using (var bitmap = MetafileUtility.MetafileToBitmap(metafileCanvas_.Metafile))
@@ -116,9 +135,12 @@
             metafileCanvas_.SizeMode = (PictureBoxSizeMode)sizeModeComboBox_.SelectedItem;
         }
 
-        private void transparentRadioButton__CheckedChanged(object sender, EventArgs e)
+        private void backgroundRadioButton__CheckedChanged(object sender, EventArgs e)
         {
             var button = sender as RadioButton;
+
+            if (button == null || !button.Checked)
+                return;
 
             if (button == transparentRadioButton_)
             {
@@ -130,36 +152,61 @@
                 metafileCanvas_.BackColor = Color.White;
                 metafileCanvas_.Invalidate();
             }
+            else
+            {
+                Debug.Assert(false, "Unexpected background.");
+            }
         }
 
         private void propertiesButton__Click(object sender, EventArgs e)
         {
-            var metafileProxy = new MetafileProxy(metafileCanvas_.Metafile);
-            using (var propertiesForm = new MetafilePropertiesForm(metafileProxy))
+            using (var propertiesForm = new MetafilePropertiesForm(metafileCanvas_.Metafile))
             {
                 propertiesForm.ShowDialog();
-                metafileCanvas_.Metafile = metafileProxy.Metafile;
+                metafileCanvas_.Metafile = propertiesForm.Metafile;
             }
+        }
+
+        private void orientationRadioButton__CheckedChanged(object sender, EventArgs e)
+        {
+            var button = sender as RadioButton;
+            if (button == null || !button.Checked)
+                return;
+
+            if (button == zeroDegreeRadioButton_)
+                metafileCanvas_.Orientation = 0;
+            else if (button == ninetyDegreeRadioButton_)
+                metafileCanvas_.Orientation = 90;
+            else if (button == oneHundredEightyDegreeRadioButton_)
+                metafileCanvas_.Orientation = 180;
+            else if (button == twoHundredSeventyDegreeRadioButton_)
+                metafileCanvas_.Orientation = 270;
+            else
+                Debug.Assert(false, "Unexpected orientation.");
+        }
+
+        private void doubleBufferedCheckBox__CheckedChanged(object sender, EventArgs e)
+        {
+            metafileCanvas_.IsDoubleBuffered = doubleBufferedCheckBox_.Checked;
         }
 
         private void OpenFile(string filePath)
         {
             try
             {
-                metafileCanvas_.Metafile = new Metafile(filePath);
+                metafileCanvas_.OriginalMetafile = new Metafile(filePath);
+
+                zeroDegreeRadioButton_.Checked = true;
+
                 filePath_ = filePath;
-                UpdateTitle();
+
+                Text = string.Format("{0} - Metafile Viewer", filePath_);
             }
             catch (Exception ex)
             {
                 MsgBox.ErrorFmt("Failed to open metafile {0}.\r\n{1}", filePath, ex.Message);
                 Logger.Error(ex, "Failed to open metafile {0}.", filePath);
             }
-        }
-
-        private void UpdateTitle()
-        {
-            Text = string.Format("{0} - Metafile Viewer", filePath_);
         }
 
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();

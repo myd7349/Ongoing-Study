@@ -4,6 +4,10 @@ Servers:
 
 - [git](https://github.com/msysgit/msysgit/wiki/Setting-up-a-Git-server-on-Windows-using-Git-for-Windows-and-CopSSH)
 
+- gitea
+  
+  - [homelab](https://github.com/khuedoan/homelab)
+
 - gogs
 
 Clients:
@@ -28,6 +32,10 @@ Tools:
 - [git-big-picture](https://github.com/git-big-picture/git-big-picture)
 
 - [git-crypt](https://github.com/AGWA/git-crypt)
+
+- [git-revise](https://github.com/mystor/git-revise)
+
+- [gitlist](https://github.com/klaussilveira/gitlist)
 
 Software
 
@@ -444,4 +452,43 @@ https://twitter.com/yihong0618/status/1475472422836924417
 [git bundle](https://git-scm.com/docs/git-bundle)
 
 - [How to generate a patch that includes the commit SHA?](https://stackoverflow.com/questions/45921595/how-to-generate-a-patch-that-includes-the-commit-sha)
+
 - [Git over Email?](https://stackoverflow.com/questions/85051/git-over-email)
+
+- [git bundle: bundle tags and heads](https://stackoverflow.com/questions/5719369/git-bundle-bundle-tags-and-heads)
+  
+  > ```
+  > git bundle create RA.bundle --branches --tags
+  > ```
+
+- [How to git bundle a complete repo](https://stackoverflow.com/questions/11792671/how-to-git-bundle-a-complete-repo)
+  
+  > ```
+  > git bundle create repo.bundle --all
+  > ```
+  > 
+  > ```
+  > git clone --mirror git@example.org:path/repo.git
+  > ```
+
+- [Commits in a git bundle](https://stackoverflow.com/questions/14460892/commits-in-a-git-bundle)
+
+- [restoring git repository from bundle backup](https://stackoverflow.com/questions/9807367/restoring-git-repository-from-bundle-backup)
+
+- [How to unbundle a git bundle into my already existing but empty repository?](https://stackoverflow.com/questions/57625879/how-to-unbundle-a-git-bundle-into-my-already-existing-but-empty-repository)
+  
+  ```
+  git bundle create lastest_10_commits.z -10 master
+  git bundle verify lastest_10_commits.z
+  git pull lastest_10_commits.z master
+  ```
+
+- [Git bundle single commit?](https://stackoverflow.com/questions/31329766/git-bundle-single-commit)
+
+[How to "git clone" including submodules?](https://stackoverflow.com/questions/3796927/how-to-git-clone-including-submodules)
+
+[Locating a function in a git repository](https://stackoverflow.com/questions/60843047/locating-a-function-in-a-git-repository)
+
+> git grep ConCRT
+> 
+> git grep -i ConCRT

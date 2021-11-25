@@ -1,6 +1,7 @@
 [windows下有什么好用的屏幕录像软件？](https://www.zhihu.com/question/22202142)
 
-- __OBS __Studio
+- OBS Studio
+  - [obs-websocket](https://github.com/obsproject/obs-websocket)
 - ApowerREC
 - __Bandicam
 - __Captura

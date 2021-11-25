@@ -2,35 +2,76 @@ https://github.com/quozd/awesome-dotnet#wpf
 
 Applications:
 
+- [ActiveDesktopPlus](https://github.com/torchgm/ActiveDesktopPlus)
+
 - [BililiveRecorder](https://github.com/Bililive/BililiveRecorder)
+
 - [BingWallpaper2](https://github.com/Dustray/BingWallpaper2)
+
 - [cairoshell](https://github.com/cairoshell/cairoshell)
+
 - [Core2D](https://github.com/wieslawsoltes/Core2D)
+
 - [CsvTextEditor](https://github.com/WildGums/CsvTextEditor)
+
+- [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter)
+
 - [dotnetpad](https://github.com/jbe2277/dotnetpad)
+
 - [DoubanFM](https://github.com/kfstorm/DoubanFM)
+
 - [downkyi](https://github.com/leiurayer/downkyi)
+
 - [EarTrumpet](https://github.com/File-New-Project/EarTrumpet): Volume Control for Windows.
+
 - [Files](https://github.com/files-community/Files)
+
+- [LightBulb](https://github.com/Tyrrrz/LightBulb): Reduces eye strain by adjusting gamma based on the current time
+
 - [live-draw](https://github.com/antfu/live-draw)
+
+- [Lively Wallpaper](https://github.com/rocksdanister/lively)
+
 - [Magpie](https://github.com/Blinue/Magpie)
+
 - [MindLated](https://github.com/Sato-Isolated/MindLated)
+
 - [NodeNetwork](https://github.com/Wouterdek/NodeNetwork)
+
 - [perfview](https://github.com/microsoft/perfview)
+
 - [QSanguosha](https://github.com/Mogara/QSanguosha)
+
 - [QSanguosha-v2](https://github.com/Mogara/QSanguosha-v2)
+
 - [QuickLook](https://github.com/QL-Win/QuickLook)
+
 - [RetroBar](https://github.com/dremin/RetroBar)
+
+- [RoundedTB](https://github.com/torchgm/RoundedTB)
+
 - [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows)
+
 - [simple-music-player](https://github.com/punker76/simple-music-player)
+
 - [snoopwpf](https://github.com/snoopwpf/snoopwpf)
+
 - [SvgToXaml](https://github.com/BerndK/SvgToXaml)
+
 - [SyncTrayzor](https://github.com/canton7/SyncTrayzor)
+
 - [XstReader](https://github.com/Dijji/XstReader)
+
+- [youtube-dl-wpf](https://github.com/database64128/youtube-dl-wpf)
+
 - [YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)
+
 - [WeatherCS](https://github.com/crashmax-dev/WeatherCS)
+
 - [WinCompose](https://github.com/samhocevar/wincompose)
+
 - [Wox](https://github.com/Wox-launcher/Wox)
+
 - [WpfDesigner](https://github.com/icsharpcode/WpfDesigner)
 
 Libraries:
@@ -46,6 +87,8 @@ Libraries:
   - [Gemini](https://github.com/tgjones/gemini)
 
 - [AvalonEdit](https://github.com/icsharpcode/AvalonEdit)
+
+- [bot](https://github.com/thinkpixellab/bot)
 
 - [Caliburn.Micro](https://github.com/Caliburn-Micro/Caliburn.Micro)
   
@@ -83,6 +126,8 @@ Libraries:
 
 - [gong-wpf-dragdrop](https://github.com/punker76/gong-wpf-dragdrop)
   
+  - [gong-wpf-dragdrop-file-sample](https://github.com/punker76/gong-wpf-dragdrop-file-sample)
+  
   - [Quicker](https://github.com/cuiliang/Quicker)
 
 - [Gu.Wpf.DataGrid2D](https://github.com/GuOrg/Gu.Wpf.DataGrid2D)
@@ -105,13 +150,19 @@ Libraries:
 
 - [ModernWpf](https://github.com/Kinnara/ModernWpf)
   
+  - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+
 - [mvvm-dialogs](https://github.com/FantasticFiasco/mvvm-dialogs)
 
 - [MVVM Light Toolkit](https://github.com/lbugnion/mvvmlight)
   
   - [NextBootOSSelector](https://github.com/takuya-takeuchi/NextBootOSSelector)
 
-- [NlogViewer](https://github.com/erizet/NlogViewer)
+- [NLogViewer](https://github.com/dojo90/NLogViewer): NlogViewer is a ui control library to visualize NLog logs
+  
+  - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+
+- [NlogViewer](https://github.com/erizet/NlogViewer): NlogViewer is a simple WPF-control to show NLog-logs.
 
 - [NumericUpDownLib](https://github.com/Dirkster99/NumericUpDownLib)
 
@@ -127,7 +178,13 @@ Libraries:
 
 - [PanuonUI.Silver](https://github.com/Mochengvia/PanuonUI.Silver)
 
+- [RawInput](https://github.com/mfakane/rawinput-sharp)
+  
+  - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+
 - [Stylet](https://github.com/canton7/Stylet)
+  
+  - [YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)
 
 - https://github.com/OutSystems/WebView
 
@@ -174,6 +231,8 @@ Libraries:
   
   - [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows)
 
+- [WpfModernWinver](https://github.com/torchgm/WpfModernWinver)
+
 - [wpf-notifyicon](https://github.com/hardcodet/wpf-notifyicon)
 
 - [wpf-propertygrid](https://github.com/jaime-olivares/wpf-propertygrid)
@@ -183,6 +242,8 @@ Libraries:
 - [wpftoolkit](https://github.com/xceedsoftware/wpftoolkit)
   
   - [What is the best way to make a wizard using native WPF controls](https://stackoverflow.com/questions/17418455/what-is-the-best-way-to-make-a-wizard-using-native-wpf-controls)
+
+- [WPF UI](https://github.com/lepoco/wpfui)
 
 - [XamlAnimatedGif](https://github.com/XamlAnimatedGif/XamlAnimatedGif)
 
@@ -196,4 +257,8 @@ Charting:
 
 Tools:
 
+- [Kaxaml](https://github.com/thinkpixellab/kaxaml)
+
 - [WpfAnalyzers](https://github.com/DotNetAnalyzers/WpfAnalyzers)
+
+- [XAMLPad](https://stackoverflow.com/questions/1409004/where-to-download-xamlpad)

@@ -32,14 +32,24 @@ index d6f75cf..1d2cfdf 100755
 
 Softwares:
 
+- [Drafts](https://getdrafts.com/)
+
 - [StackEdit](https://stackedit.io/)
+
 - Typora
+
 - [marktext](https://github.com/marktext/marktext)
+
 - [milkdowns](https://github.com/Saul-Mirone/milkdown)
+
 - [Notable](https://github.com/notable/notable)
+
 - [Obsidian](https://obsidian.md/)
+
 - [turndown](https://github.com/mixmark-io/turndown)
+
 - [MarkdownViewerPlusPlus](https://github.com/nea/MarkdownViewerPlusPlus)
+
 - [WeChat Markdown Editor](https://github.com/doocs/md)
 
 Libraries:
@@ -57,3 +67,7 @@ Libraries:
 Tools:
 
 - [htmldoc](https://github.com/michaelrsweet/htmldoc)
+
+Online Editors:
+
+- [awesome-web-editor](https://github.com/xjh22222228/awesome-web-editor)

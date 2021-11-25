@@ -52,3 +52,18 @@
 4. [Breaking change: System.Drawing.Common only supported on Windows - .NET | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)
 
 5. [How do I install System.Drawing.Common in a project that uses '.NETFramework,Version=v4.5.2'?](https://stackoverflow.com/questions/54984173/how-do-i-install-system-drawing-common-in-a-project-that-uses-netframework-ver)
+
+6. [How to: Print a Windows Form - Windows Forms .NET Framework | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/desktop/winforms/advanced/how-to-print-a-windows-form?view=netframeworkdesktop-4.8)
+   
+   > ```csharp
+   > Size s = this.Size;
+   > memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
+   > Graphics memoryGraphics = Graphics.FromImage(memoryImage);
+   > memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, s);
+   > ```
+
+7. [C# Painting a form into a MetaFile graphics object](https://stackoverflow.com/questions/49146656/c-sharp-painting-a-form-into-a-metafile-graphics-object)
+   
+   > ```csharp
+   > 
+   > ```

@@ -75,7 +75,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MetafileProxy.cs" />
+    <Compile Include="MetafileCanvasAsync.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.githash.cs" />
     <Compile Include="EnhMetaHeader.cs" />
     <Compile Include="MetafileCanvas.cs">

@@ -1,47 +1,77 @@
 ﻿namespace MetafileViewer
 {
     using System;
+    using System.Diagnostics;
     using System.Drawing.Imaging;
     using System.Windows.Forms;
 
     using Vanara.PInvoke;
 
+    using Common;
+
     public partial class MetafilePropertiesForm : Form
     {
-        public MetafilePropertiesForm(MetafileProxy metafile)
+        public MetafilePropertiesForm(Metafile metafile)
         {
-            metafileProxy_ = metafile;
+            metafile_ = metafile;
 
             InitializeComponent();
 
-            propertyGrid_.SelectedObject = metafile?.Metafile;
-            useGdi32CheckBox_.Enabled = metafileProxy_?.Metafile != null;
+            propertiesComboBox_.Enabled = metafile_ != null;
+
+            if (metafile != null)
+                propertiesComboBox_.SelectedIndex = 0;
         }
 
-        private void useGdi32CheckBox__CheckedChanged(object sender, EventArgs e)
+        public Metafile Metafile
         {
-            if (useGdi32CheckBox_.Checked)
+            get
             {
-                var enhMetafileHandle = metafileProxy_.Metafile.GetHenhmetafile();
-                if (enhMetafileHandle != IntPtr.Zero)
-                {
-                    var header = Gdi32.GetEnhMetaFileHeader(enhMetafileHandle);
-                    propertyGrid_.SelectedObject = new EnhMetaHeader(header);
-
-                    //Gdi32.DeleteEnhMetaFile(enhMetafileHandle);
-
-                    // It seems that GetHenhmetafile will cause the
-                    // original Metafile object invalid.
-                    metafileProxy_.Metafile = new Metafile(enhMetafileHandle, true);
-                }
-            }
-            else
-            {
-                propertyGrid_.SelectedObject = metafileProxy_.Metafile;
+                return metafile_;
             }
         }
 
-        private MetafileProxy metafileProxy_;
+        private void propertiesComboBox__SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedItem = propertiesComboBox_.SelectedItem;
+            if (selectedItem == null)
+                return;
+
+            switch (selectedItem.ToString())
+            {
+                case "Metafile":
+                    propertyGrid_.SelectedObject = metafile_;
+                    break;
+                case "MetafileHeader":
+                    propertyGrid_.SelectedObject = metafile_.GetMetafileHeader();
+                    break;
+                case "ENHMETAHEADER":
+                    using (var metafile = MetafileUtility.CopyMetafile(ref metafile_))
+                    {
+                        // Metafile.GetHenhmetafile is just a wrapper of GdipGetHemfFromMetafile:
+                        // https://github.com/dotnet/runtime/blob/78c6505cffe2558b036fbe44cd27038affbb6cce/src/libraries/System.Drawing.Common/src/System/Drawing/Imaging/Metafile.Windows.cs#L379-L383
+                        // and according to:
+                        // http://www.jose.it-berater.org/gdiplus/reference/flatapi/graphics/gdipgethemffrommetafile.htm
+                        // > GdipGetHemfFromMetafile:
+                        // > This method sets the Metafile object to an invalid state. The user is responsible for calling DeleteEnhMetafile,
+                        // > to delete the Windows handle.
+                        var enhMetafileHandle = metafile.GetHenhmetafile();
+                        if (enhMetafileHandle != IntPtr.Zero)
+                        {
+                            var header = Gdi32.GetEnhMetaFileHeader(enhMetafileHandle);
+                            propertyGrid_.SelectedObject = new EnhMetaHeader(header);
+
+                            Gdi32.DeleteEnhMetaFile(enhMetafileHandle);
+                        }
+                    }
+                    break;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }
+        }
+
+        private Metafile metafile_;
     }
 }
 

@@ -3,3 +3,4 @@
 - https://github.com/jskeet/protobuf-csharp-port
 - https://github.com/googleapis/gapic-generator-csharp
 - https://github.com/BlueMatthew/ProtobufInspector
+- [IdleWakeups](https://github.com/google/IdleWakeups)

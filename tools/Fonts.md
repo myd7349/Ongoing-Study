@@ -18,13 +18,26 @@ Fonts:
 
 - [Coding Font](https://www.codingfont.com/)
 
+- [glow-sans](https://github.com/welai/glow-sans)
+
 - [googlefonts](https://github.com/googlefonts)
 
 - [FiraCode](https://github.com/tonsky/FiraCode)
 
 - 索尼楷体
 
+- [Operator-Mono](https://github.com/keyding/Operator-Mono)
+
+- [Zhudou-Sans](https://github.com/Buernia/Zhudou-Sans)
+
+- [adobe-fonts/source-han-sans](https://github.com/adobe-fonts/source-han-sans)
+
+- [Tiejili](https://github.com/Buernia/Tiejili)
+
+- [Reggae](https://github.com/fontworks-fonts/Reggae)
+
 Softwares:
 
 - [Character-Map-UWP](https://github.com/character-map-uwp/Character-Map-UWP)
 - [mactype](https://github.com/snowie2000/mactype)
+- [secondary-axes](https://github.com/welai/secondary-axes)

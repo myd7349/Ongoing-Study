@@ -35,11 +35,11 @@ getopt
 - [Mead's Guide to getopt](https://azrael.digipen.edu/~mmead/www/Courses/CS180/getopt.html)
 
 - https://github.com/cnr-isti-vclab/vcglib/blob/master/wrap/system/qgetopt.h
-
-  and a C++(Qt) wrapper:
-
-  https://github.com/cnr-isti-vclab/vcglib/blob/master/wrap/system/qgetopt.h
   
+  and a C++(Qt) wrapper:
+  
+  https://github.com/cnr-isti-vclab/vcglib/blob/master/wrap/system/qgetopt.h
+
 - https://github.com/wolfpld/tracy/blob/master/capture/src/capture.cpp
 
 - [getopt_long() -- proper way to use it?](https://stackoverflow.com/questions/7489093/getopt-long-proper-way-to-use-it)
@@ -47,7 +47,7 @@ getopt
 - [Where does getopt_long store an unrecognized option?](https://stackoverflow.com/questions/2723888/where-does-getopt-long-store-an-unrecognized-option)
 
 - [Why does C getopt_long_only() not set optopt for unknown option?](https://stackoverflow.com/questions/53828309/why-does-c-getopt-long-only-not-set-optopt-for-unknown-option)
-
+  
   > `optopt` is indeed set to zero when unknown long option is found, see [here](https://github.com/lattera/glibc/blob/master/posix/getopt.c#L302).
   
   [getopt_long](https://docs.oracle.com/cd/E86824_01/html/E54766/getopt-long-3c.html)
@@ -89,7 +89,7 @@ getopt
           default:
               break;
       }
-      
+  
       index = -1;
   }
   ```
@@ -129,7 +129,7 @@ getopt
           default:
               break;
       }
-      
+  
       index = -1;
   }
   
@@ -140,7 +140,7 @@ getopt
   // -a
   // -abc
   ```
-  
+
 - [getopt_long() option with optional argument](https://stackoverflow.com/questions/40594208/getopt-long-option-with-optional-argument)
 
 - [getopt_long does not parse optional arguments to parameters](https://stackoverflow.com/questions/1052746/getopt-does-not-parse-optional-arguments-to-parameters)
@@ -154,7 +154,7 @@ getopt
 - [Using getopt in C with non-option arguments](https://stackoverflow.com/questions/18079340/using-getopt-in-c-with-non-option-arguments)
 
 - https://github.com/nihui/waifu2x-ncnn-vulkan/blob/master/src/main.cpp
-
+  
   > ```c
   > #if _WIN32
   > #include <wchar.h>
@@ -188,5 +188,18 @@ getopt
   > #endif
   > ```
 
-  
+dup2
 
+- Ongoing-Study\cpp\Google\glog\glog_src_playground\captured_stream.hpp
+
+[CommandLineToArgvW function (shellapi.h) - Win32 apps | Microsoft Docs](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw)
+
+> The address returned by **CommandLineToArgvW** is the address of the first element in an array of **LPWSTR** values; the number of pointers in this array is indicated by *pNumArgs*. Each pointer to a **null**-terminated Unicode string represents an individual argument found on the command line.
+> 
+> **CommandLineToArgvW** allocates a block of contiguous memory for 
+> pointers to the argument strings, and for the argument strings 
+> themselves; the calling application must free the memory used by the 
+> argument list when it is no longer needed. To free the memory, use a 
+> single call to the [LocalFree](https://docs.microsoft.com/en-us/windows/desktop/api/winbase/nf-winbase-localfree) function.
+> 
+> For more information about the *argv* and *argc* argument convention, see [Argument Definitions](https://docs.microsoft.com/en-us/previous-versions/88w63h9k(v=vs.85)) and [Parsing C++ Command-Line Arguments](https://docs.microsoft.com/en-us/previous-versions/17w5ykft(v=vs.85)).

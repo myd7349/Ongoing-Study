@@ -44,3 +44,4 @@ if "%1" == "csharp" (
 :: [windows batch SET inside IF not working](https://stackoverflow.com/questions/9102422/windows-batch-set-inside-if-not-working/9102569)
 :: https://github.com/3F/DllExport/blob/v1.7.4/DllExportVersion.cs
 :: [How to specify the assembly version for a .NET Core project?](https://stackoverflow.com/questions/58433665/how-to-specify-the-assembly-version-for-a-net-core-project)
+:: [Get date and time on the same line](https://stackoverflow.com/questions/20246889/get-date-and-time-on-the-same-line)

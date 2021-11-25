@@ -27,4 +27,8 @@
             </ListView.View>
         </ListView>
     </Grid>
+    <!--
+    References:
+    [Setting ListViewColumn width to the widest item regardless if it's in the initial render?](https://stackoverflow.com/questions/22419436/setting-listviewcolumn-width-to-the-widest-item-regardless-if-its-in-the-initia?noredirect=1&lq=1)
+    -->
 </mah:MetroWindow>

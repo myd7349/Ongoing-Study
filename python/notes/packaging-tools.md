@@ -36,9 +36,7 @@ The answer is NO:
 
 This post mentioned `py2app`: [How to Create a Single Windows Executable from a Python and PyGame Project (Summary)](https://irwinkwan.com/2013/04/29/python-executables-pyinstaller-and-a-48-hour-game-design-compo/)
 
-
 https://github.com/PedramNavid/GooeyPi
-
 
 * [Python打包exe的王炸-Nuitka](https://zhuanlan.zhihu.com/p/133303836)
 * [shiv](https://github.com/linkedin/shiv)
@@ -65,3 +63,13 @@ https://github.com/pypa/cibuildwheel
 https://github.com/scikit-build/scikit-build
 
 - https://github.com/cmpute/traji/blob/main/python/setup.py
+
+[Pyinstaller减小打包体积 - Hunsh's Blog](https://hunsh.net/archives/114/)
+
+> 今天才知道pyinstaller打包是把本地python环境的所有包都带进去了...
+> 
+> 所以我们如果需要减小打包体积，最快速的方法就是新建一个venv，再把用到的包`pip install`完毕之后
+> 
+> 在虚拟环境`pip install pyinstaller`，然后才去执行打包`pyinstaller -F main.py`
+
+[GitHub - skywind3000/PyStand: Python Standalone Deploy Environment !!](https://github.com/skywind3000/PyStand)

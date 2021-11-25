@@ -16,6 +16,12 @@ Libraries:
 
 - [OopsyPad](https://github.com/RedisDesktop/OopsyPad)
 
+- [plcrashreporter](https://github.com/microsoft/plcrashreporter): Reliable, open-source crash reporting for iOS, macOS and tvOS
+
 Tools:
 
 - [Socorro](https://github.com/mozilla-services/socorro)
+
+Documents:
+
+- [Crash Reporter &mdash; Firefox Source Docs documentation](https://firefox-source-docs.mozilla.org/toolkit/crashreporter/crashreporter/index.html)

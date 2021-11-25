@@ -10,6 +10,10 @@ Cloud
 
 - [Cloudreve](https://github.com/cloudreve/Cloudreve)
 
+- [rclone](https://github.com/rclone/rclone)
+
+- [uPic Models](https://github.com/gee1k/uPic/tree/master/uPic/Models)
+
 Communication
 
 - [mahi-com](https://github.com/mahilab/mahi-com)
@@ -19,6 +23,8 @@ File System
 - [alist](https://github.com/Xhofe/alist)
 
 - [Enchilada](https://github.com/sparkeh9/Enchilada)
+
+- [fs9](https://github.com/reusee/fs9)
 
 - [gdrive](https://github.com/BYVoid/gdrive)
 

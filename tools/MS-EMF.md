@@ -11,3 +11,9 @@ https://github.com/wieslawsoltes/Core2D/blob/master/src/Core2D/Modules/FileWrite
 [Is Metafile images like EMF and WMF supported by Skiasharp library?](https://github.com/mono/SkiaSharp/issues/1314)
 
 > Unfortunately not. SkiaSharp really only works with bitmap/raster images such as png/webp/jpg/bmp.
+
+Tools:
+
+- [EMFexplorer](http://frazmitic.free.fr/emfexplorer/)
+  
+  - [when rendering metafile, the texts are too large](https://stackoverflow.com/questions/8794368/when-rendering-metafile-the-texts-are-too-large)

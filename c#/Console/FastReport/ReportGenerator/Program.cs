@@ -232,6 +232,13 @@
                         // reports being generated.
                         // A test:
                         // ..\Templates\different_dpi_test.bat
+                        // It seems that we can not change the DPI of output Metafile, however.
+                        //
+                        // [Export to Picture](https://www.fast-report.com/documentation/UserManFrNET-en/index.html?exporttoimage.htm)
+                        // > "Resolution" - resolution of the graphical image.
+                        // > Use 96dpi for displaying, 300dpi for printing.
+                        // > When exporting into the TIFF format, you will able to
+                        // > set separate values for horizontal and vertical resolution.
                         if (options.Resolution > 0)
                         {
                             imageExporter.Resolution = options.Resolution;

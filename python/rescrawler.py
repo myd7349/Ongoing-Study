@@ -245,3 +245,5 @@ if __name__ == '__main__':
 #     yield line.decode(charset)
 # UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
 # https://github.com/0xHJK/Proxies
+# https://github.com/jhao104/proxy_pool
+

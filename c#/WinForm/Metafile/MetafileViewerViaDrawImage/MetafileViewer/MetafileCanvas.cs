@@ -4,13 +4,67 @@
     using System.Drawing.Imaging;
     using System.Windows.Forms;
 
+    using Common;
     using Common.Auxiliary.Drawing;
 
     class MetafileCanvas : Control
     {
-        public MetafileCanvas()
+        public bool IsDoubleBuffered
         {
-            DoubleBuffered = true;
+            get
+            {
+                return DoubleBuffered;
+            }
+
+            set
+            {
+                if (DoubleBuffered == value)
+                    return;
+
+                DoubleBuffered = value;
+            }
+        }
+
+        public Metafile OriginalMetafile
+        {
+            get
+            {
+                return originalMetafile_;
+            }
+
+            set
+            {
+                if (originalMetafile_ == value)
+                    return;
+
+                originalMetafile_?.Dispose();
+
+                originalMetafile_ = value;
+
+                if (orientation_ == 0)
+                    Metafile = MetafileUtility.CopyMetafile(ref originalMetafile_);
+                else
+                    Metafile = MetafileUtility.Rotate(OriginalMetafile, orientation_);
+            }
+        }
+
+        public Metafile Metafile
+        {
+            get
+            {
+                return metafile_;
+            }
+
+            set
+            {
+                if (metafile_ == value)
+                    return;
+
+                metafile_?.Dispose();
+
+                metafile_ = value;
+                Invalidate();
+            }
         }
 
         public PictureBoxSizeMode SizeMode
@@ -30,23 +84,27 @@
             }
         }
 
-        public Metafile Metafile
+        public int Orientation
         {
             get
             {
-                return metafile_;
+                return orientation_;
             }
 
             set
             {
-                if (metafile_ == value)
+                if (orientation_ == value)
                     return;
 
-                if (metafile_ != null)
-                    metafile_.Dispose();
+                orientation_ = value;
 
-                metafile_ = value;
-                Invalidate();
+                if (OriginalMetafile != null)
+                {
+                    if (orientation_ == 0)
+                        Metafile = MetafileUtility.CopyMetafile(ref originalMetafile_);
+                    else
+                        Metafile = MetafileUtility.Rotate(OriginalMetafile, orientation_);
+                }
             }
         }
 
@@ -67,7 +125,9 @@
             Invalidate();
         }
 
+        private Metafile originalMetafile_;
         private Metafile metafile_;
         private PictureBoxSizeMode sizeMode_;
+        private int orientation_;
     }
 }

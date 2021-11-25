@@ -497,3 +497,4 @@
 // https://github.com/embeddedartistry/embedded-resources/blob/master/examples/c/circular_buffer/circular_buffer.c
 // [Creating a Circular Buffer in C and C++](https://embeddedartistry.com/blog/2017/05/17/creating-a-circular-buffer-in-c-and-c/)
 // https://github.com/cyotek/Cyotek.Collections.Generic.CircularBuffer
+// https://github.com/MaskRay/ell/blob/master/ell/ringbuf.c

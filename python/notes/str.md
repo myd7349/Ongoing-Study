@@ -5,7 +5,6 @@ import sys
 print(f'Your Python version: {sys.version}')
 ```
 
-
 ```python
 import string
 
@@ -16,7 +15,6 @@ print(caution.strip('* '))
 
 print(caution.strip(string.punctuation))
 ```
-
 
 ```python
 tang = '烫烫烫'.encode('cp936')

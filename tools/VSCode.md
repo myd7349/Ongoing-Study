@@ -11,6 +11,10 @@ Extensions:
 
 - Auto Pilot
 
+- Pylance
+
 - [tabnine](https://www.tabnine.com/)
+
 - [Markdown All in One](https://github.com/wuye9036/CppTemplateTutorial)
 
+- [VSCode HexEditor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor)

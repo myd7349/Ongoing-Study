@@ -31,3 +31,4 @@
 // https://github.com/GothenburgBitFactory/libshared/blob/591fa58f9c684e22a3a55dbf71bdd00c25ceb28d/src/Log.h
 // https://github.com/wiredtiger/wiredtiger/blob/develop/src/log/log.c
 // https://github.com/bbc/audiowaveform/blob/master/src/Log.cpp
+// https://github.com/MaskRay/ell/blob/master/ell/log.h

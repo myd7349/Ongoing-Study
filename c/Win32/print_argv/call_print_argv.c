@@ -94,3 +94,6 @@ int _tmain(void)
 // [CreateProcess does not create additional console windows under Windows 7?](https://stackoverflow.com/questions/14958276/createprocess-does-not-create-additional-console-windows-under-windows-7)
 // [GetCommandLine 分析](https://blog.csdn.net/jiangqin115/article/details/46660325)
 // [GetCommandLine 分析](https://www.cnblogs.com/unicornsir/articles/10444635.html)
+// [Canonical way to parse the command line into arguments in plain C Windows API](https://stackoverflow.com/questions/291424/canonical-way-to-parse-the-command-line-into-arguments-in-plain-c-windows-api)
+// https://github.com/reactos/reactos/blob/9b716539182864bc077e362febcda74da50287ed/dll/win32/shell32/wine/shell32_main.c#L80-L311
+// explain how CommandLineToArgvW works.

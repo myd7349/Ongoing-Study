@@ -22,6 +22,9 @@
             {
                 IsRequired = true
             };
+            var prepareOption = new Option<bool>(
+                new[] { "--prepare", "-p" },
+                description: "Prepare the report");
             var objectNamesOption = new Option<string[]>(
                 new[] { "--name", "-n" },
                 description: "Object name(s)")
@@ -32,15 +35,16 @@
             var rootCommand = new RootCommand
             {
                 templateFileOption,
+                prepareOption,
                 objectNamesOption
             };
             rootCommand.Description = "FastReport object inspector.";
-            rootCommand.SetHandler<FileInfo, string[]>(Run, templateFileOption, objectNamesOption);
+            rootCommand.SetHandler<FileInfo, bool, string[]>(Run, templateFileOption, prepareOption, objectNamesOption);
 
             return rootCommand;
         }
 
-        static void Run(FileInfo templateFile, string[] objectNames)
+        static void Run(FileInfo templateFile, bool prepare, string[] objectNames)
         {
             if (!templateFile.Exists)
             {
@@ -58,6 +62,12 @@
                 {
                     Console.WriteLine($"Failed to load report template \"{templateFile.Name}\":\r\n{ex}");
                     return;
+                }
+
+                if (prepare)
+                {
+                    var prepared = report.Prepare();
+                    Console.WriteLine($"Is report prepared? {prepared}");
                 }
 
                 if (objectNames.Length == 0)

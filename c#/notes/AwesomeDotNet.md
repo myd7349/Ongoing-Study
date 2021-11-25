@@ -1,10 +1,18 @@
 ### Framework
 
 - [Furion](https://github.com/MonkSoul/Furion)
+- [Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework)
 
 ### AI
 
+- [Accord.NET](https://github.com/accord-net/framework)
+  
+  - [accord-net-extensions](https://github.com/dajuric/accord-net-extensions)
+
+- [AForge.NET](https://github.com/andrewkirillov/AForge.NET)
+
 - [ML.NET](https://github.com/dotnet/machinelearning)
+
 - [TorchSharp](https://github.com/dotnet/TorchSharp)
 
 ### Archive
@@ -17,7 +25,10 @@
 
 - [ICSharpCode.SharpZipLib](https://github.com/icsharpcode/SharpZipLib)
   
+  - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+  
   - https://github.com/Bunny83/SimpleJSON/blob/master/SimpleJSONBinary.cs
+  
   - [Pinta](https://github.com/PintaProject/Pinta)
 
 - [K4os.Compression.LZ4](https://github.com/MiloszKrajewski/K4os.Compression.LZ4)
@@ -34,6 +45,7 @@
 - System.IO.Compression
   
   - https://github.com/2dust/v2rayN/blob/master/v2rayN/v2rayUpgrade/MainForm.cs
+  - [YoutubeDownloader/DownloadFfmpeg.ps1 at 2d3f0571c19ada5113a1add8313190ecb6ab1eab · Tyrrrz/YoutubeDownloader · GitHub](https://github.com/Tyrrrz/YoutubeDownloader/blob/2d3f0571c19ada5113a1add8313190ecb6ab1eab/YoutubeDownloader/DownloadFfmpeg.ps1#L19-L22)
 
 ### ASP.NET
 
@@ -91,21 +103,42 @@
 
 ### CLI
 
+- [CliFx](https://github.com/Tyrrrz/CliFx)
+
 - [CliWrap](https://github.com/Tyrrrz/CliWrap)
+
 - [ColoredPrintf](https://github.com/vbfox/ColoredPrintf)
+
+- [CommandLineParser](https://github.com/commandlineparser/commandline)
+  
+  - [IdleWakeups](https://github.com/google/IdleWakeups)
+  
+  - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+
 - [ConsoleAppFramework](https://github.com/Cysharp/ConsoleAppFramework)
+
 - [ConsoleAppLauncher](https://github.com/slavagu/ConsoleAppLauncher)
+  
   - [Capturing console output from a .NET application (C#)](https://stackoverflow.com/questions/186822/capturing-console-output-from-a-net-application-c)
+
 - Mono.Options
+  
   - [Pinta](https://github.com/PintaProject/Pinta/blob/master/Pinta/Main.cs)
+
 - [`Spectre.Console`](https://github.com/spectreconsole/spectre.console)
+  
   - https://github.com/devlead/Devlead.Console.Template/blob/develop/src/Devlead.Console.Template/templates/devleadconsole/Devlead.Console/Program.cs
+
 - [system-terminal](https://github.com/alexrp/system-terminal)
+
 - [Utility.CommandLine.Arguments](https://github.com/jpdillingham/Utility.CommandLine.Arguments)
 
 ### Computer Vision
 
+- [DotImaging](https://github.com/dajuric/dot-imaging)
+
 - [opencvsharp](https://github.com/shimat/opencvsharp)
+
 - [SharpCV](https://github.com/SciSharp/SharpCV)
 
 ### Configuration
@@ -117,6 +150,7 @@
 ### Crypto
 
 - [Bouncy Castle](https://github.com/bcgit/bc-csharp)
+- [CryptoBase](https://github.com/HMBSbige/CryptoBase)
 
 ### CSV
 
@@ -177,6 +211,8 @@
 
 - [Grace](https://github.com/ipjohnson/Grace)
 
+- [MethodDecorator](https://github.com/Fody/MethodDecorator)
+
 - [Ninject](https://github.com/ninject/Ninject)
   
   - [naps2](https://github.com/cyanfish/naps2/blob/9ffd24bb4186b7a81d4f1d686ee946d2684e8239/NAPS2.DI/Modules/WinFormsModule.cs)
@@ -234,11 +270,17 @@
 
 - [greenshot/src/Greenshot/Languages at release/1.3 · greenshot/greenshot · GitHub](https://github.com/greenshot/greenshot/tree/release/1.3/src/Greenshot/Languages)
 
+- [Lepo.i18n](https://github.com/lepoco/i18n)
+
 - [Locale-Emulator](https://github.com/xupefei/Locale-Emulator)
 
 - [NGettext](https://github.com/VitaliiTsilnyk/NGettext)
   
   - [Pinta](https://github.com/PintaProject/Pinta)
+
+- [ResX Editor](https://sourceforge.net/projects/resx/)
+  
+  - [lively-translations](https://github.com/rocksdanister/lively-translations)
 
 - [ResXResourceManager](https://github.com/dotnet/ResXResourceManager)
   
@@ -264,6 +306,8 @@
 
 - [Magick.NET](https://github.com/dlemstra/Magick.NET)
   
+  - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+  
   - [On the Shoulders of Giants · QL-Win/QuickLook Wiki · GitHub](https://github.com/QL-Win/QuickLook/wiki/On-the-Shoulders-of-Giants)
 
 - SkiaSharp
@@ -276,9 +320,15 @@
 
 ### IPC
 
+- [HandyIpc](https://github.com/HandyOrg/HandyIpc)
+
 ##### RPC
 
 - [MagicOnion](https://github.com/Cysharp/MagicOnion)
+
+### JSON
+
+- [QuickJson](https://github.com/Tyrrrz/QuickJson)
 
 ### Language Interoperability
 
@@ -376,6 +426,14 @@
   - https://github.com/maikebing/CAP.Extensions/blob/master/src/MaiKeBing.CAP.ZeroMQ/ITransport.ZeroMQ.cs
 
 - [NLog](https://github.com/NLog/NLog)
+  
+  - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+  
+  - [NLogViewer](https://github.com/dojo90/NLogViewer): NlogViewer is a ui control library to visualize NLog logs
+    
+    - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+  
+  - [NlogViewer](https://github.com/erizet/NlogViewer): NlogViewer is a simple WPF-control to show NLog-logs.
 
 - [serilog](https://github.com/serilog/serilog)
   
@@ -428,13 +486,27 @@
 
 - [NativeMemoryArray](https://github.com/Cysharp/NativeMemoryArray)
 
+### Multimedia
+
+- [ScreenRecorderLib](https://github.com/sskodje/ScreenRecorderLib)
+  
+  - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+
+- [YoutubeExplode](https://github.com/Tyrrrz/YoutubeExplode): The ultimate dirty YouTube library
+  
+  - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+
 ### Networking
 
 - [Ben.Http](https://github.com/benaadams/Ben.Http)
 - [Downloader](https://github.com/bezzad/Downloader)
+  - [Lively Wallpaper](https://github.com/rocksdanister/lively)
 - [NetMQ](https://github.com/zeromq/netmq)
   - [CAP.Extensions](https://github.com/maikebing/CAP.Extensions)
+- [Octokit](https://github.com/octokit/octokit.net)
+  - [Lively Wallpaper](https://github.com/rocksdanister/lively)
 - [RestSharp](https://github.com/restsharp/RestSharp)
+- [simple-http](https://github.com/dajuric/simple-http)
 - [sipsorcery](https://github.com/sipsorcery-org/sipsorcery) - A WebRTC, SIP and VoIP library for C# and .NET. Designed for real-time communications apps.
   - [GB28181.Solution](https://github.com/GB28181/GB28181.Solution)
 - [whois](https://github.com/flipbit/whois)
@@ -472,6 +544,7 @@
 - [PDFsharp](https://github.com/empira/PDFsharp)
   - https://github.com/wieslawsoltes/Core2D/tree/master/src/Core2D/Modules/FileWriter.PdfSharp
   - [Quicker](https://github.com/cuiliang/Quicker)
+- [QuestPDF](https://github.com/QuestPDF/QuestPDF)
 - [SharpMuPDF](https://github.com/wmjordan/SharpMuPDF)
   - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
 
@@ -483,12 +556,18 @@
 - [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
 - [QoiFileTypeNet](https://github.com/iOrange/QoiFileTypeNet)
 - [QuickLook.Plugin](https://github.com/QL-Win/QuickLook/tree/master/QuickLook.Plugin)
+- [Steamless Plugin](https://github.com/atom0s/Steamless/tree/master/ExamplePlugin)
 - [WinSW.Plugins](https://github.com/winsw/winsw/tree/v3/src/WinSW.Plugins)
+- [Wox.Plugin](https://github.com/Wox-launcher/Wox/tree/master/Wox.Plugin)
 
 ### QR Code
 
 - [QRCoder](https://github.com/codebude/QRCoder)
+  
+  - [BBDown](https://github.com/nilaoda/BBDown)
+  
   - [Quicker](https://github.com/cuiliang/Quicker)
+
 - [ZXing.Net](https://github.com/micjahn/ZXing.Net)
 
 ### Scripting
@@ -554,11 +633,18 @@
 
 ### Unit Testing
 
+- [FineCodeCoverage](https://github.com/FortuneN/FineCodeCoverage): Visualize unit test code coverage easily for free in Visual Studio Community Edition (and other editions too).
+
 - [fluentassertions](https://github.com/fluentassertions/fluentassertions)
+
 - [guiunit](https://github.com/mono/guiunit) - A unit test runner which interoperates with any Gui main loop.
+
 - Microsoft.VisualStudio.TestTools.UnitTesting
+  
   - [Automate your UI using Microsoft Automation Framework](https://www.codeproject.com/Articles/141842/Automate-your-UI-using-Microsoft-Automation-Framew)
+
 - NUnit
+
 - [PeanutButter.TestUtils](https://github.com/fluffynuts/PeanutButter)
 
 ##### Test Report Tools

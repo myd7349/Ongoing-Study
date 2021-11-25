@@ -91,3 +91,7 @@ BOOL CVLCWrapper::Preview(const CString &strRTSP)
         return FALSE;
     }
 }
+
+
+// References:
+// https://github.com/rocksdanister/lively/tree/dev-v1.0-fluent-netcore/src/livelywpf/libVLCPlayer

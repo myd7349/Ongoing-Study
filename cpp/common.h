@@ -97,6 +97,7 @@ inline std::basic_string<charT> GetProgName(const charT *argv0)
 // 2015-09-03T12:10+08:00
 // Google/benchmark/macros.h:arraysize 
 // %}
+// Since C++17, you can use std::size.
 #ifndef ARRAYSIZE
 # ifdef _MSC_VER
 #  define ARRAYSIZE _countof

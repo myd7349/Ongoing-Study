@@ -45,6 +45,12 @@
                     return 0;
                 }
 
+                if (options.Prepare && !report.Prepare())
+                {
+                    Console.WriteLine("Failed to prepare the report object.");
+                    return 1;
+                }
+
                 var reportObject = report.FindObject(options.ObjectName);
                 if (reportObject == null)
                 {
@@ -59,7 +65,28 @@
                     return 1;
                 }
 
-                var bounds = component.Bounds;
+                // Specify "--abs" to take parent Band into consideration.
+                RectangleF bounds;
+                if (options.Abs)
+                {
+                    bounds = component.AbsBounds;
+                }
+                else
+                {
+                    bounds = component.Bounds;
+
+                    if (options.Recursive)
+                    {
+                        var parent = component.Parent as ComponentBase;
+                        while (parent != null)
+                        {
+                            bounds.X += parent.Left;
+                            bounds.Y += parent.Top;
+
+                            parent = parent.Parent as ComponentBase;
+                        }
+                    }
+                }
 
                 if (options.Margin)
                 {
@@ -108,3 +135,11 @@
         }
     }
 }
+
+
+// References:
+// [Precise positioning](https://forum.fast-report.com/en/discussion/3636/precise-positioning)
+// https://www.fast-report.com/documentation/DevMan/index.html?fastreport_classes_hierarchy.htm
+// > The following properties are defined in the “TfrxComponent” class:
+// > `Left`: object X-coordinate (relative to parent)
+// > `AbsLeft`: object absolute X-coordinate

@@ -1,3 +1,7 @@
+Tools:
+
+- [clink](https://github.com/mridgers/clink): Bash's powerful command line editing in cmd.exe
+
 [correct quoting for cmd.exe for multiple arguments](https://stackoverflow.com/questions/12891383/correct-quoting-for-cmd-exe-for-multiple-arguments)
 
 [Multiple line command](https://github.com/zhihaoy/cpp-argparse-feedstock/blob/master/recipe/bld.bat)

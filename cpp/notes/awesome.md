@@ -1,3 +1,11 @@
+### Framework
+
+- [U++](https://github.com/ultimatepp/ultimatepp)
+
+### AI
+
+- [MLPP](https://github.com/novak-99/MLPP)
+
 ### Archive
 
 - [7-Zip-zstd](https://github.com/mcmilk/7-Zip-zstd)
@@ -38,11 +46,17 @@
 - [rang](https://github.com/agauniyal/rang)
 - [tableprinter](https://github.com/OzanCansel/tableprinter)
 
+### Concurrency
+
+- [SObjectizer](https://github.com/Stiffstream/sobjectizer)
+
 ### Configuration
 
 - [Configuru](https://github.com/emilk/Configuru)
 
 ### Cryptography
+
+- [smhasher](https://github.com/rurban/smhasher)
 
 - [tink](https://github.com/google/tink)
 
@@ -66,8 +80,23 @@
 
 ### GUI
 
+- [Boxer](https://github.com/aaronmjacobs/Boxer)
+
+- [Flutter](https://docs.flutter.dev/desktop)
+
+- imgui
+  
+  - [remoteimgui](https://github.com/JordiRos/remoteimgui)
+
 - [NAppGUI](https://github.com/frang75/nappgui_src)
+
+- [nativefiledialog](https://github.com/mlabbe/nativefiledialog)
+  
+  - [nativefiledialog-extended](https://github.com/btzy/nativefiledialog-extended)
+
 - [SixtyFPS](https://github.com/sixtyfpsui/sixtyfps)
+
+- [tinyfiledialogs](https://sourceforge.net/projects/tinyfiledialogs/)
 
 ### Hashing
 
@@ -80,6 +109,8 @@
 
 ### IO
 
+- [PlatformFolders](https://github.com/sago007/PlatformFolders)
+
 - [tinydir](https://github.com/cxong/tinydir)
 
 ### JSON
@@ -88,7 +119,13 @@
   
   - [json_to_cpp](https://github.com/beached/json_to_cpp)
 
+- nlohmann::json
+  
+  - [json2cpp](https://github.com/lefticus/json2cpp)
+
 - [json.h](https://github.com/sheredom/json.h)
+
+- [json_dto](https://github.com/Stiffstream/json_dto)
 
 ### Language Interoperability
 
@@ -108,15 +145,29 @@
 
 - [LuaBridge](https://github.com/vinniefalco/LuaBridge)
 
+##### JavaScript
+
+- [mjs](https://github.com/cesanta/mjs)
+
 ### Logging
 
 - [lwlog](https://github.com/ChristianPanov/lwlog)
 
 ### Math
 
+- [exprtk](https://github.com/ArashPartow/exprtk)
+  
+  - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
+
 - [libqalculate](https://github.com/Qalculate/libqalculate)
 
+- [muparser](https://github.com/beltoforion/muparser)
+  
+  - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
+
 - [sleef](https://github.com/shibatch/sleef)
+
+- [tinyexpr](https://github.com/codeplea/tinyexpr)
 
 ### Memory Management
 
@@ -127,6 +178,10 @@
 - [celix](https://github.com/apache/celix)
 
 - [CppMicroServices](https://github.com/CppMicroServices/CppMicroServices)
+
+- [cpr](https://github.com/libcpr/cpr)
+  
+  - [Modern Library for HTTP Requests? : cpp](https://www.reddit.com/r/cpp/comments/snwofj/modern_library_for_http_requests/)
 
 - [GameNetworkingSockets](https://github.com/ValveSoftware/GameNetworkingSockets)
 
@@ -167,6 +222,7 @@
 ### Templating
 
 - [kiss-templates](https://github.com/rbock/kiss-templates)
+- [Mustache](https://github.com/kainjow/Mustache)
 
 ### Unit Testing
 
@@ -175,3 +231,10 @@
 ### UUID
 
 - [stduuid](https://github.com/mariusbancila/stduuid)
+- [ulid](https://github.com/suyash/ulid)
+
+### Web Server
+
+- [webby](https://github.com/deplinenoise/webby)
+  
+  - [remoteimgui](https://github.com/JordiRos/remoteimgui)

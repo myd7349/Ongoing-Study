@@ -131,11 +131,14 @@ def get_group_members(wechat, group_name):
         .children(control_type='Pane')[0] \
         .children(control_type='Pane')[0] \
         .children(control_type='Pane')[0] \
-        .children(control_type='Pane')[1] \
+        .children(control_type='Pane')[0] \
         .children(control_type='Pane')[0] \
         .children(control_type='Button')[0]
     click(group_chat_button)
 
+    # TODO:
+    # If there is no more room to expand the chat information window,
+    # a SessionChatRoomDetailWnd will appear instead.
     group_information_window = wechat.child_window(title='聊天信息',
                                                    control_type='Window')
     group_information_window.draw_outline()

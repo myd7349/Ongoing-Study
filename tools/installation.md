@@ -18,6 +18,7 @@
 - https://github.com/mixxxdj/mixxx/tree/main/packaging
 - https://github.com/flameshot-org/flameshot/blob/master/CMakeLists.txt
 - https://github.com/tom-englert/Wax
+- [WalletWasabi](https://github.com/zkSNACKs/WalletWasabi)
 
 ### NSIS
 
@@ -25,6 +26,7 @@
 - https://github.com/vim/vim/tree/master/nsis
 - https://github.com/FreeCAD/FreeCAD/tree/master/src/WindowsInstaller
 - https://github.com/cairoshell/cairoshell/tree/master/Installer
+- [OnTopReplica](https://github.com/LorenzCK/OnTopReplica)
 
 ### CPack
 
@@ -46,6 +48,9 @@
 - https://github.com/ActivityWatch/activitywatch
 - [greenshot/installer/innosetup at release/1.3 · greenshot/greenshot · GitHub](https://github.com/greenshot/greenshot/tree/release/1.3/installer/innosetup)
 - [Pinta](https://github.com/PintaProject/Pinta/blob/master/installer/windows/installer.iss)
+- [Lively Wallpaper](https://github.com/rocksdanister/lively)
+- [SyncTrayzor](https://github.com/canton7/SyncTrayzor)
+- [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
 
 ### Advanced Installer
 
@@ -72,6 +77,8 @@
 
 ### [CQtDeployer](https://github.com/QuasarApp/CQtDeployer)
 
+### [Onova](https://github.com/Tyrrrz/Onova)
+
 ### MakeAppx
 
 - [Add MSIX installer to GitHub workflow by davidanthoff · Pull Request #3331 · git-for-windows/git · GitHub](https://github.com/git-for-windows/git/pull/3331/files)
@@ -79,3 +86,13 @@
 ### DIY
 
 - [Locale-Emulator/LEInstaller](https://github.com/xupefei/Locale-Emulator/tree/master/LEInstaller)
+
+### MSIX
+
+[Desktop support for Flutter | Flutter](https://docs.flutter.dev/desktop)
+
+> [MSIX](https://docs.microsoft.com/en-us/windows/msix/overview), Microsoft Windows’ application package format,
+> provides a modern packaging experience to all Windows apps.
+> This format can either be used to ship applications
+> to Microsoft Windows’ Apps store, or you can
+> distribute application installers directly.

@@ -42,3 +42,10 @@ Makefile:135: recipe for target 'WavelibTest' failed
 
 [Technically, how do variadic functions work? How does printf work?](https://stackoverflow.com/questions/23104628/technically-how-do-variadic-functions-work-how-does-printf-work)
 
+How to load a dll from memory?
+
+- [MemoryModule](https://github.com/fancycode/MemoryModule)
+
+- [pupy/LoadLibraryR.c at unstable · n1nj4sec/pupy · GitHub](https://github.com/n1nj4sec/pupy/blob/unstable/client/sources/LoadLibraryR.c)
+
+

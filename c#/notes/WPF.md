@@ -12,3 +12,42 @@ Awesome WPF projects:
 
 [WPF Dynamic GUI elements](https://stackoverflow.com/questions/2382704/wpf-dynamic-gui-elements)
 
+[YoutubeDownloader/App.xaml.cs at 8fb15513fb7dea72925278024904617bfa2285c3 · Tyrrrz/YoutubeDownloader · GitHub](https://github.com/Tyrrrz/YoutubeDownloader/blob/8fb15513fb7dea72925278024904617bfa2285c3/YoutubeDownloader/App.xaml.cs#L6-L12)
+
+> ```csharp
+> using System.Windows;
+> using System.Windows.Threading;
+> 
+> namespace YoutubeDownloader
+> {
+>     public partial class App
+>     {
+>         private void App_OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs args)
+>         {
+>             MessageBox.Show(args.Exception.ToString(), "Error occured", MessageBoxButton.OK, MessageBoxImage.Error);
+>         }
+>     }
+> }
+> ```
+
+and in App.xaml:
+
+> ```xml
+> <Application
+>     x:Class="YoutubeDownloader.App"
+>     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+>     xmlns:local="clr-namespace:YoutubeDownloader"
+>     xmlns:s="https://github.com/canton7/Stylet"
+>     DispatcherUnhandledException="App_OnDispatcherUnhandledException">
+> ```
+
+MVVM
+
+- [Model–view–controller - Wikipedia](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
+
+- [Model–view–viewmodel - Wikipedia](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
+
+- [Patterns - WPF Apps With The Model-View-ViewModel Design Pattern | Microsoft Docs](https://docs.microsoft.com/en-us/archive/msdn-magazine/2009/february/patterns-wpf-apps-with-the-model-view-viewmodel-design-pattern)
+
+

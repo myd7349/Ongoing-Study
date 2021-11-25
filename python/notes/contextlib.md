@@ -22,3 +22,6 @@ With the release of Python 3.4, code above can be replaced by `contextlib.redire
 
 [contextlib.redirect_stdout](https://github.com/tbenthompson/cppimport/blob/a3ac34b575cf586fa762adef7dce1f6c10abcc86/cppimport/build_module.py#L82)
 
+[wurlitzer.py](https://github.com/minrk/wurlitzer/blob/main/wurlitzer.py)
+
+

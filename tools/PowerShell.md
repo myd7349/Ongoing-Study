@@ -82,3 +82,9 @@ https://github.com/star2000/BingWallpaper
 [PowerRunAsAttached](https://github.com/DarkCoderSc/PowerRunAsAttached): This script allows to spawn a new interactive console as another user account in the same calling console (console instance/window).
 
 [PowerAssembly](https://github.com/DarkCoderSc/PowerAssembly): Map remote .NET assemblies to memory for further invocation.
+
+[PowerShell's Clear-History doesn't clear history](https://stackoverflow.com/questions/13257775/powershells-clear-history-doesnt-clear-history)
+
+> ```scss
+> (Get-PSReadlineOption).HistorySavePath
+> ```

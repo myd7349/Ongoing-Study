@@ -15,3 +15,25 @@
 6. [EarTrumpet](https://github.com/File-New-Project/EarTrumpet): Volume Control for Windows.
 
 7. [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)
+
+8. Wall Paper Engine
+   
+   - [ActiveDesktopPlus](https://github.com/torchgm/ActiveDesktopPlus)
+   
+   - [AutoWall](https://github.com/SegoCode/AutoWall)
+   
+   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+   
+   - [paperview](https://github.com/glouw/paperview): A high performance X11 animated wallpaper setter.
+   
+   - [rePaper](https://github.com/rocksdanister/rePaper)
+   
+   - [Upupoo](http://www.upupoo.com/)
+
+9. https://www.nirsoft.net/
+
+10. Taskbar
+    
+    - [RoundedTB](https://github.com/torchgm/RoundedTB)
+    
+    - [TranslucentTB](https://github.com/TranslucentTB/TranslucentTB)

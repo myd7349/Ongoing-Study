@@ -1,5 +1,5 @@
 1. [PrintableArea](https://stackoverflow.com/questions/22400056/print-high-resolution-image-in-c-sharp)
-
+   
    > ```csharp
    > printDialog.PrinterSettings.PrinterName = GetTargetPrinter(); 
    > 
@@ -15,9 +15,9 @@
    > 
    > Graphics g = System.Drawing.Graphics.FromImage(printImage);
    > ```
-   
-2. [How to find the actual printable area? (PrintDocument)](https://stackoverflow.com/questions/8761633/how-to-find-the-actual-printable-area-printdocument)
 
+2. [How to find the actual printable area? (PrintDocument)](https://stackoverflow.com/questions/8761633/how-to-find-the-actual-printable-area-printdocument)
+   
    > ```cs
    > PrintAction printAction = PrintAction.PrintToFile;
    > 
@@ -100,7 +100,7 @@
 3. [PrintableArea in C# - Bug?](https://stackoverflow.com/questions/2595610/printablearea-in-c-sharp-bug)
 
 4. Finally, C# supports `MM_HIMETRIC` : [PrinterUnit](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printerunit?view=net-5.0)
-
+   
    > HundredthsOfAMillimeter: One-hundredth of a millimeter (0.01 mm).
    
    [PrinterUnitConvert](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printerunitconvert?view=net-5.0)
@@ -109,3 +109,4 @@
    
    [GraphicsUnitConverter](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraPrinting.GraphicsUnitConverter._members)
 
+5. [Print Support - Windows Forms .NET Framework | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/desktop/winforms/advanced/windows-forms-print-support?view=netframeworkdesktop-4.8)

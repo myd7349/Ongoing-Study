@@ -2,7 +2,22 @@
 - CapCut/ViaMaker：视频编辑应用“剪映”的海外版本
 - iMovie
 - Final Cut Pro
+- [gyroflow](https://github.com/gyroflow/gyroflow): Video stabilization using gyroscope data
 - [kdenlive](https://github.com/KDE/kdenlive)
 - [IINA](https://iina.io/)
 - [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)
 - [Seven Converter](https://github.com/SevenbytesSoftware/SevenConverter)
+- [SmartTubeNext](https://github.com/yuliskov/SmartTubeNext)
+- [real-url](https://github.com/wbt5/real-url)
+
+Video Players:
+
+- [Kodi](https://github.com/xbmc/xbmc)
+
+- [MPC-HC](https://github.com/mpc-hc/mpc-hc)
+
+- [mpv](https://github.com/mpv-player/mpv)
+
+- MX Player
+
+- PotPlayer

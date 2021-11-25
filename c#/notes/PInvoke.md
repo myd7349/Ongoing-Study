@@ -248,6 +248,14 @@ https://github.com/ericsink/SQLitePCL.raw#provider-names
 
 https://github.com/ericsink/SQLitePCL.raw/tree/master/src/providers
 
+2D array:
+
+- [How to marshal multi-dimensional arrays](https://stackoverflow.com/questions/22181509/how-to-marshal-multi-dimensional-arrays)
+
+- [Marshaling ushort[,] multidimensional array in C#](https://stackoverflow.com/questions/18607637/marshaling-ushort-multidimensional-array-in-c-sharp)
+
+- [How use pinvoke for C struct array pointer to C#](https://stackoverflow.com/questions/11968960/how-use-pinvoke-for-c-struct-array-pointer-to-c-sharp)
+
 ### Cesium
 
 [Cesium](https://github.com/ForNeVeR/Cesium) - Cesium compiles standard C source code to a .NET assembly.
