@@ -5,10 +5,11 @@
 - [gyroflow](https://github.com/gyroflow/gyroflow): Video stabilization using gyroscope data
 - [kdenlive](https://github.com/KDE/kdenlive)
 - [IINA](https://iina.io/)
+- [real-url](https://github.com/wbt5/real-url)
 - [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)
 - [Seven Converter](https://github.com/SevenbytesSoftware/SevenConverter)
 - [SmartTubeNext](https://github.com/yuliskov/SmartTubeNext)
-- [real-url](https://github.com/wbt5/real-url)
+- [syncplay](https://github.com/Syncplay/syncplay)
 
 Video Players:
 
@@ -21,3 +22,7 @@ Video Players:
 - MX Player
 
 - PotPlayer
+
+- [恒星播放器](https://www.stellarplayer.com/)
+  
+  - [这款电脑上视频播放器软件真牛X，啥都能看！ - 小众软件](https://www.appinn.com/stellarplayer/)

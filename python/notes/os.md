@@ -71,3 +71,12 @@ def numCPUs():
     return 1 # Default
 ```
 
+##### Set Environment Variable
+
+[How to set environment variables in Python?](https://stackoverflow.com/questions/5971312/how-to-set-environment-variables-in-python)
+
+> ```python
+> os.environ["DEBUSSY"] = "1"
+> ```
+
+

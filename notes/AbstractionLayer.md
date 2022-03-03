@@ -14,6 +14,8 @@ Cloud
 
 - [uPic Models](https://github.com/gee1k/uPic/tree/master/uPic/Models)
 
+- [s3fs-fuse](https://github.com/s3fs-fuse/s3fs-fuse)
+
 Communication
 
 - [mahi-com](https://github.com/mahilab/mahi-com)

@@ -20,3 +20,4 @@ https://github.com/shidenggui/pit/blob/main/git-objects.py
 >         return display
 > ```
 
+[What are data classes and how are they different from common classes?](https://stackoverflow.com/questions/47955263/what-are-data-classes-and-how-are-they-different-from-common-classes)

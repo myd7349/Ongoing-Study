@@ -9,8 +9,6 @@
   pip 
   ```
 
-  ```
-
 - [requirements.txt](https://pip.pypa.io/en/stable/user_guide/)
 
 > ```

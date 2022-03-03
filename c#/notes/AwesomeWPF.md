@@ -97,10 +97,13 @@ Libraries:
 - [Catel](https://github.com/Catel/Catel)
 
 - [CefSharp](https://github.com/cefsharp/CefSharp)
+  
+  - DeepL Translate App for Windows
 
 - [ControlzEx](https://github.com/ControlzEx/ControlzEx)
   
   - C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2007.6001.0_neutral__8wekyb3d8bbwe\ControlzEx.dll
+  - DeepL Translate App for Windows
 
 - [CSLA.NET](https://github.com/MarimerLLC/csla)
 
@@ -122,6 +125,8 @@ Libraries:
 
 - [globalmousekeyhook](https://github.com/gmamaladze/globalmousekeyhook)
   
+  - DeepL Translate App for Windows
+  
   - [Magpie](https://github.com/Blinue/Magpie)
 
 - [gong-wpf-dragdrop](https://github.com/punker76/gong-wpf-dragdrop)
@@ -129,6 +134,12 @@ Libraries:
   - [gong-wpf-dragdrop-file-sample](https://github.com/punker76/gong-wpf-dragdrop-file-sample)
   
   - [Quicker](https://github.com/cuiliang/Quicker)
+
+- [Gress](https://github.com/Tyrrrz/Gress): Progress reporting toolbox
+
+- [Gu.Wpf.Adorners](https://github.com/GuOrg/Gu.Wpf.Adorners)
+  
+  - DeepL Translate App for Windows
 
 - [Gu.Wpf.DataGrid2D](https://github.com/GuOrg/Gu.Wpf.DataGrid2D)
 
@@ -139,6 +150,8 @@ Libraries:
 - [Livet](https://github.com/runceel/Livet)
 
 - [MahApps.Metro](https://github.com/MahApps/MahApps.Metro)
+  
+  - DeepL Translate App for Windows
   
   - [NextBootOSSelector](https://github.com/takuya-takeuchi/NextBootOSSelector)
 
@@ -209,6 +222,8 @@ Libraries:
 
 - [ToastNotifications](https://github.com/rafallopatka/ToastNotifications)
   
+  - DeepL Translate App for Windows
+  
   - [Quicker](https://github.com/cuiliang/Quicker)
 
 - [WAF](https://github.com/jbe2277/waf)
@@ -258,6 +273,8 @@ Charting:
 Tools:
 
 - [Kaxaml](https://github.com/thinkpixellab/kaxaml)
+
+- [Snoop](https://github.com/snoopwpf/snoopwpf): The WPF Spy Utility
 
 - [WpfAnalyzers](https://github.com/DotNetAnalyzers/WpfAnalyzers)
 

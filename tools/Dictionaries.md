@@ -35,3 +35,5 @@
 - [english-words](https://github.com/dwyl/english-words)
 
 - [wordlist](http://www-personal.umich.edu/~jlawler/wordlist)
+
+- [wordlists](https://github.com/xajkep/wordlists)

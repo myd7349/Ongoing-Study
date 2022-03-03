@@ -10,4 +10,6 @@ https://github.com/qier222/YesPlayMusic
 
 Tools:
 
+- [MusicPlayerDaemon](https://github.com/MusicPlayerDaemon/MPD)
+
 - [OpenMusic](https://openmusic-project.github.io/)

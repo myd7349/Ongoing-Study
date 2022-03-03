@@ -39,7 +39,10 @@
 
 - [SharpCompress](https://github.com/adamhathcock/sharpcompress)
   
+  - DeepL Translate App for Windows
+  
   - [Fork](https://fork.dev/)
+  
   - [On the Shoulders of Giants · QL-Win/QuickLook Wiki · GitHub](https://github.com/QL-Win/QuickLook/wiki/On-the-Shoulders-of-Giants)
 
 - System.IO.Compression
@@ -57,6 +60,16 @@
   
   - [JabbR](https://github.com/JabbR/JabbR)
 
+### Attributes
+
+- [Generator.Equals](https://github.com/diegofrata/Generator.Equals)
+  
+  - DeepL Translate App for Windows
+
+- [PrimaryConstructor](https://github.com/chaowlert/PrimaryConstructor)
+  
+  - DeepL Translate App for Windows
+
 ### Audio
 
 - [EarTrumpet](https://github.com/File-New-Project/EarTrumpet): Volume Control for Windows.
@@ -66,6 +79,10 @@
 - FMOD
   
   - [simple-music-player](https://github.com/punker76/simple-music-player)
+
+- [jp.keijiro.libsoundio](https://github.com/keijiro/jp.keijiro.libsoundio)
+
+- [Lasp](https://github.com/keijiro/Lasp)
 
 - NAudio
 
@@ -88,6 +105,8 @@
 ### Benchmark
 
 - [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet)
+  
+  - [Enums.NET](https://github.com/TylerBrinkley/Enums.NET/blob/master/Src/Enums.NET.PerfTestConsole/Program.cs)
 
 - [crank](https://github.com/dotnet/crank)
 
@@ -114,6 +133,8 @@
   - [IdleWakeups](https://github.com/google/IdleWakeups)
   
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+  
+  - [Snoop](https://github.com/snoopwpf/snoopwpf)
 
 - [ConsoleAppFramework](https://github.com/Cysharp/ConsoleAppFramework)
 
@@ -221,9 +242,27 @@
 
 ##### IoC
 
+- [Autofac](https://autofac.org/)
+  
+  - DeepL Translate App for Windows
+
 - [lamar](https://github.com/jasperfx/lamar)
+
 - [StructureMap](https://github.com/structuremap/structuremap)
+  
   - [Fork](https://fork.dev/)
+
+### Error Handling
+
+- [Polly](https://github.com/App-vNext/Polly)
+  
+  - DeepL Translate App for Windows
+
+- [Sentry](https://github.com/getsentry/sentry-dotnet)
+  
+  - Sentry.Serilog
+    
+    - DeepL Translate App for Windows
 
 ### Graphics
 
@@ -277,6 +316,12 @@
 - [NGettext](https://github.com/VitaliiTsilnyk/NGettext)
   
   - [Pinta](https://github.com/PintaProject/Pinta)
+
+- .restext
+  
+  - [Working with .restext files programmatically](https://stackoverflow.com/questions/18053510/working-with-restext-files-programmatically)
+  
+  - [Resgen.exe (Resource File Generator) - .NET Framework | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/framework/tools/resgen-exe-resource-file-generator)
 
 - [ResX Editor](https://sourceforge.net/projects/resx/)
   
@@ -405,6 +450,10 @@
 
 ### Logging
 
+- [Castel.Core](https://github.com/castleproject/Core)
+  
+  - DeepL Translate App for Windows
+
 - [common-logging](https://github.com/net-commons/common-logging)
   
   - http://netcommon.sourceforge.net/
@@ -437,7 +486,12 @@
 
 - [serilog](https://github.com/serilog/serilog)
   
+  - Sentry.Serilog
+    
+    - DeepL Translate App for Windows
+  
   - [serilog-sinks-http](https://github.com/FantasticFiasco/serilog-sinks-http)
+  
   - [logging-dotnet](https://github.com/felfel/logging-dotnet)
 
 - [Splat](https://github.com/reactiveui/splat)
@@ -463,6 +517,8 @@
 - [ExpressionEvaluator](https://github.com/codingseb/ExpressionEvaluator)
 
 - [FastReport.CalcExpression](https://github.com/FastReports/FastReport/blob/d266d9bc2840d46515c38caafca773926a22dba3/FastReport.Base/Code/AssemblyDescriptor.cs#L649-L656)
+
+- [Math.NET Numerics](https://github.com/mathnet/mathnet-numerics)
 
 - [Mathfs](https://github.com/FreyaHolmer/Mathfs)
 
@@ -501,6 +557,7 @@
 - [Ben.Http](https://github.com/benaadams/Ben.Http)
 - [Downloader](https://github.com/bezzad/Downloader)
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+- [GameServer](https://github.com/LeagueSandbox/GameServer)
 - [NetMQ](https://github.com/zeromq/netmq)
   - [CAP.Extensions](https://github.com/maikebing/CAP.Extensions)
 - [Octokit](https://github.com/octokit/octokit.net)
@@ -510,6 +567,12 @@
 - [sipsorcery](https://github.com/sipsorcery-org/sipsorcery) - A WebRTC, SIP and VoIP library for C# and .NET. Designed for real-time communications apps.
   - [GB28181.Solution](https://github.com/GB28181/GB28181.Solution)
 - [whois](https://github.com/flipbit/whois)
+
+### OCR
+
+- [MisakaTranslator/OCRLibrary](https://github.com/hanmin0822/MisakaTranslator/tree/master/OCRLibrary)
+- [Tesseract](https://github.com/charlesw/tesseract/)
+  - DeepL Translate App for Windows
 
 ### Office
 
@@ -541,6 +604,9 @@
 - [Ghostscript.NET](https://github.com/jhabjan/Ghostscript.NET)
 - [PDFiumSharp](https://github.com/ArgusMagnus/PDFiumSharp)
   - [On the Shoulders of Giants · QL-Win/QuickLook Wiki · GitHub](https://github.com/QL-Win/QuickLook/wiki/On-the-Shoulders-of-Giants)
+- [PdfiumViewer](https://github.com/pvginkel/PdfiumViewer)
+  - DeepL Translate App for Windows
+- [PdfPig](https://github.com/UglyToad/PdfPig)
 - [PDFsharp](https://github.com/empira/PDFsharp)
   - https://github.com/wieslawsoltes/Core2D/tree/master/src/Core2D/Modules/FileWriter.PdfSharp
   - [Quicker](https://github.com/cuiliang/Quicker)
@@ -570,6 +636,16 @@
 
 - [ZXing.Net](https://github.com/micjahn/ZXing.Net)
 
+### Reactive programming
+
+- [DynamicData](https://github.com/reactivemarbles/DynamicData)
+  
+  - DeepL Translate App for Windows
+
+### RPC
+
+- DeepL Translate App for Windows
+
 ### Scripting
 
 - [CLanguage](https://github.com/praeclarum/CLanguage): C
@@ -588,9 +664,15 @@
 
 - [Binaron.Serializer](https://github.com/zachsaw/Binaron.Serializer)
 
+- Google Protobuffers
+  
+  - DeepL Translate App for Windows
+
 - [ysoserial.net](https://github.com/pwntester/ysoserial.net)
 
 ### Static Analysis
+
+- [static-analysis](https://github.com/analysis-tools-dev/static-analysis#c-1)
 
 - [.NET Analyzers](https://github.com/DotNetAnalyzers)
   
@@ -615,6 +697,8 @@
 ### Templating
 
 - [fluid](https://github.com/sebastienros/fluid)
+- [Handlebars.Net](https://github.com/Handlebars-Net/Handlebars.Net)
+- [MiniRazor](https://github.com/Tyrrrz/MiniRazor)
 
 ### Text
 
@@ -642,6 +726,13 @@
 - Microsoft.VisualStudio.TestTools.UnitTesting
   
   - [Automate your UI using Microsoft Automation Framework](https://www.codeproject.com/Articles/141842/Automate-your-UI-using-Microsoft-Automation-Framew)
+  - [C# unit test tutorial - Visual Studio (Windows) | Microsoft Docs](https://docs.microsoft.com/en-us/visualstudio/test/walkthrough-creating-and-running-unit-tests-for-managed-code?view=vs-2022)
+
+- [Moq](https://github.com/moq/moq4)
+
+- [NSubstitute](https://github.com/nsubstitute/NSubstitute): A friendly substitute for .NET mocking libraries.
+  
+  - DeepL Translate App for Windows
 
 - NUnit
 
@@ -650,3 +741,17 @@
 ##### Test Report Tools
 
 - [allure-csharp](https://github.com/allure-framework/allure-csharp)
+
+### Miscellaneous
+
+- [Enums.NET](https://github.com/TylerBrinkley/Enums.NET)
+  
+  - DeepL Translate App for Windows
+
+- [NanoByte.Common](https://github.com/nano-byte/common)
+  
+  - DeepL Translate App for Windows
+
+- [Pidgin](https://github.com/benjamin-hodgson/Pidgin)
+
+- [ViVe](https://github.com/thebookisclosed/ViVe)

@@ -221,6 +221,8 @@ BOOL IsEquivalentPath(LPCTSTR lpcszPath1, LPCTSTR lpcszPath2)
 
 
 // References:
+// TortoiseGit\src\Utils\PathUtils.h
+// TortoiseGit\src\Utils\TempFile.h
 // [Best way to determine if two path reference to same file in Windows?](https://stackoverflow.com/questions/562701/best-way-to-determine-if-two-path-reference-to-same-file-in-windows)
 // https://github.com/MaskRay/ccls/blob/master/src/filesystem.cc
 // [Generate temporary files with any extension](https://www.codeproject.com/Tips/314160/Generate-temporary-files-with-any-extension)

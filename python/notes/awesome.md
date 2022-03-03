@@ -8,6 +8,8 @@
 
 ### Charting
 
+- [altair](https://github.com/altair-viz/altair)
+
 - [chartify](https://github.com/spotify/chartify)
 
 ### CLI
@@ -124,14 +126,39 @@
 
 - [ulipad](https://github.com/limodou/ulipad)
 
+### Imaging
+
+- [photoshop-python-api](https://github.com/loonghao/photoshop-python-api)
+
+### JSON
+
+- [hyperjson](https://github.com/mre/hyperjson)
+
+### Language Interoperability
+
+##### Python -> Ruby
+
+- [pycall.rb](https://github.com/mrkn/pycall.rb)
+
+##### Python -> Rust
+
+- [PyO3](https://github.com/PyO3/pyo3)
+  
+  - [maturin](https://github.com/PyO3/maturin)
+
 ### Logging
 
 - [structlog](https://github.com/hynek/structlog)
 
 ### Networking
 
+- [grequests](https://github.com/spyoungtech/grequests)
+
 - [httpx](https://github.com/encode/httpx)
-- whatismyip
+
+- [scapy](https://github.com/secdev/scapy)
+
+- [whatismyip](https://github.com/asweigart/whatismyip)
 
 ### OOP
 
@@ -148,6 +175,10 @@
 ### PDF
 
 - [pikepdf](https://github.com/pikepdf/pikepdf)
+
+### Performance
+
+- [py-spy](https://github.com/benfred/py-spy)
 
 ### Versioning
 
@@ -167,4 +198,8 @@
 
 ### Miscellaneous
 
+- [dataklasses](https://github.com/dabeaz/dataklasses)
+
 - [pydantic](https://github.com/samuelcolvin/pydantic): Data parsing and validation using Python type hints.
+
+- [pyperclip](https://github.com/asweigart/pyperclip)

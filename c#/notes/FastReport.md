@@ -133,3 +133,151 @@ https://github.com/FastReports/FastReport/blob/449b3b928de56a4eaf27980ca85651e62
 > Try to use two-pass report. Store height of each TfrxMasterData in the 
 > TfrxMasterData.OnAfterCalcHeight event in the array on the first pass 
 > and then use stored values on the second pass
+
+[How to make report inheritance in FastReport.NET](https://www.fast-report.com/en/blog/show/report-inheritance-fastreport-net/)
+
+[How does FastReport. Net copy bands from one report to another](https://chowdera.com/2021/04/20210406170517833z.html)
+
+[How to inherit report from code?](https://www.fast-report.com/en/faq/18/249/)
+
+[FastReport 4 User's Manual](https://www.fast-report.com/documentation/UserMan/index.html?inheritance_control.htm)
+
+[FastReport .NET Demo: Inheritance (EN) - YouTube](https://www.youtube.com/watch?v=8TsOQ28maN8)
+
+[Copying the Bands from One Report to Another with All the Contents](https://www.fast-report.com/en/blog/show/copying-bands-with-all-content/)
+
+> First, you need to download both reports:
+> 
+> ```csharp
+> Report base = new Report();
+> base.Load(@"C:\base.frx");
+> Report child = new Report();
+> child.Load(@"C:\child.frx");
+> ```
+> 
+> The next step is to get the pages from both reports. It is important 
+> to know the page names. The following example assumes that the page name
+>  in both reports is "Page1":
+> 
+> ```csharp
+> ReportPage basePage = base.FindObject("Page1") as ReportPage;
+> ReportPage childPage = child.FindObject("Page1") as ReportPage;
+> ```
+> 
+> If you do not know the page names, you can get them from the index. 
+> For example, further we get access to the first pages of both reports:
+> 
+> ```csharp
+> ReportPage basePage = baseReport.Pages[0] as ReportPage;
+> ReportPage childPage = childReport.Pages[0] as ReportPage;
+> ```
+> 
+> Both options are appropriate and lead to the same result.
+> 
+> Now you can replace *PageHeader* and *PageFooter*. It's pretty simple:
+> 
+> ```csharp
+> childPage.PageHeader = basePage.PageHeader;
+> childPage.PageFooter = basePage.PageFooter;
+> ```
+> 
+> These lines copy the two bands with all the properties and settings. 
+> In addition, all the objects located on them are duplicated and the 
+> properties are not lost.
+> 
+> Next, replace *DataBand* with "Data1" name:
+> 
+> ```csharp
+> DataBand baseBand = basePage.FindObject("Data1") as DataBand;
+> DataBand childBand = childPage.FindObject("Data1") as DataBand;
+> // you need to get the Data1 index in the child report
+> int childBandIndex = childPage.Bands.IndexOf(childBand);
+> // you can now delete it
+> childPage.Bands.Remove(childBand);
+> // and insert the band from the base report in its place
+> childPage.Bands.Insert(bandIndex, baseBand);
+> ```
+> 
+> In the end, the band with all the properties and child objects is 
+> copied, and the binding to the data source which is responsible for 
+> DataSource property is transferred as well. Without this binding, the 
+> band will not work correctly and will not output data from the database.
+> 
+> We just need to copy the data sources. This is done with the following code snippet:
+> 
+> ```csharp
+> for (int i = 0; i < baseReport.Dictionary.DataSources.Count; i++)
+> {
+>     childReport.Dictionary.DataSources.Add(baseReport.Dictionary.DataSources[i]);
+> }
+> ```
+> 
+> Thus, all data sources have been copied. If it is not necessary, you can clone only those desired.
+
+[FastReport 4 User's Manual](https://www.fast-report.com/documentation/UserMan/index.html?events.htm)
+
+> As described above, the script's main procedure is called at the very start of running the report. After that the essentials of report construction begin. Firstly the “OnStartReport” event of the "Report" object is called. Then, before
+>  an output page is created, the “OnBeforePrint” page event is called. This event is called once for each design page in the report template(design pages should not be confused with the output pages of a report!). In our example the event is called once, as the report design consists of only one design page.
+> 
+> Then the events of the data bands are called in the following order:
+> 
+> 1. the band's “OnBeforePrint” event is called
+> 
+> 2. the “OnBeforePrint” event of each object contained in the band is called
+> 
+> 3. each object is filled with data (in our example with values of the “Company” and “Addr1" DB fields)
+> 
+> 4. the “OnAfterData” event of each object is called
+> 
+> 5. actions such as positioning objects on the band (if there are stretchable objects among them), calculating band height and stretching it (if it is stretchable) are performed
+> 
+> 6. the band's “OnAfterCalcHeight” event is called
+> 
+> 7. a new output page is created if the band hasn't enough room in the page's white space
+> 
+> 8. the band and all of its objects are displayed on the output  page
+> 
+> 9. the “OnAfterPrint” event of each band object is called
+> 
+> 10. the “OnAfterPrint” event of the band itself is called
+> 
+> Bands continue to be printed as long as the source connected to the band has data. After that report printing stops, the report page's “OnAfterPrint” event is 
+> called and finally the “Report” object's “OnStopReport” event.
+
+[Script | FastReport Open Source Documentation](https://fastreports.github.io/FastReport.Documentation/Script.html)
+
+> In the beginning of the report, the `Report` object fires the `StartReport` event. Before formation of the report page, the `StartPage` event is fired. This event is fired once for every template page (do 
+> not confuse with prepared report page!). In our case, regardless of how 
+> many pages were in the prepared report - event is fired once, since the 
+> template report has got one page.
+> 
+> Further, printing of the “Data” band row starts. This happens in the following way:
+> 
+> 1. the `BeforePrint` band event is fired;
+> 2. the `BeforePrint` event of all objects lying on the band is fired;
+> 3. all objects are filled with data;
+> 4. the `AfterData` event of all objects lying on the band is fired;
+> 5. the `BeforeLayout` band event is fired;
+> 6. objects are placed on the band, the height of the band is calculated and band is stretched (if it can);
+> 7. the `AfterLayout` band event is fired;
+> 8. if the band cannot fit on a free space on the page, a new page is formed;
+> 9. the band and all its objects are displayed on a prepared report page;
+> 10. the `AfterPrint` band event is fired;
+> 11. the `AfterPrint` event of all the band objects is fired.
+> 
+> Printing of the band row occurs as long as there is data in the 
+> source. After this, the formation of the report in our case ends. The `FinishPage` event of a page is fired and finally - the `FinishReport` event of the `Report` object.
+
+Q: Hi. Is there a way to reference the full path of current .frx template file in script mode?
+
+Answer by Vitaliy Ezepchuk:
+
+> No way, the frx file loses its path after loading and is stored in memory.
+> 
+> You can use the report parameter together with report.load for storing the path to the file. But this report will work only in your program.
+> 
+> ```csharp
+> Report report = new Report();
+> report.Load(reportPath);
+> report.SetParameterValue("FullPath", reportPath);
+> ```

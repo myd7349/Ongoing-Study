@@ -9,6 +9,7 @@
 ### Archive
 
 - [7-Zip-zstd](https://github.com/mcmilk/7-Zip-zstd)
+- [gztool](https://github.com/circulosmeos/gztool)
 
 ### Audio
 
@@ -42,6 +43,7 @@
 
 - [advcpmv](https://github.com/jarun/advcpmv)
 - [ansicolors.h](https://github.com/dobisel/httpload/blob/master/ansicolors.h)
+- [Argos](https://github.com/jebreimo/Argos)
 - [cpp-terminal](https://github.com/jupyter-xeus/cpp-terminal)
 - [rang](https://github.com/agauniyal/rang)
 - [tableprinter](https://github.com/OzanCansel/tableprinter)
@@ -62,17 +64,33 @@
 
 ### Database
 
+- Redis
+  
+  - [twemproxy](https://github.com/twitter/twemproxy)
+
 - [serverless-sqlite](https://github.com/leizongmin/serverless-sqlite)
 
 - [verneuil](https://github.com/backtrace-labs/verneuil)
 
+### Debug
+
+- [libbacktrace](https://github.com/ianlancetaylor/libbacktrace)
+
 ### Game Programming
+
+- [acl](https://github.com/nfrechette/acl)
 
 - [flecs](https://github.com/SanderMertens/flecs): A fast entity component system (ECS) for C & C++.
 
 ### Graphics
 
 - [freetype-gl](https://github.com/rougier/freetype-gl)
+
+- [nanovg](https://github.com/inniyah/nanovg)
+
+- [ShivaVG](https://github.com/ileben/ShivaVG)
+
+- [vgc](https://github.com/vgc/vgc)
 
 - [WickedEngine](https://github.com/turanszkij/WickedEngine)
 
@@ -81,6 +99,8 @@
 ### GUI
 
 - [Boxer](https://github.com/aaronmjacobs/Boxer)
+
+- [eepp](https://github.com/SpartanJ/eepp)
 
 - [Flutter](https://docs.flutter.dev/desktop)
 
@@ -106,12 +126,25 @@
 
 - [libvips](https://github.com/libvips/libvips)
 - [pngquant](https://github.com/kornelski/pngquant)
+- [psd_sdk](https://github.com/MolecularMatters/psd_sdk)
 
 ### IO
+
+- [cppfs](https://github.com/cginternals/cppfs)
+
+- [cpplocate](https://github.com/cginternals/cpplocate)
+
+- [globpp](https://github.com/sergiud/globpp)
 
 - [PlatformFolders](https://github.com/sago007/PlatformFolders)
 
 - [tinydir](https://github.com/cxong/tinydir)
+
+- TortoiseGit\src\Utils\PathWatcher.h
+
+- [watchman](https://github.com/facebook/watchman)
+  
+  - [libwatchman](https://github.com/twitter/libwatchman)
 
 ### JSON
 
@@ -127,7 +160,13 @@
 
 - [json_dto](https://github.com/Stiffstream/json_dto)
 
+- [VaRest](https://github.com/ufna/VaRest)
+
 ### Language Interoperability
+
+##### C -> Go
+
+- [c2go](https://github.com/elliotchance/c2go)
 
 ##### C++ -> Julia
 
@@ -141,6 +180,10 @@
   
   - [cppimport](https://github.com/tbenthompson/cppimport)
 
+- SIP
+  
+  - PyQt5
+
 ##### Lua
 
 - [LuaBridge](https://github.com/vinniefalco/LuaBridge)
@@ -148,6 +191,10 @@
 ##### JavaScript
 
 - [mjs](https://github.com/cesanta/mjs)
+
+##### Qt -> Rust
+
+- [cxx-qt](https://github.com/KDAB/cxx-qt)
 
 ### Logging
 
@@ -165,7 +212,13 @@
   
   - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
 
+- [rtm](https://github.com/nfrechette/rtm)
+
 - [sleef](https://github.com/shibatch/sleef)
+
+- [stan](https://github.com/stan-dev/stan)
+  
+  - [stan-dev/math](https://github.com/stan-dev/math)
 
 - [tinyexpr](https://github.com/codeplea/tinyexpr)
 
@@ -202,6 +255,14 @@
   - [pikepdf](https://github.com/pikepdf/pikepdf)
     - [pdfarranger](https://github.com/pdfarranger/pdfarranger)
 
+### Physics
+
+- [JoltPhysics](https://github.com/jrouwe/JoltPhysics)
+
+### RPC
+
+- [grpcdump](https://github.com/jschwinger233/grpcdump)
+
 ### Scripting
 
 - [Guile](https://www.gnu.org/software/guile/)
@@ -218,6 +279,10 @@
   - [ObEngine](https://github.com/ObEngine/ObEngine)
 
 - [wren](https://github.com/wren-lang/wren)
+
+- [Yuescript](https://github.com/pigpigyyy/Yuescript)
+  
+  - [yuema](https://github.com/megagrump/yuema)
 
 ### Templating
 
@@ -238,3 +303,8 @@
 - [webby](https://github.com/deplinenoise/webby)
   
   - [remoteimgui](https://github.com/JordiRos/remoteimgui)
+
+### Miscellaneous
+
+- [KDBindings](https://github.com/KDAB/KDBindings)
+- [libromfs](https://github.com/WerWolv/libromfs): libromfs is an easy way to bundle resources directly into any C++ application.

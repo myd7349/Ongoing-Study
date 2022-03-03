@@ -40,7 +40,13 @@
 
 ### PDB Tools
 
+- [pdbattach](https://github.com/jschwinger233/pdbattach)
+
+- [PdbBenchmarks](https://github.com/OmerRaviv/PdbBenchmarks)
+
 - [PDBRipper](https://github.com/horsicq/PDBRipper)
+
+- [raw_pdb](https://github.com/MolecularMatters/raw_pdb)
 
 ### Reverse Engineering
 
@@ -63,6 +69,22 @@
 
 - StampVer
 
+### Resource Tools
+
+- [D2H](https://github.com/GideonSerf/D2H)
+
+- [Data2Array](https://github.com/CharlesCarley/Data2Array)
+
+- [incbin](https://github.com/graphitemaster/incbin)
+
+- [libromfs](https://github.com/WerWolv/libromfs): libromfs is an easy way to bundle resources directly into any C++ application.
+
+- [ResText](https://github.com/TortoiseGit/TortoiseGit/tree/master/src/ResText)
+  
+  - [TortoiseGit/README.txt at master · TortoiseGit/TortoiseGit · GitHub](https://github.com/TortoiseGit/TortoiseGit/blob/master/Languages/README.txt)
+
+- [rres](https://github.com/raysan5/rres)
+
 ### C# Libraries
 
 - [AsmResolver](https://github.com/Washi1337/AsmResolver)
@@ -76,3 +98,15 @@
 - [PeNet](https://github.com/secana/PeNet)
 
 - [Ressy](https://github.com/Tyrrrz/Ressy): Library for managing native resources in PE files
+
+### DLL Tools
+
+- [ListDLLs](https://github.com/MicrosoftDocs/sysinternals/blob/live/sysinternals/downloads/listdlls.md)
+
+### PE Packers
+
+- [Enigma Virtual Box](https://enigmaprotector.com/en/aboutvb.html)
+  
+  - [怎么样打包 pyqt 应用才是最佳方案？或者说 pyqt 怎样的发布方式最优？](https://www.zhihu.com/question/48776632)
+
+- UPX

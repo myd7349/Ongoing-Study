@@ -315,3 +315,38 @@ https://git-scm.com/docs/git-bundle
 28. freopen
     
     - [PyStand/PyStand.cpp at 164a7b929d1d3c35f299da2669dc112775e724d7 · skywind3000/PyStand · GitHub](https://github.com/skywind3000/PyStand/blob/164a7b929d1d3c35f299da2669dc112775e724d7/PyStand.cpp#L324-L348)
+    
+    - [Rerouting stdin and stdout from C](https://stackoverflow.com/questions/584868/rerouting-stdin-and-stdout-from-c)
+      
+      > `freopen` is commonly misused, e.g. `stdin = freopen("newin", "r", stdin);`. This is no more portable than `fclose(stdin); stdin = fopen("newin", "r");`. Both expressions attempt to assign to `stdin`, which is not guaranteed to be assignable.
+      > 
+      > The right way to use `freopen` is to omit the assignment: `freopen("newin", "r", stdin);`
+      
+      > For those who wants to close standard descriptor before reopen it, there is a solution tested in msvc2015 UCRT, use sequence of `fclose`+`_close`+`freopen`: `const int stdin_fileno = _fileno(stdin); fclose(stdin); if (stdin_fileno < 0) _close(STDIN_FILENO); /* may reallocate console here */; freopen("CONIN$", "r", stdin); /* use _get_osfhandle + SetStdHandle for not console application */`. This has sence because `freopen` does not reuse already allocated descriptor and allocates a new one. So
+      >  to force it to reuse the descriptor you have to close it first.
+    
+    - [win32 GUI app that writes usage text to stdout when invoked as "app.exe --help"](https://stackoverflow.com/questions/54536/win32-gui-app-that-writes-usage-text-to-stdout-when-invoked-as-app-exe-help)
+      
+      > ```c
+      > // https://keep.imfreedom.org/pidgin/pidgin/file/tip/pidgin/win32/winpidgin.c
+      > if (debug || help || version) {
+      >     /* If stdout hasn't been redirected to a file, alloc a console
+      >      *  (_istty() doesn't work for stuff using the GUI subsystem) */
+      >     if (_fileno(stdout) == -1 || _fileno(stdout) == -2) {
+      >         LPFNATTACHCONSOLE MyAttachConsole = NULL;
+      >         if (hmod)
+      >             MyAttachConsole = (LPFNATTACHCONSOLE)GetProcAddress(hmod, "AttachConsole");
+      >         if ((MyAttachConsole && MyAttachConsole(ATTACH_PARENT_PROCESS)) || AllocConsole()) {
+      >             freopen("CONOUT$", "w", stdout);
+      >             freopen("CONOUT$", "w", stderr);
+      >         }
+      >     }
+      > }
+      > ```
+      
+      > ```c
+      > if(AttachConsole(ATTACH_PARENT_PROCESS) || AllocConsole()){
+      >     freopen("CONOUT$", "w", stdout);
+      >     freopen("CONOUT$", "w", stderr);
+      > }
+      > ```

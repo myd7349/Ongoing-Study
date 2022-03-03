@@ -193,3 +193,7 @@
 - https://github.com/git/git/blob/master/http.c
 
 - https://github.com/krychu/wfc/blob/master/wfctool.c
+
+- https://keep.imfreedom.org/pidgin/pidgin/file/tip/pidgin/win32/winpidgin.c
+
+- TortoiseGit\src\Utils\CmdLineParser.h

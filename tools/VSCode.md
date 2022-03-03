@@ -11,6 +11,8 @@ Extensions:
 
 - Auto Pilot
 
+- blockman
+
 - Pylance
 
 - [tabnine](https://www.tabnine.com/)

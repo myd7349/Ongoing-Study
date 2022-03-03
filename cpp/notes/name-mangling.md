@@ -58,7 +58,10 @@ int main()
 
     return 0;
 }
-
 ```
 
 [C++ 如何获取函数的原型?](https://www.zhihu.com/question/278587865/answer/401159650)
+
+[demangle](https://github.com/ianlancetaylor/demangle): C++ symbol name demangler written in Go.
+
+[py-cpp-demangle](https://github.com/benfred/py-cpp-demangle)

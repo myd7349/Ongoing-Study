@@ -1,6 +1,8 @@
 ﻿namespace ScriptPlayground
 {
     using System;
+    using System.IO;
+    using System.Reflection;
 
     using FastReport;
     using FastReport.Export.Image;
@@ -14,11 +16,13 @@
             if (person == null)
                 throw new ArgumentNullException("person");
 
+            var applicationFilePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
             using (var report = new Report())
             {
                 try
                 {
-                    report.Load("./Template.frx");
+                    report.Load(Path.Combine(applicationFilePath, "./Template.frx"));
                 }
                 catch (Exception ex)
                 {
@@ -47,6 +51,10 @@
                 {
                     MsgBox.Error("Report.Prepare failed.");
                     return;
+                }
+                else
+                {
+                    MsgBox.Information("Report.Prepare");
                 }
 
                 using (var imageExporter = new ImageExport())

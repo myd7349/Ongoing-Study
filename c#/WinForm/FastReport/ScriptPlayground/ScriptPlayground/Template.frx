@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Data;
+using System.IO;
 using FastReport;
 using FastReport.Data;
 using FastReport.Dialog;
@@ -43,6 +44,9 @@ namespace FastReport
     {
         private void PageHeader1_BeforePrint(object sender, EventArgs e)
         {
+            MessageBox.Show(String.Format(&quot;Cwd: {0}&quot;, Directory.GetCurrentDirectory()));
+            MessageBox.Show(Report.GetParameterValue(&quot;Name&quot;).ToString());
+            MessageBox.Show(Engine.CurX.ToString());
             Page1.Landscape = false;
             MessageBox.Show(&quot;Before Print&quot;);
             var unitsCentimeters = String.Format(&quot;Units.Centimeters: {0}&quot;, Units.Centimeters);
@@ -91,7 +95,7 @@ namespace FastReport
   </Dictionary>
   <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15" Border.Lines="All" Watermark.Font="宋体, 60pt">
     <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="37.8"/>
-    <PageHeaderBand Name="PageHeader1" Top="41.76" Width="1047.06" Height="28.35" BeforePrintEvent="PageHeader1_BeforePrint" AfterDataEvent="PageHeader1_AfterData">
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="1047.06" Height="28.35" BeforePrintEvent="PageHeader1_BeforePrint" AfterDataEvent="PageHeader1_AfterData">
       <TextObject Name="NameLabel" Width="47.25" Height="18.9" Text="Name:" Font="宋体, 9pt"/>
       <TextObject Name="Name" Left="47.25" Width="94.5" Height="18.9" Text="[Name]" Font="宋体, 9pt"/>
       <TextObject Name="AgeLabel" Left="170.1" Width="47.25" Height="18.9" Text="Age:" Font="宋体, 9pt"/>
@@ -105,7 +109,7 @@ namespace FastReport
       <TextObject Name="PhoneLabel" Left="878.85" Width="47.25" Height="18.9" Text="Phone:" Font="宋体, 9pt"/>
       <TextObject Name="Phone" Left="926.1" Width="94.5" Height="18.9" Text="[Phone]" Font="宋体, 9pt"/>
     </PageHeaderBand>
-    <DataBand Name="Data1" Top="74.07" Width="1047.06" Height="75.6"/>
-    <PageFooterBand Name="PageFooter1" Top="153.63" Width="1047.06" Height="18.9"/>
+    <DataBand Name="Data1" Top="74.15" Width="1047.06" Height="75.6"/>
+    <PageFooterBand Name="PageFooter1" Top="153.75" Width="1047.06" Height="18.9"/>
   </ReportPage>
 </Report>

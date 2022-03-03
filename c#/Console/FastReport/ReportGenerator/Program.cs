@@ -5,6 +5,7 @@
     using System.Drawing;
     using System.IO;
     using System.Linq;
+    using System.Xml.Linq;
 
     using CommandLine;
     using CommandLine.Text;
@@ -50,8 +51,36 @@
                 return 1;
             }
 
+            string baseReportFilePath;
+            var isInheritedReport = TryGetBaseReportFilePath(
+                options.InputRfxFilePath, out baseReportFilePath);
+
             using (var report = new Report())
             {
+                if (isInheritedReport)
+                {
+#if true
+                    try
+                    {
+                        report.Load(baseReportFilePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Failed to load base report template \"{0}\":\n{1}",
+                            baseReportFilePath, ex);
+                        return 1;
+                    }
+#else
+                    Func<object, CustomLoadEventArgs> loadBaseReport = (sender, e)
+                    {
+                        e.Report.Load(baseReportFilePath);
+                    };
+
+                    report.LoadBaseReport += new CustomLoadEventHandler(loadBaseReport);
+                    report.LoadBaseReport -= new CustomLoadEventHandler(loadBaseReport);
+#endif
+                }
+
                 try
                 {
                     report.Load(options.InputRfxFilePath);
@@ -62,6 +91,11 @@
                         options.InputRfxFilePath, ex);
                     return 1;
                 }
+
+#if DEBUG
+                Console.WriteLine("Report filename: {0}.", report.FileName);
+                Console.WriteLine("Base report filename: {0}.", report.BaseReport);
+#endif
 
                 foreach (var parameter in options.Parameters)
                 {
@@ -269,6 +303,63 @@
             return 0;
         }
 
+        private static bool TryGetBaseReportFilePath(string inheritedReportFilePath, out string baseReportFilePath)
+        {
+            if (string.IsNullOrEmpty(inheritedReportFilePath))
+                throw new ArgumentException("inheritedReportFilePath");
+
+            var document = XDocument.Load(inheritedReportFilePath);
+            var rootElement = document.Root;
+
+            switch (rootElement.Name.LocalName)
+            {
+                case "Report":
+                    baseReportFilePath = null;
+                    return false;
+                case "inherited":
+                    break;
+                default:
+                    throw new InvalidOperationException("Not a valid FastReport template file.");
+            }
+
+            var baseReportAttribute = rootElement.Attribute("BaseReport");
+            if (baseReportAttribute == null)
+                throw new InvalidOperationException("BaseReport attribute is missing.");
+
+            baseReportFilePath = baseReportAttribute.Value;
+            if (File.Exists(baseReportFilePath))
+            {
+                baseReportFilePath = Path.GetFullPath(baseReportFilePath);
+                return true;
+            }
+            else
+            {
+                baseReportFilePath = Path.Combine(
+                    Path.GetDirectoryName(inheritedReportFilePath),
+                    baseReportFilePath);
+                if (File.Exists(baseReportFilePath))
+                    return true;
+
+                var baseReportAbsolutePathAttribute = rootElement.Attribute("BaseReportAbsolutePath");
+                if (baseReportAbsolutePathAttribute == null)
+                {
+                    baseReportFilePath = null;
+                    return false;
+                }
+
+                baseReportFilePath = baseReportAbsolutePathAttribute.Value;
+                if (File.Exists(baseReportFilePath))
+                {
+                    return true;
+                }
+                else
+                {
+                    baseReportFilePath = null;
+                    return false;
+                }
+            }
+        }
+
         private static void DisplayHelp(ParserResult<Options> result, IEnumerable<Error> errors)
         {
             var helpText = HelpText.AutoBuild(result, h =>
@@ -287,6 +378,7 @@
     }
 }
 
+
 // References:
 // [How do I specify the exit code of a console application in .NET?](https://stackoverflow.com/questions/155610/how-do-i-specify-the-exit-code-of-a-console-application-in-net)
 // [How do I rotate a picture in WinForms](https://stackoverflow.com/questions/2163829/how-do-i-rotate-a-picture-in-winforms)
@@ -294,3 +386,7 @@
 // [How to rotate an ATL::CImage object](https://stackoverflow.com/questions/9492169/how-to-rotate-an-atlcimage-object)
 // [Export FASTREPORT print as PDF](https://stackoverflow.com/questions/16895574/export-fastreport-print-as-pdf/17004059)
 // [How to set a picture in a report from the user application code](https://www.fast-report.com/en/blog/show/picture-from-user-code/)
+// [How do I get the XML root node with C#?](https://stackoverflow.com/questions/4498423/how-do-i-get-the-xml-root-node-with-c)
+// [How to inherit report from code?](https://www.fast-report.com/en/faq/18/249/)
+// [How to make report inheritance in FastReport.NET](https://www.fast-report.com/en/blog/show/report-inheritance-fastreport-net/)
+// [Storing a Lambda Expression in a Variable](https://stackoverflow.com/questions/4379048/storing-a-lambda-expression-in-a-variable)

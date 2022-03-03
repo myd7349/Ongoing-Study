@@ -23,45 +23,88 @@ Applications:
 Libraries:
 
 - [advanceddatagridview](https://github.com/davidegironi/advanceddatagridview)
+
 - [CefSharp](https://github.com/cefsharp/CefSharp)
+  
+  - DeepL Translate App for Windows
+
 - [CSharp-ChatUI-Winforms](https://github.com/AbdisamadMoh/CSharp-ChatUI-Winforms)
+
 - [CSLA.NET](https://github.com/MarimerLLC/csla)
+
 - [Cyotek.Windows.Forms.ColorPicker](https://github.com/cyotek/Cyotek.Windows.Forms.ColorPicker)
+
 - [Cyotek.Windows.Forms.ImageBox](https://github.com/cyotek/Cyotek.Windows.Forms.ImageBox)
+  
   - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
+
 - [DarkUI](https://github.com/RobinPerris/DarkUI)
+
 - [DockPanel Suite](https://github.com/dockpanelsuite/dockpanelsuite)
+  
   - [How to make a floating control](https://stackoverflow.com/questions/4390300/how-to-make-a-floating-control)
   - https://sourceforge.net/projects/dockpanelsuite/
+
 - [FastColoredTextBox](https://github.com/PavelTorgashov/FastColoredTextBox)
+
 - [globalmousekeyhook](https://github.com/gmamaladze/globalmousekeyhook)
+  
+  - DeepL Translate App for Windows
+  
   - [Magpie](https://github.com/Blinue/Magpie)
+
 - [groupcontrols](https://github.com/dahall/groupcontrols)
+
 - [H.Hooks](https://github.com/HavenDV/H.Hooks): Contains LowLevelKeyboardHook and LowLevelMouseHook.
+  
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+
 - [Krypton](https://github.com/ComponentFactory/Krypton)
+  
   - [Standard-Toolkit](https://github.com/Krypton-Suite/Standard-Toolkit)
+
 - [MaterialSkin](https://github.com/IgnaceMaes/MaterialSkin)
+
 - [MetroFramework](https://github.com/peters/winforms-modernui)
+  
   - [metroframework-modern-ui](https://github.com/dennismagno/metroframework-modern-ui)
+
 - [MetroSet-UI](https://github.com/N-a-r-w-i-n/MetroSet-UI)
+
 - [NetWinformControl](https://github.com/kwwwvagaa/NetWinformControl)
+
 - [Ookii.Dialogs.WinForms](https://github.com/ookii-dialogs/ookii-dialogs-winforms)
+
 - [Ooui](https://github.com/praeclarum/Ooui)
+
 - [ReactiveUI](https://github.com/reactiveui/ReactiveUI)
+
 - [ReaLTaiizor](https://github.com/Taiizor/ReaLTaiizor)
+
 - [RibbonWinForms](https://github.com/RibbonWinForms/RibbonWinForms)
+
 - [RawInput](https://github.com/mfakane/rawinput-sharp)
+  
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+
 - [SevenSegment](https://github.com/dbrant/SevenSegment)
+
 - [SunnyUI](https://github.com/yhuse/SunnyUI)
+
 - [TabControlExtra](https://github.com/tradewright/tabcontrol-extra)
+  
   - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
+
 - [Vanara](https://github.com/dahall/Vanara/tree/master/Windows.Forms)
+
 - [WindowsCommunityToolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit)
+  
   - [Microsoft.Toolkit.Win32](https://github.com/CommunityToolkit/Microsoft.Toolkit.Win32)
+
 - [WindowsFormsAero](https://github.com/LorenzCK/WindowsFormsAero)
+  
   - [OnTopReplica](https://github.com/LorenzCK/OnTopReplica)
+
 - [WinFormsX](https://github.com/FlorianRappl/WinFormsX)
 
 ##### Charting

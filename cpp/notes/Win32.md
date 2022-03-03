@@ -66,3 +66,33 @@ Printing
   > 100 ÷ 600 × 2.54 = 0.423333cm
 
 - [Printing does not start at the top edge of the page](https://stackoverflow.com/questions/21448977/printing-does-not-start-at-the-top-edge-of-the-page)
+
+ImageBase
+
+- C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\crt\src\vcruntime\exe_common.inl
+  
+  > ```cpp
+  > #elif defined _SCRT_STARTUP_WINMAIN
+  > 
+  >     using main_policy = __scrt_winmain_policy;
+  >     using file_policy = __scrt_file_policy;
+  >     using argv_policy = __scrt_narrow_argv_policy;
+  >     using environment_policy = __scrt_narrow_environment_policy;
+  > 
+  >     static int __cdecl invoke_main()
+  >     {
+  >         return WinMain(
+  >             reinterpret_cast<HINSTANCE>(&__ImageBase),
+  >             nullptr,
+  >             _get_narrow_winmain_command_line(),
+  >             __scrt_get_show_window_mode());
+  >     }
+  > 
+  > #elif defined _SCRT_STARTUP_WWINMAIN
+  > ```
+
+AttachConsole used in [PyStand/PyStand.cpp at 654066cd6162787cf5d72d3f4274f5aea5dc14d8 · skywind3000/PyStand · GitHub](https://github.com/skywind3000/PyStand/blob/654066cd6162787cf5d72d3f4274f5aea5dc14d8/PyStand.cpp#L345)
+
+- [Using AttachConsole, user must hit enter to get regular command line](https://stackoverflow.com/questions/1305257/using-attachconsole-user-must-hit-enter-to-get-regular-command-line)
+
+- [c# - Can one executable be both a console and GUI application? - Stack Overflow](https://stackoverflow.com/questions/493536/can-one-executable-be-both-a-console-and-gui-application/494000#494000)

@@ -912,3 +912,4 @@ BOOL BytesToImage(CImage &image, LPBYTE pBytes, DWORD dwSize)
 // https://github.com/CrashRpt/crashrpt2/blob/master/reporting/crashrpt/Utility.cpp
 // https://github.com/MaskRay/ccls/blob/master/src/filesystem.cc
 // https://github.com/xupefei/cow-hide/blob/master/cow-hide/cow-hide.cpp
+// TortoiseGit\src\Utils\CreateProcessHelper.h

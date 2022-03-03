@@ -1,0 +1,48 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MVVMDemoApp"
+                    xmlns:vm="clr-namespace:MVVMDemoApp.ViewModels"
+                    xmlns:vw="clr-namespace:MVVMDemoApp.Views">
+    <!--
+    This template explains how to render the list of commands
+    on the left side in the main window (the 'Control Panel area').
+    -->
+    <DataTemplate x:Key="CommandsTemplate">
+        <ItemsControl ItemsSource="{Binding Path=Commands}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Margin="2,6">
+                        <Hyperlink Command="{Binding Path=Command}" />
+                        <TextBlock Text="{Binding Path=DisplayName}" />
+                    </TextBlock>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DataTemplate>
+    <DataTemplate x:Key="ClosableTabItemTemplate">
+        <DockPanel Width="120">
+            <Button Command="{Binding Path=CloseCommand}"
+                    Content="X"
+                    DockPanel.Dock="Right"
+                    Width="16"
+                    Height="16" />
+            <ContentPresenter Content="{Binding Path=DisplayName}" />
+        </DockPanel>
+    </DataTemplate>
+
+    <!--
+    This template applies an AllCustomersView to an instance of
+    the AllCustomersViewModel class shown in the main window.
+    -->
+    <DataTemplate DataType="{x:Type vm:AllCustomersViewModel}">
+        <vw:AllCustomersView />
+    </DataTemplate>
+
+    <!--
+    This template applies a CustomerView to an instance of
+    the CustomerViewModel class shown in the main window.
+    -->
+    <DataTemplate DataType="{x:Type vm:CustomerViewModel}">
+        <vw:CustomerView />
+    </DataTemplate>
+</ResourceDictionary>

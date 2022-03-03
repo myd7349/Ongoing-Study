@@ -1,5 +1,15 @@
 [gh-trends: GitHub star history plots](https://github.com/nschloe/gh-trends)
 
+[Token authentication requirements for Git operations | The GitHub Blog](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/)
+
+### Browser Extensions
+
+- [Gitako](https://github.com/EnixCoda/Gitako)
+
+- Gitpod
+
+- [refined-github](https://github.com/refined-github/refined-github)
+
 ### Project Management
 
 - [ZenHub](https://www.zenhub.com/)

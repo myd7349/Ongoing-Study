@@ -42,6 +42,8 @@ Code Editors:
 
 - [SciTE](https://www.scintilla.org/SciTE.html)
 
+- [Storylines](https://github.com/morning4coffe-dev/storylines)
+
 - Sublime Text
 
 - [TextMate](https://github.com/textmate/textmate)
@@ -73,3 +75,4 @@ Online Editors:
 Others:
 
 - [studio](https://github.com/stoplightio/studio): The modern editor for API Design and Technical Writing.
+- [GitHub - trimstray/the-book-of-secret-knowledge: A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, cli/web tools and more.](https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-text-editors)

@@ -217,23 +217,23 @@
    dataSet.write(data, H5::PredType::NATIVE_INT16, memSpace, fileSpace);
    ```
 
-6. [Build both release and debug](https://forum.hdfgroup.org/t/build-both-release-and-debug/5094) & [HDF5 - Visual Studio - Build in Release works, Debug fails](https://forum.hdfgroup.org/t/hdf5-visual-studio-build-in-release-works-debug-fails/878)
+10. [Build both release and debug](https://forum.hdfgroup.org/t/build-both-release-and-debug/5094) & [HDF5 - Visual Studio - Build in Release works, Debug fails](https://forum.hdfgroup.org/t/hdf5-visual-studio-build-in-release-works-debug-fails/878)
 
-7. [Iterative recording of real-time data over long time periods](https://forum.hdfgroup.org/t/iterative-recording-of-real-time-data-over-long-time-periods/6985)
+11. [Iterative recording of real-time data over long time periods](https://forum.hdfgroup.org/t/iterative-recording-of-real-time-data-over-long-time-periods/6985)
 
-8. [how to read hdf5 boolean enum created by h5py in C](https://stackoverflow.com/questions/11627376/how-to-read-hdf5-boolean-enum-created-by-h5py-in-c)
+12. [how to read hdf5 boolean enum created by h5py in C](https://stackoverflow.com/questions/11627376/how-to-read-hdf5-boolean-enum-created-by-h5py-in-c)
 
-9. zlib linking issue when built as a static library
-   
-   - [Unresolved external symbol with zlib and libpng. Visual studio 2013](https://stackoverflow.com/questions/37762981/unresolved-external-symbol-with-zlib-and-libpng-visual-studio-2013)
-     
-     > For fixing the unresolved symbols problem, open zlib project  preferences,  then go to Configuration Properties -> C/C++ -> Preprocessor, and  in the Preprocessor Definitions line remove “ZLIB_WINAPI;” (don’t forget to remove the trailing semicolon).
-   
-   - [Unresolved externals despite linking in zlib.lib](https://stackoverflow.com/questions/5424549/unresolved-externals-despite-linking-in-zlib-lib)
+13. zlib linking issue when built as a static library
+    
+    - [Unresolved external symbol with zlib and libpng. Visual studio 2013](https://stackoverflow.com/questions/37762981/unresolved-external-symbol-with-zlib-and-libpng-visual-studio-2013)
+      
+      > For fixing the unresolved symbols problem, open zlib project  preferences,  then go to Configuration Properties -> C/C++ -> Preprocessor, and  in the Preprocessor Definitions line remove “ZLIB_WINAPI;” (don’t forget to remove the trailing semicolon).
+    
+    - [Unresolved externals despite linking in zlib.lib](https://stackoverflow.com/questions/5424549/unresolved-externals-despite-linking-in-zlib-lib)
 
-10. https://github.com/hpc-io/h5bench
+14. https://github.com/hpc-io/h5bench
 
-11. [How to flush a file?](https://github.com/BlueBrain/HighFive/blob/master/include/highfive/bits/H5File_misc.hpp)
+15. [How to flush a file?](https://github.com/BlueBrain/HighFive/blob/master/include/highfive/bits/H5File_misc.hpp)
     
     > ```c++
     > inline void File::flush() {
@@ -248,40 +248,40 @@
     
     > https://github.com/h5py/h5py/blob/0981eee11b1a3a743a09adae852b062085b415b4/h5py/h5f.pyx#L129-L143
 
-6. `H5Lexists` vs `H5Oexists_by_name`
+16. `H5Lexists` vs `H5Oexists_by_name`
 
-7. How to copy/move all attributes from one dataset to another?
-   
-   - `H5Location::copyLink` vs `H5Location::moveLink`
-   - `H5Lcopy` vs `H5Lmove`
+17. How to copy/move all attributes from one dataset to another?
+    
+    - `H5Location::copyLink` vs `H5Location::moveLink`
+    - `H5Lcopy` vs `H5Lmove`
 
-8. How to open a file whose path is a `PCWSTR`?
-   
-   > ```
-   > MyApp.exe!H5_get_utf16_str(const char * s)
-   > MyApp.exe!Wopen_utf8(const char * path, int oflag, ...)
-   > MyApp.exe!H5FD_sec2_open(const char * name, unsigned int flags, __int64 fapl_id, unsigned __int64 maxaddr)
-   > MyApp.exe!H5FD_open(const char * name, unsigned int flags, __int64 fapl_id, unsigned __int64 maxaddr)
-   > MyApp.exe!H5F__is_hdf5(const char * name, __int64 fapl_id)
-   > MyApp.exe!H5VL__native_file_specific(void * obj, H5VL_file_specific_t specific_type, __int64 dxpl_id, void * * req, char * arguments)
-   > MyApp.exe!H5VL__file_specific(void * obj, const H5VL_class_t * cls, H5VL_file_specific_t specific_type, __int64 dxpl_id, void * * req, char * arguments)
-   > MyApp.exe!H5VL_file_specific(const H5VL_object_t * vol_obj, H5VL_file_specific_t specific_type, __int64 dxpl_id, void * * req, ...)
-   > MyApp.exe!H5Fis_accessible(const char * filename, __int64 fapl_id)
-   > MyApp.exe!H5::H5File::isHdf5(const char * name)
-   > MyApp.exe!H5::H5File::isHdf5(const std::basic_string<char,std::char_traits<char>,std::allocator<char> > & name)
-   > ```
-   
-   From the calling stack above, we can know that HDF5 assumes that the file path you passed to `H5File::isHdf5(const char * name)` is a UTF-8 string, not a ANSI one. So that is what we can do:
-   
-   > PCWSTR filePath = L"...";
-   > 
-   > const char *filePathU8 = WCharToUtf8(filePath);
-   > 
-   > assert(H5::H5File::isHdf5(filePathU8));
+18. How to open a file whose path is a `PCWSTR`?
+    
+    > ```
+    > MyApp.exe!H5_get_utf16_str(const char * s)
+    > MyApp.exe!Wopen_utf8(const char * path, int oflag, ...)
+    > MyApp.exe!H5FD_sec2_open(const char * name, unsigned int flags, __int64 fapl_id, unsigned __int64 maxaddr)
+    > MyApp.exe!H5FD_open(const char * name, unsigned int flags, __int64 fapl_id, unsigned __int64 maxaddr)
+    > MyApp.exe!H5F__is_hdf5(const char * name, __int64 fapl_id)
+    > MyApp.exe!H5VL__native_file_specific(void * obj, H5VL_file_specific_t specific_type, __int64 dxpl_id, void * * req, char * arguments)
+    > MyApp.exe!H5VL__file_specific(void * obj, const H5VL_class_t * cls, H5VL_file_specific_t specific_type, __int64 dxpl_id, void * * req, char * arguments)
+    > MyApp.exe!H5VL_file_specific(const H5VL_object_t * vol_obj, H5VL_file_specific_t specific_type, __int64 dxpl_id, void * * req, ...)
+    > MyApp.exe!H5Fis_accessible(const char * filename, __int64 fapl_id)
+    > MyApp.exe!H5::H5File::isHdf5(const char * name)
+    > MyApp.exe!H5::H5File::isHdf5(const std::basic_string<char,std::char_traits<char>,std::allocator<char> > & name)
+    > ```
+    
+    From the calling stack above, we can know that HDF5 assumes that the file path you passed to `H5File::isHdf5(const char * name)` is a UTF-8 string, not a ANSI one. So that is what we can do:
+    
+    > PCWSTR filePath = L"...";
+    > 
+    > const char *filePathU8 = WCharToUtf8(filePath);
+    > 
+    > assert(H5::H5File::isHdf5(filePathU8));
 
-9. [Unifying Biological Image Formats with HDF5](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3016045/)
+19. [Unifying Biological Image Formats with HDF5](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3016045/)
 
-10. `selectHyperslab` C and C++ API
+20. `selectHyperslab` C and C++ API
     
     C++:
     
@@ -303,13 +303,15 @@
         const hsize_t _block[]);
     ```
 
-11. Object iteration
+21. Object iteration
     
     - [Cookbook : Iteration](https://github.com/HDFGroup/HDF.PInvoke/wiki/Cookbook-:-Iteration)
     - https://github.com/HDFGroup/hdf5-examples/blob/master/1_6/C/H5G/h5ex_g_iterate.c
     - [How to Iterate over Group Members Using C](https://www.asc.ohio-state.edu/wilkins.5/computing/HDF/hdf5tutorial/iterate.html)
     - [HDF5 Cpp - retrieving the names of all groups in a file](https://stackoverflow.com/questions/23778630/hdf5-cpp-retrieving-the-names-of-all-groups-in-a-file)
 
-12. [morphologica](https://github.com/ABRG-Models/morphologica)
+22. [morphologica](https://github.com/ABRG-Models/morphologica)
     
     https://github.com/ABRG-Models/morphologica/blob/main/morph/HdfData.h
+
+23. [MathNet.Numerics.Data.Matlab](https://github.com/mathnet/mathnet-numerics/tree/master/src/Data.Matlab)

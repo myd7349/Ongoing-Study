@@ -5,6 +5,7 @@ Applications:
 - [Ascii-Design](https://github.com/Faster3ck/Ascii-Design)
 - [BingWallpaper](https://github.com/ypingcn/BingWallpaper)
 - [Clementine](https://github.com/clementine-player/Clementine): Clementine Music Player
+- [CodeBrowser](https://github.com/KDAB/codebrowser)
 - [Converseen](https://github.com/Faster3ck/Converseen)
 - [CopyQ](https://github.com/hluk/CopyQ)
 - [cool-retro-term](https://github.com/Swordfish90/cool-retro-term)
@@ -34,6 +35,8 @@ Applications:
 - [NeteaseMusic](https://github.com/sonichy/NeteaseMusic)
 - [nodeeditor](https://github.com/paceholder/nodeeditor)
 - [NymphCast](https://github.com/MayaPosch/NymphCast)
+- [OBS Studio](https://github.com/obsproject/obs-studio)
+  - [obs-studio/obs-win-crash-handler.c at master · obsproject/obs-studio · GitHub](https://github.com/obsproject/obs-studio/blob/master/libobs/obs-win-crash-handler.c)
 - [opencc-gui](https://github.com/BYVoid/opencc-gui)
 - [OpenMW](https://github.com/OpenMW/openmw)
 - [OpenSCAD](https://github.com/openscad/openscad/)
@@ -94,9 +97,15 @@ Libraries:
 
 - [KDDockWidgets](https://github.com/KDAB/KDDockWidgets)
 
+- [KDSoap](https://github.com/KDAB/KDSoap)
+
+- [KylinPluginFramework](https://github.com/ZgblKylin/KylinPluginFramework)
+
 - [libcrashreporter-qt](https://github.com/dschmidt/libcrashreporter-qt)
   
   - [CrashReporter](https://github.com/RedisDesktop/CrashReporter)
+
+- [log4qt](https://github.com/ZgblKylin/log4qt)
 
 - [PDF4QT](https://github.com/JakubMelka/PDF4QT)
 
@@ -136,6 +145,8 @@ Libraries:
 
 - [XShortcuts](https://github.com/horsicq/XShortcuts)
 
+- [verdigris](https://github.com/woboq/verdigris)
+
 Tools:
 
 - [Autopilot in Launchpad](https://launchpad.net/autopilot)
@@ -148,6 +159,14 @@ Tools:
     - [rocketpilot-driver](https://github.com/uglide/rocketpilot-driver)
 
 - [CQtDeployer](https://github.com/QuasarApp/CQtDeployer)
+
+- [GammaRay](https://github.com/KDAB/GammaRay)
+
+- [hotspot](https://github.com/KDAB/hotspot)
+
+- [Qbs](https://github.com/qbs/qbs)
+  
+  - [tiled](https://github.com/mapeditor/tiled)
 
 Deployment:
 

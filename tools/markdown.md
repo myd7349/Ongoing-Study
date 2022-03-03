@@ -52,6 +52,10 @@ Softwares:
 
 - [WeChat Markdown Editor](https://github.com/doocs/md)
 
+- [yn](https://github.com/purocean/yn)
+
+- [Zettlr](https://github.com/Zettlr/Zettlr)
+
 Libraries:
 
 - [ByteMD](https://github.com/bytedance/bytemd)

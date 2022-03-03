@@ -48,4 +48,4 @@ How to load a dll from memory?
 
 - [pupy/LoadLibraryR.c at unstable · n1nj4sec/pupy · GitHub](https://github.com/n1nj4sec/pupy/blob/unstable/client/sources/LoadLibraryR.c)
 
-
+- [py2exe/MemoryModule.c at master · py2exe/py2exe · GitHub](https://github.com/py2exe/py2exe/blob/master/source/MemoryModule.c)

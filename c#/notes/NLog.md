@@ -158,7 +158,3 @@ Log exception V3, doesn't work as expected:
         layout="${longdate} ${level:uppercase=false:padding=-5}: ${message}${message:exceptionSeparator=${newline}}{exception:format=tostring}"
         optimizeBufferReuse="true" />
 ```
-
-```xml
-
-```

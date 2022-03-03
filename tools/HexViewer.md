@@ -12,6 +12,19 @@ linux xxd command
 
 - [How can a file contain null bytes?](https://stackoverflow.com/questions/34621006/how-can-a-file-contain-null-bytes)
 - [Conversion hex string into ascii in bash command line](https://stackoverflow.com/questions/13160309/conversion-hex-string-into-ascii-in-bash-command-line)
+- [script/tool to convert file to C/C++ source code array](https://stackoverflow.com/questions/8707183/script-tool-to-convert-file-to-c-c-source-code-array)
+  
+  > On Debian and other Linux distros is installed by default (along with `vim`) the `xxd` tool, which, given the `-i` option, can do what you want:
+  > 
+  > ```c
+  > matteo@teodeb:~/Desktop$ echo Hello World\! > temp
+  > matteo@teodeb:~/Desktop$ xxd -i temp 
+  > unsigned char temp[] = {
+  >   0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x20, 0x57, 0x6f, 0x72, 0x6c, 0x64, 0x21,
+  >   0x0a
+  > };
+  > unsigned int temp_len = 13;
+  > ```
 
 https://github.com/cr-marcstevens/hashclash
 

@@ -30,13 +30,13 @@
 > ```cpp
 > std::wstring PyStand::Ansi2Unicode(const char *text)
 > {
-> 	int require = (int)strlen(text) * 2 + 10;
-> 	std::wstring wide;
-> 	wide.resize(require + 2);
-> 	MultiByteToWideChar(CP_ACP, 0, text, -1, &wide[0], require);
-> 	int size = wcslen(wide.c_str());
-> 	wide.resize(size);
-> 	return wide;
+>     int require = (int)strlen(text) * 2 + 10;
+>     std::wstring wide;
+>     wide.resize(require + 2);
+>     MultiByteToWideChar(CP_ACP, 0, text, -1, &wide[0], require);
+>     int size = wcslen(wide.c_str());
+>     wide.resize(size);
+>     return wide;
 > }
 > ```
 
@@ -57,3 +57,24 @@ and an answer:
 > There is no explicit wording about this, because there does not need 
 > to be. If there were an exception to the very simple rules ("there is a 
 > string; it has `char`s; it can tell you how many `char`s it has") then *that* would be stated explicitly… and it's not.
+
+[Does std::string have a null terminator?](https://stackoverflow.com/questions/11752705/does-stdstring-have-a-null-terminator)
+
+> No, but if you say `temp.c_str()` a null terminator will be included in the return from this method.
+
+[What does c_str() method from string class returns?](https://stackoverflow.com/questions/17402980/what-does-c-str-method-from-string-class-returns)
+
+> In *C++11* standard it's explicitly stated that `.c_str()` (as well as newer `.data()`) shall return pointer to the internal buffer which is used by `std::string`.
+> 
+> Any modification of the std::string after obtaining the pointer via `.c_str()` *may* result in said `char *` returned to became invalid (that is - if `std::string` internally had to reallocate the space).
+> 
+> In previous C++ standards implementation is allowed to return 
+> anything. But as standard do not require user to deallocate the result, 
+> I've never seen any implementation returning anything newly allocated. 
+> At least GNU gcc's and MSVC++'s STL string are internally 
+> zero-terminated char arrays, which are returned by `c_str()`.
+
+> ```cpp
+> std::string s = "hello";
+> s[5] == '\0'; // Assertion failure in VS2010.
+> ```

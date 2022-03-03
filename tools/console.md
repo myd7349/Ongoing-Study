@@ -17,6 +17,7 @@
 - [GitHub - pleft/st-sdl-gameshell: SDL Terminal for GAMESHELL](https://github.com/pleft/st-sdl-gameshell)
   - [GitHub - benob/rs97_st-sdl: SDL Terminal for RS97](https://github.com/benob/rs97_st-sdl)
 - [GitHub - wez/wezterm: A GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust](https://github.com/wez/wezterm)
+- [tmux](https://github.com/tmux/tmux)
 
 Terminal emulators supported by [system-terminal](https://github.com/alexrp/system-terminal):
 

@@ -50,4 +50,20 @@ MVVM
 
 - [Patterns - WPF Apps With The Model-View-ViewModel Design Pattern | Microsoft Docs](https://docs.microsoft.com/en-us/archive/msdn-magazine/2009/february/patterns-wpf-apps-with-the-model-view-viewmodel-design-pattern)
 
+[Expected performance in a real-time plot · Issue #1801 · oxyplot/oxyplot · GitHub](https://github.com/oxyplot/oxyplot/issues/1801)
 
+> In the WPF we have two threads:
+> 
+> - **UI thread**, running on CPU
+> - **Rendering thread**, running on GPU with the help of Direct3D
+> 
+> The UI thread make a *composition*, it means that 
+> the UI thread put all vector graphical object into the scene. The 
+> Rendering thread takes the composition of the vector objects and 
+> produces the actual visual screen.
+> 
+> Large windows should increase GPU times, not CPU. And I 
+> don't worry to much about GPU time. On a typical machine GPU is not a 
+> bottleneck.
+> 
+> The UI thread performance does not depend on the screen resolution. Only Rendering thread can be slow on large windows.

@@ -17,6 +17,14 @@ RaveReport
 
 Crystal Reports
 
+[axlsx](https://github.com/randym/axlsx)
+
+- [caxlsx](https://github.com/caxlsx/caxlsx)
+
+FineReport
+
+- [FastReport报表工具与FineReport报表工具的对比](https://www.finereport.com/knowledge/acquire/fastreport.html)
+
 [FlexReport](https://marketplace.visualstudio.com/items?itemName=GrapeCityinc.ReportsforWinForms)
 
 [Seal-Report](https://github.com/ariacom/Seal-Report)
@@ -36,5 +44,48 @@ Crystal Reports
 - [Localreport render EMF image dpi settings](https://social.msdn.microsoft.com/Forums/en-US/93a18d13-2f43-426c-b475-d88ca068279a/localreport-render-emf-image-dpi-settings?forum=vsreportcontrols)
   
   > ```csharp
+  > public void CreateTiffedReport()
+  > {
+  >     LocalReport report = new LocalReport();
+  >     report.ReportEmbeddedResource = "myReport.rdlc";
+  >     report.DataSources.Add(new ReportDataSource("dsName", dsValue));
+  >     ExportTiff(report);
+  > }
   > 
+  > private void ExportTiff(LocalReport report)
+  > {
+  >     // dpix and dpiy don't seem to work, always 96 :(
+  >     string deviceInfo =
+  >           "<DeviceInfo>" +
+  >           "  <OutputFormat>EMF</OutputFormat>" +
+  >           "  <PageWidth>8.5in</PageWidth>" +
+  >           "  <PageHeight>11in</PageHeight>" +
+  >           "  <DpiX>200</DpiX>" +
+  >           "  <DpiY>200</DpiY>" +
+  >           "  <MarginTop>0.25in</MarginTop>" +
+  >           "  <MarginLeft>0.25in</MarginLeft>" +
+  >           "  <MarginRight>0.25in</MarginRight>" +
+  >           "  <MarginBottom>0.25in</MarginBottom>" +
+  >           "</DeviceInfo>";
+  > 
+  >     Warning[] warnings;
+  >     _renderedReportStreams = new List<Stream>();
+  >     report.Render("Image", deviceInfo, CreateStream, out warnings);
+  > 
+  >     foreach (Stream stream in _renderedReportStreams)
+  >     {
+  >         stream.Position = 0;
+  >         Metafile image = new Metafile(stream);
+  >         image.Save("testReport.tif", ImageFormat.Tiff);
+  >         _reportCurrentPageIndex++;
+  >     }
+  > }
+  > 
+  > 
+  > private Stream CreateStream(string name, string fileNameExtension, Encoding encoding, string mimeType, bool willSeek)
+  > {
+  >     Stream stream = new MemoryStream();
+  >     _renderedReportStreams.Add(stream);
+  >     return stream;
+  > }
   > ```

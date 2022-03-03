@@ -37,3 +37,15 @@
     - [RoundedTB](https://github.com/torchgm/RoundedTB)
     
     - [TranslucentTB](https://github.com/TranslucentTB/TranslucentTB)
+
+11. [GitHub - henrypp/memreduct: Lightweight real-time memory management application to monitor and clean system memory on your computer.](https://github.com/henrypp/memreduct)
+
+12. [Process Explorer - Windows Sysinternals | Microsoft Docs](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
+
+13. [AdaptiveShell](https://github.com/w10m-research/AdaptiveShell)
+
+14. [SylphyHornPlusWin11](https://github.com/hwtnb/SylphyHornPlusWin11)
+
+15. Linux
+    
+    - [Gow](https://github.com/bmatzelle/gow): Unix command line utilities installer for Windows.

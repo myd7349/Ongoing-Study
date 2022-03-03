@@ -99,3 +99,4 @@ namespace Common
 // [Can my enums have friendly names?](https://stackoverflow.com/questions/1415140/can-my-enums-have-friendly-names)
 // [Enum Size in Bytes](https://stackoverflow.com/questions/20944585/enum-size-in-bytes)
 // [How to prevent duplicate values in enum?](https://stackoverflow.com/questions/1425777/how-to-prevent-duplicate-values-in-enum)
+// https://github.com/TylerBrinkley/Enums.NET

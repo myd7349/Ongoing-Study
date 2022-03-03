@@ -4,11 +4,19 @@
 
 ### Container
 
+- [buffet](https://github.com/alcover/buffet)
+
 - [ctl](https://github.com/glouw/ctl): The C Template Library.
+
+- [hashmap.c](https://github.com/tidwall/hashmap.c)
 
 ### GUI
 
+- [awtk](https://github.com/zlgopen/awtk)
+
 - [minigui](https://github.com/VincentWei/minigui)
+
+- [vger](https://github.com/audulus/vger)
 
 ### JSON
 
@@ -23,6 +31,14 @@
 ### PDF
 
 - [PDFio](https://github.com/michaelrsweet/pdfio)
+
+### Static Analysis
+
+- [static-analysis](https://github.com/analysis-tools-dev/static-analysis#c)
+
+### String
+
+- [stricks](https://github.com/alcover/stricks)
 
 ### Unit Testing
 

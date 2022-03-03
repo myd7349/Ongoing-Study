@@ -129,6 +129,8 @@ def open_file(file, *args, **kwargs):
 
 
 # TODO: unittest
+# fileutil.get_file_encoding returns wrong result for
+# notes\pickle.md
 def get_file_encoding(filename, guess=None):
     if _chardet_available:
         detector = chardet.universaldetector.UniversalDetector()
@@ -143,6 +145,11 @@ def get_file_encoding(filename, guess=None):
             return detector.result['encoding']
 
     return guess if guess else sys.getfilesystemencoding()
+
+
+def detect_encoding(file):
+    with open(file, 'rb') as fp:
+        return chardet.detect(fp.read())
 
 
 # TODO: unittest

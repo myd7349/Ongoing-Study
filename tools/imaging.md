@@ -7,6 +7,7 @@
 - [PhotoME](https://www.photome.de/) - [author](https://www.duttke.de/en/#projects-software-photome)
 - Photopea
 - [tev](https://github.com/Tom94/tev)
+- [tldraw](https://github.com/tldraw/tldraw)
 - [uPic](https://github.com/gee1k/uPic/tree/master/uPic)
 - [VTracer](https://github.com/visioncortex/vtracer)
 

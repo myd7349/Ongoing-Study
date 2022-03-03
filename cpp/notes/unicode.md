@@ -53,3 +53,9 @@ https://github.com/sheredom/utf8.h
 https://github.com/frang75/nappgui_src/blob/main/src/sewer/unicode.c
 
 [readunicode](https://github.com/kiwirafe/readunicode)
+
+[GitHub - woboq/utf8sse4: Convert from UTF-8 to UTF-16 using SSE4](https://github.com/woboq/utf8sse4)
+
+[GitHub - boostorg/nowide: Boost.Nowide - Standard library functions with UTF-8 API on Windows](https://github.com/boostorg/nowide)
+
+TortoiseGit\src\Utils\UnicodeUtils.h

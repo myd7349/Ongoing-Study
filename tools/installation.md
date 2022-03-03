@@ -27,6 +27,7 @@
 - https://github.com/FreeCAD/FreeCAD/tree/master/src/WindowsInstaller
 - https://github.com/cairoshell/cairoshell/tree/master/Installer
 - [OnTopReplica](https://github.com/LorenzCK/OnTopReplica)
+- [Gow](https://github.com/bmatzelle/gow)
 
 ### CPack
 
@@ -71,6 +72,8 @@
 
 ### [Squirrel/Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)
 
+- DeepL Translate App for Windows
+
 - [Fork](https://fork.dev/)
 
 - [Wox Launcher](https://github.com/Wox-launcher/Wox)
@@ -96,3 +99,9 @@
 > This format can either be used to ship applications
 > to Microsoft Windows’ Apps store, or you can
 > distribute application installers directly.
+
+### [Zero Install](https://0install.net/)
+
+- [0install-dotnet](https://github.com/0install/0install-dotnet): core features of Zero Install implemented in .NET.
+
+- DeepL Translate App for Windows

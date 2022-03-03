@@ -27,6 +27,8 @@ The answer is NO:
 
 <p>py2exe can be used in Python 3.x currently: <a href="http://stackoverflow.com/questions/505230/py2exe-for-python-3-0">py2exe for Python 3.0</a>.</p>
 
+[syncplay/buildPy2exe.py at master · Syncplay/syncplay · GitHub](https://github.com/Syncplay/syncplay/blob/master/buildPy2exe.py)
+
 **Solution 4**: :star: [PyInstaller](https://github.com/pyinstaller/pyinstaller/wiki) <sup>[[2](http://stackoverflow.com/questions/112698/py2exe-generate-single-executable-file)]</sup>. You may refer to this tutorial(in chinese): [Python转exe](https://github.com/smartFlash/pySecurity/blob/master/zh-cn/0x4.md)
 
 - [Convert a Python Project to an Executable (.exe) File using Auto PY to EXE](https://python.plainenglish.io/convert-a-python-project-to-an-executable-exe-file-175080da4485)
@@ -73,3 +75,7 @@ https://github.com/scikit-build/scikit-build
 > 在虚拟环境`pip install pyinstaller`，然后才去执行打包`pyinstaller -F main.py`
 
 [GitHub - skywind3000/PyStand: Python Standalone Deploy Environment !!](https://github.com/skywind3000/PyStand)
+
+py2applet
+
+- [syncplay/buildPy2app.py at master · Syncplay/syncplay · GitHub](https://github.com/Syncplay/syncplay/blob/master/buildPy2app.py)
