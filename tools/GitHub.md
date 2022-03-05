@@ -59,27 +59,50 @@ https://github.com/lukka/run-vcpkg/issues/66
 
 Awesome README.md:
 
+- https://github.com/ethomson
+
 - https://github.com/yihong0618/yihong0618
+  
   - https://twitter.com/yihong06181/status/1405011143966351364
+
 - https://github.com/wuhan005/wuhan005
+
 - https://github.com/jasonlong
+
 - https://github.com/hackfengJam
+
 - https://github.com/frostming
+
 - https://github.com/jaywcjlove
+
 - https://github.com/JustNikhill
+
 - https://github.com/yoshuawuyts
+
 - https://github.com/itgoyo
+
 - https://github.com/yqchilde/Yqchilde
+
 - https://github.com/willmcgugan/willmcgugan
+
 - https://github.com/orta/orta
+
 - https://github.com/ldqk/ldqk
+
 - https://github.com/evoluteur
+
 - https://github.com/laixintao/laixintao
+
 - https://github.com/dlemstra
+
 - https://github.com/Abhijnan-Bajpai
+
 - https://github.com/luisfelipesdn12
+
 - https://github.com/3F
+
 - https://github.com/HFO4
+
 - https://github.com/dontpanic92
 
 https://github.com/Tyrrrz/GitHubActionsTestLogger
@@ -97,6 +120,8 @@ GitHub Sponsors:
 https://github.com/faaxm/exmpl-cmake-grpc/blob/master/.github/FUNDING.yml
 
 GitHub Actions:
+
+[PyTables/wheels.yml at master · PyTables/PyTables · GitHub](https://github.com/PyTables/PyTables/blob/master/.github/workflows/wheels.yml)
 
 https://github.com/Yelp/dumb-init/blob/master/.pre-commit-config.yaml
 

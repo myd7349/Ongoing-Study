@@ -48,3 +48,5 @@ http://stackoverflow.com/questions/4324542/what-is-the-windows-equivalent-for-en
 http://stdcxx.apache.org/doc/stdlibug/24-3.html
 http://www.zhihu.com/question/28164788
 http://www.zhihu.com/question/24572900
+
+[c++ - Character Set Encoding of Visual Studio - Stack Overflow](https://stackoverflow.com/questions/56587568/character-set-encoding-of-visual-studio)

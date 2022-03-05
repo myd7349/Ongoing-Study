@@ -108,6 +108,8 @@ Tools:
 
 - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
 
+- [GitHub - viper-framework/pdftools: Single directory containing pdfid and pdf-parser of Didier Stevens](https://github.com/viper-framework/pdftools)
+
 EMF
 
 - [How to render the PDF page as EMF or meta file in PDFium](https://stackoverflow.com/questions/49153715/how-to-render-the-pdf-page-as-emf-or-meta-file-in-pdfium)

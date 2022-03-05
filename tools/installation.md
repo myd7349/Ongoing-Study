@@ -28,6 +28,7 @@
 - https://github.com/cairoshell/cairoshell/tree/master/Installer
 - [OnTopReplica](https://github.com/LorenzCK/OnTopReplica)
 - [Gow](https://github.com/bmatzelle/gow)
+- [koodo-reader](https://github.com/troyeguo/koodo-reader)
 
 ### CPack
 
@@ -52,6 +53,7 @@
 - [Lively Wallpaper](https://github.com/rocksdanister/lively)
 - [SyncTrayzor](https://github.com/canton7/SyncTrayzor)
 - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
+- [OpenHashTab](https://github.com/namazso/OpenHashTab)
 
 ### Advanced Installer
 

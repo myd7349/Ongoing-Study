@@ -63,3 +63,4 @@ int main(void)
 // https://www.freebsd.org/cgi/man.cgi?query=setitimer&sektion=2&apropos=0&manpath=FreeBSD+6.2-RELEASE
 // https://linux.die.net/man/2/setitimer
 // https://github.com/slideinc/itimer/blob/master/itimermodule.c
+// https://github.com/slideinc/itimer

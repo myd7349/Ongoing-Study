@@ -29,3 +29,5 @@ https://github.com/SemaiCZE/inicpp/blob/381509d335392e1c1e121375a86f622f6cc310f4
 https://github.com/microsoft/calculator/tree/master/Tools/Scripts/clang-format
 
 https://github.com/TheLartians/Format.cmake
+
+[GitHub - Sarcasm/run-clang-format: A wrapper script around clang-format, suitable for linting multiple files and to use for continuous integration](https://github.com/Sarcasm/run-clang-format)

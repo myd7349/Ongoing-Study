@@ -38,3 +38,5 @@ Projects that using `ctypes`:
 - [wurlitzer](https://github.com/minrk/wurlitzer)
 
 - [NanoVG-Python](https://github.com/inniyah/nanovg/tree/master/python)
+
+- [PyFibre](https://github.com/samuelsadok/fibre/tree/devel/python)

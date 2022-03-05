@@ -15,4 +15,5 @@
 - [File Rotator](https://www.codeproject.com/Articles/34203/File-Rotator)
 - [EasyLogger](https://github.com/armink/EasyLogger)
 - [zlog](https://github.com/HardySimpson/zlog)
-
+- [libaribcaption/logger.hpp at master · xqq/libaribcaption · GitHub](https://github.com/xqq/libaribcaption/blob/master/src/base/logger.hpp)
+- [nppexec/CSimpleLogger.h at master · d0vgan/nppexec · GitHub](https://github.com/d0vgan/nppexec/blob/master/NppExec/src/CSimpleLogger.h)

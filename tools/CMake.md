@@ -260,3 +260,7 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
     [Format.cmake](https://github.com/TheLartians/Format.cmake)
 
 40. [cmake-examples: Useful CMake Examples](https://github.com/ttroy50/cmake-examples)
+
+41. [cmake_git_clone](https://github.com/tschuchortdev/cmake_git_clone)
+
+42. [GitHub - scikit-build/cmake-FindVcvars: Finds a &quot;vcvars&quot; batch script. This CMake module can be used when configuring a project or when running in cmake -P script mode.](https://github.com/scikit-build/cmake-FindVcvars)

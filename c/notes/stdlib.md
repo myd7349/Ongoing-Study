@@ -130,3 +130,9 @@ https://en.cppreference.com/w/c/memory/realloc
 > **Avoids mismatching the allocator and deallocator.** As mentioned in [Aesthete's answer](https://stackoverflow.com/a/13625555/179715), if the DLL allocates a pointer and returns it, the caller *must* call the corresponding deallocator to free it. This is not necessarily
 >  trivial: the DLL might be statically linked against one version of, 
 > say, `malloc`/`free` while the `.exe` is linked against a different version of `malloc`/`free`. (For example, the DLL could be using release versions while the `.exe` is using specialized debug versions.)
+
+calloc
+
+- [Is calloc(4, 6) the same as calloc(6, 4)?](https://stackoverflow.com/questions/501839/is-calloc4-6-the-same-as-calloc6-4)
+
+- [is the order of parameters to calloc() important?](https://stackoverflow.com/questions/48815191/is-the-order-of-parameters-to-calloc-important)

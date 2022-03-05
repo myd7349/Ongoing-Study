@@ -12,6 +12,8 @@
 
 - [XWordGiver](https://github.com/katahiromz/XWordGiver)
 
+- [WebCrack](https://github.com/yzddmr6/WebCrack)
+
 - [phc-winner-argon2](https://github.com/p-h-c/phc-winner-argon2)
 
 [Configuring two-factor authentication - GitHub Docs](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)

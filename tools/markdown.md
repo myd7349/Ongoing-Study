@@ -71,6 +71,7 @@ Libraries:
 Tools:
 
 - [htmldoc](https://github.com/michaelrsweet/htmldoc)
+- [markdown-it-title](https://github.com/valeriangalliat/markdown-it-title)
 
 Online Editors:
 

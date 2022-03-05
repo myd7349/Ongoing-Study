@@ -10,6 +10,7 @@
 
 - [NotepadPlusPlusPluginPack.Net](https://github.com/kbilsted/NotepadPlusPlusPluginPack.Net)
   - [MarkdownViewerPlusPlus](https://github.com/nea/MarkdownViewerPlusPlus)
+- [CSVLint](https://github.com/BdR76/CSVLint)
 
 [Conari](https://github.com/3F/Conari)
 
@@ -21,7 +22,11 @@
 
 - [NativeAOT](https://github.com/dotnet/runtimelab/tree/feature/NativeAOT)
 
+[TortoiseGit/MyPlugin.cs at a4fbaecceb767b46bac04a217a7f4fcfa5d634c3 · TortoiseGit/TortoiseGit · GitHub](https://github.com/TortoiseGit/TortoiseGit/blob/a4fbaecceb767b46bac04a217a7f4fcfa5d634c3/contrib/issue-tracker-plugins/ExampleCsPlugin/MyPlugin.cs)
+
 ### Calling C or C++ from C#
+
+[How to call C++ DLL in C#](https://stackoverflow.com/questions/16332701/how-to-call-c-dll-in-c-sharp)
 
 [Platform Invocation Services](https://en.wikipedia.org/wiki/Platform_Invocation_Services)
 
@@ -261,3 +266,7 @@ https://github.com/ericsink/SQLitePCL.raw/tree/master/src/providers
 [Cesium](https://github.com/ForNeVeR/Cesium) - Cesium compiles standard C source code to a .NET assembly.
 
 [SharpMuPDF)](https://github.com/wmjordan/SharpMuPDF)
+
+ILSpy + System.Core.dll:
+
+> [assembly: DefaultDllImportSearchPaths(DllImportSearchPath.System32 | DllImportSearchPath.AssemblyDirectory)]

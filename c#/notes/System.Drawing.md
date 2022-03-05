@@ -65,5 +65,18 @@
 7. [C# Painting a form into a MetaFile graphics object](https://stackoverflow.com/questions/49146656/c-sharp-painting-a-form-into-a-metafile-graphics-object)
    
    > ```csharp
+   > Graphics g = Graphics.FromImage(new Bitmap(this.Width, this.Height));
+   > IntPtr hdc = g.GetHdc();
    > 
+   > Metafile imageMetafile = new Metafile(filepath, hdc);
+   > 
+   > using (Graphics imageGraphics = Graphics.FromImage(imageMetafile)) 
+   > {
+   >        imageGraphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+   >        imageGraphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+   >        this.InvokePaint(this, new PaintEventArgs(imageGraphics, new Rectangle(0, 0, this.Width, this.Height)));
+   > }
+   > 
+   > g.ReleaseHdc();
+   > g.Dispose();
    > ```

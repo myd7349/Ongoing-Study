@@ -248,4 +248,4 @@ BOOL GetTemporaryFilePath(CString strExtension, CString& strFileName)
      return TRUE;
 }
 */
-
+// https://github.com/libgit2/libgit2/blob/main/src/util/win32/path_w32.c

@@ -152,3 +152,6 @@ void wconv_free(void *ptr)
 // https://github.com/wiredtiger/wiredtiger/blob/develop/src/os_win/os_utf8.c
 // https://github.com/frang75/nappgui_src/blob/main/src/sewer/unicode.c
 // [How do I use MultiByteToWideChar?](https://stackoverflow.com/questions/6693010/how-do-i-use-multibytetowidechar)
+// https://github.com/xqq/libaribcaption/blob/master/src/base/wchar_helper.hpp
+// https://github.com/d0vgan/nppexec/blob/master/NppExec/src/encodings/SysUniConv.h
+// https://en.wikipedia.org/wiki/Unicode_in_Microsoft_Windows#UTF-8

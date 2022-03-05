@@ -306,3 +306,4 @@ void slist_reverse(slist_t list)
 // https://plflib.org/ - [Pacific++ 2017: Matt Bentley "Can we make a faster linked list?"](https://www.youtube.com/watch?v=SPXNy0-dUbw)
 // https://github.com/xant/libhl/blob/master/src/linklist.h
 // https://github.com/pjreddie/wordle/blob/main/src/list.h
+// https://netcan.github.io/2022/03/12/%E9%87%8D%E5%86%99C-%E6%A0%87%E5%87%86%E5%BA%93%E7%9A%84%E4%BB%B7%E5%80%BC%EF%BC%9F/

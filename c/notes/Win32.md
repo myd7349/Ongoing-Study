@@ -1,0 +1,1 @@
+[GitHub - ProgerXP/Notepad2e: Word highlighting, simultaneous editing, math evaluation, un/grep, UAC elevation, complete regexps (PCRE), Lua lexers, DPI awareness and more (XP+)](https://github.com/ProgerXP/Notepad2e)

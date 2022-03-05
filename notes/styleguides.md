@@ -31,6 +31,8 @@
 
 - C#
   
+  - [CSharpGuidelines](https://github.com/dennisdoomen/CSharpGuidelines)
+  
   - [C# Style Guide](https://github.com/quozd/awesome-dotnet#style-guide)
 
 - Go

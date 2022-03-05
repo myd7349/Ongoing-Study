@@ -8,7 +8,6 @@
   PS C:\Users\myd> py -m pip install -U pywinauto
   pip 
   ```
-
 - [requirements.txt](https://pip.pypa.io/en/stable/user_guide/)
 
 > ```
@@ -44,3 +43,15 @@
   ```
 
 - [pip issue installing almost any library](https://stackoverflow.com/questions/16370583/pip-issue-installing-almost-any-library)
+
+- [Installation - pip documentation v22.0.4](https://pip.pypa.io/en/stable/installation/)
+  
+  >  py -m ensurepip --upgrade
+  
+  or:
+  
+  > Download the script, from https://bootstrap.pypa.io/get-pip.py.
+  > 
+  > >  py get-pip.py
+
+- [pip with embedded python - Stack Overflow](https://stackoverflow.com/questions/42666121/pip-with-embedded-python)

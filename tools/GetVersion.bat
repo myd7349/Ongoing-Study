@@ -45,3 +45,7 @@ if "%1" == "csharp" (
 :: https://github.com/3F/DllExport/blob/v1.7.4/DllExportVersion.cs
 :: [How to specify the assembly version for a .NET Core project?](https://stackoverflow.com/questions/58433665/how-to-specify-the-assembly-version-for-a-net-core-project)
 :: [Get date and time on the same line](https://stackoverflow.com/questions/20246889/get-date-and-time-on-the-same-line)
+:: https://github.com/ProgerXP/Notepad2e/blob/master/src/Notepad2.ver
+:: https://github.com/ProgerXP/Notepad2e/blob/master/src/version.h
+:: https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/PreBuild.cmd
+:: https://github.com/zeromq/libzmq/blob/master/src/version.rc.in

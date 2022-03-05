@@ -1,10 +1,12 @@
 https://github.com/naudio/NAudio/blob/1f2cbc729c3cdbce2229edb1e0d617e9af35b555/NAudio/Wave/WaveStreams/WaveOutBuffer.cs#L31-L39
+
 ```csharp
 var buffer = new byte[bufferSize];
 GCHandle hBuffer = GCHandle.Alloc(buffer, GCHandleType.Pinned);
 ```
 
 [Passing a char array from c# to c++ dll](https://stackoverflow.com/questions/38146181/passing-a-char-array-from-c-sharp-to-c-dll)
+
 ```cpp
 int LZ4_compress_default(const unsigned char* source, unsigned char* dest,
     int sourceLength, int maxDestLength);
@@ -21,11 +23,12 @@ static extern int LZ4_compress_default(
 ```
 
 Bytes to Struct:
+
 ```csharp
 public static MyPacket FromBytes(byte[] bytes, int offset, int count)
 {
     Debug.Assert(offset + count <= bytes.Length);
-    
+
     fixed (byte *pb = &bytes[offset])
     {
         return *(MyPacket *)pb;
@@ -39,7 +42,7 @@ or:
 public static MyPacket FromBytes(byte[] bytes, int offset, int count)
 {
     Debug.Assert(offset + count <= bytes.Length);
-    
+
     // .NET 4.0:
     return (MyPacket)Marshal.PtrToStructure(
         Marshal.UnsafeAddrOfPinnedArrayElement(bytes, offset),
@@ -50,3 +53,7 @@ public static MyPacket FromBytes(byte[] bytes, int offset, int count)
         typeof(MyPacket));    
 }
 ```
+
+ILSpy + System.Core.dll:
+
+> [assembly: DefaultDllImportSearchPaths(DllImportSearchPath.System32 | DllImportSearchPath.AssemblyDirectory)]

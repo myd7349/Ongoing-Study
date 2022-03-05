@@ -65,3 +65,5 @@ int main()
 [demangle](https://github.com/ianlancetaylor/demangle): C++ symbol name demangler written in Go.
 
 [py-cpp-demangle](https://github.com/benfred/py-cpp-demangle)
+
+[articles/demangle.cpp at master · wichtounet/articles · GitHub](https://github.com/wichtounet/articles/blob/master/src/demangle.cpp)

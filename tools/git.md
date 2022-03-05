@@ -39,6 +39,8 @@ Tools:
 
 - [gitlist](https://github.com/klaussilveira/gitlist)
 
+- [stacked-git](https://github.com/stacked-git/stgit)
+
 Software
 
 - [SparkleShare](https://github.com/hbons/SparkleShare)
@@ -494,3 +496,18 @@ https://twitter.com/yihong0618/status/1475472422836924417
 > git grep ConCRT
 > 
 > git grep -i ConCRT
+
+SVN to Git:
+
+```bash
+git svn init --prefix=svn/ --trunk='trunk/my_project' --tags='tags' --branches='branches' svn://127.0.0.1/my_project
+git config --local svn.authorsfile ./authors.txt
+git svn fetch --ignore-paths='data|releases|tools'
+```
+
+and content of `authors.txt`:
+
+```
+tom = tom <tom@company.com>
+jerry = jerry <jerry@company.com>
+```

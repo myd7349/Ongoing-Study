@@ -9,3 +9,5 @@
 - [DPI and Device-Independent Pixels - Win32 apps | Microsoft Docs](https://docs.microsoft.com/en-us/windows/win32/learnwin32/dpi-and-device-independent-pixels)
 
 [System.Drawing.Imaging.md](../../c#/notes/System.Drawing.Imaging.md)
+
+[Notepad2e/DPIHelper.h at master · ProgerXP/Notepad2e · GitHub](https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/DPIHelper.h)

@@ -6,6 +6,7 @@
 - [AsciiEngine](https://github.com/RandyGaul/AsciiEngine)
 - [asciinema](https://asciinema.org/explore)
   - [pingtop](https://github.com/laixintao/pingtop)
+- [asciinema-edit](https://github.com/cirocosta/asciinema-edit)
 - [Diagon](https://github.com/ArthurSonzogni/Diagon)
 - [figlet](http://www.figlet.org/)
   - [Ascii-Design](https://github.com/Faster3ck/Ascii-Design)

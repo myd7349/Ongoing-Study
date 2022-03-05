@@ -10,6 +10,8 @@ Applications:
 
 - [cairoshell](https://github.com/cairoshell/cairoshell)
 
+- [ConvertZZ](https://github.com/flier268/ConvertZZ)
+
 - [Core2D](https://github.com/wieslawsoltes/Core2D)
 
 - [CsvTextEditor](https://github.com/WildGums/CsvTextEditor)
@@ -237,6 +239,8 @@ Libraries:
   - [Microsoft.Toolkit.Win32](https://github.com/CommunityToolkit/Microsoft.Toolkit.Win32)
 
 - [WPF-AutoComplete-TextBox](https://github.com/quicoli/WPF-AutoComplete-TextBox)
+
+- [WPFDarkTheme](https://github.com/AngryCarrot789/WPFDarkTheme)
 
 - [WpfExpressionBlendTheme](https://github.com/DanPristupov/WpfExpressionBlendTheme)
 

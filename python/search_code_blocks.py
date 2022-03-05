@@ -5,8 +5,8 @@
 from dataclasses import dataclass
 from pathlib import Path
 import sys
-#import tokenize
 from typing import List
+import warnings
 
 import fileutil
 
@@ -32,7 +32,6 @@ def iter_code_block(md_file: Path, encoding: str = None):
     code_block = None
     indent = 0
 
-    #with tokenize.open(md_file) as fp:
     with md_file.open(encoding=encoding) as fp:
         for line in fp:
             line = line.rstrip('\n')
@@ -55,9 +54,9 @@ def iter_code_block(md_file: Path, encoding: str = None):
             else:
                 if pos == -1:
                     if len(line) < indent:
-                        raise SyntaxError(
-                            f'MarkDown code block syntax error in {md_file} at line {line_no}.'
-                        )
+                        warnings.warn(
+                            f'MarkDown code block syntax error in {md_file} at line {line_no}.',
+                            UserWarning)
 
                     code_block.code.append(line[indent:])
                 else:

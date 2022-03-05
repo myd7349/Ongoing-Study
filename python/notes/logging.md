@@ -27,3 +27,5 @@
 > ```
 
 https://github.com/SergeyPirogov/webdriver_manager/blob/master/webdriver_manager/logger.py
+
+[The Ins and Outs of Logging in Python, Part 1 | Monadical Consulting](https://monadical.com/posts/ins-and-outs-of-logging-in-python-part-one.html#)

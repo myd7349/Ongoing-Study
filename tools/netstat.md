@@ -5,3 +5,11 @@
 > netstat -atn
 > 
 > netstat -ant | findstr "TIME_WAIT"
+
+[netstat | Microsoft Docs](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/netstat)
+
+[netstat does not show listening port of udp server?](https://stackoverflow.com/questions/41589797/netstat-does-not-show-listening-port-of-udp-server)
+
+> ```
+> netstat -n --udp --listen
+> ```

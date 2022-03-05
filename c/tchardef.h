@@ -23,6 +23,7 @@
 #define _T(x) x
 #define _istalpha isalpha
 #define _stprintf sprintf
+#define _sntprintf snprintf
 #define _tscanf scanf
 #define _stscanf sscanf
 #define _fgetts fgets
@@ -38,6 +39,7 @@
 #define _tcsupr strupr
 #define _tcschr strchr
 #define _tcsrchr strrchr
+#define _tcsstr strstr
 #define _putts puts
 
 #else

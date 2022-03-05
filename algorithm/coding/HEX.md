@@ -1,11 +1,11 @@
 https://twitter.com/gcouprie/status/1413026167423111169
 
 > How many times will I need to have this conversation
->
+> 
 > "It's encoded in base64
->
+> 
 > \- Which one?
->
+> 
 > \- What?"
 
 https://twitter.com/jedisct1/status/1413525125459333126
@@ -25,3 +25,5 @@ https://github.com/ibireme/yyjson/blob/37b56529f42bafb87e68c63a5e1f3e54c188237a/
 https://stackoverflow.com/questions/18717182/convert-jpeg-image-to-hex-format
 
 https://stackoverflow.com/questions/10698097/c-sharp-hex-string-to-byte-image-and-filtering
+
+[Notepad2e/StrToHex.c at master · ProgerXP/Notepad2e · GitHub](https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/StrToHex.c)

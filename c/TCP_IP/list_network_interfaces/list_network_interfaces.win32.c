@@ -148,6 +148,7 @@ int _tmain(int argc, _TCHAR *argv[])
 
 
 // References:
+// https://github.com/zeromq/libzmq/blob/v4.3.4/src/ip_resolver.cpp#L622-L700
 // [How can I get to know the IP address for interfaces in C?](https://stackoverflow.com/questions/4139405/how-can-i-get-to-know-the-ip-address-for-interfaces-in-c)
 // [is_wireless.c](https://gist.github.com/edufelipe/6108057)
 // [Porting getifaddrs to Win XP](https://stackoverflow.com/questions/3069082/porting-getifaddrs-to-win-xp)

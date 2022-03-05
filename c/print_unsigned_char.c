@@ -35,6 +35,7 @@ int main()
 
     ch = 0xCC;
     printf("ch == 0xCC? %d\n", ch == 0xCC);
+    printf("ch == 0xCC? %d\n", ch == (char)0xCC);
 
     return 0;
 }

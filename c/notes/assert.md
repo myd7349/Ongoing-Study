@@ -14,3 +14,10 @@ https://github.com/json-c/json-c/pull/501/files
 > #endif
 > ```
 
+[c - assert() with message - Stack Overflow](https://stackoverflow.com/questions/5867834/assert-with-message)
+
+> ```c
+> assert(condition && "message");
+> ```
+
+

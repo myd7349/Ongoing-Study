@@ -74,10 +74,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Error.cpp" />
+    <ClCompile Include="..\..\Platform.cpp" />
     <ClCompile Include="..\..\UDPClient.cpp" />
     <ClCompile Include="Server.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Error.h" />
+    <ClInclude Include="..\..\Platform.h" />
     <ClInclude Include="..\..\UDPClient.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

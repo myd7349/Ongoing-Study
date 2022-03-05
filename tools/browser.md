@@ -1,3 +1,8 @@
+- Brave
+- Chrome
+- Chromium
+- Firefox
+- Microsoft Edge
 - Vivaldi
 
 Tools:

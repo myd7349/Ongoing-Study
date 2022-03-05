@@ -409,3 +409,5 @@ void *easy_base64_decode(const char *base64, void *data, size_t *out_len)
 // https://github.com/zhicheng/base64
 // https://github.com/joedf/base64.c
 // https://github.com/MaskRay/ell/blob/master/ell/base64.h
+// https://github.com/ProgerXP/Notepad2e/tree/master/src/Extension/base64
+// https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/StrToBase64.c

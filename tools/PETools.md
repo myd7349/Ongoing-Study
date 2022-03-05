@@ -10,6 +10,8 @@
 
 - [binskim](https://github.com/microsoft/binskim)
 
+- [Dependency Walker](http://www.dependencywalker.com/)
+
 - [dll_to_exe](https://github.com/hasherezade/dll_to_exe)
 
 - [DLL Export Viewer](http://www.nirsoft.net/utils/dll_export_viewer.html)
@@ -30,6 +32,10 @@
 
 - [libpeconv](https://github.com/hasherezade/libpeconv)
 
+- [pecheck.py](https://blog.didierstevens.com/2018/06/12/update-pecheck-py-version-0-7-3/)
+  
+  - [DidierStevensSuite/pecheck.py at master · DidierStevens/DidierStevensSuite · GitHub](https://github.com/DidierStevens/DidierStevensSuite/blob/master/pecheck.py)
+
 - [PeNet](https://github.com/secana/PeNet)
 
 - [pestudio](https://github.com/cybertechniques/site/blob/master/analysis_tools/pestudio/index.md) - [website](https://www.winitor.com/)
@@ -39,6 +45,8 @@
 - [XPEViewer](https://github.com/horsicq/XPEViewer)
 
 ### PDB Tools
+
+- [EatPdb](https://github.com/codehz/EatPdb)
 
 - [pdbattach](https://github.com/jschwinger233/pdbattach)
 
@@ -77,6 +85,10 @@
 
 - [incbin](https://github.com/graphitemaster/incbin)
 
+- [langcomp](https://github.com/namazso/langcomp)
+  
+  - [OpenHashTab](https://github.com/namazso/OpenHashTab)
+
 - [libromfs](https://github.com/WerWolv/libromfs): libromfs is an easy way to bundle resources directly into any C++ application.
 
 - [ResText](https://github.com/TortoiseGit/TortoiseGit/tree/master/src/ResText)
@@ -98,6 +110,11 @@
 - [PeNet](https://github.com/secana/PeNet)
 
 - [Ressy](https://github.com/Tyrrrz/Ressy): Library for managing native resources in PE files
+
+### Python Libraries
+
+- [pefile](https://github.com/erocarrera/pefile)
+  - [Qiew](https://github.com/mtivadar/qiew)
 
 ### DLL Tools
 

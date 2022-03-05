@@ -350,3 +350,39 @@ https://git-scm.com/docs/git-bundle
       >     freopen("CONOUT$", "w", stderr);
       > }
       > ```
+
+29. [Unicode in Microsoft Windows - Wikipedia](https://en.wikipedia.org/wiki/Unicode_in_Microsoft_Windows#UTF-8)
+    
+    > Microsoft Windows has a code page designated for [UTF-8](https://en.wikipedia.org/wiki/UTF-8 "UTF-8"), code page 65001.[[9]](https://en.wikipedia.org/wiki/Unicode_in_Microsoft_Windows#cite_note-9) Prior to Windows 10 insider build 17035 (November 2017),[[10]](https://en.wikipedia.org/wiki/Unicode_in_Microsoft_Windows#cite_note-10) it was impossible to set the locale code page to 65001, leaving this 
+    > code page only available for (a) explicit conversion functions such as 
+    > MultiByteToWideChar and/or (b) the [Win32 console](https://en.wikipedia.org/wiki/Win32_console "Win32 console") command `chcp 65001` to translate stdin/out between UTF-8 and UTF-16. This means that "narrow" functions, in particular [fopen](https://en.wikipedia.org/wiki/C_file_input/output#fopen "C file input/output") (which opens files), cannot be called with UTF-8 strings, and in fact there is no way to open all possible files using `fopen` no matter what the locale is set to and/or what bytes are put in the 
+    > string, as none of the available locales can produce all possible UTF-16
+    >  characters. This problem also applies to all other APIs that take or 
+    > return 8 bit strings, including Windows ones such as `SetWindowText`.
+    > 
+    > On all modern non-Windows platforms, the file-name string passed to `fopen` is effectively UTF-8. This produces an incompatibility between other 
+    > platforms and Windows. The normal work-around is to add Windows-specific
+    >  code to convert UTF-8 to UTF-16 using [MultiByteToWideChar](https://en.wikipedia.org/wiki/MultiByteToWideChar "MultiByteToWideChar") and call the "wide" function instead of `fopen`.[[11]](https://en.wikipedia.org/wiki/Unicode_in_Microsoft_Windows#cite_note-11) Another popular work-around is to convert the name to the [8.3 filename](https://en.wikipedia.org/wiki/8.3_filename "8.3 filename") equivalent, this is necessary if the `fopen` is inside a library function that takes a string filename and thus 
+    > calling another function is not possible. There were also proposals to 
+    > add new APIs to portable libraries such as [Boost](https://en.wikipedia.org/wiki/Boost_(C%2B%2B_libraries) "Boost (C++ libraries)") to do the necessary conversion, by adding new functions for opening and
+    >  renaming files. These functions would pass filenames through unchanged 
+    > on Unix, but translate them to UTF-16 on Windows. Such a library, 
+    > Boost.Nowide,[[12]](https://en.wikipedia.org/wiki/Unicode_in_Microsoft_Windows#cite_note-12) was accepted into Boost[[13]](https://en.wikipedia.org/wiki/Unicode_in_Microsoft_Windows#cite_note-13) and will be part of the 1.73 release.[*[needs update](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Dates_and_numbers#Chronological_items "Wikipedia:Manual of Style/Dates and numbers")*] This would allow code to be "portable", but required just as many code changes as calling the wide functions.
+    > 
+    > In April 2018, with insider build 17035 (nominal build 17134) for
+    >  Windows 10, a "Beta: Use Unicode UTF-8 for worldwide language support" 
+    > checkbox appeared for setting the locale code page to UTF-8.[[a]](https://en.wikipedia.org/wiki/Unicode_in_Microsoft_Windows#cite_note-14) This allows for calling "narrow" functions, including `fopen` and `SetWindowTextA`, with UTF-8 strings. In May 2019 Microsoft added the ability for a program to set the code page to UTF-8 itself.[[14]](https://en.wikipedia.org/wiki/Unicode_in_Microsoft_Windows#cite_note-Microsoft-UTF-8-15)
+
+30. [Printf width specifier to maintain precision of floating-point value](https://stackoverflow.com/questions/16839658/printf-width-specifier-to-maintain-precision-of-floating-point-value)
+    
+    > ```c
+    > #include <float.h>
+    > int Digs = DECIMAL_DIG;
+    > double OneSeventh = 1.0/7.0;
+    > printf("%.*e\n", Digs, OneSeventh);
+    > // 1.428571428571428492127e-01
+    > ```
+
+31. [Why in msvc++ we have _snprintf while other compilers allows snprintf](https://stackoverflow.com/questions/11579095/why-in-msvc-we-have-snprintf-while-other-compilers-allows-snprintf)
+    
+    > Identifiers in the global namespace starting with _ are reserved for the implementation. _snprintf is just a function that the implementation (Visual Studio) has provided. As to the rationale for that, Visual Studio implements C89, and snprintf is part of a later C99 standard. 

@@ -24,7 +24,8 @@ import os
 #     In Python 3.5, `os.walk` calls `os.scandir` instead of `os.listdir`.
 # (4) This one is cool.
 #     https://github.com/eliben/pss/blob/master/psslib/filefinder.py
-
+# (5) plumbum.path.base.py:Path.walk
+#     https://github.com/tomerfiliba/plumbum/blob/d88ba3fbeea4488844e57bf33f83903d98505e96/plumbum/path/base.py#L102
 
 # This function is inspired by `os.walk`, but they have different behaviours.
 # TODO: Replace the call to `os.listdir` with `os.scandir`.

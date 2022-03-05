@@ -1,4 +1,5 @@
 [how do you insert the value in a sorted vector?](https://stackoverflow.com/questions/15843525/how-do-you-insert-the-value-in-a-sorted-vector)
+
 ```cpp
 template< typename T >
 typename std::vector<T>::iterator 
@@ -38,10 +39,10 @@ for (int i = 0; i < 4; ++i)
             }),
         unsorted[i]);
 }
-
 ```
 
 https://github.com/p-ranav/small_vector
 
 [How do I print out the contents of a vector?](https://stackoverflow.com/questions/10750057/how-do-i-print-out-the-contents-of-a-vector)
 
+[Does vector resize throwing bad_alloc invalidate the original data?](https://stackoverflow.com/questions/47438291/does-vector-resize-throwing-bad-alloc-invalidate-the-original-data)

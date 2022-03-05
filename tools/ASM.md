@@ -1,6 +1,9 @@
 - [asmpure](https://github.com/skywind3000/asmpure)
 - [asmrepl](https://github.com/tenderlove/asmrepl)
 - [DynASM](http://luajit.org/dynasm_features.html)
+- [fasm](https://github.com/tgrysztar/fasm)
+- [fasmg](https://github.com/tgrysztar/fasmg)
 - [flat assembler](https://flatassembler.net/)
 - [Intel2GAS](https://github.com/skywind3000/Intel2GAS)
 - [ppasm](https://github.com/notfoundry/ppasm): x86_64 macro assembler entirely in C preprocessor
+- [SASM](https://github.com/Dman95/SASM): Simple crossplatform IDE for NASM, MASM, GAS and FASM assembly languages.

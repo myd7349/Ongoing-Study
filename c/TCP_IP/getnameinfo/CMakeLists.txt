@@ -18,3 +18,7 @@ add_executable(getnameinfo
     "../../../algorithm/string/stringview.c"
     "../../../algorithm/string/substr.c"
     )
+
+
+# References:
+# [Forcing C99 in CMake (to use 'for' loop initial declaration)](https://stackoverflow.com/questions/24840030/forcing-c99-in-cmake-to-use-for-loop-initial-declaration)

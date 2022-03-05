@@ -42,10 +42,20 @@
 
 12. [Process Explorer - Windows Sysinternals | Microsoft Docs](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
 
-13. [AdaptiveShell](https://github.com/w10m-research/AdaptiveShell)
+13. [Process Monitor - Windows Sysinternals | Microsoft Docs](https://docs.microsoft.com/en-us/sysinternals/downloads/procmon)
 
-14. [SylphyHornPlusWin11](https://github.com/hwtnb/SylphyHornPlusWin11)
+14. Process Hacker
 
-15. Linux
+15. [AdaptiveShell](https://github.com/w10m-research/AdaptiveShell)
+
+16. [SylphyHornPlusWin11](https://github.com/hwtnb/SylphyHornPlusWin11)
+
+17. Linux
     
     - [Gow](https://github.com/bmatzelle/gow): Unix command line utilities installer for Windows.
+
+18. [Enable or Disable Win32 Long Paths in Windows 10 | Tutorials](https://www.tenforums.com/tutorials/51704-enable-disable-win32-long-paths-windows-10-a.html)
+
+19. [ShellAnything](https://github.com/end2endzone/ShellAnything)
+
+20. [OpenHashTab](https://github.com/namazso/OpenHashTab)

@@ -2,6 +2,8 @@ Code Editors:
 
 - [BowPad](https://github.com/stefankueng/BowPad)
 
+- [CodeEdit](https://github.com/CodeEditApp/CodeEdit): CodeEdit App for macOS
+
 - [CotEditor](https://github.com/coteditor/CotEditor)
   
   - https://twitter.com/Megabits_mzq/status/1427546332923789314
@@ -35,8 +37,20 @@ Code Editors:
 - NeoVim
 
 - NotePad++
+  
+  - [CSVLint](https://github.com/BdR76/CSVLint)
+  
+  - [DSpellCheck](https://github.com/Predelnik/DSpellCheck)
+  
+  - [NppExec (plugin for Notepad++)](https://github.com/d0vgan/nppexec)
+  
+  - [nppPluginManager](https://github.com/bruderstein/nppPluginManager)
+  
+  - [PythonScript](https://github.com/bruderstein/PythonScript)
 
 - [Notepad2](https://github.com/XhmikosR/notepad2-mod)
+
+- [Notepad2e](https://github.com/ProgerXP/Notepad2e)
 
 - [sam](https://github.com/deadpixi/sam)
 

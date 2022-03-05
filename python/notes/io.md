@@ -24,5 +24,3 @@ def open(filename):
         buffer.close()
         raise
 ```
-
-

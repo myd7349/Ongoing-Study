@@ -2,4 +2,5 @@
 - [calculator](https://github.com/microsoft/calculator)
 - [caligator](https://github.com/teamxenox/caligator)
 - [libqalculate](https://github.com/Qalculate/libqalculate)
+- [qubit](https://github.com/abhimanyu003/qubit)
 - [smartcalc](https://github.com/erhanbaris/smartcalc)

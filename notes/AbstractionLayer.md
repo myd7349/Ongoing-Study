@@ -30,6 +30,10 @@ File System
 
 - [gdrive](https://github.com/BYVoid/gdrive)
 
+- [hackpadfs](https://github.com/hack-pad/hackpadfs)
+
+- [physfs](https://github.com/icculus/physfs)
+
 - [pyfilesystem2](https://github.com/PyFilesystem/pyfilesystem2)
   
   - [s3fs](https://github.com/PyFilesystem/s3fs): Amazon S3 filesystem for PyFilesystem2

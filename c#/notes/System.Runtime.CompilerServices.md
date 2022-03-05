@@ -42,3 +42,9 @@ https://github.com/EasyNetQ/EasyNetQ/blob/develop/Source/EasyNetQ/Internals/Read
 > }
 > ```
 
+ILSpy+System.Core.dll:
+
+> ```csharp
+> [assembly: DefaultDllImportSearchPaths()]
+> [assembly: TypeForwardedTo(typeof(Action))]
+> ```

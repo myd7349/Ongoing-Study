@@ -11,7 +11,9 @@ https://codereview.stackexchange.com/questions/147225/python-hex-viewer
 linux xxd command
 
 - [How can a file contain null bytes?](https://stackoverflow.com/questions/34621006/how-can-a-file-contain-null-bytes)
+
 - [Conversion hex string into ascii in bash command line](https://stackoverflow.com/questions/13160309/conversion-hex-string-into-ascii-in-bash-command-line)
+
 - [script/tool to convert file to C/C++ source code array](https://stackoverflow.com/questions/8707183/script-tool-to-convert-file-to-c-c-source-code-array)
   
   > On Debian and other Linux distros is installed by default (along with `vim`) the `xxd` tool, which, given the `-i` option, can do what you want:
@@ -43,7 +45,9 @@ https://github.com/abbaye/WpfHexEditorControl
 
 https://github.com/WerWolv/ImHex
 
-010 Editor
+[010 Editor](https://www.sweetscape.com/010editor/)
+
+- https://blog.didierstevens.com/2022/02/08/windows-explorer-improper-exif-data-removal/
 
 [Hex Fiend](https://hexfiend.com/) - [GitHub](https://github.com/HexFiend/HexFiend)
 

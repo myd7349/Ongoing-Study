@@ -7,6 +7,8 @@
 
 - [T5](https://github.com/atifaziz/t5)
 
+- [Mono.TextTemplating](https://www.nuget.org/packages/Mono.TextTemplating)
+
 - [LLBLGen](https://www.llblgen.com/)
   
   - [Any tools to auto-generate generic BLL code?](https://forums.asp.net/t/1237285.aspx?Any+tools+to+auto+generate+generic+BLL+code+)
@@ -36,3 +38,13 @@
 - [html-generator](https://github.com/hughbe/html-generator)
 
 - [DocNet](https://github.com/FransBouma/DocNet)
+
+- [EntityFramework-Reverse-POCO-Code-First-Generator](https://github.com/sjh37/EntityFramework-Reverse-POCO-Code-First-Generator)
+
+- [EntityFramework-Reverse-POCO-Generator-UI](https://github.com/sjh37/EntityFramework-Reverse-POCO-Generator-UI)
+
+- [EfrpgRider/VsNorthwind.tt at master · sjh37/EfrpgRider · GitHub](https://github.com/sjh37/EfrpgRider/blob/master/VsNorthwind.tt)
+
+- [GitHub - jehugaleahsa/SQLGeneration: Provides core classes for generating SQL at runtime.](https://github.com/jehugaleahsa/SQLGeneration)
+
+- [GitHub - jehugaleahsa/mustache-sharp: An extension of the mustache text template engine for .NET.](https://github.com/jehugaleahsa/mustache-sharp)

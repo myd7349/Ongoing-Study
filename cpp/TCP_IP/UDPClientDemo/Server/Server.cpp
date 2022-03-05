@@ -3,18 +3,13 @@
 #include <string>
 
 #include "../../../strutils.hpp"
+#include "../../Error.h"
 #include "../../UDPClient.h"
 
 
 int main()
 {
-    WSADATA wsaData;
-    int result = WSAStartup(MAKEWORD(2, 2), &wsaData);
-    if (result != 0)
-    {
-        std::cerr << "WSAStartup failed: " << result << '\n';
-        return EXIT_FAILURE;
-    }
+    TCP_IP_INIT();
 
     UDPClient serverSocket;
     if (!serverSocket.Bind(12000))
@@ -23,16 +18,19 @@ int main()
         return 1;
     }
 
+    // https://github.com/dotnet/runtime/blob/82239a2a0def33c00159c0372226427099cfa355/src/libraries/System.Net.Sockets/src/System/Net/Sockets/UDPClient.cs#L16
+    // > private const int MaxUDPSize = 0x10000;
+    // #define WSAEMSGSIZE 10040
     char message[16] = "";
 
     while (true)
     {
         int readSizeInBytes;
         int result;
-        SOCKADDR_IN saClient;
+        struct sockaddr_in saClient;
 
         readSizeInBytes = serverSocket.ReceiveFrom(message, 0, ARRAYSIZE(message),
-            reinterpret_cast<SOCKADDR &>(saClient), INFINITE);
+            reinterpret_cast<struct sockaddr &>(saClient), INFINITE);
         if (readSizeInBytes >= 0)
         {
             std::string sentence(message, message + readSizeInBytes);
@@ -40,31 +38,29 @@ int main()
 
             ToUpperInPlace(sentence);
             result = serverSocket.SendTo(sentence.c_str(), sentence.length(),
-                reinterpret_cast<const SOCKADDR &>(saClient), 3000);
+                reinterpret_cast<const struct sockaddr &>(saClient), 3000);
             if (result < 0)
             {
-                std::cerr << "Failed to send message: ";
+                std::cerr << "Failed to send message [" << sentence << "]: ";
                 if (result == UDPClient::UDP_TIME_OUT)
-                    std::cerr << "Time out!\n";
+                    std::cerr << ReportError("Time out!");
                 else if (result == UDPClient::UDP_SOCKET_ERROR)
-                    std::cerr << "Socket error!\n";
+                    std::cerr << ReportError("Socket error!");
                 else
-                    std::cerr << "Unknown error!\n";
+                    std::cerr << ReportError("Unknown error!");
             }
         }
         else
         {
             std::cerr << "Failed to receive message: ";
             if (readSizeInBytes == UDPClient::UDP_TIME_OUT)
-                std::cerr << "Time out!\n";
+                std::cerr << ReportError("Time out!");
             else if (readSizeInBytes == UDPClient::UDP_SOCKET_ERROR)
-                std::cerr << "Socket error!\n";
+                std::cerr << ReportError("Socket error!");
             else
-                std::cerr << "Unknown error!\n";
+                std::cerr << ReportError("Unknown error!");
         }
     }
-
-    WSACleanup();
 
     return 0;
 }

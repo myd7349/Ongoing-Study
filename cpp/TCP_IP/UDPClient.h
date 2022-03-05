@@ -2,9 +2,15 @@
 #ifndef UDP_CLIENT_H_
 #define UDP_CLIENT_H_
 
-#include <cassert>
+#include "Platform.h"
 
-#include <WinSock2.h>
+#ifndef UDPCLIENT_API
+#ifdef UDPCLIENT_EXPORTS
+#define UDPCLIENT_API PLATFORM_EXPORT
+#else
+#define UDPCLIENT_API PLATFORM_IMPORT
+#endif
+#endif
 
 
 class UDPClient
@@ -28,57 +34,57 @@ public:
         return socket_ != INVALID_SOCKET;        
     }
 
-    SOCKET GetSocket() const
+    socket_t GetSocket() const
     {
         return socket_;
     }
 
-    int SendTo(const char *buffer, int sizeInBytes, const SOCKADDR &saRemote, DWORD timeoutInMs)
+    int SendTo(const char *buffer, std::size_t sizeInBytes, const struct sockaddr &saRemote, unsigned timeoutInMs)
     {
-        return SendTo(buffer, sizeInBytes, &saRemote, sizeof(SOCKADDR), timeoutInMs);
+        return SendTo(buffer, sizeInBytes, &saRemote, sizeof(struct sockaddr), timeoutInMs);
     }
 
-    int ReceiveFrom(char *buffer, int sizeInBytes, SOCKADDR &saRemote, DWORD timeoutInMs)
+    int ReceiveFrom(char *buffer, std::size_t sizeInBytes, struct sockaddr &saRemote, unsigned timeoutInMs)
     {
-        int readSizeInBytes = sizeof(SOCKADDR);
+        socklen_t readSizeInBytes = (socklen_t)sizeof(struct sockaddr);
         return ReceiveFrom(buffer, sizeInBytes, &saRemote, &readSizeInBytes, timeoutInMs);
     }
 
     template <int N>
-    int SendTo(const char (&buffer)[N], const SOCKADDR &saRemote, DWORD timeoutInMs)
+    int SendTo(const char (&buffer)[N], const struct sockaddr &saRemote, unsigned timeoutInMs)
     {
         return SendTo(buffer, N, saRemote, timeoutInMs);
     }
 
     template <int N>
-    int ReceiveFrom(char (&buffer)[N], int offset, int bytes, SOCKADDR &saRemote, DWORD timeoutInMs)
+    int ReceiveFrom(char (&buffer)[N], int offset, std::size_t bytes, struct sockaddr &saRemote, unsigned timeoutInMs)
     {
         assert(offset >= 0 && offset < N);
         assert(bytes > 0 && offset + bytes <= N);
         return ReceiveFrom(buffer + offset, bytes, saRemote, timeoutInMs);
     }
 
-    int Send(const char *buffer, int sizeInBytes, DWORD timeoutInMs)
+    int Send(const char *buffer, std::size_t sizeInBytes, unsigned timeoutInMs)
     {
         assert(isConnected_);
-        return SendTo(buffer, sizeInBytes, reinterpret_cast<const SOCKADDR *>(&saRemote_), sizeof(SOCKADDR), timeoutInMs);
+        return SendTo(buffer, sizeInBytes, reinterpret_cast<const struct sockaddr *>(&saRemote_), (socklen_t)sizeof(struct sockaddr), timeoutInMs);
     }
 
-    int Receive(char *buffer, int sizeInBytes, DWORD timeoutInMs)
+    int Receive(char *buffer, std::size_t sizeInBytes, unsigned timeoutInMs)
     {
         assert(isConnected_);
-        int readSizeInBytes = sizeof(SOCKADDR);
-        return ReceiveFrom(buffer, sizeInBytes, reinterpret_cast<SOCKADDR *>(&saRemote_), &readSizeInBytes, timeoutInMs);
+        socklen_t readSizeInBytes = (socklen_t)sizeof(struct sockaddr);
+        return ReceiveFrom(buffer, sizeInBytes, reinterpret_cast<struct sockaddr *>(&saRemote_), &readSizeInBytes, timeoutInMs);
     }
 
     template <int N>
-    int Send(const char (&buffer)[N], DWORD timeoutInMs)
+    int Send(const char (&buffer)[N], unsigned timeoutInMs)
     {
         return Send(buffer, N, timeoutInMs);
     }
 
     template <int N>
-    int Receive(char (&buffer)[N], int offset, int bytes, DWORD timeoutInMs)
+    int Receive(char (&buffer)[N], int offset, std::size_t bytes, unsigned timeoutInMs)
     {
         return Receive(buffer + offset, bytes, timeoutInMs);
     }
@@ -95,14 +101,14 @@ private:
 
     bool CreateSocket();
 
-    int SendTo(const char *buffer, int sizeInBytes, const SOCKADDR *to, int tolen, DWORD timeoutInMs);
-    int ReceiveFrom(char *buffer, int sizeInBytes, SOCKADDR *from, int *fromlen, DWORD timeoutInMs);
+    int SendTo(const char *buffer, std::size_t sizeInBytes, const struct sockaddr *to, socklen_t tolen, unsigned timeoutInMs);
+    int ReceiveFrom(char *buffer, std::size_t sizeInBytes, struct sockaddr *from, socklen_t *fromlen, unsigned timeoutInMs);
 
-    SOCKET        socket_;
-    bool          isConnected_;
-    unsigned long remoteIP_;
-    int           remotePortNumber_;
-    SOCKADDR_IN   saRemote_;
+    socket_t           socket_;
+    bool               isConnected_;
+    unsigned long      remoteIP_;
+    int                remotePortNumber_;
+    struct sockaddr_in saRemote_;
 };
 
 #endif // UDP_CLIENT_H_

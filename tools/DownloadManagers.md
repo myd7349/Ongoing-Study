@@ -12,6 +12,8 @@
 
 Tools for downloading online videos:
 
+- [ClipGrab](https://clipgrab.org/)
+
 - [Hitomi-Downloader](https://github.com/KurtBestor/Hitomi-Downloader)
 
 - [tubex](https://github.com/ricky-lim/tubex)
@@ -19,6 +21,8 @@ Tools for downloading online videos:
 - [you-get](https://github.com/soimort/you-get)
 
 - [youtube-dl](https://github.com/ytdl-org/youtube-dl)
+  
+  - [youtube-dl-gui](https://github.com/MrS0m30n3/youtube-dl-gui)
 
 - [youtube-dl-wpf](https://github.com/database64128/youtube-dl-wpf): A simple GUI wrapper for youtube-dl and yt-dlp.
 
@@ -33,6 +37,8 @@ Tools for downloading online videos:
   - [TwitchNotify](https://github.com/mmozeiko/TwitchNotify)
 
 - [BBDown](https://github.com/nilaoda/BBDown)
+
+- [B23Downloader](https://github.com/vooidzero/B23Downloader)
 
 Resources:
 

@@ -10,7 +10,11 @@
 
 - [curlie](https://github.com/rs/curlie)
 
+- [ecapture](https://github.com/ehids/ecapture)
+
 - [ephemeral-port-reserve](https://github.com/Yelp/ephemeral-port-reserve): Find an unused port, reliably
+
+- [etl2pcapng](https://github.com/microsoft/etl2pcapng)
 
 - Fiddler
   
@@ -42,7 +46,11 @@
 
 - networkQuality - macOS
 
+- nsenter
+
 - [pingtop](https://github.com/laixintao/pingtop)
+
+- [rtop](https://github.com/rapidloop/rtop)
 
 - [smartdns](https://github.com/pymumu/smartdns)
 
@@ -50,7 +58,11 @@
 
 - [syncthing](https://github.com/syncthing/syncthing)
 
+- tcpdump
+
 - [termshark](https://github.com/gcla/termshark)
+
+- [tiptop](https://github.com/nschloe/tiptop)
 
 - [WebBench](https://github.com/EZLippi/WebBench)
 

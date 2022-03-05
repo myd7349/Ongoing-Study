@@ -3,3 +3,7 @@
 [ReadOnlyMemory<T>](https://docs.microsoft.com/en-us/dotnet/api/system.readonlymemory-1?view=net-5.0)
 
 - https://github.com/EasyNetQ/EasyNetQ/blob/develop/Source/EasyNetQ/Internals/ReadOnlyMemoryStream.cs
+
+[Memory<T> and Span<T> usage guidelines | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/standard/memory-and-spans/memory-t-usage-guidelines)
+
+- [KCP](https://github.com/KumoKyaku/KCP)

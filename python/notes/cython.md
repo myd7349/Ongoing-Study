@@ -11,6 +11,7 @@
 * [libGDF](https://github.com/mbillingr/libgdf/blob/master/python/pylibgdf.pyx)
 * [zfp](https://github.com/LLNL/zfp/tree/develop/python)
 * [bitshuffle](https://github.com/kiyo-masui/bitshuffle/blob/master/bitshuffle/h5.pyx)
+* [dynd-python](https://github.com/libdynd/dynd-python)
 
 ### Tools
 

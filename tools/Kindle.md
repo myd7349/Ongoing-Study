@@ -13,3 +13,9 @@ https://github.com/apachecn/epub-crawler
 https://github.com/Kenshin/simpread
 
 [微信读书墨水屏版](https://ink.qq.com/)
+
+[koodo-reader](https://github.com/troyeguo/koodo-reader)
+
+[koreader](https://github.com/koreader/koreader)
+
+[legado](https://github.com/gedoor/legado)

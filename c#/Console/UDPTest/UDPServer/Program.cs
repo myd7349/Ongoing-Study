@@ -53,3 +53,4 @@ namespace UDPServer
 
 // References:
 // https://stackoverflow.com/questions/20038943/simple-udp-example-to-send-and-receive-data-from-same-socket
+// https://github.com/dotnet/runtime/blob/main/src/libraries/System.Net.Sockets/src/System/Net/Sockets/UDPClient.cs

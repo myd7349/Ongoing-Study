@@ -1,0 +1,3 @@
+cmake_minimum_required(VERSION 3.8)
+project(unsigned_integer_overflow C)
+add_executable(unsigned_integer_overflow unsigned_integer_overflow.c)

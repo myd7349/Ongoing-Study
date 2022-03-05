@@ -18,6 +18,7 @@ Applications:
 - [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
 - [Serial-Oscilloscope](https://github.com/xioTechnologies/Serial-Oscilloscope)
 - [Seven Converter](https://github.com/SevenbytesSoftware/SevenConverter)
+- [SharpKeys](https://github.com/randyrants/sharpkeys)
 - [v2rayN](https://github.com/2dust/v2rayN)
 
 Libraries:
@@ -109,8 +110,18 @@ Libraries:
 
 ##### Charting
 
+- [Csharp-Data-Visualization](https://github.com/swharden/Csharp-Data-Visualization)
+
 - [Live-Charts](https://github.com/Live-Charts/Live-Charts)
+
 - [LiveCharts2](https://github.com/beto-rodriguez/LiveCharts2)
+
 - [OxyPlot](https://github.com/oxyplot/oxyplot)
+
 - [ScottPlot](https://github.com/ScottPlot/ScottPlot)
+  
+  - [SoundCardECG](https://github.com/swharden/SoundCardECG)
+
+- [Spectrogram](https://github.com/swharden/Spectrogram)
+
 - [winforms-datavisualization](https://github.com/dotnet/winforms-datavisualization)

@@ -913,3 +913,5 @@ BOOL BytesToImage(CImage &image, LPBYTE pBytes, DWORD dwSize)
 // https://github.com/MaskRay/ccls/blob/master/src/filesystem.cc
 // https://github.com/xupefei/cow-hide/blob/master/cow-hide/cow-hide.cpp
 // TortoiseGit\src\Utils\CreateProcessHelper.h
+// https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/VersionHelper.c
+// https://github.com/libgit2/libgit2/blob/main/src/util/win32/path_w32.c

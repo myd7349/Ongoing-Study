@@ -15,6 +15,7 @@
 - CompuClever Ultra Screen Recorder
 - FormatFactory
 - Screencastify for Chrome
+- [Screenflow](https://sspai.com/post/71918)
 - [Snipaste](https://www.zhihu.com/pin/1319210101270749184)
 - [ShareX](https://getsharex.com/) - [GitHub](https://github.com/ShareX/ShareX)
 - [flameshot](https://github.com/flameshot-org/flameshot)
@@ -22,3 +23,6 @@
 - [win32screenshot](https://github.com/northwoodspd/win32screenshot)
 - https://github.com/asciinema/asciinema
 - [wcap](https://github.com/mmozeiko/wcap)
+- [芦笋](https://lusun.com/)
+  - [如何高效录制和分享教学视频？我尝试了芦笋 - 少数派](https://sspai.com/post/71918)
+- [Kap](https://github.com/wulkano/Kap)

@@ -3,6 +3,7 @@ Applications:
 - [albert](https://github.com/albertlauncher/albert)
 - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
 - [Ascii-Design](https://github.com/Faster3ck/Ascii-Design)
+- [B23Downloader](https://github.com/vooidzero/B23Downloader)
 - [BingWallpaper](https://github.com/ypingcn/BingWallpaper)
 - [Clementine](https://github.com/clementine-player/Clementine): Clementine Music Player
 - [CodeBrowser](https://github.com/KDAB/codebrowser)
@@ -14,16 +15,21 @@ Applications:
 - [flameshot](https://github.com/flameshot-org/flameshot)
 - [FreeCAD](https://github.com/FreeCAD/FreeCAD)
 - [Fritzing](https://github.com/fritzing/fritzing-app)
+- [gamestudio](https://github.com/ensisoft/gamestudio)
 - [goldendict](https://github.com/goldendict/goldendict)
 - [Groot](https://github.com/BehaviorTree/Groot)
 - [gyroflow](https://github.com/gyroflow/gyroflow): Video stabilization using gyroscope data.
 - [Hanoi-Towers](https://github.com/QuasarApp/Hanoi-Towers)
 - [heaptrack](https://github.com/KDE/heaptrack)
+- [hplayer](https://github.com/ithewei/hplayer)
 - [INIditor](https://github.com/Jeroen6/INIditor)
+- [jellyfin-media-player](https://github.com/jellyfin/jellyfin-media-player)
+  - [jellyfin-media-player](https://github.com/Terminus-Media/jellyfin-media-player)
 - [JetSqlConsole](https://github.com/aaron-reeves/JetSqlConsole)
 - [kdeconnect-kde](https://github.com/KDE/kdeconnect-kde)
 - [kdenlive](https://github.com/KDE/kdenlive)
 - [kepka](https://github.com/procxx/kepka)
+- [kiwix-desktop](https://github.com/kiwix/kiwix-desktop)
 - [krita](https://github.com/KDE/krita)
 - [kylin-ipmsg](https://github.com/UbuntuKylin/kylin-ipmsg)
 - [LANDrop](https://github.com/LANDrop/LANDrop)
@@ -44,6 +50,7 @@ Applications:
   - [gismo](https://github.com/gismo/gismo)
 - [pcmanfm-qt](https://github.com/lxqt/pcmanfm-qt)
 - [plasma-nm](https://github.com/KDE/plasma-nm)
+- [plex-media-player](https://github.com/plexinc/plex-media-player)
 - [PlotJuggler](https://github.com/facontidavide/PlotJuggler) :star:
 - [Qalculate](https://github.com/Qalculate/qalculate-qt)
 - [QAmigo](https://github.com/QAmigo/QAmigo)
@@ -58,6 +65,7 @@ Applications:
 - [QtScrcpy](https://github.com/barry-ran/QtScrcpy)
 - [QtUPnP](https://github.com/ptstream/QtUPnP)
 - [QuickQanava](https://github.com/cneben/QuickQanava)
+- [quickviewer](https://github.com/kanryu/quickviewer)
 - [quiterss](https://github.com/QuiteRSS/quiterss)
 - [Qv2ray](https://github.com/Qv2ray/Qv2ray)
 - [qView](https://github.com/jurplel/qView)
@@ -66,6 +74,7 @@ Applications:
 - [rosbag_editor](https://github.com/facontidavide/rosbag_editor)
 - [Rythem](https://github.com/AlloyTeam/Rythem)
 - [Sanmill](https://github.com/calcitem/Sanmill)
+- [SASM](https://github.com/Dman95/SASM)
 - [screenlocker](https://github.com/cutefishos/screenlocker)
 - [seafile-client](https://github.com/haiwen/seafile-client)
 - [sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)
@@ -123,6 +132,10 @@ Libraries:
 
 - [QDeviceWatcher](https://github.com/wang-bin/qdevicewatcher)
 
+- [qglobalshortcut](https://github.com/mitei/qglobalshortcut)
+  
+  - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
+
 - [QHexView](https://github.com/horsicq/QHexView)
 
 - [qtcompress](https://github.com/nezticle/qtcompress)
@@ -131,9 +144,16 @@ Libraries:
 
 - [Qt-Secret](https://github.com/QuasarApp/Qt-Secret)
 
-- [qglobalshortcut](https://github.com/mitei/qglobalshortcut)
+- [Qt7z](https://github.com/kanryu/quickviewer/tree/master/Qt7z/Qt7z)
+
+- [QtBigInt](https://github.com/QuasarApp/QtBigInt)
+
+- [QtSingleApplication](https://github.com/kiwix/kiwix-desktop/tree/2.2.1/subprojects/QtSingleApplication)
   
-  - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
+  - [kiwix-desktop](https://github.com/kiwix/kiwix-desktop)
+  - [SASM](https://github.com/Dman95/SASM)
+
+- [QuasarApp Heart](https://github.com/QuasarApp/Heart)
 
 - [SingleApplication](https://github.com/itay-grudev/SingleApplication)
   
@@ -146,6 +166,10 @@ Libraries:
 - [XShortcuts](https://github.com/horsicq/XShortcuts)
 
 - [verdigris](https://github.com/woboq/verdigris)
+
+QML Libraries:
+
+- [QMLLoginView](https://github.com/QuasarApp/QMLLoginView)
 
 Tools:
 

@@ -62,6 +62,14 @@ and an answer:
 
 > No, but if you say `temp.c_str()` a null terminator will be included in the return from this method.
 
+> Not in C++03, and it's not even guaranteed before C++11 that in a C++
+>  std::string is continuous in memory. Only C strings (char arrays which 
+> are intended for storing strings) had the null terminator.
+> 
+> In C++11 and later, `mystring.c_str()` is equivalent to `mystring.data()` is equivalent to `&mystring[0]`, and `mystring[mystring.size()]` is guaranteed to be `'\0'`.
+> 
+> In C++17 and later, `mystring.data()` also provides an overload that returns a non-const pointer to the string's contents, while `mystring.c_str()` only provides a `const`-qualified pointer.
+
 [What does c_str() method from string class returns?](https://stackoverflow.com/questions/17402980/what-does-c-str-method-from-string-class-returns)
 
 > In *C++11* standard it's explicitly stated that `.c_str()` (as well as newer `.data()`) shall return pointer to the internal buffer which is used by `std::string`.

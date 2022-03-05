@@ -6,10 +6,10 @@
 
     abstract class ViewModelBase : IDisposable, INotifyPropertyChanged
     {
-        public string DisplayName
+        public virtual string DisplayName
         {
             get;
-            set;
+            protected set;
         }
 
         public bool ThrowOnInvalidPropertyName

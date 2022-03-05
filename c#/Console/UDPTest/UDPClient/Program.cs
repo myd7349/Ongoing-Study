@@ -13,7 +13,7 @@ namespace UDPClient
     {
         static void Main(string[] args)
         {
-#if true
+#if false
             using (var clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp))
             {
                 Console.Write("Please input a sentence: ");
@@ -62,3 +62,4 @@ namespace UDPClient
 // https://stackoverflow.com/questions/20038943/simple-udp-example-to-send-and-receive-data-from-same-socket
 // https://stackoverflow.com/questions/2069068/simple-udp-socket-tutorial-needed
 // https://docs.microsoft.com/en-us/dotnet/framework/network-programming/synchronous-client-socket-example
+// https://github.com/dotnet/runtime/blob/main/src/libraries/System.Net.Sockets/src/System/Net/Sockets/UDPClient.cs

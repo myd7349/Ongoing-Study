@@ -21,6 +21,8 @@ Image Searching
 
 QR Code
 
+- [qcode-decoder](https://github.com/cirocosta/qcode-decoder)
+
 - [QRCode-NCNN](https://github.com/EdVince/QRCode-NCNN)
 
 - [BGAQRCode-Android](https://github.com/bingoogolapple/BGAQRCode-Android)

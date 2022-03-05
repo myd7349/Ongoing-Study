@@ -44,3 +44,4 @@ std::string demangle(const char *mangledName)
 // References:
 // https://www.zhihu.com/question/278587865
 // https://github.com/DuffsDevice/cpp-typename-parser
+// https://github.com/wichtounet/articles/blob/master/src/demangle.cpp

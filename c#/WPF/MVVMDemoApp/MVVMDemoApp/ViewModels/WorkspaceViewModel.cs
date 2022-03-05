@@ -3,10 +3,13 @@
     using System;
     using System.Windows.Input;
 
+    using MVVMDemoApp.Common;
+
     abstract class WorkspaceViewModel : ViewModelBase
     {
         public WorkspaceViewModel()
         {
+            CloseCommand = new RelayCommand(p => OnRequestClose());
         }
 
         public ICommand CloseCommand
@@ -19,6 +22,9 @@
 
         public void OnRequestClose()
         {
+            var handler = RequestClose;
+            if (handler != null)
+                handler(this, EventArgs.Empty);
         }
     }
 }

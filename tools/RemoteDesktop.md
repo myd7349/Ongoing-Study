@@ -8,3 +8,4 @@
 * [SPICE](https://gitlab.freedesktop.org/spice/spice-gtk)
   - https://github.com/wimpysworld/quickemu
 * [PowerRemoteDesktop](https://github.com/DarkCoderSc/PowerRemoteDesktop): Remote Desktop entirely coded in PowerShell.
+* [Weylus](https://github.com/H-M-H/Weylus)

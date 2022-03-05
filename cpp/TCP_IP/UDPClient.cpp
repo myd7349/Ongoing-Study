@@ -27,11 +27,11 @@ bool UDPClient::Bind(int portNumber)
     if (!CreateSocket())
         return false;
 
-    SOCKADDR_IN saLocalAddress = { AF_INET };
+    struct sockaddr_in saLocalAddress = { AF_INET };
     saLocalAddress.sin_port = htons(portNumber);
-    saLocalAddress.sin_addr.S_un.S_addr = htonl(INADDR_ANY);
+    saLocalAddress.sin_addr.s_addr = htonl(INADDR_ANY);
 
-    int result = bind(socket_, (SOCKADDR *)&saLocalAddress, sizeof(SOCKADDR));
+    int result = bind(socket_, (const struct sockaddr *)&saLocalAddress, (int)sizeof(struct sockaddr_in));
     return result != SOCKET_ERROR;
 }
 
@@ -53,7 +53,7 @@ bool UDPClient::Connect(unsigned long remoteIP, int portNumber)
     remotePortNumber_ = portNumber;
 
     saRemote_.sin_family = AF_INET;
-    saRemote_.sin_addr.S_un.S_addr = remoteIP_;
+    saRemote_.sin_addr.s_addr = remoteIP_;
     saRemote_.sin_port = htons(portNumber);
 
     isConnected_ = true;
@@ -107,14 +107,14 @@ bool UDPClient::CreateSocket()
 }
 
 
-int UDPClient::SendTo(const char *buffer, int sizeInBytes, const SOCKADDR *to, int tolen, DWORD timeoutInMs)
+int UDPClient::SendTo(const char *buffer, std::size_t sizeInBytes, const struct sockaddr *to, socklen_t tolen, unsigned timeoutInMs)
 {
     assert(IsValid());
     assert(buffer != nullptr && sizeInBytes >= 0);
     assert(to != nullptr && tolen > 0);
 
-    TIMEVAL timeout = { 0 };
-    TIMEVAL *timeoutPtr = NULL;
+    struct timeval timeout = { 0 };
+    struct timeval *timeoutPtr = NULL;
     
     if (timeoutInMs != INFINITE)
     {
@@ -124,15 +124,16 @@ int UDPClient::SendTo(const char *buffer, int sizeInBytes, const SOCKADDR *to, i
     }
 
     fd_set fdWrite = { 0 };
+    FD_ZERO(&fdWrite);
     FD_SET(socket_, &fdWrite);
 
     int result = 1;
     if (timeoutPtr != NULL)
-        result = select((int)socket_, NULL, &fdWrite, NULL, timeoutPtr);
+        result = select((int)socket_ + 1, NULL, &fdWrite, NULL, timeoutPtr); // +1 is important here, otherwise you will get a timeout on linux.
 
     if (result > 0)
     {
-        result = sendto(socket_, buffer, sizeInBytes, 0, to, tolen);
+        result = sendto(socket_, buffer, static_cast<int>(sizeInBytes), 0, to, tolen);
         if (result == SOCKET_ERROR)
             return UDP_SOCKET_ERROR;
 
@@ -145,14 +146,14 @@ int UDPClient::SendTo(const char *buffer, int sizeInBytes, const SOCKADDR *to, i
 }
 
 
-int UDPClient::ReceiveFrom(char *buffer, int sizeInBytes, SOCKADDR *from, int *fromlen, DWORD timeoutInMs)
+int UDPClient::ReceiveFrom(char *buffer, std::size_t sizeInBytes, struct sockaddr *from, socklen_t *fromlen, unsigned timeoutInMs)
 {
     assert(IsValid());
     assert(buffer != nullptr && sizeInBytes >= 0);
     assert(from != nullptr && fromlen != nullptr);
 
-    TIMEVAL timeout = { 0 };
-    TIMEVAL *timeoutPtr = NULL;
+    struct timeval timeout = { 0 };
+    struct timeval *timeoutPtr = NULL;
     
     if (timeoutInMs != INFINITE)
     {
@@ -162,15 +163,16 @@ int UDPClient::ReceiveFrom(char *buffer, int sizeInBytes, SOCKADDR *from, int *f
     }
 
     fd_set fdRead = { 0 };
+    FD_ZERO(&fdRead);
     FD_SET(socket_, &fdRead);
 
     int result = 1;
     if (timeoutPtr != NULL)
-        result = select((int)socket_, &fdRead, NULL, NULL, timeoutPtr);
+        result = select((int)socket_ + 1, &fdRead, NULL, NULL, timeoutPtr);
 
     if (result > 0)
     {
-        result = recvfrom(socket_, buffer, sizeInBytes, 0, from, fromlen);
+        result = recvfrom(socket_, buffer, static_cast<int>(sizeInBytes), 0, from, fromlen);
         if (result == SOCKET_ERROR)
             return UDP_SOCKET_ERROR;
 
@@ -186,5 +188,23 @@ int UDPClient::ReceiveFrom(char *buffer, int sizeInBytes, SOCKADDR *from, int *f
 // References:
 // corefx:IPEndPoint.cs
 // https://stackoverflow.com/questions/1098897/what-is-the-largest-safe-udp-packet-size-on-the-internet
+// https://github.com/dotnet/runtime/blob/82239a2a0def33c00159c0372226427099cfa355/src/libraries/System.Net.Sockets/src/System/Net/Sockets/UDPClient.cs#L16
+// > private const int MaxUDPSize = 0x10000;
 // [Multi-threaded Client/Server Socket Class](https://www.codeproject.com/articles/2477/multi-threaded-client-server-socket-class)
 // Beej's Guide to Network Programming Using Internet Sockets
+// https://github.com/dotnet/runtime/blob/main/src/libraries/System.Net.Sockets/src/System/Net/Sockets/UDPClient.cs
+// https://docs.microsoft.com/en-us/windows/win32/winsock/winsock-programming-considerations
+// https://docs.microsoft.com/en-us/windows/win32/api/winsock/nf-winsock-sendto
+// [Sockets - How to find out what port and address I'm assigned](https://stackoverflow.com/questions/4046616/sockets-how-to-find-out-what-port-and-address-im-assigned)
+// https://linux.die.net/man/2/select
+// https://docs.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-select
+// [Implementing UDP sockets with select in C](https://stackoverflow.com/questions/15592089/implementing-udp-sockets-with-select-in-c)
+// [Simple select implementation with UDP in c++](https://stackoverflow.com/questions/26821047/simple-select-implementation-with-udp-in-c)
+// > you are passing the socket value as-is to the first parameter of select(),
+// > but you actually need to pass s+1 instead if you are monitoring a single
+// > socket. The parameter must be set to the highest socket value +1 that is
+// > being monitored. On Windows, the parameter is completely ignored, but on
+// > other platforms it is actually used, so you have to specify a proper value
+// > on non-Windows platforms where a socket is just an index into an array of
+// > file descriptors. The parameter represents the highest index in that array
+// > where select() cannot access.

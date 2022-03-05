@@ -43,6 +43,7 @@ typedef SOCKET socket_t;
 #define freeaddrinfo FreeAddrInfo
 
 #if defined(_MSC_VER)
+// Note: There are already definitions of inet_ntop and inet_pton in WS2tcpip.h.
 # define inet_ntop InetNtop
 # define inet_pton InetPton
 #endif

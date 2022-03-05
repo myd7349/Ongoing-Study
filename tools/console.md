@@ -1,5 +1,6 @@
 - Windows Terminal
 - [fish-shell](https://github.com/fish-shell/fish-shell)
+  - [tide](https://github.com/IlanCosman/tide)
 - Fluent Terminal
 - ConEmu
 - [Cmder](https://github.com/cmderdev/cmder)
@@ -18,6 +19,11 @@
   - [GitHub - benob/rs97_st-sdl: SDL Terminal for RS97](https://github.com/benob/rs97_st-sdl)
 - [GitHub - wez/wezterm: A GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust](https://github.com/wez/wezterm)
 - [tmux](https://github.com/tmux/tmux)
+- [nushell](https://github.com/nushell/nushell)
+- [Warp](https://www.warp.dev/)
+- https://codeberg.org/dnkl/foot
+- https://fig.io/
+- [wsltty](https://github.com/mintty/wsltty)
 
 Terminal emulators supported by [system-terminal](https://github.com/alexrp/system-terminal):
 
@@ -32,9 +38,18 @@ Terminal emulators supported by [system-terminal](https://github.com/alexrp/syst
 - [mlterm](http://mlterm.sourceforge.net)
 - [PuTTY](https://www.putty.org)
 - [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html)
+- [tabby](https://github.com/Eugeny/tabby)
 - [Terminal.app](https://support.apple.com/guide/terminal/welcome/mac)
 - [Terminology](https://terminolo.gy)
 - [WezTerm](https://wezfurlong.org/wezterm)
 - [Windows Console](https://docs.microsoft.com/en-us/windows/console)
 - [Windows Terminal](https://aka.ms/terminal)
 - [xterm](https://invisible-island.net/xterm)
+
+Other Tools:
+
+- [starship](https://github.com/starship/starship)
+
+- [termtosvg](https://github.com/nbedos/termtosvg): Record terminal sessions as SVG animations.
+
+- [tty-copy](https://github.com/jirutka/tty-copy)

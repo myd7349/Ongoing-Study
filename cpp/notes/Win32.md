@@ -96,3 +96,28 @@ AttachConsole used in [PyStand/PyStand.cpp at 654066cd6162787cf5d72d3f4274f5aea5
 - [Using AttachConsole, user must hit enter to get regular command line](https://stackoverflow.com/questions/1305257/using-attachconsole-user-must-hit-enter-to-get-regular-command-line)
 
 - [c# - Can one executable be both a console and GUI application? - Stack Overflow](https://stackoverflow.com/questions/493536/can-one-executable-be-both-a-console-and-gui-application/494000#494000)
+
+[mctrl](https://github.com/mity/mctrl)
+
+- [OpenHashTab](https://github.com/namazso/OpenHashTab)
+
+[SQLyog Community Edition](https://github.com/webyog/sqlyog-community)
+
+[GitHub - d0vgan/nppexec: NppExec (plugin for Notepad++)](https://github.com/d0vgan/nppexec)
+
+[nppPluginManager](https://github.com/bruderstein/nppPluginManager)
+
+MAX_PATH
+
+- [Maximum Path Length Limitation - Win32 apps | Microsoft Docs](https://docs.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd)
+
+- [Enable or Disable Win32 Long Paths in Windows 10 | Tutorials](https://www.tenforums.com/tutorials/51704-enable-disable-win32-long-paths-windows-10-a.html)
+
+I wrote a DLL in C++ and it exports some C interfaces. Besides, it exports two symbols like this:
+
+```
+public: __thiscall std::_Mutex::_Mutex(enum std::_Uninitialized)
+public: class std::_Init_locks & __thiscall std::_Init_locks::operator=(class std::_Init_locks const &)
+```
+
+[STL/xlock.cpp at main · microsoft/STL · GitHub](https://github.com/microsoft/STL/blob/main/stl/src/xlock.cpp)

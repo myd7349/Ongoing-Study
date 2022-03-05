@@ -181,3 +181,7 @@ else
 # [How to specify the assembly version for a .NET Core project?](https://stackoverflow.com/questions/58433665/how-to-specify-the-assembly-version-for-a-net-core-project)
 # https://github.com/Tyrrrz/YoutubeDownloader/blob/2d3f0571c19ada5113a1add8313190ecb6ab1eab/Directory.Build.props#L1-L13
 # [Setting the version number for .NET Core projects - CSPROJ - not JSON projects](https://stackoverflow.com/questions/43274254/setting-the-version-number-for-net-core-projects-csproj-not-json-projects)
+# https://github.com/ProgerXP/Notepad2e/blob/master/src/Notepad2.ver
+# https://github.com/ProgerXP/Notepad2e/blob/master/src/version.h
+# https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/PreBuild.cmd
+# https://github.com/zeromq/libzmq/blob/master/src/version.rc.in

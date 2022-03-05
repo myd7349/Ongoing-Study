@@ -12,6 +12,14 @@ Projects that using Python C API to create bindings:
 - [aubio](https://github.com/aubio/aubio/tree/master/python)
 - [html5-parser](https://github.com/kovidgoyal/html5-parser)
 - [mutf8](https://github.com/TkTech/mutf8)
+- [python-blosc](https://github.com/Blosc/python-blosc)
+- [sendmsg](https://github.com/slideinc/sendmsg)
+
+Books:
+
+- Python 源码剖析
+
+- CPython Internals: Your Guide to the Python 3 Interpreter
 
 https://github.com/tonybaloney/cpython-book-samples
 

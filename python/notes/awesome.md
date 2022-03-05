@@ -5,6 +5,13 @@
 ### Audio
 
 - [pedalboard](https://github.com/spotify/pedalboard)
+- [python-mingus](https://github.com/bspaans/python-mingus)
+
+### Automation
+
+- playwright
+  
+  - [shot-scraper](https://github.com/simonw/shot-scraper)
 
 ### Charting
 
@@ -31,6 +38,10 @@
 - [nurses_2](https://github.com/salt-die/nurses_2)
 
 - [plumbum](https://github.com/tomerfiliba/plumbum)
+
+- [prettytable](https://github.com/jazzband/prettytable)
+  
+  - [NumPy: Pretty print tabular data](https://stackoverflow.com/questions/9712085/numpy-pretty-print-tabular-data)
 
 - [progressbar2](https://github.com/WoLpH/python-progressbar)
 
@@ -72,6 +83,8 @@
 
 ### File System
 
+- [filelock](https://github.com/tox-dev/py-filelock)
+
 - [platformdirs](https://github.com/platformdirs/platformdirs)
   
   - [wordle-tui](https://github.com/frostming/wordle-tui)
@@ -101,6 +114,9 @@
 * PyQt
   
   - Persepolis Download Manager
+  - [Qiew](https://github.com/mtivadar/qiew)
+  - [qt-material](https://github.com/UN-GCPDS/qt-material)
+  - [PyQtDarkTheme](https://github.com/5yutan5/PyQtDarkTheme)
 
 * [PySimpleGUI](https://github.com/PySimpleGUI/PySimpleGUI)
   
@@ -119,10 +135,21 @@
   
   - [wxPython-Classic](https://github.com/wxWidgets/wxPython-Classic)
   - [Phoenix](https://github.com/wxWidgets/Phoenix)
+  - [youtube-dl-gui](https://github.com/MrS0m30n3/youtube-dl-gui)
 
 ### IDE
 
+- [Eric](http://eric-ide.python-projects.org/)
+  
+  - [What ide is good for developing PyQt apps?](https://stackoverflow.com/questions/472021/what-ide-is-good-for-developing-pyqt-apps)
+
 - [pyscripter](https://github.com/pyscripter/pyscripter)
+
+- Qt Creator
+  
+  - [The Best IDE for Python GUI Programming. Installing Qt Creator and PyQt - YouTube](https://www.youtube.com/watch?v=ts7nebUk71s)
+
+- [Wing](https://wingware.com/)
 
 - [ulipad](https://github.com/limodou/ulipad)
 
@@ -135,6 +162,14 @@
 - [hyperjson](https://github.com/mre/hyperjson)
 
 ### Language Interoperability
+
+##### C, C++ -> Python
+
+- [cppyy](https://github.com/wlav/cppyy)
+
+- [nanobind](https://github.com/wjakob/nanobind)
+
+- [scikit-build](https://github.com/scikit-build/scikit-build): Improved build system generator for CPython C, C++, Cython and Fortran extensions.
 
 ##### Python -> Ruby
 
@@ -160,6 +195,12 @@
 
 - [whatismyip](https://github.com/asweigart/whatismyip)
 
+### Office
+
+##### Excel
+
+- [xlwings](https://github.com/xlwings/xlwings)
+
 ### OOP
 
 - [attrs](https://github.com/python-attrs/attrs)
@@ -175,10 +216,20 @@
 ### PDF
 
 - [pikepdf](https://github.com/pikepdf/pikepdf)
+- [ReportLab](https://www.reportlab.com/)
+  - https://github.com/driscollis/reportlabbookcode
 
 ### Performance
 
+- [meminfo](https://github.com/slideinc/meminfo)
+
+- [perfplot](https://github.com/nschloe/perfplot)
+
 - [py-spy](https://github.com/benfred/py-spy)
+
+### Refactoring
+
+- [pyupgrade](https://github.com/asottile/pyupgrade)
 
 ### Versioning
 
@@ -198,8 +249,12 @@
 
 ### Miscellaneous
 
+- [attrs](https://github.com/python-attrs/attrs)
+
 - [dataklasses](https://github.com/dabeaz/dataklasses)
 
 - [pydantic](https://github.com/samuelcolvin/pydantic): Data parsing and validation using Python type hints.
 
 - [pyperclip](https://github.com/asweigart/pyperclip)
+
+- [typesplainer](https://github.com/wasi-master/typesplainer)

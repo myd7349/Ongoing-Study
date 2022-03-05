@@ -76,6 +76,8 @@
 
 - [FAudio](https://github.com/FNA-XNA/FAudio)
 
+- [FftSharp](https://github.com/swharden/FftSharp)
+
 - FMOD
   
   - [simple-music-player](https://github.com/punker76/simple-music-player)
@@ -85,6 +87,8 @@
 - [Lasp](https://github.com/keijiro/Lasp)
 
 - NAudio
+  
+  - [SoundCardECG](https://github.com/swharden/SoundCardECG)
 
 - [NetCoreAudio](https://github.com/mobiletechtracker/NetCoreAudio)
 
@@ -179,6 +183,8 @@
   
   - [On the Shoulders of Giants · QL-Win/QuickLook Wiki · GitHub](https://github.com/QL-Win/QuickLook/wiki/On-the-Shoulders-of-Giants)
 
+- [FlatFiles](https://github.com/jehugaleahsa/FlatFiles)
+
 ### Database
 
 ##### ORM
@@ -202,6 +208,8 @@
 
 ##### Object Mapper
 
+- [AgileMapper](https://github.com/agileobjects/AgileMapper)
+
 - [AutoMapper](https://github.com/AutoMapper/AutoMapper)
 
 - [ValueInjecter](https://github.com/omuleanu/ValueInjecter)
@@ -212,13 +220,23 @@
 
 ##### Others
 
+- [EntityFramework-Reverse-POCO-Code-First-Generator](https://github.com/sjh37/EntityFramework-Reverse-POCO-Code-First-Generator)
+
+- [EntityFramework-Reverse-POCO-Generator-UI](https://github.com/sjh37/EntityFramework-Reverse-POCO-Generator-UI)
+
+- [EntityFrameworkCore.Generator](https://github.com/loresoft/EntityFrameworkCore.Generator)
+
 - [MasterMemory](https://github.com/Cysharp/MasterMemory) - Embedded Typed Readonly In-Memory Document Database for .NET Core and Unity.
 
 - [Migrator.NET](https://github.com/dotnetprojects/Migrator.NET) - Database migration.
 
+- [NeinLinq](https://github.com/axelheer/nein-linq)
+
 - [shortid](https://github.com/bolorundurowb/shortid)
 
 - [SQLiteCodeFirst](https://github.com/msallin/SQLiteCodeFirst)
+
+- [sqllocaldb](https://github.com/martincostello/sqllocaldb)
 
 - [SQLitePCL.raw](https://github.com/ericsink/SQLitePCL.raw)
   
@@ -251,6 +269,10 @@
 - [StructureMap](https://github.com/structuremap/structuremap)
   
   - [Fork](https://fork.dev/)
+
+### DSP
+
+- [FftSharp](https://github.com/swharden/FftSharp)
 
 ### Error Handling
 
@@ -304,6 +326,10 @@
   - https://github.com/shadowsocks/shadowsocks-windows
 - [globalmousekeyhook](https://github.com/gmamaladze/globalmousekeyhook)
   - [Magpie](https://github.com/Blinue/Magpie)
+
+### IDE
+
+- [Rider: The Cross-Platform .NET IDE from JetBrains](https://www.jetbrains.com/rider/)
 
 ### Internationalization and localization
 
@@ -363,15 +389,22 @@
 
 - [FileExtensionValidation](https://github.com/rainmakerho/FileExtensionValidation)
 
+- [FlatFiles](https://github.com/jehugaleahsa/FlatFiles)
+
+- [TestableFileSystem](https://github.com/bkoelman/TestableFileSystem)
+
 ### IPC
 
 - [HandyIpc](https://github.com/HandyOrg/HandyIpc)
+- [Notepad2e/src/Extension/IPC](https://github.com/ProgerXP/Notepad2e/tree/master/src/Extension/IPC)
 
 ##### RPC
 
 - [MagicOnion](https://github.com/Cysharp/MagicOnion)
 
 ### JSON
+
+- [JSONPath](https://github.com/atifaziz/JSONPath)
 
 - [QuickJson](https://github.com/Tyrrrz/QuickJson)
 
@@ -519,6 +552,8 @@
 - [FastReport.CalcExpression](https://github.com/FastReports/FastReport/blob/d266d9bc2840d46515c38caafca773926a22dba3/FastReport.Base/Code/AssemblyDescriptor.cs#L649-L656)
 
 - [Math.NET Numerics](https://github.com/mathnet/mathnet-numerics)
+  
+  - [SoundCardECG](https://github.com/swharden/SoundCardECG)
 
 - [Mathfs](https://github.com/FreyaHolmer/Mathfs)
 
@@ -535,6 +570,8 @@
   - [Is there a string math evaluator in .NET?](https://stackoverflow.com/questions/355062/is-there-a-string-math-evaluator-in-net)
   
   - [Quicker](https://github.com/cuiliang/Quicker)
+
+- [NeinMath](https://github.com/axelheer/nein-math)
 
 - [Numpy.NET](https://github.com/SciSharp/Numpy.NET)
 
@@ -558,11 +595,13 @@
 - [Downloader](https://github.com/bezzad/Downloader)
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
 - [GameServer](https://github.com/LeagueSandbox/GameServer)
+- [KCP](https://github.com/KumoKyaku/KCP)
 - [NetMQ](https://github.com/zeromq/netmq)
   - [CAP.Extensions](https://github.com/maikebing/CAP.Extensions)
 - [Octokit](https://github.com/octokit/octokit.net)
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
 - [RestSharp](https://github.com/restsharp/RestSharp)
+- [RiptideNetworking](https://github.com/tom-weiland/RiptideNetworking)
 - [simple-http](https://github.com/dajuric/simple-http)
 - [sipsorcery](https://github.com/sipsorcery-org/sipsorcery) - A WebRTC, SIP and VoIP library for C# and .NET. Designed for real-time communications apps.
   - [GB28181.Solution](https://github.com/GB28181/GB28181.Solution)
@@ -642,9 +681,15 @@
   
   - DeepL Translate App for Windows
 
+### Regular Expression
+
+- [Fare](https://github.com/moodmosaic/Fare)
+
 ### RPC
 
-- DeepL Translate App for Windows
+- GRpc
+  - DeepL Translate App for Windows
+- [vs-streamjsonrpc](https://github.com/microsoft/vs-streamjsonrpc)
 
 ### Scripting
 
@@ -672,6 +717,8 @@
 
 ### Static Analysis
 
+- [CSharpGuidelinesAnalyzer](https://github.com/bkoelman/CSharpGuidelinesAnalyzer)
+
 - [static-analysis](https://github.com/analysis-tools-dev/static-analysis#c-1)
 
 - [.NET Analyzers](https://github.com/DotNetAnalyzers)
@@ -690,7 +737,11 @@
 
 - [Echo](https://github.com/Washi1337/Echo)
 
+- ReSharper
+
 ### String
+
+- [StringLiteralGenerator](https://github.com/ufcpp/StringLiteralGenerator)
 
 - [ZString](https://github.com/Cysharp/ZString) - Zero Allocation StringBuilder for .NET Core and Unity.
 
@@ -738,6 +789,14 @@
 
 - [PeanutButter.TestUtils](https://github.com/fluffynuts/PeanutButter)
 
+- [Tasty](https://github.com/xenial-io/Tasty)
+
+- [TestableFileSystem](https://github.com/bkoelman/TestableFileSystem)
+
+- [xunit](https://github.com/xunit/xunit)
+  
+  - [xunit-logging](https://github.com/martincostello/xunit-logging)
+
 ##### Test Report Tools
 
 - [allure-csharp](https://github.com/allure-framework/allure-csharp)
@@ -747,6 +806,8 @@
 - [Enums.NET](https://github.com/TylerBrinkley/Enums.NET)
   
   - DeepL Translate App for Windows
+
+- [fixie](https://github.com/fixie/fixie)
 
 - [NanoByte.Common](https://github.com/nano-byte/common)
   

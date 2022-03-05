@@ -7,8 +7,8 @@
 - [lakeFS](https://github.com/treeverse/lakeFS)
 - MinIO
 - [seafile](https://github.com/haiwen/seafile)
-- SeaweedFS
+- [SeaweedFS](https://github.com/chrislusf/seaweedfs)
+  - [weedo](https://github.com/ginuerzh/weedo)
 - [STORJ](https://storj.io/)
   - https://twitter.com/SLPL__/status/1449186396313378817
 - XtreemFS
-

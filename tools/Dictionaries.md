@@ -10,6 +10,8 @@
 
 - GoldenDict
 
+- [google-translate](https://github.com/MrS0m30n3/google-translate)
+
 - MDict
 
 - [QTranslate](https://quest-app.appspot.com/)

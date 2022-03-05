@@ -37,3 +37,4 @@ unique_ptr vs HANDLE
 > shared_ptr<void> safe_h(h, &::CloseHandle);
 > ```
 
+[covariant_smart_ptr](https://github.com/tschuchortdev/covariant_smart_ptr)
