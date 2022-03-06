@@ -172,3 +172,4 @@ int64_t high_timer_ellapsed_ns(high_timer_t *timer)
 // https://github.com/google/glog/pull/669
 // [rdtsc](https://github.com/zeromq/libzmq/issues/3366)
 // https://github.com/chenshuo/muduo/blob/master/muduo/base/Timestamp.cc
+// https://github.com/jingweizhanghuai/Morn/blob/e8d48c9dc54be71ae2e3b11de0851bbd601f21e2/include/morn_util.h#L303-L304

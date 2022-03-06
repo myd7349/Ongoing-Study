@@ -16,16 +16,20 @@ Libraries:
   
   - [CrashReporter](https://github.com/RedisDesktop/CrashReporter)
 
+- [obs-studio/obs-win-crash-handler.c at master · obsproject/obs-studio · GitHub](https://github.com/obsproject/obs-studio/blob/master/libobs/obs-win-crash-handler.c)
+
 - [OopsyPad](https://github.com/RedisDesktop/OopsyPad)
 
 - [plcrashreporter](https://github.com/microsoft/plcrashreporter): Reliable, open-source crash reporting for iOS, macOS and tvOS
 
 Tools:
 
+- [dumpulator](https://github.com/mrexodia/dumpulator) - An easy-to-use library for emulating code in minidump files.
+
+- [MiniDumpPlugin](https://github.com/mrexodia/MiniDumpPlugin)
+
 - [Socorro](https://github.com/mozilla-services/socorro)
 
 Documents:
 
 - [Crash Reporter &mdash; Firefox Source Docs documentation](https://firefox-source-docs.mozilla.org/toolkit/crashreporter/crashreporter/index.html)
-
-[obs-studio/obs-win-crash-handler.c at master · obsproject/obs-studio · GitHub](https://github.com/obsproject/obs-studio/blob/master/libobs/obs-win-crash-handler.c)

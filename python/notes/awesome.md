@@ -67,6 +67,8 @@
 
 - [Typer](https://github.com/tiangolo/typer)
 
+- [wcwidth](https://pypi.org/project/wcwidth/)
+
 ### Clipboard
 
 - [pyperclip](https://github.com/asweigart/pyperclip)
@@ -185,6 +187,15 @@
 
 - [structlog](https://github.com/hynek/structlog)
 
+### N-D Array
+
+- [h5py](https://github.com/h5py/h5py)
+- pandas
+- [PyTables](https://github.com/PyTables/PyTables)
+- [xarray](https://github.com/pydata/xarray)
+> Multi-dimensional (a.k.a. N-dimensional, ND) arrays (sometimes called "tensors") are an essential part of computational science.
+- [zarr](https://github.com/zarr-developers/zarr-python)
+
 ### Networking
 
 - [grequests](https://github.com/spyoungtech/grequests)
@@ -252,6 +263,10 @@
 - [attrs](https://github.com/python-attrs/attrs)
 
 - [dataklasses](https://github.com/dabeaz/dataklasses)
+
+- [MaixPy](https://github.com/sipeed/MaixPy)
+
+- [pointers.py](https://github.com/ZeroIntensity/pointers.py)
 
 - [pydantic](https://github.com/samuelcolvin/pydantic): Data parsing and validation using Python type hints.
 

@@ -46,6 +46,10 @@
 
 ### PDB Tools
 
+- [codesize](https://github.com/zeux/codesize)
+
+- [pdbdump](https://github.com/microsoft/microsoft-pdb/blob/master/pdbdump/pdbdump.cpp)
+ 
 - [EatPdb](https://github.com/codehz/EatPdb)
 
 - [pdbattach](https://github.com/jschwinger233/pdbattach)
@@ -56,11 +60,18 @@
 
 - [raw_pdb](https://github.com/MolecularMatters/raw_pdb)
 
+- [GacUI Demo：PDB Viewer（分析pdb文件并获取C++类声明的详细内容）](http://www.cppblog.com/vczh/archive/2012/01/11/163200.html)
+
+- [使用VS API开发一个PDB Dumper并且可以在没装VS2010的计算机上运行](http://www.cppblog.com/vczh/archive/2012/03/10/167538.html) - [code](https://github.com/vczh-codeplex/gac/tree/master/Common/Tools/PdbDump/PdbDump)
+
+- [dia2dump](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-interface-access/dia2dump-sample?view=vs-2022)
+
 ### Reverse Engineering
 
 - [Cutter](https://github.com/rizinorg/cutter)
 - [hackingtool](https://github.com/Z4nzu/hackingtool)
 - IDA
+- [Nauz-File-Detector](https://github.com/horsicq/Nauz-File-Detector)
 - [OpenArk](https://github.com/BlackINT3/OpenArk)
 - [radare2](https://github.com/radareorg/radare2)
 - [regenny](https://github.com/cursey/regenny)
@@ -97,6 +108,8 @@
 
 - [rres](https://github.com/raysan5/rres)
 
+- [winiconview](https://github.com/andlabs/winiconview)
+
 ### C# Libraries
 
 - [AsmResolver](https://github.com/Washi1337/AsmResolver)
@@ -118,6 +131,7 @@
 
 ### DLL Tools
 
+- [dump2def](https://github.com/weidai11/cryptopp/blob/master/TestPrograms/dump2def.cpp): Create a module definitions file from a dumpbin file.
 - [ListDLLs](https://github.com/MicrosoftDocs/sysinternals/blob/live/sysinternals/downloads/listdlls.md)
 
 ### PE Packers
@@ -127,3 +141,7 @@
   - [怎么样打包 pyqt 应用才是最佳方案？或者说 pyqt 怎样的发布方式最优？](https://www.zhihu.com/question/48776632)
 
 - UPX
+
+### Binary Patching
+
+- [e9patch](https://github.com/GJDuck/e9patch)

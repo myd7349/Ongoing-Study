@@ -341,3 +341,18 @@ int main(int argc, char *argv[])
 // https://stackoverflow.com/questions/10091825/constant-pointer-vs-pointer-on-a-constant-value
 // https://www.zhihu.com/question/439224121
 // https://github.com/ridiculousfish/cdecl-blocks
+//     double **data = malloc(4 * sizeof(double *));
+//     data[0] = malloc(100 * sizeof(double));
+//     data[1] = malloc(100 * sizeof(double));
+//     data[2] = malloc(100 * sizeof(double));
+//     data[3] = malloc(100 * sizeof(double));
+//     extern void process_data_v1(const double **data);
+//     extern void process_data_v2(const double * const *data);
+//     process_data_v1(data); // syntax error
+//     process_data_v2(data);
+// cdecl double **data
+// > declare data as pointer to pointer to double
+// cdecl const double **data
+// > declare data as pointer to pointer to const double
+// cdecl const double * const *data
+// > declare data as pointer to const pointer to const double

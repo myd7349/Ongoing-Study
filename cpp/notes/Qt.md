@@ -10,12 +10,15 @@ Applications:
 - [Converseen](https://github.com/Faster3ck/Converseen)
 - [CopyQ](https://github.com/hluk/CopyQ)
 - [cool-retro-term](https://github.com/Swordfish90/cool-retro-term)
+- [DIE](https://github.com/horsicq/Detect-It-Easy)
 - [DIE-engine](https://github.com/horsicq/DIE-engine)
+- [FastCAE](https://github.com/DISOGitHub/FastCAE)
 - [filemanager](https://github.com/cutefishos/filemanager)
 - [flameshot](https://github.com/flameshot-org/flameshot)
 - [FreeCAD](https://github.com/FreeCAD/FreeCAD)
 - [Fritzing](https://github.com/fritzing/fritzing-app)
 - [gamestudio](https://github.com/ensisoft/gamestudio)
+- [gmic-qt](https://github.com/c-koi/gmic-qt)
 - [goldendict](https://github.com/goldendict/goldendict)
 - [Groot](https://github.com/BehaviorTree/Groot)
 - [gyroflow](https://github.com/gyroflow/gyroflow): Video stabilization using gyroscope data.
@@ -30,16 +33,20 @@ Applications:
 - [kdenlive](https://github.com/KDE/kdenlive)
 - [kepka](https://github.com/procxx/kepka)
 - [kiwix-desktop](https://github.com/kiwix/kiwix-desktop)
+- [kotatogram-desktop](https://github.com/kotatogram/kotatogram-desktop)
 - [krita](https://github.com/KDE/krita)
 - [kylin-ipmsg](https://github.com/UbuntuKylin/kylin-ipmsg)
 - [LANDrop](https://github.com/LANDrop/LANDrop)
 - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
 - [LeoCAD](https://github.com/leozide/leocad) - https://www.leocad.org/
 - [liteide](https://github.com/visualfc/liteide)
+- [lximage-qt](https://github.com/lxqt/lximage-qt)
 - [mixxx](https://github.com/mixxxdj/mixxx)
 - [moonlight-qt](https://github.com/moonlight-stream/moonlight-qt)
+- [Nauz-File-Detector](https://github.com/horsicq/Nauz-File-Detector)
 - [NeteaseMusic](https://github.com/sonichy/NeteaseMusic)
 - [nodeeditor](https://github.com/paceholder/nodeeditor)
+- [NotepadNext](https://github.com/dail8859/NotepadNext)
 - [NymphCast](https://github.com/MayaPosch/NymphCast)
 - [OBS Studio](https://github.com/obsproject/obs-studio)
   - [obs-studio/obs-win-crash-handler.c at master · obsproject/obs-studio · GitHub](https://github.com/obsproject/obs-studio/blob/master/libobs/obs-win-crash-handler.c)
@@ -49,6 +56,9 @@ Applications:
 - [ParaView](https://www.paraview.org/) - [source](https://gitlab.kitware.com/paraview/paraview)
   - [gismo](https://github.com/gismo/gismo)
 - [pcmanfm-qt](https://github.com/lxqt/pcmanfm-qt)
+- [PDBRipper](https://github.com/horsicq/PDBRipper)
+- [photoflare](https://github.com/PhotoFlare/photoflare)
+- [pineapple-pictures](https://github.com/BLumia/pineapple-pictures)
 - [plasma-nm](https://github.com/KDE/plasma-nm)
 - [plex-media-player](https://github.com/plexinc/plex-media-player)
 - [PlotJuggler](https://github.com/facontidavide/PlotJuggler) :star:
@@ -57,6 +67,7 @@ Applications:
 - [qBittorrent](https://www.qbittorrent.org/) - [GitHub](https://github.com/qbittorrent/qBittorrent)
 - [QGIS](https://github.com/qgis/QGIS)
 - [qimgv](https://github.com/easymodo/qimgv)
+- [QMidiPlayer](https://github.com/chirs241097/QMidiPlayer)
 - [QProtoView](https://github.com/pezy/QProtoView)
 - [QSanguosha](https://github.com/Mogara/QSanguosha)
 - [QtAV](https://github.com/wang-bin/QtAV)
@@ -74,9 +85,13 @@ Applications:
 - [rosbag_editor](https://github.com/facontidavide/rosbag_editor)
 - [Rythem](https://github.com/AlloyTeam/Rythem)
 - [Sanmill](https://github.com/calcitem/Sanmill)
+- [sa](https://github.com/czyt1988/sa)
 - [SASM](https://github.com/Dman95/SASM)
+- [screengrab](https://github.com/lxqt/screengrab)
 - [screenlocker](https://github.com/cutefishos/screenlocker)
 - [seafile-client](https://github.com/haiwen/seafile-client)
+- [Seer](https://github.com/epasveer/seer)
+- [SmtpClient-for-Qt](https://github.com/bluetiger9/SmtpClient-for-Qt)
 - [sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)
 - [subsurface](https://github.com/subsurface/subsurface)
 - [synergy-core](https://github.com/symless/synergy-core)
@@ -89,9 +104,11 @@ Applications:
 - [TTKDownloader](https://github.com/Greedysky/TTKDownloader)
 - [TTKMusicplayer](https://github.com/Greedysky/TTKMusicplayer)
 - [vnote](https://github.com/vnotex/vnote)
+- [vokoscreenNG](https://github.com/vkohaupt/vokoscreenNG)
 - [WizQTClient](https://github.com/WizTeam/WizQTClient)
 - [WhatPulse2](https://whatpulse.org/)
 - [XOpcodeCalc](https://github.com/horsicq/XOpcodeCalc)
+- [XNTSV](https://github.com/horsicq/xntsv)
 - [xweather](https://github.com/ShawZG/xweather)
 
 Libraries:
@@ -142,6 +159,8 @@ Libraries:
 
 - [Qt-FramelessWindow](https://github.com/winsoft666/Qt-FramelessWindow)
 
+- [qt-material-widgets](https://github.com/laserpants/qt-material-widgets)
+
 - [Qt-Secret](https://github.com/QuasarApp/Qt-Secret)
 
 - [Qt7z](https://github.com/kanryu/quickviewer/tree/master/Qt7z/Qt7z)
@@ -154,6 +173,8 @@ Libraries:
   - [SASM](https://github.com/Dman95/SASM)
 
 - [QuasarApp Heart](https://github.com/QuasarApp/Heart)
+
+- [SARibbon](https://github.com/czyt1988/SARibbon)
 
 - [SingleApplication](https://github.com/itay-grudev/SingleApplication)
   

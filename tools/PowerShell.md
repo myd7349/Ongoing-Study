@@ -88,3 +88,12 @@ https://github.com/star2000/BingWallpaper
 > ```scss
 > (Get-PSReadlineOption).HistorySavePath
 > ```
+
+[Use PowerShell and WMI to Get Processor Information](https://devblogs.microsoft.com/scripting/use-powershell-and-wmi-to-get-processor-information/)
+
+```
+Get-WmiObject Win32_Processor
+Get-WmiObject -class win32_processor -Property ProcessorId
+```
+
+[ConvertTo-Jpeg](https://github.com/DavidAnson/ConvertTo-Jpeg)

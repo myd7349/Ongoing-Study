@@ -2,6 +2,8 @@
 
 - [b0pass](https://github.com/bitepeng/b0pass)
 
+- [bore](https://github.com/ekzhang/bore)
+
 - bpytop
 
 - btop
@@ -9,6 +11,8 @@
 - [clumsy](https://github.com/jagt/clumsy)
 
 - [curlie](https://github.com/rs/curlie)
+
+- [DHCPLite](https://github.com/DavidAnson/DHCPLite)
 
 - [ecapture](https://github.com/ehids/ecapture)
 
@@ -35,6 +39,8 @@
 - [KS HostMonitor](https://www.ks-soft.net/hostmon.eng/)
 
 - [LANDrop](https://github.com/LANDrop/LANDrop)
+
+- [LFTP](https://github.com/lavv17/lftp)
 
 - [NamedPipeCapture](https://github.com/Vatyx/NamedPipeCapture)
 

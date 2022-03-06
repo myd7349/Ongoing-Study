@@ -14,6 +14,7 @@
 - https://github.com/kovidgoyal/kitty
 - [Qonsole](https://github.com/joedf/Qonsole)
 - [cool-retro-term](https://github.com/Swordfish90/cool-retro-term)
+- [Hyper](https://github.com/vercel/hyper)
 - https://github.com/MaJerle/lwshell
 - [GitHub - pleft/st-sdl-gameshell: SDL Terminal for GAMESHELL](https://github.com/pleft/st-sdl-gameshell)
   - [GitHub - benob/rs97_st-sdl: SDL Terminal for RS97](https://github.com/benob/rs97_st-sdl)
@@ -23,7 +24,9 @@
 - [Warp](https://www.warp.dev/)
 - https://codeberg.org/dnkl/foot
 - https://fig.io/
+- [Upterm](https://github.com/railsware/upterm)
 - [wsltty](https://github.com/mintty/wsltty)
+- [starship](https://github.com/starship/starship)
 
 Terminal emulators supported by [system-terminal](https://github.com/alexrp/system-terminal):
 

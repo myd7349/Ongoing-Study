@@ -197,3 +197,5 @@
 - https://keep.imfreedom.org/pidgin/pidgin/file/tip/pidgin/win32/winpidgin.c
 
 - TortoiseGit\src\Utils\CmdLineParser.h
+
+- [Parsing command-line arguments in C](https://stackoverflow.com/questions/9642732/parsing-command-line-arguments-in-c)

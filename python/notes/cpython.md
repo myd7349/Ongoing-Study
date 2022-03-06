@@ -34,3 +34,5 @@ https://github.com/tonybaloney/cpython-book-samples
 > ```python
 > python -m compileall .
 > ```
+
+[devguide](https://github.com/python/devguide)

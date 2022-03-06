@@ -283,3 +283,11 @@ Tools:
 - [WpfAnalyzers](https://github.com/DotNetAnalyzers/WpfAnalyzers)
 
 - [XAMLPad](https://stackoverflow.com/questions/1409004/where-to-download-xamlpad)
+
+- [XAMLPadX](https://stackoverflow.com/questions/2968564/where-has-xamlpad-gone-in-net-4-0-windows-sdk-v7-1-visual-studio-2010)
+  - Color Picker Plugin
+    -  System.Windows.GlobalMouseHook
+
+Websites
+
+- [WPFpedia](http://www.wpfpedia.com/)

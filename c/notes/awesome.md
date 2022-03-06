@@ -1,3 +1,7 @@
+### Libraries
+
+- [mlibc](https://github.com/managarm/mlibc)
+
 ### CLI
 
 - [isocline](https://github.com/daanx/isocline)
@@ -52,6 +56,8 @@
 
 ### Logging
 
+- [Infinite-File-Curtailer](https://github.com/Comcast/Infinite-File-Curtailer)
+
 - [trice](https://github.com/rokath/trice)
 
 ### JSON
@@ -100,6 +106,8 @@
   - [OpenHashTab](https://github.com/namazso/OpenHashTab)
 
 ### Unit Testing
+
+- [bcu](https://github.com/beejjorgensen/bcu)
 
 - [CUnit](http://cunit.sourceforge.net/)
   

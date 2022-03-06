@@ -15,6 +15,7 @@ typedef enum
     B64F_NORMAL     = 0x01,
     B64F_URLSAFE    = 0x02,
     B64F_NO_PADDING = 0x10,
+    // TODO: Add a new flag to support CryptoPP style base64 that might across multiple lines.
 } B64_FLAGS;
 
 

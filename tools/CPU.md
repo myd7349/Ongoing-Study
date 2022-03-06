@@ -1,0 +1,2 @@
+- [CPU-T](https://github.com/gongminmin/CPU-T)
+- CPU-Z

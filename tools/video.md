@@ -31,3 +31,9 @@ Video Players:
 - [恒星播放器](https://www.stellarplayer.com/)
   
   - [这款电脑上视频播放器软件真牛X，啥都能看！ - 小众软件](https://www.appinn.com/stellarplayer/)
+
+Media Manager
+
+- [Dim](https://github.com/Dusk-Labs/dim)
+
+- [XBMC](https://github.com/xbmc/xbmc)

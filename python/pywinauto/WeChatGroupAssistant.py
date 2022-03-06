@@ -144,9 +144,9 @@ def get_group_members(wechat, group_name):
     group_information_window.draw_outline()
 
     try:
-        click_button(group_information_window, '查看更多群成员')
-    except pywinauto.findwindows.ElementNotFoundError:
-        pass
+        click_button(group_information_window, '查看更多')
+    except pywinauto.findwindows.ElementNotFoundError as e:
+        print(e)
 
     member_list = group_information_window.child_window(title='聊天成员',
                                                         control_type='List')
@@ -158,9 +158,9 @@ def get_group_members(wechat, group_name):
         name, nickname = member[0].texts()[0], member[1].texts()[0]
         count += 1
 
-        if count <= 2:
-            if not name and nickname in ('添加', '删除'):
-                continue
+        print(f'{count:03} Name: {name}, Nickname: {nickname}')
+        if not name and nickname in ('添加', '移出'):
+            continue
 
         group_member = GroupMember(name, nickname)
         members.append(group_member)
@@ -325,3 +325,4 @@ if __name__ == '__main__':
 # pywinauto.findwindows.ElementNotFoundError: {'title': '聊天信息', 'control_type': 'Window', 'top_level_only': False, 'parent': <uia_element_info.UIAElementInfo - '微信', WeChatMainWndForPC, 2688358>, 'backend': 'uia'}
 # [6476] Failed to execute script WeChatGroupAssistant
 #
+# [How to pad zeroes to a string?](https://stackoverflow.com/questions/339007/how-to-pad-zeroes-to-a-string)

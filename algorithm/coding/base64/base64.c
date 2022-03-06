@@ -226,10 +226,10 @@ bool base64_is_valid(const void *base64, size_t len, B64_FLAGS flags, size_t *de
 static const uint8_t *base64_decoding_table(B64_FLAGS flags)
 {
     static bool normal_decoding_table_initialized = false;
-    static uint8_t normal_decoding_table[256];
+    static uint8_t normal_decoding_table[256]; // TODO: Use a table instead.
 
     static bool urlsafe_decoding_table_initialized = false;
-    static uint8_t urlsafe_decoding_table[256];
+    static uint8_t urlsafe_decoding_table[256]; // TODO: Use a table instead.
 
     if (flags & B64F_URLSAFE)
     {
@@ -411,3 +411,5 @@ void *easy_base64_decode(const char *base64, void *data, size_t *out_len)
 // https://github.com/MaskRay/ell/blob/master/ell/base64.h
 // https://github.com/ProgerXP/Notepad2e/tree/master/src/Extension/base64
 // https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/StrToBase64.c
+// https://github.com/weidai11/cryptopp/blob/master/base64.cpp
+// https://renenyffenegger.ch/notes/development/Base64/Encoding-and-decoding-base-64-with-cpp/index

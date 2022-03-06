@@ -136,3 +136,8 @@ calloc
 - [Is calloc(4, 6) the same as calloc(6, 4)?](https://stackoverflow.com/questions/501839/is-calloc4-6-the-same-as-calloc6-4)
 
 - [is the order of parameters to calloc() important?](https://stackoverflow.com/questions/48815191/is-the-order-of-parameters-to-calloc-important)
+
+malloc
+
+- [how does malloc understand alignment?](https://stackoverflow.com/questions/8752546/how-does-malloc-understand-alignment)
+- https://github.com/xqq/libaribcaption/blob/master/src/base/aligned_alloc.cpp

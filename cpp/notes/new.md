@@ -27,3 +27,5 @@ https://en.cppreference.com/w/cpp/memory/new/nothrow
 >     }
 > }
 > ```
+
+[C++ new int[0] -- will it allocate memory?](https://stackoverflow.com/questions/1087042/c-new-int0-will-it-allocate-memory)

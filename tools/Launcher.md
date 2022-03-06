@@ -4,5 +4,5 @@
 - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
 - Manico
 - [kbar](https://github.com/timc1/kbar)
-- Raycast
+- [Raycast](https://www.raycast.com/)
 - [Wox](http://www.wox.one/) - [GitHub](https://github.com/Wox-launcher/Wox)

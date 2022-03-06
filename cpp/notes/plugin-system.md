@@ -11,3 +11,5 @@ https://github.com/martin-olivier/Dylib
 [GitHub - rhcad/x3py: C++ Plugin Framework that can integrate with QT, Python, Java or C#.](https://github.com/rhcad/x3py)
 
 [GitHub - rhcad/x3c: A plugin-framework that uses C++ and STL.](https://github.com/rhcad/x3c)
+
+https://github.com/x64dbg/PluginTemplate

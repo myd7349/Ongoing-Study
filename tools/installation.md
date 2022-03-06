@@ -54,6 +54,7 @@
 - [SyncTrayzor](https://github.com/canton7/SyncTrayzor)
 - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
 - [OpenHashTab](https://github.com/namazso/OpenHashTab)
+- [idf-installer](https://github.com/espressif/idf-installer)
 
 ### Advanced Installer
 

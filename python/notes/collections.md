@@ -54,3 +54,5 @@ class OrderedDict(dict):
         link_next[0] = link_prev
 ```
 
+https://github.com/pydata/xarray/blob/main/xarray/backends/lru_cache.py
+

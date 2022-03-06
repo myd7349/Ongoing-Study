@@ -225,3 +225,43 @@ typedef ConfigItem<std::wstring> StringItem;
 // https://en.cppreference.com/w/cpp/language/implicit_conversion
 // [Why override operator()?](https://stackoverflow.com/questions/317450/why-override-operator)
 // [What is an "operator int" function?](https://stackoverflow.com/questions/3814865/what-is-an-operator-int-function)
+/*
+// http://www.cppblog.com/shaker/archive/2006/10/03/13281.html
+ class  CSettingManager
+ {
+ private :
+    std::map < std:: string ,std:: string >  m_Settings;
+    std:: string  m_Filename;
+ public :
+     void  Load(std:: string  server, std:: string  character);
+     void  Save(  void  );
+     const  std:: string &  Get( std:: string  key,  const  std:: string &  default_value = std:: string () )
+     {
+        std::map < std:: string ,std:: string > ::iterator itor =  m_Settings.find(key);
+         if  ( itor == m_Settings.end() )
+         {
+            Set(key,default_value);
+             return  default_value;
+        }
+         return  itor -> second;
+    }
+     void  Set(std:: string  key,  const  std:: string &  value)
+     {
+        m_Settings[key] = value;
+    }
+    template < class  T >  T Get( std:: string  key, T default_value = T( 0 ))
+     {
+        std::map < std:: string ,std:: string > ::iterator itor =  m_Settings.find(key);
+         if  ( itor == m_Settings.end() )
+         {
+            Set < T > (key,default_value);
+             return  default_value;
+        }
+         return  boost::lexical_cast < T,std:: string > (itor -> second);
+    }
+    template < class  T >   void  Set(std:: string  key, T value)
+     {
+        m_Settings[key] = boost::lexical_cast < std:: string ,T > (value);
+    }
+} ;
+*/

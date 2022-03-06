@@ -1,3 +1,15 @@
+Tutorials
+
+- [GitHub - Akagi201/learning-cmake: learning cmake](https://github.com/Akagi201/learning-cmake)
+
+- [GitHub - ttroy50/cmake-examples: Useful CMake Examples](https://github.com/ttroy50/cmake-examples)
+
+- [GitHub - wzpan/cmake-demo: 《CMake入门实战》源码](https://github.com/wzpan/cmake-demo)
+
+- [GitHub - BrightXiaoHan/CMakeTutorial: CMake中文实战教程](https://github.com/BrightXiaoHan/CMakeTutorial)
+
+- https://github.com/onqtam/awesome-cmake
+
 https://github.com/CLIUtils/modern_cmake
 
 [CMake and the Future of C++ Package Management](https://ibob.bg/blog/2020/01/13/cmake-package-management/)
@@ -264,3 +276,5 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
 41. [cmake_git_clone](https://github.com/tschuchortdev/cmake_git_clone)
 
 42. [GitHub - scikit-build/cmake-FindVcvars: Finds a &quot;vcvars&quot; batch script. This CMake module can be used when configuring a project or when running in cmake -P script mode.](https://github.com/scikit-build/cmake-FindVcvars)
+
+43. [corrosion](https://github.com/corrosion-rs/corrosion) - CMake & Rust

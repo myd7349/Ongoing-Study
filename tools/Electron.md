@@ -1,9 +1,12 @@
 - Atom Editor
 - [dogehouse](https://github.com/benawad/dogehouse)
+- [Hyper](https://github.com/vercel/hyper)
 - [koodo-reader](https://github.com/troyeguo/koodo-reader)
 - [Mark Text](https://github.com/marktext/marktext)
 - Microsoft Azure Storage Explorer
+- [Rocket.Chat.Electron](https://github.com/RocketChat/Rocket.Chat.Electron)
 - Typora
 - [unicopedia-plus](https://github.com/tonton-pixel/unicopedia-plus)
+- [Upterm](https://github.com/railsware/upterm)
 - VS Code
 - [立创 EDA](https://lceda.cn/page/download)

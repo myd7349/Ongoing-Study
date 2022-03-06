@@ -16,6 +16,8 @@ Code Editors:
 
 - [Etherpad](https://github.com/ether/etherpad-lite): A modern really-real-time collaborative document editor.
 
+- [ewig](https://github.com/arximboldi/ewig)
+
 - gedit
 
 - [HTML Notepad](https://html-notepad.com/)
@@ -27,6 +29,8 @@ Code Editors:
   - https://github.com/jupyter-xeus/cpp-terminal/blob/master/examples/kilo.cpp
 
 - [lapce](https://github.com/lapce/lapce)
+
+- [LE](https://github.com/lavv17/le)
 
 - [LightTable](https://github.com/LightTable/LightTable)
 
@@ -51,6 +55,8 @@ Code Editors:
 - [Notepad2](https://github.com/XhmikosR/notepad2-mod)
 
 - [Notepad2e](https://github.com/ProgerXP/Notepad2e)
+
+- [NotepadNext](https://github.com/dail8859/NotepadNext)
 
 - [sam](https://github.com/deadpixi/sam)
 
@@ -90,3 +96,4 @@ Others:
 
 - [studio](https://github.com/stoplightio/studio): The modern editor for API Design and Technical Writing.
 - [GitHub - trimstray/the-book-of-secret-knowledge: A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, cli/web tools and more.](https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-text-editors)
+- [TextAnalysisTool](https://github.com/TextAnalysisTool/Releases)

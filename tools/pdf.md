@@ -34,6 +34,8 @@ Tools:
 
 - [pdf2svg](https://github.com/dawbarton/pdf2svg)
 
+- [xhtml2pdf](https://github.com/xhtml2pdf/xhtml2pdf)
+
 - [img2pdf](https://github.com/josch/img2pdf)
   
   https://twitter.com/terrywang/status/1303592660670668802

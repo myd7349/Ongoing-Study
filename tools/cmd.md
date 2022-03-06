@@ -103,3 +103,13 @@ reg query "HKLM\SOFTWARE\MICROSOFT\CRYPTOGRAPHY" /v "MachineGuid"
 [How can I pass arguments to a batch file?](https://stackoverflow.com/questions/26551/how-can-i-pass-arguments-to-a-batch-file)
 
 [Does %* in batch file mean all command line arguments?](https://superuser.com/questions/149951/does-in-batch-file-mean-all-command-line-arguments)
+
+[Command prompt (Cmd. exe) command-line string limitation](https://docs.microsoft.com/en-us/troubleshoot/windows-client/shell-experience/command-line-string-limitation)
+
+[Maximum Length of Command Line String](https://stackoverflow.com/questions/3205027/maximum-length-of-command-line-string)
+
+> On computers running Microsoft Windows XP or later, the maximum length of the string that you can use at the command prompt is 8191 characters.
+
+[Is there any limit on line length when pasting to a terminal in Linux?](https://unix.stackexchange.com/questions/643777/is-there-any-limit-on-line-length-when-pasting-to-a-terminal-in-linux)
+
+> 4095 is the limit of the tty line discipline internal editor length on Linux.

@@ -390,3 +390,6 @@
 // [How to inherit report from code?](https://www.fast-report.com/en/faq/18/249/)
 // [How to make report inheritance in FastReport.NET](https://www.fast-report.com/en/blog/show/report-inheritance-fastreport-net/)
 // [Storing a Lambda Expression in a Variable](https://stackoverflow.com/questions/4379048/storing-a-lambda-expression-in-a-variable)
+// [Command prompt (Cmd. exe) command-line string limitation](https://docs.microsoft.com/en-us/troubleshoot/windows-client/shell-experience/command-line-string-limitation)
+// [Maximum Length of Command Line String](https://stackoverflow.com/questions/3205027/maximum-length-of-command-line-string)
+// > On computers running Microsoft Windows XP or later, the maximum length of the string that you can use at the command prompt is 8191 characters.

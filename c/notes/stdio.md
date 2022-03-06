@@ -260,6 +260,8 @@ https://github.com/lattera/glibc/blob/master/libio/iogetdelim.c
 
 https://github.com/bminor/glibc/blob/master/libio/iogetline.c
 
+https://github.com/beejjorgensen/bgc/blob/main/src/bgc_part_0850_malloc.md#reading-in-lines-of-arbitrary-length
+
 22. [how do I write to stdout from an MFC program?](https://stackoverflow.com/questions/5094502/how-do-i-write-to-stdout-from-an-mfc-program)
 
 > ```c
@@ -386,3 +388,17 @@ https://git-scm.com/docs/git-bundle
 31. [Why in msvc++ we have _snprintf while other compilers allows snprintf](https://stackoverflow.com/questions/11579095/why-in-msvc-we-have-snprintf-while-other-compilers-allows-snprintf)
     
     > Identifiers in the global namespace starting with _ are reserved for the implementation. _snprintf is just a function that the implementation (Visual Studio) has provided. As to the rationale for that, Visual Studio implements C89, and snprintf is part of a later C99 standard. 
+
+32. tmpnam vs tempnam
+- https://en.cppreference.com/w/cpp/io/c/tmpnam
+- [tempnam() — Generate a temporary file name](https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-tempnam-generate-temporary-file-name)
+  > ```c 
+  > #define _XOPEN_SOURCE
+  > #include <stdio.h>
+  >
+  > char *tempnam(const char *dir, const char *pfx);
+  > ```
+  > 
+  > The tempnam() function generates a path name that may be used for a temporary file. If the environment variable TMPDIR is set, then the directory it specifies will be used as the directory part of the generated path name if it is accessible. Otherwise, if the dir argument is non-NULL and accessible, it will be used in the generated path name. Otherwise, the value of {P_tmpdir} defined in the <stdio.h> header is used as the directory component of the name. If that is inaccessible, then /tmp is used.
+- https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tempnam-wtempnam-tmpnam-wtmpnam?view=msvc-170
+  > tmpnam returns a name that's unique in the designated Windows temporary directory returned by GetTempPathW. _tempnam generates a unique name in a directory other than the designated one.

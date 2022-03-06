@@ -122,7 +122,7 @@ public static string ReadFileContents(string filePath)
 [DllImport("NativeDLL.dll", EntryPoint = "ReadFileContents", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
 private static extern IntPtr ReadFileContentsNative(string filePath);
 
-\[DllImport("NativeDLL.dll", EntryPoint = "FreeFileContents", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+[DllImport("NativeDLL.dll", EntryPoint = "FreeFileContents", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
 private static extern void FreeFileContentsNative(IntPtr text);
 ```
 
@@ -226,6 +226,51 @@ https://github.com/flibitijibibo/SDL2-CS/blob/904eed3cb04319c4e3e360360943e39080
 >         category,
 >         Utf8Encode(fmtAndArglist, utf8FmtAndArglist, utf8FmtAndArglistBufSize)
 >     );
+> }
+> ```
+
+["Hello World" via PInvoke](https://stackoverflow.com/questions/34302729/hello-world-via-pinvoke)
+
+> ```csharp
+> [DllImport("msvcr120.dll")]
+> public static extern int printf(string format, __arglist);
+> 
+> public static void Main()
+> {
+>     printf("Hello %s!\n", __arglist("World"));
+>     Console.ReadKey();
+> }
+> ```
+
+[Hidden Features of C#?](https://stackoverflow.com/questions/9033/hidden-features-of-c)
+
+> __arglist
+
+[C# variable length args, which is better and why: __arglist, params array or Dictionary<T,K>?](https://stackoverflow.com/questions/910585/c-sharp-variable-length-args-which-is-better-and-why-arglist-params-array-o)
+
+https://github.com/flibitijibibo/SDL2-CS/blob/904eed3cb04319c4e3e360360943e39080f80d7b/src/SDL2.cs#L1076-L1096
+
+> ```csharp
+> public static void SDL_LogGetOutputFunction(
+>     out SDL_LogOutputFunction callback,
+>     out IntPtr userdata
+> ) {
+>     IntPtr result = IntPtr.Zero;
+>     SDL_LogGetOutputFunction(
+>         out result,
+>         out userdata
+>     );
+>     if (result != IntPtr.Zero)
+>     {
+>         callback = (SDL_LogOutputFunction) Marshal.GetDelegateForFunctionPointer(
+>             result,
+>             typeof(SDL_LogOutputFunction)
+>         );
+>     }
+>     else
+>     {
+>         callback = null;
+>     }
 > }
 > ```
 

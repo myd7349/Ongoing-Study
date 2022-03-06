@@ -1,6 +1,7 @@
 [windows下有什么好用的屏幕录像软件？](https://www.zhihu.com/question/22202142)
 
 - OBS Studio
+  - [capsule](https://github.com/itchio/capsule) 
   - [obs-websocket](https://github.com/obsproject/obs-websocket)
 - ApowerREC
 - __Bandicam
@@ -16,13 +17,17 @@
 - FormatFactory
 - Screencastify for Chrome
 - [Screenflow](https://sspai.com/post/71918)
+- [screengrab](https://github.com/lxqt/screengrab)
 - [Snipaste](https://www.zhihu.com/pin/1319210101270749184)
 - [ShareX](https://getsharex.com/) - [GitHub](https://github.com/ShareX/ShareX)
 - [flameshot](https://github.com/flameshot-org/flameshot)
 - https://github.com/shutter-project/shutter
+- [vokoscreenNG](https://github.com/vkohaupt/vokoscreenNG)
 - [win32screenshot](https://github.com/northwoodspd/win32screenshot)
 - https://github.com/asciinema/asciinema
 - [wcap](https://github.com/mmozeiko/wcap)
 - [芦笋](https://lusun.com/)
   - [如何高效录制和分享教学视频？我尝试了芦笋 - 少数派](https://sspai.com/post/71918)
 - [Kap](https://github.com/wulkano/Kap)
+- [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)
+- [lximage-qt](https://github.com/lxqt/lximage-qt)

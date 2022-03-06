@@ -7,3 +7,9 @@ SSD:
 - CrystalDiskInfo
 
 - AS SSD Benchmark
+
+Space Analyzer
+
+- [TreeSize Free](https://www.jam-software.com/treesize_free)
+
+- WinDirStat

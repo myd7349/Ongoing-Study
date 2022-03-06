@@ -2,6 +2,8 @@
 
 [DevToysMac](https://github.com/ObuchiYuki/DevToysMac) provides a JSON formatter.
 
+[fq](https://github.com/wader/fq)
+
 [fx](https://github.com/antonmedv/fx)
 
 [gron](https://github.com/tomnomnom/gron)

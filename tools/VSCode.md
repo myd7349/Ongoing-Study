@@ -13,14 +13,19 @@ Extensions:
 
 - blockman
 
+- [Markdown All in One](https://github.com/wuye9036/CppTemplateTutorial)
+
+- [markdownlint](https://github.com/DavidAnson/markdownlint)
+  - [vscode-markdownlint](https://github.com/DavidAnson/vscode-markdownlint)
+
+- [OmniSharp](http://www.omnisharp.net/)
+  
 - Pylance
+
+- [Remote Development](https://github.com/microsoft/vscode-remote-release)
 
 - [sourcery](https://github.com/sourcery-ai/sourcery)
 
 - [tabnine](https://www.tabnine.com/)
 
-- [Markdown All in One](https://github.com/wuye9036/CppTemplateTutorial)
-
 - [VSCode HexEditor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor)
-
-- [Remote Development](https://github.com/microsoft/vscode-remote-release)

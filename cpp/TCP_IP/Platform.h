@@ -29,6 +29,7 @@
 
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 
 #include <WinSock2.h>
 #include <WS2tcpip.h>
@@ -55,6 +56,8 @@ typedef SOCKET socket_t;
 typedef unsigned long in_addr_t; // TODO: Test it with a 64-bit compiler.
 typedef int socklen_t;
 
+#define bzero(s, n) std::memset((s), 0, (n))
+
 #ifndef PLATFORM_NO_DEPRECATED_APIS
 
 // MSVC:
@@ -76,6 +79,7 @@ char *inet_ntoa_(struct in_addr in);
 #include <arpa/inet.h> // htons
 #include <netdb.h>
 #include <netinet/in.h>
+#include <strings.h> // bzero
 #include <sys/select.h> // select
 #include <sys/socket.h>
 #include <sys/types.h>

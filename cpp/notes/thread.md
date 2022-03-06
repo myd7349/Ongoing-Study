@@ -24,4 +24,6 @@
   
   - [C++11 thread_local destructor behaviour](https://stackoverflow.com/questions/51954025/c11-thread-local-destructor-behaviour)
   
-  
+- [Compiling multithread code with g++](https://stackoverflow.com/questions/19463602/compiling-multithread-code-with-g)
+
+> g++ -O3 -pthread -std=c++11 main.cpp

@@ -10,4 +10,4 @@ Projects using wxWidgets:
   - [KiCAD bitmap2component](https://github.com/KiCad/kicad-source-mirror/blob/master/bitmap2component/bitmap2cmp_gui.h)
 - [Poedit](https://github.com/vslavik/poedit) - Cross-platform translation editor.
 - [wxECGAnalyzer](https://github.com/GCY/wxECGAnalyzer)
-
+- [wxMaxima](https://github.com/wxMaxima-developers/wxmaxima)

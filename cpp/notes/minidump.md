@@ -9,3 +9,7 @@ Windows [WER](https://docs.microsoft.com/en-us/windows/win32/wer/windows-error-r
 - [Collecting User-Mode Dumps](https://docs.microsoft.com/en-us/windows/win32/wer/collecting-user-mode-dumps)
 
 https://github.com/binbyu/Reader/blob/master/Reader/dump.cpp
+
+[dumpulator](https://github.com/mrexodia/dumpulator) - An easy-to-use library for emulating code in minidump files.
+
+[MiniDumpPlugin](https://github.com/mrexodia/MiniDumpPlugin)

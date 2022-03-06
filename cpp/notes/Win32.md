@@ -121,3 +121,5 @@ public: class std::_Init_locks & __thiscall std::_Init_locks::operator=(class st
 ```
 
 [STL/xlock.cpp at main · microsoft/STL · GitHub](https://github.com/microsoft/STL/blob/main/stl/src/xlock.cpp)
+
+[MouseButtonClicker](https://github.com/DavidAnson/MouseButtonClicker)

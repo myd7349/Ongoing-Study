@@ -16,9 +16,12 @@
 
 - [7-Zip-zstd](https://github.com/mcmilk/7-Zip-zstd)
 - [gztool](https://github.com/circulosmeos/gztool)
+- [POCO/SevenZip](https://github.com/pocoproject/poco/tree/master/SevenZip)
 - [Qt7z](https://github.com/kanryu/quickviewer/tree/master/Qt7z/Qt7z)
 
 ### Audio
+
+- [rnnoise](https://github.com/xiph/rnnoise)
 
 - [SpeechAlgorithms](https://github.com/Ryuk17/SpeechAlgorithms)
 
@@ -67,12 +70,16 @@
 - [Argos](https://github.com/jebreimo/Argos)
 - [commandline](https://github.com/lionkor/commandline): A C++ commandline for use in servers and chat software. Provides very simple asynchronous input/output.
 - [cpp-terminal](https://github.com/jupyter-xeus/cpp-terminal)
+- [isocline](https://github.com/daanx/isocline)
 - [rang](https://github.com/agauniyal/rang)
 - [tableprinter](https://github.com/OzanCansel/tableprinter)
+- [widecharwidth](https://github.com/ridiculousfish/widecharwidth)
 
 ### Concurrency
 
 - [SObjectizer](https://github.com/Stiffstream/sobjectizer)
+
+- [talking-async](https://github.com/chriskohlhoff/talking-async)
 
 ### Configuration
 
@@ -83,6 +90,10 @@
 - [smhasher](https://github.com/rurban/smhasher)
 
 - [tink](https://github.com/google/tink)
+
+### CSV
+
+- [SACsvStream.h](https://github.com/czyt1988/sa/blob/master/src/signALib/SACsvStream.h)
 
 ### Database
 
@@ -98,15 +109,29 @@
 
 - [libbacktrace](https://github.com/ianlancetaylor/libbacktrace)
 
+### DSP
+
+- [DSPFilters](https://github.com/vinniefalco/DSPFilters)
+
+- [q](https://github.com/cycfi/q)
+
 ### Game Programming
 
 - [acl](https://github.com/nfrechette/acl)
 
+- [EveryRay-Rendering-Engine](https://github.com/steaklive/EveryRay-Rendering-Engine)
+
 - [flecs](https://github.com/SanderMertens/flecs): A fast entity component system (ECS) for C & C++.
+
+- [FlexEngine](https://github.com/ajweeks/FlexEngine)
+
+- [GDevelop](https://github.com/4ian/GDevelop)
 
 - [recastnavigation](https://github.com/recastnavigation/recastnavigation)
 
 ### Graphics
+
+- [FNA3D](https://github.com/FNA-XNA/FNA3D)
 
 - [freetype-gl](https://github.com/rougier/freetype-gl)
 
@@ -147,12 +172,19 @@
 - [TinySHA1](https://github.com/mohaps/TinySHA1)
 - xxHash
 
+### Hook Framework
+
+- [AppInitHook](https://github.com/mrexodia/AppInitHook)
+- [Deviare-InProc](https://github.com/nektra/Deviare-InProc)
+  - [capsule](https://github.com/itchio/capsule)
+
 ### IDE
 
 - [Geno](https://github.com/Geno-IDE/Geno)
 
 ### Image Processing
 
+- [libboard](https://github.com/c-koi/libboard)
 - [libvips](https://github.com/libvips/libvips)
 - [pngquant](https://github.com/kornelski/pngquant)
 - [psd_sdk](https://github.com/MolecularMatters/psd_sdk)
@@ -169,6 +201,8 @@
 
 - [globpp](https://github.com/sergiud/globpp)
 
+- [lib_storage](https://github.com/desktop-app/lib_storage)
+
 - [PlatformFolders](https://github.com/sago007/PlatformFolders)
 
 - [tinydir](https://github.com/cxong/tinydir)
@@ -178,6 +212,10 @@
 - [watchman](https://github.com/facebook/watchman)
   
   - [libwatchman](https://github.com/twitter/libwatchman)
+
+##### Memory
+
+- [mallocng-draft](https://github.com/richfelker/mallocng-draft)
 
 ##### Memory Mapped File
 
@@ -201,11 +239,24 @@
 
 - [json_dto](https://github.com/Stiffstream/json_dto)
 
+- [json-schema-validator](https://github.com/pboettch/json-schema-validator)
+
+- [JSONTestSuite](https://github.com/nst/JSONTestSuite)
+
 - [jwt-cpp](https://github.com/Thalhammer/jwt-cpp)
 
 - [VaRest](https://github.com/ufna/VaRest)
 
+- [vjson](https://github.com/vivkin/vjson)
+
 ### Language Interoperability
+
+##### via JSON
+
+- [TDLib](https://github.com/tdlib/td)
+  - https://github.com/tdlib/td/blob/master/example/python/tdjson_example.py 
+
+- [sdkffi](https://github.com/BehroozAbbassi/sdkffi)
 
 ##### C -> Go
 
@@ -263,6 +314,8 @@
 
 - [libqalculate](https://github.com/Qalculate/libqalculate)
 
+- [morn_calculate.c](https://github.com/jingweizhanghuai/Morn/blob/master/src/math/morn_calculate.c)
+
 - [muparser](https://github.com/beltoforion/muparser)
   
   - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
@@ -279,7 +332,21 @@
   
   - [Notepad2e](https://github.com/ProgerXP/Notepad2e/tree/master/src/Extension/tinyexpr)
 
+- [TTMath](https://www.ttmath.org/) - Bignum C++ library.
+
+  - [QSVEnc](https://github.com/rigaya/QSVEnc)
+
+- [win-libm](https://github.com/amd/win-libm)
+
 ### Memory Management
+
+- [GC](https://github.com/GJDuck/GC)
+
+- [libredfat](https://github.com/GJDuck/libredfat)
+
+- [LowFat](https://github.com/GJDuck/LowFat)
+
+- [memtrack](https://github.com/bertrandmt/memtrack)
 
 - [Mesh](https://github.com/plasma-umass/Mesh)
 
@@ -321,6 +388,10 @@
 
 - [qpid-cpp](https://github.com/apache/qpid-cpp)
 
+### Package Manager
+
+- [spack](https://github.com/spack/spack)
+
 ### PDF
 
 - [PDFlib](https://www.pdflib.com/)
@@ -338,9 +409,13 @@
 
 ### RPC
 
+- [asio-grpc](https://github.com/Tradias/asio-grpc)
+
 - [fibre](https://github.com/samuelsadok/fibre)
 
 - [grpcdump](https://github.com/jschwinger233/grpcdump)
+
+- [zpp_bits](https://github.com/eyalz800/zpp_bits)
 
 ### Scientific Computing
 
@@ -369,9 +444,23 @@
   
   - [yuema](https://github.com/megagrump/yuema)
 
+### Serialization
+
+- [MetaStuff](https://github.com/eliasdaler/MetaStuff)
+
+- [zpp_bits](https://github.com/eyalz800/zpp_bits)
+
+### Sort
+
+- [nanosort](https://github.com/zeux/nanosort)
+
 ### String
 
+- [dtl](https://github.com/cubicdaiya/dtl)
+
 - [fixed_string](https://github.com/unterumarmung/fixed_string)
+
+- [mscharconv](https://github.com/iboB/mscharconv)
 
 ### Templating
 
@@ -379,8 +468,6 @@
 - [Mustache](https://github.com/kainjow/Mustache)
 
 ### Unicode
-
-- [mscharconv](https://github.com/iboB/mscharconv)
 
 ### Unit Testing
 
@@ -403,5 +490,6 @@
 
 ### Miscellaneous
 
+- [dynamix](https://github.com/iboB/dynamix)
 - [KDBindings](https://github.com/KDAB/KDBindings)
 - [libromfs](https://github.com/WerWolv/libromfs): libromfs is an easy way to bundle resources directly into any C++ application.

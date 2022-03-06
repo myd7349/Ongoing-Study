@@ -131,3 +131,9 @@ https://superuser.com/questions/1033088/is-it-possible-to-set-locale-of-a-window
 > UTF-16LE, the native character type on Windows operating systems. The 
 > wide character versions of the Universal C Runtime (UCRT) library 
 > functions use **`wchar_t`** and its pointer and array types as parameters and return values, as do the wide character versions of the native Windows API.
+
+wcwidth
+
+- [wcwidth](https://pypi.org/project/wcwidth/)
+
+- [widecharwidth](https://github.com/ridiculousfish/widecharwidth)

@@ -166,6 +166,10 @@
 
 - [SharpCV](https://github.com/SciSharp/SharpCV)
 
+### Concurrency
+
+- [Coyote](https://github.com/microsoft/coyote): Coyote is a testing library and tool that helps ensure that your C# code is free of annoying concurrency bugs.
+
 ### Configuration
 
 - [greenshot/src/Greenshot.Base/IniFile at release/1.3 · greenshot/greenshot · GitHub](https://github.com/greenshot/greenshot/tree/release/1.3/src/Greenshot.Base/IniFile)
@@ -577,6 +581,8 @@
 
 ### Memory Management
 
+- [ImTools](https://github.com/dadhi/ImTools)
+
 - [NativeMemoryArray](https://github.com/Cysharp/NativeMemoryArray)
 
 ### Multimedia
@@ -662,6 +668,7 @@
 - [QoiFileTypeNet](https://github.com/iOrange/QoiFileTypeNet)
 - [QuickLook.Plugin](https://github.com/QL-Win/QuickLook/tree/master/QuickLook.Plugin)
 - [Steamless Plugin](https://github.com/atom0s/Steamless/tree/master/ExamplePlugin)
+- [TextAnalysisTool.NET.Plugin](https://textanalysistool.github.io/)
 - [WinSW.Plugins](https://github.com/winsw/winsw/tree/v3/src/WinSW.Plugins)
 - [Wox.Plugin](https://github.com/Wox-launcher/Wox/tree/master/Wox.Plugin)
 
@@ -812,6 +819,8 @@
 - [NanoByte.Common](https://github.com/nano-byte/common)
   
   - DeepL Translate App for Windows
+
+- [NullGuard](https://github.com/Fody/NullGuard)
 
 - [Pidgin](https://github.com/benjamin-hodgson/Pidgin)
 
