@@ -38,3 +38,7 @@ unique_ptr vs HANDLE
 > ```
 
 [covariant_smart_ptr](https://github.com/tschuchortdev/covariant_smart_ptr)
+
+[dynamic cast of a shared_ptr](https://stackoverflow.com/questions/20219385/dynamic-cast-of-a-shared-ptr)
+
+[dynamic_cast across a shared_ptr?](https://stackoverflow.com/questions/23795265/dynamic-cast-across-a-shared-ptr)

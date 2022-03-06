@@ -261,3 +261,4 @@ std::string ws2s(const std::wstring &str)
 // https://github.com/microsoft/PowerToys/blob/master/src/common/string_utils.h
 // https://github.com/imageworks/pystring/blob/master/pystring.h
 // https://github.com/Blinue/Magpie/blob/main/Runtime/StrUtils.h
+// https://github.com/open-license-manager/licensecc/blob/develop/src/library/base/string_utils.h

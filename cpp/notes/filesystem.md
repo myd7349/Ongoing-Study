@@ -6,3 +6,4 @@
 
 [Best way to determine if two path reference to same file in Windows?](https://stackoverflow.com/questions/562701/best-way-to-determine-if-two-path-reference-to-same-file-in-windows)
 
+https://docs.microsoft.com/en-us/windows/win32/api/shlwapi/nf-shlwapi-pathrelativepathtoa

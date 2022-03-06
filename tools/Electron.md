@@ -2,6 +2,7 @@
 - [dogehouse](https://github.com/benawad/dogehouse)
 - [Hyper](https://github.com/vercel/hyper)
 - [koodo-reader](https://github.com/troyeguo/koodo-reader)
+- [MaaAsstElectronUI](https://github.com/MaaAssistantArknights/MaaAsstElectronUI)
 - [Mark Text](https://github.com/marktext/marktext)
 - Microsoft Azure Storage Explorer
 - [Rocket.Chat.Electron](https://github.com/RocketChat/Rocket.Chat.Electron)
@@ -9,4 +10,5 @@
 - [unicopedia-plus](https://github.com/tonton-pixel/unicopedia-plus)
 - [Upterm](https://github.com/railsware/upterm)
 - VS Code
+- [YesPlayMusic](https://github.com/qier222/YesPlayMusic)
 - [立创 EDA](https://lceda.cn/page/download)

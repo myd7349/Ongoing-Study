@@ -1,3 +1,4 @@
+- [caesium-image-compressor](https://github.com/Lymphatus/caesium-image-compressor)
 - [ConvertTo-Jpeg](https://github.com/DavidAnson/ConvertTo-Jpeg)
 - [digiKam](https://www.digikam.org/)
   - [gmic-qt](https://github.com/c-koi/gmic-qt) 
@@ -11,6 +12,7 @@
   - [gmic-qt](https://github.com/c-koi/gmic-qt) 
 - [Local Adaptive Binarization](https://github.com/chriswolfvision/local_adaptive_binarization)
 - [Luminar 4 免费送终身授权，基于 AI 的照片编辑器[Win/macOS] - 小众软件](https://www.appinn.com/luminar-4/)
+- [nomacs](https://github.com/nomacs/nomacs)
 - Paint.NET
 - [photoflare](https://github.com/PhotoFlare/photoflare)
 - [PhotoME](https://www.photome.de/) - [author](https://www.duttke.de/en/#projects-software-photome)

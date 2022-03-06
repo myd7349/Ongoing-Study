@@ -12,6 +12,8 @@
   
   - [incbin](https://github.com/graphitemaster/incbin)
 
+- [mir](https://github.com/vnmakarov/mir)
+
 ### Compression
 
 - [c-blosc](https://github.com/Blosc/c-blosc)
@@ -43,6 +45,10 @@
 - [minigui](https://github.com/VincentWei/minigui)
 
 - [vger](https://github.com/audulus/vger)
+
+### Hooking
+
+- [HookLib](https://github.com/HoShiMin/HookLib)
 
 ### Imaging
 
@@ -89,6 +95,7 @@
 
 ### Serialization
 
+- [argdata](https://github.com/NuxiNL/argdata)
 - [mpack](https://github.com/ludocode/mpack)
 
 ### Static Analysis
@@ -112,6 +119,8 @@
 - [CUnit](http://cunit.sourceforge.net/)
   
   - [xquic](https://github.com/alibaba/xquic)
+
+- [Temper](https://github.com/dangmoody/Temper)
 
 - [tinyexpr/minctest.h](https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/tinyexpr/minctest.h)
 

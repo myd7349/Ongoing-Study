@@ -13,6 +13,8 @@
 
 - [ML.NET](https://github.com/dotnet/machinelearning)
 
+- [TensorFlow.NET](https://github.com/SciSharp/TensorFlow.NET)
+
 - [TorchSharp](https://github.com/dotnet/TorchSharp)
 
 ### Archive
@@ -230,6 +232,8 @@
 
 - [EntityFrameworkCore.Generator](https://github.com/loresoft/EntityFrameworkCore.Generator)
 
+- [LocalDb](https://github.com/SimonCropp/LocalDb)
+
 - [MasterMemory](https://github.com/Cysharp/MasterMemory) - Embedded Typed Readonly In-Memory Document Database for .NET Core and Unity.
 
 - [Migrator.NET](https://github.com/dotnetprojects/Migrator.NET) - Database migration.
@@ -394,6 +398,8 @@
 - [FileExtensionValidation](https://github.com/rainmakerho/FileExtensionValidation)
 
 - [FlatFiles](https://github.com/jehugaleahsa/FlatFiles)
+
+- [Microsoft.Extensions.FileSystemGlobbing](https://docs.microsoft.com/en-us/dotnet/core/extensions/file-globbing)
 
 - [TestableFileSystem](https://github.com/bkoelman/TestableFileSystem)
 
@@ -611,6 +617,8 @@
 - [simple-http](https://github.com/dajuric/simple-http)
 - [sipsorcery](https://github.com/sipsorcery-org/sipsorcery) - A WebRTC, SIP and VoIP library for C# and .NET. Designed for real-time communications apps.
   - [GB28181.Solution](https://github.com/GB28181/GB28181.Solution)
+- [SuperSocket](https://github.com/kerryjiang/SuperSocket)
+  - [SuperSocket.SerialIO](https://github.com/SuperSocket/SuperSocket.SerialIO)
 - [whois](https://github.com/flipbit/whois)
 
 ### OCR
@@ -672,6 +680,10 @@
 - [WinSW.Plugins](https://github.com/winsw/winsw/tree/v3/src/WinSW.Plugins)
 - [Wox.Plugin](https://github.com/Wox-launcher/Wox/tree/master/Wox.Plugin)
 
+### Profiling
+
+- [MiniProfiler](https://miniprofiler.com/)
+
 ### QR Code
 
 - [QRCoder](https://github.com/codebude/QRCoder)
@@ -698,6 +710,10 @@
   - DeepL Translate App for Windows
 - [vs-streamjsonrpc](https://github.com/microsoft/vs-streamjsonrpc)
 
+### Scientific Computing
+
+- [SciSharp](https://github.com/SciSharp)
+
 ### Scripting
 
 - [CLanguage](https://github.com/praeclarum/CLanguage): C
@@ -717,7 +733,9 @@
 - [Binaron.Serializer](https://github.com/zachsaw/Binaron.Serializer)
 
 - Google Protobuffers
-  
+
+  - [protobuf.Text](https://github.com/SciSharp/protobuf.Text)
+
   - DeepL Translate App for Windows
 
 - [ysoserial.net](https://github.com/pwntester/ysoserial.net)
@@ -748,6 +766,8 @@
 
 ### String
 
+- [Microsoft.Extensions.Primitives](https://docs.microsoft.com/en-us/dotnet/core/extensions/primitives#string-tokenizers-segments-and-values)
+
 - [StringLiteralGenerator](https://github.com/ufcpp/StringLiteralGenerator)
 
 - [ZString](https://github.com/Cysharp/ZString) - Zero Allocation StringBuilder for .NET Core and Unity.
@@ -762,6 +782,7 @@
 
 - [diffplex](https://github.com/mmanela/diffplex)
 - [tokenizer](https://github.com/flipbit/tokenizer)
+- [toxy](https://github.com/nissl-lab/toxy)
 
 ### Threading
 

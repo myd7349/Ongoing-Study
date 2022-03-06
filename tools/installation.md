@@ -29,6 +29,8 @@
 - [OnTopReplica](https://github.com/LorenzCK/OnTopReplica)
 - [Gow](https://github.com/bmatzelle/gow)
 - [koodo-reader](https://github.com/troyeguo/koodo-reader)
+- [FreeCADInstProj](https://github.com/donovaly/FreeCADInstProj)
+- [LyXWinInstaller](https://github.com/donovaly/LyXWinInstaller)
 
 ### CPack
 
@@ -55,6 +57,8 @@
 - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
 - [OpenHashTab](https://github.com/namazso/OpenHashTab)
 - [idf-installer](https://github.com/espressif/idf-installer)
+- [ViTables](https://github.com/uvemas/ViTables/blob/master/doc/develop.rst)
+  - [Create a standalone Windows installer for your Python application](https://cyrille.rossant.net/create-a-standalone-windows-installer-for-your-python-application/)
 
 ### Advanced Installer
 

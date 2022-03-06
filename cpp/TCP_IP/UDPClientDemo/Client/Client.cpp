@@ -2,14 +2,14 @@
 #include <string>
 
 #include "../../Error.h"
-#include "../../UDPClient.h"
+#include "../../Socket.h"
 
 
 int main()
 {
     TCP_IP_INIT();
 
-    UDPClient clientSocket;
+    Socket clientSocket(AF_INET, SOCK_DGRAM);
     clientSocket.Connect("127.0.0.1", 12000);
 
     char message[16] = "";
@@ -26,9 +26,9 @@ int main()
         if (result < 0)
         {
             std::cerr << "Failed to send message [" << sentence << "]: ";
-            if (result == UDPClient::UDP_TIME_OUT)
+            if (result == Socket::Timeout)
                 std::cerr << ReportError("Time out!");
-            else if (result == UDPClient::UDP_SOCKET_ERROR)
+            else if (result == Socket::Error)
                 std::cerr << ReportError("Socket error!");
             else
                 std::cerr << ReportError("Unknown error!");
@@ -41,9 +41,9 @@ int main()
 #endif
         if (readSizeInBytes >= 0)
             std::cout << "Response from server: [" << std::string(message, readSizeInBytes) << "]. Receive returns " << readSizeInBytes << ".\n";
-        else if (readSizeInBytes == UDPClient::UDP_TIME_OUT)
+        else if (readSizeInBytes == Socket::Timeout)
             std::cerr << ReportError("Time out!");
-        else if (readSizeInBytes == UDPClient::UDP_SOCKET_ERROR)
+        else if (readSizeInBytes == Socket::Error)
             std::cerr << ReportError("Socket error!");
         else
             std::cerr << ReportError("Unknown error!");

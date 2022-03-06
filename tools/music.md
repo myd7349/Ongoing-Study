@@ -10,6 +10,8 @@ https://github.com/qier222/YesPlayMusic
 
 Tools:
 
+- [beats-audio-api](https://github.com/JMPerez/beats-audio-api)
+
 - [LyricsX](https://github.com/ddddxxx/LyricsX)
 
 - [MusicPlayerDaemon](https://github.com/MusicPlayerDaemon/MPD)

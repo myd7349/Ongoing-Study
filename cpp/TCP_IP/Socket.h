@@ -13,19 +13,20 @@
 #endif
 
 
-class UDPClient
+class Socket
 {
 public:
     enum ErrorCode
     {
-        UDP_SOCKET_ERROR = SOCKET_ERROR,
-        UDP_TIME_OUT     = -2
+        Error   = SOCKET_ERROR,
+        Timeout = -2
     };
 
-    UDPClient();
-    ~UDPClient();
+    Socket();
+	Socket(int domain, int type);
+    ~Socket();
 
-    bool CreateSocket();
+    bool Create(int domain, int type);
     void Close();
 
     socket_t GetSocket() const
@@ -130,8 +131,8 @@ public:
     }
 
 private:
-    UDPClient(const UDPClient &);
-    UDPClient &operator=(const UDPClient &);
+    Socket(const Socket &);
+    Socket &operator=(const Socket &);
 
     int SendTo(const char *buffer, std::size_t sizeInBytes, const struct sockaddr *to, socklen_t tolen, unsigned timeoutInMs);
     int ReceiveFrom(char *buffer, std::size_t sizeInBytes, int flags, struct sockaddr *from, socklen_t *fromlen, unsigned timeoutInMs);

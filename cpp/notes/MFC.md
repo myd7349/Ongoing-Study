@@ -57,3 +57,9 @@ Font:
 > until it deletes the window created with this class. Any changes to 
 > graphic objects and their attributes, or graphic modes are retained by 
 > the system until the window is deleted.
+
+[How to create a resizable CDialog in MFC?](https://stackoverflow.com/questions/138040/how-to-create-a-resizable-cdialog-in-mfc)
+
+[MFC Dynamic Dialog Layout](https://devblogs.microsoft.com/cppblog/mfc-dynamic-dialog-layout/)
+
+[ResizableLib](https://www.codeproject.com/Articles/1175/ResizableLib) - [GitHub](https://github.com/ppescher/resizablelib) - [TortoiseGit is using this lib.](https://github.com/TortoiseGit/TortoiseGit/tree/master/ext/ResizableLib)

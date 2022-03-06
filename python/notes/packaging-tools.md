@@ -76,6 +76,8 @@ https://github.com/scikit-build/scikit-build
 
 [GitHub - skywind3000/PyStand: Python Standalone Deploy Environment !!](https://github.com/skywind3000/PyStand)
 
+[Large file size after building pyqt to exe with pyinstaller](https://stackoverflow.com/questions/58496695/large-file-size-after-building-pyqt-to-exe-with-pyinstaller)
+
 py2applet
 
 - [syncplay/buildPy2app.py at master · Syncplay/syncplay · GitHub](https://github.com/Syncplay/syncplay/blob/master/buildPy2app.py)

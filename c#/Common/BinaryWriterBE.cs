@@ -129,3 +129,4 @@ namespace Common.IO
 // > org/dicomcs/util/BEBinaryReader.cs
 // https://github.com/dbrant/imageformats/blob/master/ImageFormats/Util.cs
 // https://github.com/mandreyel/endian/blob/master/endian.hpp
+// https://github.com/tge-was-taken/Amicitia.IO

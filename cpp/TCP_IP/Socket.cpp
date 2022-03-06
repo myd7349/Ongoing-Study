@@ -1,36 +1,42 @@
-#include "UDPClient.h"
+#include "Socket.h"
 
-
+#if defined(_WIN32)
 #pragma comment(lib, "Ws2_32.lib")
-
+#endif
 
 const int MIN_PORT_NUMBER = 0x00000000;
 const int MAX_PORT_NUMBER = 0x0000FFFF;
 
 
-UDPClient::UDPClient()
+Socket::Socket()
     : socket_(INVALID_SOCKET), isConnected_(false), remotePortNumber_(-1)
 {
-    CreateSocket();
 }
 
 
-UDPClient::~UDPClient()
+Socket::Socket(int domain, int type)
+    : socket_(INVALID_SOCKET), isConnected_(false), remotePortNumber_(-1)
+{
+	Create(domain, type);
+}
+
+
+Socket::~Socket()
 {
     Close();
 }
 
 
-bool UDPClient::CreateSocket()
+bool Socket::Create(int domain, int type)
 {
     if (socket_ == INVALID_SOCKET)
-        return (socket_ = socket(AF_INET, SOCK_DGRAM, 0)) != INVALID_SOCKET;
+        return (socket_ = socket(domain, type, 0)) != INVALID_SOCKET;
 
     return true;
 }
 
 
-void UDPClient::Close()
+void Socket::Close()
 {
     if (socket_ != INVALID_SOCKET)
     {
@@ -42,7 +48,7 @@ void UDPClient::Close()
 }
 
 
-bool UDPClient::Bind(int portNumber)
+bool Socket::Bind(int portNumber)
 {
     assert(IsValid());
     assert(portNumber >= MIN_PORT_NUMBER && portNumber <= MAX_PORT_NUMBER);
@@ -56,13 +62,13 @@ bool UDPClient::Bind(int portNumber)
 }
 
 
-bool UDPClient::Connect(const char *remoteIP, int portNumber)
+bool Socket::Connect(const char *remoteIP, int portNumber)
 {
     return Connect(inet_addr(remoteIP), portNumber);
 }
 
 
-bool UDPClient::Connect(unsigned long remoteIP, int portNumber)
+bool Socket::Connect(unsigned long remoteIP, int portNumber)
 {
     assert(IsValid());
 
@@ -86,7 +92,7 @@ bool UDPClient::Connect(unsigned long remoteIP, int portNumber)
 }
 
 
-bool UDPClient::Disconnect()
+bool Socket::Disconnect()
 {
     assert(IsValid());
 
@@ -98,7 +104,7 @@ bool UDPClient::Disconnect()
 }
 
 
-bool UDPClient::SetSendBufferSize(int sizeInBytes)
+bool Socket::SetSendBufferSize(int sizeInBytes)
 {
     assert(IsValid());
 
@@ -109,7 +115,7 @@ bool UDPClient::SetSendBufferSize(int sizeInBytes)
 }
 
 
-bool UDPClient::SetReceiveBufferSize(int sizeInBytes)
+bool Socket::SetReceiveBufferSize(int sizeInBytes)
 {
     assert(IsValid());
 
@@ -120,156 +126,142 @@ bool UDPClient::SetReceiveBufferSize(int sizeInBytes)
 }
 
 
-int UDPClient::Send(const char *buffer, std::size_t sizeInBytes, unsigned timeoutInMs)
+int Socket::Send(const char *buffer, std::size_t sizeInBytes, unsigned timeoutInMs)
 {
     assert(IsValid());
     assert(buffer != nullptr && sizeInBytes >= 0);
     assert(isConnected_);
 
+#if defined(INFINITE)
+    assert(timeoutInMs != INFINITE);
+#endif
+
     struct timeval timeout = { 0 };
-    struct timeval *timeoutPtr = NULL;
-    
-    if (timeoutInMs != INFINITE)
-    {
-        timeout.tv_sec = timeoutInMs / 1000;
-        timeout.tv_usec = (timeoutInMs % 1000) * 1000;
-        timeoutPtr = &timeout;
-    }
+    timeout.tv_sec = timeoutInMs / 1000;
+    timeout.tv_usec = (timeoutInMs % 1000) * 1000;
 
     fd_set fdWrite = { 0 };
     FD_ZERO(&fdWrite);
     FD_SET(socket_, &fdWrite);
 
-    int result = 1;
-    if (timeoutPtr != NULL)
-        result = select((int)socket_ + 1, NULL, &fdWrite, NULL, timeoutPtr); // +1 is important here, otherwise you will get a timeout on linux.
+    int result = select((int)socket_ + 1, NULL, &fdWrite, NULL,
+                        &timeout);  // +1 is important here, otherwise you will
+                                   // get a timeout on linux.
 
     if (result > 0)
     {
         result = send(socket_, buffer, static_cast<int>(sizeInBytes), 0);
         if (result == SOCKET_ERROR)
-            return UDP_SOCKET_ERROR;
+            return Error;
 
         return result;
     }
     else
     {
-        return UDP_TIME_OUT;
+        return Timeout;
     }
 }
 
 
-int UDPClient::SendTo(const char *buffer, std::size_t sizeInBytes, const struct sockaddr *to, socklen_t tolen, unsigned timeoutInMs)
+int Socket::SendTo(const char *buffer, std::size_t sizeInBytes, const struct sockaddr *to, socklen_t tolen, unsigned timeoutInMs)
 {
     assert(IsValid());
     assert(buffer != nullptr && sizeInBytes >= 0);
 
+#if defined(INFINITE)
+    assert(timeoutInMs != INFINITE);
+#endif
+
     struct timeval timeout = { 0 };
-    struct timeval *timeoutPtr = NULL;
-    
-    if (timeoutInMs != INFINITE)
-    {
-        timeout.tv_sec = timeoutInMs / 1000;
-        timeout.tv_usec = (timeoutInMs % 1000) * 1000;
-        timeoutPtr = &timeout;
-    }
+    timeout.tv_sec = timeoutInMs / 1000;
+    timeout.tv_usec = (timeoutInMs % 1000) * 1000;
 
     fd_set fdWrite = { 0 };
     FD_ZERO(&fdWrite);
     FD_SET(socket_, &fdWrite);
 
-    int result = 1;
-    if (timeoutPtr != NULL)
-        result = select((int)socket_ + 1, NULL, &fdWrite, NULL, timeoutPtr); // +1 is important here, otherwise you will get a timeout on linux.
+    int result = select((int)socket_ + 1, NULL, &fdWrite, NULL, &timeout); // +1 is important here, otherwise you will get a timeout on linux.
 
     if (result > 0)
     {
         result = sendto(socket_, buffer, static_cast<int>(sizeInBytes), 0, to, tolen);
         if (result == SOCKET_ERROR)
-            return UDP_SOCKET_ERROR;
+            return Error;
 
         return result;
     }
     else
     {
-        return UDP_TIME_OUT;
+        return Timeout;
     }
 }
 
 
-int UDPClient::Receive(char *buffer, std::size_t sizeInBytes, int flags, unsigned timeoutInMs)
+int Socket::Receive(char *buffer, std::size_t sizeInBytes, int flags, unsigned timeoutInMs)
 {
     assert(IsValid());
     assert(buffer != nullptr && sizeInBytes >= 0);
     assert(isConnected_);
 
+#if defined(INFINITE)
+    assert(timeoutInMs != INFINITE);
+#endif
+
     struct timeval timeout = { 0 };
-    struct timeval *timeoutPtr = NULL;
-    
-    if (timeoutInMs != INFINITE)
-    {
-        timeout.tv_sec = timeoutInMs / 1000;
-        timeout.tv_usec = (timeoutInMs % 1000) * 1000;
-        timeoutPtr = &timeout;
-    }
+    timeout.tv_sec = timeoutInMs / 1000;
+    timeout.tv_usec = (timeoutInMs % 1000) * 1000;
 
     fd_set fdRead = { 0 };
     FD_ZERO(&fdRead);
     FD_SET(socket_, &fdRead);
 
-    int result = 1;
-    if (timeoutPtr != NULL)
-        result = select((int)socket_ + 1, &fdRead, NULL, NULL, timeoutPtr);
+    int result = select((int)socket_ + 1, &fdRead, NULL, NULL, &timeout);
 
     if (result > 0)
     {
         result = recv(socket_, buffer, static_cast<int>(sizeInBytes), 0);
         if (result == SOCKET_ERROR)
-            return UDP_SOCKET_ERROR;
+            return Error;
 
         return result;
     }
     else
     {
-        return UDP_TIME_OUT;
+        return Timeout;
     }
 }
 
 
-int UDPClient::ReceiveFrom(char *buffer, std::size_t sizeInBytes, int flags, struct sockaddr *from, socklen_t *fromlen, unsigned timeoutInMs)
+int Socket::ReceiveFrom(char *buffer, std::size_t sizeInBytes, int flags, struct sockaddr *from, socklen_t *fromlen, unsigned timeoutInMs)
 {
     assert(IsValid());
     assert(buffer != nullptr && sizeInBytes >= 0);
 
+#if defined(INFINITE)
+    assert(timeoutInMs != INFINITE);
+#endif
+
     struct timeval timeout = { 0 };
-    struct timeval *timeoutPtr = NULL;
-    
-    if (timeoutInMs != INFINITE)
-    {
-        timeout.tv_sec = timeoutInMs / 1000;
-        timeout.tv_usec = (timeoutInMs % 1000) * 1000;
-        timeoutPtr = &timeout;
-    }
+    timeout.tv_sec = timeoutInMs / 1000;
+    timeout.tv_usec = (timeoutInMs % 1000) * 1000;
 
     fd_set fdRead = { 0 };
     FD_ZERO(&fdRead);
     FD_SET(socket_, &fdRead);
 
-    int result = 1;
-    if (timeoutPtr != NULL)
-        result = select((int)socket_ + 1, &fdRead, NULL, NULL, timeoutPtr);
+    int result = select((int)socket_ + 1, &fdRead, NULL, NULL, &timeout);
 
     if (result > 0)
     {
         result = recvfrom(socket_, buffer, static_cast<int>(sizeInBytes), flags, from, fromlen);
         if (result == SOCKET_ERROR)
-            return UDP_SOCKET_ERROR;
+            return Error;
 
         return result;
     }
     else
     {
-        return UDP_TIME_OUT;
+        return Timeout;
     }
 }
 
@@ -277,11 +269,11 @@ int UDPClient::ReceiveFrom(char *buffer, std::size_t sizeInBytes, int flags, str
 // References:
 // corefx:IPEndPoint.cs
 // https://stackoverflow.com/questions/1098897/what-is-the-largest-safe-udp-packet-size-on-the-internet
-// https://github.com/dotnet/runtime/blob/82239a2a0def33c00159c0372226427099cfa355/src/libraries/System.Net.Sockets/src/System/Net/Sockets/UDPClient.cs#L16
+// https://github.com/dotnet/runtime/blob/82239a2a0def33c00159c0372226427099cfa355/src/libraries/System.Net.Sockets/src/System/Net/Sockets/Socket.cs#L16
 // > private const int MaxUDPSize = 0x10000;
 // [Multi-threaded Client/Server Socket Class](https://www.codeproject.com/articles/2477/multi-threaded-client-server-socket-class)
 // Beej's Guide to Network Programming Using Internet Sockets
-// https://github.com/dotnet/runtime/blob/main/src/libraries/System.Net.Sockets/src/System/Net/Sockets/UDPClient.cs
+// https://github.com/dotnet/runtime/blob/main/src/libraries/System.Net.Sockets/src/System/Net/Sockets/Socket.cs
 // https://docs.microsoft.com/en-us/windows/win32/winsock/winsock-programming-considerations
 // https://docs.microsoft.com/en-us/windows/win32/api/winsock/nf-winsock-sendto
 // [Sockets - How to find out what port and address I'm assigned](https://stackoverflow.com/questions/4046616/sockets-how-to-find-out-what-port-and-address-im-assigned)
@@ -298,7 +290,7 @@ int UDPClient::ReceiveFrom(char *buffer, std::size_t sizeInBytes, int flags, str
 // > file descriptors. The parameter represents the highest index in that array
 // > where select() cannot access.
 // [getting message length in udp before recvfrom()](https://stackoverflow.com/questions/7448408/getting-message-length-in-udp-before-recvfrom)
-// [UDPclient buffer too small](https://stackoverflow.com/questions/24411213/udpclient-buffer-too-small)
+// [Socket buffer too small](https://stackoverflow.com/questions/24411213/Socket-buffer-too-small)
 // > With UDP you cannot send messages bigger than 64KB. Use TCP, or split the payload yourself into multiple messages which will be extremely complex because messages can be lost.
 // https://github.com/sipwise/rtpengine/issues/70
 // > UDP packets have a maximum length of 65535 bytes. If the size exceeds the MTU, they get fragmented, not truncated.
@@ -309,7 +301,7 @@ int UDPClient::ReceiveFrom(char *buffer, std::size_t sizeInBytes, int flags, str
 // > - You can set MSG_TRUNC option in the flags, so recv(2) will return the whole datagram length, not just the part you read into your userland buffer.
 // [using flags MSG_TRUNC , MSG_CTRUNC in UDP socket](https://stackoverflow.com/questions/11863264/using-flags-msg-trunc-msg-ctrunc-in-udp-socket)
 // https://linux.die.net/man/2/recvfrom
-// https://github.com/dotnet/runtime/blob/82239a2a0def33c00159c0372226427099cfa355/src/libraries/System.Net.Sockets/src/System/Net/Sockets/UDPClient.cs#L16
+// https://github.com/dotnet/runtime/blob/82239a2a0def33c00159c0372226427099cfa355/src/libraries/System.Net.Sockets/src/System/Net/Sockets/Socket.cs#L16
 // > private const int MaxUDPSize = 0x10000;
 // [Can I be sure that a UDP recv executed immediately after a successfull call to recv with MSG_PEEK will not block?](https://stackoverflow.com/questions/44317781/can-i-be-sure-that-a-udp-recv-executed-immediately-after-a-successfull-call-to-r)
 // [UDP Socket Set Timeout](https://stackoverflow.com/questions/13547721/udp-socket-set-timeout)

@@ -16,6 +16,8 @@ https://github.com/CLIUtils/modern_cmake
 
 https://github.com/cpm-cmake/CPM.cmake
 
+https://github.com/StableCoder/cmake-scripts
+
 1. cmake -G "Visual Studio 10 2010" ..
 
 2. E:\vcpkg>vcpkg.exe integrate install

@@ -238,6 +238,7 @@ CString GetDirName(const CString &strPath)
 }
 
 // 2015-04-23T13:45+08:00
+// https://github.com/TortoiseGit/TortoiseGit/blob/master/src/Utils/MiscUI/BrowseFolder.h
 CString BrowseForFolder(const CString &strTitle, HWND hParent, BOOL bShowFile, const CString &strRoot)
 {
     TCHAR szFolder[MAX_PATH] = _T("");

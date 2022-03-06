@@ -97,3 +97,7 @@ Get-WmiObject -class win32_processor -Property ProcessorId
 ```
 
 [ConvertTo-Jpeg](https://github.com/DavidAnson/ConvertTo-Jpeg)
+
+[PowerShell redirect input from file](https://cloud.tencent.com/developer/ask/sof/63560)
+
+> Get-Content input.txt | ./program > output.txt

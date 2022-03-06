@@ -44,3 +44,5 @@ while (offset < objectTotalBytes)
 ```
 
 [minio-viewer](https://github.com/msgbyte/minio-viewer)
+
+[How to use AWS SDK for .NET with MinIO Server](https://docs.min.io/docs/how-to-use-aws-sdk-for-net-with-minio-server.html)

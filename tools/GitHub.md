@@ -136,3 +136,5 @@ https://github.com/refined-github/refined-github
 [OpenFunction](https://github.com/OpenFunction/OpenFunction/)
 
 [GitHub - Justineo/github-hovercard: Neat hovercards for GitHub.](https://github.com/Justineo/github-hovercard)
+
+https://github.com/giscus/giscus

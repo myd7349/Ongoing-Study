@@ -1,4 +1,6 @@
 - [codebrowser](https://github.com/KDAB/codebrowser)
+- [fccf](https://github.com/p-ranav/fccf)
+- [oystr](https://github.com/p-ranav/oystr)
 - [Sourcetrail](https://github.com/CoatiSoftware/Sourcetrail)
 - Source Insight
 - SciTools Understand

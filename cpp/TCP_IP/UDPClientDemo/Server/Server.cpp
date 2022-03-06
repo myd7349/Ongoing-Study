@@ -4,14 +4,14 @@
 
 #include "../../../strutils.hpp"
 #include "../../Error.h"
-#include "../../UDPClient.h"
+#include "../../Socket.h"
 
 
 int main()
 {
     TCP_IP_INIT();
 
-    UDPClient serverSocket;
+    Socket serverSocket(AF_INET, SOCK_DGRAM);
     if (!serverSocket.Bind(12000))
     {
         std::cerr << "Failed to bind to port number 12000.\n";
@@ -30,9 +30,9 @@ int main()
         struct sockaddr_in saClient;
 
 #ifdef USE_MSG_TRUNC
-        readSizeInBytes = serverSocket.ReceiveFrom(message, ARRAYSIZE(message), MSG_TRUNC, saClient, INFINITE);
+        readSizeInBytes = serverSocket.ReceiveFrom(message, ARRAYSIZE(message), MSG_TRUNC, saClient);
 #else
-        readSizeInBytes = serverSocket.ReceiveFrom(message, 0, ARRAYSIZE(message), saClient, INFINITE);
+        readSizeInBytes = serverSocket.ReceiveFrom(message, ARRAYSIZE(message), saClient);
 #endif
         if (readSizeInBytes >= 0)
         {
@@ -44,9 +44,9 @@ int main()
             if (result < 0)
             {
                 std::cerr << "Failed to send message [" << sentence << "]: ";
-                if (result == UDPClient::UDP_TIME_OUT)
+                if (result == Socket::Timeout)
                     std::cerr << ReportError("Time out!");
-                else if (result == UDPClient::UDP_SOCKET_ERROR)
+                else if (result == Socket::Error)
                     std::cerr << ReportError("Socket error!");
                 else
                     std::cerr << ReportError("Unknown error!");
@@ -55,9 +55,9 @@ int main()
         else
         {
             std::cerr << "Failed to receive message: ";
-            if (readSizeInBytes == UDPClient::UDP_TIME_OUT)
+            if (readSizeInBytes == Socket::Timeout)
                 std::cerr << ReportError("Time out!");
-            else if (readSizeInBytes == UDPClient::UDP_SOCKET_ERROR)
+            else if (readSizeInBytes == Socket::Error)
                 std::cerr << ReportError("Socket error!");
             else
                 std::cerr << ReportError("Unknown error!");

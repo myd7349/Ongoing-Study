@@ -126,3 +126,4 @@
 // https://github.com/dbrant/imageformats/blob/master/ImageFormats/Util.cs
 // https://github.com/jk-jeon/fp
 // https://github.com/abolz/Drachennest
+// https://github.com/tge-was-taken/Amicitia.IO/blob/master/src/Amicitia.IO/BitHelper.cs

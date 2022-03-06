@@ -56,3 +56,6 @@ endforeach ()
 # https://clang.llvm.org/docs/AddressSanitizer.html
 # [How I'm supposed to use the sanitizer in clang?](https://stackoverflow.com/questions/22699881/how-im-supposed-to-use-the-sanitizer-in-clang)
 # https://lemire.me/blog/2016/04/20/no-more-leaks-with-sanitize-flags-in-gcc-and-clang/
+# https://github.com/pingcap/tiflash/blob/v6.0.0/cmake/sanitize.cmake
+# https://github.com/StableCoder/cmake-scripts/blob/main/sanitizers.cmake
+# https://github.com/p-ranav/glob/blob/master/cmake/tools.cmake

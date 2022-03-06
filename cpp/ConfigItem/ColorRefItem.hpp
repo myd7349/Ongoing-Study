@@ -12,7 +12,7 @@ struct ColorRef
     {
     }
 
-    COLORREF operator()() const
+    operator COLORREF() const
     {
         return Color;
     }

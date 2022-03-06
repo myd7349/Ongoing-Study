@@ -533,3 +533,5 @@ hint: invocation.
 ```
 
 [Run git commands on remote?](https://stackoverflow.com/questions/24856617/run-git-commands-on-remote)
+
+[ungit](https://github.com/FredrikNoren/ungit)

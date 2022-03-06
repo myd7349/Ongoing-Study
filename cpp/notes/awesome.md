@@ -18,8 +18,11 @@
 - [gztool](https://github.com/circulosmeos/gztool)
 - [POCO/SevenZip](https://github.com/pocoproject/poco/tree/master/SevenZip)
 - [Qt7z](https://github.com/kanryu/quickviewer/tree/master/Qt7z/Qt7z)
+- [sharc](https://github.com/k0dai/sharc)
 
 ### Audio
+
+- [dsp](https://github.com/Signalsmith-Audio/dsp)
 
 - [rnnoise](https://github.com/xiph/rnnoise)
 
@@ -32,6 +35,10 @@
 - [articles/bench.hpp at master · wichtounet/articles · GitHub](https://github.com/wichtounet/articles/blob/master/include/bench.hpp)
 
 - [cpm](https://github.com/wichtounet/cpm)
+
+- [cputime](https://github.com/k0dai/cputime)
+
+- [fsbench-density](https://github.com/k0dai/fsbench-density)
 
 - [OpenHashTab/Benchmark.cpp](https://github.com/namazso/OpenHashTab/blob/master/Benchmark/Benchmark.cpp)
 
@@ -70,10 +77,20 @@
 - [Argos](https://github.com/jebreimo/Argos)
 - [commandline](https://github.com/lionkor/commandline): A C++ commandline for use in servers and chat software. Provides very simple asynchronous input/output.
 - [cpp-terminal](https://github.com/jupyter-xeus/cpp-terminal)
+- [cxxopts](https://github.com/jarro2783/cxxopts)
+  - https://github.com/p-ranav/glob/blob/master/standalone/source/main.cpp 
 - [isocline](https://github.com/daanx/isocline)
 - [rang](https://github.com/agauniyal/rang)
 - [tableprinter](https://github.com/OzanCansel/tableprinter)
 - [widecharwidth](https://github.com/ridiculousfish/widecharwidth)
+
+### Compiler
+
+- [cppinsights](https://github.com/andreasfertig/cppinsights)
+
+### Compression
+
+- [density](https://github.com/k0dai/density)
 
 ### Concurrency
 
@@ -96,6 +113,8 @@
 - [SACsvStream.h](https://github.com/czyt1988/sa/blob/master/src/signALib/SACsvStream.h)
 
 ### Database
+
+- [kvrocks](https://github.com/apache/incubator-kvrocks)
 
 - Redis
   
@@ -169,6 +188,9 @@
 
 ### Hashing
 
+- [SpookyHash](https://burtleburtle.net/bob/hash/spooky.html)
+  - [spookyhash](https://github.com/k0dai/spookyhash)
+  - https://github.com/tgfrerer/island/blob/v0.4.0/3rdparty/src/spooky/SpookyV2.h
 - [TinySHA1](https://github.com/mohaps/TinySHA1)
 - xxHash
 
@@ -198,6 +220,10 @@
 - [cpplocate](https://github.com/cginternals/cpplocate)
 
 - [DirFileLister.h](https://github.com/d0vgan/nppexec/blob/master/NppExec/src/DirFileLister.h)
+
+- [filesystem](https://github.com/gulrak/filesystem)
+
+- [glob](https://github.com/p-ranav/glob)
 
 - [globpp](https://github.com/sergiud/globpp)
 
@@ -304,6 +330,9 @@
 
 ### Logging
 
+- [A C++ Debug Stream for Win32](https://marknelson.us/posts/2001/09/01/win32-debug-stream.html)
+- [binary_log](https://github.com/p-ranav/binary_log)
+- [embed cmd in win32 application and text not selectable](https://stackoverflow.com/questions/50043663/embed-cmd-in-win32-application-and-text-not-selectable)
 - [lwlog](https://github.com/ChristianPanov/lwlog)
 
 ### Math
@@ -386,6 +415,8 @@
 
 - [PF_RING](https://github.com/ntop/PF_RING)
 
+- [pistache](https://github.com/pistacheio/pistache): A high-performance REST toolkit written in C++.
+
 - [qpid-cpp](https://github.com/apache/qpid-cpp)
 
 ### Package Manager
@@ -461,6 +492,8 @@
 - [fixed_string](https://github.com/unterumarmung/fixed_string)
 
 - [mscharconv](https://github.com/iboB/mscharconv)
+
+- [sse4-strstr](https://github.com/WojciechMula/sse4-strstr)
 
 ### Templating
 

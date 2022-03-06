@@ -5,6 +5,7 @@ Applications:
 - [Ascii-Design](https://github.com/Faster3ck/Ascii-Design)
 - [B23Downloader](https://github.com/vooidzero/B23Downloader)
 - [BingWallpaper](https://github.com/ypingcn/BingWallpaper)
+- [caesium-image-compressor](https://github.com/Lymphatus/caesium-image-compressor)
 - [Clementine](https://github.com/clementine-player/Clementine): Clementine Music Player
 - [CodeBrowser](https://github.com/KDAB/codebrowser)
 - [Converseen](https://github.com/Faster3ck/Converseen)
@@ -46,6 +47,7 @@ Applications:
 - [Nauz-File-Detector](https://github.com/horsicq/Nauz-File-Detector)
 - [NeteaseMusic](https://github.com/sonichy/NeteaseMusic)
 - [nodeeditor](https://github.com/paceholder/nodeeditor)
+- [nomacs](https://github.com/nomacs/nomacs)
 - [NotepadNext](https://github.com/dail8859/NotepadNext)
 - [NymphCast](https://github.com/MayaPosch/NymphCast)
 - [OBS Studio](https://github.com/obsproject/obs-studio)

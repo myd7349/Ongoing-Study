@@ -315,3 +315,5 @@ https://github.com/ericsink/SQLitePCL.raw/tree/master/src/providers
 ILSpy + System.Core.dll:
 
 > [assembly: DefaultDllImportSearchPaths(DllImportSearchPath.System32 | DllImportSearchPath.AssemblyDirectory)]
+
+https://github.com/microsoft/msquic/tree/main/src/cs/lib

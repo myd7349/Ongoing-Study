@@ -66,6 +66,8 @@
 
 - tcpdump
 
+- [tcpkit](https://github.com/git-hulk/tcpkit)
+
 - [termshark](https://github.com/gcla/termshark)
 
 - [tiptop](https://github.com/nschloe/tiptop)

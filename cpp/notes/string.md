@@ -86,3 +86,37 @@ and an answer:
 > std::string s = "hello";
 > s[5] == '\0'; // Assertion failure in VS2010.
 > ```
+
+
+[Reading data from a single column .csv file in C++](https://stackoverflow.com/questions/32635244/reading-data-from-a-single-column-csv-file-in-c)
+
+[c++ reading csv file](https://stackoverflow.com/questions/19936483/c-reading-csv-file/19936571#19936571)
+
+https://en.cppreference.com/w/cpp/string/basic_string/stof
+
+> ```cpp
+> std::vector<double> ReadData(const char *fn)
+> {
+>     std::vector<double> data;
+>
+>     std::ifstream file(fn);
+>     if (!file.is_open())
+>         return data;
+>
+>     std::string line;
+>     double value;
+>     while (std::getline(file, line))
+>     {
+>         try
+>         {
+>             value = std::stod(line);
+>         }
+>         catch (...)
+>         {
+>             break;
+>         }
+>     }
+>
+>     return data;
+> }
+> ```

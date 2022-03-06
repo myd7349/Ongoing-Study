@@ -9,6 +9,8 @@
 
 ### Automation
 
+- [FlaUI](https://github.com/GDATASoftwareAG/robotframework-flaui)
+
 - playwright
   
   - [shot-scraper](https://github.com/simonw/shot-scraper)
@@ -18,6 +20,12 @@
 - [altair](https://github.com/altair-viz/altair)
 
 - [chartify](https://github.com/spotify/chartify)
+
+- [datoviz](https://github.com/datoviz/datoviz)
+
+- [PyQtGraph](https://www.pyqtgraph.org/)
+
+- [vispy](https://github.com/vispy/vispy)
 
 ### CLI
 
@@ -83,6 +91,10 @@
 
 - [orm](https://github.com/encode/orm)
 
+### DSP
+
+- [trefide](https://github.com/ikinsella/trefide)
+
 ### File System
 
 - [filelock](https://github.com/tox-dev/py-filelock)
@@ -114,11 +126,13 @@
 * [PyGUI](https://github.com/gcewing/PyGUI)
 
 * PyQt
-  
+
+  - [CQ-editor](https://github.com/CadQuery/CQ-editor)
   - Persepolis Download Manager
   - [Qiew](https://github.com/mtivadar/qiew)
   - [qt-material](https://github.com/UN-GCPDS/qt-material)
   - [PyQtDarkTheme](https://github.com/5yutan5/PyQtDarkTheme)
+  - [ViTables](https://github.com/uvemas/ViTables)
 
 * [PySimpleGUI](https://github.com/PySimpleGUI/PySimpleGUI)
   
@@ -139,6 +153,10 @@
   - [Phoenix](https://github.com/wxWidgets/Phoenix)
   - [youtube-dl-gui](https://github.com/MrS0m30n3/youtube-dl-gui)
 
+### Hot Reload
+
+- [reloadium](https://github.com/reloadware/reloadium)
+
 ### IDE
 
 - [Eric](http://eric-ide.python-projects.org/)
@@ -152,6 +170,8 @@
   - [The Best IDE for Python GUI Programming. Installing Qt Creator and PyQt - YouTube](https://www.youtube.com/watch?v=ts7nebUk71s)
 
 - [Wing](https://wingware.com/)
+
+- [WinPython](https://github.com/winpython/winpython)
 
 - [ulipad](https://github.com/limodou/ulipad)
 
@@ -173,15 +193,27 @@
 
 - [scikit-build](https://github.com/scikit-build/scikit-build): Improved build system generator for CPython C, C++, Cython and Fortran extensions.
 
+##### Python -> MATLAB
+
+- [Python for MATLAB Development](https://github.com/Apress/python-for-matlab-development)
+
 ##### Python -> Ruby
 
 - [pycall.rb](https://github.com/mrkn/pycall.rb)
 
 ##### Python -> Rust
 
+- [inline-python](https://github.com/fusion-engineering/inline-python)
+
 - [PyO3](https://github.com/PyO3/pyo3)
   
   - [maturin](https://github.com/PyO3/maturin)
+
+##### C# -> Python
+
+- Python.Net
+
+  - - [FlaUI](https://github.com/GDATASoftwareAG/robotframework-flaui)
 
 ### Logging
 
@@ -218,6 +250,8 @@
 
 ### Package Management
 
+- [delocate](https://github.com/matthew-brett/delocate)
+
 - [PyCon China 2021 演讲——Python 打包 101](https://frostming.com/2021/10-20/pycon-china-2021/)
 
 - [pdm](https://github.com/pdm-project/pdm)
@@ -229,8 +263,11 @@
 - [pikepdf](https://github.com/pikepdf/pikepdf)
 - [ReportLab](https://www.reportlab.com/)
   - https://github.com/driscollis/reportlabbookcode
+  - [xhtml2pdf](https://github.com/xhtml2pdf/xhtml2pdf)
 
 ### Performance
+
+- [easy_profiler](https://github.com/rossant/easy_profiler)
 
 - [meminfo](https://github.com/slideinc/meminfo)
 
@@ -241,6 +278,10 @@
 ### Refactoring
 
 - [pyupgrade](https://github.com/asottile/pyupgrade)
+
+### Scientific Computing
+
+- [awesome-scientific-python](https://github.com/rossant/awesome-scientific-python)
 
 ### Versioning
 

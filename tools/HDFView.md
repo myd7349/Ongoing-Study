@@ -25,3 +25,6 @@ PS F:\HDFViewApp-3.1.2-win10_64-vs16\HDFView> .\HDFView.exe
 
 [HDFView 3.1.2 issues and regressions](https://forum.hdfgroup.org/t/hdfview-3-1-2-issues-and-regressions/7887)
 
+https://support.hdfgroup.org/ftp/HDF5/releases/HDF-JAVA/hdfview-3.1.2/hdfview_scripts/
+
+https://github.com/ClassViewer/java-gui-launcher

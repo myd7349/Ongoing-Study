@@ -91,7 +91,6 @@ typedef int socket_t;
 
 #define INVALID_SOCKET (-1)
 #define SOCKET_ERROR   (-1)
-#define INFINITE       (0xFFFFFFFF)
 #define ARRAYSIZE(arr) (sizeof(arr) / sizeof(arr[0]))
 
 #define closesocket close

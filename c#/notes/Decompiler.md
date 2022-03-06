@@ -1,5 +1,6 @@
 - dnSpy
 - dotPeek
+- [ExtremeDumper](https://github.com/wwh1004/ExtremeDumper)
 - [Iced](https://github.com/icedland/iced)
 - ildasm
 - ILSpy

@@ -8,3 +8,5 @@ std::for_each(v.begin(), v.end(), [](int &x) { x += 1000; });
 ```
 
 [Problem calling std::max](https://stackoverflow.com/questions/2789481/problem-calling-stdmax/2789509#2789509)
+
+[#define NOMINMAX using std::min/max](https://stackoverflow.com/questions/13416418/define-nominmax-using-stdmin-max)

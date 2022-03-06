@@ -155,6 +155,7 @@ int DeleteFile(LPCTSTR lpcszPath, bool bPermanentDelete)
 }
 
 
+// https://stackoverflow.com/questions/562701/best-way-to-determine-if-two-path-reference-to-same-file-in-windows/562830#562830
 BOOL IsEquivalentPath(LPCTSTR lpcszPath1, LPCTSTR lpcszPath2)
 {
     ASSERT(lpcszPath1 != nullptr);
@@ -249,3 +250,4 @@ BOOL GetTemporaryFilePath(CString strExtension, CString& strFileName)
 }
 */
 // https://github.com/libgit2/libgit2/blob/main/src/util/win32/path_w32.c
+// https://github.com/ClassViewer/java-gui-launcher/blob/master/whereami/whereami.h

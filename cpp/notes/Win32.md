@@ -97,6 +97,8 @@ AttachConsole used in [PyStand/PyStand.cpp at 654066cd6162787cf5d72d3f4274f5aea5
 
 - [c# - Can one executable be both a console and GUI application? - Stack Overflow](https://stackoverflow.com/questions/493536/can-one-executable-be-both-a-console-and-gui-application/494000#494000)
 
+- [A C++ Debug Stream for Win32](https://marknelson.us/posts/2001/09/01/win32-debug-stream.html)
+
 [mctrl](https://github.com/mity/mctrl)
 
 - [OpenHashTab](https://github.com/namazso/OpenHashTab)
@@ -123,3 +125,11 @@ public: class std::_Init_locks & __thiscall std::_Init_locks::operator=(class st
 [STL/xlock.cpp at main · microsoft/STL · GitHub](https://github.com/microsoft/STL/blob/main/stl/src/xlock.cpp)
 
 [MouseButtonClicker](https://github.com/DavidAnson/MouseButtonClicker)
+
+[embed window(glfwCreateWindow) as child to C++ MFC parent form](https://stackoverflow.com/questions/46152212/embed-windowglfwcreatewindow-as-child-to-c-mfc-parent-form)
+
+[MFC: Fix a console on a GUI](https://stackoverflow.com/questions/9567253/mfc-fix-a-console-on-a-gui)
+
+[MFC: Display output of a process asynchronously(concurrently) while process is in execution in a win32 text area (mfc application)](https://stackoverflow.com/questions/9480030/mfc-display-output-of-a-process-asynchronouslyconcurrently-while-process-is-i)
+
+[embed cmd in win32 application and text not selectable](https://stackoverflow.com/questions/50043663/embed-cmd-in-win32-application-and-text-not-selectable)

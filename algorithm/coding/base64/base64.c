@@ -413,3 +413,4 @@ void *easy_base64_decode(const char *base64, void *data, size_t *out_len)
 // https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/StrToBase64.c
 // https://github.com/weidai11/cryptopp/blob/master/base64.cpp
 // https://renenyffenegger.ch/notes/development/Base64/Encoding-and-decoding-base-64-with-cpp/index
+// https://github.com/pistacheio/pistache/blob/master/include/pistache/base64.h

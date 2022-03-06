@@ -52,6 +52,8 @@ Tools:
 
 - [pdfcrack](https://github.com/robins/pdfcrack)
 
+- [splitpdf](https://sourceforge.net/projects/splitpdf/)
+
 - Chrome
   
   [Using Headless Chrome to Convert Offline HTML to PDF in Bulk](https://kingsamchen.github.io/2021/10/09/headless-chrome-for-converting-offline-htmls-to-pdf-in-bulk/)

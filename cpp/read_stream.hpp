@@ -37,3 +37,5 @@ std::vector<std::basic_string<CharT>> read_stream(std::basic_istream<CharT> &is)
 
 // References:
 // [Is there a C++ iterator that can iterate over a file line by line?](http://stackoverflow.com/questions/2291802/is-there-a-c-iterator-that-can-iterate-over-a-file-line-by-line)
+// [Reading data from a single column .csv file in C++](https://stackoverflow.com/questions/32635244/reading-data-from-a-single-column-csv-file-in-c)
+// [c++ reading csv file](https://stackoverflow.com/questions/19936483/c-reading-csv-file/19936571#19936571)

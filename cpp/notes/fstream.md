@@ -59,3 +59,8 @@ while(inStream >> data) {
 
 [What is the most elegant way to read a text file with c++?](https://stackoverflow.com/questions/195323/what-is-the-most-elegant-way-to-read-a-text-file-with-c)
 
+Convert a FILE * to a C++ stream
+
+- [A C++ Debug Stream for Win32](https://marknelson.us/posts/2001/09/01/win32-debug-stream.html)
+
+

@@ -35,6 +35,7 @@
 >* [structopt](https://github.com/p-ranav/structopt/tree/master/utils/amalgamate)
 >* [single.py](https://github.com/soasis/text/blob/main/single/single.py)
 >* [generate_amalgamation.py](https://github.com/wren-lang/wren/blob/main/util/generate_amalgamation.py)
+>* [binary_log/utils/amalgamate](https://github.com/p-ranav/binary_log/tree/master/utils/amalgamate)
 >
 >## Ideas:
 >* [The single-header code should be a build artifact](https://github.com/lemire/simdjson/issues/106)
