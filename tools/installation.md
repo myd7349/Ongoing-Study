@@ -19,6 +19,7 @@
 - https://github.com/flameshot-org/flameshot/blob/master/CMakeLists.txt
 - https://github.com/tom-englert/Wax
 - [WalletWasabi](https://github.com/zkSNACKs/WalletWasabi)
+- https://github.com/nodejs/node/tree/master/tools/msvs/msi
 
 ### NSIS
 

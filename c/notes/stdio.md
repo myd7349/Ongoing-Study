@@ -402,3 +402,166 @@ https://git-scm.com/docs/git-bundle
   > The tempnam() function generates a path name that may be used for a temporary file. If the environment variable TMPDIR is set, then the directory it specifies will be used as the directory part of the generated path name if it is accessible. Otherwise, if the dir argument is non-NULL and accessible, it will be used in the generated path name. Otherwise, the value of {P_tmpdir} defined in the <stdio.h> header is used as the directory component of the name. If that is inaccessible, then /tmp is used.
 - https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tempnam-wtempnam-tmpnam-wtmpnam?view=msvc-170
   > tmpnam returns a name that's unique in the designated Windows temporary directory returned by GetTempPathW. _tempnam generates a unique name in a directory other than the designated one.
+
+33. scanf
+- [How to prevent scanf causing a buffer overflow in C?](https://stackoverflow.com/questions/1621394/how-to-prevent-scanf-causing-a-buffer-overflow-in-c)
+- [How to do string buffter overflow with scanf function?](https://security.stackexchange.com/questions/244249/how-to-do-string-buffter-overflow-with-scanf-function)
+
+34. freopen
+
+[How to restore stdout after using freopen](https://stackoverflow.com/questions/5846691/how-to-restore-stdout-after-using-freopen)
+
+```c
+fclose(stdout);
+stdout = fdopen(1, "w"); //reopen: 1 is file descriptor of std output
+```
+
+[STDIN_FILENO undeclared in Windows](https://stackoverflow.com/questions/13531677/stdin-fileno-undeclared-in-windows)
+
+[How to redirect the output back to the screen after freopen("out.txt", "a", stdout)](https://stackoverflow.com/questions/1908687/how-to-redirect-the-output-back-to-the-screen-after-freopenout-txt-a-stdo)
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+#ifdef _WIN32
+#define fdopen _fdopen
+#define STDIN_FILENO 0
+#define STDOUT_FILENO 1
+#else
+#include <unistd.h>
+#endif
+
+int main(void)
+{
+    int a, b;
+
+    if (freopen("./input.txt", "r", stdin) == NULL)
+    {
+        perror("freopen(stdin) failed");
+        return EXIT_FAILURE;
+    }
+
+    scanf("%d %d", &a, &b);
+	fclose(stdin);
+
+    if (freopen("./output.txt", "w", stdout) == NULL)
+    {
+        perror("freopen(stdout) failed");
+        return EXIT_FAILURE;
+    }
+
+    printf("sum(%d, %d) == %d\n", a, b, a + b);
+	fclose(stdout);
+
+    stdin = fdopen(STDIN_FILENO, "r");
+	stdout = fdopen(STDOUT_FILENO, "w");
+
+	return 0;
+}
+```
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+#ifdef _WIN32
+//#define fdopen _fdopen
+//#define STDIN_FILENO 0
+//#define STDOUT_FILENO 1
+#else
+#include <unistd.h>
+#endif
+
+
+void sum_test(void)
+{
+	int a, b;
+	scanf("%d %d", &a, &b);
+	printf("sum(%d, %d) == %d\n", a, b, a + b);
+}
+
+
+int main(void)
+{
+    if (freopen("./input.txt", "r", stdin) == NULL)
+    {
+        perror("freopen(stdin) failed");
+        return EXIT_FAILURE;
+    }
+
+    if (freopen("./output.txt", "w", stdout) == NULL)
+    {
+        perror("freopen(stdout) failed");
+        return EXIT_FAILURE;
+    }
+
+    sum_test();
+
+    fclose(stdin);
+	fclose(stdout);
+
+#ifdef _WIN32
+    freopen("CONIN$", "r", stdin);
+    freopen("CONOUT$", "w", stdout);
+#else
+	// freopen ("/dev/tty", "a", stdout)
+    stdin = fdopen(STDIN_FILENO, "r");
+	stdout = fdopen(STDOUT_FILENO, "w");
+#endif
+
+    sum_test();
+
+	return 0;
+}
+```
+
+```cpp
+#include <cstdio>
+#include <cstdlib>
+#include <iostream>
+
+
+void sum_test()
+{
+	int a, b;
+	std::scanf("%d %d", &a, &b);
+	std::printf("C: sum(%d, %d) == %d\n", a, b, a + b);
+}
+
+void sum_test_cpp()
+{
+	int a, b;
+	std::cin >> a >> b;
+	std::cout << "C++: sum(" << a << ", " << b << ") == " << a + b << std::endl; 
+}
+
+
+int main(void)
+{
+	std::ios::sync_with_stdio(false);
+
+    if (std::freopen("./input.txt", "r", stdin) == NULL)
+    {
+        std::perror("freopen(stdin) failed");
+        return EXIT_FAILURE;
+    }
+
+    if (std::freopen("./output.txt", "w+", stdout) == NULL)
+    {
+        std::perror("freopen(stdout) failed");
+        return EXIT_FAILURE;
+    }
+
+    sum_test();
+	sum_test_cpp();
+
+    std::fclose(stdin);
+	std::fclose(stdout);
+
+	return 0;
+}
+
+// https://stackoverflow.com/questions/65068411/question-about-using-freopen-and-cin-cout-to-read-large-input-from-file
+// http://c-faq.com/stdio/undofreopen.html
+```

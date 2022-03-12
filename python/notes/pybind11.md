@@ -31,6 +31,7 @@ Projects using `pybind11`
 * [PyFastPFor](https://github.com/searchivarius/PyFastPFor)
 * [qdb-api-python](https://github.com/bureau14/qdb-api-python)
 * [OpenCC](https://github.com/BYVoid/OpenCC/blob/master/src/py_opencc.cpp)
+* [TensorRT](https://github.com/NVIDIA/TensorRT/tree/main/python)
 * [traji](https://github.com/cmpute/traji)
 * [pedalboard](https://github.com/spotify/pedalboard)
 * [NumPyEigen](https://github.com/fwilliams/numpyeigen)

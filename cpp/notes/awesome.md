@@ -1,5 +1,7 @@
 ### Framework
 
+- [EAGine](https://github.com/matus-chochlik/eagine-all)
+
 - [U++](https://github.com/ultimatepp/ultimatepp)
 
 ### Header only Libraries
@@ -27,6 +29,8 @@
 - [rnnoise](https://github.com/xiph/rnnoise)
 
 - [SpeechAlgorithms](https://github.com/Ryuk17/SpeechAlgorithms)
+
+- [speexdsp](https://github.com/xiph/speexdsp)
 
 - [SSRC](https://github.com/shibatch/SSRC)
 
@@ -80,6 +84,8 @@
 - [cxxopts](https://github.com/jarro2783/cxxopts)
   - https://github.com/p-ranav/glob/blob/master/standalone/source/main.cpp 
 - [isocline](https://github.com/daanx/isocline)
+- [paramkit](https://github.com/hasherezade/paramkit)
+  - [mal_unpack](https://github.com/hasherezade/mal_unpack) 
 - [rang](https://github.com/agauniyal/rang)
 - [tableprinter](https://github.com/OzanCansel/tableprinter)
 - [widecharwidth](https://github.com/ridiculousfish/widecharwidth)
@@ -124,6 +130,10 @@
 
 - [verneuil](https://github.com/backtrace-labs/verneuil)
 
+# Date & Time
+
+- [cctz](https://github.com/google/cctz)
+
 ### Debug
 
 - [libbacktrace](https://github.com/ianlancetaylor/libbacktrace)
@@ -148,6 +158,8 @@
 
 - [recastnavigation](https://github.com/recastnavigation/recastnavigation)
 
+- [SmallGameEngine](https://github.com/eXpl0it3r/SmallGameEngine)
+
 ### Graphics
 
 - [FNA3D](https://github.com/FNA-XNA/FNA3D)
@@ -155,6 +167,12 @@
 - [freetype-gl](https://github.com/rougier/freetype-gl)
 
 - [nanovg](https://github.com/inniyah/nanovg)
+
+- [oglplus](https://github.com/matus-chochlik/eagine-oglplus)
+
+- [QNanoPainter](https://github.com/QUItCoding/qnanopainter)
+
+- [SFML/Graphics](https://github.com/SFML/SFML/tree/master/include/SFML/Graphics)
 
 - [ShivaVG](https://github.com/ileben/ShivaVG)
 
@@ -246,6 +264,8 @@
 ##### Memory Mapped File
 
 - [FileMapping.c](https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/IPC/FileMapping.c)
+
+- [mahi-com](https://github.com/mahilab/mahi-com)
 
 ### IPC
 
@@ -341,9 +361,15 @@
   
   - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
 
+- [GLFFT](https://github.com/Themaister/GLFFT)
+
 - [libqalculate](https://github.com/Qalculate/libqalculate)
 
 - [morn_calculate.c](https://github.com/jingweizhanghuai/Morn/blob/master/src/math/morn_calculate.c)
+
+- [muFFT](https://github.com/Themaister/muFFT)
+
+  - [nfc-laboratory](https://github.com/josevcm/nfc-laboratory)
 
 - [muparser](https://github.com/beltoforion/muparser)
   
@@ -368,6 +394,8 @@
 - [win-libm](https://github.com/amd/win-libm)
 
 ### Memory Management
+
+- [abseil-cpp/leak_check.h](https://github.com/abseil/abseil-cpp/blob/master/absl/debugging/leak_check.h)
 
 - [GC](https://github.com/GJDuck/GC)
 
@@ -409,6 +437,8 @@
 
 - [MLS++](https://github.com/cisco/mlspp)
 
+- [mahi-com](https://github.com/mahilab/mahi-com)
+
 - [OpenAPI](https://github.com/openapitools/openapi-generator)
   
   - [FastReport-Cloud-Cpp](https://github.com/FastReports/FastReport-Cloud-Cpp)
@@ -417,7 +447,11 @@
 
 - [pistache](https://github.com/pistacheio/pistache): A high-performance REST toolkit written in C++.
 
+- [PubBus](https://github.com/eXpl0it3r/PubBus)
+
 - [qpid-cpp](https://github.com/apache/qpid-cpp)
+
+- [SFML/Network](https://github.com/SFML/SFML/tree/master/src/SFML/Network)
 
 ### Package Manager
 
@@ -479,6 +513,8 @@
 
 - [MetaStuff](https://github.com/eliasdaler/MetaStuff)
 
+- [Protobuf lightweight](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/515.43.04/src/nvidia/inc/lib/protobuf/prb.h)
+
 - [zpp_bits](https://github.com/eyalz800/zpp_bits)
 
 ### Sort
@@ -505,6 +541,8 @@
 ### Unit Testing
 
 - [boost-ext-ut](https://github.com/boost-ext/ut)
+
+- [FakeIt](https://github.com/eranpeer/FakeIt)
 
 ### UUID
 

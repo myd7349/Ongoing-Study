@@ -10,6 +10,8 @@ https://github.com/horsicq/XDemangle
 
 [folly/Demangle.h at main · facebook/folly · GitHub](https://github.com/facebook/folly/blob/main/folly/Demangle.h)
 
+https://github.com/abseil/abseil-cpp/blob/master/absl/debugging/internal/demangle.cc
+
 [GitHub - nico/demumble: A better c++filt and a better undname.exe, in one binary.](https://github.com/nico/demumble)
 
 [c++filt (GNU Binary Utilities)](https://sourceware.org/binutils/docs/binutils/c_002b_002bfilt.html)
@@ -67,3 +69,40 @@ int main()
 [py-cpp-demangle](https://github.com/benfred/py-cpp-demangle)
 
 [articles/demangle.cpp at master · wichtounet/articles · GitHub](https://github.com/wichtounet/articles/blob/master/src/demangle.cpp)
+
+[Demangling in MSVC](https://stackoverflow.com/questions/13777681/demangling-in-msvc)
+
+> Visual studio already shipped a utility called undname.
+
+```cpp
+#include <windows.h>
+#include "dbghelp.h"
+#include <stdio.h>
+
+#pragma comment(lib, "dbghelp.lib")
+
+extern char *__unDName(char*, const char*, int, void*, void*, int);
+
+int
+main(int argc, char **argv)
+{
+    const char *decorated_name = 0;
+    char undecorated_name[1024];
+
+    if (argc == 2) decorated_name = argv[1];
+    else {
+        printf("usage: %s <decorated_name>\n", argv[0]);
+        return 1;
+        }
+
+    __unDName(undecorated_name, decorated_name+1, 1024, malloc, free, 0x2800);
+
+    printf("Decorated name: %s\n", decorated_name);
+    printf("Undecorated name: %s\n", undecorated_name);
+    return 0;
+}
+```
+
+[Visual C++ name mangling](https://en.wikiversity.org/wiki/Visual_C%2B%2B_name_mangling)
+
+[Decorated Names](https://docs.microsoft.com/en-us/cpp/build/reference/decorated-names?view=msvc-170)

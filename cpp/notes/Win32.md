@@ -1,3 +1,5 @@
+[w64devkit](https://github.com/skeeto/w64devkit)
+
 Toast Notification
 
 - [ToastNotifications](https://github.com/rafallopatka/ToastNotifications)
@@ -7,6 +9,22 @@ Toast Notification
 - [WinToast](https://github.com/mohabouje/WinToast)
 
 Printing
+
+- [Line width scale](https://github.com/gnuplot/gnuplot/blob/86ba381e842981723e210ddfb50923e4f403392a/src/win/wgdiplus.cpp#L539-L549)
+
+  ```cpp
+	/* Need to scale line widths for raster printers so they are the same
+	   as on screen */
+	if (target == DRAW_PRINTER) {
+		HDC hdc = graphics.GetHDC();
+		HDC hdc_screen = GetDC(NULL);
+		lw_scale = (double) GetDeviceCaps(hdc, LOGPIXELSX) /
+		           (double) GetDeviceCaps(hdc_screen, LOGPIXELSY);
+		line_width *= lw_scale;
+		ReleaseDC(NULL, hdc_screen);
+		graphics.ReleaseHDC(hdc);
+	}
+  ```
 
 - [Q193943: HOWTO: Use GetDeviceCaps to Determine Margins on a Page | KnowledgeBase Archive](https://jeffpar.github.io/kbarchive/kb/193/Q193943/)
   

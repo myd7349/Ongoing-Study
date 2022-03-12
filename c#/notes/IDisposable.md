@@ -65,3 +65,5 @@ public class Resource : IDisposable
 [Proper use of the IDisposable interface](https://stackoverflow.com/questions/538060/proper-use-of-the-idisposable-interface)
 
 [close or dispose](https://stackoverflow.com/questions/4153595/close-or-dispose)
+
+https://github.com/reactiveui/splat/blob/main/src/Splat/Disposables/BooleanDisposable.cs

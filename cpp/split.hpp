@@ -168,3 +168,4 @@ inline ResultList split_by_tokens(const CharT *s, const CharT *tokens, bool keep
 // https://github.com/imageworks/pystring/blob/master/pystring.h
 // https://github.com/xqq/libwtfdanmaku/blob/master/src/StringUtils.cpp
 // https://github.com/iboB/furi
+// https://github.com/abseil/abseil-cpp/blob/master/absl/strings/str_split.h

@@ -13,3 +13,5 @@ https://github.com/martin-olivier/Dylib
 [GitHub - rhcad/x3c: A plugin-framework that uses C++ and STL.](https://github.com/rhcad/x3c)
 
 https://github.com/x64dbg/PluginTemplate
+
+[BowPad](https://github.com/stefankueng/BowPad) supports plugins written in JScript or VBScript

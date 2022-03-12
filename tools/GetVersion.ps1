@@ -186,3 +186,5 @@ else
 # https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/PreBuild.cmd
 # https://github.com/zeromq/libzmq/blob/master/src/version.rc.in
 # https://docs.microsoft.com/en-us/windows/win32/menurc/versioninfo-resource
+# https://github.com/andreasfertig/cppinsights/blob/main/version.h.in
+# https://github.com/stefankueng/BowPad/blob/main/version.build.in

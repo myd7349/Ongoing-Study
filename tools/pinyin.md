@@ -9,3 +9,5 @@ https://github.com/cyfdecyf/hanzi2pinyin
 [chinese_translation](https://github.com/tyrchen/chinese_translation)
 
 [ruby-pinyin](https://github.com/janx/ruby-pinyin)
+
+[TinyPinyin.Net](https://github.com/hstarorg/TinyPinyin.Net)

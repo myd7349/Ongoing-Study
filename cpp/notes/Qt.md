@@ -20,6 +20,7 @@ Applications:
 - [Fritzing](https://github.com/fritzing/fritzing-app)
 - [gamestudio](https://github.com/ensisoft/gamestudio)
 - [gmic-qt](https://github.com/c-koi/gmic-qt)
+- [gnuplot](https://github.com/gnuplot/gnuplot)
 - [goldendict](https://github.com/goldendict/goldendict)
 - [Groot](https://github.com/BehaviorTree/Groot)
 - [gyroflow](https://github.com/gyroflow/gyroflow): Video stabilization using gyroscope data.
@@ -46,12 +47,14 @@ Applications:
 - [moonlight-qt](https://github.com/moonlight-stream/moonlight-qt)
 - [Nauz-File-Detector](https://github.com/horsicq/Nauz-File-Detector)
 - [NeteaseMusic](https://github.com/sonichy/NeteaseMusic)
+- [nfc-laboratory](https://github.com/josevcm/nfc-laboratory)
 - [nodeeditor](https://github.com/paceholder/nodeeditor)
 - [nomacs](https://github.com/nomacs/nomacs)
 - [NotepadNext](https://github.com/dail8859/NotepadNext)
 - [NymphCast](https://github.com/MayaPosch/NymphCast)
 - [OBS Studio](https://github.com/obsproject/obs-studio)
   - [obs-studio/obs-win-crash-handler.c at master · obsproject/obs-studio · GitHub](https://github.com/obsproject/obs-studio/blob/master/libobs/obs-win-crash-handler.c)
+- [Olive Video Editor](https://github.com/olive-editor/olive)
 - [opencc-gui](https://github.com/BYVoid/opencc-gui)
 - [OpenMW](https://github.com/OpenMW/openmw)
 - [OpenSCAD](https://github.com/openscad/openscad/)
@@ -148,6 +151,7 @@ Libraries:
 - [QCustomPlot](https://www.qcustomplot.com/)
   
   - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
+  - [nfc-laboratory](https://github.com/josevcm/nfc-laboratory)
 
 - [QDeviceWatcher](https://github.com/wang-bin/qdevicewatcher)
 
@@ -156,6 +160,8 @@ Libraries:
   - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
 
 - [QHexView](https://github.com/horsicq/QHexView)
+
+- [QNanoPainter](https://github.com/QUItCoding/qnanopainter)
 
 - [qtcompress](https://github.com/nezticle/qtcompress)
 
@@ -175,6 +181,10 @@ Libraries:
   - [SASM](https://github.com/Dman95/SASM)
 
 - [QuasarApp Heart](https://github.com/QuasarApp/Heart)
+
+- Qwt
+
+  - [sa](https://github.com/czyt1988/sa)
 
 - [SARibbon](https://github.com/czyt1988/SARibbon)
 
@@ -216,5 +226,7 @@ Tools:
   - [tiled](https://github.com/mapeditor/tiled)
 
 Deployment:
+
+- [qt-android-cmake](https://github.com/LaurentGomila/qt-android-cmake)
 
 - [windeployqt](https://doc.qt.io/qt-5/windows-deployment.html)

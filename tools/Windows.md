@@ -59,3 +59,5 @@
 19. [ShellAnything](https://github.com/end2endzone/ShellAnything)
 
 20. [OpenHashTab](https://github.com/namazso/OpenHashTab)
+
+21. [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)

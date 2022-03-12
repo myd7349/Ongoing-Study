@@ -36,7 +36,7 @@ CString GetModuleFileName(HMODULE hModule)
     return strDir;
 }
 
-
+// https://github.com/abseil/abseil-cpp/blob/master/absl/flags/internal/path_util.h
 CString GetModulePath(HMODULE hModule)
 {
     CString strDir = GetModuleFileName(hModule);

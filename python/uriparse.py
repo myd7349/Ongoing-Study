@@ -114,3 +114,4 @@ if __name__ == '__main__':
 # References:
 # https://www.codeproject.com/Articles/7828/CHttpClient-A-Helper-Class-Using-WinInet
 # https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/StrToURL.c
+# https://github.com/bonsmile/lxd/blob/main/encoding.cpp

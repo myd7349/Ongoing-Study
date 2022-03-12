@@ -34,7 +34,7 @@ Code Editors:
 
 - [LightTable](https://github.com/LightTable/LightTable)
 
-- Nano Editor
+- Nano Editor - [Windows](https://github.com/lhmouse/nano-win)
 
 - [ne, the nice editor](https://ne.di.unimi.it/)
 
@@ -91,6 +91,8 @@ Markdown Editors:
 Online Editors:
 
 - [awesome-web-editor](https://github.com/xjh22222228/awesome-web-editor)
+
+- [Codiad](http://codiad.com/)
 
 Others:
 

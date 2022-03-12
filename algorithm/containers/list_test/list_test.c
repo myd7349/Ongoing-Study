@@ -44,3 +44,7 @@ int main()
 
     return 0;
 }
+
+
+// References:
+// [Integer to Void * ? What is the best way](https://stackoverflow.com/questions/65109832/integer-to-void-what-is-the-best-way)

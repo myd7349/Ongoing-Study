@@ -262,3 +262,7 @@ std::string ws2s(const std::wstring &str)
 // https://github.com/imageworks/pystring/blob/master/pystring.h
 // https://github.com/Blinue/Magpie/blob/main/Runtime/StrUtils.h
 // https://github.com/open-license-manager/licensecc/blob/develop/src/library/base/string_utils.h
+// https://github.com/abseil/abseil-cpp/blob/master/absl/strings/strip.h
+// https://github.com/abseil/abseil-cpp/blob/master/absl/strings/str_cat.h
+// https://github.com/abseil/abseil-cpp/blob/master/absl/strings/substitute.h
+// https://github.com/abseil/abseil-cpp/blob/master/absl/strings/str_replace.h

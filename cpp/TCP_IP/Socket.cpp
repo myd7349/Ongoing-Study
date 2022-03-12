@@ -312,3 +312,7 @@ int Socket::ReceiveFrom(char *buffer, std::size_t sizeInBytes, int flags, struct
 // https://renenyffenegger.ch/notes/development/languages/C-C-plus-plus/Socket_cpp/index
 // https://renenyffenegger.ch/notes/web/webserver/cpp/simple/index
 // https://www.codeproject.com/Articles/7108/A-light-weighted-client-server-socket-class-in-C
+// https://github.com/mahilab/mahi-com/blob/master/include/Mahi/Com/Socket.hpp
+// https://github.com/SFML/SFML/blob/master/include/SFML/Network/Socket.hpp
+// https://gafferongames.com/post/sending_and_receiving_packets/
+// https://github.com/ThisIsRobokitty/netgame

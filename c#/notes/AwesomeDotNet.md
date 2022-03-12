@@ -25,6 +25,8 @@
   
   - [Fork](https://fork.dev/)
 
+  - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics) 
+
 - [ICSharpCode.SharpZipLib](https://github.com/icsharpcode/SharpZipLib)
   
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
@@ -126,6 +128,18 @@
 
 - [Moonglade](https://github.com/EdiWang/Moonglade)
 
+### Bot
+
+- [Mirai-CSharp](https://github.com/Executor-Cheng/Mirai-CSharp)
+
+### Charting
+
+- [XPlot](https://github.com/fslaborg/XPlot/)
+
+  - [An Introduction to DataFrame](https://devblogs.microsoft.com/dotnet/an-introduction-to-dataframe/)
+
+  - [XPlot - F# Data Visualization Package](https://fslab.org/XPlot/)
+
 ### CLI
 
 - [CliFx](https://github.com/Tyrrrz/CliFx)
@@ -178,6 +192,11 @@
 
 - [magic-chunks-dotnetcore](https://github.com/magic-chunks/magic-chunks-dotnetcore)
 
+### Container
+
+- [ConcurrentHashSet](https://github.com/i3arnon/ConcurrentHashSet)
+- [DequeNET](https://github.com/dcastro/DequeNET)
+
 ### Crypto
 
 - [Bouncy Castle](https://github.com/bcgit/bc-csharp)
@@ -225,6 +244,8 @@
 - [LiteDB](http://www.litedb.org/) - [GitHub](https://github.com/mbdavid/LiteDB)
 
 ##### Others
+
+- [DataObjects.NET](https://github.com/DataObjects-NET/dataobjects-net)
 
 - [EntityFramework-Reverse-POCO-Code-First-Generator](https://github.com/sjh37/EntityFramework-Reverse-POCO-Code-First-Generator)
 
@@ -274,6 +295,12 @@
 
 - [lamar](https://github.com/jasperfx/lamar)
 
+- [PocketContainer](https://github.com/jonsequitur/PocketContainer)
+
+- [Splat](https://github.com/reactiveui/splat)
+
+  - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
+
 - [StructureMap](https://github.com/structuremap/structuremap)
   
   - [Fork](https://fork.dev/)
@@ -312,6 +339,8 @@
 
 - [splat](https://github.com/reactiveui/splat)
 
+  - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
+
 - [SVG](https://github.com/svg-net/SVG)
 
 - [terrafx](https://github.com/terrafx/terrafx)
@@ -323,6 +352,16 @@
   - [Pinta](https://github.com/PintaProject/Pinta)
 
 - [xwt](https://github.com/mono/xwt)
+
+### Hardware
+
+- [HidSharp](https://github.com/IntergatedCircuits/HidSharp)
+
+  - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
+
+- [LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor)
+
+  - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
 
 ### Hashing
 
@@ -398,6 +437,8 @@
 - [FileExtensionValidation](https://github.com/rainmakerho/FileExtensionValidation)
 
 - [FlatFiles](https://github.com/jehugaleahsa/FlatFiles)
+
+- [LessIO](https://github.com/activescott/LessIO)
 
 - [Microsoft.Extensions.FileSystemGlobbing](https://docs.microsoft.com/en-us/dotnet/core/extensions/file-globbing)
 
@@ -483,6 +524,8 @@
     
     - [Numpy.NET](https://github.com/SciSharp/Numpy.NET)
 
+  - [LessMsi.py](https://github.com/activescott/lessmsi/blob/master/contrib/python/LessMsi.py)
+
 ### Licensing
 
 - [CredentialManagement](https://www.nuget.org/packages/CredentialManagement)
@@ -496,6 +539,8 @@
 - [Castel.Core](https://github.com/castleproject/Core)
   
   - DeepL Translate App for Windows
+
+- [Coloma](https://github.com/mgradwohl/Coloma)
 
 - [common-logging](https://github.com/net-commons/common-logging)
   
@@ -537,7 +582,11 @@
   
   - [logging-dotnet](https://github.com/felfel/logging-dotnet)
 
+  - [Minecraft-Mod-Language-Package](https://github.com/CFPAOrg/Minecraft-Mod-Language-Package)
+
 - [Splat](https://github.com/reactiveui/splat)
+
+  - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
 
 - [ZLogger](https://github.com/Cysharp/ZLogger)
 
@@ -704,6 +753,10 @@
 
 - [Fare](https://github.com/moodmosaic/Fare)
 
+### REPL
+
+- [dotnet-repl](https://github.com/jonsequitur/dotnet-repl)
+
 ### RPC
 
 - GRpc
@@ -711,6 +764,12 @@
 - [vs-streamjsonrpc](https://github.com/microsoft/vs-streamjsonrpc)
 
 ### Scientific Computing
+
+- [interactive](https://github.com/dotnet/interactive)
+
+  - [JupyterLab](https://mybinder.org/v2/gh/dotnet/interactive/main?urlpath=lab)
+
+  - [An Introduction to DataFrame](https://devblogs.microsoft.com/dotnet/an-introduction-to-dataframe/)
 
 - [SciSharp](https://github.com/SciSharp)
 
@@ -737,6 +796,8 @@
   - [protobuf.Text](https://github.com/SciSharp/protobuf.Text)
 
   - DeepL Translate App for Windows
+
+- [Hyperion](https://github.com/akkadotnet/Hyperion)
 
 - [ysoserial.net](https://github.com/pwntester/ysoserial.net)
 
@@ -766,7 +827,11 @@
 
 ### String
 
+- [Humanizer](https://github.com/Humanizr/Humanizer)
+
 - [Microsoft.Extensions.Primitives](https://docs.microsoft.com/en-us/dotnet/core/extensions/primitives#string-tokenizers-segments-and-values)
+
+- [SmartFormat](https://github.com/axuno/SmartFormat)
 
 - [StringLiteralGenerator](https://github.com/ufcpp/StringLiteralGenerator)
 
@@ -781,6 +846,8 @@
 ### Text
 
 - [diffplex](https://github.com/mmanela/diffplex)
+- [Lucene.NET](https://github.com/apache/lucenenet)
+  - [PoShLucene](https://github.com/dfinke/PoShLucene) 
 - [tokenizer](https://github.com/flipbit/tokenizer)
 - [toxy](https://github.com/nissl-lab/toxy)
 
@@ -829,7 +896,19 @@
 
 - [allure-csharp](https://github.com/allure-framework/allure-csharp)
 
+### Web Scraping
+
+- [NSoup](https://github.com/GeReV/NSoup)
+
+- [Spider](https://github.com/CFPAOrg/Minecraft-Mod-Language-Package/tree/main/src/Spider)
+
+### XML
+
+- [YAXLib](https://github.com/YAXLib/YAXLib)
+
 ### Miscellaneous
+
+- [Azos](https://github.com/azist/azos)
 
 - [Enums.NET](https://github.com/TylerBrinkley/Enums.NET)
   

@@ -15,6 +15,10 @@
   
   - [shot-scraper](https://github.com/simonw/shot-scraper)
 
+### Bioinformatics
+
+- [biopandas](https://github.com/rasbt/biopandas)
+
 ### Charting
 
 - [altair](https://github.com/altair-viz/altair)
@@ -237,6 +241,10 @@
 - [scapy](https://github.com/secdev/scapy)
 
 - [whatismyip](https://github.com/asweigart/whatismyip)
+
+### NLP
+
+- [polyglot](https://github.com/aboSamoor/polyglot)
 
 ### Office
 

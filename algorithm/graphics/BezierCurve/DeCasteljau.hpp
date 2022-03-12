@@ -367,3 +367,4 @@ small tolerance. If not, the curve is subdivided parametrically into two segment
 // [6] https://stackoverflow.com/questions/40764011/how-to-draw-a-smooth-curved-line-that-goes-through-several-points-in-qt
 // [7] https://github.com/andresbejarano/BezierCurves2D
 // https://github.com/andrewwillmott/splines-lib
+// https://github.com/czyt1988/FastCAE-AppDesigner

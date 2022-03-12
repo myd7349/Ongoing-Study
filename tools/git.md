@@ -25,6 +25,12 @@ CI/CD:
 
 - [Bamboo](https://confluence.atlassian.com/bamboo)
 
+Commit Messages
+
+- [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines)
+
+  - [lessmsi](https://github.com/activescott/lessmsi)
+
 Tools:
 
 - [commitlint](https://github.com/conventional-changelog/commitlint)

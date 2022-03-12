@@ -51,3 +51,5 @@ if "%1" == "csharp" (
 :: https://github.com/zeromq/libzmq/blob/master/src/version.rc.in
 :: https://docs.microsoft.com/en-us/windows/win32/menurc/versioninfo-resource
 :: afxres.h/winres.h/winresrc.h/winver.h
+:: https://github.com/andreasfertig/cppinsights/blob/main/version.h.in
+:: https://github.com/stefankueng/BowPad/blob/main/version.build.in

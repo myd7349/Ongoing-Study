@@ -2,6 +2,8 @@
 
 - [Audacity](https://github.com/audacity/audacity)
 
+- [eqMac](https://github.com/bitgapp/eqMac)
+
 - [Mp3Wrap](https://sourceforge.net/projects/mp3wrap/)
   
   - [How to join/merge many mp3 files?](https://superuser.com/questions/314239/how-to-join-merge-many-mp3-files)
@@ -23,3 +25,9 @@
 - [Tenacity](https://github.com/tenacityteam/tenacity)
 
 - [zrythm](https://github.com/zrythm/zrythm)
+
+### Text to Speech
+
+### Speech to Text
+
+- [DeepSpeech](https://github.com/mozilla/DeepSpeech)

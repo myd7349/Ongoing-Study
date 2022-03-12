@@ -6,6 +6,7 @@
 - [gyroflow](https://github.com/gyroflow/gyroflow): Video stabilization using gyroscope data
 - [kdenlive](https://github.com/KDE/kdenlive)
 - [IINA](https://iina.io/)
+- [Olive Video Editor](https://github.com/olive-editor/olive)
 - [real-url](https://github.com/wbt5/real-url)
 - [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)
 - [Seven Converter](https://github.com/SevenbytesSoftware/SevenConverter)
@@ -37,3 +38,7 @@ Media Manager
 - [Dim](https://github.com/Dusk-Labs/dim)
 
 - [XBMC](https://github.com/xbmc/xbmc)
+
+Toolchain
+
+- [FFmpeg-Builds](https://github.com/BtbN/FFmpeg-Builds)

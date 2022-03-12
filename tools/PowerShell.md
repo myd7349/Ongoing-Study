@@ -101,3 +101,27 @@ Get-WmiObject -class win32_processor -Property ProcessorId
 [PowerShell redirect input from file](https://cloud.tencent.com/developer/ask/sof/63560)
 
 > Get-Content input.txt | ./program > output.txt
+
+https://github.com/nodejs/node/blob/master/deps/corepack/shims/npm.ps1
+
+[oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh)
+
+Modules
+
+- [ImportExcel](https://github.com/dfinke/ImportExcel)
+
+- [NameIT](https://github.com/dfinke/NameIT)
+
+- [PowerShellHumanizer](https://github.com/dfinke/PowerShellHumanizer)
+
+- [PSFuzzySearch](https://github.com/dfinke/PSFuzzySearch)
+
+Others
+
+- [PoShLucene](https://github.com/dfinke/PoShLucene)
+
+- [powershell-algorithms](https://github.com/dfinke/powershell-algorithms)
+
+- [PowerShellNotebook](https://github.com/dfinke/PowerShellNotebook)
+
+- [Tiny-PowerShell-Projects](https://github.com/dfinke/Tiny-PowerShell-Projects)

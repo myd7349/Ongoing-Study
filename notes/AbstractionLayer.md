@@ -18,6 +18,8 @@ Cloud
 
 Communication
 
+- [Avilla](https://github.com/GraiaProject/Avilla)
+
 - [mahi-com](https://github.com/mahilab/mahi-com)
 
 File System

@@ -1,5 +1,7 @@
 Tutorials
 
+- [CMake 是怎么工作的？](https://tisonkun.org/2022/04/15/how-cmake-works/) - [GitHub](https://github.com/tisonkun/tisonkun.github.io/blob/main/source/_posts/how-cmake-works.md)
+
 - [GitHub - Akagi201/learning-cmake: learning cmake](https://github.com/Akagi201/learning-cmake)
 
 - [GitHub - ttroy50/cmake-examples: Useful CMake Examples](https://github.com/ttroy50/cmake-examples)

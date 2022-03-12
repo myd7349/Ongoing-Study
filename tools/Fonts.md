@@ -44,6 +44,8 @@ Fonts:
   
   - [tide](https://github.com/IlanCosman/tide)
 
+- [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
+
 Softwares:
 
 - [Character-Map-UWP](https://github.com/character-map-uwp/Character-Map-UWP)

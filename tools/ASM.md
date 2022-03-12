@@ -5,5 +5,6 @@
 - [fasmg](https://github.com/tgrysztar/fasmg)
 - [flat assembler](https://flatassembler.net/)
 - [Intel2GAS](https://github.com/skywind3000/Intel2GAS)
+- [jasm](https://github.com/86hh/jasm)
 - [ppasm](https://github.com/notfoundry/ppasm): x86_64 macro assembler entirely in C preprocessor
 - [SASM](https://github.com/Dman95/SASM): Simple crossplatform IDE for NASM, MASM, GAS and FASM assembly languages.

@@ -21,3 +21,4 @@
 >     return iter(functools.partial(fd.read, blocksize), guard)
 > ```
 
+[ReplaceStringsInFile](https://github.com/abseil/abseil-cpp/blob/20211102.0/create_lts.py)

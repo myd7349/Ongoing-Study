@@ -1,5 +1,6 @@
 - [caesium-image-compressor](https://github.com/Lymphatus/caesium-image-compressor)
 - [ConvertTo-Jpeg](https://github.com/DavidAnson/ConvertTo-Jpeg)
+- [darktable](https://github.com/darktable-org/darktable)
 - [digiKam](https://www.digikam.org/)
   - [gmic-qt](https://github.com/c-koi/gmic-qt) 
 - [ExifPro](https://github.com/mikekov/ExifPro)
@@ -43,3 +44,6 @@ QR Code
 
 - [QArt Coder](https://www.qartcoder.com/qr/draw)
 
+Image optimizer
+
+- [Squoosh](https://squoosh.app/) - [GitHub](https://github.com/GoogleChromeLabs/squoosh)

@@ -47,3 +47,10 @@ sync_with_stdio
   >     }
   > }
   > ```
+
+rdbuf
+
+- https://github.com/SFML/SFML/blob/2.6.x/include/SFML/System/Err.hpp
+- https://en.cppreference.com/w/cpp/io/basic_ios/rdbuf
+- [What does ifstream::rdbuf() actually do?](https://stackoverflow.com/questions/2141749/what-does-ifstreamrdbuf-actually-do)
+- https://github.com/myd7349/Ongoing-Study/tree/master/cpp/copy_a_file_in_a_sane_way

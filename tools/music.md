@@ -12,6 +12,8 @@ Tools:
 
 - [beats-audio-api](https://github.com/JMPerez/beats-audio-api)
 
+- [Clementine](https://github.com/clementine-player/Clementine)
+
 - [LyricsX](https://github.com/ddddxxx/LyricsX)
 
 - [MusicPlayerDaemon](https://github.com/MusicPlayerDaemon/MPD)

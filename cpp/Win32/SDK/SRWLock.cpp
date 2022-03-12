@@ -121,3 +121,4 @@ void *SRWLock::GetHandle()
 // https://github.com/cnr-isti-vclab/vcglib/blob/master/wrap/system/multithreading/rw_lock.h
 // TortoiseGit\src\Utils\ReaderWriterLock.h
 // https://github.com/pocoproject/poco/blob/master/Foundation/src/RWLock_WIN32.cpp
+// libunistring-1.0\lib\windows-rwlock.h

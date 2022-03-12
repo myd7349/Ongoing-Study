@@ -2,6 +2,10 @@
 
 - [mlibc](https://github.com/managarm/mlibc)
 
+### Archive
+
+- [enchive](https://github.com/skeeto/enchive)
+
 ### CLI
 
 - [isocline](https://github.com/daanx/isocline)
@@ -38,6 +42,10 @@
 
 - [STC](https://github.com/tylov/STC)
 
+### Functional Programming
+
+- [lambdapp](https://github.com/graphitemaster/lambdapp)
+
 ### GUI
 
 - [awtk](https://github.com/zlgopen/awtk)
@@ -49,6 +57,14 @@
 ### Hooking
 
 - [HookLib](https://github.com/HoShiMin/HookLib)
+
+### i18n & l10n
+
+- gettext
+
+  - [darktable](https://github.com/darktable-org/darktable) 
+
+  - [git](https://github.com/git-l10n/git-po-helper)
 
 ### Imaging
 
@@ -79,6 +95,10 @@
 - [tiny-json](https://github.com/rafagafe/tiny-json)
   
   - [OpenHashTab](https://github.com/namazso/OpenHashTab)
+
+### Memory Management
+
+- [moreram](https://github.com/graphitemaster/moreram)
 
 ### Networking
 
@@ -111,6 +131,10 @@
 - [mctrl](https://github.com/mity/mctrl)
   
   - [OpenHashTab](https://github.com/namazso/OpenHashTab)
+
+### Unicode
+
+- [branchless-utf8](https://github.com/skeeto/branchless-utf8)
 
 ### Unit Testing
 

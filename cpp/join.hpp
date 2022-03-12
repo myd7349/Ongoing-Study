@@ -50,3 +50,4 @@ std::basic_string<CharT> join(BidIt first, BidIt last, CharT c)
 // References:
 // https://github.com/imageworks/pystring/blob/master/pystring.h
 // https://github.com/google/cpp-from-the-sky-down/blob/151c334647b52a4462d64cf7176893ddd29bb52f/string/string.cpp#L122-L126
+// https://github.com/abseil/abseil-cpp/blob/master/absl/strings/str_join.h

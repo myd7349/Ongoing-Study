@@ -17,3 +17,9 @@ Tools:
 - [EMFexplorer](http://frazmitic.free.fr/emfexplorer/)
   
   - [when rendering metafile, the texts are too large](https://stackoverflow.com/questions/8794368/when-rendering-metafile-the-texts-are-too-large)
+
+http://www.gnuplot.info/
+
+> direct output to file: 		postscript (including eps), pdf, png, gif, jpeg, LaTeX, metafont, emf, svg, ...
+
+https://github.com/gnuplot/gnuplot/blob/master/src/win/wgdiplus.cpp

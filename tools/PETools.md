@@ -42,6 +42,8 @@
 
 - [pe-sieve](https://github.com/hasherezade/pe-sieve)
 
+- [pe_to_shellcode](https://github.com/hasherezade/pe_to_shellcode)
+
 - [XPEViewer](https://github.com/horsicq/XPEViewer)
 
 ### PDB Tools

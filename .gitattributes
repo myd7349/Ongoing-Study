@@ -61,3 +61,8 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+# [resource.h and *.rc files are treated as binary files](https://github.com/desktop/desktop/issues/9693)
+Resource.h text
+resource.h text
+*.rc text

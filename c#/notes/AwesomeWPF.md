@@ -28,6 +28,8 @@ Applications:
 
 - [Files](https://github.com/files-community/Files)
 
+- [FontLink-GUI](https://github.com/VaslD/FontLink-GUI)
+
 - [LightBulb](https://github.com/Tyrrrz/LightBulb): Reduces eye strain by adjusting gamma based on the current time
 
 - [live-draw](https://github.com/antfu/live-draw)
@@ -53,6 +55,8 @@ Applications:
 - [RoundedTB](https://github.com/torchgm/RoundedTB)
 
 - [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows)
+
+- [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
 
 - [simple-music-player](https://github.com/punker76/simple-music-player)
 
@@ -136,6 +140,8 @@ Libraries:
   - [gong-wpf-dragdrop-file-sample](https://github.com/punker76/gong-wpf-dragdrop-file-sample)
   
   - [Quicker](https://github.com/cuiliang/Quicker)
+
+  - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
 
 - [Gress](https://github.com/Tyrrrz/Gress): Progress reporting toolbox
 
@@ -252,7 +258,9 @@ Libraries:
 
 - [WpfModernWinver](https://github.com/torchgm/WpfModernWinver)
 
-- [wpf-notifyicon](https://github.com/hardcodet/wpf-notifyicon)
+- [wpf-notifyicon](https://github.com/hardcodet/wpf-notifyicon) - [website](http://www.hardcodet.net/wpf-notifyicon)
+
+  - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
 
 - [wpf-propertygrid](https://github.com/jaime-olivares/wpf-propertygrid)
 
@@ -261,6 +269,8 @@ Libraries:
 - [wpftoolkit](https://github.com/xceedsoftware/wpftoolkit)
   
   - [What is the best way to make a wizard using native WPF controls](https://stackoverflow.com/questions/17418455/what-is-the-best-way-to-make-a-wizard-using-native-wpf-controls)
+
+  - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics) 
 
 - [WPF UI](https://github.com/lepoco/wpfui)
 
@@ -272,6 +282,7 @@ Charting:
   - [InteractiveDataDisplay.WPF](https://github.com/Microsoft/InteractiveDataDisplay.WPF)
   - [PingMonitor](https://github.com/kfstorm/PingMonitor)
 - [OxyPlot](https://github.com/oxyplot/oxyplot)
+  - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
 - [ScottPlot](https://github.com/ScottPlot/ScottPlot)
 
 Tools:
