@@ -8,25 +8,43 @@
 
 - [itlib](https://github.com/iboB/itlib)
 
+### Libraries
+
+- [ZenLib](https://github.com/MediaArea/ZenLib)
+
+  - [MPC_HC](https://github.com/mpc-hc/mpc-hc)
+
 ### AI
 
 - [DLL](https://github.com/wichtounet/dll)
+
+- [MiniDNN](https://github.com/yixuan/MiniDNN)
 
 - [MLPP](https://github.com/novak-99/MLPP)
 
 ### Archive
 
 - [7-Zip-zstd](https://github.com/mcmilk/7-Zip-zstd)
+- [cpp-zipper](https://github.com/yhirose/cpp-zipper)
 - [gztool](https://github.com/circulosmeos/gztool)
 - [POCO/SevenZip](https://github.com/pocoproject/poco/tree/master/SevenZip)
 - [Qt7z](https://github.com/kanryu/quickviewer/tree/master/Qt7z/Qt7z)
 - [sharc](https://github.com/k0dai/sharc)
+- [ZipArchive](https://github.com/ZipArchive/ZipArchive)
 
 ### Audio
+
+- [Chowdhury-DSP](https://github.com/Chowdhury-DSP)
+
+- [cycfi/q](https://github.com/cycfi/q)
 
 - [dsp](https://github.com/Signalsmith-Audio/dsp)
 
 - [rnnoise](https://github.com/xiph/rnnoise)
+
+- [sanear](https://github.com/alexmarsev/sanear)
+
+  - [MPC_HC](https://github.com/mpc-hc/mpc-hc)
 
 - [SpeechAlgorithms](https://github.com/Ryuk17/SpeechAlgorithms)
 
@@ -120,17 +138,23 @@
 
 ### Database
 
+- [cpp-sqlitelib](https://github.com/yhirose/cpp-sqlitelib)
+
 - [kvrocks](https://github.com/apache/incubator-kvrocks)
 
+- [ozo](https://github.com/yandex/ozo)
+
 - Redis
-  
+
+  - [redis-plus-plus](https://github.com/sewenew/redis-plus-plus)
+
   - [twemproxy](https://github.com/twitter/twemproxy)
 
 - [serverless-sqlite](https://github.com/leizongmin/serverless-sqlite)
 
 - [verneuil](https://github.com/backtrace-labs/verneuil)
 
-# Date & Time
+### Date & Time
 
 - [cctz](https://github.com/google/cctz)
 
@@ -142,7 +166,24 @@
 
 - [DSPFilters](https://github.com/vinniefalco/DSPFilters)
 
+  - [brainflow](https://github.com/brainflow-dev/brainflow/blob/master/src/data_handler/data_handler.cpp)
+
+- [EDFbrowser/filt](https://gitlab.com/Teuniz/EDFbrowser/-/tree/master/filt)
+
+- [Fidlib](https://uazu.net/fidlib/) - [source](https://github.com/uazu/fidlib) - [clone](https://github.com/JamesHight/fidlib)
+
+  - [EDFbrowser](https://gitlab.com/Teuniz/EDFbrowser)
+
+- [mkfilter](https://github.com/university-of-york/cs-www-users-fisher/tree/master/mkfilter)
+
+  - [Fidlib](https://uazu.net/fidlib/)
+    > The base set of filters comes from Dr Tony Fisher's [mkfilter](https://www-users.cs.york.ac.uk/~fisher/), plus various other additional filters from other sources, including some audio filters.
+
 - [q](https://github.com/cycfi/q)
+
+- [wavelib](https://github.com/rafat/wavelib)
+
+  - [brainflow](https://github.com/brainflow-dev/brainflow/blob/master/src/data_handler/data_handler.cpp)
 
 ### Game Programming
 
@@ -152,6 +193,8 @@
 
 - [flecs](https://github.com/SanderMertens/flecs): A fast entity component system (ECS) for C & C++.
 
+  - [ecs-faq](https://github.com/SanderMertens/ecs-faq)
+
 - [FlexEngine](https://github.com/ajweeks/FlexEngine)
 
 - [GDevelop](https://github.com/4ian/GDevelop)
@@ -160,11 +203,15 @@
 
 - [SmallGameEngine](https://github.com/eXpl0it3r/SmallGameEngine)
 
+- [yourgamelib](https://github.com/duddel/yourgamelib)
+
 ### Graphics
 
 - [FNA3D](https://github.com/FNA-XNA/FNA3D)
 
 - [freetype-gl](https://github.com/rougier/freetype-gl)
+
+- [MGL](https://github.com/openglonmetal/MGL)
 
 - [nanovg](https://github.com/inniyah/nanovg)
 
@@ -175,6 +222,8 @@
 - [SFML/Graphics](https://github.com/SFML/SFML/tree/master/include/SFML/Graphics)
 
 - [ShivaVG](https://github.com/ileben/ShivaVG)
+
+- [spline](https://github.com/ttk592/spline)
 
 - [vgc](https://github.com/vgc/vgc)
 
@@ -245,6 +294,10 @@
 
 - [globpp](https://github.com/sergiud/globpp)
 
+- knownfolders.h
+
+  - [wcap](https://github.com/mmozeiko/wcap/blob/bbdb2144fcc2a70593aa5f2a1b870be0df05e4be/wcap_config.c#L6)
+
 - [lib_storage](https://github.com/desktop-app/lib_storage)
 
 - [PlatformFolders](https://github.com/sago007/PlatformFolders)
@@ -263,6 +316,12 @@
 
 ##### Memory Mapped File
 
+- [cpp-mmaplib](https://github.com/yhirose/cpp-mmaplib)
+
+- [Exiv2](https://github.com/Exiv2/exiv2/blob/7a652acedb77505c5708aec58d6c3c61101eee4a/src/basicio.cpp#L335)
+
+  - [UWP builds not possible due to use of forbidden APIs](https://github.com/Exiv2/exiv2/issues/1063)
+
 - [FileMapping.c](https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/IPC/FileMapping.c)
 
 - [mahi-com](https://github.com/mahilab/mahi-com)
@@ -271,7 +330,11 @@
 
 - [Notepad2e/src/Extension/IPC](https://github.com/ProgerXP/Notepad2e/tree/master/src/Extension/IPC)
 
+- [shadesmar](https://github.com/Squadrick/shadesmar)
+
 ### JSON
+
+- [cpp-jsonlib](https://github.com/yhirose/cpp-jsonlib)
 
 - [daw_json_link](https://github.com/beached/daw_json_link)
   
@@ -294,6 +357,8 @@
 - [VaRest](https://github.com/ufna/VaRest)
 
 - [vjson](https://github.com/vivkin/vjson)
+
+- [WindowsJson.h](https://github.com/mmozeiko/TwitchNotify/blob/master/WindowsJson.h)
 
 ### Language Interoperability
 
@@ -357,9 +422,17 @@
 
 ### Math
 
+- [ALGLIB](https://www.alglib.net/)
+
+- [cpp-liblinear](https://github.com/yhirose/cpp-liblinear)
+
+- [cutlass](https://github.com/NVIDIA/cutlass)
+
 - [exprtk](https://github.com/ArashPartow/exprtk)
   
   - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
+
+- [fpm](https://github.com/MikeLankamp/fpm)
 
 - [GLFFT](https://github.com/Themaister/GLFFT)
 
@@ -435,6 +508,8 @@
 
 - [liburing4cpp](https://github.com/CarterLi/liburing4cpp)
 
+- [libwebrtc](https://github.com/webrtc-sdk/libwebrtc)
+
 - [MLS++](https://github.com/cisco/mlspp)
 
 - [mahi-com](https://github.com/mahilab/mahi-com)
@@ -450,6 +525,8 @@
 - [PubBus](https://github.com/eXpl0it3r/PubBus)
 
 - [qpid-cpp](https://github.com/apache/qpid-cpp)
+
+- [REST-CPP-benchmark](https://github.com/guteksan/REST-CPP-benchmark)
 
 - [SFML/Network](https://github.com/SFML/SFML/tree/master/src/SFML/Network)
 
@@ -468,6 +545,10 @@
 
 - [JoltPhysics](https://github.com/jrouwe/JoltPhysics)
 
+### Project Templates
+
+- [pitchfork](https://github.com/vector-of-bool/pitchfork)
+
 ### REPL
 
 - [inspector](https://github.com/inspector-repl/inspector)
@@ -479,6 +560,10 @@
 - [fibre](https://github.com/samuelsadok/fibre)
 
 - [grpcdump](https://github.com/jschwinger233/grpcdump)
+
+- [XmlRpc4Win](https://github.com/drtimcooper/XmlRpc4Win)
+
+  - [MPC-HC](https://github.com/mpc-hc/mpc-hc)
 
 - [zpp_bits](https://github.com/eyalz800/zpp_bits)
 
@@ -521,11 +606,19 @@
 
 - [nanosort](https://github.com/zeux/nanosort)
 
+### Static Analysis
+
+- [cppcheck](https://github.com/danmar/cppcheck)
+
+  - [cppcheck-vs-addin](https://github.com/VioletGiraffe/cppcheck-vs-addin)
+
 ### String
 
 - [dtl](https://github.com/cubicdaiya/dtl)
 
 - [fixed_string](https://github.com/unterumarmung/fixed_string)
+
+- [itoa](https://github.com/jeaiii/itoa)
 
 - [mscharconv](https://github.com/iboB/mscharconv)
 
@@ -537,6 +630,8 @@
 - [Mustache](https://github.com/kainjow/Mustache)
 
 ### Unicode
+
+- [cpp-unicodelib](https://github.com/yhirose/cpp-unicodelib)
 
 ### Unit Testing
 

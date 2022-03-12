@@ -8,4 +8,6 @@
 
 - WinDirStat
 
+Others
 
+- [fatrace](https://github.com/martinpitt/fatrace)

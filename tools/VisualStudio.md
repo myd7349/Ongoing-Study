@@ -13,3 +13,5 @@ https://github.com/wmjordan/Codist
 https://github.com/laurentkempe/GitDiffMargin
 
 [GitHub - scikit-build/cmake-FindVcvars: Finds a &quot;vcvars&quot; batch script. This CMake module can be used when configuring a project or when running in cmake -P script mode.](https://github.com/scikit-build/cmake-FindVcvars)
+
+[cppcheck-vs-addin](https://github.com/VioletGiraffe/cppcheck-vs-addin)

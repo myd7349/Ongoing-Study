@@ -5,4 +5,4 @@
 > print(locale.getpreferredencoding())
 > ```
 
-
+[getencoding](https://github.com/python/cpython/pull/32068)

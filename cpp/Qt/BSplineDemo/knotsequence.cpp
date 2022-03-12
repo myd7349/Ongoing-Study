@@ -98,3 +98,11 @@ void KnotSequence::draw(QStylePainter &painter)
 
     painter.drawPath(path);
 }
+
+
+// References:
+// https://gist.github.com/dreikanter/3526685
+// https://github.com/ScottPlot/ScottPlot/issues/459
+// [C# Cubic Spline Interpolation](https://www.codeproject.com/Articles/560163/Csharp-Cubic-Spline-Interpolation)
+// https://github.com/andrewwillmott/splines-lib
+// https://github.com/komorra/NodeEditorWinforms/blob/master/NodeEditor/NodesGraph.cs

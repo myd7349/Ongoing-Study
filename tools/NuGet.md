@@ -27,3 +27,5 @@ or
 > ```
 
 https://github.com/esskar/Serialize.Linq
+
+https://github.com/WildGums/Orc.NuGetExplorer

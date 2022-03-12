@@ -67,3 +67,18 @@ public class Resource : IDisposable
 [close or dispose](https://stackoverflow.com/questions/4153595/close-or-dispose)
 
 https://github.com/reactiveui/splat/blob/main/src/Splat/Disposables/BooleanDisposable.cs
+
+[c# open file with default application and parameters](https://stackoverflow.com/questions/11365984/c-sharp-open-file-with-default-application-and-parameters)
+
+```csharp
+public static void OpenWithDefaultProgram(string path)
+{
+    using Process fileopener = new Process();
+
+    fileopener.StartInfo.FileName = "explorer";
+    fileopener.StartInfo.Arguments = "\"" + path + "\"";
+    fileopener.Start();
+}
+```
+
+[What scope does a using statement have without curly braces](https://stackoverflow.com/questions/24819576/what-scope-does-a-using-statement-have-without-curly-braces)

@@ -1,3 +1,9 @@
+https://github.com/QuantStack/xplugin
+
+https://github.com/sourcey/pluga
+
+https://github.com/Tracktion/pluginval
+
 https://github.com/WerWolv/ImHex/blob/master/plugins/libimhex/include/hex/plugin.hpp
 
 https://github.com/WinMerge/winmerge/tree/master/Plugins
@@ -15,3 +21,5 @@ https://github.com/martin-olivier/Dylib
 https://github.com/x64dbg/PluginTemplate
 
 [BowPad](https://github.com/stefankueng/BowPad) supports plugins written in JScript or VBScript
+
+https://github.com/DISTRHO/DPF

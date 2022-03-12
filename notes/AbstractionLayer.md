@@ -10,6 +10,8 @@ Cloud
 
 - [Cloudreve](https://github.com/cloudreve/Cloudreve)
 
+- [opendal](https://github.com/datafuselabs/opendal)
+
 - [rclone](https://github.com/rclone/rclone)
 
 - [uPic Models](https://github.com/gee1k/uPic/tree/master/uPic/Models)

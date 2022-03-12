@@ -247,3 +247,4 @@
 
 // References:
 // https://github.com/greenshot/greenshot/tree/release/1.3/src/Greenshot.Base/IniFile
+// https://github.com/DanTup/BrowserSelector/blob/master/DanTup.BrowserSelector/ConfigReader.cs

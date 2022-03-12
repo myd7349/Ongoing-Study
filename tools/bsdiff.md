@@ -8,3 +8,5 @@ https://github.com/taspeotis/DeltaCompressionDotNet
 
 > If you need delta compression support that's cross platform, consider the managed implementation of bsdiff in [bsdiff.net](https://github.com/LogosBible/bsdiff.net).
 > It's included in the [deltaq](https://www.nuget.org/packages/deltaq/) NuGet package.
+
+https://github.com/sisong/HDiffPatch

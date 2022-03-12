@@ -53,3 +53,4 @@ if "%1" == "csharp" (
 :: afxres.h/winres.h/winresrc.h/winver.h
 :: https://github.com/andreasfertig/cppinsights/blob/main/version.h.in
 :: https://github.com/stefankueng/BowPad/blob/main/version.build.in
+:: https://github.com/mne-tools/mne-cpp/blob/main/libraries/communication/communication_global.cpp

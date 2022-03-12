@@ -40,6 +40,10 @@ Tools for downloading online videos:
 
 - [B23Downloader](https://github.com/vooidzero/B23Downloader)
 
+- [Videomass](https://github.com/jeanslack/Videomass)
+
+- [WebTorrent](https://github.com/webtorrent/webtorrent)
+
 Resources:
 
 - [animeTrackerList](https://github.com/DeSireFire/animeTrackerList)

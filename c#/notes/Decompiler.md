@@ -1,4 +1,4 @@
-- dnSpy
+- [dnSpy](https://github.com/dnSpyex/dnSpy)
 - dotPeek
 - [ExtremeDumper](https://github.com/wwh1004/ExtremeDumper)
 - [Iced](https://github.com/icedland/iced)

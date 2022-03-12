@@ -20,6 +20,7 @@ Applications:
 - [OnTopReplica](https://github.com/LorenzCK/OnTopReplica)
 - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
 - [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
+- [SCJMapper-V2](https://github.com/SCToolsfactory/SCJMapper-V2)
 - [Serial-Oscilloscope](https://github.com/xioTechnologies/Serial-Oscilloscope)
 - [Seven Converter](https://github.com/SevenbytesSoftware/SevenConverter)
 - [SharpKeys](https://github.com/randyrants/sharpkeys)
@@ -111,21 +112,3 @@ Libraries:
   - [OnTopReplica](https://github.com/LorenzCK/OnTopReplica)
 
 - [WinFormsX](https://github.com/FlorianRappl/WinFormsX)
-
-##### Charting
-
-- [Csharp-Data-Visualization](https://github.com/swharden/Csharp-Data-Visualization)
-
-- [Live-Charts](https://github.com/Live-Charts/Live-Charts)
-
-- [LiveCharts2](https://github.com/beto-rodriguez/LiveCharts2)
-
-- [OxyPlot](https://github.com/oxyplot/oxyplot)
-
-- [ScottPlot](https://github.com/ScottPlot/ScottPlot)
-  
-  - [SoundCardECG](https://github.com/swharden/SoundCardECG)
-
-- [Spectrogram](https://github.com/swharden/Spectrogram)
-
-- [winforms-datavisualization](https://github.com/dotnet/winforms-datavisualization)

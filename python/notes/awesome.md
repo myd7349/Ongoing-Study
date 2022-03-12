@@ -1,3 +1,7 @@
+### Python Implementation
+
+- [pikascript](https://github.com/pikasTech/pikascript)
+
 ### AI
 
 - [pycaret](https://github.com/pycaret/pycaret)
@@ -29,7 +33,13 @@
 
 - [PyQtGraph](https://www.pyqtgraph.org/)
 
+- [pyvista](https://github.com/pyvista/pyvista)
+
+  - [mne-python](https://github.com/mne-tools/mne-python)
+
 - [vispy](https://github.com/vispy/vispy)
+
+  - [mne-python](https://github.com/mne-tools/mne-python)
 
 ### CLI
 
@@ -77,6 +87,8 @@
 
 - [tqdm](https://github.com/tqdm/tqdm)
 
+  - https://github.com/fatiando/pooch/blob/main/pooch/downloaders.py
+
 - [Typer](https://github.com/tiangolo/typer)
 
 - [wcwidth](https://pypi.org/project/wcwidth/)
@@ -91,9 +103,19 @@
 
 - [environ-config](https://github.com/hynek/environ-config)
 
+### Container
+
+- [twodict](https://github.com/MrS0m30n3/twodict)
+
 ### Database
 
+- [litedict](https://github.com/litements/litedict): SQLite as a Python dictionary.
+
+- [litequeue](https://github.com/litements/litequeue)
+
 - [orm](https://github.com/encode/orm)
+
+- [sqlite-utils](https://github.com/simonw/sqlite-utils)
 
 ### DSP
 
@@ -183,6 +205,8 @@
 
 - [photoshop-python-api](https://github.com/loonghao/photoshop-python-api)
 
+- [pymatting](https://github.com/pymatting/pymatting)
+
 ### JSON
 
 - [hyperjson](https://github.com/mre/hyperjson)
@@ -234,9 +258,17 @@
 
 ### Networking
 
+- [browser_cookie3](https://github.com/borisbabic/browser_cookie3)
+
 - [grequests](https://github.com/spyoungtech/grequests)
 
 - [httpx](https://github.com/encode/httpx)
+
+- [MechanicalSoup](https://github.com/MechanicalSoup/MechanicalSoup)
+
+- [pooch](https://github.com/fatiando/pooch)
+
+  - https://github.com/mne-tools/mne-python/blob/v1.0.3/mne/datasets/_fetch.py#L229
 
 - [scapy](https://github.com/secdev/scapy)
 
@@ -269,6 +301,7 @@
 ### PDF
 
 - [pikepdf](https://github.com/pikepdf/pikepdf)
+- [PyPDF2](https://github.com/py-pdf/PyPDF2)
 - [ReportLab](https://www.reportlab.com/)
   - https://github.com/driscollis/reportlabbookcode
   - [xhtml2pdf](https://github.com/xhtml2pdf/xhtml2pdf)
@@ -279,9 +312,13 @@
 
 - [meminfo](https://github.com/slideinc/meminfo)
 
+- [memray](https://github.com/bloomberg/memray)
+
 - [perfplot](https://github.com/nschloe/perfplot)
 
 - [py-spy](https://github.com/benfred/py-spy)
+
+- [pyinstrument](https://github.com/joerick/pyinstrument)
 
 ### Refactoring
 
@@ -290,6 +327,14 @@
 ### Scientific Computing
 
 - [awesome-scientific-python](https://github.com/rossant/awesome-scientific-python)
+
+### Tree
+
+- [pygtrie](https://github.com/google/pygtrie)
+
+### Unit Testing & Mocking
+
+- [mock](https://github.com/testing-cabal/mock)
 
 ### Versioning
 

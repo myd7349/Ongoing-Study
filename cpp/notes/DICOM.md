@@ -7,3 +7,7 @@ https://github.com/libvips/libvips
 [zssure-thu/CSDN](https://github.com/zssure-thu/CSDN)
 
 [DcmtkAndCxImage](https://github.com/zssure-thu/DcmtkAndCxImage)
+
+[dcm2niix](https://github.com/rordenlab/dcm2niix)
+
+- [mne-python](https://github.com/mne-tools/mne-python)

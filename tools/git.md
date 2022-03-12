@@ -6,20 +6,28 @@ Servers:
 
 - [git](https://github.com/msysgit/msysgit/wiki/Setting-up-a-Git-server-on-Windows-using-Git-for-Windows-and-CopSSH)
 
+- GitLab
+
 - gitea
   
   - [homelab](https://github.com/khuedoan/homelab)
 
 - gogs
 
+- [onedev](https://github.com/theonedev/onedev)
+
 Clients:
 
 - [Fork](https://git-fork.com/)
+- [gitconvex](https://github.com/neel1996/gitconvex)
+- [GitKraken](https://www.gitkraken.com/)
+  - https://gitlab.inria.fr/openvibe/meta 
 - [GitTouch](https://github.com/git-touch)
 - [SmartGit](https://www.syntevo.com/smartgit/)
 - Source Tree
 - TortoiseGit
 - [Tower](https://www.git-tower.com/)
+- [ungit](https://github.com/FredrikNoren/ungit): Web-based.
 
 CI/CD:
 
@@ -44,6 +52,10 @@ Tools:
 - [git-revise](https://github.com/mystor/git-revise)
 
 - [gitlist](https://github.com/klaussilveira/gitlist)
+
+- [isomorphic-git](https://github.com/isomorphic-git/isomorphic-git)
+
+- [scriv](https://github.com/nedbat/scriv)
 
 - [stacked-git](https://github.com/stacked-git/stgit)
 
@@ -539,5 +551,3 @@ hint: invocation.
 ```
 
 [Run git commands on remote?](https://stackoverflow.com/questions/24856617/run-git-commands-on-remote)
-
-[ungit](https://github.com/FredrikNoren/ungit)

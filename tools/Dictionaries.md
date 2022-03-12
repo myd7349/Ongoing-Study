@@ -8,6 +8,8 @@
 
 - DeepL
 
+- [dl-translate](https://github.com/xhlulu/dl-translate)
+
 - GoldenDict
 
 - [google-translate](https://github.com/MrS0m30n3/google-translate)

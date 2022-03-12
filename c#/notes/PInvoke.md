@@ -310,10 +310,16 @@ https://github.com/ericsink/SQLitePCL.raw/tree/master/src/providers
 
 [Cesium](https://github.com/ForNeVeR/Cesium) - Cesium compiles standard C source code to a .NET assembly.
 
-[SharpMuPDF)](https://github.com/wmjordan/SharpMuPDF)
+[SharpMuPDF](https://github.com/wmjordan/SharpMuPDF)
 
 ILSpy + System.Core.dll:
 
 > [assembly: DefaultDllImportSearchPaths(DllImportSearchPath.System32 | DllImportSearchPath.AssemblyDirectory)]
 
 https://github.com/microsoft/msquic/tree/main/src/cs/lib
+
+### T4
+
+- https://github.com/ArgusMagnus/FFTW.NET/blob/master/FFTW.NET/FftwInterop.tt
+
+- [Text Template (.tt file), Define array and iterate through generating method for multiple types](https://stackoverflow.com/questions/56922493/text-template-tt-file-define-array-and-iterate-through-generating-method-for)

@@ -27,6 +27,8 @@
 - [Upterm](https://github.com/railsware/upterm)
 - [wsltty](https://github.com/mintty/wsltty)
 - [starship](https://github.com/starship/starship)
+- zsh
+  - [powerlevel10k](https://github.com/romkatv/powerlevel10k) 
 
 Terminal emulators supported by [system-terminal](https://github.com/alexrp/system-terminal):
 

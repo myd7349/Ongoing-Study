@@ -8,6 +8,8 @@
 - GIMP
   - [gmic-qt](https://github.com/c-koi/gmic-qt) 
 - [GMIC](https://github.com/dtschump/gmic)
+- [ImageJ](https://imagej.nih.gov/ij/)
+  - https://github.com/swharden/Microscopy/tree/master/useful-imageJ-scripts 
 - [jpegview](https://github.com/sylikc/jpegview)
 - [Krita](https://invent.kde.org/graphics/krita)
   - [gmic-qt](https://github.com/c-koi/gmic-qt) 
@@ -20,6 +22,7 @@
 - Photopea
 - [pineapple-pictures](https://github.com/BLumia/pineapple-pictures)
 - [tev](https://github.com/Tom94/tev)
+- [tifig](https://github.com/monostream/tifig)
 - [tldraw](https://github.com/tldraw/tldraw)
 - [uPic](https://github.com/gee1k/uPic/tree/master/uPic)
 - [VTracer](https://github.com/visioncortex/vtracer)
@@ -45,5 +48,7 @@ QR Code
 - [QArt Coder](https://www.qartcoder.com/qr/draw)
 
 Image optimizer
+
+- [McImage](https://github.com/smallSohoSolo/McImage)
 
 - [Squoosh](https://squoosh.app/) - [GitHub](https://github.com/GoogleChromeLabs/squoosh)

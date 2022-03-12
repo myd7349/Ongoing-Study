@@ -1,6 +1,7 @@
 [4 Must-Have Open Source Solutions for Object Storage](https://betterprogramming.pub/top-4-open-source-tools-for-object-storage-e43267bcd724)
 
 - Ceph
+- [Curve](https://github.com/opencurve/curve)
 - FastDFS
 - [gobeansdb](https://github.com/douban/gobeansdb)
 - JuiceFS

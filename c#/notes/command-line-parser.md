@@ -38,3 +38,5 @@ https://github.com/adrianaisemberg/CLAP
 https://github.com/smourier/SQLNado/blob/master/SqlNado.Cli/CommandLine.cs
 
 [ViVe/Program.cs at master · thebookisclosed/ViVe · GitHub](https://github.com/thebookisclosed/ViVe/blob/master/ViVeTool/Program.cs)
+
+https://github.com/DanTup/BrowserSelector

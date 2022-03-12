@@ -6,3 +6,6 @@
 > def two_way_dict(pairs):
 >     return dict([(e[1], e[0]) for e in pairs] + pairs)
 > ```
+
+
+[twodict](https://github.com/MrS0m30n3/twodict)

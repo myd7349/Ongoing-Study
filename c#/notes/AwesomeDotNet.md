@@ -20,13 +20,11 @@
 ### Archive
 
 - [7z.Libs](https://github.com/3F/7z.Libs)
-
 - [DeltaCompressionDotNet](https://www.nuget.org/packages/DeltaCompressionDotNet/)
   
   - [Fork](https://fork.dev/)
 
   - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics) 
-
 - [ICSharpCode.SharpZipLib](https://github.com/icsharpcode/SharpZipLib)
   
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
@@ -34,13 +32,11 @@
   - https://github.com/Bunny83/SimpleJSON/blob/master/SimpleJSONBinary.cs
   
   - [Pinta](https://github.com/PintaProject/Pinta)
-
 - [K4os.Compression.LZ4](https://github.com/MiloszKrajewski/K4os.Compression.LZ4)
   
   - [Pinta](https://github.com/PintaProject/Pinta)
-
 - [SevenZipSharp](https://github.com/squid-box/SevenZipSharp)
-
+- [dnGrep](https://github.com/dnGrep/dnGrep)
 - [SharpCompress](https://github.com/adamhathcock/sharpcompress)
   
   - DeepL Translate App for Windows
@@ -48,7 +44,6 @@
   - [Fork](https://fork.dev/)
   
   - [On the Shoulders of Giants · QL-Win/QuickLook Wiki · GitHub](https://github.com/QL-Win/QuickLook/wiki/On-the-Shoulders-of-Giants)
-
 - System.IO.Compression
   
   - https://github.com/2dust/v2rayN/blob/master/v2rayN/v2rayUpgrade/MainForm.cs
@@ -91,10 +86,14 @@
 - [Lasp](https://github.com/keijiro/Lasp)
 
 - NAudio
-  
+
+  - [NAudio.WaveFormRenderer](https://github.com/naudio/NAudio.WaveFormRenderer)
+
   - [SoundCardECG](https://github.com/swharden/SoundCardECG)
 
 - [NetCoreAudio](https://github.com/mobiletechtracker/NetCoreAudio)
+
+- [NLayer](https://github.com/naudio/NLayer)
 
 - [terrafx](https://github.com/terrafx/terrafx)
 
@@ -113,14 +112,22 @@
 ### Benchmark
 
 - [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet)
-  
+
+  - [Dapper.Tests.Performance](https://github.com/DapperLib/Dapper/blob/2.0.123/Readme.md#performance)
+
   - [Enums.NET](https://github.com/TylerBrinkley/Enums.NET/blob/master/Src/Enums.NET.PerfTestConsole/Program.cs)
+
+  - [ImTools](https://github.com/dadhi/ImTools)
 
 - [crank](https://github.com/dotnet/crank)
 
 - [MethodTimer](https://github.com/Fody/MethodTimer)
 
+- [OrmBenchmark](https://github.com/InfoTechBridge/OrmBenchmark)
+
 - [PowerUp](https://github.com/badamczewski/PowerUp)
+
+- [RawDataAccessBencher](https://github.com/FransBouma/RawDataAccessBencher)
 
 - [skynet](https://github.com/atemerev/skynet): Skynet 1M threads microbenchmark
 
@@ -131,14 +138,6 @@
 ### Bot
 
 - [Mirai-CSharp](https://github.com/Executor-Cheng/Mirai-CSharp)
-
-### Charting
-
-- [XPlot](https://github.com/fslaborg/XPlot/)
-
-  - [An Introduction to DataFrame](https://devblogs.microsoft.com/dotnet/an-introduction-to-dataframe/)
-
-  - [XPlot - F# Data Visualization Package](https://fslab.org/XPlot/)
 
 ### CLI
 
@@ -172,7 +171,13 @@
 
 - [system-terminal](https://github.com/alexrp/system-terminal)
 
+- [Terminal.Gui](https://github.com/migueldeicaza/gui.cs)
+
 - [Utility.CommandLine.Arguments](https://github.com/jpdillingham/Utility.CommandLine.Arguments)
+
+### Compiler
+
+- [FastExpressionCompiler](https://github.com/dadhi/FastExpressionCompiler)
 
 ### Computer Vision
 
@@ -204,13 +209,96 @@
 
 ### CSV
 
+- [Angara.Table](https://github.com/predictionmachines/Angara.Table)
+
 - [CsvHelper](https://joshclose.github.io/CsvHelper/)
   
   - [On the Shoulders of Giants · QL-Win/QuickLook Wiki · GitHub](https://github.com/QL-Win/QuickLook/wiki/On-the-Shoulders-of-Giants)
 
+- [CsvTextEditor](https://github.com/WildGums/CsvTextEditor)
+
 - [FlatFiles](https://github.com/jehugaleahsa/FlatFiles)
 
+### Data Visualization
+
+- [ALGLIB](https://www.alglib.net/)
+
+- [Angara.Chart](https://github.com/predictionmachines/Angara.Chart)
+
+- [Csharp-Data-Visualization](https://github.com/swharden/Csharp-Data-Visualization)
+
+- [DynamicDataDisplay](https://github.com/dotnetprojects/DynamicDataDisplay): WPF
+  - [PingMonitor](https://github.com/kfstorm/PingMonitor)
+  
+- [InteractiveDataDisplay.WPF](https://github.com/microsoft/InteractiveDataDisplay.WPF)
+  - [Real-time Line charts with WPF and Dynamic Data Display](https://www.mesta-automation.com/real-time-line-charts-with-wpf-and-dynamic-data-display/) - [code](https://github.com/mesta1/DynamicDataDisplay-example)
+  
+- [Live-Charts](https://github.com/Live-Charts/Live-Charts)
+
+- [LiveCharts2](https://github.com/beto-rodriguez/LiveCharts2): WinForms, WPF
+
+- [Microcharts](https://github.com/microcharts-dotnet/Microcharts)
+
+- [OxyPlot](https://github.com/oxyplot/oxyplot)
+  - [Orc.Plot](https://github.com/WildGums/Orc.Plot)
+  
+  - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
+  
+- [Plotly.NET](https://github.com/plotly/Plotly.NET)
+
+- [RealTimeGraphX](https://github.com/royben/RealTimeGraphX)
+  - [WPF charting/visualization of realtime data](https://stackoverflow.com/questions/2517318/wpf-charting-visualization-of-realtime-data)
+  
+- [SciChart](https://www.scichart.com/)
+  - [SciChart.Wpf.Examples](https://github.com/ABTSoftware/SciChart.Wpf.Examples)
+  
+  - [WPF charting/visualization of realtime data](https://stackoverflow.com/questions/2517318/wpf-charting-visualization-of-realtime-data)
+  
+- [ScottPlot](https://github.com/ScottPlot/ScottPlot): WinForms, WPF
+  - [ABFview](https://github.com/swharden/ABFview)
+  
+  - [SoundCardECG](https://github.com/swharden/SoundCardECG): A WinForms demo.
+  
+  - https://gist.github.com/dreikanter/3526685?permalink_comment_id=3349886#gistcomment-3349886
+  
+- [Spectrogram](https://github.com/swharden/Spectrogram): WinForms, WPF
+  - [FftSharp](https://github.com/swharden/FftSharp)
+  
+- [System.Windows.Forms.DataVisualization](https://github.com/dotnet/winforms-datavisualization)
+  - LINQPad 7
+  
+- [winforms-datavisualization](https://github.com/dotnet/winforms-datavisualization)
+
+- [wpf-waveform](https://github.com/markheath/wpf-waveform)
+  - [Audio WaveForm Drawing Using WPF](https://markheath.net/post/audio-waveform-drawing-using-wpf)
+  
+- [WriteableBitmapEx](https://github.com/reneschulte/WriteableBitmapEx): WPF
+  - [WPF charting/visualization of realtime data](https://stackoverflow.com/questions/2517318/wpf-charting-visualization-of-realtime-data)
+  
+- [XPlot](https://github.com/fslaborg/XPlot/)
+- [An Introduction to DataFrame](https://devblogs.microsoft.com/dotnet/an-introduction-to-dataframe/)
+  
+- [XPlot - F# Data Visualization Package](https://fslab.org/XPlot/)
+
+##### Books
+
+- Practical WPF Charts and Graphics Advanced Chart and Graphics Programming with the Windows Presentation Foundation, Jack Xu
+
+##### Related Projects
+
+- [awesome-charting](https://github.com/zingchart/awesome-charting)
+
+- [awesome-dataviz](https://github.com/javierluraschi/awesome-dataviz)
+
 ### Database
+
+##### Benchmark
+
+- [Dapper.Tests.Performance](https://github.com/DapperLib/Dapper/blob/2.0.123/Readme.md#performance)
+
+- [OrmBenchmark](https://github.com/InfoTechBridge/OrmBenchmark)
+
+- [RawDataAccessBencher](https://github.com/FransBouma/RawDataAccessBencher)
 
 ##### ORM
 
@@ -243,6 +331,8 @@
 
 - [LiteDB](http://www.litedb.org/) - [GitHub](https://github.com/mbdavid/LiteDB)
 
+  - DeepL for Windows
+
 ##### Others
 
 - [DataObjects.NET](https://github.com/DataObjects-NET/dataobjects-net)
@@ -263,6 +353,12 @@
 
 - [shortid](https://github.com/bolorundurowb/shortid)
 
+- [SmartSql](https://github.com/dotnetcore/SmartSql)
+
+- [sqlite-net](https://github.com/praeclarum/sqlite-net)
+
+  - C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\SQLite-net.dll
+
 - [SQLiteCodeFirst](https://github.com/msallin/SQLiteCodeFirst)
 
 - [sqllocaldb](https://github.com/martincostello/sqllocaldb)
@@ -270,6 +366,10 @@
 - [SQLitePCL.raw](https://github.com/ericsink/SQLitePCL.raw)
   
   - [Fork](https://fork.dev/)
+  
+  - C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\SQLitePCLRaw.core.dll
+
+- [StructLinq](https://github.com/reegeek/StructLinq)
 
 - [System.Linq.Dynamic](https://github.com/zzzprojects/System.Linq.Dynamic.Core)
   
@@ -287,11 +387,17 @@
   
   - [Quicker](https://github.com/cuiliang/Quicker)
 
+##### AOP
+
+- [AOP](https://github.com/ValeraT1982/AOP)
+
 ##### IoC
 
 - [Autofac](https://autofac.org/)
   
   - DeepL Translate App for Windows
+
+- [DryIoc](https://github.com/dadhi/DryIoc)
 
 - [lamar](https://github.com/jasperfx/lamar)
 
@@ -309,6 +415,14 @@
 
 - [FftSharp](https://github.com/swharden/FftSharp)
 
+- [FFTW.NET](https://github.com/ArgusMagnus/FFTW.NET)
+
+- [FFTWSharp](https://github.com/tszalay/FFTWSharp)
+
+  - [C# Tutorial: Computing the 1-D FFT and IFFT using the FFTW library](https://www.youtube.com/watch?v=9SwuRRe-2Jk) - [code](https://github.com/damian-dz/FFTWintro)
+
+- [Math.NET Filtering](https://github.com/mathnet/mathnet-filtering)
+
 ### Error Handling
 
 - [Polly](https://github.com/App-vNext/Polly)
@@ -323,6 +437,8 @@
 
 ### Graphics
 
+- [awesome-dotnet#graphics](https://github.com/quozd/awesome-dotnet#graphics)
+
 - CairoSharp
   
   - [Pinta](https://github.com/PintaProject/Pinta)
@@ -333,13 +449,39 @@
 
 - [CrossGraphics](https://github.com/praeclarum/CrossGraphics)
 
+  - [DataGrid.CrossGraphics](https://github.com/ericsink/DrawnDataGridFramework/tree/master/DataGrid.CrossGraphics)
+
+- [GameOverlay.Net](https://github.com/michel-pi/GameOverlay.Net)
+
 - [Microsoft.Maui.Graphics](https://github.com/dotnet/Microsoft.Maui.Graphics)
 
 - [NGraphics](https://github.com/praeclarum/NGraphics)
 
+- [OpenTK](https://github.com/opentk/opentk)
+
+  - https://github.com/SCToolsfactory/SCJMapper-V2/blob/master/OGL/CubicSpline.cs
+
+- SharpDX
+
+  - [GameOverlay.Net](https://github.com/michel-pi/GameOverlay.Net)
+
+- [SkiaSharp](https://github.com/mono/SkiaSharp)
+
+  - [Orc.Skia](https://github.com/WildGums/Orc.Skia)
+
 - [splat](https://github.com/reactiveui/splat)
 
   - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
+
+- Spline
+
+  - https://gist.github.com/dreikanter/3526685
+
+  - https://github.com/ScottPlot/ScottPlot/issues/459
+
+  - [C# Cubic Spline Interpolation](https://www.codeproject.com/Articles/560163/Csharp-Cubic-Spline-Interpolation)
+
+  - https://github.com/komorra/NodeEditorWinforms/blob/3c847e6a01647c59a8b544bd31ca5c7af79b2a8a/NodeEditor/NodesGraph.cs#L80
 
 - [SVG](https://github.com/svg-net/SVG)
 
@@ -350,6 +492,8 @@
 - GTK#
   
   - [Pinta](https://github.com/PintaProject/Pinta)
+
+- [ImGui](https://github.com/zwcloud/ImGui)
 
 - [xwt](https://github.com/mono/xwt)
 
@@ -373,6 +517,9 @@
   - https://github.com/shadowsocks/shadowsocks-windows
 - [globalmousekeyhook](https://github.com/gmamaladze/globalmousekeyhook)
   - [Magpie](https://github.com/Blinue/Magpie)
+- [NHotkey](https://github.com/thomaslevesque/NHotkey)
+  - NHotkey.WindowsForms
+  - NHotkey.Wpf
 
 ### IDE
 
@@ -443,6 +590,8 @@
 - [Microsoft.Extensions.FileSystemGlobbing](https://docs.microsoft.com/en-us/dotnet/core/extensions/file-globbing)
 
 - [TestableFileSystem](https://github.com/bkoelman/TestableFileSystem)
+
+- System.IO.FileSystem.Watcher
 
 ### IPC
 
@@ -532,6 +681,8 @@
   
   - [Fork](https://fork.dev/)
 
+- [Kinda.Licensing](https://github.com/tibel/Kinda.Licensing)
+
 - [Orc.LicenseManager](https://github.com/WildGums/Orc.LicenseManager)
 
 ### Logging
@@ -539,6 +690,7 @@
 - [Castel.Core](https://github.com/castleproject/Core)
   
   - DeepL Translate App for Windows
+  - [LogViewer](https://github.com/WildGums/LogViewer)
 
 - [Coloma](https://github.com/mgradwohl/Coloma)
 
@@ -555,6 +707,8 @@
   - [Quicker](https://github.com/cuiliang/Quicker)
   
   - [winsw](https://github.com/winsw/winsw)
+
+- [LogViewer](https://github.com/WildGums/LogViewer)
 
 - [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/)
   
@@ -596,11 +750,15 @@
 
 ### Math
 
+- [ALGLIB](https://www.alglib.net/)
+
 - [AngouriMath](https://github.com/asc-community/AngouriMath)
 
 - [CLanguage](https://github.com/praeclarum/CLanguage)
 
 - [DlibDotNet](https://github.com/takuya-takeuchi/DlibDotNet)
+
+- [DynamicExpresso](https://github.com/dynamicexpresso/DynamicExpresso)
 
 - [Eval-Expression.NET](https://github.com/zzzprojects/Eval-Expression.NET)
   
@@ -632,6 +790,8 @@
 
 - [NeinMath](https://github.com/axelheer/nein-math)
 
+- [NonLinearEquationsSolver](https://github.com/EduardBargues/NonLinearEquationsSolver)
+
 - [Numpy.NET](https://github.com/SciSharp/Numpy.NET)
 
 ### Memory Management
@@ -657,13 +817,21 @@
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
 - [GameServer](https://github.com/LeagueSandbox/GameServer)
 - [KCP](https://github.com/KumoKyaku/KCP)
+- [MassTransit](https://github.com/MassTransit/MassTransit)
 - [NetMQ](https://github.com/zeromq/netmq)
   - [CAP.Extensions](https://github.com/maikebing/CAP.Extensions)
 - [Octokit](https://github.com/octokit/octokit.net)
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+- [Pipelines.Sockets.Unofficial](https://github.com/mgravell/Pipelines.Sockets.Unofficial)
+- [Rebex.Net](https://www.rebex.net/doc/api/)
+  - C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Rebex.Net.Ftp.dll
+  - C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Rebex.Net.ProxySocket.dll
+  - C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Rebex.Net.SecureSocket.dll
+  - C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Rebex.Net.Sftp.dll
 - [RestSharp](https://github.com/restsharp/RestSharp)
 - [RiptideNetworking](https://github.com/tom-weiland/RiptideNetworking)
 - [simple-http](https://github.com/dajuric/simple-http)
+- [simplsockets](https://github.com/mgravell/simplsockets)
 - [sipsorcery](https://github.com/sipsorcery-org/sipsorcery) - A WebRTC, SIP and VoIP library for C# and .NET. Designed for real-time communications apps.
   - [GB28181.Solution](https://github.com/GB28181/GB28181.Solution)
 - [SuperSocket](https://github.com/kerryjiang/SuperSocket)
@@ -688,6 +856,7 @@
 ##### Word
 
 - [DocX](https://github.com/xceedsoftware/DocX)
+- [Spire.Doc](https://www.e-iceblue.com/Introduce/word-for-net-introduce.html)
 
 ##### Excel
 
@@ -712,9 +881,12 @@
 - [PDFsharp](https://github.com/empira/PDFsharp)
   - https://github.com/wieslawsoltes/Core2D/tree/master/src/Core2D/Modules/FileWriter.PdfSharp
   - [Quicker](https://github.com/cuiliang/Quicker)
+  - https://github.com/oxyplot/oxyplot/issues/1518
+    > The PdfSharp project seems to be inactive, there is not even support for netstandard.
 - [QuestPDF](https://github.com/QuestPDF/QuestPDF)
 - [SharpMuPDF](https://github.com/wmjordan/SharpMuPDF)
   - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
+- [Spire.Doc](https://www.e-iceblue.com/Introduce/word-for-net-introduce.html)
 
 ### Plugin System
 
@@ -733,6 +905,8 @@
 
 - [MiniProfiler](https://miniprofiler.com/)
 
+- [YourKit .NET Profiler](https://www.yourkit.com/.net/profiler/features/)
+
 ### QR Code
 
 - [QRCoder](https://github.com/codebude/QRCoder)
@@ -748,6 +922,18 @@
 - [DynamicData](https://github.com/reactivemarbles/DynamicData)
   
   - DeepL Translate App for Windows
+
+- ReactiveUI
+
+  - [ReactiveUI.Samples](https://github.com/reactiveui/ReactiveUI.Samples) 
+
+### Reflection
+
+- [Fody](https://github.com/Fody/Fody)
+
+  - [InfoOf](https://github.com/Fody/InfoOf)
+
+  - [LoadAssembliesOnStartup](https://github.com/Fody/LoadAssembliesOnStartup)
 
 ### Regular Expression
 
@@ -789,11 +975,17 @@
 
 ### Serialization
 
+- [Apex.Serialization](https://github.com/dbolin/Apex.Serialization)
+
 - [Binaron.Serializer](https://github.com/zachsaw/Binaron.Serializer)
 
-- Google Protobuffers
+- [Google Protobuffers](https://github.com/protocolbuffers/protobuf/tree/main/csharp)
+
+  - [protobuf-net](https://github.com/protobuf-net/protobuf-net)
 
   - [protobuf.Text](https://github.com/SciSharp/protobuf.Text)
+
+  - [ProtoBuffer](https://github.com/ebergstedt/ProtoBuffer)
 
   - DeepL Translate App for Windows
 
@@ -896,6 +1088,8 @@
 
 - [allure-csharp](https://github.com/allure-framework/allure-csharp)
 
+- [JUnit Test Logger](https://github.com/spekt/junit.testlogger)
+
 ### Web Scraping
 
 - [NSoup](https://github.com/GeReV/NSoup)
@@ -910,6 +1104,8 @@
 
 - [Azos](https://github.com/azist/azos)
 
+- [CleanArchitecture](https://github.com/jasontaylordev/CleanArchitecture)
+
 - [Enums.NET](https://github.com/TylerBrinkley/Enums.NET)
   
   - DeepL Translate App for Windows
@@ -920,8 +1116,14 @@
   
   - DeepL Translate App for Windows
 
+- [NetEscapades.EnumGenerators](https://github.com/andrewlock/NetEscapades.EnumGenerators)
+  
 - [NullGuard](https://github.com/Fody/NullGuard)
 
+- [ObjectsComparer](https://github.com/ValeraT1982/ObjectsComparer)
+
 - [Pidgin](https://github.com/benjamin-hodgson/Pidgin)
+
+- [QuantityTypes](https://github.com/QuantityTypes/QuantityTypes)
 
 - [ViVe](https://github.com/thebookisclosed/ViVe)

@@ -1,5 +1,7 @@
 Code Editors:
 
+- [bim](https://github.com/klange/bim)
+
 - [BowPad](https://github.com/stefankueng/BowPad)
 
 - [CodeEdit](https://github.com/CodeEditApp/CodeEdit): CodeEdit App for macOS

@@ -32,3 +32,6 @@ Libraries
 
 - [OneDas.Extension.Hdf](https://github.com/OneDAS-Group/OneDAS-Core/tree/master/extensions/OneDas.Extension.Hdf)
 
+- [SDSlite](https://github.com/predictionmachines/SDSlite): Scientific DataSet library to work with NetCDF-like data sets from .NET.
+
+- [Angara.Table](https://github.com/predictionmachines/Angara.Table)

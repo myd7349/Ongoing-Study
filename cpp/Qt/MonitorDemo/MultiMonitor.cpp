@@ -50,3 +50,7 @@ void GetAllDisplayDevices(std::map<std::wstring, DisplayDeviceInfo> &displayDevi
         displayDevices[ddi.DeviceName] = ddi;
     }
 }
+
+
+// References:
+// https://github.com/mpc-hc/mpc-hc/blob/develop/src/mpc-hc/MultiMonitor.h

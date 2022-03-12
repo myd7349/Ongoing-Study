@@ -47,3 +47,5 @@ And 1inch equals to 2.54cm.
 > ```
 > convert image.png -background white -alpha remove -alpha off white.png
 > ```
+
+https://github.com/swharden/Microscopy/blob/master/video-screen-capture/crop-a-gator.py

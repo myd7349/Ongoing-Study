@@ -11,3 +11,11 @@
 [System.Drawing.Imaging.md](../../c#/notes/System.Drawing.Imaging.md)
 
 [Notepad2e/DPIHelper.h at master · ProgerXP/Notepad2e · GitHub](https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/DPIHelper.h)
+
+[HighDPI problem](https://github.com/ppescher/resizablelib/issues/14)
+
+> There are new functions like GetDpiForWindow, GetDpiForSystem, AdjustWindowRectExForDpi, GetDialogControlDpiChangeBehavior, GetDpiFromDpiAwarenessContext, LogicalToPhysicalPointForPerMonitorDPI, PhysicalToLogicalPointForPerMonitorDPI a.s.o. as described here: docs.microsoft.com/en-us/windows/win32/hidpi/high-dpi-desktop-application-development-on-windows
+
+https://github.com/shibukawa/imagesize_py/blob/master/imagesize.py
+
+https://github.com/mpc-hc/mpc-hc/blob/develop/src/mpc-hc/DpiHelper.h

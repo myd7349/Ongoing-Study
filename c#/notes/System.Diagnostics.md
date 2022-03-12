@@ -213,3 +213,16 @@ https://github.com/wieslawsoltes/Core2D/blob/master/src/Core2D/Modules/Log.Trace
 > }
 > ```
 
+[c# open file with default application and parameters](https://stackoverflow.com/questions/11365984/c-sharp-open-file-with-default-application-and-parameters)
+
+```csharp
+public static void OpenWithDefaultProgram(string path)
+{
+    using Process fileopener = new Process();
+
+    fileopener.StartInfo.FileName = "explorer";
+    fileopener.StartInfo.Arguments = "\"" + path + "\"";
+    fileopener.Start();
+}
+```
+

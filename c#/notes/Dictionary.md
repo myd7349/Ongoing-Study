@@ -24,3 +24,18 @@ System.Collections.Generic.SortedList
 > ```
 >
 > 
+
+https://github.com/ScottPlot/ScottPlot/blob/4.1.45/src/ScottPlot4/ScottPlot.WPF/WpfPlot.xaml.cs#L109-L118
+
+```csharp
+Cursors = new Dictionary<Cursor, System.Windows.Input.Cursor>()
+{
+    [ScottPlot.Cursor.Arrow] = System.Windows.Input.Cursors.Arrow,
+    [ScottPlot.Cursor.WE] = System.Windows.Input.Cursors.SizeWE,
+    [ScottPlot.Cursor.NS] = System.Windows.Input.Cursors.SizeNS,
+    [ScottPlot.Cursor.All] = System.Windows.Input.Cursors.SizeAll,
+    [ScottPlot.Cursor.Crosshair] = System.Windows.Input.Cursors.Cross,
+    [ScottPlot.Cursor.Hand] = System.Windows.Input.Cursors.Hand,
+    [ScottPlot.Cursor.Question] = System.Windows.Input.Cursors.Help,
+};
+```

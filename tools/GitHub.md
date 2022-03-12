@@ -107,6 +107,8 @@ Awesome README.md:
 
 - https://github.com/dontpanic92
 
+- https://github.com/rzashakeri/beautify-github-profile
+
 https://github.com/Tyrrrz/GitHubActionsTestLogger
 
 https://github.com/anuraghazra/github-readme-stats
@@ -140,3 +142,24 @@ https://github.com/refined-github/refined-github
 [GitHub - Justineo/github-hovercard: Neat hovercards for GitHub.](https://github.com/Justineo/github-hovercard)
 
 https://github.com/giscus/giscus
+
+Download a patch file from a pull request:
+
+```bash
+# Step 1: From your project repository, check out a new branch and test the changes.
+git checkout -b gozfree-master master
+curl -L https://github.com/fffaraz/awesome-cpp/pull/200.patch | git am -3
+
+# Step 2: Merge the changes and update on GitHub.
+git checkout master
+git merge --no-ff gozfree-master
+git push origin master
+```
+
+or just:
+
+```bash
+https://patch-diff.githubusercontent.com/raw/zeromq/libzmq/pull/4310.diff
+```
+
+https://github.com/aaossa/git-activity

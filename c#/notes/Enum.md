@@ -36,3 +36,5 @@ and what I want do:
 [How to prevent duplicate values in enum?](https://stackoverflow.com/questions/1425777/how-to-prevent-duplicate-values-in-enum)
 
 [Enums.NET](https://github.com/TylerBrinkley/Enums.NET)
+
+https://github.com/andrewlock/NetEscapades.EnumGenerators

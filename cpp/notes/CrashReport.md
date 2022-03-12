@@ -4,6 +4,12 @@ Libraries:
   
   - https://github.com/desktop-app/lib_base/blob/master/base/crash_report_writer.cpp
 
+- CrashPad
+
+  - [sentry-dotnet-minidump](https://github.com/getsentry/sentry-dotnet-minidump)
+
+    - [sentry-dotnet](https://github.com/getsentry/sentry-dotnet)
+
 - [CrashRpt2](https://github.com/CrashRpt/crashrpt2)
 
 - https://github.com/xroche/httrack-windows/blob/master/WinHTTrack/CrashReport.cpp

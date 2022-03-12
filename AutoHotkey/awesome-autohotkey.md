@@ -5,3 +5,4 @@
 - https://github.com/chaohershi/cclose
 - [Ahk2Exe](https://github.com/AutoHotkey/Ahk2Exe)
 - https://github.com/joedf/Qonsole
+- https://github.com/jixiuf/my_autohotkey_scripts

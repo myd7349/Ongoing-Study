@@ -130,3 +130,4 @@ namespace Common.IO
 // https://github.com/dbrant/imageformats/blob/master/ImageFormats/Util.cs
 // https://github.com/mandreyel/endian/blob/master/endian.hpp
 // https://github.com/tge-was-taken/Amicitia.IO
+// https://github.com/MediaArea/ZenLib/blob/master/Source/ZenLib/BitStream_LE.h

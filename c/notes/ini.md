@@ -167,3 +167,11 @@
 - https://github.com/greenshot/greenshot/tree/release/1.3/src/Greenshot.Base/IniFile
 
 - https://github.com/jingweizhanghuai/Morn/blob/e8d48c9dc54be71ae2e3b11de0851bbd601f21e2/include/morn_util.h#L945
+
+- https://github.com/Winnerhust/inifile2
+
+- https://github.com/stevemarple/IniFile
+
+- https://github.com/Rookfighter/inifile-cpp
+
+- https://github.com/Tatsu-syo/noMeiryoUI/blob/master/program/iniReader.cpp

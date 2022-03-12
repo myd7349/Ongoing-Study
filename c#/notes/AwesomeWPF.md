@@ -1,5 +1,7 @@
 https://github.com/quozd/awesome-dotnet#wpf
 
+https://github.com/Carlos487/awesome-wpf
+
 Applications:
 
 - [ActiveDesktopPlus](https://github.com/torchgm/ActiveDesktopPlus)
@@ -10,6 +12,8 @@ Applications:
 
 - [cairoshell](https://github.com/cairoshell/cairoshell)
 
+- [certify](https://github.com/webprofusion/certify)
+
 - [ConvertZZ](https://github.com/flier268/ConvertZZ)
 
 - [Core2D](https://github.com/wieslawsoltes/Core2D)
@@ -17,6 +21,8 @@ Applications:
 - [CsvTextEditor](https://github.com/WildGums/CsvTextEditor)
 
 - [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter)
+
+- [dnGrep](https://github.com/dnGrep/dnGrep)
 
 - [dotnetpad](https://github.com/jbe2277/dotnetpad)
 
@@ -49,6 +55,8 @@ Applications:
 - [QSanguosha-v2](https://github.com/Mogara/QSanguosha-v2)
 
 - [QuickLook](https://github.com/QL-Win/QuickLook)
+
+- [QuickSystemInfo](https://github.com/Carlos487/QuickSystemInfo)
 
 - [RetroBar](https://github.com/dremin/RetroBar)
 
@@ -86,6 +94,10 @@ Libraries:
 
 - [AduSkin](https://github.com/aduskin/AduSkin)
 
+- [Assisticant](https://github.com/michaellperry/Assisticant)
+
+- [AsyncValidation](https://github.com/ValeraT1982/AsyncValidation)
+
 - [Aura.UI](https://github.com/PieroCastillo/Aura.UI)
 
 - [AvalonDock](https://github.com/Dirkster99/AvalonDock)
@@ -106,6 +118,12 @@ Libraries:
   
   - DeepL Translate App for Windows
 
+- Color Picker Dialog
+
+  - [Is there a color dialog for WPF?](https://stackoverflow.com/questions/2785242/is-there-a-color-dialog-for-wpf)
+
+  - [WPF: A Simple Color Picker With Preview](https://www.codeproject.com/Articles/33001/WPF-A-Simple-Color-Picker-With-Preview)
+
 - [ControlzEx](https://github.com/ControlzEx/ControlzEx)
   
   - C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2007.6001.0_neutral__8wekyb3d8bbwe\ControlzEx.dll
@@ -117,7 +135,13 @@ Libraries:
 
 - [DataGridFilter](https://github.com/macgile/DataGridFilter)
 
+- [Dragablz](https://github.com/ButchersBoy/Dragablz)
+
 - [Elmish.WPF](https://github.com/elmish/Elmish.WPF)
+
+- [FFME](https://github.com/unosquare/ffmediaelement): The Advanced WPF MediaElement Alternative.
+
+  - [On the Shoulders of Giants](https://github.com/QL-Win/QuickLook/wiki/On-the-Shoulders-of-Giants)
 
 - [Fluent.Ribbon](https://github.com/fluentribbon/Fluent.Ribbon)
   
@@ -185,6 +209,8 @@ Libraries:
 
 - [NlogViewer](https://github.com/erizet/NlogViewer): NlogViewer is a simple WPF-control to show NLog-logs.
 
+- [Notification.Wpf](https://github.com/Platonenkov/Notification.Wpf)
+
 - [NumericUpDownLib](https://github.com/Dirkster99/NumericUpDownLib)
 
 - [Ookii.Dialogs.Wpf](https://github.com/ookii-dialogs/ookii-dialogs-wpf)
@@ -199,16 +225,6 @@ Libraries:
 
 - [PanuonUI.Silver](https://github.com/Mochengvia/PanuonUI.Silver)
 
-- [RawInput](https://github.com/mfakane/rawinput-sharp)
-  
-  - [Lively Wallpaper](https://github.com/rocksdanister/lively)
-
-- [Stylet](https://github.com/canton7/Stylet)
-  
-  - [YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)
-
-- https://github.com/OutSystems/WebView
-
 - [Prism](https://github.com/PrismLibrary/Prism)
   
   Projects using this library:
@@ -217,6 +233,13 @@ Libraries:
   - Microsoft Support and Recovery Assistant
   - [Prism-Samples-Wpf](https://github.com/PrismLibrary/Prism-Samples-Wpf)
   - [WeUiSharp](https://github.com/IUpdatable/WeUiSharp)
+  - [WTS.WPF.Prism.GeneratedApps](https://github.com/mvegaca/WTS.WPF.Prism.GeneratedApps)
+
+- [PropertyTools](https://github.com/PropertyTools/PropertyTools)
+
+- [RawInput](https://github.com/mfakane/rawinput-sharp)
+  
+  - [Lively Wallpaper](https://github.com/rocksdanister/lively)
 
 - [ReactiveProperty](https://github.com/runceel/ReactiveProperty)
 
@@ -224,9 +247,17 @@ Libraries:
 
 - [ReactiveUI.Validation](https://github.com/reactiveui/ReactiveUI.Validation)
 
+- [SpicyTaco.AutoGrid](https://github.com/SpicyTaco/SpicyTaco.AutoGrid)
+
+- [Stylet](https://github.com/canton7/Stylet)
+  
+  - [YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)
+
 - [Syncfusion WPF controls](https://www.syncfusion.com/wpf-controls)
   
   - https://github.com/syncfusion/wpf-demos
+
+- [SVGImage](https://github.com/dotnetprojects/SVGImage)
 
 - [ToastNotifications](https://github.com/rafallopatka/ToastNotifications)
   
@@ -237,6 +268,8 @@ Libraries:
 - [WAF](https://github.com/jbe2277/waf)
   
   - [Firing a double click event from a WPF ListView item using MVVM](https://stackoverflow.com/questions/1035023/firing-a-double-click-event-from-a-wpf-listview-item-using-mvvm)
+
+- [WebView](https://github.com/OutSystems/WebView)
 
 - [WindowsCommunityToolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit)
   
@@ -264,9 +297,15 @@ Libraries:
 
 - [wpf-propertygrid](https://github.com/jaime-olivares/wpf-propertygrid)
 
+- [wpf-waveform](https://github.com/markheath/wpf-waveform)
+
+- [wpfshapes](https://github.com/markheath/wpfshapes)
+
+- [wpfsvl](https://github.com/jacobjohnston/wpfsvl) - [WPF library to display audio waveform](https://stackoverflow.com/questions/19731653/wpf-library-to-display-audio-waveform)
+
 - [WpfToolkit](https://github.com/dotnetprojects/WpfToolkit)
 
-- [wpftoolkit](https://github.com/xceedsoftware/wpftoolkit)
+- :star: [wpftoolkit](https://github.com/xceedsoftware/wpftoolkit)
   
   - [What is the best way to make a wizard using native WPF controls](https://stackoverflow.com/questions/17418455/what-is-the-best-way-to-make-a-wizard-using-native-wpf-controls)
 
@@ -276,14 +315,6 @@ Libraries:
 
 - [XamlAnimatedGif](https://github.com/XamlAnimatedGif/XamlAnimatedGif)
 
-Charting:
-
-- [DynamicDataDisplay](https://github.com/dotnetprojects/DynamicDataDisplay)
-  - [InteractiveDataDisplay.WPF](https://github.com/Microsoft/InteractiveDataDisplay.WPF)
-  - [PingMonitor](https://github.com/kfstorm/PingMonitor)
-- [OxyPlot](https://github.com/oxyplot/oxyplot)
-  - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
-- [ScottPlot](https://github.com/ScottPlot/ScottPlot)
 
 Tools:
 
@@ -292,6 +323,8 @@ Tools:
 - [Snoop](https://github.com/snoopwpf/snoopwpf): The WPF Spy Utility
 
 - [WpfAnalyzers](https://github.com/DotNetAnalyzers/WpfAnalyzers)
+
+- [wpfinspector](https://github.com/dotnetprojects/wpfinspector)
 
 - [XAMLPad](https://stackoverflow.com/questions/1409004/where-to-download-xamlpad)
 

@@ -15,3 +15,6 @@ In `virtualenv`, it seems that sys.prefix, sys.exec_prefix, sys.base_prefix, sys
 >         sys.exit(1)
 > ```
 
+[Dangers of sys.setdefaultencoding('utf-8')](https://stackoverflow.com/questions/28657010/dangers-of-sys-setdefaultencodingutf-8)
+
+[PEP 686: Make UTF-8 mode default](https://discuss.python.org/t/pep-686-make-utf-8-mode-default/14435)

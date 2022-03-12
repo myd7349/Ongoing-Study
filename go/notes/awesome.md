@@ -22,6 +22,10 @@
 - [gaio](https://github.com/xtaci/gaio)
 - [gupload](https://github.com/cirocosta/gupload)
 
+### Office
+
+- [excelize](https://github.com/qax-os/excelize)
+
 ### Unit Tests
 
 - [goconvey](https://github.com/smartystreets/goconvey)

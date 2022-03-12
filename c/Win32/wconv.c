@@ -155,3 +155,4 @@ void wconv_free(void *ptr)
 // https://github.com/xqq/libaribcaption/blob/master/src/base/wchar_helper.hpp
 // https://github.com/d0vgan/nppexec/blob/master/NppExec/src/encodings/SysUniConv.h
 // https://en.wikipedia.org/wiki/Unicode_in_Microsoft_Windows#UTF-8
+// C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\filesystem

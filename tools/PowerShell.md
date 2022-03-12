@@ -125,3 +125,5 @@ Others
 - [PowerShellNotebook](https://github.com/dfinke/PowerShellNotebook)
 
 - [Tiny-PowerShell-Projects](https://github.com/dfinke/Tiny-PowerShell-Projects)
+
+- https://github.com/sailay1996/SpoolTrigger

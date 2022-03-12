@@ -1,3 +1,5 @@
+[What is the different between 'Auto' and '\*' when setting width/height for a grid column?](https://stackoverflow.com/questions/3164651/what-is-the-different-between-auto-and-when-setting-width-height-for-a-gri)
+
 [Dispatcher.BeginInvoke never execute action?](https://stackoverflow.com/questions/34217259/dispatcher-begininvoke-never-execute-action)
 
 [Difference between Synchronization Context and Dispatcher](https://stackoverflow.com/questions/24671883/difference-between-synchronization-context-and-dispatcher)
@@ -67,3 +69,17 @@ MVVM
 > bottleneck.
 > 
 > The UI thread performance does not depend on the screen resolution. Only Rendering thread can be slow on large windows.
+
+[Alternative to BitmapImage to load a PNG](https://stackoverflow.com/questions/31701159/alternative-to-bitmapimage-to-load-a-png)
+
+>Unlike BitmapImage, BitmapFrame supports the Metadata property:
+>
+>So you may replace
+>
+>Avatar = new BitmapImage(new Uri(...));
+>
+>by
+>
+>Avatar = BitmapFrame.Create(new Uri(...));
+
+[Inserting Images to a Grid in Code Behind](https://stackoverflow.com/questions/24749782/inserting-images-to-a-grid-in-code-behind)

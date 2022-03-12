@@ -8,6 +8,8 @@
 
 - btop
 
+- [Circus](https://github.com/circus-tent/circus)
+
 - [clumsy](https://github.com/jagt/clumsy)
 
 - [curlie](https://github.com/rs/curlie)
@@ -28,6 +30,10 @@
 
 - [httpie](https://httpie.io/)
 
+- [HTTP Toolkit](https://github.com/httptoolkit/httptoolkit)
+
+  - [HTTP Toolkit Desktop](https://github.com/httptoolkit/httptoolkit-desktop)
+
 - [icloud_photos_downloader](https://github.com/icloud-photos-downloader/icloud_photos_downloader)
 
 - [IO Ninja](https://ioninja.com/)
@@ -47,6 +53,8 @@
 - [net-search](https://github.com/wsdassssss/net-search)
 
 - [netdata](https://github.com/netdata/netdata)
+
+- [netSend](https://github.com/williamnie/netSend)
 
 - [networkit](https://github.com/networkit/networkit)
 
@@ -72,7 +80,13 @@
 
 - [termshark](https://github.com/gcla/termshark)
 
+- [tinyPortMapper](https://github.com/wangyu-/tinyPortMapper)
+
 - [tiptop](https://github.com/nschloe/tiptop)
+
+- [Universal Radio Hacker](https://github.com/jopohl/urh)
+
+- [wait-for-it](https://github.com/vishnubob/wait-for-it)
 
 - [WebBench](https://github.com/EZLippi/WebBench)
 
@@ -82,6 +96,14 @@
 
 - [Heimdall - 解决内网服务搭建太多，记不住网址的问题 | 内网应用仪表盘 - 小众软件](https://www.appinn.com/heimdall/)
 
+- [ZeroSyncDesktop](https://github.com/zerosync/zerodesk)
+
 ### Tools from Other Lists
 
 - https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-network
+
+### Load Testing
+
+- [goose](https://github.com/tag1consulting/goose)
+
+- Locust

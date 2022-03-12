@@ -159,3 +159,7 @@ namespace VkUtils {
         }
     }
 }
+
+
+// References:
+// https://github.com/mmozeiko/wcap/blob/bbdb2144fcc2a70593aa5f2a1b870be0df05e4be/wcap_config.c#L132-L156

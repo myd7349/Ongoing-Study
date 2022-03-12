@@ -26,6 +26,21 @@ Printing
 	}
   ```
 
+- https://github.com/oxyplot/oxyplot/blob/205e968870c292ecaeab2cb9e7f34904897126cb/Source/OxyPlot.SkiaSharp/PdfExporter.cs#L59-L69
+  ```csharp
+  public void Export(IPlotModel model, Stream stream)
+  {
+      using var document = SKDocument.CreatePdf(stream);
+      using var pdfCanvas = document.BeginPage(this.Width, this.Height);
+      using var context = new SkiaRenderContext { RenderTarget = RenderTarget.VectorGraphic, SkCanvas = pdfCanvas, UseTextShaping = this.UseTextShaping };
+      const float dpiScale = 72f / 96;
+      context.DpiScale = dpiScale;
+      model.Update(true);
+      pdfCanvas.Clear(model.Background.ToSKColor());
+      model.Render(context, new OxyRect(0, 0, this.Width / dpiScale, this.Height / dpiScale));
+  }
+  ```
+
 - [Q193943: HOWTO: Use GetDeviceCaps to Determine Margins on a Page | KnowledgeBase Archive](https://jeffpar.github.io/kbarchive/kb/193/Q193943/)
   
   > ```
@@ -151,3 +166,5 @@ public: class std::_Init_locks & __thiscall std::_Init_locks::operator=(class st
 [MFC: Display output of a process asynchronously(concurrently) while process is in execution in a win32 text area (mfc application)](https://stackoverflow.com/questions/9480030/mfc-display-output-of-a-process-asynchronouslyconcurrently-while-process-is-i)
 
 [embed cmd in win32 application and text not selectable](https://stackoverflow.com/questions/50043663/embed-cmd-in-win32-application-and-text-not-selectable)
+
+https://github.com/MediaArea/ZenLib

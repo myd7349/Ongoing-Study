@@ -19,3 +19,15 @@ https://github.com/Kenshin/simpread
 [koreader](https://github.com/koreader/koreader)
 
 [legado](https://github.com/gedoor/legado)
+
+[k2pdfopt](https://www.willus.com/k2pdfopt/)
+
+- [Kindle小技巧②：PDF文档重排](https://zhuanlan.zhihu.com/p/94496343)
+
+- [MacReFlower](https://github.com/fibasile/MacReFlower)
+
+[Prince](https://www.princexml.com/): Convert HTML to PDF.
+
+  - [使用 Prince 转换 HTML 文档给 Kindle 阅读](https://blog.lilydjwg.me/2017/9/21/use-prince-to-convert-html-documents-for-kindle.210737.html)
+
+[foliate](https://github.com/johnfactotum/foliate)

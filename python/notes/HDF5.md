@@ -1,6 +1,11 @@
 Libraries:
 
 - [h5py](https://github.com/h5py/h5py)
+  - [h5io](https://github.com/h5io/h5io)
+    - [mne-python](https://github.com/mne-tools/mne-python)
+  - [hdf5plugin](https://github.com/silx-kit/hdf5plugin)
+  - [pymatreader](https://gitlab.com/obob/pymatreader): A python package to read all kinds and all versions of Matlab mat files.
+    - [mne-python](https://github.com/mne-tools/mne-python)
 - [PyTables](https://github.com/PyTables/PyTables)
 - [HDFql](https://www.hdfql.com/)
 

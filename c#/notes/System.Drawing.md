@@ -80,3 +80,23 @@
    > g.ReleaseHdc();
    > g.Dispose();
    > ```
+
+8. [ScreenCapture.cs](https://github.com/oxyplot/oxyplot/blob/release/v2.1.0/Source/Examples/WPF/WpfExamples/ScreenCapture.cs)
+
+   ```csharp
+   public static Bitmap Capture(int left, int top, int width, int height)
+   {
+       var hDesk = NativeMethods.GetDesktopWindow();
+       var hSrce = NativeMethods.GetWindowDC(hDesk);
+       var hDest = NativeMethods.CreateCompatibleDC(hSrce);
+       var hBmp = NativeMethods.CreateCompatibleBitmap(hSrce, width, height);
+       var hOldBmp = NativeMethods.SelectObject(hDest, hBmp);
+       NativeMethods.BitBlt(hDest, 0, 0, width, height, hSrce, left, top, CopyPixelOperation.SourceCopy | CopyPixelOperation.CaptureBlt);
+       var bmp = Image.FromHbitmap(hBmp);
+       NativeMethods.SelectObject(hDest, hOldBmp);
+       NativeMethods.DeleteObject(hBmp);
+       NativeMethods.DeleteDC(hDest);
+       NativeMethods.ReleaseDC(hDesk, hSrce);
+       return bmp;
+   }
+   ```

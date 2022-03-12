@@ -137,3 +137,188 @@ wcwidth
 - [wcwidth](https://pypi.org/project/wcwidth/)
 
 - [widecharwidth](https://github.com/ridiculousfish/widecharwidth)
+
+[New Options for Managing Character Sets in the Microsoft C/C++ Compiler](https://devblogs.microsoft.com/cppblog/new-options-for-managing-character-sets-in-the-microsoft-cc-compiler/)
+
+https://github.com/zenny-chen/UTF-8-and-UTF-16-string-utilities
+
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\filesystem
+
+```cpp
+_STD_BEGIN
+namespace filesystem {
+    // We would really love to use the proper way of building error_code by specializing
+    // is_error_code_enum and make_error_code for __std_win_error, but because:
+    //   1. We would like to keep the definition of __std_win_error in xfilesystem_abi.h
+    //   2. and xfilesystem_abi.h cannot include <system_error>
+    //   3. and specialization of is_error_code_enum and overload of make_error_code
+    //      need to be kept together with the enum (see limerick in N4810 [temp.expl.spec]/7)
+    // we resort to using this _Make_ec helper.
+    _NODISCARD inline error_code _Make_ec(__std_win_error _Errno) noexcept { // make an error_code
+        return {static_cast<int>(_Errno), _STD system_category()};
+    }
+
+    [[noreturn]] inline void _Throw_system_error_from_std_win_error(const __std_win_error _Errno) {
+        _THROW(system_error{_Make_ec(_Errno)});
+    }
+
+    _NODISCARD inline int _Check_convert_result(const __std_fs_convert_result _Result) {
+        if (_Result._Err != __std_win_error::_Success) {
+            _Throw_system_error_from_std_win_error(_Result._Err);
+        }
+
+        return _Result._Len;
+    }
+
+    _NODISCARD inline wstring _Convert_narrow_to_wide(const __std_code_page _Code_page, const string_view _Input) {
+        wstring _Output;
+
+        if (!_Input.empty()) {
+            if (_Input.size() > static_cast<size_t>(INT_MAX)) {
+                _Throw_system_error(errc::invalid_argument);
+            }
+
+            const int _Len = _Check_convert_result(__std_fs_convert_narrow_to_wide(
+                _Code_page, _Input.data(), static_cast<int>(_Input.size()), nullptr, 0));
+
+            _Output.resize(static_cast<size_t>(_Len));
+
+            (void) _Check_convert_result(__std_fs_convert_narrow_to_wide(
+                _Code_page, _Input.data(), static_cast<int>(_Input.size()), _Output.data(), _Len));
+        }
+
+        return _Output;
+    }
+
+    template <class _Traits, class _Alloc>
+    _NODISCARD basic_string<typename _Traits::char_type, _Traits, _Alloc> _Convert_wide_to_narrow(
+        const __std_code_page _Code_page, const wstring_view _Input, const _Alloc& _Al) {
+        basic_string<typename _Traits::char_type, _Traits, _Alloc> _Output(_Al);
+
+        if (!_Input.empty()) {
+            if (_Input.size() > static_cast<size_t>(INT_MAX)) {
+                _Throw_system_error(errc::invalid_argument);
+            }
+
+            const int _Len = _Check_convert_result(__std_fs_convert_wide_to_narrow(
+                _Code_page, _Input.data(), static_cast<int>(_Input.size()), nullptr, 0));
+
+            _Output.resize(static_cast<size_t>(_Len));
+
+            const auto _Data_as_char = reinterpret_cast<char*>(_Output.data());
+
+            (void) _Check_convert_result(__std_fs_convert_wide_to_narrow(
+                _Code_page, _Input.data(), static_cast<int>(_Input.size()), _Data_as_char, _Len));
+        }
+
+        return _Output;
+    }
+
+    // More lenient version of _Convert_wide_to_narrow: Instead of failing on non-representable characters,
+    // replace them with a replacement character.
+    template <class _Traits, class _Alloc>
+    _NODISCARD basic_string<typename _Traits::char_type, _Traits, _Alloc> _Convert_wide_to_narrow_replace_chars(
+        const __std_code_page _Code_page, const wstring_view _Input, const _Alloc& _Al) {
+        basic_string<typename _Traits::char_type, _Traits, _Alloc> _Output(_Al);
+
+        if (!_Input.empty()) {
+            if (_Input.size() > static_cast<size_t>(INT_MAX)) {
+                _Throw_system_error(errc::invalid_argument);
+            }
+
+            const int _Len = _Check_convert_result(__std_fs_convert_wide_to_narrow_replace_chars(
+                _Code_page, _Input.data(), static_cast<int>(_Input.size()), nullptr, 0));
+
+            _Output.resize(static_cast<size_t>(_Len));
+
+            const auto _Data_as_char = reinterpret_cast<char*>(_Output.data());
+
+            (void) _Check_convert_result(__std_fs_convert_wide_to_narrow_replace_chars(
+                _Code_page, _Input.data(), static_cast<int>(_Input.size()), _Data_as_char, _Len));
+        }
+
+        return _Output;
+    }
+
+    _NODISCARD inline wstring _Convert_utf32_to_wide(const u32string_view _Input) {
+        wstring _Output;
+
+        _Output.reserve(_Input.size()); // ideal when surrogate pairs are uncommon
+
+        for (const auto& _Code_point : _Input) {
+            if (_Code_point <= 0xD7FFU) {
+                _Output.push_back(static_cast<wchar_t>(_Code_point));
+            } else if (_Code_point <= 0xDFFFU) {
+                _Throw_system_error(errc::invalid_argument);
+            } else if (_Code_point <= 0xFFFFU) {
+                _Output.push_back(static_cast<wchar_t>(_Code_point));
+            } else if (_Code_point <= 0x10FFFFU) {
+                _Output.push_back(static_cast<wchar_t>(0xD7C0U + (_Code_point >> 10)));
+                _Output.push_back(static_cast<wchar_t>(0xDC00U + (_Code_point & 0x3FFU)));
+            } else {
+                _Throw_system_error(errc::invalid_argument);
+            }
+        }
+
+        return _Output;
+    }
+
+    template <class _Traits, class _Alloc>
+    _NODISCARD basic_string<char32_t, _Traits, _Alloc> _Convert_wide_to_utf32(
+        const wstring_view _Input, const _Alloc& _Al) {
+        basic_string<char32_t, _Traits, _Alloc> _Output(_Al);
+
+        _Output.reserve(_Input.size()); // ideal when surrogate pairs are uncommon
+
+        const wchar_t* _First      = _Input.data();
+        const wchar_t* const _Last = _First + _Input.size();
+
+        for (; _First != _Last; ++_First) {
+            if (*_First <= 0xD7FFU) {
+                _Output.push_back(*_First);
+            } else if (*_First <= 0xDBFFU) { // found leading surrogate
+                const char32_t _Leading = *_First; // widen for later math
+
+                ++_First;
+
+                if (_First == _Last) { // missing trailing surrogate
+                    _Throw_system_error(errc::invalid_argument);
+                }
+
+                const char32_t _Trailing = *_First; // widen for later math
+
+                if (0xDC00U <= _Trailing && _Trailing <= 0xDFFFU) { // valid trailing surrogate
+                    _Output.push_back(0xFCA02400U + (_Leading << 10) + _Trailing);
+                } else { // invalid trailing surrogate
+                    _Throw_system_error(errc::invalid_argument);
+                }
+            } else if (*_First <= 0xDFFFU) { // found trailing surrogate by itself, invalid
+                _Throw_system_error(errc::invalid_argument);
+            } else {
+                _Output.push_back(*_First);
+            }
+        }
+
+        return _Output;
+    }
+
+    template <class _Traits, class _Alloc, class _EcharT = typename _Traits::char_type>
+    _NODISCARD basic_string<_EcharT, _Traits, _Alloc> _Convert_wide_to(const wstring_view _Input, const _Alloc& _Al) {
+        if constexpr (is_same_v<_EcharT, char>) {
+            return _Convert_wide_to_narrow<_Traits>(__std_fs_code_page(), _Input, _Al);
+        }
+#ifdef __cpp_char8_t
+        else if constexpr (is_same_v<_EcharT, char8_t>) {
+            return _Convert_wide_to_narrow<_Traits>(__std_code_page::_Utf8, _Input, _Al);
+        }
+#endif // __cpp_char8_t
+        else if constexpr (is_same_v<_EcharT, char32_t>) {
+            return _Convert_wide_to_utf32<_Traits>(_Input, _Al);
+        } else { // wchar_t, char16_t
+            return basic_string<_EcharT, _Traits, _Alloc>(_Input.data(), _Input.data() + _Input.size(), _Al);
+        }
+    }
+
+    // ...
+}
+```

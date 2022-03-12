@@ -17,3 +17,5 @@ https://github.com/alecthomas/protoparser
 [GitHub - mapbox/protozero: Minimalist protocol buffer decoder and encoder in C++](https://github.com/mapbox/protozero)
 
 [GitHub - PragmaTwice/protopuf: Protocol Puffers: A little, highly templated, and protobuf-compatible serialization/deserialization library written in C++20](https://github.com/PragmaTwice/protopuf)
+
+[qtprotobuf](https://github.com/semlanik/qtprotobuf)

@@ -84,6 +84,8 @@
 
 - [Fork](https://fork.dev/)
 
+- [GitHub Desktop](https://desktop.github.com/)
+
 - [Wox Launcher](https://github.com/Wox-launcher/Wox)
 
 ### [CQtDeployer](https://github.com/QuasarApp/CQtDeployer)

@@ -12,6 +12,8 @@
 * [zfp](https://github.com/LLNL/zfp/tree/develop/python)
 * [bitshuffle](https://github.com/kiyo-masui/bitshuffle/blob/master/bitshuffle/h5.pyx)
 * [dynd-python](https://github.com/libdynd/dynd-python)
+* [memray](https://github.com/bloomberg/memray)
+* [pymeshfix](https://github.com/pyvista/pymeshfix)
 
 ### Tools
 

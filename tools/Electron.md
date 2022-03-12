@@ -1,6 +1,8 @@
 - Atom Editor
 - [dogehouse](https://github.com/benawad/dogehouse)
 - [Google-Play-Music-Desktop-Player-UNOFFICIAL-](https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-)
+- [graphiql-app](https://github.com/skevy/graphiql-app)
+- [httptoolkit-desktop](https://github.com/httptoolkit/httptoolkit-desktop)
 - [Hyper](https://github.com/vercel/hyper)
 - [koodo-reader](https://github.com/troyeguo/koodo-reader)
 - [MaaAsstElectronUI](https://github.com/MaaAssistantArknights/MaaAsstElectronUI)

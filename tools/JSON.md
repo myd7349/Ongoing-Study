@@ -22,4 +22,6 @@ Online Editors:
 
 - [awesome-web-editor](https://github.com/xjh22222228/awesome-web-editor)
 
+- [jsoneditor](https://github.com/josdejong/jsoneditor)
+
 - [jsonvisio](https://github.com/AykutSarac/jsonvisio.com)

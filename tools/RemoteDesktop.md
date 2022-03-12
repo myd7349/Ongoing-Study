@@ -9,3 +9,4 @@
   - https://github.com/wimpysworld/quickemu
 * [PowerRemoteDesktop](https://github.com/DarkCoderSc/PowerRemoteDesktop): Remote Desktop entirely coded in PowerShell.
 * [Weylus](https://github.com/H-M-H/Weylus)
+* [SuperRDP](https://github.com/anhkgg/SuperRDP)

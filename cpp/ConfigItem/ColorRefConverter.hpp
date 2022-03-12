@@ -26,3 +26,9 @@ inline std::wstring ConfigItemConverter<ColorRef, wchar_t>::ToString(ColorRef va
 {
     return ConfigItemConverter<int>().ToString(static_cast<int>(value.Color));
 }
+
+
+// References:
+// https://github.com/dotnet/wpf/blob/main/src/Microsoft.DotNet.Wpf/src/PresentationCore/System/Windows/Media/ColorConverter.cs
+// An example from Practical WPF Charts and Graphics Advanced Chart and Graphics Programming with the Windows Presentation Foundation:
+//     Color color = (Color)ColorConverter.ConvertFromString("#FFFF0000");

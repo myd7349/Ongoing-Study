@@ -6,6 +6,10 @@
 
 - [enchive](https://github.com/skeeto/enchive)
 
+- [pigz](https://github.com/madler/pigz)
+
+  - [dcm2niix](https://github.com/rordenlab/dcm2niix)
+
 ### CLI
 
 - [isocline](https://github.com/daanx/isocline)
@@ -42,6 +46,20 @@
 
 - [STC](https://github.com/tylov/STC)
 
+### Cryptography
+
+- [crypto-algorithms](https://github.com/B-Con/crypto-algorithms)
+
+### Database
+
+- [splinterdb](https://github.com/vmware/splinterdb)
+
+### DSP
+
+- [Fidlib](https://github.com/uazu/fidlib): Run-time filter design and execution library.
+
+  - [EDFbrowser](https://gitlab.com/Teuniz/EDFbrowser/)
+
 ### Functional Programming
 
 - [lambdapp](https://github.com/graphitemaster/lambdapp)
@@ -75,6 +93,10 @@
 - [fs.c](https://github.com/jwerle/fs.c)
 
 - [physfs](https://github.com/icculus/physfs)
+
+### IoT
+
+- [esp-idf](https://github.com/espressif/esp-idf)
 
 ### Logging
 

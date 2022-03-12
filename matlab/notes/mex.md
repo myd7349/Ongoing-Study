@@ -13,3 +13,5 @@ https://github.com/RoyiAvital/FastGuassianBlur/blob/master/FilterM/FilterX.c
 [libGDF](https://github.com/mbillingr/libgdf/tree/master/matlab)
 
 [edf-converter](https://github.com/uzh/edf-converter/tree/master/edfmex)
+
+https://github.com/labstreaminglayer/liblsl-Matlab

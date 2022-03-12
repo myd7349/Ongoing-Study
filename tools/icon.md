@@ -1,3 +1,5 @@
+* [awesome-design-cn](https://github.com/jobbole/awesome-design-cn)
+
 * <a href="http://www.famfamfam.com/lab/icons/silk">Silk icons</a> - ICONs used in ProcessHacker2.
 
 * <a href="http://www.fatcow.com/free-icons">Farm-fresh web icons</a> - ICONs used in ProcessHacker2.
@@ -23,6 +25,8 @@
 * <a href="https://github.com/qianguyihao/Web/blob/master/00-%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/iconMoon.md">iconMoon</a>
 
 * [Vaadin Icons](https://vaadin.com/components/vaadin-icons) - Used by Typora
+
+* [radix-ui/icons](https://github.com/radix-ui/icons)
 
 * [system-uicons](https://github.com/CoreyGinnivan/system-uicons)
 
@@ -75,3 +79,5 @@
   - [lucide-icons](https://github.com/lucide-icons/lucide)
 
 * [gophers](https://github.com/egonelbre/gophers)
+
+* [Pichon](https://icons8.com/app/windows)

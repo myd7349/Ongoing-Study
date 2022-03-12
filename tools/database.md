@@ -3,11 +3,15 @@
 * [DataGrip](https://www.jetbrains.com/datagrip/)
 * [datastation](https://github.com/multiprocessio/datastation)
 * [DB Browser for SQLite](https://github.com/sqlitebrowser/sqlitebrowser)
-* [sqlite-utils](https://github.com/simonw/sqlite-utils)
-* SQLite Expert
-* [SQLiteStudio](https://github.com/pawelsalawa/sqlitestudio)
-* Navicat
-* [litecli](https://github.com/dbcli/litecli)
 * [dbcli](https://github.com/dbcli/)
+* [dbeaver](https://github.com/dbeaver/dbeaver)
 * [iredis](https://github.com/laixintao/iredis)
+* [litecli](https://github.com/dbcli/litecli)
+* [litestream](https://github.com/benbjohnson/litestream)
+* Navicat
+* [sql-generator](https://github.com/liyupi/sql-generator)
+* SQLite Expert
+* [sqlite-utils](https://github.com/simonw/sqlite-utils)
+* [SQLiteStudio](https://github.com/pawelsalawa/sqlitestudio)
+* [sqlsmith](https://github.com/anse1/sqlsmith)
 * [SQLyog Community Edition](https://github.com/webyog/sqlyog-community)

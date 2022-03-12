@@ -7,3 +7,5 @@
 [Memory<T> and Span<T> usage guidelines | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/standard/memory-and-spans/memory-t-usage-guidelines)
 
 - [KCP](https://github.com/KumoKyaku/KCP)
+
+https://github.com/protobuf-net/protobuf-net/commit/ba57e42552318ec81a9f49a50ec3383db43d3182

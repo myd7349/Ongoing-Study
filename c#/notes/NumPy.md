@@ -11,3 +11,7 @@ https://github.com/takuya-takeuchi/DlibDotNet/blob/master/src/DlibDotNet/Array2D
 [SciSharp/Numpy.NET](https://github.com/SciSharp/Numpy.NET)
 
 [DataFrame](DataFrame.md)
+
+https://github.com/predictionmachines/SDSlite
+
+https://github.com/predictionmachines/Angara.Table

@@ -44,6 +44,8 @@
 
 - [pe_to_shellcode](https://github.com/hasherezade/pe_to_shellcode)
 
+- [RunPE](https://github.com/Zer0Mem0ry/RunPE)
+
 - [XPEViewer](https://github.com/horsicq/XPEViewer)
 
 ### PDB Tools
@@ -54,6 +56,8 @@
  
 - [EatPdb](https://github.com/codehz/EatPdb)
 
+- [pdb](https://github.com/willglynn/pdb)
+
 - [pdbattach](https://github.com/jschwinger233/pdbattach)
 
 - [PdbBenchmarks](https://github.com/OmerRaviv/PdbBenchmarks)
@@ -61,6 +65,8 @@
 - [PDBRipper](https://github.com/horsicq/PDBRipper)
 
 - [raw_pdb](https://github.com/MolecularMatters/raw_pdb)
+
+- [resym](https://github.com/ergrelet/resym)
 
 - [GacUI Demo：PDB Viewer（分析pdb文件并获取C++类声明的详细内容）](http://www.cppblog.com/vczh/archive/2012/01/11/163200.html)
 
@@ -125,6 +131,10 @@
 - [PeNet](https://github.com/secana/PeNet)
 
 - [Ressy](https://github.com/Tyrrrz/Ressy): Library for managing native resources in PE files
+
+### C++ Libraries
+
+- [pe-parse](https://github.com/trailofbits/pe-parse)
 
 ### Python Libraries
 

@@ -4,6 +4,8 @@
   - [Code Generation and T4 Text Templates](https://docs.microsoft.com/en-us/visualstudio/modeling/code-generation-and-t4-text-templates?view=vs-2022)
   - https://github.com/ericsink/SQLitePCL.raw/tree/master/src/providers
   - https://github.com/LEI-Hongfaan/UltimateOrb.Core
+  - https://github.com/ArgusMagnus/FFTW.NET/blob/master/FFTW.NET/FftwInterop.tt
+  - [Text Template (.tt file), Define array and iterate through generating method for multiple types](https://stackoverflow.com/questions/56922493/text-template-tt-file-define-array-and-iterate-through-generating-method-for)
 
 - [T5](https://github.com/atifaziz/t5)
 

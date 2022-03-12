@@ -8,7 +8,11 @@ https://github.com/rickyah/ini-parser
 
 https://github.com/MarioZ/MadMilkman.Ini
 
+https://github.com/JeevanJames/IniFile
+
 https://github.com/dotnetconfig/dotnet-config
+
+https://github.com/janerist/IniFile
 
 [Microsoft.Extensions.Configuration.Ini.dll](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.configuration.iniconfigurationextensions?view=dotnet-plat-ext-5.0)
 

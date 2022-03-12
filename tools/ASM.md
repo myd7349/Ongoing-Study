@@ -1,3 +1,4 @@
+- [asm-parser](https://github.com/compiler-explorer/asm-parser)
 - [asmpure](https://github.com/skywind3000/asmpure)
 - [asmrepl](https://github.com/tenderlove/asmrepl)
 - [DynASM](http://luajit.org/dynasm_features.html)

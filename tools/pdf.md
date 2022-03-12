@@ -32,7 +32,15 @@ Tools:
 
 - [diff-pdf](https://github.com/vslavik/diff-pdf)
 
+- [k2pdfopt](https://www.willus.com/k2pdfopt/)
+
+  - [MacReFlower](https://github.com/fibasile/MacReFlower)
+
 - [pdf2svg](https://github.com/dawbarton/pdf2svg)
+
+- [Prince](https://www.princexml.com/): Convert HTML to PDF.
+
+  - [使用 Prince 转换 HTML 文档给 Kindle 阅读](https://blog.lilydjwg.me/2017/9/21/use-prince-to-convert-html-documents-for-kindle.210737.html)
 
 - [xhtml2pdf](https://github.com/xhtml2pdf/xhtml2pdf)
 

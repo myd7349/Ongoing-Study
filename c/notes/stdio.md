@@ -565,3 +565,9 @@ int main(void)
 // https://stackoverflow.com/questions/65068411/question-about-using-freopen-and-cin-cout-to-read-large-input-from-file
 // http://c-faq.com/stdio/undofreopen.html
 ```
+
+35. feof
+
+[don't use feof](https://gitlab.freedesktop.org/uchardet/uchardet/-/merge_requests/12)
+
+[Why it's bad to use feof() to control a loop](https://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1046476070&id=1043284351)

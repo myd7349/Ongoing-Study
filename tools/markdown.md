@@ -64,6 +64,8 @@ Libraries:
 
 - [imgui_markdown](https://github.com/juliettef/imgui_markdown)
 
+- [markdoc](https://github.com/markdoc/markdoc)
+
 - [milkdown](https://github.com/Saul-Mirone/milkdown)
 
 - [MdXaml](https://github.com/whistyun/MdXaml)

@@ -1,0 +1,7 @@
+{
+  "name": "hello-flecs",
+  "version-string": "0.0.1",
+  "dependencies": [
+    "flecs"
+  ]
+}

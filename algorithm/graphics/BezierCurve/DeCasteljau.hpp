@@ -368,3 +368,5 @@ small tolerance. If not, the curve is subdivided parametrically into two segment
 // [7] https://github.com/andresbejarano/BezierCurves2D
 // https://github.com/andrewwillmott/splines-lib
 // https://github.com/czyt1988/FastCAE-AppDesigner
+// https://github.com/SCToolsfactory/SCJMapper-V2/blob/master/OGL/BezierSeries.cs
+// https://github.com/markheath/wpf-waveform/blob/master/WpfWaveform/BezierSpline.cs

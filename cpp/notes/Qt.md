@@ -6,6 +6,7 @@ Applications:
 - [B23Downloader](https://github.com/vooidzero/B23Downloader)
 - [BingWallpaper](https://github.com/ypingcn/BingWallpaper)
 - [caesium-image-compressor](https://github.com/Lymphatus/caesium-image-compressor)
+- [CineEncoder](https://github.com/CineEncoder/cine-encoder)
 - [Clementine](https://github.com/clementine-player/Clementine): Clementine Music Player
 - [CodeBrowser](https://github.com/KDAB/codebrowser)
 - [Converseen](https://github.com/Faster3ck/Converseen)
@@ -28,23 +29,28 @@ Applications:
 - [heaptrack](https://github.com/KDE/heaptrack)
 - [hplayer](https://github.com/ithewei/hplayer)
 - [INIditor](https://github.com/Jeroen6/INIditor)
+- [Intan-RHX](https://github.com/Intan-Technologies/Intan-RHX)
 - [jellyfin-media-player](https://github.com/jellyfin/jellyfin-media-player)
   - [jellyfin-media-player](https://github.com/Terminus-Media/jellyfin-media-player)
 - [JetSqlConsole](https://github.com/aaron-reeves/JetSqlConsole)
 - [kdeconnect-kde](https://github.com/KDE/kdeconnect-kde)
 - [kdenlive](https://github.com/KDE/kdenlive)
 - [kepka](https://github.com/procxx/kepka)
+- [KikoPlay](https://github.com/KikoPlayProject/KikoPlay)
 - [kiwix-desktop](https://github.com/kiwix/kiwix-desktop)
 - [kotatogram-desktop](https://github.com/kotatogram/kotatogram-desktop)
 - [krita](https://github.com/KDE/krita)
 - [kylin-ipmsg](https://github.com/UbuntuKylin/kylin-ipmsg)
 - [LANDrop](https://github.com/LANDrop/LANDrop)
+- [LANMessenger](https://github.com/lanmessenger/lanmessenger)
 - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
 - [LeoCAD](https://github.com/leozide/leocad) - https://www.leocad.org/
 - [liteide](https://github.com/visualfc/liteide)
 - [lximage-qt](https://github.com/lxqt/lximage-qt)
 - [mixxx](https://github.com/mixxxdj/mixxx)
+- [mne-cpp](https://github.com/mne-tools/mne-cpp)
 - [moonlight-qt](https://github.com/moonlight-stream/moonlight-qt)
+- [mous](https://github.com/bsdelf/mous)
 - [Nauz-File-Detector](https://github.com/horsicq/Nauz-File-Detector)
 - [NeteaseMusic](https://github.com/sonichy/NeteaseMusic)
 - [nfc-laboratory](https://github.com/josevcm/nfc-laboratory)
@@ -63,6 +69,7 @@ Applications:
 - [pcmanfm-qt](https://github.com/lxqt/pcmanfm-qt)
 - [PDBRipper](https://github.com/horsicq/PDBRipper)
 - [photoflare](https://github.com/PhotoFlare/photoflare)
+- [photoquick](https://github.com/ksharindam/photoquick)
 - [pineapple-pictures](https://github.com/BLumia/pineapple-pictures)
 - [plasma-nm](https://github.com/KDE/plasma-nm)
 - [plex-media-player](https://github.com/plexinc/plex-media-player)
@@ -76,6 +83,7 @@ Applications:
 - [QProtoView](https://github.com/pezy/QProtoView)
 - [QSanguosha](https://github.com/Mogara/QSanguosha)
 - [QtAV](https://github.com/wang-bin/QtAV)
+- [QtBibleViewer](https://github.com/damian-dz/QtBibleViewer)
 - [qtfm](https://github.com/rodlie/qtfm)
 - [QtHashSum](https://github.com/fffaraz/QtHashSum)
 - [QtScrcpy](https://github.com/barry-ran/QtScrcpy)
@@ -96,6 +104,7 @@ Applications:
 - [screenlocker](https://github.com/cutefishos/screenlocker)
 - [seafile-client](https://github.com/haiwen/seafile-client)
 - [Seer](https://github.com/epasveer/seer)
+- [shotcut](https://github.com/mltframework/shotcut)
 - [SmtpClient-for-Qt](https://github.com/bluetiger9/SmtpClient-for-Qt)
 - [sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)
 - [subsurface](https://github.com/subsurface/subsurface)
@@ -124,6 +133,8 @@ Libraries:
 
 - [framelesshelper](https://github.com/wangwenx190/framelesshelper)
 
+- [JKQtPlotter](https://github.com/jkriege2/JKQtPlotter)
+
 - [kconfigwidgets](https://github.com/KDE/kconfigwidgets)
 
 - [KDDockWidgets](https://github.com/KDAB/KDDockWidgets)
@@ -146,6 +157,8 @@ Libraries:
 
 - [qca](https://github.com/KDE/qca)
 
+- [QCefView](https://github.com/CefView/QCefView)
+
 - [QCefWidget](https://github.com/winsoft666/QCefWidget)
 
 - [QCustomPlot](https://www.qcustomplot.com/)
@@ -163,17 +176,29 @@ Libraries:
 
 - [QNanoPainter](https://github.com/QUItCoding/qnanopainter)
 
+- [QSkinny](https://github.com/uwerat/qskinny)
+
+- [Qt-Advanced-Docking-System](https://github.com/githubuser0xFFFF/Qt-Advanced-Docking-System)
+
 - [qtcompress](https://github.com/nezticle/qtcompress)
 
 - [Qt-FramelessWindow](https://github.com/winsoft666/Qt-FramelessWindow)
 
 - [qt-material-widgets](https://github.com/laserpants/qt-material-widgets)
 
+- [Qt-Nice-Frameless-Window](https://github.com/Bringer-of-Light/Qt-Nice-Frameless-Window)
+
+  - [KikoPlay](https://github.com/KikoPlayProject/KikoPlay)
+
 - [Qt-Secret](https://github.com/QuasarApp/Qt-Secret)
 
 - [Qt7z](https://github.com/kanryu/quickviewer/tree/master/Qt7z/Qt7z)
 
 - [QtBigInt](https://github.com/QuasarApp/QtBigInt)
+
+- [qtorm](https://github.com/steckdenis/qtorm)
+
+- [qtprotobuf](https://github.com/semlanik/qtprotobuf)
 
 - [QtSingleApplication](https://github.com/kiwix/kiwix-desktop/tree/2.2.1/subprojects/QtSingleApplication)
   
@@ -183,6 +208,8 @@ Libraries:
 - [QuasarApp Heart](https://github.com/QuasarApp/Heart)
 
 - Qwt
+
+  - [qwt-mml-dev](https://github.com/uwerat/qwt-mml-dev) 
 
   - [sa](https://github.com/czyt1988/sa)
 
@@ -203,6 +230,16 @@ Libraries:
 QML Libraries:
 
 - [QMLLoginView](https://github.com/QuasarApp/QMLLoginView)
+
+Charting:
+
+- [Chart.qml](https://github.com/qyvlik/Chart.qml): Chart.qml like Chart.js
+
+- [JKQtPlotter](https://github.com/jkriege2/JKQtPlotter)
+
+- Qwt
+
+- QCustomPlot
 
 Tools:
 

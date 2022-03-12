@@ -1,5 +1,7 @@
 https://github.com/listen1/listen1_desktop
 
+https://github.com/zonemeen/musicn
+
 https://github.com/0xHJK/music-dl
 
 https://github.com/darknessomi/musicbox
