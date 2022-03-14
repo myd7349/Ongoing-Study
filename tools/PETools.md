@@ -20,8 +20,13 @@
 
 - [Detect-It-Easy](https://github.com/horsicq/Detect-It-Easy)
 
+- editbin
+
+  - [为 .NET Core / Framework 程序开启大内存感知（LargeAddressAware），使 32 位程序支持最多 4GB 的用户空间内存](https://blog.walterlv.com/post/how-to-enable-large-address-aware-for-net-apps.html)
+    > editbin /largeaddressaware xxx.exe
+
 - Entropy
-  
+
   - https://github.com/caj2pdf/caj-convert/issues/1#issuecomment-881995683
 
 - [Explorer Suite](https://ntcore.com/?page_id=388)
@@ -31,6 +36,10 @@
 - [ImHex](https://github.com/WerWolv/ImHex)
 
 - [libpeconv](https://github.com/hasherezade/libpeconv)
+
+- [NSubsys](https://github.com/jmacato/NSubsys)
+
+  - [dotnet core 通过修改文件头的方式隐藏控制台窗口](https://blog.lindexi.com/post/dotnet-core-%E9%80%9A%E8%BF%87%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%A4%B4%E7%9A%84%E6%96%B9%E5%BC%8F%E9%9A%90%E8%97%8F%E6%8E%A7%E5%88%B6%E5%8F%B0%E7%AA%97%E5%8F%A3.html)
 
 - [pecheck.py](https://blog.didierstevens.com/2018/06/12/update-pecheck-py-version-0-7-3/)
   
@@ -67,6 +76,8 @@
 - [raw_pdb](https://github.com/MolecularMatters/raw_pdb)
 
 - [resym](https://github.com/ergrelet/resym)
+
+- [symreader-converter](https://github.com/dotnet/symreader-converter)
 
 - [GacUI Demo：PDB Viewer（分析pdb文件并获取C++类声明的详细内容）](http://www.cppblog.com/vczh/archive/2012/01/11/163200.html)
 

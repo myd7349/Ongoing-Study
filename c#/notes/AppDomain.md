@@ -27,3 +27,5 @@
 >     return ayResult;
 > }
 > ```
+
+https://github.com/chocolatey/ChocolateyGUI/blob/1.0.0/Source/ChocolateyGui/App.xaml.cs#L36-L94

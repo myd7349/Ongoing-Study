@@ -12,3 +12,6 @@ Projects using WiXToolset:
 * [usbipd-win](https://github.com/dorssel/usbipd-win)
 * [WinMerge](https://github.com/WinMerge/winmerge/tree/master/Installer)
 
+Blogs:
+
+- [WiX Toolset 安装包制作入门教程（目录篇）](https://blog.walterlv.com/post/getting-started-with-wix-toolset) - [blog](https://github.com/walterlv/walterlv.github.io)

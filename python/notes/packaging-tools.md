@@ -81,3 +81,5 @@ https://github.com/scikit-build/scikit-build
 py2applet
 
 - [syncplay/buildPy2app.py at master · Syncplay/syncplay · GitHub](https://github.com/Syncplay/syncplay/blob/master/buildPy2app.py)
+
+https://github.com/pypa/cibuildwheel

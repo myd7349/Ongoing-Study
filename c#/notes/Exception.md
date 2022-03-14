@@ -121,3 +121,10 @@
 
    > Use grammatically correct error messages, **including ending  punctuation**. Each sentence in a description string of an exception  should end in a period. For example, "The log table has overflowed.”  would be an appropriate description string.
 
+3. [一文看懂 .NET 的异常处理机制、原则以及最佳实践](https://blog.walterlv.com/post/dotnet-exception.html)
+
+4. WPF global exceptions handling
+
+- [Globally catch exceptions in a WPF application?](https://stackoverflow.com/questions/793100/globally-catch-exceptions-in-a-wpf-application)
+
+- [WPF global exception handler](https://stackoverflow.com/questions/1472498/wpf-global-exception-handler)

@@ -156,6 +156,8 @@
     - [TCLAP](http://tclap.sourceforge.net/)
       
       - https://github.com/BYVoid/OpenCC/blob/master/src/tools/CommandLine.cpp
+
+      - https://github.com/Inria-Asclepios/LCC-LogDemons
       
       - [CLAP](https://www.cs.bgu.ac.il/~cgproj/CLAP/)
 

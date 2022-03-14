@@ -1,4 +1,5 @@
 - [dnSpy](https://github.com/dnSpyex/dnSpy)
+  - [支持 dotnet 6 的 dnSpy 神器版本](https://blog.lindexi.com/post/%E6%94%AF%E6%8C%81-dotnet-6-%E7%9A%84-dnSpy-%E7%A5%9E%E5%99%A8%E7%89%88%E6%9C%AC.html) 
 - dotPeek
 - [ExtremeDumper](https://github.com/wwh1004/ExtremeDumper)
 - [Iced](https://github.com/icedland/iced)

@@ -11,3 +11,7 @@ https://github.com/libvips/libvips
 [dcm2niix](https://github.com/rordenlab/dcm2niix)
 
 - [mne-python](https://github.com/mne-tools/mne-python)
+
+[qtdcm](https://github.com/medInria/qtdcm_archived)
+
+[qtdcm](https://github.com/qtdcm/qtdcm)

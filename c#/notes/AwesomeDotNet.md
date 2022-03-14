@@ -17,6 +17,10 @@
 
 - [TorchSharp](https://github.com/dotnet/TorchSharp)
 
+### Algorithmn
+
+- [.NET-Big-O-Algorithm-Complexity-Cheat-Sheet](https://github.com/RehanSaeed/.NET-Big-O-Algorithm-Complexity-Cheat-Sheet)
+
 ### Archive
 
 - [7z.Libs](https://github.com/3F/7z.Libs)
@@ -51,7 +55,13 @@
 
 ### ASP.NET
 
+- [abp](https://github.com/abpframework/abp)
+
 - [dotvvm](https://github.com/riganti/dotvvm)
+
+- [FastEndpoints](https://github.com/dj-nitehawk/FastEndpoints)
+
+- [Ooui](https://github.com/praeclarum/Ooui)
 
 - [OrchardCore](https://github.com/OrchardCMS/OrchardCore)
 
@@ -60,6 +70,10 @@
   - [JabbR](https://github.com/JabbR/JabbR)
 
 ### Attributes
+
+- [Fody.PropertyChanged](https://github.com/Fody/PropertyChanged)
+
+  - [C# WPF UI Tutorials: 03 - View Model MVVM Basics](https://www.youtube.com/watch?v=U2ZvZwDZmJU)
 
 - [Generator.Equals](https://github.com/diegofrata/Generator.Equals)
   
@@ -94,6 +108,12 @@
 - [NetCoreAudio](https://github.com/mobiletechtracker/NetCoreAudio)
 
 - [NLayer](https://github.com/naudio/NLayer)
+
+- System.Speech.Synthesis
+
+  - [计算照片的面积（WPF篇）](https://www.cnblogs.com/tcjiaan/p/5077863.html)
+    > SpeechSynthesizer symthedizer = new SpeechSynthesizer();
+    > symthedizer.Speak(msg);
 
 - [terrafx](https://github.com/terrafx/terrafx)
 
@@ -175,6 +195,10 @@
 
 - [Utility.CommandLine.Arguments](https://github.com/jpdillingham/Utility.CommandLine.Arguments)
 
+### Clipboard
+
+- [TextCopy](https://github.com/CopyText/TextCopy)
+
 ### Compiler
 
 - [FastExpressionCompiler](https://github.com/dadhi/FastExpressionCompiler)
@@ -229,7 +253,9 @@
 
 - [DynamicDataDisplay](https://github.com/dotnetprojects/DynamicDataDisplay): WPF
   - [PingMonitor](https://github.com/kfstorm/PingMonitor)
-  
+
+- [Helix Toolkit](https://github.com/helix-toolkit/helix-toolkit)
+
 - [InteractiveDataDisplay.WPF](https://github.com/microsoft/InteractiveDataDisplay.WPF)
   - [Real-time Line charts with WPF and Dynamic Data Display](https://www.mesta-automation.com/real-time-line-charts-with-wpf-and-dynamic-data-display/) - [code](https://github.com/mesta1/DynamicDataDisplay-example)
   
@@ -274,7 +300,8 @@
   
 - [WriteableBitmapEx](https://github.com/reneschulte/WriteableBitmapEx): WPF
   - [WPF charting/visualization of realtime data](https://stackoverflow.com/questions/2517318/wpf-charting-visualization-of-realtime-data)
-  
+  - https://github.com/walterlv/walterlv.github.io/blob/master/_posts/2019/2019-10-17-wpf-high-performance-bitmap-rendering.md
+
 - [XPlot](https://github.com/fslaborg/XPlot/)
 - [An Introduction to DataFrame](https://devblogs.microsoft.com/dotnet/an-introduction-to-dataframe/)
   
@@ -453,6 +480,10 @@
 
 - [GameOverlay.Net](https://github.com/michel-pi/GameOverlay.Net)
 
+- [KGySoft.Drawing](https://github.com/koszeggy/KGySoft.Drawing)
+
+  - [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)
+
 - [Microsoft.Maui.Graphics](https://github.com/dotnet/Microsoft.Maui.Graphics)
 
 - [NGraphics](https://github.com/praeclarum/NGraphics)
@@ -464,6 +495,8 @@
 - SharpDX
 
   - [GameOverlay.Net](https://github.com/michel-pi/GameOverlay.Net)
+
+- [SharpVectors](https://github.com/ElinamLLC/SharpVectors)
 
 - [SkiaSharp](https://github.com/mono/SkiaSharp)
 
@@ -489,6 +522,8 @@
 
 ### GUI
 
+- [Gir.Core](https://github.com/gircore/gir.core)
+
 - GTK#
   
   - [Pinta](https://github.com/PintaProject/Pinta)
@@ -510,6 +545,10 @@
 ### Hashing
 
 - [Crc32.NET](https://github.com/force-net/Crc32.NET)
+
+### Hook
+
+- [CallbackOnCollectedDelegate in globalKeyboardHook was detected](https://stackoverflow.com/questions/9957544/callbackoncollecteddelegate-in-globalkeyboardhook-was-detected/9957678#9957678)
 
 ### HotKey
 
@@ -595,12 +634,16 @@
 
 ### IPC
 
+- [dotnetCampus.Ipc](https://github.com/dotnet-campus/dotnetCampus.Ipc)
 - [HandyIpc](https://github.com/HandyOrg/HandyIpc)
+- [IpcServiceFramework](https://github.com/jacqueskang/IpcServiceFramework)
 - [Notepad2e/src/Extension/IPC](https://github.com/ProgerXP/Notepad2e/tree/master/src/Extension/IPC)
 
 ##### RPC
 
 - [MagicOnion](https://github.com/Cysharp/MagicOnion)
+
+- [ServiceModel.Grpc](https://github.com/max-ieremenko/ServiceModel.Grpc)
 
 ### JSON
 
@@ -685,6 +728,18 @@
 
 - [Orc.LicenseManager](https://github.com/WildGums/Orc.LicenseManager)
 
+- [C# 获取 PC 序列号](https://blog.lindexi.com/post/C-%E8%8E%B7%E5%8F%96-PC-%E5%BA%8F%E5%88%97%E5%8F%B7.html)
+
+### Localization
+
+- https://github.com/wmjordan/PDFPatcher/issues/12
+
+- https://github.com/chocolatey/ChocolateyGUI/blob/1.0.0/Source/ChocolateyGui.Common/Utilities/TranslationSource.cs
+
+- https://github.com/ppy/osu-localisation-analyser
+
+- https://github.com/NickeManarin/ScreenToGif/blob/master/LOCALIZATION.md
+
 ### Logging
 
 - [Castel.Core](https://github.com/castleproject/Core)
@@ -705,7 +760,9 @@
   - [greenshot](https://github.com/greenshot/greenshot)
   
   - [Quicker](https://github.com/cuiliang/Quicker)
-  
+
+  - [sentinel](https://github.com/yarseyah/sentinel)
+
   - [winsw](https://github.com/winsw/winsw)
 
 - [LogViewer](https://github.com/WildGums/LogViewer)
@@ -725,6 +782,8 @@
     - [Lively Wallpaper](https://github.com/rocksdanister/lively)
   
   - [NlogViewer](https://github.com/erizet/NlogViewer): NlogViewer is a simple WPF-control to show NLog-logs.
+
+  - [sentinel](https://github.com/yarseyah/sentinel)
 
 - [serilog](https://github.com/serilog/serilog)
   
@@ -782,6 +841,10 @@
   
   - [QuickInfo](https://github.com/KirillOsenkov/QuickInfo/blob/dce4fcb4adc62abed898826abdb48998aed1f4b3/src/QuickInfo/Processors/Math.cs#L2)
 
+- [MathSharp](https://github.com/john-h-k/MathSharp)
+
+  - [开源项目](https://blog.lindexi.com/post/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE.html)
+
 - [NCalc](https://github.com/sheetsync/NCalc)
   
   - [Is there a string math evaluator in .NET?](https://stackoverflow.com/questions/355062/is-there-a-string-math-evaluator-in-net)
@@ -793,6 +856,10 @@
 - [NonLinearEquationsSolver](https://github.com/EduardBargues/NonLinearEquationsSolver)
 
 - [Numpy.NET](https://github.com/SciSharp/Numpy.NET)
+
+- System.Data.DataTable.Compute
+
+  - [Basic-Calculator](https://github.com/PedramElmi/Basic-Calculator)
 
 ### Memory Management
 
@@ -813,8 +880,12 @@
 ### Networking
 
 - [Ben.Http](https://github.com/benaadams/Ben.Http)
+- [dotnetCampus.FileDownloader](https://github.com/dotnet-campus/dotnetCampus.FileDownloader)
+- [dotnetCampus.P2PFileShare](https://github.com/dotnet-campus/dotnetCampus.P2PFileShare)
 - [Downloader](https://github.com/bezzad/Downloader)
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+- [Flurl](https://github.com/tmenier/Flurl)
+  - https://blog.lindexi.com/post/WPF-%E5%BC%80%E5%8F%91.html
 - [GameServer](https://github.com/LeagueSandbox/GameServer)
 - [KCP](https://github.com/KumoKyaku/KCP)
 - [MassTransit](https://github.com/MassTransit/MassTransit)
@@ -828,6 +899,7 @@
   - C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Rebex.Net.ProxySocket.dll
   - C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Rebex.Net.SecureSocket.dll
   - C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Rebex.Net.Sftp.dll
+- [Replicant](https://github.com/SimonCropp/Replicant)
 - [RestSharp](https://github.com/restsharp/RestSharp)
 - [RiptideNetworking](https://github.com/tom-weiland/RiptideNetworking)
 - [simple-http](https://github.com/dajuric/simple-http)
@@ -892,6 +964,8 @@
 
 - [DotNetCorePlugins](https://github.com/natemcmaster/DotNetCorePlugins)
 - [Greenshot Plugins](https://github.com/greenshot/greenshot/tree/release/1.3/src)
+- Paint.NET Plugin System
+  - https://github.com/iOrange/QoiFileTypeNet 
 - [Prise](https://github.com/merken/Prise)
 - [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
 - [QoiFileTypeNet](https://github.com/iOrange/QoiFileTypeNet)
@@ -902,6 +976,8 @@
 - [Wox.Plugin](https://github.com/Wox-launcher/Wox/tree/master/Wox.Plugin)
 
 ### Profiling
+
+- [.NET-Big-O-Algorithm-Complexity-Cheat-Sheet](https://github.com/RehanSaeed/.NET-Big-O-Algorithm-Complexity-Cheat-Sheet)
 
 - [MiniProfiler](https://miniprofiler.com/)
 
@@ -928,6 +1004,8 @@
   - [ReactiveUI.Samples](https://github.com/reactiveui/ReactiveUI.Samples) 
 
 ### Reflection
+
+- [dnlib](https://github.com/0xd4d/dnlib)
 
 - [Fody](https://github.com/Fody/Fody)
 
@@ -994,6 +1072,8 @@
 - [ysoserial.net](https://github.com/pwntester/ysoserial.net)
 
 ### Static Analysis
+
+- [code-cracker](https://github.com/code-cracker/code-cracker)
 
 - [CSharpGuidelinesAnalyzer](https://github.com/bkoelman/CSharpGuidelinesAnalyzer)
 
@@ -1079,6 +1159,8 @@
 - [Tasty](https://github.com/xenial-io/Tasty)
 
 - [TestableFileSystem](https://github.com/bkoelman/TestableFileSystem)
+
+- [Verify](https://github.com/VerifyTests/Verify)
 
 - [xunit](https://github.com/xunit/xunit)
   

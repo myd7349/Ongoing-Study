@@ -1,5 +1,6 @@
 https://github.com/dotnet/command-line-api
 
+- https://docs.microsoft.com/en-us/dotnet/standard/commandline/
 - https://github.com/wieslawsoltes/Core2D/blob/master/src/Core2D.Desktop/Program.cs
 - https://github.com/Bililive/BililiveRecorder/blob/dev-1.3/BililiveRecorder.Cli/Program.cs
 - https://github.com/shadowsocks/shadowsocks-windows/blob/main/Shadowsocks.CLI/Program.cs

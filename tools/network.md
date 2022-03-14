@@ -58,6 +58,8 @@
 
 - [networkit](https://github.com/networkit/networkit)
 
+- [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
+
 - networkQuality - macOS
 
 - nsenter

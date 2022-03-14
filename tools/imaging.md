@@ -4,23 +4,32 @@
 - [digiKam](https://www.digikam.org/)
   - [gmic-qt](https://github.com/c-koi/gmic-qt) 
 - [ExifPro](https://github.com/mikekov/ExifPro)
+- [FastStone Image Viewer](https://www.faststone.org/FSViewerDetail.htm)
+- Fotoxx
 - [geeqie](https://github.com/BestImageViewer/geeqie)
 - GIMP
   - [gmic-qt](https://github.com/c-koi/gmic-qt) 
 - [GMIC](https://github.com/dtschump/gmic)
 - [ImageJ](https://imagej.nih.gov/ij/)
-  - https://github.com/swharden/Microscopy/tree/master/useful-imageJ-scripts 
+  - https://github.com/swharden/Microscopy/tree/master/useful-imageJ-scripts
+- ImageOptim
+- InkScape
 - [jpegview](https://github.com/sylikc/jpegview)
 - [Krita](https://invent.kde.org/graphics/krita)
   - [gmic-qt](https://github.com/c-koi/gmic-qt) 
 - [Local Adaptive Binarization](https://github.com/chriswolfvision/local_adaptive_binarization)
 - [Luminar 4 免费送终身授权，基于 AI 的照片编辑器[Win/macOS] - 小众软件](https://www.appinn.com/luminar-4/)
 - [nomacs](https://github.com/nomacs/nomacs)
-- Paint.NET
+- [Paint.NET](https://www.getpaint.net/)
+  - [OpenPDN](https://github.com/rivy/OpenPDN) 
+- Photivo
 - [photoflare](https://github.com/PhotoFlare/photoflare)
 - [PhotoME](https://www.photome.de/) - [author](https://www.duttke.de/en/#projects-software-photome)
 - Photopea
 - [pineapple-pictures](https://github.com/BLumia/pineapple-pictures)
+- [Pinta](https://github.com/PintaProject/Pinta)
+- RawTherapee
+- [Retouch-Photo2-UWP](https://github.com/ysdy44/Retouch-Photo2-UWP)
 - [tev](https://github.com/Tom94/tev)
 - [tifig](https://github.com/monostream/tifig)
 - [tldraw](https://github.com/tldraw/tldraw)

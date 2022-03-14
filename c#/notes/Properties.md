@@ -56,3 +56,32 @@ https://github.com/Fody/PropertyChanged
 [Init only setters - C# 9.0 draft specifications | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-9.0/init)
 
 - [command-line-api/Option{T}.cs at 941a651515db4a3889f9f43f124281a5fffb5f81 · dotnet/command-line-api · GitHub](https://github.com/dotnet/command-line-api/blob/941a651515db4a3889f9f43f124281a5fffb5f81/src/System.CommandLine/Option%7BT%7D.cs#L68)
+
+[Raise an event whenever a property's value changed?](https://stackoverflow.com/questions/2246777/raise-an-event-whenever-a-propertys-value-changed)
+
+```csharp
+protected void OnPropertyChanged(
+    [System.Runtime.CompilerServices.CallerMemberName] string propertyName = "")
+{
+    OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+}
+
+public string ImageFullPath
+{
+    get { return imageFullPath; }
+    set
+    {
+        if (value != imageFullPath)
+        {
+            imageFullPath = value;
+            OnPropertyChanged();
+        }
+    }
+}
+```
+
+[Use of Attributes... INotifyPropertyChanged](https://stackoverflow.com/questions/1662745/use-of-attributes-inotifypropertychanged)
+
+[C# WPF UI Tutorials: 03 - View Model MVVM Basics](https://www.youtube.com/watch?v=U2ZvZwDZmJU)
+
+- [Fody.PropertyChanged](https://github.com/Fody/PropertyChanged)

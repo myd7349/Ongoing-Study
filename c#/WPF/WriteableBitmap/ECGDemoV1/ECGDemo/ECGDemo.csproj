@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\..\Common\MarshalHelper.cs" Link="MarshalHelper.cs" />
+    <Compile Include="..\..\..\..\Common\UnmanagedBuffer.cs" Link="UnmanagedBuffer.cs" />
+    <Compile Include="..\..\ECGDemoV0\ECGDemo\ECGrid.cs" Link="ECGrid.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ScottPlot" Version="4.1.48" />
+    <PackageReference Include="WriteableBitmapEx" Version="1.6.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Console\PInvoke\FakeAD\FakeAD\FakeAD.csproj" />
+  </ItemGroup>
+
+</Project>

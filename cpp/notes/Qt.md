@@ -45,8 +45,10 @@ Applications:
 - [LANMessenger](https://github.com/lanmessenger/lanmessenger)
 - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
 - [LeoCAD](https://github.com/leozide/leocad) - https://www.leocad.org/
+- [linuxdeployqt](https://github.com/probonopd/linuxdeployqt)
 - [liteide](https://github.com/visualfc/liteide)
 - [lximage-qt](https://github.com/lxqt/lximage-qt)
+- [medInria](https://github.com/medInria/medInria-public)
 - [mixxx](https://github.com/mixxxdj/mixxx)
 - [mne-cpp](https://github.com/mne-tools/mne-cpp)
 - [moonlight-qt](https://github.com/moonlight-stream/moonlight-qt)
@@ -94,6 +96,7 @@ Applications:
 - [Qv2ray](https://github.com/Qv2ray/Qv2ray)
 - [qView](https://github.com/jurplel/qView)
 - [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager)
+- [RedPanda-CPP](https://github.com/royqh1979/RedPanda-CPP)
 - [robomongo](https://github.com/Studio3T/robomongo)
 - [rosbag_editor](https://github.com/facontidavide/rosbag_editor)
 - [Rythem](https://github.com/AlloyTeam/Rythem)
@@ -128,6 +131,8 @@ Applications:
 Libraries:
 
 - [Chart.qml](https://github.com/qyvlik/Chart.qml): Chart.qml like Chart.js
+
+- [CTK](https://github.com/commontk/CTK)
 
 - [FakeVim](https://github.com/hluk/FakeVim)
 
@@ -196,6 +201,10 @@ Libraries:
 
 - [QtBigInt](https://github.com/QuasarApp/QtBigInt)
 
+- [qtdcm](https://github.com/medInria/qtdcm_archived)
+
+- [qtdcm](https://github.com/qtdcm/qtdcm)
+
 - [qtorm](https://github.com/steckdenis/qtorm)
 
 - [qtprotobuf](https://github.com/semlanik/qtprotobuf)
@@ -203,6 +212,7 @@ Libraries:
 - [QtSingleApplication](https://github.com/kiwix/kiwix-desktop/tree/2.2.1/subprojects/QtSingleApplication)
   
   - [kiwix-desktop](https://github.com/kiwix/kiwix-desktop)
+  - [medInria-public](https://github.com/medInria/medInria-public/blob/master/src/app/medInria/QSingleApplication/qtsingleapplication.h)
   - [SASM](https://github.com/Dman95/SASM)
 
 - [QuasarApp Heart](https://github.com/QuasarApp/Heart)

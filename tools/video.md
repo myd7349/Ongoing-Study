@@ -16,6 +16,7 @@
 - [shotcut](https://github.com/mltframework/shotcut)
 - [SmartTubeNext](https://github.com/yuliskov/SmartTubeNext)
 - [syncplay](https://github.com/Syncplay/syncplay)
+- [xrcap](https://github.com/catid/xrcap)
 
 Video Players:
 

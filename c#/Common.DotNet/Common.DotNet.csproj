@@ -42,9 +42,11 @@
     <Compile Include="..\Common\IniFile2.Extension.cs" Link="IniFile2.Extension.cs" />
     <Compile Include="..\Common\IntegerHelper.cs" Link="IntegerHelper.cs" />
     <Compile Include="..\Common\Kernel32.WinBase.Profile.cs" Link="Kernel32.WinBase.Profile.cs" />
+    <Compile Include="..\Common\MMTimer.cs" Link="MMTimer.cs" />
     <Compile Include="..\Common\MSVCRTHelper.cs" Link="MSVCRTHelper.cs" />
     <Compile Include="..\Common\RegistryKeyExtension.cs" Link="RegistryKeyExtension.cs" />
     <Compile Include="..\Common\StringExtension.cs" Link="StringExtension.cs" />
+    <Compile Include="..\Common\TimerQueueTimer.cs" Link="TimerQueueTimer.cs" />
   </ItemGroup>
 
   <ItemGroup>

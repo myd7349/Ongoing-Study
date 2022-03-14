@@ -15,3 +15,5 @@ https://github.com/Analogy-LogViewer/Analogy.LogViewer
 https://github.com/tstack/lnav
 
 https://github.com/warrenbuckley/Compact-Log-Format-Viewer
+
+[sentinel](https://github.com/yarseyah/sentinel)

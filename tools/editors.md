@@ -27,7 +27,9 @@ Code Editors:
 - [ImGuiColorTextEdit](https://github.com/BalazsJako/ImGuiColorTextEdit)
 
 - [kilo](https://github.com/snaptoken/kilo-src)
-  
+
+  - [kilo-tutorial](https://github.com/snaptoken/kilo-tutorial)
+
   - https://github.com/jupyter-xeus/cpp-terminal/blob/master/examples/kilo.cpp
 
 - [lapce](https://github.com/lapce/lapce)

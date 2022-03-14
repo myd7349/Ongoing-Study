@@ -23,3 +23,7 @@ https://github.com/x64dbg/PluginTemplate
 [BowPad](https://github.com/stefankueng/BowPad) supports plugins written in JScript or VBScript
 
 https://github.com/DISTRHO/DPF
+
+https://github.com/commontk/CTK/tree/master/Plugins
+
+https://github.com/medInria/medInria-public/tree/master/src/plugins

@@ -29,3 +29,7 @@ or
 https://github.com/esskar/Serialize.Linq
 
 https://github.com/WildGums/Orc.NuGetExplorer
+
+[从零开始制作 NuGet 源代码包（全面支持 .NET Core / .NET Framework / WPF 项目）](https://blog.walterlv.com/post/build-source-code-package-for-wpf-projects.html)
+
+[C#/.NET 如何创建带有本机依赖的多框架多系统 NuGet 包](https://blog.walterlv.com/post/create-a-nuget-package-with-native-dependencies.html)

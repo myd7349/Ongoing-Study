@@ -246,3 +246,7 @@
 // [High precision timers in C#](https://social.msdn.microsoft.com/Forums/en-US/822aed2d-dca0-4a8e-8130-20fab69557d2/high-precision-timers-in-c?forum=csharpgeneral)
 // https://github.com/OneDAS-Group/OneDAS-Core/blob/master/src/OneDas.Core/Engine/RtTimer.cs
 // https://github.com/xqq/libwtfdanmaku/blob/master/src/WinmmTimer.cpp
+// [How can I use CreateTimerQueueTimer to create a high resolution timer in C#?](https://stackoverflow.com/questions/1015769/how-can-i-use-createtimerqueuetimer-to-create-a-high-resolution-timer-in-c)
+// [high frequency timing .NET](https://stackoverflow.com/questions/16630238/high-frequency-timing-net)
+// [Difference between Synchronization Context and Dispatcher](https://stackoverflow.com/questions/24671883/difference-between-synchronization-context-and-dispatcher)
+// [Selecting Timer Functions](https://www.mvps.org/directx/articles/selecting_timer_functions.htm)

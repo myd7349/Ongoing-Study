@@ -20,6 +20,8 @@
 
 - StarDict
 
+- [TranslationTool](https://github.com/Kybs0/TranslationTool)
+
 - [translator](https://github.com/skywind3000/translator)
 
 - 灵格斯

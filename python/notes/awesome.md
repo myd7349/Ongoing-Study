@@ -119,6 +119,7 @@
 
 ### DSP
 
+- [pywt](https://github.com/PyWavelets/pywt)
 - [trefide](https://github.com/ikinsella/trefide)
 
 ### File System
@@ -274,6 +275,8 @@
 
 - [whatismyip](https://github.com/asweigart/whatismyip)
 
+- [wpull](https://github.com/ArchiveTeam/wpull)
+
 ### NLP
 
 - [polyglot](https://github.com/aboSamoor/polyglot)
@@ -328,11 +331,17 @@
 
 - [awesome-scientific-python](https://github.com/rossant/awesome-scientific-python)
 
+### Static Analysis
+
+- [ibis](https://github.com/ibis-project/ibis)
+
 ### Tree
 
 - [pygtrie](https://github.com/google/pygtrie)
 
 ### Unit Testing & Mocking
+
+- [klara](https://github.com/usagitoneko97/klara)
 
 - [mock](https://github.com/testing-cabal/mock)
 

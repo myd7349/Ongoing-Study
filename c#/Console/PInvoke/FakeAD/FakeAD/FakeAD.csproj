@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>FakeADManaged</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\..\Console\PInvoke\ArchitectureAwarePInvokeV1\Native.Interop\UnsafeNativeMethodsWin32.cs" Link="UnsafeNativeMethodsWin32.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="x64\fakead.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="x64\hightimer.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

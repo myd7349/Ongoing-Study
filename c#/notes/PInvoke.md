@@ -301,10 +301,33 @@ https://github.com/ericsink/SQLitePCL.raw/tree/master/src/providers
 2D array:
 
 - [How to marshal multi-dimensional arrays](https://stackoverflow.com/questions/22181509/how-to-marshal-multi-dimensional-arrays)
-
 - [Marshaling ushort[,] multidimensional array in C#](https://stackoverflow.com/questions/18607637/marshaling-ushort-multidimensional-array-in-c-sharp)
-
 - [How use pinvoke for C struct array pointer to C#](https://stackoverflow.com/questions/11968960/how-use-pinvoke-for-c-struct-array-pointer-to-c-sharp)
+
+Function pointer:
+
+- https://github.com/dahall/Vanara/blob/298ea3491436c74e87778abed00deeb7cc0e821b/PInvoke/Kernel32/ThreadPoolLegacyApiSet.cs#L21
+
+- [C# Pinvoke with C struct contains function pointer](https://stackoverflow.com/questions/20691786/c-sharp-pinvoke-with-c-struct-contains-function-pointer)
+- [Set C# callback on a C++ struct obtained via P/Invoke](https://stackoverflow.com/questions/50818345/set-c-sharp-callback-on-a-c-struct-obtained-via-p-invoke)
+- [How can I use CreateTimerQueueTimer to create a high resolution timer in C#?](https://stackoverflow.com/questions/1015769/how-can-i-use-createtimerqueuetimer-to-create-a-high-resolution-timer-in-c)
+- [Pinvoke - callback from C++, arrays passed between functions have unexpected size](https://stackoverflow.com/questions/27649794/pinvoke-callback-from-c-arrays-passed-between-functions-have-unexpected-siz)
+- [Passing a C# callback function through Interop/pinvoke](https://stackoverflow.com/questions/7970128/passing-a-c-sharp-callback-function-through-interop-pinvoke)
+- [Does a C# method need to be pinned when used as Win32 callback?](https://stackoverflow.com/questions/45786857/does-a-c-sharp-method-need-to-be-pinned-when-used-as-win32-callback)
+  - [How to: Marshal Callbacks and Delegates By Using C++ Interop](https://docs.microsoft.com/en-us/cpp/dotnet/how-to-marshal-callbacks-and-delegates-by-using-cpp-interop?redirectedfrom=MSDN&view=msvc-170) 
+- [CallbackOnCollectedDelegate in globalKeyboardHook was detected](https://stackoverflow.com/questions/9957544/callbackoncollecteddelegate-in-globalkeyboardhook-was-detected/9957678#9957678)
+- https://blog.lindexi.com/post/WPF-%E5%BC%80%E5%8F%91.html#%E9%9D%9E%E6%89%98%E7%AE%A1%E4%BD%BF%E7%94%A8%E6%89%98%E7%AE%A1%E5%A7%94%E6%89%98
+
+Array size:
+
+- [Pinvoke - callback from C++, arrays passed between functions have unexpected size](https://stackoverflow.com/questions/27649794/pinvoke-callback-from-c-arrays-passed-between-functions-have-unexpected-siz)
+- [Correct way to marshal SIZE_T*?](https://stackoverflow.com/questions/1309509/correct-way-to-marshal-size-t)
+- https://github.com/reneschulte/WriteableBitmapEx/blob/master/Source/WriteableBitmapEx.Wpf/NativeMethods.cs
+
+bool:
+
+- https://github.com/dahall/Vanara/blob/298ea3491436c74e87778abed00deeb7cc0e821b/PInvoke/Kernel32/ThreadPoolLegacyApiSet.cs#L261
+- [C# PInvoke returning invalid/wrong bool value, only when native code compiled in debug mode (OSX only)](https://stackoverflow.com/questions/51638447/c-sharp-pinvoke-returning-invalid-wrong-bool-value-only-when-native-code-compil)
 
 ### Cesium
 

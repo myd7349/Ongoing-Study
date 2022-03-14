@@ -60,6 +60,8 @@
 - [idf-installer](https://github.com/espressif/idf-installer)
 - [ViTables](https://github.com/uvemas/ViTables/blob/master/doc/develop.rst)
   - [Create a standalone Windows installer for your Python application](https://cyrille.rossant.net/create-a-standalone-windows-installer-for-your-python-application/)
+- [TranslationTool](https://github.com/Kybs0/TranslationTool)
+- [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 
 ### Advanced Installer
 
@@ -79,6 +81,8 @@
 - [NetSparkle](https://github.com/NetSparkleUpdater/NetSparkle)
 
 ### [Squirrel/Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)
+
+- [Clowd.Squirrel](https://github.com/clowd/Clowd.Squirrel)
 
 - DeepL Translate App for Windows
 
@@ -115,3 +119,9 @@
 - [0install-dotnet](https://github.com/0install/0install-dotnet): core features of Zero Install implemented in .NET.
 
 - DeepL Translate App for Windows
+
+### Linux
+
+- [linuxdeployqt](https://github.com/probonopd/linuxdeployqt)
+
+- [linuxdeploy](https://github.com/linuxdeploy/linuxdeploy)

@@ -1,0 +1,61 @@
+﻿<Window x:Class="ECGDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ECGDemo"
+        mc:Ignorable="d"
+        Title="ECG Demo" Height="450" Width="800"
+        SizeChanged="Window_SizeChanged">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+
+        <Image Name="image_" Grid.Row="0" Stretch="None" />
+
+        <StatusBar Grid.Row="1">
+            <StatusBarItem>
+                <TextBlock Text="Acquire data: " />
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Name="acquireDataTextBlock_" />
+            </StatusBarItem>
+
+            <Separator />
+
+            <StatusBarItem>
+                <TextBlock Text="Draw wave: " />
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Name="drawWaveTextBlock_" />
+            </StatusBarItem>
+
+            <Separator />
+
+            <StatusBarItem>
+                <TextBlock Text="Elapsed: " />
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Name="elapsedMsTextBlock_" />
+            </StatusBarItem>
+
+            <Separator />
+
+            <StatusBarItem>
+                <TextBlock Text="Total samples: " />
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Name="totalSamplesTextBlock_" />
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+
+
+    <!--
+    References:
+    [How do I space out the child elements of a StackPanel?](https://stackoverflow.com/questions/932510/how-do-i-space-out-the-child-elements-of-a-stackpanel)
+    https://docs.microsoft.com/en-us/dotnet/api/system.windows.controls.primitives.statusbar?view=windowsdesktop-6.0
+    -->
+</Window>

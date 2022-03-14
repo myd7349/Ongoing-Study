@@ -14,6 +14,10 @@ Applications:
 
 - [certify](https://github.com/webprofusion/certify)
 
+- [ChocolateyGUI](https://github.com/chocolatey/ChocolateyGUI)
+
+- [ClipboardViewer](https://github.com/walterlv/ClipboardViewer)
+
 - [ConvertZZ](https://github.com/flier268/ConvertZZ)
 
 - [Core2D](https://github.com/wieslawsoltes/Core2D)
@@ -23,6 +27,8 @@ Applications:
 - [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter)
 
 - [dnGrep](https://github.com/dnGrep/dnGrep)
+
+- [dotnetCampus.FileDownloader](https://github.com/dotnet-campus/dotnetCampus.FileDownloader)
 
 - [dotnetpad](https://github.com/jbe2277/dotnetpad)
 
@@ -36,6 +42,8 @@ Applications:
 
 - [FontLink-GUI](https://github.com/VaslD/FontLink-GUI)
 
+- [GeometryToolDemo](https://github.com/dotnet-campus/GeometryToolDemo)
+
 - [LightBulb](https://github.com/Tyrrrz/LightBulb): Reduces eye strain by adjusting gamma based on the current time
 
 - [live-draw](https://github.com/antfu/live-draw)
@@ -44,7 +52,11 @@ Applications:
 
 - [Magpie](https://github.com/Blinue/Magpie)
 
+- [ManipulationDemo](https://github.com/dotnet-campus/ManipulationDemo)
+
 - [MindLated](https://github.com/Sato-Isolated/MindLated)
+
+- [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 
 - [NodeNetwork](https://github.com/Wouterdek/NodeNetwork)
 
@@ -62,6 +74,8 @@ Applications:
 
 - [RoundedTB](https://github.com/torchgm/RoundedTB)
 
+- [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)
+
 - [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows)
 
 - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
@@ -73,6 +87,8 @@ Applications:
 - [SvgToXaml](https://github.com/BerndK/SvgToXaml)
 
 - [SyncTrayzor](https://github.com/canton7/SyncTrayzor)
+
+- [TranslationTool](https://github.com/Kybs0/TranslationTool)
 
 - [XstReader](https://github.com/Dijji/XstReader)
 
@@ -93,6 +109,16 @@ Libraries:
 - [Accelerider.Windows](https://github.com/Accelerider/Accelerider.Windows)
 
 - [AduSkin](https://github.com/aduskin/AduSkin)
+
+  - [AduDownload](https://github.com/dotnet-campus/dotnetCampus.FileDownloader/releases/download/AduDownload_1.0.1/AduDownload.with.FileDownloader.zip)
+
+  - [AduMusic](https://github.com/aduskin/AduMusic)
+
+  - [AduMusic-Mini](https://github.com/aduskin/AduMusic-Mini)
+
+  - [HttpTool](https://github.com/aduskin/HttpTool)
+
+  - [Shadow-FM](https://github.com/aduskin/Shadow-FM)
 
 - [Assisticant](https://github.com/michaellperry/Assisticant)
 
@@ -124,6 +150,8 @@ Libraries:
 
   - [WPF: A Simple Color Picker With Preview](https://www.codeproject.com/Articles/33001/WPF-A-Simple-Color-Picker-With-Preview)
 
+  - https://github.com/ysdy44/HSVColorPickers-Nuget-UWP
+
 - [ControlzEx](https://github.com/ControlzEx/ControlzEx)
   
   - C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2007.6001.0_neutral__8wekyb3d8bbwe\ControlzEx.dll
@@ -136,6 +164,8 @@ Libraries:
 - [DataGridFilter](https://github.com/macgile/DataGridFilter)
 
 - [Dragablz](https://github.com/ButchersBoy/Dragablz)
+
+- [Dreamland.WPF.DynamicSkin](https://github.com/Firito/Dreamland.WPF.DynamicSkin)
 
 - [Elmish.WPF](https://github.com/elmish/Elmish.WPF)
 
@@ -158,6 +188,8 @@ Libraries:
   - DeepL Translate App for Windows
   
   - [Magpie](https://github.com/Blinue/Magpie)
+
+- [GMap.NET](https://github.com/judero01col/GMap.NET)
 
 - [gong-wpf-dragdrop](https://github.com/punker76/gong-wpf-dragdrop)
   
@@ -200,7 +232,9 @@ Libraries:
 - [mvvm-dialogs](https://github.com/FantasticFiasco/mvvm-dialogs)
 
 - [MVVM Light Toolkit](https://github.com/lbugnion/mvvmlight)
-  
+
+  - [HandyControl](https://github.com/HandyOrg/HandyControl)
+
   - [NextBootOSSelector](https://github.com/takuya-takeuchi/NextBootOSSelector)
 
 - [NLogViewer](https://github.com/dojo90/NLogViewer): NlogViewer is a ui control library to visualize NLog logs
@@ -247,6 +281,8 @@ Libraries:
 
 - [ReactiveUI.Validation](https://github.com/reactiveui/ReactiveUI.Validation)
 
+- [sentinel](https://github.com/yarseyah/sentinel)
+
 - [SpicyTaco.AutoGrid](https://github.com/SpicyTaco/SpicyTaco.AutoGrid)
 
 - [Stylet](https://github.com/canton7/Stylet)
@@ -282,6 +318,8 @@ Libraries:
 - [WPFDarkTheme](https://github.com/AngryCarrot789/WPFDarkTheme)
 
 - [WpfExpressionBlendTheme](https://github.com/DanPristupov/WpfExpressionBlendTheme)
+
+- [WpfExtensions](https://github.com/DingpingZhang/WpfExtensions)
 
 - [WpfHexEditorControl](https://github.com/abbaye/WpfHexEditorControl)
 
@@ -320,6 +358,14 @@ Tools:
 
 - [Kaxaml](https://github.com/thinkpixellab/kaxaml)
 
+- Performance Profiling Tools for Windows Presentation Foundation
+
+  - [How to profile WPF 4.5 UI performance?](https://stackoverflow.com/questions/33468572/how-to-profile-wpf-4-5-ui-performance)
+
+  - [通过分析 WPF 的渲染脏区优化渲染性能](https://blog.walterlv.com/post/wpf-rendering-dirty-region.html)
+
+  - [WPF 高性能位图渲染 WriteableBitmap 及其高性能用法示例](https://blog.walterlv.com/post/wpf-high-performance-bitmap-rendering.html)
+
 - [Snoop](https://github.com/snoopwpf/snoopwpf): The WPF Spy Utility
 
 - [WpfAnalyzers](https://github.com/DotNetAnalyzers/WpfAnalyzers)
@@ -333,5 +379,7 @@ Tools:
     -  System.Windows.GlobalMouseHook
 
 Websites
+
+- [WPF Tutorial](https://wpf-tutorial.com/zh/1/%E5%85%B3%E4%BA%8Ewpf/%E4%BB%80%E4%B9%88%E6%98%AFwpf/)
 
 - [WPFpedia](http://www.wpfpedia.com/)

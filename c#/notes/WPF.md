@@ -83,3 +83,58 @@ MVVM
 >Avatar = BitmapFrame.Create(new Uri(...));
 
 [Inserting Images to a Grid in Code Behind](https://stackoverflow.com/questions/24749782/inserting-images-to-a-grid-in-code-behind)
+
+[How to change StartupUri of WPF Application?](https://stackoverflow.com/questions/1945843/how-to-change-startupuri-of-wpf-application)
+
+[wpf datagrid vs listbox](https://stackoverflow.com/questions/3211057/wpf-datagrid-vs-listbox)
+
+[How to: Resize Rows with a GridSplitter](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/controls/how-to-resize-rows-with-a-gridsplitter?view=netframeworkdesktop-4.8)
+
+[How do I space out the child elements of a StackPanel?](https://stackoverflow.com/questions/932510/how-do-i-space-out-the-child-elements-of-a-stackpanel)
+
+[Raise an event whenever a property's value changed?](https://stackoverflow.com/questions/2246777/raise-an-event-whenever-a-propertys-value-changed)
+
+```csharp
+protected void OnPropertyChanged(
+    [System.Runtime.CompilerServices.CallerMemberName] string propertyName = "")
+{
+    OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+}
+
+public string ImageFullPath
+{
+    get { return imageFullPath; }
+    set
+    {
+        if (value != imageFullPath)
+        {
+            imageFullPath = value;
+            OnPropertyChanged();
+        }
+    }
+}
+```
+
+[Use of Attributes... INotifyPropertyChanged](https://stackoverflow.com/questions/1662745/use-of-attributes-inotifypropertychanged)
+
+[C# WPF UI Tutorials: 03 - View Model MVVM Basics](https://www.youtube.com/watch?v=U2ZvZwDZmJU)
+
+- [Fody.PropertyChanged](https://github.com/Fody/PropertyChanged)
+
+[Difference between Synchronization Context and Dispatcher](https://stackoverflow.com/questions/24671883/difference-between-synchronization-context-and-dispatcher)
+
+[In WPF, is there a "render complete" event?](https://stackoverflow.com/questions/52162647/in-wpf-is-there-a-render-complete-event)
+
+##### Real Time rendering
+
+- WriteableBitmap
+
+  - [WPF - Rendering "Real Time" Best Practice](https://stackoverflow.com/questions/23854176/wpf-rendering-real-time-best-practice)
+
+- CompositionTarget.Rendering
+
+  - [How to: Render on a Per Frame Interval Using CompositionTarget](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/graphics-multimedia/how-to-render-on-a-per-frame-interval-using-compositiontarget?view=netframeworkdesktop-4.8)
+  - [CompositionTarget.Rendering Event](https://docs.microsoft.com/en-us/dotnet/api/system.windows.media.compositiontarget.rendering?view=windowsdesktop-6.0)
+  - [What can I do inside CompositionTarget.Rendering?](https://stackoverflow.com/questions/18353225/what-can-i-do-inside-compositiontarget-rendering)
+
+  - [Why is Frame Rate in WPF Irregular and Not Limited To Monitor Refresh?](https://stackoverflow.com/questions/5812384/why-is-frame-rate-in-wpf-irregular-and-not-limited-to-monitor-refresh)

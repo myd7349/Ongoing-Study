@@ -2,6 +2,10 @@
 
 [Token authentication requirements for Git operations | The GitHub Blog](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/)
 
+### Books
+
+- [GitHub 漫游指南](https://github.com/phodal/github)
+
 ### Browser Extensions
 
 - [Gitako](https://github.com/EnixCoda/Gitako)
@@ -60,6 +64,8 @@ https://github.com/lukka/run-vcpkg/issues/66
 Awesome README.md:
 
 - [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-github-profile-readme)
+
+- https://github.com/RehanSaeed
 
 - https://github.com/ethomson
 
@@ -163,3 +169,5 @@ https://patch-diff.githubusercontent.com/raw/zeromq/libzmq/pull/4310.diff
 ```
 
 https://github.com/aaossa/git-activity
+
+https://github.com/brminnick/GitTrends

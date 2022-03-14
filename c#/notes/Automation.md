@@ -175,3 +175,8 @@ https://github.com/2gis/Winium
 
 https://github.com/2gis/Winium.Desktop
 
+### Puppeteer
+
+- [puppeteer-sharp](https://github.com/hardkoded/puppeteer-sharp)
+
+- [Verify.HeadlessBrowsers](https://github.com/VerifyTests/Verify.HeadlessBrowsers)

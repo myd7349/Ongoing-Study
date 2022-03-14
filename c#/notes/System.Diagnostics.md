@@ -226,3 +226,19 @@ public static void OpenWithDefaultProgram(string path)
 }
 ```
 
+[JpegBitmapEncoder and TLP finally got married](https://modosansreves-coding.blogspot.com/2011/12/jpegbitmapencoder-and-tlp-finally-got.html)
+
+```csharp
+static void Main(string[] args)
+{
+    new Program().Run();
+
+    if (Debugger.IsAttached)
+    {
+        Console.WriteLine("Press [Enter] to exit...");
+        Console.ReadLine();
+    }
+}
+```
+
+[Trying to determine FPS in a C# WPF program](https://stackoverflow.com/questions/4149906/trying-to-determine-fps-in-a-c-sharp-wpf-program)

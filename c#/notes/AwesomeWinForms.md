@@ -15,6 +15,7 @@ Applications:
 - [LessMsi](https://github.com/activescott/lessmsi/tree/master/src/LessMsi.Gui)
 - [mooc-downloader](https://github.com/xixixixixiao/mooc-downloader)
 - [naps2](https://github.com/cyanfish/naps2)
+- [nbt-studio](https://github.com/tryashtar/nbt-studio)
 - [NodeEditorWinforms](https://github.com/komorra/NodeEditorWinforms)
 - [nvidiaProfileInspector](https://github.com/Orbmu2k/nvidiaProfileInspector)
 - [OnTopReplica](https://github.com/LorenzCK/OnTopReplica)
@@ -58,6 +59,8 @@ Libraries:
   - DeepL Translate App for Windows
   
   - [Magpie](https://github.com/Blinue/Magpie)
+
+- [GMap.NET](https://github.com/judero01col/GMap.NET)
 
 - [groupcontrols](https://github.com/dahall/groupcontrols)
 

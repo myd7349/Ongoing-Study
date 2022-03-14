@@ -143,3 +143,5 @@ malloc
 - https://github.com/xqq/libaribcaption/blob/master/src/base/aligned_alloc.cpp
 - [谈复杂软件低概率问题定位和复现](https://zhuanlan.zhihu.com/p/336822415)
   > 锁重入问题：申请锁之后再申请同样的锁，尤其信号处理函数调用不可重入函数如malloc
+
+https://github.com/google-research/automemcpy

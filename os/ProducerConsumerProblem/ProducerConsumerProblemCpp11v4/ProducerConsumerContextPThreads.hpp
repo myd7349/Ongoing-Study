@@ -110,3 +110,4 @@ private:
 // https://linux.die.net/man/3/pthread_mutex_unlock
 // https://linux.die.net/man/3/pthread_mutex_destroy
 // https://stackoverflow.com/questions/17169697/how-to-correctly-destroy-pthread-mutex
+// [线程的同步与互斥（生产者与消费者模型）](https://blog.csdn.net/Miss_Bread/article/details/78299239?spm=1001.2014.3001.5501)

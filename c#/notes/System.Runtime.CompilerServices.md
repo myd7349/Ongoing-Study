@@ -48,3 +48,28 @@ ILSpy+System.Core.dll:
 > [assembly: DefaultDllImportSearchPaths()]
 > [assembly: TypeForwardedTo(typeof(Action))]
 > ```
+
+[Raise an event whenever a property's value changed?](https://stackoverflow.com/questions/2246777/raise-an-event-whenever-a-propertys-value-changed)
+
+```csharp
+protected void OnPropertyChanged(
+    [System.Runtime.CompilerServices.CallerMemberName] string propertyName = "")
+{
+    OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+}
+
+public string ImageFullPath
+{
+    get { return imageFullPath; }
+    set
+    {
+        if (value != imageFullPath)
+        {
+            imageFullPath = value;
+            OnPropertyChanged();
+        }
+    }
+}
+```
+
+[Use of Attributes... INotifyPropertyChanged](https://stackoverflow.com/questions/1662745/use-of-attributes-inotifypropertychanged)

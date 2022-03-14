@@ -62,3 +62,16 @@ namespace Common
 // [OngoingStudy/c#/Console/GetApplicationPath]
 // https://stackoverflow.com/questions/616584/how-do-i-get-the-name-of-the-current-executable-in-c
 // https://github.com/Fody/MethodTimer
+// [JpegBitmapEncoder and TLP finally got married](https://modosansreves-coding.blogspot.com/2011/12/jpegbitmapencoder-and-tlp-finally-got.html)
+/*
+    static void Main(string[] args)
+    {
+        new Program().Run();
+
+        if (Debugger.IsAttached)
+        {
+            Console.WriteLine("Press [Enter] to exit...");
+            Console.ReadLine();
+        }
+    }
+*/

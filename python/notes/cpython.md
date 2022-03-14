@@ -14,6 +14,7 @@ Projects that using Python C API to create bindings:
 - [mutf8](https://github.com/TkTech/mutf8)
 - [python-blosc](https://github.com/Blosc/python-blosc)
 - [sendmsg](https://github.com/slideinc/sendmsg)
+- [bfloat16](https://github.com/GreenWaves-Technologies/bfloat16)
 
 Books:
 

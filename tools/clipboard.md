@@ -1,1 +1,3 @@
+- [ClipboardViewer](https://github.com/walterlv/ClipboardViewer)
 - [CopyQ](https://github.com/hluk/CopyQ)
+- [TextCopy](https://github.com/CopyText/TextCopy)

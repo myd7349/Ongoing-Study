@@ -81,3 +81,7 @@
 * [gophers](https://github.com/egonelbre/gophers)
 
 * [Pichon](https://icons8.com/app/windows)
+
+* [iconify](https://github.com/iconify/iconify)
+
+  * [icones](https://github.com/antfu/icones)

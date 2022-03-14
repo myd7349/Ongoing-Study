@@ -199,6 +199,8 @@
 
 - [GDevelop](https://github.com/4ian/GDevelop)
 
+- [ObEngine](https://github.com/ObEngine/ObEngine)
+
 - [recastnavigation](https://github.com/recastnavigation/recastnavigation)
 
 - [SmallGameEngine](https://github.com/eXpl0it3r/SmallGameEngine)
@@ -561,6 +563,8 @@
 
 - [grpcdump](https://github.com/jschwinger233/grpcdump)
 
+- [nark-rpc](https://github.com/rockeet/nark-rpc)
+
 - [XmlRpc4Win](https://github.com/drtimcooper/XmlRpc4Win)
 
   - [MPC-HC](https://github.com/mpc-hc/mpc-hc)
@@ -598,6 +602,8 @@
 
 - [MetaStuff](https://github.com/eliasdaler/MetaStuff)
 
+- [nark-serialization](https://github.com/rockeet/nark-serialization)
+
 - [Protobuf lightweight](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/515.43.04/src/nvidia/inc/lib/protobuf/prb.h)
 
 - [zpp_bits](https://github.com/eyalz800/zpp_bits)
@@ -629,8 +635,15 @@
 - [kiss-templates](https://github.com/rbock/kiss-templates)
 - [Mustache](https://github.com/kainjow/Mustache)
 
+### Tensor
+
+- [DataFrame](https://github.com/hosseinmoein/DataFrame)
+
+- [tiledarray](https://github.com/ValeevGroup/tiledarray)
+
 ### Unicode
 
+- [Boost.nowide](https://github.com/boostorg/nowide)
 - [cpp-unicodelib](https://github.com/yhirose/cpp-unicodelib)
 
 ### Unit Testing

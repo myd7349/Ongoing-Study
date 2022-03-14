@@ -10,6 +10,8 @@
 
   - [dcm2niix](https://github.com/rordenlab/dcm2niix)
 
+- [zziplib](https://github.com/gdraheim/zziplib)
+
 ### CLI
 
 - [isocline](https://github.com/daanx/isocline)
@@ -86,7 +88,15 @@
 
 ### Imaging
 
+- [bcdec](https://github.com/iOrange/bcdec)
+
 - [nanosvg](https://github.com/memononen/nanosvg)
+
+- [qoi](https://github.com/phoboslab/qoi)
+
+  - [QoiFileTypeNet](https://github.com/iOrange/QoiFileTypeNet)
+
+- [Zpng](https://github.com/catid/Zpng)
 
 ### IO
 
@@ -126,6 +136,7 @@
 
 - [dnsmasq](https://github.com/infinet/dnsmasq)
 - [ngtcp2](https://github.com/ngtcp2/ngtcp2)
+- [WLANOptimizer](https://github.com/catid/WLANOptimizer)
 
 ### OOP
 
@@ -134,6 +145,10 @@
 ### PDF
 
 - [PDFio](https://github.com/michaelrsweet/pdfio)
+
+### Scripting
+
+- [umka-lang](https://github.com/vtereshkov/umka-lang)
 
 ### Serialization
 

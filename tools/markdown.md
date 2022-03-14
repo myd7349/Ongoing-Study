@@ -73,6 +73,7 @@ Libraries:
 Tools:
 
 - [htmldoc](https://github.com/michaelrsweet/htmldoc)
+- [lint-md](https://github.com/lint-md/lint-md)
 - [markdown-it-title](https://github.com/valeriangalliat/markdown-it-title)
 - [markdownlint](https://github.com/DavidAnson/markdownlint)
   - [vscode-markdownlint](https://github.com/DavidAnson/vscode-markdownlint)
