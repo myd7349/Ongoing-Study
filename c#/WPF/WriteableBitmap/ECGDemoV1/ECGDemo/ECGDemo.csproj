@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\..\..\Common\MarshalHelper.cs" Link="MarshalHelper.cs" />
-    <Compile Include="..\..\..\..\Common\UnmanagedBuffer.cs" Link="UnmanagedBuffer.cs" />
     <Compile Include="..\..\ECGDemoV0\ECGDemo\ECGrid.cs" Link="ECGrid.cs" />
   </ItemGroup>
 

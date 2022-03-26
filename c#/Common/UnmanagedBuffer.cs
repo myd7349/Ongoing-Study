@@ -3,6 +3,8 @@
     using System;
     using System.Runtime.InteropServices;
 
+    using Common;
+
     public sealed class UnmanagedBuffer : IDisposable
     {
         public static implicit operator IntPtr(UnmanagedBuffer buffer)

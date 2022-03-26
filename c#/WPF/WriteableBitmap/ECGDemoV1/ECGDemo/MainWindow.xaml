@@ -35,6 +35,19 @@
 
             <TextBlock Text="Elapsed:" />
             <TextBlock Text="{Binding Source={StaticResource tickTimer}, Path=ElapsedTime, Converter={StaticResource timeSpanConverter}, Mode=OneWay}" />
+
+            <Separator />
+
+            <TextBlock Text="Read data:" />
+            <TextBlock x:Name="readDataTextBlock_" />
+
+            <TextBlock Text="Draw wave:" />
+            <TextBlock x:Name="drawWaveTextBlock_" />
+
+            <Separator />
+
+            <TextBlock Text="Last error:" />
+            <TextBlock x:Name="lastErrorTextBlock_" />
         </StatusBar>
     </Grid>
 

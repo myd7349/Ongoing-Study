@@ -32,9 +32,7 @@ namespace ECGDemo
             cancellationTokenSource_ = new CancellationTokenSource();
 
 #if USE_TASK
-            acquireTask_ = Task.Run(
-                () => Acquire(cancellationTokenSource_.Token),
-                cancellationTokenSource_.Token);
+            acquireTask_ = Task.Run(Acquire, cancellationTokenSource_.Token);
 #else
             acquireThread_ = new Thread(Acquire);
             acquireThread_.Start();
@@ -98,15 +96,11 @@ namespace ECGDemo
                 Debug.WriteLine($"It took {stopwatch.ElapsedMilliseconds}ms to draw grid on a {width}x{height} bitmap.");
             }
 
-            lock (canvasBitmapLock_)
-            {
-                canvasBitmap_ = BitmapFactory.New(width, height);
-                Volatile.Write(ref canvasWidth_, width);
-                image_.Source = canvasBitmap_;
+            canvasBitmap_ = BitmapFactory.New(width, height);
+            image_.Source = canvasBitmap_;
 
-                LastPointX = 0;
-                BaselineY = canvasBitmap_.PixelHeight / 2;
-            }
+            LastPointX = 0;
+            BaselineY = canvasBitmap_.PixelHeight / 2;
         }
 
         protected override void OnClosed(EventArgs e)
@@ -124,16 +118,11 @@ namespace ECGDemo
             base.OnClosed(e);
         }
 
-#if USE_TASK
-        private void Acquire(CancellationToken token)
-        {
-#else
         private void Acquire()
         {
             CancellationToken token = cancellationTokenSource_.Token;
-#endif
-            Stopwatch stopwatch_ = Stopwatch.StartNew();
-            int samples_ = 0;
+
+            Stopwatch stopwatch = new Stopwatch();
 
             var fakeAd = new FakeADWrapper(
                 bytesPerSecond: (uint)(SamplingRate * ECGenerator.Channels * sizeof(double)),
@@ -152,111 +141,105 @@ namespace ECGDemo
             Debug.Assert(ECGenerator.Channels == 1);
 
             var voltages = new double[samples];
-            var points = new int[samples * 2];
 
             while (true)
             {
                 if (token.IsCancellationRequested)
                     break;
 
-                if (fakeAd.Read(buffer, bufferSizeInBytes) != bufferSizeInBytes)
+                stopwatch.Restart();
+
+                var result = fakeAd.Read(buffer, bufferSizeInBytes);
+                if (result != bufferSizeInBytes)
+                {
+                    var lastError = FakeADWrapper.GetLastError();
+                    var lastErrorString = FakeADWrapper.ErrorToString(lastError);
+                    var errorMessage = $"{lastError.ToString()} - {lastErrorString}";
+
+                    Action notifyError = () =>
+                    {
+                        lastErrorTextBlock_.Text = errorMessage;
+                    };
+
+                    Dispatcher.BeginInvoke(notifyError);
                     break;
+                }
 
                 Marshal.Copy(buffer, voltages, 0, voltages.Length);
 
-                int c = -1;
+                var elapsedMs = stopwatch.ElapsedMilliseconds;
 
-                lock (canvasBitmapLock_)
+                Action updateTextBlock = () =>
                 {
-                    if (canvasBitmap_ == null)
-                        continue;
+                    readDataTextBlock_.Text = $"{elapsedMs}ms";
+                };
+                Dispatcher.BeginInvoke(updateTextBlock);
 
-                    for (int i = 0; i < samples; ++i)
-                    {
-                        var x = (int)(LastPointX + i * DotsPerSample);
 #if false
-                        if (x >= canvasBitmap_.PixelWidth)
+                Dispatcher.Invoke(() => DrawWave(voltages)); // Deadlock when close the window.
 #else
-                        if (x >= Volatile.Read(ref canvasWidth_))
+                Action drawWave = () => DrawWave(voltages);
+                Dispatcher.BeginInvoke(drawWave);
 #endif
-                        {
-                            if (c == -1)
-                                c = i;
+            }
 
-                            x = (int)((i - c) * DotsPerSample);
-                        }
+            fakeAd.Dispose();
+        }
 
-                        points[i * 2] = x;
-                        points[i * 2 + 1] = (int)(BaselineY - voltages[i] * DotsPerMv);
+        private void DrawWave(double[] voltages)
+        {
+            Debug.Assert(CheckAccess());
+
+            if (canvasBitmap_ == null)
+                return;
+
+            var stopwatch = Stopwatch.StartNew();
+
+            using (var context = canvasBitmap_.GetBitmapContext())
+            {
+                var dirtyAreaWidth = voltages.Length * DotsPerSample + RefreshWidthInDots;
+                var dirtyArea = new Rect(LastPointX + 1, 0, dirtyAreaWidth, canvasBitmap_.PixelHeight);
+
+                canvasBitmap_.Blit(dirtyArea, gridBitmap_, dirtyArea);
+                canvasBitmap_.FillRectangle(
+                    (int)(LastPointX + voltages.Length * DotsPerSample + 1),
+                    0,
+                    (int)(LastPointX + dirtyAreaWidth),
+                    canvasBitmap_.PixelHeight,
+                    RefreshColor);
+
+                var lastX = LastPointX;
+                int x = 0;
+
+                for (int i = 0; i < voltages.Length; ++i)
+                {
+                    x = (int)(LastPointX + i * DotsPerSample);
+                    if (x >= canvasBitmap_.PixelWidth)
+                    {
+                        //Debug.WriteLine("Restart from left.");
+
+                        x = 0;
+                        lastX = 0;
+
+                        dirtyAreaWidth = (voltages.Length - i) * DotsPerSample + RefreshWidthInDots;
+                        dirtyArea = new Rect(0, 0, dirtyAreaWidth, canvasBitmap_.PixelHeight);
+
+                        canvasBitmap_.Blit(dirtyArea, gridBitmap_, dirtyArea);
                     }
+
+                    var y = (int)(BaselineY - voltages[i] * DotsPerMv);
+
+                    canvasBitmap_.DrawLine(lastX, LastPointY, x, y, WaveColor);
+
+                    lastX = x;
+                    LastPointY = y;
                 }
 
-                //canvasBitmap_.Freeze();
-
-                if (token.IsCancellationRequested)
-                    break;
-
-                Action render = () =>
-                {
-                    if (canvasBitmap_ == null)
-                        return;
-
-                    using (canvasBitmap_.GetBitmapContext())
-                    {
-                        if (c == -1)
-                        {
-                            var dirtyAreaWidth = samples * DotsPerSample + RefreshWidthInDots;
-                            var dirtyArea = new Rect(points[0] + 1, 0, dirtyAreaWidth, canvasBitmap_.PixelHeight);
-
-                            canvasBitmap_.Blit(dirtyArea, gridBitmap_, dirtyArea);
-
-                            canvasBitmap_.FillRectangle(
-                                (int)(points[0] + samples * DotsPerSample + 1),
-                                0,
-                                (int)(points[0] + dirtyAreaWidth),
-                                canvasBitmap_.PixelHeight,
-                                RefreshColor);
-
-                            canvasBitmap_.DrawLine(LastPointX, LastPointY, points[0], points[1], WaveColor);
-                            canvasBitmap_.DrawPolyline(points, WaveColor);
-                        }
-                        else
-                        {
-                            var dirtyArea1Width = c > 0 ? (points[(c - 1) * 2] - points[0]) : 0;
-                            if (dirtyArea1Width > 0)
-                            {
-                                var dirtyArea1 = new Rect(
-                                    points[0],
-                                    0,
-                                    dirtyArea1Width,
-                                    canvasBitmap_.PixelHeight);
-
-                                canvasBitmap_.Blit(dirtyArea1, gridBitmap_, dirtyArea1);
-                                canvasBitmap_.DrawLine(LastPointX, LastPointY, points[0], points[1], WaveColor);
-                                canvasBitmap_.DrawPolyline(points.Take(c * 2).ToArray(), WaveColor);
-                            }
-
-                            Debug.WriteLine($"Restart from left.");
-
-                            var dirtyArea2 = new Rect(
-                                0,
-                                0,
-                                points[(samples - 1) * 2] - points[c * 2] + RefreshWidthInDots,
-                                canvasBitmap_.PixelHeight);
-                            canvasBitmap_.Blit(dirtyArea2, gridBitmap_, dirtyArea2);
-                            canvasBitmap_.DrawPolyline(points.Skip(c * 2).ToArray(), WaveColor);
-                        }
-                    }
-
-                    image_.Source = canvasBitmap_;
-
-                    LastPointX = points[(samples - 1) * 2];
-                    LastPointY = points[points.Length - 1];
-                };
-
-                //Dispatcher.Invoke(render); // Deadlock when close the window.
-                Dispatcher.BeginInvoke(render);
+                LastPointX = x;
             }
+
+            var elapsedMs = stopwatch.ElapsedMilliseconds;
+            drawWaveTextBlock_.Text = $"{elapsedMs}ms";
         }
 
         private CancellationTokenSource cancellationTokenSource_;
@@ -267,8 +250,6 @@ namespace ECGDemo
 #endif
         private WriteableBitmap gridBitmap_;
         private WriteableBitmap canvasBitmap_;
-        private int canvasWidth_;
-        private object canvasBitmapLock_ = new object();
         private int[] lastPoint_ = new int[2];
     }
 }
@@ -287,3 +268,4 @@ namespace ECGDemo
 // [How can I render text on a WriteableBitmap on a background thread, in Windows Phone 7?](https://stackoverflow.com/questions/5666772/how-can-i-render-text-on-a-writeablebitmap-on-a-background-thread-in-windows-ph)
 // [System.Threading.Tasks.TaskCanceledException: 'A task was canceled.' when Closing App](https://stackoverflow.com/questions/50370286/system-threading-tasks-taskcanceledexception-a-task-was-canceled-when-closin)
 // [Deadlock when thread uses dispatcher and the main thread is waiting for thread to finish](https://stackoverflow.com/questions/24211934/deadlock-when-thread-uses-dispatcher-and-the-main-thread-is-waiting-for-thread-t)
+// [InvokeRequired in wpf](https://stackoverflow.com/questions/15504826/invokerequired-in-wpf)

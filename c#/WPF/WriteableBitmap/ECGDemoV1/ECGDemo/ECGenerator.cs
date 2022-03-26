@@ -27,7 +27,7 @@ namespace ECGDemo
 
         public const int TimeSliceInMilliseconds = 50;
 
-        public const int SamplingRate = 500;
+        public const int SamplingRate = 50;
 
         public const int SamplesPerTimeSlice = SamplingRate * TimeSliceInMilliseconds / 1000;
 

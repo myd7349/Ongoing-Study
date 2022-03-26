@@ -65,3 +65,7 @@
 22. [dnGrep](https://github.com/dnGrep/dnGrep)
 
 23. [Volume2](https://github.com/irzyxa/Volume2)
+
+24. [ExplorerPatcher](https://github.com/valinet/ExplorerPatcher)
+
+25. [Open Hardware Monitor](https://github.com/openhardwaremonitor/openhardwaremonitor)

@@ -9,3 +9,5 @@ explorer /select, C:\Windows\System32\notepad.exe
 [OpenHashTab](https://github.com/namazso/OpenHashTab)
 
 [AdaptiveShell](https://github.com/w10m-research/AdaptiveShell)
+
+[ExplorerPatcher](https://github.com/valinet/ExplorerPatcher)

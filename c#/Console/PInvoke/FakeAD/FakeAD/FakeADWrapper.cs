@@ -31,8 +31,6 @@ namespace FakeAD
                 config64_.Context = context;
 
                 handle_ = Natives.Init64(ref config64_);
-                if (handle_ == IntPtr.Zero)
-                    throw new Exception(ErrorToString(GetLastError()));
             }
             else
             {
@@ -50,6 +48,9 @@ namespace FakeAD
                 handle_ = Natives.Init32(ref config32_);
 #endif
             }
+
+            if (handle_ == IntPtr.Zero)
+                throw new Exception(ErrorToString(GetLastError()));
         }
 
         // Use C# finalizer syntax for finalization code.

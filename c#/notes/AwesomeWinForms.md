@@ -19,6 +19,7 @@ Applications:
 - [NodeEditorWinforms](https://github.com/komorra/NodeEditorWinforms)
 - [nvidiaProfileInspector](https://github.com/Orbmu2k/nvidiaProfileInspector)
 - [OnTopReplica](https://github.com/LorenzCK/OnTopReplica)
+- [Open Hardware Monitor](https://github.com/openhardwaremonitor/openhardwaremonitor)
 - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
 - [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
 - [SCJMapper-V2](https://github.com/SCToolsfactory/SCJMapper-V2)

@@ -11,3 +11,5 @@ https://github.com/mmozeiko/wcap
 https://github.com/zufuliu/notepad2
 
 https://github.com/rizonesoft/Notepad3
+
+[ExplorerPatcher](https://github.com/valinet/ExplorerPatcher)
