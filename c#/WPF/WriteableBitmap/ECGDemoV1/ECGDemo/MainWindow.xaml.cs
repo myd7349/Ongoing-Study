@@ -1,9 +1,15 @@
 ﻿//#define USE_TASK
 
+// Try this out:
+#define IMAGE_STRETCH_NONE
+//#define IMAGE_STRETCH_FILL
+//#define IMAGE_STRETCH_UNIFORM
+//#define IMAGE_STRETCH_UNIFORM_TO_FILL
+
+#define IMAGE_SnapsToDevicePixels
+
 using System;
-using System.Buffers;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 #if USE_TASK
@@ -12,6 +18,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+
+using PInvoke;
 
 using Common;
 
@@ -28,6 +36,20 @@ namespace ECGDemo
         public MainWindow()
         {
             InitializeComponent();
+
+#if IMAGE_STRETCH_NONE
+            image_.Stretch = Stretch.None;
+#elif IMAGE_STRETCH_FILL
+            image_.Stretch = Stretch.Fill;
+#elif IMAGE_STRETCH_UNIFORM
+            image_.Stretch = Stretch.Uniform;
+#elif IMAGE_STRETCH_UNIFORM_TO_FILL
+            image_.Stretch = Stretch.UniformToFill;
+#endif
+
+#if IMAGE_SnapsToDevicePixels
+            image_.SnapsToDevicePixels = true;
+#endif
 
             cancellationTokenSource_ = new CancellationTokenSource();
 
@@ -65,24 +87,34 @@ namespace ECGDemo
 
         public int RefreshWidthInDots { get; set; } = 2;
 
-        private int LastPointX
-        {
-            get => lastPoint_[0];
-            set => lastPoint_[0] = value;
-        }
-
-        private int LastPointY
-        {
-            get => lastPoint_[1];
-            set => lastPoint_[1] = value;
-        }
-
         private int BaselineY { get; set; }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
+#if false
+            // This will create a image with wrong height. As a result, if
+            // we set image Stretch mode to None, then the waveform looks
+            // discontinuous after restarting from left.
+            // If we set Stretch mode to Uniform, then the waveforms looks
+            // continuous, but we got a blurry bitmap.
+            // So always keep in mind, in your XAML:
+            //     <Canvas Name="imageCanvas_">
+            //         <Image Name="image_" Grid.Row="0" Stretch="None" />
+            //     </Canvas>
+            // Just do not leave Image alone like this:
+            //     <Window>
+            //         <Image Name="image_" Grid.Row="0" Stretch="None" />
+            //     </Window>
             var width = (int)ActualWidth;
             var height = (int)ActualHeight;
+#else
+            var width = (int)imageCanvas_.ActualWidth;
+            var height = (int)imageCanvas_.ActualHeight;
+#endif
+
+            double dpiX, dpiY;
+            GetDpi(out dpiX, out dpiY);
+            dpiTextBlock_.Text = $"X: {dpiX} Y: {dpiY}";
 
             if (gridBitmap_ == null ||
                 gridBitmap_.Width < width ||
@@ -91,16 +123,44 @@ namespace ECGDemo
                 var stopwatch = Stopwatch.StartNew();
 
                 gridBitmap_ = BitmapFactory.New(width, height);
+                //gridBitmap_ = new WriteableBitmap(width, height, 96.0, 96.0, PixelFormats.Pbgra32, null);
                 ECGrid.DrawDotted(gridBitmap_, BackColor, Grid5mmColor, Grid1mmColor, DotsPerMm);
 
                 Debug.WriteLine($"It took {stopwatch.ElapsedMilliseconds}ms to draw grid on a {width}x{height} bitmap.");
             }
 
+            var heightChanged = canvasBitmap_?.PixelHeight != height;
+
             canvasBitmap_ = BitmapFactory.New(width, height);
+            //canvasBitmap_ = new WriteableBitmap(width, height, 96.0, 96.0, PixelFormats.Pbgra32, null);
             image_.Source = canvasBitmap_;
 
-            LastPointX = 0;
+            lastPointX_ = 0;
             BaselineY = canvasBitmap_.PixelHeight / 2;
+
+            if (heightChanged)
+                lastPointY_ = BaselineY;
+        }
+
+        private void GetDpi(out double dpiX, out double dpiY)
+        {
+#if false
+            PresentationSource source = PresentationSource.FromVisual(this);
+            if (source != null)
+            {
+                dpiX = 96.0 * source.CompositionTarget.TransformToDevice.M11;
+                dpiY = 96.0 * source.CompositionTarget.TransformToDevice.M22;
+            }
+            else
+            {
+                dpiX = 0;
+                dpiY = 0;
+            }
+#else
+            var hdc = User32.GetDC(IntPtr.Zero);
+            dpiX = Gdi32.GetDeviceCaps(hdc, Gdi32.DeviceCap.LOGPIXELSX);
+            dpiY = Gdi32.GetDeviceCaps(hdc, Gdi32.DeviceCap.LOGPIXELSY);
+#endif
         }
 
         protected override void OnClosed(EventArgs e)
@@ -124,15 +184,17 @@ namespace ECGDemo
 
             Stopwatch stopwatch = new Stopwatch();
 
+            var timeSliceInMilliseconds = ECGenerator.CalculateBestTimeSlice();
+
             var fakeAd = new FakeADWrapper(
                 bytesPerSecond: (uint)(SamplingRate * ECGenerator.Channels * sizeof(double)),
-                timeSliceInMilliseconds: ECGenerator.TimeSliceInMilliseconds,
+                timeSliceInMilliseconds: (uint)timeSliceInMilliseconds,
                 timeoutSliceCount: 3,
                 port: 4321,
                 callback: ECGenerator.GenerateECG,
                 context: IntPtr.Zero);
 
-            var samples = ECGenerator.SamplesPerTimeSlice;
+            var samples = ECGenerator.SamplingRate * timeSliceInMilliseconds / 1000;
 
             var bufferSizeInBytes =
                 (ulong)samples * ECGenerator.Channels * sizeof(double);
@@ -162,7 +224,16 @@ namespace ECGDemo
                     };
 
                     Dispatcher.BeginInvoke(notifyError);
-                    break;
+
+                    if (lastError == Error.Timeout)
+                    {
+                        Thread.Sleep(timeSliceInMilliseconds);
+                        continue;
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
 
                 Marshal.Copy(buffer, voltages, 0, voltages.Length);
@@ -198,44 +269,61 @@ namespace ECGDemo
             using (var context = canvasBitmap_.GetBitmapContext())
             {
                 var dirtyAreaWidth = voltages.Length * DotsPerSample + RefreshWidthInDots;
-                var dirtyArea = new Rect(LastPointX + 1, 0, dirtyAreaWidth, canvasBitmap_.PixelHeight);
+                var dirtyArea = new Rect(lastPointX_ + 1, 0, dirtyAreaWidth, canvasBitmap_.PixelHeight);
 
                 canvasBitmap_.Blit(dirtyArea, gridBitmap_, dirtyArea);
                 canvasBitmap_.FillRectangle(
-                    (int)(LastPointX + voltages.Length * DotsPerSample + 1),
+                    (int)(lastPointX_ + voltages.Length * DotsPerSample + 1),
                     0,
-                    (int)(LastPointX + dirtyAreaWidth),
+                    (int)(lastPointX_ + dirtyAreaWidth + 1),
                     canvasBitmap_.PixelHeight,
                     RefreshColor);
 
-                var lastX = LastPointX;
+                var lastX = (int)lastPointX_;
+
+                double realX = 0;
                 int x = 0;
+                int y = 0;
+                int count = 0;
 
                 for (int i = 0; i < voltages.Length; ++i)
                 {
-                    x = (int)(LastPointX + i * DotsPerSample);
+                    // If voltages.Length == 1(SamplingRate == 10, for example),
+                    // then (i + 1) makes a difference here.
+                    realX = lastPointX_ + (count + 1) * DotsPerSample;
+
+                    x = (int)realX;
+                    y = (int)(BaselineY - voltages[i] * DotsPerMv);
+
                     if (x >= canvasBitmap_.PixelWidth)
                     {
-                        //Debug.WriteLine("Restart from left.");
+                        Debug.WriteLine($"{DateTime.Now:HH:mm:ss.fff} Restart from left at sample {i}:");
+                        Debug.WriteLine($"\tLast point: ({lastX}, {lastPointY_})");
+                        Debug.WriteLine($"\tNext point: (0, {y})");
 
-                        x = 0;
+                        lastPointX_ = 0;
+                        count = 0;
+
                         lastX = 0;
+                        lastPointY_ = y;
 
                         dirtyAreaWidth = (voltages.Length - i) * DotsPerSample + RefreshWidthInDots;
                         dirtyArea = new Rect(0, 0, dirtyAreaWidth, canvasBitmap_.PixelHeight);
 
                         canvasBitmap_.Blit(dirtyArea, gridBitmap_, dirtyArea);
+
+                        continue;
                     }
 
-                    var y = (int)(BaselineY - voltages[i] * DotsPerMv);
-
-                    canvasBitmap_.DrawLine(lastX, LastPointY, x, y, WaveColor);
+                    canvasBitmap_.DrawLine(lastX, lastPointY_, x, y, WaveColor);
 
                     lastX = x;
-                    LastPointY = y;
+                    lastPointY_ = y;
+
+                    ++count;
                 }
 
-                LastPointX = x;
+                lastPointX_ = realX;
             }
 
             var elapsedMs = stopwatch.ElapsedMilliseconds;
@@ -250,7 +338,8 @@ namespace ECGDemo
 #endif
         private WriteableBitmap gridBitmap_;
         private WriteableBitmap canvasBitmap_;
-        private int[] lastPoint_ = new int[2];
+        private double lastPointX_;
+        private int lastPointY_;
     }
 }
 
@@ -269,3 +358,10 @@ namespace ECGDemo
 // [System.Threading.Tasks.TaskCanceledException: 'A task was canceled.' when Closing App](https://stackoverflow.com/questions/50370286/system-threading-tasks-taskcanceledexception-a-task-was-canceled-when-closin)
 // [Deadlock when thread uses dispatcher and the main thread is waiting for thread to finish](https://stackoverflow.com/questions/24211934/deadlock-when-thread-uses-dispatcher-and-the-main-thread-is-waiting-for-thread-t)
 // [InvokeRequired in wpf](https://stackoverflow.com/questions/15504826/invokerequired-in-wpf)
+// [How can I get the DPI in WPF?](https://stackoverflow.com/questions/1918877/how-can-i-get-the-dpi-in-wpf)
+// [Wpf Dpi and pixel-perfect WritableBitmap](https://stackoverflow.com/questions/28562954/wpf-dpi-and-pixel-perfect-writablebitmap)
+// [Screen Resolution Problem In WPF?](https://stackoverflow.com/questions/2236173/screen-resolution-problem-in-wpf)
+// [How can I get the correct DPI of my screen in WPF?](https://stackoverflow.com/questions/54659859/how-can-i-get-the-correct-dpi-of-my-screen-in-wpf)
+// [How can I get images in XAML to display as their actual size ?](https://stackoverflow.com/questions/1841511/how-can-i-get-images-in-xaml-to-display-as-their-actual-size)
+// [WPF: How to display an image at its original size ?](https://stackoverflow.com/questions/3055550/wpf-how-to-display-an-image-at-its-original-size)
+// [Blurry Bitmaps](https://docs.microsoft.com/en-us/archive/blogs/dwayneneed/blurry-bitmaps)

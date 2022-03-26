@@ -12,6 +12,10 @@
 
 - [Dependency Walker](http://www.dependencywalker.com/)
 
+  - [dependency](https://github.com/JelinYao/dependency)
+
+  - [Dependencies](https://github.com/lucasg/Dependencies)
+
 - [dll_to_exe](https://github.com/hasherezade/dll_to_exe)
 
 - [DLL Export Viewer](http://www.nirsoft.net/utils/dll_export_viewer.html)

@@ -51,6 +51,8 @@ ILSpy+System.Core.dll:
 
 [Raise an event whenever a property's value changed?](https://stackoverflow.com/questions/2246777/raise-an-event-whenever-a-propertys-value-changed)
 
+[MVVM for Beginners: Model-View-ViewModel Architecture for Xamarin.Forms, .NET MAUI, WPF, UWP, & More](https://youtu.be/Pso1MeX_HvI)
+
 ```csharp
 protected void OnPropertyChanged(
     [System.Runtime.CompilerServices.CallerMemberName] string propertyName = "")

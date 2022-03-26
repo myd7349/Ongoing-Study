@@ -2,3 +2,7 @@
 ```bash
 $ svn up -rXXXX
 ```
+
+Servers:
+
+- VisualSVN

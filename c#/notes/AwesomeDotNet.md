@@ -877,6 +877,8 @@
   
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
 
+- [TagLib](https://github.com/mono/taglib-sharp)
+
 - [YoutubeExplode](https://github.com/Tyrrrz/YoutubeExplode): The ultimate dirty YouTube library
   
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)

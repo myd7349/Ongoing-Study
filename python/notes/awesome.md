@@ -310,6 +310,10 @@
 
 - [xlwings](https://github.com/xlwings/xlwings)
 
+##### Word
+
+- [python-docx](https://github.com/python-openxml/python-docx)
+
 ### OOP
 
 - [attrs](https://github.com/python-attrs/attrs)

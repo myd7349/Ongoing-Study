@@ -62,6 +62,8 @@
 
 - [cputime](https://github.com/k0dai/cputime)
 
+- [easy_profiler](https://github.com/yse/easy_profiler)
+
 - [fsbench-density](https://github.com/k0dai/fsbench-density)
 
 - [OpenHashTab/Benchmark.cpp](https://github.com/namazso/OpenHashTab/blob/master/Benchmark/Benchmark.cpp)
@@ -193,6 +195,12 @@
 
   - [brainflow](https://github.com/brainflow-dev/brainflow/blob/master/src/data_handler/data_handler.cpp)
 
+### Functional Programming
+
+- [CppLinq](https://github.com/Berrysoft/CppLinq)
+
+- [function2](https://github.com/Naios/function2)
+
 ### Game Programming
 
 - [acl](https://github.com/nfrechette/acl)
@@ -266,6 +274,8 @@
 - [SixtyFPS](https://github.com/sixtyfpsui/sixtyfps)
 
 - [tinyfiledialogs](https://sourceforge.net/projects/tinyfiledialogs/)
+
+- [XamlCpp](https://github.com/Berrysoft/XamlCpp)
 
 ### Hashing
 
@@ -343,6 +353,8 @@
 - [mahi-com](https://github.com/mahilab/mahi-com)
 
 ### IPC
+
+- [AsyncIPC](https://github.com/JelinYao/AsyncIPC)
 
 - [Notepad2e/src/Extension/IPC](https://github.com/ProgerXP/Notepad2e/tree/master/src/Extension/IPC)
 

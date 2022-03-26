@@ -9,3 +9,7 @@ https://github.com/WerWolv/ImHex
 https://github.com/hasherezade/pe-sieve
 
 https://github.com/Pr0214/findhash
+
+https://github.com/pwndbg/pwndbg
+
+https://github.com/LasCC/Hack-Tools

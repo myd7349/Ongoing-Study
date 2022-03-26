@@ -144,7 +144,7 @@ def get_group_members(wechat, group_name):
     group_information_window.draw_outline()
 
     try:
-        click_button(group_information_window, '查看更多')
+        click_button(group_information_window, '查看更多群成员')
     except pywinauto.findwindows.ElementNotFoundError as e:
         print(e)
 

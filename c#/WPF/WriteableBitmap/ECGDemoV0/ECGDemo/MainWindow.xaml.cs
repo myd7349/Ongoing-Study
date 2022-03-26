@@ -101,10 +101,13 @@ namespace ECGDemo
 
         private int BaselineY { get; set; }
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void canvas__SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            var width = (int)ActualWidth;
-            var height = (int)ActualHeight;
+            var width = (int)canvas_.ActualWidth;
+            var height = (int)canvas_.ActualHeight;
+
+            if (width == 0 || height == 0)
+                return;
 
             if (gridBitmap_ == null ||
                 gridBitmap_.Width < width ||

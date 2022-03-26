@@ -170,3 +170,7 @@ public: class std::_Init_locks & __thiscall std::_Init_locks::operator=(class st
 [embed cmd in win32 application and text not selectable](https://stackoverflow.com/questions/50043663/embed-cmd-in-win32-application-and-text-not-selectable)
 
 https://github.com/MediaArea/ZenLib
+
+[dependency](https://github.com/JelinYao/dependency)
+
+https://github.com/JelinYao/AsyncIPC

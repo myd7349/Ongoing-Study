@@ -85,3 +85,5 @@
 * [iconify](https://github.com/iconify/iconify)
 
   * [icones](https://github.com/antfu/icones)
+
+* [RemixIcon](https://github.com/Remix-Design/RemixIcon)

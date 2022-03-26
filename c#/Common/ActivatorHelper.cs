@@ -141,3 +141,4 @@
 // https://github.com/de4dot/de4dot/blob/b7d5728fc0c82fb0ad758e3a4c0fbb70368a4853/de4dot.cui/Program.cs#L38-L50
 // https://github.com/j-maly/CommandLineParser/blob/master/src/CommandLineArgumentsParser/Compatibility/TypeExtensions.cs
 // https://github.com/natemcmaster/DotNetCorePlugins
+// https://github.com/mattleibow/SkiaSharpFiddle

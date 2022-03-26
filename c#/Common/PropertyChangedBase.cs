@@ -23,3 +23,13 @@ namespace Common
 // [一篇文章，带你玩转MVVM，Dapper，AutoMapper](https://www.cnblogs.com/Koalin/p/11706420.html)
 // > BaseViewModel
 // [WPF Countdown Timer Binding to different window](https://stackoverflow.com/questions/28272603/wpf-countdown-timer-binding-to-different-window)
+// [MVVM for Beginners: Model-View-ViewModel Architecture for Xamarin.Forms, .NET MAUI, WPF, UWP, & More](https://www.youtube.com/watch?v=Pso1MeX_HvI)
+// > UserViewModel
+// https://github.com/jamesmontemagno/mvvm-helpers/blob/master/MvvmHelpers/ObservableObject.cs
+// [What is the MVVM pattern, What benefits does MVVM have?](https://youtu.be/AXpTeiWtbC8)
+// - https://www.nuget.org/packages/Microsoft.Toolkit.Mvvm
+//   - ObservableObject
+// - https://github.com/CommunityToolkit/MVVM-Samples
+// [mvvm-helpers](https://github.com/jamesmontemagno/mvvm-helpers)
+// - BaseViewModel
+// - [SkiaSharpFiddle](https://github.com/mattleibow/SkiaSharpFiddle)

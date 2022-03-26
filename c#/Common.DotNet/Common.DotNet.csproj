@@ -45,6 +45,7 @@
     <Compile Include="..\Common\Kernel32.WinBase.Profile.cs" Link="Kernel32.WinBase.Profile.cs" />
     <Compile Include="..\Common\LinqHelper.cs" Link="LinqHelper.cs" />
     <Compile Include="..\Common\MarshalHelper.cs" Link="MarshalHelper.cs" />
+    <Compile Include="..\Common\MathHelper.cs" Link="MathHelper.cs" />
     <Compile Include="..\Common\MMTimer.cs" Link="MMTimer.cs" />
     <Compile Include="..\Common\MSVCRTHelper.cs" Link="MSVCRTHelper.cs" />
     <Compile Include="..\Common\PropertyChangedBase.cs" Link="PropertyChangedBase.cs" />

@@ -4,3 +4,4 @@
 - https://github.com/Efferent-Health/HL7-dotnetcore
 - https://github.com/iberisoft/HL7
 - https://github.com/dib0/HL7Fuse
+- https://github.com/microsoft/FHIR-Analytics-Pipelines

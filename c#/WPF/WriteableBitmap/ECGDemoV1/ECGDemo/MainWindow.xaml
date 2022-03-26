@@ -7,7 +7,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:cmn="clr-namespace:Common;assembly=Common.DotNet"
         mc:Ignorable="d"
-        Title="ECG Demo" Height="450" Width="800"
+        Title="ECG Demo" Height="450" Width="750"
         SizeChanged="Window_SizeChanged">
     <Window.Resources>
         <cmn:TickTimer x:Key="tickTimer" />
@@ -20,9 +20,16 @@
             <RowDefinition Height="25" />
         </Grid.RowDefinitions>
 
-        <Image Name="image_" Grid.Row="0" Stretch="None" />
+        <Canvas Name="imageCanvas_">
+            <Image Name="image_" Grid.Row="0" Stretch="None" />
+        </Canvas>
 
         <StatusBar Grid.Row="1">
+            <TextBlock Text="DPI:" />
+            <TextBlock x:Name="dpiTextBlock_" />
+
+            <Separator />
+
             <TextBlock Text="Start time:" />
             <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, Mode=OneWay,  StringFormat='yyyy-MM-dd HH:mm:ss'}" />
 

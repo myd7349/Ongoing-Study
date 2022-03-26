@@ -135,3 +135,7 @@ void fn(const T *x, unsigned n, T *x2) \
 
 
 SQUARE_T(squared, double)
+
+
+// References:
+// https://github.com/Celtoys/pycgen

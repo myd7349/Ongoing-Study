@@ -3,6 +3,8 @@ using System.Runtime.InteropServices;
 
 using ScottPlot;
 
+using Common;
+
 
 namespace ECGDemo
 {
@@ -23,15 +25,41 @@ namespace ECGDemo
             return bytes;
         }
 
+        // We want a time slice in range [50ms,100ms].
+        public static int CalculateBestTimeSlice()
+        {
+            var gcd = MathHelper.GCD((uint)SamplingRate, 1000);
+            var minimumTimeSlice = 1000 / (int)gcd;
+
+            if (minimumTimeSlice < PerfectTimeSliceInMilliseconds)
+                return MathHelper.AlignUp(PerfectTimeSliceInMilliseconds, minimumTimeSlice);
+            else
+                return minimumTimeSlice;
+        }
+
+        public static int CalculateSamples(int timeSliceInMilliseconds)
+        {
+            return SamplingRate * timeSliceInMilliseconds / 1000;
+        }
+
         public const int Channels = 1;
 
-        public const int TimeSliceInMilliseconds = 50;
+        public const int PerfectTimeSliceInMilliseconds = 50;
 
-        public const int SamplingRate = 50;
+        // Try this out:
+        // 10
+        // 50
+        // 100
+        // 200
+        // 500
+        // 1000
+        // 2000
+        // 4000
+        // 8000
+        // 16000
+        public const int SamplingRate = 4000;
 
-        public const int SamplesPerTimeSlice = SamplingRate * TimeSliceInMilliseconds / 1000;
-
-        public static readonly DataGen.Electrocardiogram Generator = new DataGen.Electrocardiogram();
+        public static readonly DataGen.Electrocardiogram Generator = new DataGen.Electrocardiogram(60);
 
         private static long TotalSamples = 0;
     }

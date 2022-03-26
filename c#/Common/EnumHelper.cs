@@ -73,6 +73,16 @@ namespace Common
             return values.Count() != values.Distinct().Count();
         }
 
+        private static string GetDescriptionFromValue(Type type, object value)
+        {
+            var field = type.GetField(value.ToString());
+            var attribute = field.GetCustomAttributes(typeof(DescriptionAttribute), true) as DescriptionAttribute[];
+            if (attribute?.Length >= 1)
+                return attribute[0].Description;
+
+            return null;
+        }
+
         private static string GetDescriptionFromName(Type type, string name)
         {
             if (name != null)
@@ -80,14 +90,9 @@ namespace Common
                 FieldInfo field = type.GetField(name);
                 if (field != null)
                 {
-#if false
-                    var attr =
-                        (field.GetCustomAttributes(typeof(DescriptionAttribute), true) as DescriptionAttribute[])[0];
-#else
                     DescriptionAttribute attr =
                            Attribute.GetCustomAttribute(field,
                              typeof(DescriptionAttribute)) as DescriptionAttribute;
-#endif
                     if (attr != null)
                     {
                         return attr.Description;

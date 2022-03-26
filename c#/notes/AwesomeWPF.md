@@ -84,6 +84,8 @@ Applications:
 
 - [simple-music-player](https://github.com/punker76/simple-music-player)
 
+- [SkiaSharpFiddle](https://github.com/mattleibow/SkiaSharpFiddle)
+
 - [snoopwpf](https://github.com/snoopwpf/snoopwpf)
 
 - [SvgToXaml](https://github.com/BerndK/SvgToXaml)
@@ -136,11 +138,17 @@ Libraries:
 
 - [AvalonEdit](https://github.com/icsharpcode/AvalonEdit)
 
+  - [SkiaSharpFiddle](https://github.com/mattleibow/SkiaSharpFiddle)
+
+  - [XamlViewer](https://github.com/WPFDevelopersOrg/XamlViewer)
+
 - [bot](https://github.com/thinkpixellab/bot)
 
 - [Caliburn.Micro](https://github.com/Caliburn-Micro/Caliburn.Micro)
   
   - [Gemini](https://github.com/tgjones/gemini)
+
+  - [WPF Controls with MVVM: ComboBox by IAmTimCorey](https://www.youtube.com/watch?v=nKJ_XDoAdtY)
 
 - [Catel](https://github.com/Catel/Catel)
 
@@ -240,6 +248,14 @@ Libraries:
 - [mui](https://github.com/firstfloorsoftware/mui)
 
 - [mvvm-dialogs](https://github.com/FantasticFiasco/mvvm-dialogs)
+
+- [mvvm-helpers](https://github.com/jamesmontemagno/mvvm-helpers)
+
+  - [mycoffeeapp](https://github.com/jamesmontemagno/mycoffeeapp)
+
+  - [SkiaSharpFiddle](https://github.com/mattleibow/SkiaSharpFiddle)
+
+  - [Better MVVM with MVVM Helpers (or Xamarin Community Toolkit)](https://www.youtube.com/watch?v=y8ZqEOLDeo8&t=8s)
 
 - [MVVM Light Toolkit](https://github.com/lbugnion/mvvmlight)
 
@@ -380,6 +396,8 @@ Tools:
 
 - [Snoop](https://github.com/snoopwpf/snoopwpf): The WPF Spy Utility
 
+- [TemplateStudio](https://github.com/microsoft/TemplateStudio)
+
 - [WpfAnalyzers](https://github.com/DotNetAnalyzers/WpfAnalyzers)
 
 - [wpfinspector](https://github.com/dotnetprojects/wpfinspector)
@@ -389,6 +407,8 @@ Tools:
 - [XAMLPadX](https://stackoverflow.com/questions/2968564/where-has-xamlpad-gone-in-net-4-0-windows-sdk-v7-1-visual-studio-2010)
   - Color Picker Plugin
     -  System.Windows.GlobalMouseHook
+
+- [XamlViewer](https://github.com/WPFDevelopersOrg/XamlViewer)
 
 Websites
 

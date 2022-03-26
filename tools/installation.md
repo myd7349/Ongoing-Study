@@ -128,3 +128,9 @@
 - [linuxdeployqt](https://github.com/probonopd/linuxdeployqt)
 
 - [linuxdeploy](https://github.com/linuxdeploy/linuxdeploy)
+
+### Other Tools
+
+- lessmsi
+
+- [MsiSneakAttack](https://github.com/Redth/MsiSneakAttack)

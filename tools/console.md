@@ -29,6 +29,7 @@
 - [starship](https://github.com/starship/starship)
 - zsh
   - [powerlevel10k](https://github.com/romkatv/powerlevel10k) 
+- [TerminalStudio](https://github.com/TerminalStudio/lite)
 
 Terminal emulators supported by [system-terminal](https://github.com/alexrp/system-terminal):
 
@@ -43,6 +44,8 @@ Terminal emulators supported by [system-terminal](https://github.com/alexrp/syst
 - [mlterm](http://mlterm.sourceforge.net)
 - [PuTTY](https://www.putty.org)
 - [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html)
+- [SwiftTermApp](https://github.com/migueldeicaza/SwiftTermApp)
+  - [SwiftTerm](https://github.com/migueldeicaza/SwiftTerm) 
 - [tabby](https://github.com/Eugeny/tabby)
 - [Terminal.app](https://support.apple.com/guide/terminal/welcome/mac)
 - [Terminology](https://terminolo.gy)

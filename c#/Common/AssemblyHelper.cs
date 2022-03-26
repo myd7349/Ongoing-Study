@@ -20,3 +20,7 @@
         }
     }
 }
+
+
+// References:
+// https://github.com/mattleibow/SkiaSharpFiddle/blob/master/SkiaSharpFiddle/ViewModels/MainViewModel.cs

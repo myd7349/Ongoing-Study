@@ -22,6 +22,8 @@
   
   - [incbin](https://github.com/graphitemaster/incbin)
 
+- [kefir](https://github.com/protopopov1122/kefir)
+
 - [mir](https://github.com/vnmakarov/mir)
 
 - [sdcc](https://github.com/rurban/sdcc)

@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ECGDemo"
         mc:Ignorable="d"
-        Title="ECG Demo" Height="450" Width="800"
-        SizeChanged="Window_SizeChanged">
+        Title="ECG Demo" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="25" />
         </Grid.RowDefinitions>
 
-        <Image Name="image_" Grid.Row="0" Stretch="None" />
+        <Canvas x:Name="canvas_" SizeChanged="canvas__SizeChanged">
+            <Image Name="image_" Grid.Row="0" Stretch="None" />
+        </Canvas>
 
         <StatusBar Grid.Row="1">
             <StatusBarItem>
