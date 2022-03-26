@@ -18,7 +18,7 @@ void start_client(socket_t sockfd, const _TCHAR *ipstr)
     int turns = total_bytes / MAX_MSG_LEN;
     int64_t total_bytes_received = 0;
     high_timer_t timer;
-    int64_t ellapsed_ms;
+    int64_t elapsed_ms;
     long double data_rate_Bps;
 
     assert(sockfd != INVALID_SOCKET);
@@ -43,15 +43,15 @@ void start_client(socket_t sockfd, const _TCHAR *ipstr)
         send(sockfd, turns == 0 ? "Q" : "Y", 1, 0);
     }
 
-    ellapsed_ms = high_timer_ellapsed_ms(&timer);
-    data_rate_Bps = total_bytes_received * 1000.0L / ellapsed_ms;
+    elapsed_ms = high_timer_elapsed_ms(&timer);
+    data_rate_Bps = total_bytes_received * 1000.0L / elapsed_ms;
 
     printf(
         "Total received: %" PRId64 " bytes | %.2Lf KiB | %.2Lf MiB\n"
-        "Times ellipsed: %" PRId64 " ms\n"
+        "Times elapsed: %" PRId64 " ms\n"
         "Data Rate: %.2Lf %s | %.2Lf %s | %.2Lf %s | %.2Lf %s\n",
         total_bytes_received, total_bytes_received / 1024.0L, total_bytes_received / 1024.0L / 1024.0,
-        ellapsed_ms,
+        elapsed_ms,
         data_rate_Bps, data_rate_unit_name(Bps),
         data_rate_convertf(data_rate_Bps, Bps, Gbps), data_rate_unit_name(Gbps),
         data_rate_convertf(data_rate_Bps, Bps, KiBps), data_rate_unit_name(KiBps),

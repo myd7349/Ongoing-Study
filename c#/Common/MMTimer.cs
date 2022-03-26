@@ -5,32 +5,32 @@
     using System.Runtime.InteropServices;
     using System.Threading;
 
-    public class MMTimer : IDisposable
+    public class MMTimer : DisposableBase
     {
-        public MMTimer(SynchronizationContext synchronizationContext = null)
+        public MMTimer(SynchronizationContext synchronizationContext = null, bool executeOnUIThread = true)
         {
             callback_ = new MMTimerCallback(TimerCallback);
 
-            if (synchronizationContext != null)
-                synchronizationContext_ = synchronizationContext;
-            else
-                synchronizationContext_ = SynchronizationContext.Current ?? MMTimerStatics.DefaultContext;
+            if (synchronizationContext != null || executeOnUIThread)
+            {
+                if (synchronizationContext != null)
+                    synchronizationContext_ = synchronizationContext;
+                else
+                    synchronizationContext_ = SynchronizationContext.Current ?? MMTimerStatics.DefaultContext;
 
-            Debug.Assert(synchronizationContext_ != null);
+                Debug.Assert(synchronizationContext_ != null);
+            }
 
             invokeHandlers_ = new SendOrPostCallback(InvokeHandlers);
         }
 
-        public MMTimer(Action<object> action, object state = null, SynchronizationContext synchronizationContext = null)
-            : this(synchronizationContext)
+        public MMTimer(Action<object> action, object state = null,
+            SynchronizationContext synchronizationContext = null,
+            bool executeOnUIThread = true)
+            : this(synchronizationContext, executeOnUIThread)
         {
             handler_ = action;
             state_ = state;
-        }
-
-        ~MMTimer()
-        {
-            Dispose(false);
         }
 
         public int Interval
@@ -42,8 +42,7 @@
 
             set
             {
-                if (disposed_)
-                    throw new ObjectDisposedException("MMTimer");
+                CheckDisposed("MMTimer");
 
                 if (value < 0)
                     throw new ArgumentOutOfRangeException("Interval");
@@ -66,8 +65,7 @@
             }
             set
             {
-                if (disposed_)
-                    throw new ObjectDisposedException("MMTimer");
+                CheckDisposed("MMTimer");
 
                 if (value < 0)
                     throw new ArgumentOutOfRangeException("Resolution");
@@ -88,8 +86,7 @@
 
             set
             {
-                if (disposed_)
-                    throw new ObjectDisposedException("MMTimer");
+                CheckDisposed("MMTimer");
 
                 if (IsRunning)
                     throw new InvalidOperationException("Timer is already running");
@@ -141,23 +138,9 @@
 
         public event EventHandler<object> Tick;
 
-        public void Dispose()
+        protected override void DisposeUnmanaged()
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        private void Dispose(bool disposing)
-        {
-            if (!disposed_)
-            {
-                if (disposing)
-                {
-                    Stop();
-                }
-            }
-
-            disposed_ = true;
+            Stop();
         }
 
         protected virtual void OnTimer(object state)
@@ -166,7 +149,12 @@
             var tickEvent = Tick;
 
             if (handler != null || tickEvent != null)
-                synchronizationContext_.Post(InvokeHandlers, state);
+            {
+                if (synchronizationContext_ != null)
+                    synchronizationContext_.Post(InvokeHandlers, state);
+                else
+                    InvokeHandlers(state);
+            }
         }
 
         private void TimerCallback(uint uTimerID, uint uMsg, UIntPtr dwUser, UIntPtr dw1, UIntPtr dw2)
@@ -190,7 +178,6 @@
         private int interval_;
         private int resolution_ = 0;
         private bool isPeriodic_ = true;
-        private bool disposed_ = false;
         private Action<object> handler_;
         private object state_;
         private SynchronizationContext synchronizationContext_;
@@ -250,3 +237,4 @@
 // [high frequency timing .NET](https://stackoverflow.com/questions/16630238/high-frequency-timing-net)
 // [Difference between Synchronization Context and Dispatcher](https://stackoverflow.com/questions/24671883/difference-between-synchronization-context-and-dispatcher)
 // [Selecting Timer Functions](https://www.mvps.org/directx/articles/selecting_timer_functions.htm)
+// [Difference between Synchronization Context and Dispatcher](https://stackoverflow.com/questions/24671883/difference-between-synchronization-context-and-dispatcher)

@@ -70,6 +70,8 @@ Libraries:
 
 - [MdXaml](https://github.com/whistyun/MdXaml)
 
+- [MyST-Parser](https://github.com/executablebooks/MyST-Parser)
+
 Tools:
 
 - [htmldoc](https://github.com/michaelrsweet/htmldoc)
@@ -77,6 +79,7 @@ Tools:
 - [markdown-it-title](https://github.com/valeriangalliat/markdown-it-title)
 - [markdownlint](https://github.com/DavidAnson/markdownlint)
   - [vscode-markdownlint](https://github.com/DavidAnson/vscode-markdownlint)
+- [markdown-nice](https://github.com/mdnice/markdown-nice)
 - [slidev](https://github.com/slidevjs/slidev)
 
 Online Editors:

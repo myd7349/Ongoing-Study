@@ -10,6 +10,8 @@ Toast Notification
 
 Printing
 
+- https://github.com/zufuliu/notepad2/blob/main/src/Bridge.cpp
+
 - [Line width scale](https://github.com/gnuplot/gnuplot/blob/86ba381e842981723e210ddfb50923e4f403392a/src/win/wgdiplus.cpp#L539-L549)
 
   ```cpp

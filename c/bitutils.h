@@ -22,6 +22,7 @@
     )
 
 
+// y = (x >> n) & 1;
 #define GET_BIT(v, p) (IS_BIT_SET((v), (p)) ? 1 : 0)
 
 
@@ -33,6 +34,7 @@
     } while (0)
 
 
+// x ^= (1 << n);
 #define TRIGGLE_BIT(v, p, b) \
     do \
     { \
@@ -86,3 +88,11 @@
 
 
 #endif // BITUTILS_H_
+
+
+// References:
+// https://swharden.com/blog/2009-06-24-reading-writing-and-flipping-bits-in-c/
+// leave the lowest N bits of x alone and set higher bits to 0.
+// x &= (1 << (n + 1)) - 1;
+// toggle every bit of x
+// x = ~x;

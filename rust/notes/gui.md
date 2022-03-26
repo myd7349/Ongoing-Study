@@ -22,4 +22,8 @@
 
 - [tao](https://github.com/tauri-apps/tao)
 
+- [tauri](https://github.com/tauri-apps/tauri)
+
 - [winit](https://github.com/rust-windowing/winit)
+
+- [winsafe](https://github.com/rodrigocfd/winsafe)

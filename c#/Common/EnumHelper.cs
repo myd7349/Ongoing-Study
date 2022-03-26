@@ -80,9 +80,14 @@ namespace Common
                 FieldInfo field = type.GetField(name);
                 if (field != null)
                 {
+#if false
+                    var attr =
+                        (field.GetCustomAttributes(typeof(DescriptionAttribute), true) as DescriptionAttribute[])[0];
+#else
                     DescriptionAttribute attr =
                            Attribute.GetCustomAttribute(field,
                              typeof(DescriptionAttribute)) as DescriptionAttribute;
+#endif
                     if (attr != null)
                     {
                         return attr.Description;
@@ -100,3 +105,5 @@ namespace Common
 // [Enum Size in Bytes](https://stackoverflow.com/questions/20944585/enum-size-in-bytes)
 // [How to prevent duplicate values in enum?](https://stackoverflow.com/questions/1425777/how-to-prevent-duplicate-values-in-enum)
 // https://github.com/TylerBrinkley/Enums.NET
+// [WPF Data binding: How to data bind an enum to combo box using XAML?](https://stackoverflow.com/questions/4306743/wpf-data-binding-how-to-data-bind-an-enum-to-combo-box-using-xaml)
+// [How to bind an enum to a combobox control in WPF?](https://stackoverflow.com/questions/6145888/how-to-bind-an-enum-to-a-combobox-control-in-wpf)

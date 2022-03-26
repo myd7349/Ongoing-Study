@@ -85,12 +85,12 @@
                 3.0
                 );
 
-            var ellapsedMs = stopwatch_.ElapsedMilliseconds;
-            if (ellapsedMs - previousTimePoint_ >= 1000)
+            var elapsedMs = stopwatch_.ElapsedMilliseconds;
+            if (elapsedMs - previousTimePoint_ >= 1000)
             {
-                var samplingRate = (double)samples_ / ellapsedMs * 1000;
-                Logger_.Debug("Sampling Rate: {0} / {1} = {2}", samples_, ellapsedMs, samplingRate);
-                previousTimePoint_ = ellapsedMs;
+                var samplingRate = (double)samples_ / elapsedMs * 1000;
+                Logger_.Debug("Sampling Rate: {0} / {1} = {2}", samples_, elapsedMs, samplingRate);
+                previousTimePoint_ = elapsedMs;
             }
         }
 

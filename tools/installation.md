@@ -62,6 +62,7 @@
   - [Create a standalone Windows installer for your Python application](https://cyrille.rossant.net/create-a-standalone-windows-installer-for-your-python-application/)
 - [TranslationTool](https://github.com/Kybs0/TranslationTool)
 - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
+- [Resolute](https://github.com/rizonesoft/Resolute)
 
 ### Advanced Installer
 
@@ -70,6 +71,8 @@
 ### [PortableApps.com](http://portableapps.com/apps/development/portableapps.com_installer)
 
 - https://github.com/greenshot/greenshot
+
+- https://github.com/rizonesoft/Notepad3/blob/master/np3portableapp/build_np3portableapp.cmd
 
 ### [WinGUp](https://wingup.org/) - [GitHub](https://github.com/gup4win/wingup)
 

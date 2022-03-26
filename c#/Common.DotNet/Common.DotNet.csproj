@@ -30,6 +30,7 @@
     <Compile Include="..\Common\DateTimeHelper.cs" Link="DateTimeHelper.cs" />
     <Compile Include="..\Common\DiagnosticsHelper.cs" Link="DiagnosticsHelper.cs" />
     <Compile Include="..\Common\DictionaryExtension.cs" Link="DictionaryExtension.cs" />
+    <Compile Include="..\Common\DisposableBase.cs" Link="DisposableBase.cs" />
     <Compile Include="..\Common\DoubleConverter.cs" Link="DoubleConverter.cs" />
     <Compile Include="..\Common\EndianUtility.cs" Link="EndianUtility.cs" />
     <Compile Include="..\Common\EnumHelper.cs" Link="EnumHelper.cs" />
@@ -42,10 +43,13 @@
     <Compile Include="..\Common\IniFile2.Extension.cs" Link="IniFile2.Extension.cs" />
     <Compile Include="..\Common\IntegerHelper.cs" Link="IntegerHelper.cs" />
     <Compile Include="..\Common\Kernel32.WinBase.Profile.cs" Link="Kernel32.WinBase.Profile.cs" />
+    <Compile Include="..\Common\LinqHelper.cs" Link="LinqHelper.cs" />
     <Compile Include="..\Common\MMTimer.cs" Link="MMTimer.cs" />
     <Compile Include="..\Common\MSVCRTHelper.cs" Link="MSVCRTHelper.cs" />
+    <Compile Include="..\Common\PropertyChangedBase.cs" Link="PropertyChangedBase.cs" />
     <Compile Include="..\Common\RegistryKeyExtension.cs" Link="RegistryKeyExtension.cs" />
     <Compile Include="..\Common\StringExtension.cs" Link="StringExtension.cs" />
+    <Compile Include="..\Common\TickTimer.cs" Link="TickTimer.cs" />
     <Compile Include="..\Common\TimerQueueTimer.cs" Link="TimerQueueTimer.cs" />
   </ItemGroup>
 

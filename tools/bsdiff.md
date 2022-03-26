@@ -10,3 +10,5 @@ https://github.com/taspeotis/DeltaCompressionDotNet
 > It's included in the [deltaq](https://www.nuget.org/packages/deltaq/) NuGet package.
 
 https://github.com/sisong/HDiffPatch
+
+https://github.com/EvilMouth/DiffPatchRecord

@@ -17,7 +17,7 @@
             var timer = new Timer(
                 _ =>
                 {
-                    Console.WriteLine("Ellapsed ms: {0}", stopwatch.ElapsedMilliseconds);
+                    Console.WriteLine("Elapsed ms: {0}", stopwatch.ElapsedMilliseconds);
                     Interlocked.Increment(ref count);
                 },
                 null,
@@ -40,7 +40,7 @@
             var mmTimer = new MMTimer(
                 _ =>
                 {
-                    Console.WriteLine("Ellapsed ms: {0}", stopwatch.ElapsedMilliseconds);
+                    Console.WriteLine("Elapsed ms: {0}", stopwatch.ElapsedMilliseconds);
                     Interlocked.Increment(ref count);
                 }
                 )

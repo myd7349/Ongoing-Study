@@ -12,3 +12,11 @@
 
 [Threading in Windows Forms](https://jonskeet.uk/csharp/threads/winforms.html)
 
+[Convert method to Delegate?](https://stackoverflow.com/questions/4490842/convert-method-to-delegate)
+
+I noticed that:
+
+```csharp
+var action = () => {}; // error
+Action action = () => {}; // ok
+```

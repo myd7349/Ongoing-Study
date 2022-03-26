@@ -5,6 +5,7 @@
   - [obs-websocket](https://github.com/obsproject/obs-websocket)
 - ApowerREC
 - __Bandicam
+- [broz](https://github.com/antfu/broz)
 - __Captura
 - __FastStone __Capture
 - HyperCam
@@ -31,3 +32,5 @@
 - [Kap](https://github.com/wulkano/Kap)
 - [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)
 - [lximage-qt](https://github.com/lxqt/lximage-qt)
+- [asciinema](https://github.com/asciinema/asciinema)
+  - [cast2gif](https://github.com/foubian/cast2gif)

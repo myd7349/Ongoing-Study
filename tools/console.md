@@ -53,6 +53,10 @@ Terminal emulators supported by [system-terminal](https://github.com/alexrp/syst
 
 Other Tools:
 
+- [asciinema](https://github.com/asciinema/asciinema)
+
+  - [cast2gif](https://github.com/foubian/cast2gif)
+
 - [starship](https://github.com/starship/starship)
 
 - [termtosvg](https://github.com/nbedos/termtosvg): Record terminal sessions as SVG animations.

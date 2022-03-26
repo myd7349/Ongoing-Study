@@ -2,6 +2,7 @@
 
 - Ceph
 - [Curve](https://github.com/opencurve/curve)
+- [dufs](https://github.com/sigoden/dufs)
 - FastDFS
 - [gobeansdb](https://github.com/douban/gobeansdb)
 - JuiceFS

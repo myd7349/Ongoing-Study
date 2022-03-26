@@ -47,7 +47,7 @@ void Test()
     consumerThread.join();
 
     sw.Stop();
-    std::cout << "Ellapsed time: " << sw.GetElapsedMilliseconds() << "ms" << std::endl;
+    std::cout << "Elapsed time: " << sw.GetElapsedMilliseconds() << "ms" << std::endl;
 
     std::cout << "Checking if test is passed...\n";
 

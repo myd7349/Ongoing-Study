@@ -37,6 +37,7 @@ namespace ECGDemo
                 cancellationTokenSource_.Token);
 #else
             acquireThread_ = new Thread(Acquire);
+            acquireThread_.Start();
 #endif
         }
 
@@ -100,6 +101,7 @@ namespace ECGDemo
             lock (canvasBitmapLock_)
             {
                 canvasBitmap_ = BitmapFactory.New(width, height);
+                Volatile.Write(ref canvasWidth_, width);
                 image_.Source = canvasBitmap_;
 
                 LastPointX = 0;
@@ -114,6 +116,9 @@ namespace ECGDemo
             acquireTask_.Wait();
             cancellationTokenSource_.Dispose();
 #else
+            cancellationTokenSource_.Cancel();
+            acquireThread_.Join();
+            cancellationTokenSource_.Dispose();
 #endif
 
             base.OnClosed(e);
@@ -169,7 +174,11 @@ namespace ECGDemo
                     for (int i = 0; i < samples; ++i)
                     {
                         var x = (int)(LastPointX + i * DotsPerSample);
+#if false
                         if (x >= canvasBitmap_.PixelWidth)
+#else
+                        if (x >= Volatile.Read(ref canvasWidth_))
+#endif
                         {
                             if (c == -1)
                                 c = i;
@@ -182,11 +191,12 @@ namespace ECGDemo
                     }
                 }
 
-                totalSamplesTextBlock_.Text = $"{samples_ += 25}";
+                //canvasBitmap_.Freeze();
 
-                canvasBitmap_.Freeze();
+                if (token.IsCancellationRequested)
+                    break;
 
-                Dispatcher.Invoke(() =>
+                Action render = () =>
                 {
                     if (canvasBitmap_ == null)
                         return;
@@ -242,25 +252,11 @@ namespace ECGDemo
 
                     LastPointX = points[(samples - 1) * 2];
                     LastPointY = points[points.Length - 1];
-                });
+                };
+
+                //Dispatcher.Invoke(render); // Deadlock when close the window.
+                Dispatcher.BeginInvoke(render);
             }
-
-            /*
-            elapsedMsTextBlock_.Text = $"{stopwatch_.ElapsedMilliseconds}ms";
-
-            var stopwatch = Stopwatch.StartNew();
-
-
-            acquireDataTextBlock_.Text = $"{samples} samples in {stopwatch.ElapsedMilliseconds}ms";
-
-            stopwatch.Restart();
-
-            drawWaveTextBlock_.Text = $"{stopwatch.ElapsedMilliseconds}ms";
-
-            totalSamplesTextBlock_.Text = samples_.ToString();
-
-            Debug.WriteLine($"X Start: {LastPointX}");
-            */
         }
 
         private CancellationTokenSource cancellationTokenSource_;
@@ -271,6 +267,7 @@ namespace ECGDemo
 #endif
         private WriteableBitmap gridBitmap_;
         private WriteableBitmap canvasBitmap_;
+        private int canvasWidth_;
         private object canvasBitmapLock_ = new object();
         private int[] lastPoint_ = new int[2];
     }
@@ -288,3 +285,5 @@ namespace ECGDemo
 // [JpegBitmapEncoder and TLP finally got married](https://modosansreves-coding.blogspot.com/2011/12/jpegbitmapencoder-and-tlp-finally-got.html)
 // [Best way to get a glow effect windows phone 7](https://stackoverflow.com/questions/3719750/best-way-to-get-a-glow-effect-windows-phone-7)
 // [How can I render text on a WriteableBitmap on a background thread, in Windows Phone 7?](https://stackoverflow.com/questions/5666772/how-can-i-render-text-on-a-writeablebitmap-on-a-background-thread-in-windows-ph)
+// [System.Threading.Tasks.TaskCanceledException: 'A task was canceled.' when Closing App](https://stackoverflow.com/questions/50370286/system-threading-tasks-taskcanceledexception-a-task-was-canceled-when-closin)
+// [Deadlock when thread uses dispatcher and the main thread is waiting for thread to finish](https://stackoverflow.com/questions/24211934/deadlock-when-thread-uses-dispatcher-and-the-main-thread-is-waiting-for-thread-t)

@@ -29,3 +29,5 @@ Extensions:
 - [tabnine](https://www.tabnine.com/)
 
 - [VSCode HexEditor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor)
+
+- [.NET Interactive Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode)

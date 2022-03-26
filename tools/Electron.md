@@ -1,4 +1,5 @@
 - Atom Editor
+- [Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg)
 - [dogehouse](https://github.com/benawad/dogehouse)
 - [Google-Play-Music-Desktop-Player-UNOFFICIAL-](https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-)
 - [graphiql-app](https://github.com/skevy/graphiql-app)

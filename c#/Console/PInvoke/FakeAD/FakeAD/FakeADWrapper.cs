@@ -20,12 +20,14 @@ namespace FakeAD
         {
             if (Natives.Is64Bit)
             {
+                callback_ = callback;
+
                 config64_.BytesPerSecond = bytesPerSecond;
                 config64_.TimeSliceInMilliseconds = timeSliceInMilliseconds;
                 config64_.TimeoutSliceCount = timeoutSliceCount;
                 config64_.Port = port;
                 config64_.WSAStartup = 1;
-                config64_.Callback = callback;
+                config64_.Callback = callback_;
                 config64_.Context = context;
 
                 handle_ = Natives.Init64(ref config64_);
@@ -35,12 +37,14 @@ namespace FakeAD
             else
             {
 #if ARCH_32
+                callback_ = callback;
+
                 config32_.BytesPerSecond = bytesPerSecond;
                 config32_.TimeSliceInMilliseconds = timeSliceInMilliseconds;
                 config32_.TimeoutSliceCount = timeoutSliceCount;
                 config32_.Port = port;
                 config32_.WSAStartup = 1;
-                config32_.Callback = callback;
+                config32_.Callback = callback_;
                 config32_.Context = context;
 
                 handle_ = Natives.Init32(ref config32_);
@@ -125,9 +129,12 @@ namespace FakeAD
         public static Error GetLastError() => Natives.GetError();
 
         public static string ErrorToString(Error error) => Natives.ErrorToString(error);
+
 #if ARCH_32
+        private readonly FakeADCallback32 callback_;
         private Config32 config32_;
 #else
+        private readonly FakeADCallback64 callback_;
         private Config64 config64_;
 #endif
         private IntPtr handle_;

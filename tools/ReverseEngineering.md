@@ -7,3 +7,5 @@ https://github.com/horsicq/x64dbg-Plugin-Manager
 https://github.com/WerWolv/ImHex
 
 https://github.com/hasherezade/pe-sieve
+
+https://github.com/Pr0214/findhash

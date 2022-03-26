@@ -4,9 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ECGDemo"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:cmn="clr-namespace:Common;assembly=Common.DotNet"
         mc:Ignorable="d"
         Title="ECG Demo" Height="450" Width="800"
         SizeChanged="Window_SizeChanged">
+    <Window.Resources>
+        <cmn:TickTimer x:Key="tickTimer" />
+        <local:TimeSpanConverter x:Key="timeSpanConverter" />
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -16,39 +23,18 @@
         <Image Name="image_" Grid.Row="0" Stretch="None" />
 
         <StatusBar Grid.Row="1">
-            <StatusBarItem>
-                <TextBlock Text="Acquire data: " />
-            </StatusBarItem>
-            <StatusBarItem>
-                <TextBlock Name="acquireDataTextBlock_" />
-            </StatusBarItem>
+            <TextBlock Text="Start time:" />
+            <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, Mode=OneWay,  StringFormat='yyyy-MM-dd HH:mm:ss'}" />
 
             <Separator />
 
-            <StatusBarItem>
-                <TextBlock Text="Draw wave: " />
-            </StatusBarItem>
-            <StatusBarItem>
-                <TextBlock Name="drawWaveTextBlock_" />
-            </StatusBarItem>
+            <TextBlock Text="System time:" />
+            <TextBlock Text="{Binding Source={StaticResource tickTimer}, Path=Now, Mode=OneWay,  StringFormat='HH:mm:ss'}" />
 
             <Separator />
 
-            <StatusBarItem>
-                <TextBlock Text="Elapsed: " />
-            </StatusBarItem>
-            <StatusBarItem>
-                <TextBlock Name="elapsedMsTextBlock_" />
-            </StatusBarItem>
-
-            <Separator />
-
-            <StatusBarItem>
-                <TextBlock Text="Total samples: " />
-            </StatusBarItem>
-            <StatusBarItem>
-                <TextBlock Name="totalSamplesTextBlock_" />
-            </StatusBarItem>
+            <TextBlock Text="Elapsed:" />
+            <TextBlock Text="{Binding Source={StaticResource tickTimer}, Path=ElapsedTime, Converter={StaticResource timeSpanConverter}, Mode=OneWay}" />
         </StatusBar>
     </Grid>
 
@@ -57,5 +43,8 @@
     References:
     [How do I space out the child elements of a StackPanel?](https://stackoverflow.com/questions/932510/how-do-i-space-out-the-child-elements-of-a-stackpanel)
     https://docs.microsoft.com/en-us/dotnet/api/system.windows.controls.primitives.statusbar?view=windowsdesktop-6.0
+    [WPF TextBox binding DateTime](https://stackoverflow.com/questions/27453733/wpf-textbox-binding-datetime)
+    [WPF Countdown Timer Binding to different window](https://stackoverflow.com/questions/28272603/wpf-countdown-timer-binding-to-different-window)
+    [How to format TimeSpan in XAML](https://stackoverflow.com/questions/4563081/how-to-format-timespan-in-xaml)
     -->
 </Window>

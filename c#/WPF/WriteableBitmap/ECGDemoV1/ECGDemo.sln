@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECGDemo", "ECGDemo\ECGDemo.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FakeAD", "..\..\..\Console\PInvoke\FakeAD\FakeAD\FakeAD.csproj", "{CA35CA58-42F0-4549-B12D-201600C62178}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.DotNet", "..\..\..\Common.DotNet\Common.DotNet.csproj", "{8079A8B8-4187-494E-AC61-5E69101B2BA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CA35CA58-42F0-4549-B12D-201600C62178}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA35CA58-42F0-4549-B12D-201600C62178}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA35CA58-42F0-4549-B12D-201600C62178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8079A8B8-4187-494E-AC61-5E69101B2BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8079A8B8-4187-494E-AC61-5E69101B2BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8079A8B8-4187-494E-AC61-5E69101B2BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8079A8B8-4187-494E-AC61-5E69101B2BA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

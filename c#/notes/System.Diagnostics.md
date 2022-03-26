@@ -242,3 +242,5 @@ static void Main(string[] args)
 ```
 
 [Trying to determine FPS in a C# WPF program](https://stackoverflow.com/questions/4149906/trying-to-determine-fps-in-a-c-sharp-wpf-program)
+
+[How to get Class name that is calling my method?](https://stackoverflow.com/questions/48570573/how-to-get-class-name-that-is-calling-my-method)

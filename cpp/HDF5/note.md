@@ -325,3 +325,6 @@
    - [hdf5.viewer](https://github.com/HDF-NI/hdf5.viewer)
    - HDFView
    - ViTables
+
+ 26. https://github.com/neurodroid/stimfit/tree/master/src/libstfio/hdf5
+ 

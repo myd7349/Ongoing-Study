@@ -49,8 +49,8 @@ int main(void)
         if (++counter == 1000)
         {
             counter = 0;
-            printf("Ellapsed microseconds: %"PRId64"\n",
-                high_timer_ellapsed_us(&high_timer));
+            printf("Elapsed microseconds: %"PRId64"\n",
+                high_timer_elapsed_us(&high_timer));
         }
     }
 
@@ -64,3 +64,4 @@ int main(void)
 // https://linux.die.net/man/2/setitimer
 // https://github.com/slideinc/itimer/blob/master/itimermodule.c
 // https://github.com/slideinc/itimer
+// https://www.teuniz.net/Timer_code/index.html

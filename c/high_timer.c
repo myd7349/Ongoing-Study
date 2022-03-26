@@ -26,19 +26,19 @@ void high_timer_start(high_timer_t *timer)
 }
 
 
-int64_t high_timer_ellapsed_ms(high_timer_t *timer)
+int64_t high_timer_elapsed_ms(high_timer_t *timer)
 {
-    return high_timer_ellapsed_ns(timer) / 1000 / 1000;
+    return high_timer_elapsed_ns(timer) / 1000 / 1000;
 }
 
 
-int64_t high_timer_ellapsed_us(high_timer_t *timer)
+int64_t high_timer_elapsed_us(high_timer_t *timer)
 {
-    return high_timer_ellapsed_ns(timer) / 1000;
+    return high_timer_elapsed_ns(timer) / 1000;
 }
 
 
-int64_t high_timer_ellapsed_ns(high_timer_t *timer)
+int64_t high_timer_elapsed_ns(high_timer_t *timer)
 {
     LARGE_INTEGER stop;
     LARGE_INTEGER frequency;
@@ -72,19 +72,19 @@ void high_timer_start(high_timer_t *timer)
 }
 
 
-int64_t high_timer_ellapsed_ms(high_timer_t *timer)
+int64_t high_timer_elapsed_ms(high_timer_t *timer)
 {
-    return high_timer_ellapsed_ns(timer) / 1000 / 1000;
+    return high_timer_elapsed_ns(timer) / 1000 / 1000;
 }
 
 
-int64_t high_timer_ellapsed_us(high_timer_t *timer)
+int64_t high_timer_elapsed_us(high_timer_t *timer)
 {
-    return high_timer_ellapsed_ns(timer) / 1000;
+    return high_timer_elapsed_ns(timer) / 1000;
 }
 
 
-int64_t high_timer_ellapsed_ns(high_timer_t *timer)
+int64_t high_timer_elapsed_ns(high_timer_t *timer)
 {
     struct timespec current_spec;
 
@@ -113,13 +113,13 @@ void high_timer_start(high_timer_t *timer)
     timer->started = true;
 }
 
-int64_t high_timer_ellapsed_ms(high_timer_t *timer)
+int64_t high_timer_elapsed_ms(high_timer_t *timer)
 {
-    return high_timer_ellapsed_us(timer) / 1000;
+    return high_timer_elapsed_us(timer) / 1000;
 }
 
 
-int64_t high_timer_ellapsed_us(high_timer_t *timer)
+int64_t high_timer_elapsed_us(high_timer_t *timer)
 {
     struct timeval stop;
 
@@ -139,9 +139,9 @@ int64_t high_timer_ellapsed_us(high_timer_t *timer)
 }
 
 
-int64_t high_timer_ellapsed_ns(high_timer_t *timer)
+int64_t high_timer_elapsed_ns(high_timer_t *timer)
 {
-    return high_timer_ellapsed_us(timer) * 1000;
+    return high_timer_elapsed_us(timer) * 1000;
 }
 
 #endif

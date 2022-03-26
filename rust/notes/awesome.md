@@ -9,6 +9,7 @@
 ### Database
 
 - [rbatis](https://github.com/rbatis/rbatis)
+- [xlite](https://github.com/x2bool/xlite)
 
 ### GUI
 

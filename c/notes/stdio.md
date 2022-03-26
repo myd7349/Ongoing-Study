@@ -571,3 +571,26 @@ int main(void)
 [don't use feof](https://gitlab.freedesktop.org/uchardet/uchardet/-/merge_requests/12)
 
 [Why it's bad to use feof() to control a loop](https://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1046476070&id=1043284351)
+
+36. ftello
+
+https://www.teuniz.net/edf/index.html
+
+https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-ftello-get-current-file-position
+
+```c
+#define _XOPEN_SOURCE 500
+#include <stdio.h>
+
+off_t ftello(FILE *stream);
+
+#define _OPEN_SYS_UNLOCKED_EXT 1
+#include <stdio.h>
+
+off_t ftello_unlocked(FILE *stream);
+```
+
+37. fseeko
+
+https://gitlab.com/Teuniz/EDFbrowser/-/blob/master/cnvs/nk2edf.cpp
+

@@ -1,5 +1,7 @@
 Code Editors:
 
+- [Acode](https://github.com/deadlyjack/Acode): Powerful text/code editor for android.
+
 - [bim](https://github.com/klange/bim)
 
 - [BowPad](https://github.com/stefankueng/BowPad)
@@ -21,6 +23,8 @@ Code Editors:
 - [ewig](https://github.com/arximboldi/ewig)
 
 - gedit
+
+- [helix](https://github.com/helix-editor/helix)
 
 - [HTML Notepad](https://html-notepad.com/)
 
@@ -58,7 +62,11 @@ Code Editors:
 
 - [Notepad2](https://github.com/XhmikosR/notepad2-mod)
 
+  - [notepad2](https://github.com/zufuliu/notepad2)
+
 - [Notepad2e](https://github.com/ProgerXP/Notepad2e)
+
+- [Notepad3](https://github.com/rizonesoft/Notepad3)
 
 - [NotepadNext](https://github.com/dail8859/NotepadNext)
 

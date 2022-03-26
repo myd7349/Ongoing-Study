@@ -1,4 +1,5 @@
 - Brave
+- [broz](https://github.com/antfu/broz)
 - Chrome
 - Chromium
 - Firefox

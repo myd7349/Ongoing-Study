@@ -122,3 +122,8 @@ namespace FluentDataDemo001
         }
     }
 }
+
+
+// References:
+// [WPF SQLite Dapper List and Add People – 3](https://begincodingnow.com/wpf-sqlite-dapper-list-and-add-people-2/)
+// > ConfigurationManager.ConnectionStrings[id].ConnectionString

@@ -65,6 +65,8 @@
   
   - [NumPy: Pretty print tabular data](https://stackoverflow.com/questions/9712085/numpy-pretty-print-tabular-data)
 
+  - [Printing Lists as Tabular Data](https://stackoverflow.com/questions/9535954/printing-lists-as-tabular-data)
+
 - [progressbar2](https://github.com/WoLpH/python-progressbar)
 
 - [Pylsy](https://github.com/Leviathan1995/Pylsy)
@@ -81,6 +83,12 @@
 
 - tabulate
 
+  - [Printing Lists as Tabular Data](https://stackoverflow.com/questions/9535954/printing-lists-as-tabular-data)
+
+- texttable
+
+  - [Printing Lists as Tabular Data](https://stackoverflow.com/questions/9535954/printing-lists-as-tabular-data)
+
 - [Textual](https://github.com/Textualize/textual)
   
   - [wordle-tui](https://github.com/frostming/wordle-tui)
@@ -92,6 +100,8 @@
 - [Typer](https://github.com/tiangolo/typer)
 
 - [wcwidth](https://pypi.org/project/wcwidth/)
+
+  - https://github.com/foutaise/texttable
 
 ### Clipboard
 
@@ -117,8 +127,13 @@
 
 - [sqlite-utils](https://github.com/simonw/sqlite-utils)
 
+### Debug
+
+- [icecream](https://github.com/gruns/icecream)
+
 ### DSP
 
+- [filterpy](https://github.com/rlabbe/filterpy)
 - [pywt](https://github.com/PyWavelets/pywt)
 - [trefide](https://github.com/ikinsella/trefide)
 
@@ -226,6 +241,12 @@
 
 - [Python for MATLAB Development](https://github.com/Apress/python-for-matlab-development)
 
+- https://github.com/brainstorm-tools/brainstorm3/blob/master/python/demo_python.m
+
+##### MATLAB -> Python
+
+- [matlab2python](https://github.com/ebranlard/matlab2python)
+
 ##### Python -> Ruby
 
 - [pycall.rb](https://github.com/mrkn/pycall.rb)
@@ -245,6 +266,8 @@
   - - [FlaUI](https://github.com/GDATASoftwareAG/robotframework-flaui)
 
 ### Logging
+
+- [icecream](https://github.com/gruns/icecream)
 
 - [structlog](https://github.com/hynek/structlog)
 
@@ -322,6 +345,12 @@
 - [py-spy](https://github.com/benfred/py-spy)
 
 - [pyinstrument](https://github.com/joerick/pyinstrument)
+
+- [tuna](https://github.com/nschloe/tuna)
+
+### Project Templates
+
+- [pyfoobar](https://github.com/nschloe/pyfoobar)
 
 ### Refactoring
 

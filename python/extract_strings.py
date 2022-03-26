@@ -139,3 +139,7 @@ if __name__ == '__main__':
         print(f"Usage:\n  {os.path.basename(__file__)} <dir>...")
     else:
         main()
+
+
+# References:
+# https://github.com/zufuliu/notepad2/blob/main/locale/Locale.py

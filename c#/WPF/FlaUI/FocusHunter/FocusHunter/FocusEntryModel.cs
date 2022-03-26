@@ -28,3 +28,7 @@
         public string Path { get; private set; }
     }
 }
+
+
+// References:
+// [C#根据PID获取进程名](https://blog.sdlsj.net/archives/c-sharp/get-process-name-by-pid/)

@@ -9,3 +9,12 @@
 
 
 [twodict](https://github.com/MrS0m30n3/twodict)
+
+ [How can I make a dictionary from separate lists of keys and values?](https://stackoverflow.com/questions/209840/how-can-i-make-a-dictionary-from-separate-lists-of-keys-and-values)
+
+```python
+keys = ['a', 'b', 'c']
+values = [1, 2, 3]
+dictionary = dict(zip(keys, values))
+print(dictionary) # {'a': 1, 'b': 2, 'c': 3}
+```

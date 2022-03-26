@@ -7,3 +7,7 @@ https://github.com/mmozeiko/wcap
 [noMeiryoUI](https://github.com/Tatsu-syo/noMeiryoUI)
 
 [k2pdfopt](https://www.willus.com/k2pdfopt/src/)
+
+https://github.com/zufuliu/notepad2
+
+https://github.com/rizonesoft/Notepad3

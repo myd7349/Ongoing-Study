@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Common.DotNet\Common.DotNet.csproj" />
     <ProjectReference Include="..\..\..\..\Console\PInvoke\FakeAD\FakeAD\FakeAD.csproj" />
   </ItemGroup>
 

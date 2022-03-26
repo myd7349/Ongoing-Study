@@ -53,6 +53,7 @@
     <Compile Include="Base64Helper.cs" />
     <Compile Include="DateTimeHelper.cs" />
     <Compile Include="DiagnosticsHelper.cs" />
+    <Compile Include="DisposableBase.cs" />
     <Compile Include="DoubleConverter.cs" />
     <Compile Include="GraphicsUnitConvert.cs" />
     <Compile Include="ImageHelper.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="IniFile2.cs" />
     <Compile Include="IniFile2.Extension.cs" />
     <Compile Include="Kernel32.WinBase.Profile.cs" />
+    <Compile Include="LinqHelper.cs" />
     <Compile Include="MarshalHelper.cs" />
     <Compile Include="MathHelper.cs" />
     <Compile Include="MemoryStreamExtension.cs" />
@@ -115,6 +117,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="PropertyChangedBase.cs" />
     <Compile Include="PropertyChangedExEventArgs.cs" />
     <Compile Include="PropertyChangedExEventHandler.cs" />
     <Compile Include="RandomExtension.cs" />
@@ -130,6 +133,7 @@
     <Compile Include="StructHelpers.cs" />
     <Compile Include="SwapHelper.cs" />
     <Compile Include="TabControlEx.cs" />
+    <Compile Include="TickTimer.cs" />
     <Compile Include="TimerQueueTimer.cs" />
     <Compile Include="TypeHelper.cs" />
     <Compile Include="UnmanagedBuffer.cs" />

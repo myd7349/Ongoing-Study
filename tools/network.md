@@ -66,6 +66,8 @@
 
 - [pingtop](https://github.com/laixintao/pingtop)
 
+- [pwnat](https://github.com/samyk/pwnat)
+
 - [rtop](https://github.com/rapidloop/rtop)
 
 - [smartdns](https://github.com/pymumu/smartdns)

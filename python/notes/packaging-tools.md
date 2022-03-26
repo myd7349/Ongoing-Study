@@ -1,3 +1,9 @@
+* https://iscinumpy.gitlab.io/tags/bindings/
+
+  * https://iscinumpy.dev/post/tools-to-bind-to-python/
+  * https://iscinumpy.dev/post/binding-minuit2/
+
+
 * [How to create a single executable file(.exe) from python code on windows?](https://github.com/myd7349/Ongoing-Study/issues/4)
 
 I used to pack my python code as an executable file with [cx_Freeze](http://cx-freeze.sourceforge.net/). And when all thing was done, I may got a `.exe` file, plus with some `.pyd` and `.dll` files it depends.

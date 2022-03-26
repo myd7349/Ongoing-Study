@@ -21,3 +21,5 @@ https://github.com/shidenggui/pit/blob/main/git-objects.py
 > ```
 
 [What are data classes and how are they different from common classes?](https://stackoverflow.com/questions/47955263/what-are-data-classes-and-how-are-they-different-from-common-classes)
+
+[C-like structures in Python](https://stackoverflow.com/questions/35988/c-like-structures-in-python)

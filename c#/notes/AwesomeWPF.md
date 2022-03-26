@@ -46,6 +46,8 @@ Applications:
 
 - [LightBulb](https://github.com/Tyrrrz/LightBulb): Reduces eye strain by adjusting gamma based on the current time
 
+- [LittleBigMouse](https://github.com/mgth/LittleBigMouse)
+
 - [live-draw](https://github.com/antfu/live-draw)
 
 - [Lively Wallpaper](https://github.com/rocksdanister/lively)
@@ -101,6 +103,8 @@ Applications:
 - [WinCompose](https://github.com/samhocevar/wincompose)
 
 - [Wox](https://github.com/Wox-launcher/Wox)
+
+- [WPF-Music_Player](https://github.com/xingchuanzhen/WPF-Music_Player)
 
 - [WpfDesigner](https://github.com/icsharpcode/WpfDesigner)
 
@@ -211,6 +215,10 @@ Libraries:
   
   - [Quicker](https://github.com/cuiliang/Quicker)
 
+- [HLab](https://github.com/CHMP-HLab/HLab)
+  
+  - [LittleBigMouse](https://github.com/mgth/LittleBigMouse)
+
 - [Livet](https://github.com/runceel/Livet)
 
 - [MahApps.Metro](https://github.com/MahApps/MahApps.Metro)
@@ -229,6 +237,8 @@ Libraries:
   
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
 
+- [mui](https://github.com/firstfloorsoftware/mui)
+
 - [mvvm-dialogs](https://github.com/FantasticFiasco/mvvm-dialogs)
 
 - [MVVM Light Toolkit](https://github.com/lbugnion/mvvmlight)
@@ -244,6 +254,8 @@ Libraries:
 - [NlogViewer](https://github.com/erizet/NlogViewer): NlogViewer is a simple WPF-control to show NLog-logs.
 
 - [Notification.Wpf](https://github.com/Platonenkov/Notification.Wpf)
+
+- [NotifyIconWpf](https://github.com/mgth/LittleBigMouse/tree/master/Lib/NotifyIconWpf)
 
 - [NumericUpDownLib](https://github.com/Dirkster99/NumericUpDownLib)
 

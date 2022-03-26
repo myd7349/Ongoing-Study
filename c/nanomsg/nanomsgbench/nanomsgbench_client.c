@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
     int total_bytes = 256 * 1024 * 1024;
     int turns = total_bytes / MAX_MSG_LEN;
     int64_t total_bytes_received = 0;
-    int64_t ellapsed_ms;
+    int64_t elapsed_ms;
     long double data_rate_Bps;
     high_timer_t timer;
     char remote_endpoint[260] = "";
@@ -114,15 +114,15 @@ int main(int argc, char *argv[])
 
     nn_close(socket);
 
-    ellapsed_ms = high_timer_ellapsed_ms(&timer);
-    data_rate_Bps = total_bytes_received * 1000.0L / ellapsed_ms;
+    elapsed_ms = high_timer_elapsed_ms(&timer);
+    data_rate_Bps = total_bytes_received * 1000.0L / elapsed_ms;
 
     printf(
         "Total received: %" PRId64 " bytes | %.2Lf KiB | %.2Lf MiB\n"
-        "Times ellipsed: %" PRId64 " ms\n"
+        "Times elapsed: %" PRId64 " ms\n"
         "Data Rate: %.2Lf %s | %.2Lf %s | %.2Lf %s | %.2Lf %s\n",
         total_bytes_received, total_bytes_received / 1024.0L, total_bytes_received / 1024.0L / 1024.0,
-        ellapsed_ms,
+        elapsed_ms,
         data_rate_Bps, data_rate_unit_name(Bps),
         data_rate_convertf(data_rate_Bps, Bps, Gbps), data_rate_unit_name(Gbps),
         data_rate_convertf(data_rate_Bps, Bps, KiBps), data_rate_unit_name(KiBps),

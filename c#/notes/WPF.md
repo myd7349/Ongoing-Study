@@ -127,10 +127,6 @@ public string ImageFullPath
 
 ##### Real Time rendering
 
-- WriteableBitmap
-
-  - [WPF - Rendering "Real Time" Best Practice](https://stackoverflow.com/questions/23854176/wpf-rendering-real-time-best-practice)
-
 - CompositionTarget.Rendering
 
   - [How to: Render on a Per Frame Interval Using CompositionTarget](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/graphics-multimedia/how-to-render-on-a-per-frame-interval-using-compositiontarget?view=netframeworkdesktop-4.8)

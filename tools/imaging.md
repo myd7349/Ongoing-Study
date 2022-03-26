@@ -61,3 +61,7 @@ Image optimizer
 - [McImage](https://github.com/smallSohoSolo/McImage)
 
 - [Squoosh](https://squoosh.app/) - [GitHub](https://github.com/GoogleChromeLabs/squoosh)
+
+ICON editor
+
+- [rguiicons](https://github.com/raysan5/rguiicons)

@@ -171,3 +171,5 @@ https://patch-diff.githubusercontent.com/raw/zeromq/libzmq/pull/4310.diff
 https://github.com/aaossa/git-activity
 
 https://github.com/brminnick/GitTrends
+
+https://github.com/ekalinin/github-markdown-toc

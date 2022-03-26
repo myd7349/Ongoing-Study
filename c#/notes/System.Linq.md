@@ -214,3 +214,11 @@ void SelectManyTest()
 [Select All distinct values in a column using LINQ](https://stackoverflow.com/questions/19548043/select-all-distinct-values-in-a-column-using-linq)
 
 [.net - Basic LINQ expression for an ItemCollection](https://stackoverflow.com/questions/1160854/basic-linq-expression-for-an-itemcollection)
+
+[How do I use LINQ to obtain a unique list of properties from a list of objects?](https://stackoverflow.com/questions/568347/how-do-i-use-linq-to-obtain-a-unique-list-of-properties-from-a-list-of-objects)
+
+> IEnumerable<int> ids = list.Select(x=>x.ID).Distinct();
+
+[Test if all values in a list are unique](https://stackoverflow.com/questions/18303897/test-if-all-values-in-a-list-are-unique)
+
+> bool isUnique = theList.Distinct().Count() == theList.Count();

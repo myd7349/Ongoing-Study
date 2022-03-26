@@ -121,6 +121,8 @@
 
 - [libromfs](https://github.com/WerWolv/libromfs): libromfs is an easy way to bundle resources directly into any C++ application.
 
+- [Locale.py](https://github.com/zufuliu/notepad2/blob/main/locale/Locale.py)
+
 - [ResText](https://github.com/TortoiseGit/TortoiseGit/tree/master/src/ResText)
   
   - [TortoiseGit/README.txt at master · TortoiseGit/TortoiseGit · GitHub](https://github.com/TortoiseGit/TortoiseGit/blob/master/Languages/README.txt)

@@ -52,6 +52,8 @@ Fonts:
 
 - [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
 
+- [Input Mono](https://input.djr.com/)
+
 Softwares:
 
 - [Character-Map-UWP](https://github.com/character-map-uwp/Character-Map-UWP)

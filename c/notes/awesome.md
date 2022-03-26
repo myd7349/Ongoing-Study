@@ -24,6 +24,8 @@
 
 - [mir](https://github.com/vnmakarov/mir)
 
+- [sdcc](https://github.com/rurban/sdcc)
+
 ### Compression
 
 - [c-blosc](https://github.com/Blosc/c-blosc)
@@ -41,6 +43,8 @@
 - [ctl](https://github.com/glouw/ctl): The C Template Library.
 
 - [hashmap.c](https://github.com/tidwall/hashmap.c)
+
+- [hashmap.h](https://github.com/sheredom/hashmap.h)
 
 - [mlib](https://github.com/P-p-H-d/mlib)
 
@@ -61,6 +65,14 @@
 - [Fidlib](https://github.com/uazu/fidlib): Run-time filter design and execution library.
 
   - [EDFbrowser](https://gitlab.com/Teuniz/EDFbrowser/)
+
+- [spuc](http://spuc.sourceforge.net/) - [GitHub](https://github.com/audiofilter/spuc)
+
+  - [SigViewer](https://github.com/cbrnr/sigviewer/tree/main/src/signal_processing/SPUC)
+
+  - [spuc_filter](https://github.com/audiofilter/spuc_filter)
+
+- [spuce](https://github.com/audiofilter/spuce)
 
 ### Functional Programming
 
@@ -146,6 +158,10 @@
 
 - [PDFio](https://github.com/michaelrsweet/pdfio)
 
+### Regex
+
+- [regexp.old](https://github.com/garyhouston/regexp.old)
+
 ### Scripting
 
 - [umka-lang](https://github.com/vtereshkov/umka-lang)
@@ -153,6 +169,7 @@
 ### Serialization
 
 - [argdata](https://github.com/NuxiNL/argdata)
+- [Metaresc](https://github.com/alexanderchuranov/Metaresc)
 - [mpack](https://github.com/ludocode/mpack)
 
 ### Static Analysis
@@ -172,6 +189,8 @@
 ### Unicode
 
 - [branchless-utf8](https://github.com/skeeto/branchless-utf8)
+
+- [cuneicode](https://github.com/soasis/cuneicode)
 
 ### Unit Testing
 

@@ -14,6 +14,7 @@ Applications:
 - [cool-retro-term](https://github.com/Swordfish90/cool-retro-term)
 - [DIE](https://github.com/horsicq/Detect-It-Easy)
 - [DIE-engine](https://github.com/horsicq/DIE-engine)
+- [EDFbrowser](https://gitlab.com/Teuniz/EDFbrowser)
 - [FastCAE](https://github.com/DISOGitHub/FastCAE)
 - [filemanager](https://github.com/cutefishos/filemanager)
 - [flameshot](https://github.com/flameshot-org/flameshot)
@@ -66,6 +67,7 @@ Applications:
 - [opencc-gui](https://github.com/BYVoid/opencc-gui)
 - [OpenMW](https://github.com/OpenMW/openmw)
 - [OpenSCAD](https://github.com/openscad/openscad/)
+- [OpenWalnut](http://www.openwalnut.org/)
 - [ParaView](https://www.paraview.org/) - [source](https://gitlab.kitware.com/paraview/paraview)
   - [gismo](https://github.com/gismo/gismo)
 - [pcmanfm-qt](https://github.com/lxqt/pcmanfm-qt)
@@ -107,8 +109,11 @@ Applications:
 - [screenlocker](https://github.com/cutefishos/screenlocker)
 - [seafile-client](https://github.com/haiwen/seafile-client)
 - [Seer](https://github.com/epasveer/seer)
+- [serial-com-tester](https://gitlab.com/Teuniz/serial-com-tester)
 - [shotcut](https://github.com/mltframework/shotcut)
+- [SigViewer](https://github.com/cbrnr/sigviewer)
 - [SmtpClient-for-Qt](https://github.com/bluetiger9/SmtpClient-for-Qt)
+- [spuc_filter](https://github.com/audiofilter/spuc_filter)
 - [sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)
 - [subsurface](https://github.com/subsurface/subsurface)
 - [synergy-core](https://github.com/symless/synergy-core)
@@ -248,6 +253,8 @@ Charting:
 - [JKQtPlotter](https://github.com/jkriege2/JKQtPlotter)
 
 - Qwt
+
+  - [attys-ep](https://github.com/glasgowneuro/attys-ep)
 
 - QCustomPlot
 

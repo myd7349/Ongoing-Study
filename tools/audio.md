@@ -1,8 +1,14 @@
 ### Tools
 
+- [AiSound](https://github.com/microshow/AiSound)
+
 - [Audacity](https://github.com/audacity/audacity)
 
 - [eqMac](https://github.com/bitgapp/eqMac)
+
+- [kbd-audio](https://github.com/ggerganov/kbd-audio)
+
+- [jacktrip](https://github.com/jacktrip/jacktrip)
 
 - [Mp3Wrap](https://sourceforge.net/projects/mp3wrap/)
   
@@ -25,6 +31,8 @@
 - [Spek](https://github.com/alexkay/spek)
 
 - [Tenacity](https://github.com/tenacityteam/tenacity)
+
+- [Volume2](https://github.com/irzyxa/Volume2)
 
 - [zrythm](https://github.com/zrythm/zrythm)
 

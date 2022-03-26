@@ -22,10 +22,10 @@ void Benchmark(typename ContainerT::size_type size, const char *typeName)
 
     sw.Stop();
 
-    LONGLONG ellapsedMs = sw.GetElapsedMilliseconds();
+    LONGLONG elapsedMs = sw.GetElapsedMilliseconds();
 
     std::cout << std::left << std::setw(20) << typeName << std::right
-        << std::setw(15) << size << std::setw(15) << ellapsedMs << "ms\n";
+        << std::setw(15) << size << std::setw(15) << elapsedMs << "ms\n";
 }
 
 

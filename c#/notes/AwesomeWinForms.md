@@ -26,6 +26,7 @@ Applications:
 - [Seven Converter](https://github.com/SevenbytesSoftware/SevenConverter)
 - [SharpKeys](https://github.com/randyrants/sharpkeys)
 - [v2rayN](https://github.com/2dust/v2rayN)
+- [XboxDownload](https://github.com/skydevil88/XboxDownload)
 
 Libraries:
 

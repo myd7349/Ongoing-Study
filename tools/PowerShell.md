@@ -127,3 +127,5 @@ Others
 - [Tiny-PowerShell-Projects](https://github.com/dfinke/Tiny-PowerShell-Projects)
 
 - https://github.com/sailay1996/SpoolTrigger
+
+- https://github.com/Yamato-Security/WELA

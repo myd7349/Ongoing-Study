@@ -159,7 +159,7 @@ int test()
     print();
 
     sw.Stop();
-    std::cout << "Ellapsed milliseconds: " << sw.GetElapsedMilliseconds() << std::endl;
+    std::cout << "Elapsed milliseconds: " << sw.GetElapsedMilliseconds() << std::endl;
 
     return 0;
 }

@@ -322,3 +322,5 @@ namespace filesystem {
     // ...
 }
 ```
+
+https://github.com/rizonesoft/Notepad3/blob/master/src/Encoding.h

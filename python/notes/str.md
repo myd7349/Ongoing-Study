@@ -20,3 +20,7 @@ print(caution.strip(string.punctuation))
 tang = '烫烫烫'.encode('cp936')
 print(str(tang, 'cp936'))
 ```
+
+Pad left/right:
+
+https://github.com/astanin/python-tabulate/blob/v0.8.9/tabulate.py#L717

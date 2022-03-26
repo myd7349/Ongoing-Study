@@ -2,6 +2,8 @@
 
 - [EAGine](https://github.com/matus-chochlik/eagine-all)
 
+- [quickcpplib](https://github.com/ned14/quickcpplib)
+
 - [U++](https://github.com/ultimatepp/ultimatepp)
 
 ### Header only Libraries
@@ -122,9 +124,15 @@
 
 - [talking-async](https://github.com/chriskohlhoff/talking-async)
 
+- [uThreads](https://github.com/samanbarghi/uThreads)
+
 ### Configuration
 
 - [Configuru](https://github.com/emilk/Configuru)
+
+### Cross Compiling
+
+- [mxe](https://github.com/mxe/mxe)
 
 ### Cryptography
 
@@ -208,6 +216,10 @@
 - [yourgamelib](https://github.com/duddel/yourgamelib)
 
 ### Graphics
+
+- [AGG](https://github.com/cppfw/agg)
+
+  - [svgren](https://github.com/cppfw/svgren)
 
 - [FNA3D](https://github.com/FNA-XNA/FNA3D)
 
@@ -302,6 +314,8 @@
 
 - [lib_storage](https://github.com/desktop-app/lib_storage)
 
+- [llfio](https://github.com/ned14/llfio)
+
 - [PlatformFolders](https://github.com/sago007/PlatformFolders)
 
 - [tinydir](https://github.com/cxong/tinydir)
@@ -333,6 +347,8 @@
 - [Notepad2e/src/Extension/IPC](https://github.com/ProgerXP/Notepad2e/tree/master/src/Extension/IPC)
 
 - [shadesmar](https://github.com/Squadrick/shadesmar)
+
+- [tcpshm](https://github.com/MengRao/tcpshm)
 
 ### JSON
 
@@ -370,6 +386,10 @@
   - https://github.com/tdlib/td/blob/master/example/python/tdjson_example.py 
 
 - [sdkffi](https://github.com/BehroozAbbassi/sdkffi)
+
+##### C++ -> C
+
+- [CPP2C](https://github.com/samanbarghi/CPP2C)
 
 ##### C -> Go
 
@@ -532,6 +552,8 @@
 
 - [SFML/Network](https://github.com/SFML/SFML/tree/master/src/SFML/Network)
 
+- [tcpshm](https://github.com/MengRao/tcpshm)
+
 ### Package Manager
 
 - [spack](https://github.com/spack/spack)
@@ -605,6 +627,8 @@
 - [nark-serialization](https://github.com/rockeet/nark-serialization)
 
 - [Protobuf lightweight](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/515.43.04/src/nvidia/inc/lib/protobuf/prb.h)
+
+- [riegeli](https://github.com/google/riegeli)
 
 - [zpp_bits](https://github.com/eyalz800/zpp_bits)
 

@@ -17,3 +17,9 @@ https://github.com/tstack/lnav
 https://github.com/warrenbuckley/Compact-Log-Format-Viewer
 
 [sentinel](https://github.com/yarseyah/sentinel)
+
+https://github.com/Yamato-Security/WELA
+
+https://github.com/titzer/progress
+
+https://github.com/nico/ninjatracing

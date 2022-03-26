@@ -20,6 +20,10 @@ https://github.com/cpm-cmake/CPM.cmake
 
 https://github.com/StableCoder/cmake-scripts
 
+Tools:
+
+- [cmakeconverter](https://github.com/pavelliavonau/cmakeconverter)
+
 1. cmake -G "Visual Studio 10 2010" ..
 
 2. E:\vcpkg>vcpkg.exe integrate install

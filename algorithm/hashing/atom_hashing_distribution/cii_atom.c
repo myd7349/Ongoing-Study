@@ -265,3 +265,7 @@ int Atom_bench_bucket_len(size_t bucket_no)
 
     return len;
 }
+
+
+// References:
+// https://github.com/sheredom/hashmap.h

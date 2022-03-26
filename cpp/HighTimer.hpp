@@ -43,7 +43,7 @@ public:
         started_ = start_time_ != 0;
     }
 
-    LONGLONG GetEllapsedMicroseconds()
+    LONGLONG GetElapsedMicroseconds()
     {
         if (started_)
             return TimestampAsMicroseconds(GetTimestamp() - start_time_);

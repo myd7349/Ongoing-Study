@@ -63,3 +63,5 @@
 21. [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
 
 22. [dnGrep](https://github.com/dnGrep/dnGrep)
+
+23. [Volume2](https://github.com/irzyxa/Volume2)

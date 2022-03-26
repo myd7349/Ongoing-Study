@@ -5,3 +5,5 @@ https://github.com/sirredbeard/Awesome-WSL
 [WSL-Hello-sudo](https://github.com/nullpo-head/WSL-Hello-sudo)
 
 [Developing in the Windows Subsystem for Linux with Visual Studio Code](https://code.visualstudio.com/docs/remote/wsl)
+
+https://github.com/Vets-Who-Code/windows-dev-guide

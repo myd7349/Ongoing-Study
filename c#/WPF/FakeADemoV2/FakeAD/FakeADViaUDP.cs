@@ -204,7 +204,7 @@
                 var receiverEndPoint = new IPEndPoint(IPAddress.Any, DataSenderPortNumber_);
                 while (true)
                 {
-                    var ellapsedMsBeforeSending = stopwatch.ElapsedMilliseconds;
+                    var elapsedMsBeforeSending = stopwatch.ElapsedMilliseconds;
 
                     var asyncResult = dataSender.BeginReceive(null, null);
                     asyncResult.AsyncWaitHandle.WaitOne(receiveTimeout);
@@ -233,20 +233,20 @@
 
                     totalPackets += packetsToSend;
 
-                    var ellapsedMs = stopwatch.ElapsedMilliseconds;
-                    long expectedPackets = (4000 / 1000) * ellapsedMs;
+                    var elapsedMs = stopwatch.ElapsedMilliseconds;
+                    long expectedPackets = (4000 / 1000) * elapsedMs;
 
                     if (totalPackets < expectedPackets)
                         packetsToSend = (int)(samples_ + expectedPackets - totalPackets);
                     else
                         packetsToSend = samples_;
 
-                    var ellapsedMsThisTurn = stopwatch.ElapsedMilliseconds - ellapsedMsBeforeSending;
-                    if (ellapsedMsThisTurn < timePiece)
-                        Thread.Sleep((int)(timePiece - ellapsedMsThisTurn));
+                    var elapsedMsThisTurn = stopwatch.ElapsedMilliseconds - elapsedMsBeforeSending;
+                    if (elapsedMsThisTurn < timePiece)
+                        Thread.Sleep((int)(timePiece - elapsedMsThisTurn));
 
                     Debug.WriteLine("Sampling rate: {0}, Expected packets: {1}, Total packets: {2}",
-                        totalPackets * 1000.0 / ellapsedMs, expectedPackets, totalPackets);
+                        totalPackets * 1000.0 / elapsedMs, expectedPackets, totalPackets);
                 }
             }
         }

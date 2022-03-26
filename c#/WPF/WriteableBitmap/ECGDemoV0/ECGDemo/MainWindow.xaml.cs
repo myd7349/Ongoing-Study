@@ -52,8 +52,10 @@ namespace ECGDemo
             };
             timer_.Start();
 #elif USE_TIMERQUEUETIMER
+            cancellationTokenSource_ = new CancellationTokenSource();
             timer_ = new TimerQueueTimer();
-            timer_.Create(1000, 50, Timer__Tick);
+            waitOrTimerDelegate_ = new WaitOrTimerDelegate(Timer__Tick); // Avoid GC
+            timer_.Create(1000, 50, waitOrTimerDelegate_);
 #endif
 
             stopwatch_ = Stopwatch.StartNew();
@@ -139,6 +141,17 @@ namespace ECGDemo
 #elif USE_TIMERQUEUETIMER
         private void Timer__Tick(IntPtr lpParameter, bool timerOrWaitFired)
 #endif
+        {
+#if USE_TIMERQUEUETIMER
+            Action render = Render;
+            if (!cancellationTokenSource_.IsCancellationRequested)
+                Dispatcher.BeginInvoke(render);
+#else
+            Render();
+#endif
+        }
+
+        private void Render()
         {
 #if USE_RENDERING_CALLBACK
             if (rendering_)
@@ -267,6 +280,15 @@ namespace ECGDemo
 #endif
         }
 
+        protected override void OnClosed(EventArgs e)
+        {
+#if USE_TIMERQUEUETIMER
+            cancellationTokenSource_.Cancel();
+#endif
+
+            base.OnClosed(e);
+        }
+
         private int mainThreadId_;
         private WriteableBitmap gridBitmap_;
         private WriteableBitmap canvasBitmap_;
@@ -280,7 +302,9 @@ namespace ECGDemo
 #elif USE_MMTIMER
         private MMTimer timer_;
 #elif USE_TIMERQUEUETIMER
+        private readonly WaitOrTimerDelegate waitOrTimerDelegate_;
         private TimerQueueTimer timer_;
+        private readonly CancellationTokenSource cancellationTokenSource_;
 #endif
 
         private Stopwatch stopwatch_;
@@ -294,3 +318,4 @@ namespace ECGDemo
 // [How do I create a timer in WPF?](https://stackoverflow.com/questions/11559999/how-do-i-create-a-timer-in-wpf)
 // https://github.com/ScottPlot/ScottPlot/blob/d3b9c13b67d0344cf68e6e1cb7893fc0f1785e7f/src/ScottPlot4/ScottPlot/DataGen.cs#L807-L1007
 // [Difference between Synchronization Context and Dispatcher](https://stackoverflow.com/questions/24671883/difference-between-synchronization-context-and-dispatcher)
+// [System.Threading.Tasks.TaskCanceledException: 'A task was canceled.' when Closing App](https://stackoverflow.com/questions/50370286/system-threading-tasks-taskcanceledexception-a-task-was-canceled-when-closin)

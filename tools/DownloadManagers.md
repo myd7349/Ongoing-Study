@@ -47,3 +47,7 @@ Tools for downloading online videos:
 Resources:
 
 - [animeTrackerList](https://github.com/DeSireFire/animeTrackerList)
+
+Others:
+
+- [icloud_photos_downloader](https://github.com/icloud-photos-downloader/icloud_photos_downloader)

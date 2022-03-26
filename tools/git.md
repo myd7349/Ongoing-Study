@@ -55,6 +55,8 @@ Tools:
 
 - [isomorphic-git](https://github.com/isomorphic-git/isomorphic-git)
 
+- [mergestat](https://github.com/mergestat/mergestat)
+
 - [scriv](https://github.com/nedbat/scriv)
 
 - [stacked-git](https://github.com/stacked-git/stgit)

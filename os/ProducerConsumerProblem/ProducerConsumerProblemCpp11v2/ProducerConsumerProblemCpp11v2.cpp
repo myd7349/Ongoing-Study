@@ -353,7 +353,7 @@ void Test0()
 
     sw.Stop();
 
-    std::cout << "Test Done: " << context.IsTestPassed() << ". Ellapsed time: " << sw.GetElapsedMilliseconds() << "ms\n";
+    std::cout << "Test Done: " << context.IsTestPassed() << ". Elapsed time: " << sw.GetElapsedMilliseconds() << "ms\n";
 }
 
 
@@ -393,7 +393,7 @@ void Test1()
         t.join();
 
     sw.Stop();
-    std::cout << "Ellapsed time: " << sw.GetElapsedMilliseconds() << "ms" << std::endl;
+    std::cout << "Elapsed time: " << sw.GetElapsedMilliseconds() << "ms" << std::endl;
 
     std::cout << "Checking if test is passed...\n";
 

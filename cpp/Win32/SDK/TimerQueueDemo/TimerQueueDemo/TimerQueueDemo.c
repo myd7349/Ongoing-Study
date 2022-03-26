@@ -78,3 +78,4 @@ int _tmain(int argc, _TCHAR **argv)
 // https://www.codeproject.com/Articles/1236/Timers-Tutorial
 // https://stackoverflow.com/questions/15381174/how-to-count-the-amount-of-concurrent-threads-in-net-application
 // https://superuser.com/questions/347250/how-can-you-get-thread-count-of-running-process-in-windows-7
+// https://www.teuniz.net/Timer_code/index.html

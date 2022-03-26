@@ -100,6 +100,8 @@ Tools:
 
 - [Programmatically convert EMF to PDF with Foxit](https://developers.foxit.com/developer-hub/document/programmatically-convert-emf-to-pdf/)
 
+- [unpaper](https://github.com/unpaper/unpaper)
+
 - [VeryDoc Metafile to PDF Converter](https://www.verydoc.com/emf-to-pdf.html)
 
 - [Converseen](https://converseen.fasterland.net/) - A free batch image processor.

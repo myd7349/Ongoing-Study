@@ -36,9 +36,9 @@ typedef struct high_timer_impl_t
 } high_timer_t;
 
 void high_timer_start(high_timer_t *timer);
-int64_t high_timer_ellapsed_ms(high_timer_t *timer);
-int64_t high_timer_ellapsed_us(high_timer_t *timer);
-int64_t high_timer_ellapsed_ns(high_timer_t *timer);
+int64_t high_timer_elapsed_ms(high_timer_t *timer);
+int64_t high_timer_elapsed_us(high_timer_t *timer);
+int64_t high_timer_elapsed_ns(high_timer_t *timer);
 
 C_API_END
 
