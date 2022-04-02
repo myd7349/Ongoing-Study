@@ -30,6 +30,8 @@
 
    - [Upupoo](http://www.upupoo.com/)
 
+   - [VideoWallPaperDemo](https://github.com/3150601355/VideoWallPaperDemo)
+
 9. https://www.nirsoft.net/
 
 10. Taskbar
@@ -69,3 +71,5 @@
 24. [ExplorerPatcher](https://github.com/valinet/ExplorerPatcher)
 
 25. [Open Hardware Monitor](https://github.com/openhardwaremonitor/openhardwaremonitor)
+
+26. [ThisIsWin11](https://github.com/builtbybel/ThisIsWin11)

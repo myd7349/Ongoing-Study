@@ -38,6 +38,7 @@
 - [pingtop](https://github.com/laixintao/pingtop)
 - [pwnat](https://github.com/samyk/pwnat)
 - [rtop](https://github.com/rapidloop/rtop)
+- [RustScan](https://github.com/RustScan/RustScan)
 - [smartdns](https://github.com/pymumu/smartdns)
 - [SwitchHosts](https://github.com/oldj/SwitchHosts)
 - [syncthing](https://github.com/syncthing/syncthing)

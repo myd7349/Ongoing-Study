@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorMap.WPF", "ColorMap.WPF\ColorMap.WPF.csproj", "{EAAB27CB-B414-4BD3-8FA5-B4EF097C3A0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAAB27CB-B414-4BD3-8FA5-B4EF097C3A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAAB27CB-B414-4BD3-8FA5-B4EF097C3A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAAB27CB-B414-4BD3-8FA5-B4EF097C3A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAAB27CB-B414-4BD3-8FA5-B4EF097C3A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A390802F-1552-4425-8DCF-FC22EA7473C6}
+	EndGlobalSection
+EndGlobal

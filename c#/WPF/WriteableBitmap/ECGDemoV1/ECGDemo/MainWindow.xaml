@@ -7,24 +7,111 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:cmn="clr-namespace:Common;assembly=Common.DotNet"
         mc:Ignorable="d"
-        Title="ECG Demo" Height="450" Width="750"
-        SizeChanged="Window_SizeChanged">
+        Title="ECG Demo" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        <cmn:TickTimer x:Key="tickTimer" />
+        <local:IntegerConverter x:Key="integerConverter" />
+        <local:SpeedConverter x:Key="speedConverter" />
+        <local:AmplitudeConverter x:Key="amplitudeConverter" />
         <local:TimeSpanConverter x:Key="timeSpanConverter" />
+        <local:ColorToBrushConverter x:Key="colorToBrushConverter" />
     </Window.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="25" />
-        </Grid.RowDefinitions>
+    <DockPanel>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBarTray.Resources>
+                <Style TargetType="{x:Type Label}">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                </Style>
+            </ToolBarTray.Resources>
 
-        <Canvas Name="imageCanvas_">
-            <Image Name="image_" Grid.Row="0" Stretch="None" />
-        </Canvas>
+            <ToolBar>
+                <Button Width="30"
+                        Command="{Binding StartOrStopCommand}">
+                    <Image Source="{Binding ButtonImageUri}" />
+                </Button>
 
-        <StatusBar Grid.Row="1">
+                <Button Width="30"
+                        x:Name="takeSnapshotButton_"
+                        Click="takeSnapshotButton__Click">
+                    <Image Source="Images/thumbnail.png" />
+                </Button>
+
+                <Label Content="Heart rate:" />
+                <TextBox Text="{Binding HR}"
+                         Width="80"
+                         IsEnabled="{Binding IsNotBusy}" />
+
+                <Label Content="Sample rate:" />
+                <ComboBox Width="80"
+                          IsEnabled="{Binding IsNotBusy}"
+                          SelectedItem="{Binding SamplingRate}">
+                    <!-- This won't work.
+                    <ComboBox.Items>
+                        <ComboBoxItem>10</ComboBoxItem>
+                        <ComboBoxItem>50</ComboBoxItem>
+                        <ComboBoxItem>100</ComboBoxItem>
+                        <ComboBoxItem>200</ComboBoxItem>
+                        <ComboBoxItem>300</ComboBoxItem>
+                        <ComboBoxItem>500</ComboBoxItem>
+                        <ComboBoxItem>600</ComboBoxItem>
+                        <ComboBoxItem>800</ComboBoxItem>
+                        <ComboBoxItem>1000</ComboBoxItem>
+                        <ComboBoxItem>2000</ComboBoxItem>
+                        <ComboBoxItem>4000</ComboBoxItem>
+                        <ComboBoxItem>5000</ComboBoxItem>
+                        <ComboBoxItem>8000</ComboBoxItem>
+                        <ComboBoxItem>10000</ComboBoxItem>
+                        <ComboBoxItem>16000</ComboBoxItem>
+                    </ComboBox.Items>
+                    -->
+                    <ComboBox.ItemsSource>
+                        <x:Array Type="{x:Type sys:Int32}">
+                            <sys:Int32>1</sys:Int32>
+                            <sys:Int32>2</sys:Int32>
+                            <sys:Int32>4</sys:Int32>
+                            <sys:Int32>5</sys:Int32>
+                            <sys:Int32>10</sys:Int32>
+                            <sys:Int32>20</sys:Int32>
+                            <sys:Int32>50</sys:Int32>
+                            <sys:Int32>100</sys:Int32>
+                            <sys:Int32>200</sys:Int32>
+                            <sys:Int32>300</sys:Int32>
+                            <sys:Int32>500</sys:Int32>
+                            <sys:Int32>600</sys:Int32>
+                            <sys:Int32>800</sys:Int32>
+                            <sys:Int32>1000</sys:Int32>
+                            <sys:Int32>2000</sys:Int32>
+                            <sys:Int32>4000</sys:Int32>
+                            <sys:Int32>5000</sys:Int32>
+                            <sys:Int32>8000</sys:Int32>
+                            <sys:Int32>10000</sys:Int32>
+                            <sys:Int32>16000</sys:Int32>
+                        </x:Array>
+                    </ComboBox.ItemsSource>
+                </ComboBox>
+            </ToolBar>
+
+            <ToolBar>
+                <!--
+                <CheckBox Content="Use layout rounding"
+                          IsChecked="{Binding UseLayoutRounding, RelativeSource={RelativeSource Mode=Self}}" />
+                -->
+                <Label Content="Speed:" />
+                <ComboBox
+                    ItemsSource="{Binding Source={x:Static local:MainViewModel.SpeedArray}}"
+                    SelectedItem="{Binding Speed, Converter={StaticResource speedConverter}}" 
+                    Width="80" />
+
+                <Label Content="Amplitude:" />
+                <ComboBox
+                    ItemsSource="{Binding Source={x:Static local:MainViewModel.AmplitudeArray}}"
+                    SelectedItem="{Binding Amplitude, Converter={StaticResource amplitudeConverter}}" 
+                    Width="80" />
+            </ToolBar>
+        </ToolBarTray>
+
+        <StatusBar DockPanel.Dock="Bottom">
             <TextBlock Text="DPI:" />
             <TextBlock x:Name="dpiTextBlock_" />
 
@@ -36,12 +123,12 @@
             <Separator />
 
             <TextBlock Text="System time:" />
-            <TextBlock Text="{Binding Source={StaticResource tickTimer}, Path=Now, Mode=OneWay,  StringFormat='HH:mm:ss'}" />
+            <TextBlock Text="{Binding TickTimer.Now, Mode=OneWay,  StringFormat='HH:mm:ss'}" />
 
             <Separator />
 
             <TextBlock Text="Elapsed:" />
-            <TextBlock Text="{Binding Source={StaticResource tickTimer}, Path=ElapsedTime, Converter={StaticResource timeSpanConverter}, Mode=OneWay}" />
+            <TextBlock Text="{Binding TickTimer.ElapsedTime, Converter={StaticResource timeSpanConverter}, Mode=OneWay}" />
 
             <Separator />
 
@@ -56,9 +143,42 @@
             <TextBlock Text="Last error:" />
             <TextBlock x:Name="lastErrorTextBlock_" />
         </StatusBar>
-    </Grid>
 
+        <ToolBarTray DockPanel.Dock="Left" Orientation="Vertical">
+            <ToolBar>
+                <Button x:Name="waveColorButton_"
+                        Background="Transparent"
+                        Click="waveColorButton__Click">
+                    <Rectangle Width="24" Height="24"
+                               Stroke="Black"
+                               Fill="{Binding WaveColor, Converter={StaticResource colorToBrushConverter}}"
+                               ToolTip="Wave color" />
+                </Button>
+                <Button x:Name="refreshColorButton_"
+                        Background="Transparent"
+                        Click="refreshColorButton__Click">
+                    <Rectangle Width="24" Height="24"
+                               Stroke="Black"
+                               Fill="{Binding RefreshColor, Converter={StaticResource colorToBrushConverter}}"
+                               ToolTip="Refresh color" />
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
 
+        <Grid>
+            <Canvas Name="imageCanvas_"
+                    Grid.Row="1"
+                    SizeChanged="imageCanvas__SizeChanged">
+                <!--
+                <Image Name="image_" Grid.Row="0" Stretch="None"
+                       Width="{Binding Path=Width, ElementName=imageCanvas_}"
+                       Height="{Binding Path=Height, ElementName=imageCanvas_}" />
+                -->
+                <Image Name="image_" Grid.Row="0" Stretch="None" />
+            </Canvas>
+        </Grid>
+    </DockPanel>
+    
     <!--
     References:
     [How do I space out the child elements of a StackPanel?](https://stackoverflow.com/questions/932510/how-do-i-space-out-the-child-elements-of-a-stackpanel)
@@ -66,5 +186,11 @@
     [WPF TextBox binding DateTime](https://stackoverflow.com/questions/27453733/wpf-textbox-binding-datetime)
     [WPF Countdown Timer Binding to different window](https://stackoverflow.com/questions/28272603/wpf-countdown-timer-binding-to-different-window)
     [How to format TimeSpan in XAML](https://stackoverflow.com/questions/4563081/how-to-format-timespan-in-xaml)
+    [TwoWay Binding of a ComboBox to a static property](https://stackoverflow.com/questions/11468502/twoway-binding-of-a-combobox-to-a-static-property)
+    [WPF - add static items to a combo box](https://stackoverflow.com/questions/1791784/wpf-add-static-items-to-a-combo-box)
+    [Binding ComboBox SelectedItem using MVVM](https://stackoverflow.com/questions/19632270/binding-combobox-selecteditem-using-mvvm)
+    [WPF Combobox with string Bind to Int property](https://stackoverflow.com/questions/18509316/wpf-combobox-with-string-bind-to-int-property)
+    [Stretch Image inside Canvas](https://stackoverflow.com/questions/33020133/stretch-image-inside-canvas)
+    [Image in WPF getting Blurry](https://stackoverflow.com/questions/5645274/image-in-wpf-getting-blurry)
     -->
 </Window>

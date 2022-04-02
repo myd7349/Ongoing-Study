@@ -1,0 +1,70 @@
+﻿<Window x:Class="MandelbrotSet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MandelbrotSet"
+        xmlns:ecgdemo="clr-namespace:ECGDemo"
+        xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Mandelbrot Set"
+        Height="600" Width="800"
+        WindowStartupLocation="CenterScreen"
+        UseLayoutRounding="True">
+    <Window.DataContext>
+        <local:MandelbrotSetViewModel x:Name="mainWindowViewModel_" />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <ecgdemo:ColorToBrushConverter x:Key="colorToBrushConverter" />
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ToolBarTray Grid.Row="0">
+            <ToolBar>
+                <xceed:ColorPicker SelectedColor="{Binding BackColor}"
+                                   ToolTip="Back color" />
+            </ToolBar>
+        </ToolBarTray>
+
+        <!--
+        <Canvas Width="{Binding CanvasWidth, Mode=OneWayToSource}"
+                Height="{Binding CanvasHeight, Mode=OneWayToSource}">
+        -->
+        <Canvas Grid.Row="1" SizeChanged="Canvas_SizeChanged">
+            <!--
+            <Image Name="image_" Stretch="None" Source="{Binding CanvasBitmap}" />
+            -->
+            <Image Name="image_" Stretch="None" />
+        </Canvas>
+
+        <StatusBar Grid.Row="2">
+            <TextBlock Text="Iteration count:" />
+            <TextBlock Text="{Binding IterationCount}" />
+
+            <Separator />
+
+            <TextBlock Text="Rendering time(cur/min/max)(ms):" />
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0}/{1}/{2}">
+                        <Binding Path="RenderingTimeInMilliseconds" />
+                        <Binding Path="MinimumRenderingTimeInMilliseconds" />
+                        <Binding Path="MaximumRenderingTimeInMilliseconds" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+        </StatusBar>
+    </Grid>
+
+    <!--
+    References:
+    [How to bind multiple values to a single WPF TextBlock?](https://stackoverflow.com/questions/2552853/how-to-bind-multiple-values-to-a-single-wpf-textblock)
+    -->
+</Window>

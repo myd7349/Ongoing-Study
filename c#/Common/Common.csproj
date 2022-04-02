@@ -128,6 +128,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SerialPortHelper.cs" />
+    <Compile Include="Singleton.cs" />
     <Compile Include="SingletonApplication.cs" />
     <Compile Include="StringExtension.cs" />
     <Compile Include="StructHelpers.cs" />

@@ -2,6 +2,7 @@
 
 - [Furion](https://github.com/MonkSoul/Furion)
 - [Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework)
+- [TomsToolbox](https://github.com/tom-englert/TomsToolbox)
 
 ### AI
 
@@ -114,6 +115,10 @@
   - [计算照片的面积（WPF篇）](https://www.cnblogs.com/tcjiaan/p/5077863.html)
     > SpeechSynthesizer symthedizer = new SpeechSynthesizer();
     > symthedizer.Speak(msg);
+
+- [NWaves](https://github.com/ar1st0crat/NWaves)
+
+  - [NWaves.Blueprints](https://github.com/ar1st0crat/NWaves.Blueprints)
 
 - [terrafx](https://github.com/terrafx/terrafx)
 
@@ -251,6 +256,8 @@
 
 - [Csharp-Data-Visualization](https://github.com/swharden/Csharp-Data-Visualization)
 
+- [DotNetProjects.WpfToolkit.DataVisualization](https://www.nuget.org/packages/DotNetProjects.WpfToolkit.DataVisualization)
+
 - [DynamicDataDisplay](https://github.com/dotnetprojects/DynamicDataDisplay): WPF
   - [PingMonitor](https://github.com/kfstorm/PingMonitor)
 
@@ -280,6 +287,8 @@
   
   - [WPF charting/visualization of realtime data](https://stackoverflow.com/questions/2517318/wpf-charting-visualization-of-realtime-data)
   
+- [SciColorMaps](https://github.com/ar1st0crat/SciColorMaps) :star: Custom .NET color maps (user-defined or imported from matplotlib) for scientific visualization.
+  
 - [ScottPlot](https://github.com/ScottPlot/ScottPlot): WinForms, WPF
   - [ABFview](https://github.com/swharden/ABFview)
   
@@ -295,13 +304,27 @@
   
 - [winforms-datavisualization](https://github.com/dotnet/winforms-datavisualization)
 
+- [WPF-Chart](https://github.com/HeBianGu/WPF-Chart)
+
+  - [封装：WPF绘制曲线视图](https://blog.csdn.net/u010975589/article/details/80256827)
+
+  - Contains a ECG Demo.
+
+- [WPF-ControlBase](https://github.com/HeBianGu/WPF-ControlBase)
+
+  - HeBianGu.Control.Chart2D
+
+    - [示例：应用WPF绘制轻量Chart图表之组合图效果预览](https://blog.csdn.net/u010975589/article/details/109139606)
+
 - [wpf-waveform](https://github.com/markheath/wpf-waveform)
   - [Audio WaveForm Drawing Using WPF](https://markheath.net/post/audio-waveform-drawing-using-wpf)
   
 - [WriteableBitmapEx](https://github.com/reneschulte/WriteableBitmapEx): WPF
   - [WPF charting/visualization of realtime data](https://stackoverflow.com/questions/2517318/wpf-charting-visualization-of-realtime-data)
+  - [RealTimeGraphX](https://github.com/royben/RealTimeGraphX)
   - https://github.com/walterlv/walterlv.github.io/blob/master/_posts/2019/2019-10-17-wpf-high-performance-bitmap-rendering.md
-
+  - [WPF-Chart](https://github.com/HeBianGu/WPF-Chart)
+  
 - [XPlot](https://github.com/fslaborg/XPlot/)
 - [An Introduction to DataFrame](https://devblogs.microsoft.com/dotnet/an-introduction-to-dataframe/)
   
@@ -326,6 +349,10 @@
 - [OrmBenchmark](https://github.com/InfoTechBridge/OrmBenchmark)
 
 - [RawDataAccessBencher](https://github.com/FransBouma/RawDataAccessBencher)
+
+##### K-V Store
+
+- [Akavache](https://github.com/reactiveui/Akavache)
 
 ##### ORM
 
@@ -371,6 +398,8 @@
 - [EntityFrameworkCore.Generator](https://github.com/loresoft/EntityFrameworkCore.Generator)
 
 - [LocalDb](https://github.com/SimonCropp/LocalDb)
+
+- [marten](https://github.com/JasperFx/marten)
 
 - [MasterMemory](https://github.com/Cysharp/MasterMemory) - Embedded Typed Readonly In-Memory Document Database for .NET Core and Unity.
 
@@ -421,7 +450,9 @@
 ##### IoC
 
 - [Autofac](https://autofac.org/)
-  
+
+  - [Autofac.Extensions.DependencyInjection](https://github.com/autofac/Autofac.Extensions.DependencyInjection)
+
   - DeepL Translate App for Windows
 
 - [DryIoc](https://github.com/dadhi/DryIoc)
@@ -449,6 +480,8 @@
   - [C# Tutorial: Computing the 1-D FFT and IFFT using the FFTW library](https://www.youtube.com/watch?v=9SwuRRe-2Jk) - [code](https://github.com/damian-dz/FFTWintro)
 
 - [Math.NET Filtering](https://github.com/mathnet/mathnet-filtering)
+
+- [NWaves](https://github.com/ar1st0crat/NWaves)
 
 ### Error Handling
 
@@ -524,7 +557,7 @@
 
 - [Gir.Core](https://github.com/gircore/gir.core)
 
-- GTK#
+- [GTK#](https://github.com/GtkSharp/GtkSharp)
   
   - [Pinta](https://github.com/PintaProject/Pinta)
 
@@ -669,6 +702,10 @@
 
 - [Cesium](https://github.com/ForNeVeR/Cesium) - Cesium compiles standard C source code to a .NET assembly.
 
+- [CppAst.NET](https://github.com/xoofx/CppAst.NET)
+
+  - [CppPinvokeGenerator](https://github.com/EgorBo/CppPinvokeGenerator)
+
 - [CppSharp](https://github.com/mono/CppSharp)
 
 - [DInvoke](https://github.com/TheWover/DInvoke): Dynamically invoke arbitrary unmanaged code from managed code without PInvoke.
@@ -727,6 +764,10 @@
     - [Numpy.NET](https://github.com/SciSharp/Numpy.NET)
 
   - [LessMsi.py](https://github.com/activescott/lessmsi/blob/master/contrib/python/LessMsi.py)
+
+##### Lua
+
+- [xLua](https://github.com/Tencent/xLua)
 
 ### Licensing
 
@@ -803,6 +844,10 @@
 
 - [ZLogger](https://github.com/Cysharp/ZLogger)
 
+##### Log Viewer
+
+- [sentinel](https://github.com/yarseyah/sentinel)
+
 ##### Blogs
 
 - [A New Pattern for Exception Logging](https://blog.stephencleary.com/2020/06/a-new-pattern-for-exception-logging.html)
@@ -869,6 +914,10 @@
 
 ### Multimedia
 
+- [cuetools.net](https://github.com/gchudov/cuetools.net)
+
+- [FFMpegCore](https://github.com/rosenbjerg/FFMpegCore)
+
 - [metadata-extractor-dotnet](https://github.com/drewnoakes/metadata-extractor-dotnet)
 
   - [C# find the greatest common divisor](https://stackoverflow.com/questions/18541832/c-sharp-find-the-greatest-common-divisor)
@@ -927,6 +976,7 @@
 
 ##### All in One
 
+- [Magicodes.IE](https://github.com/dotnetcore/Magicodes.IE)
 - [npoi](https://github.com/nissl-lab/npoi)
   - [Quicker](https://github.com/cuiliang/Quicker)
 - [Open-XML-SDK](https://github.com/OfficeDev/Open-XML-SDK)
@@ -952,6 +1002,7 @@
 ### PDF
 
 - [Ghostscript.NET](https://github.com/jhabjan/Ghostscript.NET)
+- [Magicodes.IE](https://github.com/dotnetcore/Magicodes.IE)
 - [PDFiumSharp](https://github.com/ArgusMagnus/PDFiumSharp)
   - [On the Shoulders of Giants · QL-Win/QuickLook Wiki · GitHub](https://github.com/QL-Win/QuickLook/wiki/On-the-Shoulders-of-Giants)
 - [PdfiumViewer](https://github.com/pvginkel/PdfiumViewer)

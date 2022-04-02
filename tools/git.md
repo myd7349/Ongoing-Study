@@ -553,3 +553,18 @@ hint: invocation.
 ```
 
 [Run git commands on remote?](https://stackoverflow.com/questions/24856617/run-git-commands-on-remote)
+
+https://github.com/Z3Prover/z3/blob/z3-4.8.15/scripts/mk_util.py#L129-L138
+
+```python
+def git_hash():
+    try:
+        branch = check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'])
+        r = check_output(['git', 'show-ref', '--abbrev=12', 'refs/heads/%s' % branch])
+    except:
+        raise MKException("Failed to retrieve git hash")
+    ls = r.split(' ')
+    if len(ls) != 2:
+        raise MKException("Unexpected git output " + r)
+    return ls[0]
+```

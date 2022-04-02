@@ -68,6 +68,8 @@
 
 - [OpenHashTab/Benchmark.cpp](https://github.com/namazso/OpenHashTab/blob/master/Benchmark/Benchmark.cpp)
 
+- [optick](https://github.com/bombomby/optick)
+
 - [picobench](https://github.com/iboB/picobench)
 
 - [Quick C++ Benchmark](https://quick-bench.com/)
@@ -105,6 +107,7 @@
 - [cpp-terminal](https://github.com/jupyter-xeus/cpp-terminal)
 - [cxxopts](https://github.com/jarro2783/cxxopts)
   - https://github.com/p-ranav/glob/blob/master/standalone/source/main.cpp 
+- [dlib/console_progress_indicator.h](https://github.com/davisking/dlib/blob/master/dlib/console_progress_indicator.h)
 - [isocline](https://github.com/daanx/isocline)
 - [paramkit](https://github.com/hasherezade/paramkit)
   - [mal_unpack](https://github.com/hasherezade/mal_unpack) 

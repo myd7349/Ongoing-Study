@@ -87,3 +87,8 @@
   * [icones](https://github.com/antfu/icones)
 
 * [RemixIcon](https://github.com/Remix-Design/RemixIcon)
+
+Softwares
+
+- IconWorkshop
+- [PyIcoMaker](https://github.com/ar1st0crat/PyIcoMaker)

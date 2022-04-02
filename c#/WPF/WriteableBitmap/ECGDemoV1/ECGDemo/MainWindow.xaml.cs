@@ -6,7 +6,7 @@
 //#define IMAGE_STRETCH_UNIFORM
 //#define IMAGE_STRETCH_UNIFORM_TO_FILL
 
-#define IMAGE_SnapsToDevicePixels
+//#define IMAGE_SnapsToDevicePixels
 
 using System;
 using System.Diagnostics;
@@ -16,10 +16,13 @@ using System.Threading;
 using System.Threading.Tasks;
 #endif
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 using PInvoke;
+
+using Microsoft.Samples.CustomControls;
 
 using Common;
 
@@ -37,6 +40,9 @@ namespace ECGDemo
         {
             InitializeComponent();
 
+            mainViewModel_ = new MainViewModel(StartAcquisition, StopAcquisition);
+            DataContext = mainViewModel_;
+
 #if IMAGE_STRETCH_NONE
             image_.Stretch = Stretch.None;
 #elif IMAGE_STRETCH_FILL
@@ -51,23 +57,21 @@ namespace ECGDemo
             image_.SnapsToDevicePixels = true;
 #endif
 
-            cancellationTokenSource_ = new CancellationTokenSource();
-
-#if USE_TASK
-            acquireTask_ = Task.Run(Acquire, cancellationTokenSource_.Token);
-#else
-            acquireThread_ = new Thread(Acquire);
-            acquireThread_.Start();
-#endif
+            // Without this line, the image will got blurry sometimes.
+            // For example, there are two ToolBars in the main ToolBarTray.
+            // If you drag the second toolbar below the first one, the waveform
+            // becomes blurred(Snapshots/Snapshot_2022-03-27_21-30-53.765.png).
+            //imageCanvas_.UseLayoutRounding = true;
+            UseLayoutRounding = true;
         }
-
-        public double SamplingRate => ECGenerator.SamplingRate;
 
         public int DotsPerMm { get; set; } = 5;
 
-        public double Speed { get; set; } = 25;
+        public int SamplingRate => mainViewModel_.SamplingRate;
 
-        public double Amplitude { get; set; } = 10;
+        public double Speed => mainViewModel_.Speed;
+
+        public double Amplitude => mainViewModel_.Amplitude;
 
         public double DotsPerSecond => DotsPerMm * Speed;
 
@@ -81,15 +85,53 @@ namespace ECGDemo
 
         public Color Grid1mmColor { get; set; } = Colors.DarkGray;
 
-        public Color WaveColor { get; set; } = Colors.LightGreen;
+        public Color WaveColor => mainViewModel_.WaveColor;
 
-        public Color RefreshColor { get; set; } = Colors.White;
+        public Color RefreshColor => mainViewModel_.RefreshColor;
 
         public int RefreshWidthInDots { get; set; } = 2;
 
         private int BaselineY { get; set; }
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+
+        private void takeSnapshotButton__Click(object sender, RoutedEventArgs e)
+        {
+            var isCtrlKeyDown = Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl);
+            if (isCtrlKeyDown)
+                this.EasyTakeSnapshot();
+            else
+#if false
+                imageCanvas_.EasyTakeSnapshot();
+#else
+                Snapshot.EasySaveBitmap(canvasBitmap_);
+#endif
+        }
+
+        private void waveColorButton__Click(object sender, RoutedEventArgs e)
+        {
+            var colorPickerDialog = new ColorPickerDialog
+            {
+                StartingColor = WaveColor,
+                Owner = this,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+            };
+            if (colorPickerDialog.ShowDialog() == true)
+                mainViewModel_.WaveColor = colorPickerDialog.SelectedColor;
+        }
+
+        private void refreshColorButton__Click(object sender, RoutedEventArgs e)
+        {
+            var colorPickerDialog = new ColorPickerDialog
+            {
+                StartingColor = RefreshColor,
+                Owner = this,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+            };
+            if (colorPickerDialog.ShowDialog() == true)
+                mainViewModel_.RefreshColor = colorPickerDialog.SelectedColor;
+        }
+
+        private void imageCanvas__SizeChanged(object sender, SizeChangedEventArgs e)
         {
 #if false
             // This will create a image with wrong height. As a result, if
@@ -111,6 +153,9 @@ namespace ECGDemo
             var width = (int)imageCanvas_.ActualWidth;
             var height = (int)imageCanvas_.ActualHeight;
 #endif
+
+            Debug.WriteLine($"Canvas Width: {width}, Height: {height}");
+            Debug.WriteLine($"Image Width: {image_.ActualWidth}, Height: {image_.ActualHeight}");
 
             double dpiX, dpiY;
             GetDpi(out dpiX, out dpiY);
@@ -134,6 +179,7 @@ namespace ECGDemo
             canvasBitmap_ = BitmapFactory.New(width, height);
             //canvasBitmap_ = new WriteableBitmap(width, height, 96.0, 96.0, PixelFormats.Pbgra32, null);
             image_.Source = canvasBitmap_;
+            image_.Stretch = Stretch.None;
 
             lastPointX_ = 0;
             BaselineY = canvasBitmap_.PixelHeight / 2;
@@ -165,17 +211,46 @@ namespace ECGDemo
 
         protected override void OnClosed(EventArgs e)
         {
-#if USE_TASK
-            cancellationTokenSource_.Cancel();
-            acquireTask_.Wait();
-            cancellationTokenSource_.Dispose();
-#else
-            cancellationTokenSource_.Cancel();
-            acquireThread_.Join();
-            cancellationTokenSource_.Dispose();
-#endif
+            StopAcquisition();
 
             base.OnClosed(e);
+        }
+
+        private void StartAcquisition()
+        {
+            if (cancellationTokenSource_ != null)
+                return;
+
+            cancellationTokenSource_ = new CancellationTokenSource();
+
+            lastPointX_ = 0;
+            lastPointY_ = BaselineY;
+
+            canvasBitmap_?.Clear(BackColor);
+
+#if USE_TASK
+            acquireTask_ = Task.Run(Acquire, cancellationTokenSource_.Token);
+#else
+            acquireThread_ = new Thread(Acquire);
+            acquireThread_.Start();
+#endif
+        }
+
+        private void StopAcquisition()
+        {
+            if (cancellationTokenSource_ == null)
+                return;
+
+            cancellationTokenSource_.Cancel();
+
+#if USE_TASK
+            acquireTask_.Wait();
+#else
+            acquireThread_.Join();
+#endif
+
+            cancellationTokenSource_.Dispose();
+            cancellationTokenSource_ = null;
         }
 
         private void Acquire()
@@ -184,17 +259,18 @@ namespace ECGDemo
 
             Stopwatch stopwatch = new Stopwatch();
 
-            var timeSliceInMilliseconds = ECGenerator.CalculateBestTimeSlice();
+            var timeSliceInMilliseconds = mainViewModel_.ECGenerator.CalculateBestTimeSlice();
 
+            var fakeAdCallback = new FakeADCallback64(mainViewModel_.ECGenerator.GenerateECG);
             var fakeAd = new FakeADWrapper(
                 bytesPerSecond: (uint)(SamplingRate * ECGenerator.Channels * sizeof(double)),
                 timeSliceInMilliseconds: (uint)timeSliceInMilliseconds,
                 timeoutSliceCount: 3,
                 port: 4321,
-                callback: ECGenerator.GenerateECG,
+                callback: fakeAdCallback,
                 context: IntPtr.Zero);
 
-            var samples = ECGenerator.SamplingRate * timeSliceInMilliseconds / 1000;
+            var samples = SamplingRate * timeSliceInMilliseconds / 1000;
 
             var bufferSizeInBytes =
                 (ulong)samples * ECGenerator.Channels * sizeof(double);
@@ -297,9 +373,9 @@ namespace ECGDemo
 
                     if (x >= canvasBitmap_.PixelWidth)
                     {
-                        Debug.WriteLine($"{DateTime.Now:HH:mm:ss.fff} Restart from left at sample {i}:");
-                        Debug.WriteLine($"\tLast point: ({lastX}, {lastPointY_})");
-                        Debug.WriteLine($"\tNext point: (0, {y})");
+                        //Debug.WriteLine($"{DateTime.Now:HH:mm:ss.fff} Restart from left at sample {i}:");
+                        //Debug.WriteLine($"\tLast point: ({lastX}, {lastPointY_})");
+                        //Debug.WriteLine($"\tNext point: (0, {y})");
 
                         lastPointX_ = 0;
                         count = 0;
@@ -329,6 +405,8 @@ namespace ECGDemo
             var elapsedMs = stopwatch.ElapsedMilliseconds;
             drawWaveTextBlock_.Text = $"{elapsedMs}ms";
         }
+
+        private MainViewModel mainViewModel_;
 
         private CancellationTokenSource cancellationTokenSource_;
 #if USE_TASK
@@ -365,3 +443,18 @@ namespace ECGDemo
 // [How can I get images in XAML to display as their actual size ?](https://stackoverflow.com/questions/1841511/how-can-i-get-images-in-xaml-to-display-as-their-actual-size)
 // [WPF: How to display an image at its original size ?](https://stackoverflow.com/questions/3055550/wpf-how-to-display-an-image-at-its-original-size)
 // [Blurry Bitmaps](https://docs.microsoft.com/en-us/archive/blogs/dwayneneed/blurry-bitmaps)
+// [Image in WPF getting Blurry](https://stackoverflow.com/questions/5645274/image-in-wpf-getting-blurry)
+// > SnapsToDevicePixels seems not working for bitmaps.
+// >
+// > The NearestNeighbor options actually converts the bitmap and will end up with
+// > different one to the original bitmap.
+// >
+// > In WPF 4, a property "UseLayoutRounding" on the FrameworkElement is introduced
+// > to solve this problem.
+// >
+// > By setting this property to True on your root element, such as Window will align
+// > children elements on the edges of pixels.
+// >
+// <Window UseLayoutRounding="True">...</Window>
+// [Reference external DLL in .NET Core project](https://stackoverflow.com/questions/40108106/reference-external-dll-in-net-core-project)
+// https://github.com/Apress/practical-wpf-charts-graphics/blob/master/Examples_code/ColorsAndBrushes/ColorsAndBrushes/ColorPicker.xaml.cs

@@ -346,3 +346,8 @@ https://github.com/microsoft/msquic/tree/main/src/cs/lib
 - https://github.com/ArgusMagnus/FFTW.NET/blob/master/FFTW.NET/FftwInterop.tt
 
 - [Text Template (.tt file), Define array and iterate through generating method for multiple types](https://stackoverflow.com/questions/56922493/text-template-tt-file-define-array-and-iterate-through-generating-method-for)
+
+### Microsoft.Win32.SafeHandles
+
+https://github.com/EgorBo/CppPinvokeGenerator/blob/66ac2d0e9926d4f526b2a26acce8e1b5156d55f2/samples/SimdJson/Output/Bindings.Generated.cs#L5
+

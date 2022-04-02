@@ -12,11 +12,55 @@ namespace Common
 
         public TickTimer(int intervalInMs)
         {
-            StartTime = DateTime.Now;
-            timer_ = new Timer(Tick, null, 0, intervalInMs);
+            Interval = intervalInMs;
+            tick_ = true;
+            Start();
         }
 
-        public DateTime StartTime { get; }
+        public int Interval
+        {
+            get;
+            set;
+        }
+
+        public void Start()
+        {
+            timer_?.Dispose();
+
+            StartTime = DateTime.Now;
+            timer_ = new Timer(TickTick, null, 0, Interval);
+        }
+
+        public void Stop()
+        {
+            timer_?.Dispose();
+        }
+
+        public bool Tick
+        {
+            get => tick_;
+
+            set
+            {
+                tick_ = value;
+                if (tick_)
+                {
+                    StartTime = DateTime.Now;
+                    ElapsedTime = TimeSpan.Zero;
+                }
+            }
+        }
+
+        public DateTime StartTime
+        {
+            get => start_;
+
+            set
+            {
+                start_ = value;
+                OnPropertyChanged();
+            }
+        }
 
         public DateTime Now
         {
@@ -40,13 +84,16 @@ namespace Common
             }
         }
 
-        private void Tick(object state)
+        private void TickTick(object state)
         {
             Now = DateTime.Now;
-            ElapsedTime = Now - StartTime;
+            if (Tick)
+                ElapsedTime = Now - StartTime;
         }
 
         private Timer timer_;
+        private bool tick_;
+        private DateTime start_;
         private DateTime now_;
         private TimeSpan elapsedTime_;
     }

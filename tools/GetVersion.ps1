@@ -189,3 +189,4 @@ else
 # https://github.com/andreasfertig/cppinsights/blob/main/version.h.in
 # https://github.com/stefankueng/BowPad/blob/main/version.build.in
 # https://github.com/mne-tools/mne-cpp/blob/main/libraries/communication/communication_global.cpp
+# https://github.com/Z3Prover/z3/blob/z3-4.8.15/scripts/mk_util.py#L129-L138

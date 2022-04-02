@@ -27,3 +27,19 @@ https://github.com/pantsbuild/pex
   > popd
   > virtualenv --no-download --extra-search-dir /opt/pypi/downloads virtualenv
   > ```
+
+https://github.com/Z3Prover/z3
+
+```bash
+virtualenv venv
+source venv/bin/activate
+python scripts/mk_make.py --python
+cd build
+make
+make install
+# You will find Z3 and the Python bindings installed in the virtual environment
+venv/bin/z3 -h
+...
+python -c 'import z3; print(z3.get_version_string())'
+# ...
+```

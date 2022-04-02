@@ -7,12 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\go-next-8.png" />
+    <None Remove="Images\media-record.png" />
+    <None Remove="Images\thumbnail.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="..\..\ECGDemoV0\ECGDemo\ECGrid.cs" Link="ECGrid.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="PInvoke.Gdi32" Version="0.7.104" />
     <PackageReference Include="PInvoke.User32" Version="0.7.104" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
     <PackageReference Include="ScottPlot" Version="4.1.48" />
     <PackageReference Include="WriteableBitmapEx" Version="1.6.8" />
   </ItemGroup>
@@ -20,6 +27,18 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Common.DotNet\Common.DotNet.csproj" />
     <ProjectReference Include="..\..\..\..\Console\PInvoke\FakeAD\FakeAD\FakeAD.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ColorPicker">
+      <HintPath>ColorPicker.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\go-next-8.png" />
+    <Resource Include="Images\media-record.png" />
+    <Resource Include="Images\thumbnail.png" />
   </ItemGroup>
 
 </Project>

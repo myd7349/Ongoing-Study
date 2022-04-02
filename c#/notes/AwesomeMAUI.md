@@ -4,6 +4,10 @@ Applications:
 
 - [WeatherTwentyOne](https://github.com/davidortinau/WeatherTwentyOne)
 
+Controls:
+
+- [XCalendar](https://github.com/ME-MarvinE/XCalendar)
+
 Articles:
 
 - [Maui.Graphics WPF Quickstart](https://swharden.com/csdv/maui.graphics/quickstart-wpf/)

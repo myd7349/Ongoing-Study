@@ -112,3 +112,6 @@ namespace Common
 // https://github.com/TylerBrinkley/Enums.NET
 // [WPF Data binding: How to data bind an enum to combo box using XAML?](https://stackoverflow.com/questions/4306743/wpf-data-binding-how-to-data-bind-an-enum-to-combo-box-using-xaml)
 // [How to bind an enum to a combobox control in WPF?](https://stackoverflow.com/questions/6145888/how-to-bind-an-enum-to-a-combobox-control-in-wpf)
+// [A Better Way to Data Bind Enums in WPF](https://brianlagunas.com/a-better-way-to-data-bind-enums-in-wpf/)
+// https://github.com/brianlagunas/BindingEnumsInWpf
+// [Localize Enum Descriptions in WPF](https://brianlagunas.com/localize-enum-descriptions-in-wpf/)

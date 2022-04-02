@@ -27,3 +27,5 @@ def temporary_file(path=None):
         if os.path.exists(tmp.name):
             os.remove(tmp.name)
 ```
+
+https://github.com/Z3Prover/z3/blob/z3-4.8.15/scripts/mk_util.py#L192-L212

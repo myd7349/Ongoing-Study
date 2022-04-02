@@ -58,9 +58,13 @@ Applications:
 
 - [MindLated](https://github.com/Sato-Isolated/MindLated)
 
+- [MusCat](https://github.com/ar1st0crat/MusCat)
+
 - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 
 - [NodeNetwork](https://github.com/Wouterdek/NodeNetwork)
+
+- [NWaves.Blueprints](https://github.com/ar1st0crat/NWaves.Blueprints)
 
 - [perfview](https://github.com/microsoft/perfview)
 
@@ -77,6 +81,8 @@ Applications:
 - [RoundedTB](https://github.com/torchgm/RoundedTB)
 
 - [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)
+
+- [sentinel](https://github.com/yarseyah/sentinel)
 
 - [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows)
 
@@ -158,6 +164,8 @@ Libraries:
 
 - Color Picker Dialog
 
+  - https://github.com/Apress/practical-wpf-charts-graphics/blob/master/Examples_code/ColorsAndBrushes/ColorsAndBrushes/bin/Debug/ColorPicker.dll
+
   - [Is there a color dialog for WPF?](https://stackoverflow.com/questions/2785242/is-there-a-color-dialog-for-wpf)
 
   - [WPF: A Simple Color Picker With Preview](https://www.codeproject.com/Articles/33001/WPF-A-Simple-Color-Picker-With-Preview)
@@ -168,7 +176,8 @@ Libraries:
   
   - C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2007.6001.0_neutral__8wekyb3d8bbwe\ControlzEx.dll
   - DeepL Translate App for Windows
-
+  - PowerToys
+  
 - [CSLA.NET](https://github.com/MarimerLLC/csla)
 
 - [DataGridExtensions](https://github.com/dotnet/DataGridExtensions)
@@ -244,7 +253,8 @@ Libraries:
 - [ModernWpf](https://github.com/Kinnara/ModernWpf)
   
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
-
+  - PowerToys
+  
 - [mui](https://github.com/firstfloorsoftware/mui)
 
 - [mvvm-dialogs](https://github.com/FantasticFiasco/mvvm-dialogs)
@@ -309,8 +319,6 @@ Libraries:
 
 - [ReactiveUI.Validation](https://github.com/reactiveui/ReactiveUI.Validation)
 
-- [sentinel](https://github.com/yarseyah/sentinel)
-
 - [SpicyTaco.AutoGrid](https://github.com/SpicyTaco/SpicyTaco.AutoGrid)
 
 - [Stylet](https://github.com/canton7/Stylet)
@@ -329,6 +337,8 @@ Libraries:
   
   - [Quicker](https://github.com/cuiliang/Quicker)
 
+- [TomsToolbox.Wpf](https://github.com/tom-englert/TomsToolbox/tree/master/src/TomsToolbox.Wpf)
+
 - [WAF](https://github.com/jbe2277/waf)
   
   - [Firing a double click event from a WPF ListView item using MVVM](https://stackoverflow.com/questions/1035023/firing-a-double-click-event-from-a-wpf-listview-item-using-mvvm)
@@ -342,6 +352,8 @@ Libraries:
   - [Microsoft.Toolkit.Win32](https://github.com/CommunityToolkit/Microsoft.Toolkit.Win32)
 
 - [WPF-AutoComplete-TextBox](https://github.com/quicoli/WPF-AutoComplete-TextBox)
+
+- [WPF-ControlBase](https://github.com/HeBianGu/WPF-ControlBase)
 
 - [WPFDarkTheme](https://github.com/AngryCarrot789/WPFDarkTheme)
 
@@ -376,6 +388,8 @@ Libraries:
   - [What is the best way to make a wizard using native WPF controls](https://stackoverflow.com/questions/17418455/what-is-the-best-way-to-make-a-wizard-using-native-wpf-controls)
 
   - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics) 
+
+  - [WPF DatePicker to show the time as well as the date](https://stackoverflow.com/questions/25764111/wpf-datepicker-to-show-the-time-as-well-as-the-date)
 
 - [WPF UI](https://github.com/lepoco/wpfui)
 

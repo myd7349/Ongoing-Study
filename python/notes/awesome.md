@@ -265,6 +265,10 @@
 
   - - [FlaUI](https://github.com/GDATASoftwareAG/robotframework-flaui)
 
+##### JavaScript -> Python
+
+- https://github.com/pyodide/pyodide/blob/0.19.1/src/core/js2python.h
+
 ### Logging
 
 - [icecream](https://github.com/gruns/icecream)
@@ -276,9 +280,11 @@
 - [h5py](https://github.com/h5py/h5py)
 - pandas
 - [PyTables](https://github.com/PyTables/PyTables)
+- [tiledarray](https://github.com/ValeevGroup/tiledarray)
 - [xarray](https://github.com/pydata/xarray)
-> Multi-dimensional (a.k.a. N-dimensional, ND) arrays (sometimes called "tensors") are an essential part of computational science.
+  > Multi-dimensional (a.k.a. N-dimensional, ND) arrays (sometimes called "tensors") are an essential part of computational science.
 - [zarr](https://github.com/zarr-developers/zarr-python)
+- [zfp](https://github.com/LLNL/zfp)
 
 ### Networking
 

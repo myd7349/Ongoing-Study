@@ -39,3 +39,4 @@ or:
 > paths = sorted(Path(dirpath).iterdir(), key=os.path.getmtime)
 > ```
 
+[你应该使用pathlib替代os.path](https://www.dongwm.com/post/use-pathlib/)

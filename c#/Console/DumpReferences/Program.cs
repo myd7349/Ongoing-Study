@@ -76,3 +76,4 @@ namespace DumpReferences
 
 // References:
 // [C# Recursively Find References in All Projects In Solution](https://stackoverflow.com/questions/32974118/c-sharp-recursively-find-references-in-all-projects-in-solution)
+// https://github.com/nikeyes/DotNetProjectsDependenciesViewer

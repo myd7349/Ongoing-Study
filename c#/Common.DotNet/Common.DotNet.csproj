@@ -50,6 +50,7 @@
     <Compile Include="..\Common\MSVCRTHelper.cs" Link="MSVCRTHelper.cs" />
     <Compile Include="..\Common\PropertyChangedBase.cs" Link="PropertyChangedBase.cs" />
     <Compile Include="..\Common\RegistryKeyExtension.cs" Link="RegistryKeyExtension.cs" />
+    <Compile Include="..\Common\Singleton.cs" Link="Singleton.cs" />
     <Compile Include="..\Common\StringExtension.cs" Link="StringExtension.cs" />
     <Compile Include="..\Common\TickTimer.cs" Link="TickTimer.cs" />
     <Compile Include="..\Common\TimerQueueTimer.cs" Link="TimerQueueTimer.cs" />

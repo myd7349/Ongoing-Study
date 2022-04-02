@@ -55,3 +55,5 @@
   > >  py get-pip.py
 
 - [pip with embedded python - Stack Overflow](https://stackoverflow.com/questions/42666121/pip-with-embedded-python)
+
+- [最推荐使用pip的方式](https://www.dongwm.com/post/you-should-use-python-m-pip/)

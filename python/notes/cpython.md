@@ -16,6 +16,7 @@ Projects that using Python C API to create bindings:
 - [sendmsg](https://github.com/slideinc/sendmsg)
 - [bfloat16](https://github.com/GreenWaves-Technologies/bfloat16)
 - [winterpy](https://github.com/lilydjwg/winterpy/blob/master/pyso/X.c)
+- [jsonnet](https://github.com/google/jsonnet)
 
 Books:
 

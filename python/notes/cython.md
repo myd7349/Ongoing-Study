@@ -15,6 +15,7 @@
 * [memray](https://github.com/bloomberg/memray)
 * [pymeshfix](https://github.com/pyvista/pymeshfix)
 * [pyFFTW](https://github.com/pyFFTW/pyFFTW)
+* [zfp](https://github.com/LLNL/zfp)
 
 ### Tools
 

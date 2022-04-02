@@ -52,6 +52,10 @@
   - [Angular Style Guide](https://github.com/mgechev/angularjs-style-guide)
   - [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript)
 
+- Jsonnet
+
+  - [jsonnet-style-guide](https://github.com/databricks/jsonnet-style-guide)
+
 - Kotlin
   
   - [Android Kotlin Guides](https://github.com/android/kotlin-guides)
@@ -76,6 +80,10 @@
 - Rust
   
   - [Rust code formatting RFCs](https://github.com/rust-lang-nursery/fmt-rfcs)
+
+- Scala
+
+  - [scala-style-guide](https://github.com/databricks/scala-style-guide)
 
 - SQL
   

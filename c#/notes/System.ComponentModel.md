@@ -18,4 +18,6 @@
 5. [INotifyPropertyChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged?view=net-5.0)
    - [How to: Implement Property Change Notification](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-property-change-notification?view=netframeworkdesktop-4.8)
    - [Raise an event whenever a property's value changed?](https://stackoverflow.com/questions/2246777/raise-an-event-whenever-a-propertys-value-changed)
-
+6. DisplayName
+   - [Access DisplayName in xaml](https://stackoverflow.com/questions/6154050/access-displayname-in-xaml)
+   - https://github.com/dotnet/DataGridExtensions/blob/master/src/DataGridExtensionsSample/Views/CopyPasteViewModel.cs

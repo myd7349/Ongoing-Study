@@ -134,3 +134,5 @@
 - lessmsi
 
 - [MsiSneakAttack](https://github.com/Redth/MsiSneakAttack)
+
+### [AutoUpdater.NET](https://github.com/ravibpatel/AutoUpdater.NET)

@@ -82,7 +82,6 @@ Applications:
 - [Qalculate](https://github.com/Qalculate/qalculate-qt)
 - [QAmigo](https://github.com/QAmigo/QAmigo)
 - [qBittorrent](https://www.qbittorrent.org/) - [GitHub](https://github.com/qbittorrent/qBittorrent)
-- [QCodeEditor](https://github.com/Megaxela/QCodeEditor)
 - [QGIS](https://github.com/qgis/QGIS)
 - [qimgv](https://github.com/easymodo/qimgv)
 - [QMidiPlayer](https://github.com/chirs241097/QMidiPlayer)
@@ -172,6 +171,8 @@ Libraries:
 - [QCefView](https://github.com/CefView/QCefView)
 
 - [QCefWidget](https://github.com/winsoft666/QCefWidget)
+
+- [QCodeEditor](https://github.com/Megaxela/QCodeEditor)
 
 - [QCustomPlot](https://www.qcustomplot.com/)
   

@@ -2,6 +2,8 @@
 
 [DevToysMac](https://github.com/ObuchiYuki/DevToysMac) provides a JSON formatter.
 
+[export-from-json](https://github.com/zheeeng/export-from-json)
+
 [fq](https://github.com/wader/fq)
 
 [fx](https://github.com/antonmedv/fx)
@@ -14,7 +16,7 @@
 
 [json-tui](https://github.com/ArthurSonzogni/json-tui)
 
-[export-from-json](https://github.com/zheeeng/export-from-json)
+[miller](https://github.com/johnkerl/miller)
 
 [XML2JSON.XSL](https://xml2json.duttke.de/)
 

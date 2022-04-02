@@ -96,3 +96,12 @@ namespace MandelbrotSet
         }
     }
 }
+
+
+// References:
+// https://www.bilibili.com/video/BV1q7411A7Rz/
+// [The Edge of Infinity - Mandelbrot Fractal Zoom (e2011) (4k 60fps)](https://www.youtube.com/watch?v=u1pwtSBTnPU)
+// ["上帝的指纹" - 走进无限美妙的曼德博集合](https://zhuanlan.zhihu.com/p/52303089)
+// [What is the Mandelbrot set?](https://plus.maths.org/content/what-mandelbrot-set)
+// [Walkthrough: Removing Work from a User-Interface Thread](https://docs.microsoft.com/en-us/cpp/parallel/concrt/walkthrough-removing-work-from-a-user-interface-thread?view=msvc-160)
+// https://github.com/MicrosoftDocs/cpp-docs/blob/master/docs/parallel/concrt/walkthrough-removing-work-from-a-user-interface-thread.md

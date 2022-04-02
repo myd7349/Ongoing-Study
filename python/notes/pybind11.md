@@ -36,6 +36,7 @@ Projects using `pybind11`
 * [pedalboard](https://github.com/spotify/pedalboard)
 * [NumPyEigen](https://github.com/fwilliams/numpyeigen)
   - [libigl-python-bindings](https://github.com/libigl/libigl-python-bindings)
+* [tiledarray](https://github.com/ValeevGroup/tiledarray)
 
 # Notes
 

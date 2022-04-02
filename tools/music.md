@@ -10,6 +10,8 @@ https://github.com/qier222/YesPlayMusic
 
 [lx-music-desktop](https://github.com/lyswhut/lx-music-desktop)
 
+[MusCat](https://github.com/ar1st0crat/MusCat)
+
 Tools:
 
 - [beats-audio-api](https://github.com/JMPerez/beats-audio-api)
