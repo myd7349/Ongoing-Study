@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+    <Configurations>Debug;Release;x64</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClangSharp" Version="14.0.0-beta2" />
+    <PackageReference Include="ClangSharp.Interop" Version="14.0.0-beta2" />
+    <PackageReference Include="libclang.runtime.win-x64" Version="14.0.0" />
+    <PackageReference Include="libclang.runtime.win-x86" Version="14.0.0" />
+  </ItemGroup>
+
+</Project>
+
+<!--
+References:
+[How to: Configure projects to target platforms](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2022)
+[C# Target Platforms | x64 vs x86 vs AnyCPU](https://medium.com/@trapdoorlabs/c-target-platforms-x64-vs-x86-vs-anycpu-5f0c3be6c9e2)
+[Target frameworks in SDK-style projects](https://docs.microsoft.com/en-us/dotnet/standard/frameworks)
+-->

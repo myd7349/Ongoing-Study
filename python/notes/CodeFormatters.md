@@ -1,5 +1,7 @@
 - https://github.com/rishirdua/awesome-code-formatters#python
 
+- https://github.com/alexkay/hilite.me
+
 - black
   
   - [GitHubPoster](https://github.com/yihong0618/GitHubPoster)
@@ -15,6 +17,8 @@
     > ```
 
 - isort
+
+- [pycodestyle](https://github.com/PyCQA/pycodestyle)
 
 - uncrustify
 

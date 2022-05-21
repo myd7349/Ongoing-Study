@@ -7,6 +7,7 @@
 - [FastStone Image Viewer](https://www.faststone.org/FSViewerDetail.htm)
 - Fotoxx
 - [geeqie](https://github.com/BestImageViewer/geeqie)
+- [gif-editor](https://github.com/igormironchik/gif-editor)
 - GIMP
   - [gmic-qt](https://github.com/c-koi/gmic-qt) 
 - [GMIC](https://github.com/dtschump/gmic)
@@ -21,7 +22,8 @@
 - [Luminar 4 免费送终身授权，基于 AI 的照片编辑器[Win/macOS] - 小众软件](https://www.appinn.com/luminar-4/)
 - [nomacs](https://github.com/nomacs/nomacs)
 - [Paint.NET](https://www.getpaint.net/)
-  - [OpenPDN](https://github.com/rivy/OpenPDN) 
+  - [OpenPDN](https://github.com/rivy/OpenPDN)
+- [paper2gui](https://github.com/Baiyuetribe/paper2gui)
 - Photivo
 - [photoflare](https://github.com/PhotoFlare/photoflare)
 - [PhotoME](https://www.photome.de/) - [author](https://www.duttke.de/en/#projects-software-photome)
@@ -30,6 +32,7 @@
 - [Pinta](https://github.com/PintaProject/Pinta)
 - RawTherapee
 - [Retouch-Photo2-UWP](https://github.com/ysdy44/Retouch-Photo2-UWP)
+- [SvgViewer](https://github.com/ElinamLLC/SvgViewer)
 - [tev](https://github.com/Tom94/tev)
 - [tifig](https://github.com/monostream/tifig)
 - [tldraw](https://github.com/tldraw/tldraw)
@@ -46,6 +49,8 @@ Image Searching
 
 QR Code
 
+- [CodeScanner](https://github.com/twostraws/CodeScanner)
+
 - [qcode-decoder](https://github.com/cirocosta/qcode-decoder) - [website](https://research.swtch.com/qart) - [code](https://github.com/rsc/qr/tree/master/qart)
 
 - [QRCode-NCNN](https://github.com/EdVince/QRCode-NCNN)
@@ -56,7 +61,15 @@ QR Code
 
 - [QArt Coder](https://www.qartcoder.com/qr/draw)
 
+- zbarimg
+
+  - https://github.com/susam/mintotp
+
+- [zint](https://github.com/zint/zint)
+
 Image optimizer
+
+- [Luban](https://github.com/Curzibn/Luban)
 
 - [McImage](https://github.com/smallSohoSolo/McImage)
 
@@ -65,3 +78,27 @@ Image optimizer
 ICON editor
 
 - [rguiicons](https://github.com/raysan5/rguiicons)
+
+Vector Graphics
+
+- [linedraw](https://github.com/LingDong-/linedraw)
+
+- [Inkscape](https://inkscape.org/) - [code](https://gitlab.com/inkscape/inkscape)
+
+- [psvg](https://github.com/LingDong-/psvg)
+
+- [vtracer](https://github.com/visioncortex/vtracer): Raster to Vector Graphics Converter.
+
+Wave Function Collapse
+
+- [WaveFunctionCollapse](https://github.com/mxgmn/WaveFunctionCollapse)
+
+- [ndwfc](https://github.com/LingDong-/ndwfc)
+
+- [WFC](https://github.com/clach/WFC)
+
+- [wfc](https://github.com/krychu/wfc)
+
+Photo backup
+
+- [immich](https://github.com/immich-app/immich)

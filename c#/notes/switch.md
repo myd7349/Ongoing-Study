@@ -76,5 +76,19 @@
    > }
    > ```
 
-   
+3. [Switch statement fallthrough in C#?](https://stackoverflow.com/questions/174155/switch-statement-fallthrough-in-c)
 
+4. [Pattern matching overview](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/pattern-matching)
+
+5. https://github.com/FantasticFiasco/mvvm-dialogs/blob/v8.0.0/src/net/DialogFactories/ReflectionDialogFactory.cs
+
+   ```csharp
+   return instance switch
+   {
+       IWindow customDialog => customDialog,
+       Window dialog => new WindowWrapper(dialog),
+       _ => throw new ArgumentException($"Only dialogs of type {typeof(Window)} or {typeof(IWindow)} are supported.")
+   };
+   ```
+
+6. [Switch case: can I use a range instead of a one number](https://stackoverflow.com/questions/20147879/switch-case-can-i-use-a-range-instead-of-a-one-number)

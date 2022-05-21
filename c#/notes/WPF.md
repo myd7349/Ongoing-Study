@@ -134,3 +134,15 @@ public string ImageFullPath
   - [What can I do inside CompositionTarget.Rendering?](https://stackoverflow.com/questions/18353225/what-can-i-do-inside-compositiontarget-rendering)
 
   - [Why is Frame Rate in WPF Irregular and Not Limited To Monitor Refresh?](https://stackoverflow.com/questions/5812384/why-is-frame-rate-in-wpf-irregular-and-not-limited-to-monitor-refresh)
+
+##### WPF User Control library
+
+[How to add a WPF Window to a Class Library Project](https://stackoverflow.com/questions/47224680/how-to-add-a-wpf-window-to-a-class-library-project)
+
+[No creation of a WPF window in a DLL project?](https://stackoverflow.com/questions/3573339/no-creation-of-a-wpf-window-in-a-dll-project)
+
+```xml
+<ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+```
+
+[What is the difference between a User Control Library and a Custom Control Library?](https://stackoverflow.com/questions/807703/what-is-the-difference-between-a-user-control-library-and-a-custom-control-libra)

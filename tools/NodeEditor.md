@@ -37,3 +37,5 @@
 - [FastCAE-AppDesigner](https://github.com/czyt1988/FastCAE-AppDesigner)
 
 - [NodeGraph](https://github.com/lifeisforu/NodeGraph)
+
+- [Graphite](https://github.com/GraphiteEditor/Graphite): Rust.

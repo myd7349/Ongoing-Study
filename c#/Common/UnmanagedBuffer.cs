@@ -30,6 +30,7 @@
             Dispose(false);
         }
 
+        // TODO: Convert.ChangeType
         public void Write<T>(T value)
         {
             var type = typeof(T);
@@ -73,6 +74,7 @@
             }
         }
 
+        // TODO: Convert.ChangeType
         public void WriteEnum<T>(T value)
         {
             var type = typeof(T);
@@ -313,3 +315,5 @@
 // SafeHeapBlock: https://github.com/dahall/Vanara/blob/56cda5a8f4d6648563651996d99f471f9e49e56f/PInvoke/Kernel32/HeapApi.cs#L1411
 // https://github.com/dahall/Vanara/blob/8ca58cc2c8d5ca87c19a434f06b6b2f6810aa313/Core/InteropServices/SafeHGlobalHandle.cs#L117
 // public static SafeHGlobalHandle CreateFromStructure<T>(in T value = default) => new SafeHGlobalHandle(InteropExtensions.MarshalToPtr(value, mm.AllocMem, out int s), s);
+// [C# performance - Using unsafe pointers instead of IntPtr and Marshal](https://stackoverflow.com/questions/17549123/c-sharp-performance-using-unsafe-pointers-instead-of-intptr-and-marshal)
+// > I would suppose that the slowness of the third case was due to AllocHGlobal which has a higher per-call overhead.

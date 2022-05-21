@@ -23,3 +23,5 @@ http://www.gnuplot.info/
 > direct output to file: 		postscript (including eps), pdf, png, gif, jpeg, LaTeX, metafont, emf, svg, ...
 
 https://github.com/gnuplot/gnuplot/blob/master/src/win/wgdiplus.cpp
+
+https://github.com/zint/zint/blob/master/backend/emf.h

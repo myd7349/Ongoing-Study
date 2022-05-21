@@ -20,6 +20,8 @@
 
 - [DLL Export Viewer](http://www.nirsoft.net/utils/dll_export_viewer.html)
 
+  - [Get the function prototypes from an unknown .dll](https://reverseengineering.stackexchange.com/questions/2134/get-the-function-prototypes-from-an-unknown-dll)
+
 - [DllProtect](https://github.com/wanttobeno/DllProtect)
 
 - [Detect-It-Easy](https://github.com/horsicq/Detect-It-Easy)
@@ -49,6 +51,8 @@
   
   - [DidierStevensSuite/pecheck.py at master · DidierStevens/DidierStevensSuite · GitHub](https://github.com/DidierStevens/DidierStevensSuite/blob/master/pecheck.py)
 
+- [PEiD](https://www.aldeid.com/wiki/PEiD)
+
 - [PeNet](https://github.com/secana/PeNet)
 
 - [pestudio](https://github.com/cybertechniques/site/blob/master/analysis_tools/pestudio/index.md) - [website](https://www.winitor.com/)
@@ -57,16 +61,28 @@
 
 - [pe_to_shellcode](https://github.com/hasherezade/pe_to_shellcode)
 
+- [PEview](http://wjradburn.com/software/)
+
+  - [What's the format of .lib in windows?](https://stackoverflow.com/questions/3811437/whats-the-format-of-lib-in-windows)
+
 - [RunPE](https://github.com/Zer0Mem0ry/RunPE)
 
 - [XPEViewer](https://github.com/horsicq/XPEViewer)
 
 ### PDB Tools
 
+- [Which tool to use to open .pdb (symbol) files?](https://stackoverflow.com/questions/37269289/which-tool-to-use-to-open-pdb-symbol-files)
+
+  - [How to call function from DLL with only function name ? C++](https://stackoverflow.com/questions/59017077/how-to-call-function-from-dll-with-only-function-name-c)
+
 - [codesize](https://github.com/zeux/codesize)
 
+- [DebugSignaturesComparer](https://github.com/McjMzn/DebugSignaturesComparer)
+
+  - [Tool to find if dll (or) exe and PDB file match](https://stackoverflow.com/questions/2743323/tool-to-find-if-dll-or-exe-and-pdb-file-match)
+
 - [pdbdump](https://github.com/microsoft/microsoft-pdb/blob/master/pdbdump/pdbdump.cpp)
- 
+
 - [EatPdb](https://github.com/codehz/EatPdb)
 
 - [pdb](https://github.com/willglynn/pdb)
@@ -88,6 +104,22 @@
 - [使用VS API开发一个PDB Dumper并且可以在没装VS2010的计算机上运行](http://www.cppblog.com/vczh/archive/2012/03/10/167538.html) - [code](https://github.com/vczh-codeplex/gac/tree/master/Common/Tools/PdbDump/PdbDump)
 
 - [dia2dump](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-interface-access/dia2dump-sample?view=vs-2022)
+
+  - https://github.com/wongfei/pdb-ripper
+
+  - https://github.com/KirillOsenkov/Dia2Dump
+
+  - https://github.com/OH1TR/WinApiMapper
+
+- [Wumpbin](https://www.benf.org/other/wumpbin/index.html)
+
+### ELF Tools
+
+- https://github.com/eliben/pyelftools
+
+### .so Tools
+
+- [hookso](https://github.com/esrrhs/hookso)
 
 ### Reverse Engineering
 
@@ -112,6 +144,8 @@
 - StampVer
 
 ### Resource Tools
+
+- [cmrc](https://github.com/vector-of-bool/cmrc)
 
 - [D2H](https://github.com/GideonSerf/D2H)
 
@@ -151,6 +185,9 @@
 
 ### C++ Libraries
 
+- [bearparser](https://github.com/hasherezade/bearparser)
+- [dll.hpp](https://github.com/WerWolv/ILInterpreter/blob/master/include/dll.hpp)
+- [LIEF](https://github.com/lief-project/LIEF)
 - [pe-parse](https://github.com/trailofbits/pe-parse)
 
 ### Python Libraries
@@ -161,7 +198,19 @@
 ### DLL Tools
 
 - [dump2def](https://github.com/weidai11/cryptopp/blob/master/TestPrograms/dump2def.cpp): Create a module definitions file from a dumpbin file.
+- [ImpLibEditor](https://github.com/sorayuki/ImpLibEditor)
+- [implibGenerator](https://github.com/sorayuki/implibGenerator)
+- lib
+  - fftw-3.3.5-dll32\README-WINDOWS
+    > In order to link to these .dll files from Visual C++, you need to create .lib "import libraries" for them, and can do so with the "lib" command that comes with VC++.  In particular, run:
+    > 
+    >   lib /def:libfftw3f-3.def
+    >   
+    >   lib /def:libfftw3-3.def
+    >   
+    >   lib /def:libfftw3l-3.def
 - [ListDLLs](https://github.com/MicrosoftDocs/sysinternals/blob/live/sysinternals/downloads/listdlls.md)
+- [winapisearch](https://dennisbabkin.com/winapisearch/)
 
 ### PE Packers
 
@@ -174,3 +223,8 @@
 ### Binary Patching
 
 - [e9patch](https://github.com/GJDuck/e9patch)
+
+### Other Tools
+
+- [loadlibrary](https://github.com/taviso/loadlibrary): Porting Windows Dynamic Link Libraries to Linux.
+

@@ -2,10 +2,14 @@
 
 - [b0pass](https://github.com/bitepeng/b0pass)
 - [bore](https://github.com/ekzhang/bore)
+- [bottom](https://github.com/ClementTsang/bottom)
 - bpytop
 - btop
 - [Circus](https://github.com/circus-tent/circus)
 - [clumsy](https://github.com/jagt/clumsy)
+- [croc](https://github.com/schollz/croc)
+- curl
+  - [curlconverter](https://github.com/curlconverter/curlconverter)
 - [curlie](https://github.com/rs/curlie)
 - [DHCPLite](https://github.com/DavidAnson/DHCPLite)
 - [ecapture](https://github.com/ehids/ecapture)
@@ -14,6 +18,7 @@
 - Fiddler
   
   - [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
+- [FileSender](https://github.com/filesender/filesender)
 - [hping](https://github.com/antirez/hping)
 - [httpie](https://httpie.io/)
 - [HTTP Toolkit](https://github.com/httptoolkit/httptoolkit)
@@ -28,6 +33,7 @@
 - [LANDrop](https://github.com/LANDrop/LANDrop)
 - [LFTP](https://github.com/lavv17/lftp)
 - [NamedPipeCapture](https://github.com/Vatyx/NamedPipeCapture)
+- [NatTypeTester](https://github.com/HMBSbige/NatTypeTester)
 - [net-search](https://github.com/wsdassssss/net-search)
 - [netdata](https://github.com/netdata/netdata)
 - [netSend](https://github.com/williamnie/netSend)
@@ -35,14 +41,20 @@
 - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 - networkQuality - macOS
 - nsenter
+- [openspeedtest](https://openspeedtest.com/)
+- [PCredz](https://github.com/lgandx/PCredz)
 - [pingtop](https://github.com/laixintao/pingtop)
 - [pwnat](https://github.com/samyk/pwnat)
+- [realterm](https://sourceforge.net/projects/realterm/)
 - [rtop](https://github.com/rapidloop/rtop)
 - [RustScan](https://github.com/RustScan/RustScan)
+- [ServerScan](https://github.com/Adminisme/ServerScan)
 - [smartdns](https://github.com/pymumu/smartdns)
+- [speedtest](https://github.com/librespeed/speedtest)
 - [SwitchHosts](https://github.com/oldj/SwitchHosts)
 - [syncthing](https://github.com/syncthing/syncthing)
 - tcpdump
+- [tcping](https://github.com/mkirchner/tcping)
 - [tcpkit](https://github.com/git-hulk/tcpkit)
 - [tcpping](https://github.com/jwyllie83/tcpping)
 - [termshark](https://github.com/gcla/termshark)

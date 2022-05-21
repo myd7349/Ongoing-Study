@@ -42,6 +42,8 @@ Code Editors:
 
 - [LightTable](https://github.com/LightTable/LightTable)
 
+- [Mu](https://github.com/mu-editor/mu)
+
 - Nano Editor - [Windows](https://github.com/lhmouse/nano-win)
 
 - [ne, the nice editor](https://ne.di.unimi.it/)
@@ -70,6 +72,10 @@ Code Editors:
 
 - [NotepadNext](https://github.com/dail8859/NotepadNext)
 
+- [Notepads](https://github.com/0x7c13/Notepads)
+
+- [Runestone](https://github.com/simonbs/Runestone)
+
 - [sam](https://github.com/deadpixi/sam)
 
 - [SciTE](https://www.scintilla.org/SciTE.html)
@@ -89,6 +95,8 @@ Code Editors:
 - [XI Editor](https://github.com/xi-editor/xi-mac)
   
   - [xi-editor](https://github.com/xi-editor/xi-editor)
+
+- [zee](https://github.com/zee-editor/zee)
 
 - [Zep](https://github.com/Rezonality/zep)
 

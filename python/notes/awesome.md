@@ -1,5 +1,7 @@
 ### Python Implementation
 
+- [micropython](https://github.com/micropython/micropython)
+  - [circuitpython](https://github.com/adafruit/circuitpython)
 - [pikascript](https://github.com/pikasTech/pikascript)
 
 ### AI
@@ -9,7 +11,9 @@
 ### Audio
 
 - [pedalboard](https://github.com/spotify/pedalboard)
+- pyaudio
 - [python-mingus](https://github.com/bspaans/python-mingus)
+- [Realtime_PyAudio_FFT](https://github.com/aiXander/Realtime_PyAudio_FFT)
 
 ### Automation
 
@@ -27,15 +31,31 @@
 
 - [altair](https://github.com/altair-viz/altair)
 
+- [bokeh](https://github.com/bokeh/bokeh)
+
+  - [explorepy](https://github.com/Mentalab-hub/explorepy)
+
 - [chartify](https://github.com/spotify/chartify)
 
 - [datoviz](https://github.com/datoviz/datoviz)
 
 - [PyQtGraph](https://www.pyqtgraph.org/)
 
+  - [Plottr](https://github.com/toolsforexperiments/plottr): A framework for inspecting data, based on flowcharts from pyqtgraph.
+
+    - [How to use Plottr with QCoDeS for live plotting?](https://qcodes.github.io/Qcodes/examples/plotting/How-to-use-Plottr-with-QCoDeS-for-live-plotting.html)
+
 - [pyvista](https://github.com/pyvista/pyvista)
 
   - [mne-python](https://github.com/mne-tools/mne-python)
+
+- [SciencePlots](https://github.com/garrettj403/SciencePlots)
+
+- [seaborn](https://github.com/mwaskom/seaborn) - [website](https://seaborn.pydata.org/)
+
+  - [SeabornCN](https://github.com/Vambooo/SeabornCN)
+
+- [seaborn-image](https://github.com/SarthakJariwala/seaborn-image)
 
 - [vispy](https://github.com/vispy/vispy)
 
@@ -59,6 +79,10 @@
 
 - [nurses_2](https://github.com/salt-die/nurses_2)
 
+- [pdir2](https://github.com/laike9m/pdir2)
+
+- [pick](https://github.com/wong2/pick)
+
 - [plumbum](https://github.com/tomerfiliba/plumbum)
 
 - [prettytable](https://github.com/jazzband/prettytable)
@@ -70,6 +94,8 @@
 - [progressbar2](https://github.com/WoLpH/python-progressbar)
 
 - [Pylsy](https://github.com/Leviathan1995/Pylsy)
+
+- [python-cfonts](https://github.com/frostming/python-cfonts)
 
 - [python-gflags](https://github.com/gflags/python-gflags)
   
@@ -113,6 +139,8 @@
 
 - [environ-config](https://github.com/hynek/environ-config)
 
+- [omegaconf](https://github.com/omry/omegaconf)
+
 ### Container
 
 - [twodict](https://github.com/MrS0m30n3/twodict)
@@ -129,15 +157,22 @@
 
 ### Debug
 
+- [Cyberbrain](https://github.com/laike9m/Cyberbrain)
+- [failprint](https://github.com/pawamoy/failprint)
 - [icecream](https://github.com/gruns/icecream)
 
 ### DSP
 
+- [cusignal](https://github.com/rapidsai/cusignal)
 - [filterpy](https://github.com/rlabbe/filterpy)
 - [pywt](https://github.com/PyWavelets/pywt)
 - [trefide](https://github.com/ikinsella/trefide)
 
 ### File System
+
+- [appdirs](https://github.com/ActiveState/appdirs)
+
+  - [aria2p](https://github.com/pawamoy/aria2p)
 
 - [filelock](https://github.com/tox-dev/py-filelock)
 
@@ -149,7 +184,15 @@
 
 - [PythonFinder](https://github.com/sarugaku/pythonfinder)
 
+- [userpath](https://github.com/ofek/userpath)
+
 - [watchgod](https://github.com/samuelcolvin/watchgod)
+
+### Game Development
+
+- [ballistica](https://github.com/efroemling/ballistica)
+
+- PyGame
 
 ### GUI
 
@@ -211,6 +254,10 @@
   
   - [The Best IDE for Python GUI Programming. Installing Qt Creator and PyQt - YouTube](https://www.youtube.com/watch?v=ts7nebUk71s)
 
+- SageMath
+
+  - [Visual Studio Code 配置 C/C++ 开发环境最佳实践(VSCode+Clang+Clangd+LLDB)](https://zhuanlan.zhihu.com/p/398790625)
+
 - [Wing](https://wingware.com/)
 
 - [WinPython](https://github.com/winpython/winpython)
@@ -235,7 +282,21 @@
 
 - [nanobind](https://github.com/wjakob/nanobind)
 
+- pycparser
+
+  - [lvgl](https://github.com/lvgl/lv_binding_micropython/blob/master/gen/gen_mpy.py)
+
 - [scikit-build](https://github.com/scikit-build/scikit-build): Improved build system generator for CPython C, C++, Cython and Fortran extensions.
+
+- DIY
+
+  - [dearpygui](https://github.com/hoffstadt/DearPyGui/blob/v1.5.0/DearPyGui/dearpygui/_dearpygui.pyi)
+
+    - [mvPythonParser](https://github.com/hoffstadt/DearPyGui/blob/v1.5.0/DearPyGui/src/python/utilities/mvPythonParser.h)
+
+##### Python -> C++
+
+- [matplotlibcpp17](https://github.com/soblin/matplotlibcpp17): A C++ header-only library for matplotlib based on pybind.
 
 ##### Python -> MATLAB
 
@@ -273,12 +334,30 @@
 
 - [icecream](https://github.com/gruns/icecream)
 
+- loguru
+
+  - [aria2p](https://github.com/pawamoy/aria2p)
+
 - [structlog](https://github.com/hynek/structlog)
+
+### Math
+
+- [clifford](https://github.com/pygae/clifford)
+
+- [ganja.js](https://github.com/enkimute/ganja.js)
+
+- [latexify_py](https://github.com/google/latexify_py)
+
+- [pcpp.preprocessor.Evaluator](https://github.com/ned14/pcpp/blob/master/pcpp/evaluator.py)
 
 ### N-D Array
 
+- [arrayfire-python](https://github.com/arrayfire/arrayfire-python)
+  - [arrayfire](https://github.com/arrayfire/arrayfire)
+    - [flashlight](https://github.com/flashlight/flashlight) 
+- [cudf](https://github.com/rapidsai/cudf)
 - [h5py](https://github.com/h5py/h5py)
-- pandas
+- pandas.DataFrame
 - [PyTables](https://github.com/PyTables/PyTables)
 - [tiledarray](https://github.com/ValeevGroup/tiledarray)
 - [xarray](https://github.com/pydata/xarray)
@@ -296,6 +375,8 @@
 
 - [MechanicalSoup](https://github.com/MechanicalSoup/MechanicalSoup)
 
+- [paramiko](https://github.com/paramiko/paramiko)
+
 - [pooch](https://github.com/fatiando/pooch)
 
   - https://github.com/mne-tools/mne-python/blob/v1.0.3/mne/datasets/_fetch.py#L229
@@ -308,7 +389,11 @@
 
 ### NLP
 
+- [lac](https://github.com/baidu/lac)
+
 - [polyglot](https://github.com/aboSamoor/polyglot)
+
+- [stanza](https://github.com/stanfordnlp/stanza)
 
 ### Office
 
@@ -336,7 +421,11 @@
 
 ### PDF
 
+- [pdfplumber](https://github.com/jsvine/pdfplumber)
+  - [Invoice2Excel](https://github.com/yooongchun/Invoice2Excel)
 - [pikepdf](https://github.com/pikepdf/pikepdf)
+- [pyfpdf](https://github.com/reingart/pyfpdf)
+  - [fpdf2](https://github.com/PyFPDF/fpdf2)
 - [PyPDF2](https://github.com/py-pdf/PyPDF2)
 - [ReportLab](https://www.reportlab.com/)
   - https://github.com/driscollis/reportlabbookcode
@@ -344,7 +433,13 @@
 
 ### Performance
 
+- [conbench](https://github.com/conbench/conbench)
+
+- [django-silk](https://github.com/jazzband/django-silk)
+
 - [easy_profiler](https://github.com/rossant/easy_profiler)
+
+- [filprofiler](https://github.com/pythonspeed/filprofiler)
 
 - [meminfo](https://github.com/slideinc/meminfo)
 
@@ -356,6 +451,8 @@
 
 - [pyinstrument](https://github.com/joerick/pyinstrument)
 
+- [pyperf](https://github.com/psf/pyperf)
+
 - [tuna](https://github.com/nschloe/tuna)
 
 ### Project Templates
@@ -365,6 +462,12 @@
 ### Refactoring
 
 - [pyupgrade](https://github.com/asottile/pyupgrade)
+
+### RPC
+
+- JSON-RPC
+
+  - [aria2p](https://github.com/pawamoy/aria2p)
 
 ### Scientific Computing
 
@@ -376,6 +479,8 @@
 
 ### Tree
 
+- [anytree](https://github.com/c0fec0de/anytree)
+
 - [pygtrie](https://github.com/google/pygtrie)
 
 ### Unit Testing & Mocking
@@ -383,6 +488,12 @@
 - [klara](https://github.com/usagitoneko97/klara)
 
 - [mock](https://github.com/testing-cabal/mock)
+
+- [nox](https://github.com/wntrblm/nox)
+
+- pytest
+
+  - [pdir2](https://github.com/laike9m/pdir2)
 
 ### Versioning
 
@@ -405,6 +516,8 @@
 - [attrs](https://github.com/python-attrs/attrs)
 
 - [dataklasses](https://github.com/dabeaz/dataklasses)
+
+- [dirty-equals](https://github.com/samuelcolvin/dirty-equals)
 
 - [MaixPy](https://github.com/sipeed/MaixPy)
 

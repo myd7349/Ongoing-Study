@@ -16,8 +16,14 @@ https://github.com/RoyiAvital/FastGuassianBlur/blob/master/FilterM/FilterX.c
 
 https://github.com/labstreaminglayer/liblsl-Matlab
 
+- https://github.com/labstreaminglayer/App-MATLABViewer
+
 https://github.com/audiofilter/mex-it
 
 https://sourceforge.net/p/biosig/code/ci/master/tree/biosig4c++/mex/
 
 https://github.com/dazza-codes/bioelectromagnetism/blob/master/nearpoints.cxx
+
+https://github.com/InterTriplete2010/Biosemi-BDF-Reader
+
+https://github.com/ricedsp/rwt

@@ -214,3 +214,7 @@
 // https://zhuanlan.zhihu.com/p/30653282
 // https://github.com/dotnet/runtime/blob/1fa304a14a8be27428399bd6f2cc51736cb1515a/src/libraries/Microsoft.Extensions.Configuration/tests/Common/TestStreamHelpers.cs#L108-L117
 // https://github.com/commandlineparser/commandline/blob/master/src/CommandLine/Infrastructure/StringExtensions.cs
+// [Convert String To camelCase from TitleCase C#](https://stackoverflow.com/questions/42310727/convert-string-to-camelcase-from-titlecase-c-sharp)
+// https://github.com/ChangemakerStudios/Papercut-SMTP/blob/develop/src/Papercut.Common/Helper/StringHelpers.cs
+// [Most efficient way to remove special characters from string](https://stackoverflow.com/questions/1120198/most-efficient-way-to-remove-special-characters-from-string)
+// https://github.com/Tyrrrz/Extensions/blob/master/Tyrrrz.Extensions/StringExtensions.cs

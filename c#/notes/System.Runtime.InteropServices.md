@@ -57,3 +57,33 @@ public static MyPacket FromBytes(byte[] bytes, int offset, int count)
 ILSpy + System.Core.dll:
 
 > [assembly: DefaultDllImportSearchPaths(DllImportSearchPath.System32 | DllImportSearchPath.AssemblyDirectory)]
+
+[Converting string to byte array in C#](https://stackoverflow.com/questions/16072709/converting-string-to-byte-array-in-c-sharp)
+
+> You could use MemoryMarshal API to perform very fast and efficient conversion. String will implicitly be cast to ReadOnlySpan<byte>, as MemoryMarshal.Cast accepts either Span<byte> or ReadOnlySpan<byte> as an input parameter.
+> 
+> ```csharp
+> public static class StringExtensions
+> {
+>     public static byte[] ToByteArray(this string s) => s.ToByteSpan().ToArray(); //  heap allocation, use only when you cannot operate on spans
+>     public static ReadOnlySpan<byte> ToByteSpan(this string s) => MemoryMarshal.Cast<char, byte>(s);
+> }
+> ```
+
+NativeLibrary.SetDllImportResolver
+
+https://github.com/microsoft/msquic/blob/v2.0.3/src/cs/tool/Program.cs
+
+```csharp
+NativeLibrary.SetDllImportResolver(typeof(MsQuic).Assembly, (libraryName, assembly, searchPath) =>
+{
+    if (libraryName != "msquic") return IntPtr.Zero;
+    if (NativeLibrary.TryLoad(args[0], out var ptr))
+    {
+        return ptr;
+    }
+    return IntPtr.Zero;
+});
+```
+
+[Native interoperability best practices](https://docs.microsoft.com/en-us/dotnet/standard/native-interop/best-practices?source=recommendations)

@@ -222,3 +222,43 @@ void SelectManyTest()
 [Test if all values in a list are unique](https://stackoverflow.com/questions/18303897/test-if-all-values-in-a-list-are-unique)
 
 > bool isUnique = theList.Distinct().Count() == theList.Count();
+
+[I need to get multiple index's instead of one using linq](https://stackoverflow.com/questions/58345758/i-need-to-get-multiple-indexs-instead-of-one-using-linq)
+
+```csharp
+var values = Enumerable.Range(0, 10).Select(x => x * x).ToArray();
+Console.WriteLine(values.ElementAt(2));
+
+var indices = new [] { 1, 3, 5, 7, 9 };
+Console.WriteLine(indices.Select(i => values[i]));
+
+var slice = new ArraySegment<int>(values, 2, 3);
+Console.WriteLine(slice);
+```
+
+SingleOrDefault
+
+[Trying to create a Dependency Injection/IoC Container FROM SCRATCH](https://www.youtube.com/watch?v=NSVZa4JuTl8)
+
+ToDictionary
+
+[How to Convert KeyValuePair to Dictionary in C#](https://stackoverflow.com/questions/18955384/how-to-convert-keyvaluepair-to-dictionary-in-c-sharp)
+
+```csharp
+var points3D = new Dictionary<string, Point3D>
+{
+    ["1"] = new Point3D(),
+    ["2"] = new Point3D(),
+    // ...
+};
+
+var points2D = points3D.ToDictionary(kv => kv.Key, kv => new Point(kv.Value.X, kv.Value.Y));
+```
+
+[ToList()-- does it create a new list?](https://stackoverflow.com/questions/2774099/tolist-does-it-create-a-new-list)
+
+[Initializing a C# array with multiple copies of the same element](https://stackoverflow.com/questions/7308604/initializing-a-c-sharp-array-with-multiple-copies-of-the-same-element)
+
+> double[] v = Enumerable.Repeat(x, n).ToArray();
+
+[LINQ indexOf a particular entry](https://stackoverflow.com/questions/9300169/linq-indexof-a-particular-entry)

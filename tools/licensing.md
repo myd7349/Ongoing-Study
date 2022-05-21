@@ -23,3 +23,5 @@ https://www.codeproject.com/articles/8902/a-simple-software-key-useful-to-protec
 http://activelock.sourceforge.net/documents/tutorials/BasicTutorial.html
 
 https://github.com/google/addlicense
+
+https://github.com/nexB/scancode-toolkit

@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\WriteableBitmap\ECGDemoV1\ECGDemo\AmplitudeConverter.cs" Link="AmplitudeConverter.cs" />
+    <Compile Include="..\..\..\WriteableBitmap\ECGDemoV1\ECGDemo\ECGenerator.cs" Link="ECGenerator.cs" />
+    <Compile Include="..\..\..\WriteableBitmap\ECGDemoV1\ECGDemo\ImageFormat.cs" Link="ImageFormat.cs" />
+    <Compile Include="..\..\..\WriteableBitmap\ECGDemoV1\ECGDemo\IntegerConverter.cs" Link="IntegerConverter.cs" />
+    <Compile Include="..\..\..\WriteableBitmap\ECGDemoV1\ECGDemo\SpeedConverter.cs" Link="SpeedConverter.cs" />
+    <Compile Include="..\..\..\WriteableBitmap\ECGDemoV1\ECGDemo\TimeSpanConverter.cs" Link="TimeSpanConverter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="..\..\..\WriteableBitmap\ECGDemoV1\ECGDemo\Images\go-next-8.png" Link="Images\go-next-8.png" />
+    <Resource Include="..\..\..\WriteableBitmap\ECGDemoV1\ECGDemo\Images\media-record.png" Link="Images\media-record.png" />
+    <Resource Include="..\..\..\WriteableBitmap\ECGDemoV1\ECGDemo\Images\thumbnail.png" Link="Images\thumbnail.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.3.0" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+    <PackageReference Include="ScottPlot" Version="4.1.48" />
+    <PackageReference Include="SkiaSharp" Version="2.88.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Common.DotNet\Common.DotNet.csproj" />
+    <ProjectReference Include="..\..\..\..\Console\PInvoke\FakeAD\FakeAD\FakeAD.csproj" />
+    <ProjectReference Include="..\..\..\Common.WPF\Common.WPF.csproj" />
+    <ProjectReference Include="..\..\SkiaSharp.WPF\SkiaSharp.WPF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
+</Project>

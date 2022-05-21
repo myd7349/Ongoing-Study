@@ -2,6 +2,8 @@
 
 * <a href="http://www.famfamfam.com/lab/icons/silk">Silk icons</a> - ICONs used in ProcessHacker2.
 
+  - [Wumpbin](https://www.benf.org/other/wumpbin/index.html)
+
 * <a href="http://www.fatcow.com/free-icons">Farm-fresh web icons</a> - ICONs used in ProcessHacker2.
 
 * <a href="http://tango.freedesktop.org/Tango_Desktop_Project">Tango Project</a> - ICONs used in wxMaxima.
@@ -55,7 +57,11 @@
 * [flaticon](https://www.flaticon.com/)
   
   - [cclose](https://github.com/chaohershi/cclose)
-  
+
+  - [IdGen](https://github.com/RobThree/IdGen)
+
+  - [IMLCGui](https://github.com/FarisR99/IMLCGui)
+
   - [simplemouseclicker](https://github.com/chaohershi/simplemouseclicker)
 
 * [graphicex](https://graphicex.com/icon-and-logo/15983-flat-alphabet-in-9-colors-with-long-shadow-6913875.html)
@@ -88,7 +94,19 @@
 
 * [RemixIcon](https://github.com/Remix-Design/RemixIcon)
 
+* [Tabler Icons](https://github.com/tabler/tabler-icons): A set of over 2150 free MIT-licensed high-quality SVG icons for you to use in your web projects.
+
+* [react-icons](https://github.com/react-icons/react-icons)
+
+* [Free Icons](https://www.freeiconspng.com/)
+
 Softwares
+
+- [fontforge](https://github.com/fontforge/fontforge)
+
+  - [The Definitive guide to create an icon font using open source software](https://mohammedraji.github.io/posts/The-Definitive-guide-to-create-an-icon-font/)
+
+- [GDPackages](https://github.com/dogramacigokhan/GDPackages)
 
 - IconWorkshop
 - [PyIcoMaker](https://github.com/ar1st0crat/PyIcoMaker)

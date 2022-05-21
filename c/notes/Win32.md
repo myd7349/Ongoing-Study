@@ -13,3 +13,9 @@ https://github.com/zufuliu/notepad2
 https://github.com/rizonesoft/Notepad3
 
 [ExplorerPatcher](https://github.com/valinet/ExplorerPatcher)
+
+[hotcorner](https://github.com/taviso/hotcorner)
+
+[uncap](https://github.com/susam/uncap)
+
+https://github.com/LADSoft/OCIDE

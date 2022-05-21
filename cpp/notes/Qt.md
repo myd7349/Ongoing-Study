@@ -2,6 +2,7 @@ Applications:
 
 - [albert](https://github.com/albertlauncher/albert)
 - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
+- [App-XDFStreamer](https://github.com/labstreaminglayer/App-XDFStreamer)
 - [Ascii-Design](https://github.com/Faster3ck/Ascii-Design)
 - [B23Downloader](https://github.com/vooidzero/B23Downloader)
 - [BingWallpaper](https://github.com/ypingcn/BingWallpaper)
@@ -12,19 +13,24 @@ Applications:
 - [Converseen](https://github.com/Faster3ck/Converseen)
 - [CopyQ](https://github.com/hluk/CopyQ)
 - [cool-retro-term](https://github.com/Swordfish90/cool-retro-term)
+- [CrossLine](https://github.com/rochus-keller/CrossLine)
 - [DIE](https://github.com/horsicq/Detect-It-Easy)
 - [DIE-engine](https://github.com/horsicq/DIE-engine)
 - [easy_profiler](https://github.com/yse/easy_profiler)
 - [EDFbrowser](https://gitlab.com/Teuniz/EDFbrowser)
 - [FastCAE](https://github.com/DISOGitHub/FastCAE)
+- [feiq](https://github.com/compilelife/feiq)
 - [filemanager](https://github.com/cutefishos/filemanager)
 - [flameshot](https://github.com/flameshot-org/flameshot)
 - [FreeCAD](https://github.com/FreeCAD/FreeCAD)
 - [Fritzing](https://github.com/fritzing/fritzing-app)
 - [gamestudio](https://github.com/ensisoft/gamestudio)
+- [gif-editor](https://github.com/igormironchik/gif-editor)
 - [gmic-qt](https://github.com/c-koi/gmic-qt)
 - [gnuplot](https://github.com/gnuplot/gnuplot)
+- [gnuradio](https://github.com/gnuradio/gnuradio)
 - [goldendict](https://github.com/goldendict/goldendict)
+- [gqrx](https://github.com/gqrx-sdr/gqrx)
 - [Groot](https://github.com/BehaviorTree/Groot)
 - [gyroflow](https://github.com/gyroflow/gyroflow): Video stabilization using gyroscope data.
 - [Hanoi-Towers](https://github.com/QuasarApp/Hanoi-Towers)
@@ -37,6 +43,7 @@ Applications:
 - [JetSqlConsole](https://github.com/aaron-reeves/JetSqlConsole)
 - [kdeconnect-kde](https://github.com/KDE/kdeconnect-kde)
 - [kdenlive](https://github.com/KDE/kdenlive)
+- [keepassxc](https://github.com/keepassxreboot/keepassxc)
 - [kepka](https://github.com/procxx/kepka)
 - [KikoPlay](https://github.com/KikoPlayProject/KikoPlay)
 - [kiwix-desktop](https://github.com/kiwix/kiwix-desktop)
@@ -49,7 +56,9 @@ Applications:
 - [LeoCAD](https://github.com/leozide/leocad) - https://www.leocad.org/
 - [linuxdeployqt](https://github.com/probonopd/linuxdeployqt)
 - [liteide](https://github.com/visualfc/liteide)
+- [LjTools](https://github.com/rochus-keller/LjTools)
 - [lximage-qt](https://github.com/lxqt/lximage-qt)
+- [md-pdf](https://github.com/igormironchik/md-pdf)
 - [medInria](https://github.com/medInria/medInria-public)
 - [mixxx](https://github.com/mixxxdj/mixxx)
 - [mne-cpp](https://github.com/mne-tools/mne-cpp)
@@ -61,7 +70,10 @@ Applications:
 - [nodeeditor](https://github.com/paceholder/nodeeditor)
 - [nomacs](https://github.com/nomacs/nomacs)
 - [NotepadNext](https://github.com/dail8859/NotepadNext)
+- [notepanda](https://github.com/ChungZH/notepanda)
+- [notes](https://github.com/nuttyartist/notes)
 - [NymphCast](https://github.com/MayaPosch/NymphCast)
+- [Oberon](https://github.com/rochus-keller/Oberon)
 - [OBS Studio](https://github.com/obsproject/obs-studio)
   - [obs-studio/obs-win-crash-handler.c at master · obsproject/obs-studio · GitHub](https://github.com/obsproject/obs-studio/blob/master/libobs/obs-win-crash-handler.c)
 - [Olive Video Editor](https://github.com/olive-editor/olive)
@@ -79,14 +91,19 @@ Applications:
 - [plasma-nm](https://github.com/KDE/plasma-nm)
 - [plex-media-player](https://github.com/plexinc/plex-media-player)
 - [PlotJuggler](https://github.com/facontidavide/PlotJuggler) :star:
+- [Prototyper](https://github.com/igormironchik/prototyper)
 - [Qalculate](https://github.com/Qalculate/qalculate-qt)
 - [QAmigo](https://github.com/QAmigo/QAmigo)
 - [qBittorrent](https://www.qbittorrent.org/) - [GitHub](https://github.com/qbittorrent/qBittorrent)
 - [QGIS](https://github.com/qgis/QGIS)
 - [qimgv](https://github.com/easymodo/qimgv)
 - [QMidiPlayer](https://github.com/chirs241097/QMidiPlayer)
+- [Qmmp](https://github.com/Greedysky/qmmp)
+- [QNapi](https://github.com/QNapi/qnapi)
 - [QProtoView](https://github.com/pezy/QProtoView)
 - [QSanguosha](https://github.com/Mogara/QSanguosha)
+- [Qt5-MusicPlayer](https://github.com/NJU-TJL/Qt5-MusicPlayer)
+- [qt-spek](https://github.com/Greedysky/qt-spek)
 - [QtAV](https://github.com/wang-bin/QtAV)
 - [QtBibleViewer](https://github.com/damian-dz/QtBibleViewer)
 - [qtfm](https://github.com/rodlie/qtfm)
@@ -113,30 +130,47 @@ Applications:
 - [serial-com-tester](https://gitlab.com/Teuniz/serial-com-tester)
 - [shotcut](https://github.com/mltframework/shotcut)
 - [SigViewer](https://github.com/cbrnr/sigviewer)
+- [simc](https://github.com/simulationcraft/simc)
+- [SlitScanGenerator](https://github.com/jkriege2/SlitScanGenerator)
+- [Smalltalk](https://github.com/rochus-keller/Smalltalk)
 - [SmtpClient-for-Qt](https://github.com/bluetiger9/SmtpClient-for-Qt)
 - [spuc_filter](https://github.com/audiofilter/spuc_filter)
 - [sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)
+- [Stellarium](https://github.com/Stellarium/stellarium)
 - [subsurface](https://github.com/subsurface/subsurface)
 - [synergy-core](https://github.com/symless/synergy-core)
+- [TagEditor](https://github.com/Martchus/tageditor)
 - [tasky](https://sourceforge.net/projects/tasky-launchy/)
   - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
 - [Telegram Desktop](https://github.com/telegramdesktop/tdesktop)
+- [Textractor](https://github.com/Artikash/Textractor)
 - [terminal](https://github.com/cutefishos/terminal)
 - [tiled](https://github.com/mapeditor/tiled)
 - [transmission](https://github.com/transmission/transmission)
 - [TTKDownloader](https://github.com/Greedysky/TTKDownloader)
 - [TTKMusicplayer](https://github.com/Greedysky/TTKMusicplayer)
+- [TTKOCR](https://github.com/Greedysky/TTKOCR)
+- [TTKWeather](https://github.com/Greedysky/TTKWeather)
+- [VerilogCreator](https://github.com/rochus-keller/VerilogCreator)
 - [vnote](https://github.com/vnotex/vnote)
 - [vokoscreenNG](https://github.com/vkohaupt/vokoscreenNG)
-- [WizQTClient](https://github.com/WizTeam/WizQTClient)
+- [VulkanCapsViewer](https://github.com/SaschaWillems/VulkanCapsViewer)
 - [WhatPulse2](https://whatpulse.org/)
+- [WizQTClient](https://github.com/WizTeam/WizQTClient)
+- [wkhtmltopdf](https://github.com/wkhtmltopdf/wkhtmltopdf)
+- [XDFBrowser](https://github.com/xdf-modules/XDFBrowser)
 - [XOpcodeCalc](https://github.com/horsicq/XOpcodeCalc)
 - [XNTSV](https://github.com/horsicq/xntsv)
 - [xweather](https://github.com/ShawZG/xweather)
+- [zint](https://github.com/zint/zint)
 
 Libraries:
 
 - [Chart.qml](https://github.com/qyvlik/Chart.qml): Chart.qml like Chart.js
+
+- [CrashReporter](https://github.com/Mogara/CrashReporter)
+
+  - [QSanguosha](https://github.com/Mogara/QSanguosha)
 
 - [CTK](https://github.com/commontk/CTK)
 
@@ -145,6 +179,8 @@ Libraries:
 - [framelesshelper](https://github.com/wangwenx190/framelesshelper)
 
 - [JKQtPlotter](https://github.com/jkriege2/JKQtPlotter)
+
+  - [md-pdf](https://github.com/igormironchik/md-pdf)
 
 - [kconfigwidgets](https://github.com/KDE/kconfigwidgets)
 
@@ -193,6 +229,8 @@ Libraries:
 
 - [Qt-Advanced-Docking-System](https://github.com/githubuser0xFFFF/Qt-Advanced-Docking-System)
 
+- [Qt-Advanced-Stylesheets](https://github.com/githubuser0xFFFF/Qt-Advanced-Stylesheets)
+
 - [qtcompress](https://github.com/nezticle/qtcompress)
 
 - [Qt-FramelessWindow](https://github.com/winsoft666/Qt-FramelessWindow)
@@ -239,6 +277,8 @@ Libraries:
 
 - [spix](https://github.com/faaxm/spix) - UI test automation.
 
+- [TTKTinyTools](https://github.com/Greedysky/TTKTinyTools)
+
 - [TTKWidgetTools](https://github.com/Greedysky/TTKWidgetTools)
 
 - [XShortcuts](https://github.com/horsicq/XShortcuts)
@@ -281,6 +321,8 @@ Tools:
 - [Qbs](https://github.com/qbs/qbs)
   
   - [tiled](https://github.com/mapeditor/tiled)
+
+- [zint](https://github.com/zint/zint)
 
 Deployment:
 

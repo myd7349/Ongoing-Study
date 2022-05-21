@@ -16,6 +16,8 @@ Projects using MFC:
 
 - [WinMerge](https://github.com/WinMerge/winmerge)
 
+- [Wumpbin](https://www.benf.org/other/wumpbin/index.html)
+
 Q&A:
 
 - [How to get the command line arguments in MFC applications?](https://stackoverflow.com/questions/5562877/how-to-get-the-command-line-arguments-in-mfc-applications)
@@ -63,3 +65,5 @@ Font:
 [MFC Dynamic Dialog Layout](https://devblogs.microsoft.com/cppblog/mfc-dynamic-dialog-layout/)
 
 [ResizableLib](https://www.codeproject.com/Articles/1175/ResizableLib) - [GitHub](https://github.com/ppescher/resizablelib) - [TortoiseGit is using this lib.](https://github.com/TortoiseGit/TortoiseGit/tree/master/ext/ResizableLib)
+
+[Where can I see ATLTRACE output?](https://stackoverflow.com/questions/47585567/where-can-i-see-atltrace-output)

@@ -12,11 +12,13 @@ Projects that using Python C API to create bindings:
 - [aubio](https://github.com/aubio/aubio/tree/master/python)
 - [html5-parser](https://github.com/kovidgoyal/html5-parser)
 - [mutf8](https://github.com/TkTech/mutf8)
+- [orderbook](https://github.com/bmoscon/orderbook)
 - [python-blosc](https://github.com/Blosc/python-blosc)
 - [sendmsg](https://github.com/slideinc/sendmsg)
 - [bfloat16](https://github.com/GreenWaves-Technologies/bfloat16)
 - [winterpy](https://github.com/lilydjwg/winterpy/blob/master/pyso/X.c)
 - [jsonnet](https://github.com/google/jsonnet)
+- [polysnake](https://github.com/jpakkane/polysnake)
 
 Books:
 

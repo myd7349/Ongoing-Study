@@ -24,4 +24,17 @@ With the release of Python 3.4, code above can be replaced by `contextlib.redire
 
 [wurlitzer.py](https://github.com/minrk/wurlitzer/blob/main/wurlitzer.py)
 
+https://github.com/mne-tools/mne-python/blob/main/mne/export/_edf.py
 
+```python
+@contextmanager
+def _auto_close(fid):
+    # try to close the handle no matter what
+    try:
+        yield fid
+    finally:
+        try:
+            fid.close()
+        except Exception:
+            pass  # we did our best
+```

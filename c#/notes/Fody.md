@@ -6,4 +6,12 @@ https://github.com/Fody/Costura
 
 - [.NET 合并程序集（将 dll 合并到 exe 中）](https://blog.csdn.net/Iron_Ye/article/details/83961266)
 
+- [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
+
+- [TailBlazer](https://github.com/RolandPheasant/TailBlazer)
+
+- [TEditor](https://github.com/SkiTiSu/TEditor)
+
 https://github.com/Fody/PropertyChanged
+
+- [TEditor](https://github.com/SkiTiSu/TEditor)

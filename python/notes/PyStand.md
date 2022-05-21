@@ -53,7 +53,7 @@
 >    #import vitables
 >    
 >    from vitables.start import gui
->    gui() 
+>    gui()
 >    ```
 > 
 > 5. Clean

@@ -1,5 +1,9 @@
 ### Calling C# from C or C++
 
+[Interoperating Between Native Code and Managed Code](https://docs.microsoft.com/en-us/previous-versions/visualstudio/windows-sdk/ms717435(v=vs.100)?redirectedfrom=MSDN)
+
+[Native interoperability best practices](https://docs.microsoft.com/en-us/dotnet/standard/native-interop/best-practices?source=recommendations)
+
 [Calling C# code from C++](https://stackoverflow.com/questions/778590/calling-c-sharp-code-from-c)
 
 [Exposing .NET components to COM](https://docs.microsoft.com/en-us/dotnet/framework/interop/exposing-dotnet-components-to-com)
@@ -38,6 +42,8 @@
    
    - [PInvoke Interop Assistant](https://github.com/jaredpar/pinvoke-interop-assistant)
 
+   - [Emotiv.cs](https://www.coursehero.com/file/101478790/Emotivcs/)
+
 2. If you want to use Win32 APIs in C#, then you should take a look at [pinvoke.net](http://pinvoke.net/). BTW, a Visual Studio plugin for `pinvoke.net` is also available.
    
    _Update_: Finally, we have pre-built binarys:
@@ -52,11 +58,17 @@
    
    * https://github.com/terrafx/terrafx.interop.windows
 
+   * [WinApiMapper](https://github.com/OH1TR/WinApiMapper)
+
 3. SWIG, CXXI, CppSharp
 
 4. [CppAst](./CppAst.md)
    
-   [CppAst.CodeGen](https://github.com/xoofx/CppAst.CodeGen) - An extensible library providing C# PInvoke codegen from C/C++ files for .NET.
+   - [CppAst.CodeGen](https://github.com/xoofx/CppAst.CodeGen) - An extensible library providing C# PInvoke codegen from C/C++ files for .NET.
+
+   - [Il2CppInterop](https://github.com/BepInEx/Il2CppInterop)
+
+   - [WinApiMapper](https://github.com/OH1TR/WinApiMapper)
 
 5. [C#/Win32 P/Invoke Source Generator](https://github.com/microsoft/CsWin32)
    
@@ -318,6 +330,10 @@ Function pointer:
 - [CallbackOnCollectedDelegate in globalKeyboardHook was detected](https://stackoverflow.com/questions/9957544/callbackoncollecteddelegate-in-globalkeyboardhook-was-detected/9957678#9957678)
 - https://blog.lindexi.com/post/WPF-%E5%BC%80%E5%8F%91.html#%E9%9D%9E%E6%89%98%E7%AE%A1%E4%BD%BF%E7%94%A8%E6%89%98%E7%AE%A1%E5%A7%94%E6%89%98
 
+- [C++ callback to C#: an unhandled exception of type 'System.ExecutionEngineException' occurred in Unknown Module](https://stackoverflow.com/questions/67181407/c-callback-to-c-an-unhandled-exception-of-type-system-executionengineexcept)
+  > TestDll_AddObserver(OnMessage); is sugar for TestDll_AddObserver(new MessageDelegate(OnMessage)); -- that MessageDelegate instance needs to be kept alive (e.g. in a field) so long as the C++ code might try to invoke it. As it stands, the GC will come along and collect it at some point, and then you will crash when the C++ side tries to invoke it.
+
+
 Array size:
 
 - [Pinvoke - callback from C++, arrays passed between functions have unexpected size](https://stackoverflow.com/questions/27649794/pinvoke-callback-from-c-arrays-passed-between-functions-have-unexpected-siz)
@@ -351,3 +367,50 @@ https://github.com/microsoft/msquic/tree/main/src/cs/lib
 
 https://github.com/EgorBo/CppPinvokeGenerator/blob/66ac2d0e9926d4f526b2a26acce8e1b5156d55f2/samples/SimdJson/Output/Bindings.Generated.cs#L5
 
+### [CppPinvokeGenerator](https://github.com/EgorBo/CppPinvokeGenerator)
+
+[SimdJsonSharp](https://github.com/EgorBo/SimdJsonSharp)
+
+### ClangSharpPInvokeGenerator
+
+https://github.com/dotnet/ClangSharp
+
+https://github.com/NotNotTech/Raylib-CsLo/blob/main/binding-gen/gen-raylib.rsp
+
+### [Biohazrd](https://github.com/MochiLibraries/Biohazrd)
+
+### Struct
+
+[C# marshalling large struct to c DLL](https://stackoverflow.com/questions/15971637/c-sharp-marshalling-large-struct-to-c-dll)
+
+[C# performance - Using unsafe pointers instead of IntPtr and Marshal](https://stackoverflow.com/questions/17549123/c-sharp-performance-using-unsafe-pointers-instead-of-intptr-and-marshal)
+
+> I would suppose that the slowness of the third case was due to AllocHGlobal which has a higher per-call overhead.
+
+[Obsolete Marshal.PtrToStructure( ... )](https://social.msdn.microsoft.com/Forums/en-US/f5e1326d-cf64-4494-aa69-535f2e2c42a1/obsolete-marshalptrtostructure-?forum=csharpgeneral)
+
+```csharp
+static T Fill<T>(T SomeStruct) where T : struct
+{
+    byte[] a = new byte[Marshal.SizeOf(SomeStruct)];
+
+    for (int i = 0; i < a.Length; i++)
+        a[i] = 0; // pretend here we are filling with real data
+
+    unsafe
+    {
+        fixed (void* p = a)
+        {
+            return Marshal.PtrToStructure<T>((IntPtr)p);
+        }
+    }
+}
+```
+
+[Passing a fixed length buffer to a function as an argument without using GCHandle.Alloc](https://stackoverflow.com/questions/68020502/passing-a-fixed-length-buffer-to-a-function-as-an-argument-without-using-gchandl)
+
+> This is way too slow. I have to process hundreds of millions of these strings, and GCHandle.Alloc is taking up way too much time.
+
+### IntPtr vs pointer
+
+[c# pointers vs IntPtr](https://stackoverflow.com/questions/4319730/c-sharp-pointers-vs-intptr)

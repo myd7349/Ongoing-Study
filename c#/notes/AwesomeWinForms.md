@@ -1,5 +1,7 @@
 Applications:
 
+- [AIAssist](https://github.com/dengqizhou30/AIAssist)
+- [Analogy.LogViewer](https://github.com/Analogy-LogViewer/Analogy.LogViewer)
 - [AssetStudio](https://github.com/Perfare/AssetStudio)
 - [BaiduPanDownloadWinform](https://github.com/Accelerider/BaiduPanDownloadWinform)
 - [Bing-Wallpaper](https://github.com/xupefei/Bing-Wallpaper)
@@ -13,9 +15,11 @@ Applications:
 - [Html2Article](https://github.com/stanzhai/Html2Article)
 - [ImageGlass](https://github.com/d2phap/ImageGlass)
 - [LessMsi](https://github.com/activescott/lessmsi/tree/master/src/LessMsi.Gui)
+- [MatterControl](https://github.com/MatterHackers/MatterControl)
 - [mooc-downloader](https://github.com/xixixixixiao/mooc-downloader)
 - [naps2](https://github.com/cyanfish/naps2)
 - [nbt-studio](https://github.com/tryashtar/nbt-studio)
+- [ncmdumpGUI](https://github.com/kpali/ncmdumpGUI)
 - [NodeEditorWinforms](https://github.com/komorra/NodeEditorWinforms)
 - [nvidiaProfileInspector](https://github.com/Orbmu2k/nvidiaProfileInspector)
 - [OnTopReplica](https://github.com/LorenzCK/OnTopReplica)
@@ -23,15 +27,21 @@ Applications:
 - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
 - [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
 - [SCJMapper-V2](https://github.com/SCToolsfactory/SCJMapper-V2)
+- [Screencast Capture Lite](https://github.com/cesarsouza/screencast-capture)
 - [Serial-Oscilloscope](https://github.com/xioTechnologies/Serial-Oscilloscope)
 - [Seven Converter](https://github.com/SevenbytesSoftware/SevenConverter)
 - [SharpKeys](https://github.com/randyrants/sharpkeys)
 - [v2rayN](https://github.com/2dust/v2rayN)
 - [XboxDownload](https://github.com/skydevil88/XboxDownload)
+- [YALV](https://github.com/LukePet/YALV)
 
 Libraries:
 
 - [advanceddatagridview](https://github.com/davidegironi/advanceddatagridview)
+
+- [AeroWizard](https://github.com/dahall/AeroWizard)
+
+  - Zero Install
 
 - [CefSharp](https://github.com/cefsharp/CefSharp)
   
@@ -56,6 +66,8 @@ Libraries:
 
 - [FastColoredTextBox](https://github.com/PavelTorgashov/FastColoredTextBox)
 
+- [FontAwesome.Sharp](https://github.com/awesome-inc/FontAwesome.Sharp)
+
 - [globalmousekeyhook](https://github.com/gmamaladze/globalmousekeyhook)
   
   - DeepL Translate App for Windows
@@ -70,6 +82,8 @@ Libraries:
   
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
 
+- [InformationBox](https://github.com/JohannBlais/InformationBox)
+
 - [Krypton](https://github.com/ComponentFactory/Krypton)
   
   - [Standard-Toolkit](https://github.com/Krypton-Suite/Standard-Toolkit)
@@ -83,6 +97,8 @@ Libraries:
 - [MetroSet-UI](https://github.com/N-a-r-w-i-n/MetroSet-UI)
 
 - [NetWinformControl](https://github.com/kwwwvagaa/NetWinformControl)
+
+- [NodeEditorWinforms](https://github.com/komorra/NodeEditorWinforms)
 
 - [Ookii.Dialogs.WinForms](https://github.com/ookii-dialogs/ookii-dialogs-winforms)
 
@@ -117,3 +133,5 @@ Libraries:
   - [OnTopReplica](https://github.com/LorenzCK/OnTopReplica)
 
 - [WinFormsX](https://github.com/FlorianRappl/WinFormsX)
+
+- [Winotify](https://github.com/MarJose123/Winotify)

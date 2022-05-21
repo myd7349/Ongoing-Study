@@ -4,11 +4,15 @@
 
 - [Audacity](https://github.com/audacity/audacity)
 
+- [auto-editor](https://github.com/WyattBlue/auto-editor)
+
 - [eqMac](https://github.com/bitgapp/eqMac)
 
 - [kbd-audio](https://github.com/ggerganov/kbd-audio)
 
 - [jacktrip](https://github.com/jacktrip/jacktrip)
+
+- [lossless-cut](https://github.com/mifi/lossless-cut)
 
 - [Mp3Wrap](https://sourceforge.net/projects/mp3wrap/)
   
@@ -30,13 +34,25 @@
 
 - [Spek](https://github.com/alexkay/spek)
 
+- [TagEditor](https://github.com/Martchus/tageditor)
+
 - [Tenacity](https://github.com/tenacityteam/tenacity)
 
+- [Ultimate Vocal Remover GUI](https://github.com/Anjok07/ultimatevocalremovergui)
+
 - [Volume2](https://github.com/irzyxa/Volume2)
+
+- [WinslowSynth](https://github.com/rbren/WinslowSynth)
 
 - [zrythm](https://github.com/zrythm/zrythm)
 
 ### Text to Speech
+
+- https://github.com/xiph/LPCNet
+
+- https://github.com/Baiyuetribe/paper2gui
+
+- https://github.com/tihu-nlp/tihu
 
 ### Speech to Text/Text to Speech
 
@@ -47,3 +63,5 @@
 - [TTS](https://github.com/mozilla/TTS)
 
 - [TTS](https://github.com/ag2s20150909/TTS)
+
+- [wav2letter](https://github.com/flashlight/wav2letter/)

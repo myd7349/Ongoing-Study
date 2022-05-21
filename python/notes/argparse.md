@@ -55,3 +55,11 @@
        print(err)
    # argument "f" requires between 2 and 3 arguments
    ```
+
+7. https://github.com/ewjoachim/pyler
+
+8. https://github.com/meshpro/pygalmesh/blob/main/pygalmesh/_cli.py
+
+9. https://github.com/lvgl/lv_binding_micropython/blob/master/gen/gen_mpy.py
+
+10. https://github.com/WyattBlue/auto-editor/blob/master/auto_editor/__main__.py

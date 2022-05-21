@@ -58,3 +58,6 @@ namespace ArchitectureAwarePInvoke
 // References:
 // https://stackoverflow.com/questions/1573724/cpu-architecture-independent-p-invoke-can-the-dllname-or-path-be-dynamic
 // https://github.com/squid-box/SevenZipSharp/blob/dev/SevenZip/LibraryManager.cs
+// https://github.com/mono/SkiaSharp/blob/main/binding/Binding.Shared/LibraryLoader.cs
+// https://github.com/mono/SkiaSharp/blob/main/binding/Binding.Shared/PlatformConfiguration.cs
+// https://github.com/mono/SkiaSharp/blob/main/binding/Binding.Shared/LibraryLoader.cs

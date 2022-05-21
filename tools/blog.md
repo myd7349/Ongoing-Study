@@ -5,3 +5,11 @@ https://github.com/esofar/cnblogs-theme-silence
 [GitHub - sivan/heti: 赫蹏（hètí）是专为中文内容展示设计的排版样式增强。它基于通行的中文排版规范而来，可以为网站的读者带来更好的文章阅读体验。](https://github.com/sivan/heti)
 
 https://github.com/wangsongyan/wblog
+
+https://github.com/joyeecheung/diary
+
+[al-folio](https://github.com/alshedivat/al-folio)
+
+- https://github.com/beteje/beteje.github.io
+
+https://github.com/laike9m/My_Blog

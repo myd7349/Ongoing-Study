@@ -2,6 +2,7 @@ Projects using `ZeroMQ`:
 
 - https://github.com/circus-tent/circus
 - https://github.com/facontidavide/PlotJuggler/tree/main/plotjuggler_plugins/DataStreamZMQ
+- https://github.com/gnuradio/gnuradio
 - [Open3D](https://github.com/isl-org/Open3D)
 - [ZeroSync](https://github.com/zerosync/protocol)
   - [ZeroSyncDesktop](https://github.com/zerosync/zerodesk)

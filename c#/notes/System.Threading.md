@@ -2,6 +2,10 @@
 
 [Thread.Sleep(0) vs Sleep(1) vs Yeild](https://www.cnblogs.com/stg609/p/3857242.html)
 
+C# 9.0 in a Nutshell
+
+> Thread.Sleep(0) relinquishes the thread’s current time slice immediately, voluntarily handing over the CPU to other threads. Thread.Yield() does the same thing except that it relinquishes only to threads running on the same processor.
+
 [Unhandled Exception in Winforms Application](https://stackoverflow.com/questions/5049063/unhandled-exception-in-winforms-application)
 
 [Microsoft.VisualStudio.Threading](https://github.com/microsoft/vs-threading)
@@ -49,3 +53,9 @@
 https://github.com/microsoft/vs-threading
 
 https://github.com/microsoft/coyote
+
+[C# Thread safe fast(est) counter](https://stackoverflow.com/questions/13181740/c-sharp-thread-safe-fastest-counter)
+
+```csharp
+return Interlocked.Increment(ref COUNTER);
+```

@@ -236,3 +236,4 @@ bool KeySequence::CreateFromString(const std::wstring &keySequence, const std::w
 
 // References:
 // https://doc.qt.io/qt-5/qkeysequence.html
+// https://github.com/gmamaladze/globalmousekeyhook/blob/vNext/keycomb.md

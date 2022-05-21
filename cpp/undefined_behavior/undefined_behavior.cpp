@@ -14,7 +14,8 @@
 
 // 2015-08-09T23:02+08:00
 // 3. Refer to an uninitialized built-in object is undefined.
-// 4. The relative order of initialization of non-local static objects defined
+
+// 4. The relative order of initialization of non-local static objects defined
 //    in different translation units is undefined.
 //    An example from Effective C++ 3E/Item 04
 //        class FileSystem {...
@@ -26,3 +27,5 @@ int main()
 {
     return 0;
 }
+
+// [A Guide to Undefined Behavior in C and C++, Part 1](https://blog.regehr.org/archives/213)

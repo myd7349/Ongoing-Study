@@ -19,3 +19,15 @@ https://github.com/alecthomas/protoparser
 [GitHub - PragmaTwice/protopuf: Protocol Puffers: A little, highly templated, and protobuf-compatible serialization/deserialization library written in C++20](https://github.com/PragmaTwice/protopuf)
 
 [qtprotobuf](https://github.com/semlanik/qtprotobuf)
+
+[protobluff](https://github.com/squidfunk/protobluff)
+
+https://github.com/rgov/sqlite_protobuf
+
+[protogen](https://protogen.marcgravell.com/)
+
+- [Protobuf In C# .NET](https://dotnetcoretutorials.com/2022/01/13/protobuf-in-c-net-part-1-getting-started/)
+
+[Online Protobuf Decoder](https://protogen.marcgravell.com/decode)
+
+- [Protobuf In C# .NET – Part 2 – Serializing/Deserializing](https://dotnetcoretutorials.com/2022/01/13/protobuf-in-c-net-part-2-serializing-deserializing/)

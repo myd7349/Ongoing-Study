@@ -2,6 +2,8 @@ https://github.com/dotnet/Silk.NET
 
 https://github.com/amerkoleci/Vortice.Windows
 
+- [ClickableTransparentOverlay](https://github.com/zaafar/ClickableTransparentOverlay)
+
 https://github.com/SlimDX
 
 https://github.com/sharpdx/SharpDX

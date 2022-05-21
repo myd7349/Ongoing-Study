@@ -72,6 +72,7 @@ def file_title(f):
     return os.path.basename(os.path.splitext(fn)[0])
     
 
+# Use pathlib.Path().with_suffix() instead.
 def replace_ext(file, new_ext, prefix='', suffix=''):
     """Produce a new file name based on input file name with its extension
     replaced with a new extension.
@@ -279,3 +280,4 @@ if __name__ == '__main__':
 # [Python file with closing automatically](http://www.peterbe.com/plog/python-file-with-closing-automatically)
 # [Size of an open file object](http://stackoverflow.com/questions/283707/size-of-an-open-file-object)
 # [Understanding Python's "with" statement](http://effbot.org/zone/python-with-statement.htm)
+# [Changing file extension in Python](https://stackoverflow.com/questions/2900035/changing-file-extension-in-python)

@@ -13,3 +13,9 @@ https://github.com/Pr0214/findhash
 https://github.com/pwndbg/pwndbg
 
 https://github.com/LasCC/Hack-Tools
+
+https://github.com/decompiler-explorer/decompiler-explorer
+
+https://github.com/frida/frida
+
+- https://github.com/OH1TR/WinApiMapper

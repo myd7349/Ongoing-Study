@@ -10,3 +10,6 @@ https://github.com/jherico/ezvcpkg
 
 - [[libgd] update to 2.3.x and later](https://github.com/microsoft/vcpkg/issues/19451)
 
+Projects using vcpkg:
+
+- [HDRImageViewer](https://github.com/13thsymphony/HDRImageViewer)

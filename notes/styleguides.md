@@ -88,3 +88,7 @@
 - SQL
   
   - [Mazur's SQL Style Guide](https://github.com/mattm/sql-style-guide)
+
+# Tools
+
+- [languagetool](https://github.com/languagetool-org/languagetool)

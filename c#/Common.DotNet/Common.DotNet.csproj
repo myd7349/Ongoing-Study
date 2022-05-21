@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -42,6 +42,7 @@
     <Compile Include="..\Common\IniFile2.cs" Link="IniFile2.cs" />
     <Compile Include="..\Common\IniFile2.Extension.cs" Link="IniFile2.Extension.cs" />
     <Compile Include="..\Common\IntegerHelper.cs" Link="IntegerHelper.cs" />
+    <Compile Include="..\Common\JsonHelper.cs" Link="JsonHelper.cs" />
     <Compile Include="..\Common\Kernel32.WinBase.Profile.cs" Link="Kernel32.WinBase.Profile.cs" />
     <Compile Include="..\Common\LinqHelper.cs" Link="LinqHelper.cs" />
     <Compile Include="..\Common\MarshalHelper.cs" Link="MarshalHelper.cs" />
@@ -59,6 +60,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 

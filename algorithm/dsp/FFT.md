@@ -3,3 +3,5 @@ Discrete-Time Signal Processing, 3rd Edition, Oppenheim, Preface, xx
 
 Discrete-Time Signal Processing, 3rd Edition, Oppenheim, Chapter 1, Introduction, P7
 >In a multicore environment, for example, direct computation of the DFT (or the use of the Goertzel al-gorithm) is more "efficient" than the use of an FFT algorithm since, although many more multiplications are required, communication requirements are significantly reduced because the processing can be more efficiently distributed among multiple processors or cores.
+
+https://github.com/aiXander/Realtime_PyAudio_FFT

@@ -30,6 +30,8 @@
 - zsh
   - [powerlevel10k](https://github.com/romkatv/powerlevel10k) 
 - [TerminalStudio](https://github.com/TerminalStudio/lite)
+- [WindTerm](https://github.com/kingToolbox/WindTerm)
+- [nushell](https://github.com/nushell/nushell)
 
 Terminal emulators supported by [system-terminal](https://github.com/alexrp/system-terminal):
 
@@ -60,8 +62,28 @@ Other Tools:
 
   - [cast2gif](https://github.com/foubian/cast2gif)
 
+- [cfonts](https://github.com/dominikwilkowski/cfonts)
+
+- [ctypes.sh](https://github.com/taviso/ctypes.sh)
+
+- [fzf](https://github.com/junegunn/fzf)
+
+- [nb](https://github.com/xwmx/nb)
+
 - [starship](https://github.com/starship/starship)
 
 - [termtosvg](https://github.com/nbedos/termtosvg): Record terminal sessions as SVG animations.
 
 - [tty-copy](https://github.com/jirutka/tty-copy)
+
+- [sixel-tmux](https://github.com/csdvrx/sixel-tmux)
+
+- [z](https://github.com/rupa/z)
+
+- [xterm-snapshots](https://github.com/ThomasDickey/xterm-snapshots)
+
+- [ncurses-snapshots](https://github.com/ThomasDickey/ncurses-snapshots)
+
+- [xxh](https://github.com/xxh/xxh)
+
+- [shell-history](https://github.com/pawamoy/shell-history)

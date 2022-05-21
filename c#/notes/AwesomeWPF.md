@@ -6,11 +6,19 @@ Applications:
 
 - [ActiveDesktopPlus](https://github.com/torchgm/ActiveDesktopPlus)
 
+- [AutumnBox](https://github.com/zsh2401/AutumnBox)
+
+- [BilibiliLiveRecordDownLoader](https://github.com/HMBSbige/BilibiliLiveRecordDownLoader)
+
 - [BililiveRecorder](https://github.com/Bililive/BililiveRecorder)
+
+- [BiliRanking](https://github.com/SkiTiSu/BiliRanking)
 
 - [BingWallpaper2](https://github.com/Dustray/BingWallpaper2)
 
 - [cairoshell](https://github.com/cairoshell/cairoshell)
+
+- [Calculator](https://github.com/getandplay/Calculator)
 
 - [certify](https://github.com/webprofusion/certify)
 
@@ -28,6 +36,10 @@ Applications:
 
 - [dnGrep](https://github.com/dnGrep/dnGrep)
 
+- [dnSpy](https://github.com/dnSpy/dnSpy)
+
+- [dotnet-counters-ui](https://github.com/kkokosa/dotnet-counters-ui)
+
 - [dotnetCampus.FileDownloader](https://github.com/dotnet-campus/dotnetCampus.FileDownloader)
 
 - [dotnetpad](https://github.com/jbe2277/dotnetpad)
@@ -36,7 +48,15 @@ Applications:
 
 - [downkyi](https://github.com/leiurayer/downkyi)
 
+- [DownmarkerWPF](https://github.com/Code52/DownmarkerWPF)
+
 - [EarTrumpet](https://github.com/File-New-Project/EarTrumpet): Volume Control for Windows.
+
+- [Easy-Bug-Manager](https://github.com/xujiangjiang/Easy-Bug-Manager)
+
+- [Easy-Cat-Timer](https://github.com/xujiangjiang/Easy-Cat-Timer)
+
+- [FanControl](https://github.com/Rem0o/FanControl.Releases)
 
 - [Files](https://github.com/files-community/Files)
 
@@ -60,13 +80,21 @@ Applications:
 
 - [MusCat](https://github.com/ar1st0crat/MusCat)
 
+- [NatTypeTester](https://github.com/HMBSbige/NatTypeTester)
+
 - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 
 - [NodeNetwork](https://github.com/Wouterdek/NodeNetwork)
 
 - [NWaves.Blueprints](https://github.com/ar1st0crat/NWaves.Blueprints)
 
+- [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
+
 - [perfview](https://github.com/microsoft/perfview)
+
+- [PixiEditor](https://github.com/PixiEditor/PixiEditor)
+
+- [PowerBuddy](https://github.com/PerfectlyCromulentLtd/PowerBuddy)
 
 - [QSanguosha](https://github.com/Mogara/QSanguosha)
 
@@ -75,6 +103,8 @@ Applications:
 - [QuickLook](https://github.com/QL-Win/QuickLook)
 
 - [QuickSystemInfo](https://github.com/Carlos487/QuickSystemInfo)
+
+- [RangPaint](https://github.com/sonicrang/RangPaint)
 
 - [RetroBar](https://github.com/dremin/RetroBar)
 
@@ -85,6 +115,8 @@ Applications:
 - [sentinel](https://github.com/yarseyah/sentinel)
 
 - [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows)
+
+- [ShadowsocksR-Windows](https://github.com/HMBSbige/ShadowsocksR-Windows)
 
 - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
 
@@ -98,7 +130,13 @@ Applications:
 
 - [SyncTrayzor](https://github.com/canton7/SyncTrayzor)
 
+- [TailBlazer](https://github.com/RolandPheasant/TailBlazer)
+
+- [TEditor](https://github.com/SkiTiSu/TEditor)
+
 - [TranslationTool](https://github.com/Kybs0/TranslationTool)
+
+- [Tune](https://github.com/kkokosa/Tune)
 
 - [XstReader](https://github.com/Dijji/XstReader)
 
@@ -118,6 +156,10 @@ Applications:
 
 Libraries:
 
+- [Ab2d.Controls.ZoomPanel](https://www.nuget.org/packages/Ab2d.Controls.ZoomPanel/)
+
+  - [XAML Spy](https://xamlspy.com/)
+
 - [Accelerider.Windows](https://github.com/Accelerider/Accelerider.Windows)
 
 - [AduSkin](https://github.com/aduskin/AduSkin)
@@ -132,6 +174,8 @@ Libraries:
 
   - [Shadow-FM](https://github.com/aduskin/Shadow-FM)
 
+- [AK.Toolkit](https://github.com/AndrewKeepCoding/AK.Toolkit)
+
 - [Assisticant](https://github.com/michaellperry/Assisticant)
 
 - [AsyncValidation](https://github.com/ValeraT1982/AsyncValidation)
@@ -139,16 +183,26 @@ Libraries:
 - [Aura.UI](https://github.com/PieroCastillo/Aura.UI)
 
 - [AvalonDock](https://github.com/Dirkster99/AvalonDock)
-  
+
+  - [Aehnlich](https://github.com/Dirkster99/Aehnlich)
+
+  - [Edi](https://dirkster99.github.io/Edi/)
+
   - [Gemini](https://github.com/tgjones/gemini)
 
 - [AvalonEdit](https://github.com/icsharpcode/AvalonEdit)
+
+  - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
 
   - [SkiaSharpFiddle](https://github.com/mattleibow/SkiaSharpFiddle)
 
   - [XamlViewer](https://github.com/WPFDevelopersOrg/XamlViewer)
 
 - [bot](https://github.com/thinkpixellab/bot)
+
+- [CalcBinding](https://github.com/Alex141/CalcBinding)
+
+  - [How to bind inverse boolean properties in WPF?](https://stackoverflow.com/questions/1039636/how-to-bind-inverse-boolean-properties-in-wpf)
 
 - [Caliburn.Micro](https://github.com/Caliburn-Micro/Caliburn.Micro)
   
@@ -164,6 +218,8 @@ Libraries:
 
 - Color Picker Dialog
 
+  - https://github.com/PropertyTools/PropertyTools/tree/develop/Source/PropertyTools.Wpf/Controls/ColorPicker
+
   - https://github.com/Apress/practical-wpf-charts-graphics/blob/master/Examples_code/ColorsAndBrushes/ColorsAndBrushes/bin/Debug/ColorPicker.dll
 
   - [Is there a color dialog for WPF?](https://stackoverflow.com/questions/2785242/is-there-a-color-dialog-for-wpf)
@@ -172,19 +228,59 @@ Libraries:
 
   - https://github.com/ysdy44/HSVColorPickers-Nuget-UWP
 
+  - [ColorPicker](https://github.com/PixiEditor/ColorPicker) - [NuGet](https://www.nuget.org/packages/PixiEditor.ColorPicker)
+
+    - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
+  - https://github.com/sonicrang/RangPaint/tree/master/ColorPicker
+
 - [ControlzEx](https://github.com/ControlzEx/ControlzEx)
   
   - C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2007.6001.0_neutral__8wekyb3d8bbwe\ControlzEx.dll
   - DeepL Translate App for Windows
+  - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
   - PowerToys
-  
+
 - [CSLA.NET](https://github.com/MarimerLLC/csla)
 
 - [DataGridExtensions](https://github.com/dotnet/DataGridExtensions)
 
 - [DataGridFilter](https://github.com/macgile/DataGridFilter)
 
+- [Dirkster fsc](https://github.com/Dirkster99/fsc)
+
+  - Dirkster.FileListView
+  - Dirkster.FileSystemModels
+  - Dirkster.FilterControlsLib
+  - Dirkster.FolderBrowser
+  - Dirkster.FolderControlsLib
+
+- [Dirkster99.FilterTreeView](https://github.com/Dirkster99/FilterTreeView)
+
+- [Dirkster.DropDownButtonLib](https://www.nuget.org/packages/Dirkster.DropDownButtonLib)
+
+- [Dirkster.HistoryControlLib](https://www.nuget.org/packages/Dirkster.HistoryControlLib)
+
+- [Dirkster.InplaceEditBoxLib](https://www.nuget.org/packages/Dirkster.InplaceEditBoxLib)
+
+- [Dirkster.MRULib](https://www.nuget.org/packages/Dirkster.MRULib)
+
+  - [Edi](https://github.com/Dirkster99/Edi)
+
+- [Dirkster.MsgBox](https://www.nuget.org/packages/Dirkster.MsgBox)
+
+- [Dirkster.NumericUpDownLib](https://www.nuget.org/packages/Dirkster.NumericUpDownLib)
+
+- [Dirkster.UserNotifications](https://www.nuget.org/packages/Dirkster.UserNotifications) - [code](https://github.com/Dirkster99/UserNotifications)
+
+  - [Edi](https://github.com/Dirkster99/Edi)
+
+- [Dirkster.YalvLib](https://github.com/Dirkster99/YalvLib)
+
+- [DMSkin](https://github.com/944095635/DMSkin)
+
 - [Dragablz](https://github.com/ButchersBoy/Dragablz)
+
+  - [TailBlazer](https://github.com/RolandPheasant/TailBlazer)
 
 - [Dreamland.WPF.DynamicSkin](https://github.com/Firito/Dreamland.WPF.DynamicSkin)
 
@@ -204,6 +300,10 @@ Libraries:
   
   - [Quicker](https://github.com/cuiliang/Quicker)
 
+- [FontAwesome.Sharp](https://github.com/awesome-inc/FontAwesome.Sharp)
+
+- [Gemini](https://github.com/tgjones/gemini)
+
 - [globalmousekeyhook](https://github.com/gmamaladze/globalmousekeyhook)
   
   - DeepL Translate App for Windows
@@ -213,7 +313,9 @@ Libraries:
 - [GMap.NET](https://github.com/judero01col/GMap.NET)
 
 - [gong-wpf-dragdrop](https://github.com/punker76/gong-wpf-dragdrop)
-  
+
+  - [FanControl](https://github.com/Rem0o/FanControl.Releases)
+
   - [gong-wpf-dragdrop-file-sample](https://github.com/punker76/gong-wpf-dragdrop-file-sample)
   
   - [Quicker](https://github.com/cuiliang/Quicker)
@@ -228,7 +330,13 @@ Libraries:
 
 - [Gu.Wpf.DataGrid2D](https://github.com/GuOrg/Gu.Wpf.DataGrid2D)
 
-- [HandyControls](https://github.com/ghost1372/HandyControls)
+- [Gu.Wpf.Geometry](https://github.com/GuOrg/Gu.Wpf.Geometry)
+
+- [H.NotifyIcon](https://github.com/HavenDV/H.NotifyIcon)
+
+- [HandyControl](https://github.com/HandyOrg/HandyControl)
+
+  - [HandyControls](https://github.com/ghost1372/HandyControls)
   
   - [Quicker](https://github.com/cuiliang/Quicker)
 
@@ -236,7 +344,15 @@ Libraries:
   
   - [LittleBigMouse](https://github.com/mgth/LittleBigMouse)
 
+- Infragistics Ultimate UI for WPF
+
+  - [wpf-samples](https://github.com/Infragistics/wpf-samples)
+
+- [Kino.Toolkit.Wpf](https://github.com/DinoChan/Kino.Toolkit.Wpf)
+
 - [Livet](https://github.com/runceel/Livet)
+
+- [LottieSharp](https://github.com/quicoli/LottieSharp)
 
 - [MahApps.Metro](https://github.com/MahApps/MahApps.Metro)
   
@@ -244,11 +360,37 @@ Libraries:
   
   - [NextBootOSSelector](https://github.com/takuya-takeuchi/NextBootOSSelector)
 
+  - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
+
+  - [TailBlazer](https://github.com/RolandPheasant/TailBlazer)
+
 - [MahApps.Metro.IconPacks](https://github.com/MahApps/MahApps.Metro.IconPacks)
 
+- [MahApps.Metro.SimpleChildWindow](https://github.com/punker76/MahApps.Metro.SimpleChildWindow)
+
 - [MaterialDesignInXamlToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
-  
+
+  - [FanControl](https://github.com/Rem0o/FanControl.Releases)
+
+  - [LightBulb](https://github.com/Tyrrrz/LightBulb)
+
   - [NextBootOSSelector](https://github.com/takuya-takeuchi/NextBootOSSelector)
+
+  - [TailBlazer](https://github.com/RolandPheasant/TailBlazer)
+
+- [MdXaml](https://github.com/whistyun/MdXaml)
+
+- [MediaPlayerUI.NET](https://github.com/mysteryx93/MediaPlayerUI.NET)
+
+- [MicaWPF](https://github.com/Simnico99/MicaWPF)
+
+- Microsoft.Web.WebView2.Wpf
+
+  - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
+
+- [Microsoft.Xaml.Behaviors](https://www.nuget.org/packages/Microsoft.Xaml.Behaviors.Wpf/)
+
+  - [LightBulb](https://github.com/Tyrrrz/LightBulb)
 
 - [ModernWpf](https://github.com/Kinnara/ModernWpf)
   
@@ -257,7 +399,19 @@ Libraries:
   
 - [mui](https://github.com/firstfloorsoftware/mui)
 
+  - [XAML Spy](https://xamlspy.com/)
+
 - [mvvm-dialogs](https://github.com/FantasticFiasco/mvvm-dialogs)
+
+  - [mvvm-dialogs-contrib](https://github.com/FantasticFiasco/mvvm-dialogs-contrib)
+
+  - [Closing Windows and Applications with WPF and MVVM](https://www.codeproject.com/Articles/413517/Closing-Windows-and-Applications-with-WPF-and-MVVM)
+
+  - [Showing Dialogs When Using the MVVM Pattern in WPF or UWP](https://www.codeproject.com/Articles/36745/Showing-Dialogs-When-Using-the-MVVM-Pattern-in-WPF)
+
+  - [How to Close Windows from a ViewModel in C#](https://www.youtube.com/watch?v=U7Qclpe2joo)
+
+  - [MVVM Dialogs: Showing Dialogs in an MVVM Application with a Dialog Service](https://www.youtube.com/watch?v=S8hEjLahNtU)
 
 - [mvvm-helpers](https://github.com/jamesmontemagno/mvvm-helpers)
 
@@ -287,6 +441,8 @@ Libraries:
 
 - [Ookii.Dialogs.Wpf](https://github.com/ookii-dialogs/ookii-dialogs-wpf)
 
+  - dnSpy
+
 - [Orc.Controls](https://github.com/WildGums/Orc.Controls)
 
 - [Orc.Wizard](https://github.com/WildGums/Orc.Wizard)
@@ -309,9 +465,15 @@ Libraries:
 
 - [PropertyTools](https://github.com/PropertyTools/PropertyTools)
 
+- [QuickConverter](https://github.com/JohannesMoersch/QuickConverter)
+
+  - [How to bind inverse boolean properties in WPF?](https://stackoverflow.com/questions/1039636/how-to-bind-inverse-boolean-properties-in-wpf)
+
 - [RawInput](https://github.com/mfakane/rawinput-sharp)
   
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+
+- [ReactiveMvvm](https://github.com/reactiveui/ReactiveMvvm)
 
 - [ReactiveProperty](https://github.com/runceel/ReactiveProperty)
 
@@ -319,10 +481,20 @@ Libraries:
 
 - [ReactiveUI.Validation](https://github.com/reactiveui/ReactiveUI.Validation)
 
+- [SharpVectors](https://github.com/ElinamLLC/SharpVectors)
+
+  - [WPF What is the correct way of using SVG files as icons in WPF](https://stackoverflow.com/questions/3526366/wpf-what-is-the-correct-way-of-using-svg-files-as-icons-in-wpf)
+
+- [ShowMeTheXAML](https://github.com/Keboo/ShowMeTheXAML)
+
+  - https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/wiki/Getting-Started
+
 - [SpicyTaco.AutoGrid](https://github.com/SpicyTaco/SpicyTaco.AutoGrid)
 
 - [Stylet](https://github.com/canton7/Stylet)
-  
+
+  - [LightBulb](https://github.com/Tyrrrz/LightBulb)
+
   - [YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)
 
 - [Syncfusion WPF controls](https://www.syncfusion.com/wpf-controls)
@@ -331,13 +503,21 @@ Libraries:
 
 - [SVGImage](https://github.com/dotnetprojects/SVGImage)
 
+- [System.Windows.Interactivity](https://www.nuget.org/packages/System.Windows.Interactivity.WPF)
+
 - [ToastNotifications](https://github.com/rafallopatka/ToastNotifications)
   
   - DeepL Translate App for Windows
   
   - [Quicker](https://github.com/cuiliang/Quicker)
 
+- [ToggleSwitch](https://github.com/macgile/ToggleSwitch)
+
 - [TomsToolbox.Wpf](https://github.com/tom-englert/TomsToolbox/tree/master/src/TomsToolbox.Wpf)
+
+- [VirtualCollection](https://github.com/samueldjack/VirtualCollection)
+
+  - [TailBlazer](https://github.com/RolandPheasant/TailBlazer)
 
 - [WAF](https://github.com/jbe2277/waf)
   
@@ -355,6 +535,10 @@ Libraries:
 
 - [WPF-ControlBase](https://github.com/HeBianGu/WPF-ControlBase)
 
+- [WPFConverters](https://github.com/kentcb/WPFConverters)
+
+  - [How to bind int to Visibility in WPF?](https://stackoverflow.com/questions/43434387/how-to-bind-int-to-visibility-in-wpf)
+
 - [WPFDarkTheme](https://github.com/AngryCarrot789/WPFDarkTheme)
 
 - [WpfExpressionBlendTheme](https://github.com/DanPristupov/WpfExpressionBlendTheme)
@@ -367,9 +551,15 @@ Libraries:
   
   - [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows)
 
+- [wpfmdi](https://github.com/dutts/wpfmdi)
+
+  - [open child window inside a parent window in wpf using MVVM](https://stackoverflow.com/questions/7446825/open-child-window-inside-a-parent-window-in-wpf-using-mvvm)
+
 - [WpfModernWinver](https://github.com/torchgm/WpfModernWinver)
 
 - [wpf-notifyicon](https://github.com/hardcodet/wpf-notifyicon) - [website](http://www.hardcodet.net/wpf-notifyicon)
+
+  - [LightBulb](https://github.com/Tyrrrz/LightBulb)
 
   - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
 
@@ -393,10 +583,17 @@ Libraries:
 
 - [WPF UI](https://github.com/lepoco/wpfui)
 
+- [XAML SDK](https://github.com/telerik/xaml-sdk)
+
 - [XamlAnimatedGif](https://github.com/XamlAnimatedGif/XamlAnimatedGif)
 
+- [XamlFlair](https://github.com/XamlFlair/XamlFlair)
+
+- [XAMLMarkupExtensions](https://github.com/XAMLMarkupExtensions/XAMLMarkupExtensions)
 
 Tools:
+
+- [dotnet-counters-ui](https://github.com/kkokosa/dotnet-counters-ui)
 
 - [Kaxaml](https://github.com/thinkpixellab/kaxaml)
 
@@ -408,7 +605,11 @@ Tools:
 
   - [WPF 高性能位图渲染 WriteableBitmap 及其高性能用法示例](https://blog.walterlv.com/post/wpf-high-performance-bitmap-rendering.html)
 
+- [Rapid-XAML-Toolkit](https://github.com/mrlacey/Rapid-XAML-Toolkit)
+
 - [Snoop](https://github.com/snoopwpf/snoopwpf): The WPF Spy Utility
+
+  - [Want a tool to visualize XAML hierarchy, tried XAMLPadX had problems](https://stackoverflow.com/questions/11782372/want-a-tool-to-visualize-xaml-hierarchy-tried-xamlpadx-had-problems)
 
 - [TemplateStudio](https://github.com/microsoft/TemplateStudio)
 
@@ -416,16 +617,43 @@ Tools:
 
 - [wpfinspector](https://github.com/dotnetprojects/wpfinspector)
 
+- [XAML Spy](https://xamlspy.com/)
+
+- [XamlColorSchemeGenerator](https://github.com/batzen/XamlColorSchemeGenerator)
+
+- [XAMLator](https://github.com/ylatuya/XAMLator)
+
 - [XAMLPad](https://stackoverflow.com/questions/1409004/where-to-download-xamlpad)
 
-- [XAMLPadX](https://stackoverflow.com/questions/2968564/where-has-xamlpad-gone-in-net-4-0-windows-sdk-v7-1-visual-studio-2010)
+- [XAMLPadX](https://stackoverflow.com/questions/2968564/where-has-xamlpad-gone-in-net-4-0-windows-sdk-v7-1-visual-studio-2010) - [download](https://learn.microsoft.com/en-us/archive/blogs/llobo/xamlpadx-4-0)
   - Color Picker Plugin
     -  System.Windows.GlobalMouseHook
 
+- [XamlStyler](https://github.com/Xavalon/XamlStyler)
+
+  - [Graph-Controls](https://github.com/CommunityToolkit/Graph-Controls/pull/181)
+
+- [XAMLTools](https://github.com/batzen/XAMLTools)
+
 - [XamlViewer](https://github.com/WPFDevelopersOrg/XamlViewer)
 
+- [XamlX](https://github.com/kekekeks/XamlX)
+
+Blogs
+
+- [old-wpf-blog](https://bea.stollnitz.com/) - [GitHub](https://github.com/bstollnitz/old-wpf-blog)
+
 Websites
+
+- [2,000 Things You Should Know About WPF](https://wpf.2000things.com/)
+
+- [WPF Articles](http://www.blackwasp.co.uk/WPFArticles.aspx)
 
 - [WPF Tutorial](https://wpf-tutorial.com/zh/1/%E5%85%B3%E4%BA%8Ewpf/%E4%BB%80%E4%B9%88%E6%98%AFwpf/)
 
 - [WPFpedia](http://www.wpfpedia.com/)
+
+Samples
+
+- [WPF-Samples](https://github.com/microsoft/WPF-Samples)
+

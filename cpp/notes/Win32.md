@@ -1,5 +1,9 @@
 [w64devkit](https://github.com/skeeto/w64devkit)
 
+https://github.com/GiovanniDicanio/WinReg
+
+[CrystalDiskInfo](https://github.com/hiyohiyo/CrystalDiskInfo)
+
 Toast Notification
 
 - [ToastNotifications](https://github.com/rafallopatka/ToastNotifications)

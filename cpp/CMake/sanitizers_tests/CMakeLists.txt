@@ -59,3 +59,5 @@ endforeach ()
 # https://github.com/pingcap/tiflash/blob/v6.0.0/cmake/sanitize.cmake
 # https://github.com/StableCoder/cmake-scripts/blob/main/sanitizers.cmake
 # https://github.com/p-ranav/glob/blob/master/cmake/tools.cmake
+# https://skia.org/docs/dev/testing/xsan/
+# https://github.com/duckdb/duckdb/blob/master/CMakeLists.txt

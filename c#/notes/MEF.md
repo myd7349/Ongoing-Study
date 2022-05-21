@@ -6,6 +6,8 @@
 
 [Managed Extensibility Framework (MEF)](https://docs.microsoft.com/en-us/dotnet/framework/mef/index)
 
-[﻿ILSpy uses MEF (Managed Extensibility Framework) for plugins.](https://github.com/icsharpcode/AvaloniaILSpy/tree/master/TestPlugin)
+[ILSpy uses MEF (Managed Extensibility Framework) for plugins.](https://github.com/icsharpcode/AvaloniaILSpy/tree/master/TestPlugin)
 
 [GitHub - microsoft/vs-mef: Managed Extensibility Framework (MEF) implementation used by Visual Studio](https://github.com/microsoft/vs-mef)
+
+https://github.com/veler/DevToys

@@ -31,11 +31,13 @@
    - [openPMD-standard](https://github.com/openPMD/openPMD-standard)
    - [openPMD-api](https://github.com/openPMD/openPMD-api)
    - [hdf5serie](https://github.com/mbsim-env/hdf5serie)
+   - https://gitlab.com/conradsnicta/armadillo-code/-/blob/10.8.x/include/armadillo_bits/def_hdf5.hpp
 
 6. Related projects
    
    - [libhio](https://github.com/hpc/libhio)
    - [gdl](https://github.com/gnudatalanguage/gdl)
+   - [matio](https://github.com/tbeu/matio)
 
 7. Check if a dataset/group exists.
    
@@ -325,6 +327,11 @@
    - [hdf5.viewer](https://github.com/HDF-NI/hdf5.viewer)
    - HDFView
    - ViTables
+   - [H5Web](https://h5web.panosc.eu/) - [GitHub](https://github.com/silx-kit/h5web)
+     - [HDF5 WebAssembly Explorer](https://github.com/Apollo3zehn/HDF5.NET/issues/10)
 
  26. https://github.com/neurodroid/stimfit/tree/master/src/libstfio/hdf5
  
+27. https://github.com/ornladios/ADIOS2
+
+28. https://github.com/LLNL/H5Z-ZFP

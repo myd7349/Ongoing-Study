@@ -3,6 +3,8 @@
 // Another Pair implementation by wj32:
 // https://github.com/wj32/Wj.Math/blob/master/Wj.Math/Pair.cs
 // System.Collections.Generic.KeyValuePair<TKey,TValue>
+// [Pair Class](https://docs.microsoft.com/en-us/dotnet/api/system.web.ui.pair?view=netframework-4.8)
+// [How to modify a KeyValuePair value?](https://stackoverflow.com/questions/13454721/how-to-modify-a-keyvaluepair-value)
 
 namespace Common
 {
@@ -22,9 +24,15 @@ namespace Common
             Second = second;
         }
 
-        public override int GetHashCode()
+        //public override int GetHashCode()
+        //{
+        //    return HashHelpers.CombineHash(First.GetHashCode(), Second.GetHashCode());
+        //}
+
+        public void Clear()
         {
-            return HashHelpers.CombineHash(First.GetHashCode(), Second.GetHashCode());
+            First = default(TFirst);
+            Second = default(TSecond);
         }
 
         public bool Equals(Pair<TFirst, TSecond> other)
@@ -34,9 +42,14 @@ namespace Common
 
         public TFirst First;
         public TSecond Second;
-    }
 
-    // TODO: Override `Equals` and `GetHashCode`.
+        public static readonly Pair<TFirst, TSecond> Empty = new Pair<TFirst, TSecond>();
+
+        public static Pair<T1, T2> Create<T1, T2>(T1 first = default(T1), T2 second = default(T2))
+        {
+            return new Pair<T1, T2>(first, second);
+        }
+    }
 }
 
 // References:
@@ -47,3 +60,5 @@ namespace Common
 // [Why Tuple's items are ReadOnly?](http://stackoverflow.com/questions/3131400/why-tuples-items-are-readonly)
 // CLR via C#, 3rd Edition, Ch05
 // https://github.com/JimBobSquarePants/ImageProcessor/blob/release/3.0.0/src/ImageProcessor/Bgra32.cs
+// [Is there a version of the class Tuple whose Items properties are not readonly and can be set?](https://stackoverflow.com/questions/7787994/is-there-a-version-of-the-class-tuple-whose-items-properties-are-not-readonly-an)
+// > Implementing GetHashCode() for a mutable type? - Risky that.

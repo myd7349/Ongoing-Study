@@ -7,3 +7,7 @@ https://github.com/ThePacielloGroup/CCAe
 https://github.com/bbc/color-contrast-checker
 
 https://github.com/kalxd/happiny
+
+https://color.adobe.com/
+
+https://github.com/veler/DevToys

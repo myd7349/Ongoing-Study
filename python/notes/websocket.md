@@ -1,0 +1,1 @@
+https://github.com/Emotiv/cortex-v2-example/blob/master/python/cortex.py

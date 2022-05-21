@@ -16,6 +16,11 @@
 * [pymeshfix](https://github.com/pyvista/pymeshfix)
 * [pyFFTW](https://github.com/pyFFTW/pyFFTW)
 * [zfp](https://github.com/LLNL/zfp)
+* [pyxdf](https://github.com/xdf-modules/pyxdf)
+* [cudf](https://github.com/rapidsai/cudf)
+* [blend2d-python](https://github.com/jwiggins/blend2d-python)
+* [tfrecord_lite](https://github.com/jongwook/tfrecord_lite)
+* [plot-sdl](https://github.com/bertrandmartel/plot-sdl)
 
 ### Tools
 

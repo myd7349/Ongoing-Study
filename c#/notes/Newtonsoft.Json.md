@@ -21,3 +21,16 @@
 >     }
 > }
 > ```
+
+
+[Newtonsoft ignore attributes?](https://stackoverflow.com/questions/6309725/newtonsoft-ignore-attributes)
+
+[Ignore Base Class Properties in Json.NET Serialization](https://stackoverflow.com/questions/31104335/ignore-base-class-properties-in-json-net-serialization)
+
+[How to default a null JSON property to an empty array during serialization with a List<T> property in JSON.NET?](https://stackoverflow.com/questions/25148172/how-to-default-a-null-json-property-to-an-empty-array-during-serialization-with)
+
+[Custom JsonConverter](https://www.newtonsoft.com/json/help/html/CustomJsonConverter.htm)
+
+[custom serializer for just one property in Json.NET](https://stackoverflow.com/questions/18521970/custom-serializer-for-just-one-property-in-json-net)
+
+[Newtonsoft.Json笔记 -JsonConverter](https://www.cnblogs.com/fanfan-90/p/13866912.html)

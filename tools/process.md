@@ -2,4 +2,6 @@
 
 - [Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
 
-- [ProcessHacker](https://github.com/processhacker/processhacker)
+- [ProcessHacker](https://github.com/PKRoma/ProcessHacker)
+
+- [systeminformer](https://github.com/winsiderss/systeminformer)

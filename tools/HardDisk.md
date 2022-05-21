@@ -10,6 +10,10 @@ SSD:
 
 Space Analyzer
 
+- [dua](https://github.com/Byron/dua-cli)
+
+- [duc](https://github.com/zevv/duc)
+
 - [TreeSize Free](https://www.jam-software.com/treesize_free)
 
 - WinDirStat

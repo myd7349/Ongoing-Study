@@ -61,3 +61,7 @@
         private static byte[] buffer_;
     }
 }
+
+
+// References:
+// https://github.com/dnSpy/dnSpy/blob/master/dnSpy/dnSpy/Hex/ByteArrayHexBufferStream.cs

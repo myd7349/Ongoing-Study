@@ -16,3 +16,5 @@ https://github.com/semlanik/qtprotobuf/tree/0.6#documentation-generation
 https://blend2d.com/doc/index.html
 
 https://github.com/ibireme/yyjson
+
+https://github.com/lief-project/LIEF

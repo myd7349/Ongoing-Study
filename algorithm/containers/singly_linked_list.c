@@ -293,6 +293,7 @@ void slist_reverse(slist_t list)
 
 // References:
 // C Interfaces and Implementations, Chapter 7
+// https://github.com/mkirchner/linked-list-good-taste
 // https://github.com/zeromq/czmq/blob/master/include/zlist.h
 // https://en.wikipedia.org/wiki/Linked_list
 // https://github.com/torvalds/linux/blob/master/include/linux/list.h

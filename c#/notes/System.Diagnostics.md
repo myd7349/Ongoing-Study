@@ -83,7 +83,7 @@ https://github.com/zmjack/NStandard/blob/master/NStandard.Windows/CmdProcess.cs
 > }
 > ```
 
-https://github.com/wieslawsoltes/Core2D/blob/master/src/Core2D/Modules/Log.Trace/TraceLog.cs
+https://github.com/wieslawsoltes/Core2D/blob/master/src/Core2D.Modules.Log.Trace/TraceLog.cs
 
 > ```csharp
 > using SD = System.Diagnostics;
@@ -244,3 +244,38 @@ static void Main(string[] args)
 [Trying to determine FPS in a C# WPF program](https://stackoverflow.com/questions/4149906/trying-to-determine-fps-in-a-c-sharp-wpf-program)
 
 [How to get Class name that is calling my method?](https://stackoverflow.com/questions/48570573/how-to-get-class-name-that-is-calling-my-method)
+
+[How can I get the assembly file version](https://stackoverflow.com/questions/909555/how-can-i-get-the-assembly-file-version)
+
+```csharp
+System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
+string version = fvi.FileVersion;
+```
+
+[Process.start: how to get the output?](https://stackoverflow.com/questions/4291912/process-start-how-to-get-the-output)
+
+```csharp
+var proc = new Process 
+{
+    StartInfo = new ProcessStartInfo
+    {
+        FileName = "program.exe",
+        Arguments = "command line arguments to your executable",
+        UseShellExecute = false,
+        RedirectStandardOutput = true,
+        CreateNoWindow = true
+    }
+};
+
+proc.Start();
+while (!proc.StandardOutput.EndOfStream)
+{
+    string line = proc.StandardOutput.ReadLine();
+    // do something with line
+}
+```
+
+TraceListener
+
+https://github.com/ElinamLLC/SharpVectors/blob/master/Samples/WpfTestSvgControl/TextBoxTraceListener.cs

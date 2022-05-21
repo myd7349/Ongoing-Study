@@ -25,3 +25,11 @@
 [libjoycon](https://github.com/Inokinoki/libjoycon)
 
 [pygraphviz](https://github.com/pygraphviz/pygraphviz)
+
+[cgal-swig-bindings](https://github.com/CGAL/cgal-swig-bindings)
+
+[yaep](https://github.com/vnmakarov/yaep)
+
+[explorepy](https://github.com/Mentalab-hub/explorepy/blob/master/src/explorepy/exploresdk.py)
+
+- [explorepy](https://github.com/Mentalab-hub/explorepy/tree/master/lib/windows)

@@ -81,6 +81,14 @@ void DumpEnumV2(Type type)
 }
 
 
+enum Fruit
+{
+    Apple = 1,
+    Orange = 2,
+    Banana = 0,
+}
+
+
 void Main()
 {
     ParseTest();
@@ -98,6 +106,9 @@ void Main()
     }
     Console.WriteLine($"{(Boolean)(object)(byte)1}");
     Console.WriteLine($"{(Boolean)(int)(object)1}");
+
+    Console.WriteLine(Enum.GetValues(typeof(Fruit)));
+    Console.WriteLine(Enum.GetNames(typeof(Fruit)));
 }
 
 // References:

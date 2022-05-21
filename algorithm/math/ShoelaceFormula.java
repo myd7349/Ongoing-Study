@@ -72,3 +72,4 @@ class Point2D {
 // [Curve orientation](https://en.wikipedia.org/wiki/Curve_orientation)
 // [Ploygon Area](http://mathworld.wolfram.com/PolygonArea.html)
 // GRAPHICS GEMS II/2D GEOMETRY AND ALGORITHMS/I.1 THE AREA OF A SIMPLE POLYGON
+// https://github.com/microsoft/automatic-graph-layout/blob/master/GraphLayout/MSAGL/Core/Geometry/Point.cs: GetTriangleOrientation

@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# Usage(In Spyder):
+# runfile('D:/dump_edf.py', args='-i E:\eeg.edf --signal 28 --range 0 2000 --plot', wdir='E:')
 
 import argparse
 from collections import OrderedDict
@@ -89,7 +91,7 @@ def main():
                         help='Dump sample range')
     parser.add_argument('--scale',
                         action='store_true',
-                        help='Dump sample range')
+                        help='Convert raw AD data to physical data')
     parser.add_argument('--plot',
                         action='store_true',
                         help='Plot samples with matplotlib')

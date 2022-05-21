@@ -12,3 +12,9 @@ https://github.com/taspeotis/DeltaCompressionDotNet
 https://github.com/sisong/HDiffPatch
 
 https://github.com/EvilMouth/DiffPatchRecord
+
+https://github.com/Invertex/BinaryFilePatcher
+
+[Tool for comparing 2 binary files in Windows](https://stackoverflow.com/questions/8166697/tool-for-comparing-2-binary-files-in-windows)
+
+https://github.com/hxhb/HDiffPatchUE

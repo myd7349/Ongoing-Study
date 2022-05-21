@@ -375,3 +375,6 @@ void DrawMandelbrot(HWND hWnd, BitmapPtr bitmap)
 // [Walkthrough: Create a traditional Windows Desktop application (C++)](https://docs.microsoft.com/en-us/cpp/windows/walkthrough-creating-windows-desktop-applications-cpp?view=msvc-160&viewFallbackFrom=vs-2019#feedback)
 // [Walkthrough: Removing Work from a User-Interface Thread](https://docs.microsoft.com/en-us/cpp/parallel/concrt/walkthrough-removing-work-from-a-user-interface-thread?view=msvc-160)
 // https://github.com/MicrosoftDocs/cpp-docs/blob/master/docs/parallel/concrt/walkthrough-removing-work-from-a-user-interface-thread.md
+// https://doc.qt.io/qt-5/qtcore-threads-mandelbrot-example.html
+// https://github.com/qt/qtbase/tree/dev/examples/corelib/threads/mandelbrot
+// https://www.boost.org/doc/libs/1_56_0/libs/gil/example/mandelbrot.cpp

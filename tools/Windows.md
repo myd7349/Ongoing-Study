@@ -73,3 +73,29 @@
 25. [Open Hardware Monitor](https://github.com/openhardwaremonitor/openhardwaremonitor)
 
 26. [ThisIsWin11](https://github.com/builtbybel/ThisIsWin11)
+
+27. subst
+
+    - https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst
+
+    - [PDB files with CMake install](https://stackoverflow.com/questions/14946536/pdb-files-with-cmake-install)
+
+28. [xplorer](https://github.com/kimlimjustin/xplorer)
+
+29. [hotcorner](https://github.com/taviso/hotcorner)
+
+30. [NSudo](https://github.com/M2Team/NSudo)
+
+31. [FanControl](https://github.com/Rem0o/FanControl.Releases)
+
+32. [uncap](https://github.com/susam/uncap)
+
+33. [ambie](https://github.com/jenius-apps/ambie)
+
+34. [Volume2](https://github.com/irzyxa/Volume2)
+
+35. [PerfView](https://github.com/microsoft/perfview)
+
+36. [DevToys](https://github.com/veler/DevToys)
+
+37. [LightBulb](https://github.com/Tyrrrz/LightBulb)

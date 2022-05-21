@@ -10,4 +10,6 @@
 
 Others
 
+- [CrystalDiskInfo](https://github.com/hiyohiyo/CrystalDiskInfo)
+
 - [fatrace](https://github.com/martinpitt/fatrace)

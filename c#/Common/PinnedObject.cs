@@ -72,3 +72,8 @@
 // https://docs.microsoft.com/en-us/dotnet/framework/interop/blittable-and-non-blittable-types
 // [The fastest way to check if a type is blittable?](https://stackoverflow.com/questions/10574645/the-fastest-way-to-check-if-a-type-is-blittable)
 // [GCHandle.FromIntPointer does not work as expected](https://stackoverflow.com/questions/17331987/gchandle-fromintpointer-does-not-work-as-expected)
+// [How to get IntPtr from byte[] in C#](https://stackoverflow.com/questions/537573/how-to-get-intptr-from-byte-in-c-sharp)
+//     class AutoPinner : IDisposable {};
+// TODO: Benchmark
+//     1. new PinnedObject(array);
+//     2. fixed (byte *pArray = array) {};

@@ -145,3 +145,6 @@ namespace ECGDemo
 // [WPF中的Canvas存为Bitmap](https://chowdera.com/2022/01/202201060408527374.html)
 // [How to open a common dialog box (WPF .NET)](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/windows/how-to-open-common-system-dialog-box?view=netdesktop-6.0)
 // [how to filter more than once in Microsoft.Win32.OpenFileDialog()](https://stackoverflow.com/questions/10493417/how-to-filter-more-than-once-in-microsoft-win32-openfiledialog)
+// https://github.com/wieslawsoltes/Core2D/blob/master/src/Core2D.Screenshot/Capture.cs
+// [How do I correctly transform an image in WPF?](https://stackoverflow.com/questions/34219949/how-do-i-correctly-transform-an-image-in-wpf)
+// 

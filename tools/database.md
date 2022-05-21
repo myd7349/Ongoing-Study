@@ -5,13 +5,21 @@
 * [DB Browser for SQLite](https://github.com/sqlitebrowser/sqlitebrowser)
 * [dbcli](https://github.com/dbcli/)
 * [dbeaver](https://github.com/dbeaver/dbeaver)
+* [directus](https://github.com/directus/directus)
 * [iredis](https://github.com/laixintao/iredis)
 * [litecli](https://github.com/dbcli/litecli)
 * [litestream](https://github.com/benbjohnson/litestream)
 * Navicat
+* redis
+  * [redis-windows](https://github.com/zkteco-home/redis-windows)
+  * [redis](https://github.com/microsoftarchive/redis)
+  * [Memurai](https://www.memurai.com/)
 * [sql-generator](https://github.com/liyupi/sql-generator)
+* [sqlfluff](https://github.com/sqlfluff/sqlfluff)
 * SQLite Expert
 * [sqlite-utils](https://github.com/simonw/sqlite-utils)
+* [sqlite3todot](https://github.com/chunky/sqlite3todot)
 * [SQLiteStudio](https://github.com/pawelsalawa/sqlitestudio)
+* [sqlline](https://github.com/julianhyde/sqlline)
 * [sqlsmith](https://github.com/anse1/sqlsmith)
 * [SQLyog Community Edition](https://github.com/webyog/sqlyog-community)

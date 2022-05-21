@@ -115,3 +115,4 @@ namespace Common
 // [A Better Way to Data Bind Enums in WPF](https://brianlagunas.com/a-better-way-to-data-bind-enums-in-wpf/)
 // https://github.com/brianlagunas/BindingEnumsInWpf
 // [Localize Enum Descriptions in WPF](https://brianlagunas.com/localize-enum-descriptions-in-wpf/)
+// [OrderBy on Enum.GetValues()](https://stackoverflow.com/questions/19599252/orderby-on-enum-getvalues)

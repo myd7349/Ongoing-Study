@@ -6,6 +6,12 @@
 
   > The **retained** mode rendering engine in WPF / Silverlight delivers poor performance for this type of work. I've worked on a number of systems that were upgraded from Windows Forms to WPF where the client was sorely dissapointed by the rendering performance of this "GPU Accelerated" framework!
 
+- WPF Control Development Unleashed: Building Advanced User Experiences (Pavan Podila)
+
+  > As WPF is a retained graphics system, it caches all the drawing instructions and renders them whenever a refresh is required. The DrawingContext is used as the cache from which these instructions are picked up.
+  >
+  > Remember that WPF is a retained-mode graphics system, which means all of the drawing instructions are cached and you do not need to call any kind of update graphics API to force a visual refresh, as in an immediate mode graphics system. Although the API around DrawingVisual and DrawingContext resembles something you find in an immediate mode graphics system, beware of using it like one. You should never have to call any kind of update-my-graphics API to force a visual to redraw.
+
 - [Possible to InvalidateVisual() on a given region instead of entire WPF control?](https://stackoverflow.com/questions/2576599/possible-to-invalidatevisual-on-a-given-region-instead-of-entire-wpf-control)
 
   > WPF is a **retained** drawing system. That means OnRender() might better be called AccumulateDrawingObjects(). It's actually accumulating a tree of live drawing objects, which only needs to happen once per layout. It then uses these objects to draw your UI whenever it needs to. To change how a portion of your UI looks without re-layout, some objects (like DrawingGroup, RenderTargetBitmap, and WriteableBitmap) can be updated after OnRender(), anytime you like.
@@ -18,9 +24,11 @@
 
 - [WPF/WinForms/GDI interop: converting a WriteableBitmap to a System.Drawing.Image?](https://stackoverflow.com/questions/3239449/wpf-winforms-gdi-interop-converting-a-writeablebitmap-to-a-system-drawing-image)
 
+- [How to edit a WritableBitmap.BackBuffer in non UI thread?](https://stackoverflow.com/questions/9868929/how-to-edit-a-writablebitmap-backbuffer-in-non-ui-thread)
+
 - SkiaSharp
 
-  - [SKElement Class](https://docs.microsoft.com/en-us/dotnet/api/skiasharp.views.wpf.skelement?view=skiasharp-views-2.88)
+  - [SKElement Class](https://docs.microsoft.com/en-us/dotnet/api/skiasharp.views.wpf.skelement?view=skiasharp-views-2.88) - [SKElement.cs](https://github.com/mono/SkiaSharp/blob/main/source/SkiaSharp.Views/SkiaSharp.Views.WPF/SKElement.cs)
 
   - [Maui.Graphics WPF Quickstart](https://swharden.com/csdv/maui.graphics/quickstart-wpf/)
 

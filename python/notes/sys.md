@@ -18,3 +18,33 @@ In `virtualenv`, it seems that sys.prefix, sys.exec_prefix, sys.base_prefix, sys
 [Dangers of sys.setdefaultencoding('utf-8')](https://stackoverflow.com/questions/28657010/dangers-of-sys-setdefaultencodingutf-8)
 
 [PEP 686: Make UTF-8 mode default](https://discuss.python.org/t/pep-686-make-utf-8-mode-default/14435)
+
+sys.frozen
+
+[Why use getattr instead of hasattr for sys.frozen?](https://stackoverflow.com/questions/59238237/why-use-getattr-instead-of-hasattr-for-sys-frozen)
+
+https://github.com/python/cpython/blob/main/Lib/multiprocessing/context.py
+
+```python
+def freeze_support(self):
+    '''Check whether this is a fake forked process in a frozen executable.
+    If so then run code specified by commandline and exit.
+    '''
+    if sys.platform == 'win32' and getattr(sys, 'frozen', False):
+        from .spawn import freeze_support
+        freeze_support()
+```
+
+https://pyinstaller.org/en/v3.3.1/runtime-information.html
+
+> The PyInstaller bootloader adds the name frozen to the sys module.
+
+https://github.com/python/cpython/blob/main/Tools/freeze/freeze.py
+
+https://github.com/python/cpython/blob/main/Python/frozenmain.c
+
+https://mail.python.org/pipermail/python-dev/2013-November/130282.html
+
+sys.byteorder
+
+https://github.com/nodejs/node/blob/main/tools/getendian.py

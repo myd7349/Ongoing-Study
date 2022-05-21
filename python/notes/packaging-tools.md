@@ -40,6 +40,8 @@ The answer is NO:
 - [Convert a Python Project to an Executable (.exe) File using Auto PY to EXE](https://python.plainenglish.io/convert-a-python-project-to-an-executable-exe-file-175080da4485)
 - [auto-py-to-exe](https://pypi.org/project/auto-py-to-exe/) - A .py to .exe converter using a simple graphical interface and [PyInstaller](https://www.pyinstaller.org/) in Python.
 
+- https://github.com/soxoj/maigret/blob/main/.github/workflows/pyinstaller.yml
+
 [[Python executables: py2exe or PyInstaller?](https://stackoverflow.com/questions/6235123/python-executables-py2exe-or-pyinstaller)]
 
 This post mentioned `py2app`: [How to Create a Single Windows Executable from a Python and PyGame Project (Summary)](https://irwinkwan.com/2013/04/29/python-executables-pyinstaller-and-a-48-hour-game-design-compo/)
@@ -91,3 +93,7 @@ py2applet
 https://github.com/pypa/cibuildwheel
 
 https://github.com/indygreg/python-build-standalone
+
+https://github.com/matthew-brett/delocate
+
+https://github.com/ronaldoussoren/py2app

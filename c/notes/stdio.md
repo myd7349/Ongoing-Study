@@ -594,3 +594,18 @@ off_t ftello_unlocked(FILE *stream);
 
 https://gitlab.com/Teuniz/EDFbrowser/-/blob/master/cnvs/nk2edf.cpp
 
+38.
+
+https://github.com/microsoft/vcpkg-tool/blob/main/src/tls12-download.c
+
+```c
+static void set_delete_on_close_flag(const HANDLE std_out, const HANDLE target, BOOL setting)
+{
+    FILE_DISPOSITION_INFO fdi = {0};
+    fdi.DeleteFile = setting;
+    if (SetFileInformationByHandle(target, FileDispositionInfo, &fdi, sizeof(fdi)) == 0)
+    {
+        abort_api_failure(std_out, L"SetFileInformationByHandle");
+    }
+}
+```

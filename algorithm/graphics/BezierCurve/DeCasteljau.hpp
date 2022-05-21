@@ -370,3 +370,5 @@ small tolerance. If not, the curve is subdivided parametrically into two segment
 // https://github.com/czyt1988/FastCAE-AppDesigner
 // https://github.com/SCToolsfactory/SCJMapper-V2/blob/master/OGL/BezierSeries.cs
 // https://github.com/markheath/wpf-waveform/blob/master/WpfWaveform/BezierSpline.cs
+// [How to draw a full ellipse in a StreamGeometry in WPF?](https://stackoverflow.com/questions/2979834/how-to-draw-a-full-ellipse-in-a-streamgeometry-in-wpf)
+// https://github.com/Ramshandilya/Bezier

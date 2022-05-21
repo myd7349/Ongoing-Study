@@ -33,3 +33,4 @@ namespace FakeAD
 
 // References:
 // [PInvoke a struct pointer to get the data](https://stackoverflow.com/questions/25892205/pinvoke-a-struct-pointer-to-get-the-data)
+// https://github.com/gmamaladze/globalmousekeyhook/blob/vNext/MouseKeyHook/WinApi/AppMouseStruct.cs

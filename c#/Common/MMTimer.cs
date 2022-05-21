@@ -238,3 +238,4 @@
 // [Difference between Synchronization Context and Dispatcher](https://stackoverflow.com/questions/24671883/difference-between-synchronization-context-and-dispatcher)
 // [Selecting Timer Functions](https://www.mvps.org/directx/articles/selecting_timer_functions.htm)
 // [Difference between Synchronization Context and Dispatcher](https://stackoverflow.com/questions/24671883/difference-between-synchronization-context-and-dispatcher)
+// https://gist.github.com/mjs3339/b98bbf4075be0176ac521c9875652dfe

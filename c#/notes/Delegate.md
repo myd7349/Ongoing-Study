@@ -20,3 +20,5 @@ I noticed that:
 var action = () => {}; // error
 Action action = () => {}; // ok
 ```
+
+https://github.com/coder0xff/FastDelegate.Net

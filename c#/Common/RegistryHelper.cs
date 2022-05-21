@@ -24,3 +24,7 @@
         private const string PORTS_SUBKEY = "HARDWARE\\DEVICEMAP\\SERIALCOMM";
     }
 }
+
+
+// References:
+// https://github.com/dotnet/runtime/blob/main/src/libraries/System.IO.Ports/src/System/IO/Ports/SerialPort.Win32.cs

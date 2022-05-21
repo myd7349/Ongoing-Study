@@ -32,3 +32,5 @@
 
 // References:
 // [c# - Photoshop like background on transparent image](http://ostack.cn/?qa=885654/)
+// https://github.com/ElinamLLC/SharpVectors/blob/master/Samples/WpfTestSvgControl/DrawingPage.xaml
+// https://github.com/SkiTiSu/TEditor/blob/master/TEditor/MainWindow.xaml

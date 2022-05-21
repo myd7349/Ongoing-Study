@@ -25,3 +25,7 @@ void dump_data(const void *data, size_t size)
 {
     dump_data_impl(data, size);
 }
+
+
+// References:
+// [hexdump(): A memory layout utility to help debugging / understanding / optimising of C++ memory model](https://codereview.stackexchange.com/questions/236039/hexdump-a-memory-layout-utility-to-help-debugging-understanding-optimisin)

@@ -54,3 +54,4 @@ if "%1" == "csharp" (
 :: https://github.com/andreasfertig/cppinsights/blob/main/version.h.in
 :: https://github.com/stefankueng/BowPad/blob/main/version.build.in
 :: https://github.com/mne-tools/mne-cpp/blob/main/libraries/communication/communication_global.cpp
+:: https://github.com/veler/clipboardzanager

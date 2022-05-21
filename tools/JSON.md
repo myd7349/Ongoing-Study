@@ -1,5 +1,7 @@
 [CSVLint](https://github.com/BdR76/CSVLint)
 
+[DevToys](https://github.com/veler/DevToys)
+
 [DevToysMac](https://github.com/ObuchiYuki/DevToysMac) provides a JSON formatter.
 
 [export-from-json](https://github.com/zheeeng/export-from-json)
@@ -19,6 +21,16 @@
 [miller](https://github.com/johnkerl/miller)
 
 [XML2JSON.XSL](https://xml2json.duttke.de/)
+
+[JSONCrush](https://github.com/KilledByAPixel/JSONCrush)
+
+[JSON Crack](https://github.com/AykutSarac/jsoncrack.com)
+
+[wal2json](https://github.com/eulerto/wal2json)
+
+BSON Tools:
+
+- [bsontools](https://github.com/dwight/bsontools)
 
 Online Editors:
 

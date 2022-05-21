@@ -1,0 +1,1 @@
+dotnet publish .\JsonInspect\JsonInspect.csproj -c Release -r win-x64 -p:PublishSingleFile=true

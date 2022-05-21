@@ -127,3 +127,6 @@
 // https://github.com/jk-jeon/fp
 // https://github.com/abolz/Drachennest
 // https://github.com/tge-was-taken/Amicitia.IO/blob/master/src/Amicitia.IO/BitHelper.cs
+// [BinaryPrimitives.ReadUInt32BigEndian](https://docs.microsoft.com/en-us/dotnet/api/system.buffers.binary.binaryprimitives.readuint32bigendian?view=net-6.0)
+// [C# 大端小端转换](https://blog.lindexi.com/post/C-%E5%A4%A7%E7%AB%AF%E5%B0%8F%E7%AB%AF%E8%BD%AC%E6%8D%A2.html)
+// https://github.com/aybe/BinaryExtensions/blob/develop/BinaryExtensions/BinaryExtensions/EndiannessExtensions.cs

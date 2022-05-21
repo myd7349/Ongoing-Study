@@ -14,3 +14,5 @@ Tools:
 - [onenav](https://github.com/helloxz/onenav)
 
 - [rrweb](https://github.com/rrweb-io/rrweb): record and replay the web.
+
+- [vimium-c](https://github.com/gdh1995/vimium-c)

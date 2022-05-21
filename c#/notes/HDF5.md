@@ -2,6 +2,8 @@
 
 Libraries
 
+- [HDF5.NET #9](https://github.com/Apollo3zehn/HDF5.NET/issues/9)
+
 - [HDF.PInvoke](https://github.com/HDFGroup/HDF.PInvoke) - Raw HDF5 Power for .NET
   - [Cookbook](https://github.com/HDFGroup/HDF.PInvoke/wiki/Cookbook)
   
@@ -9,13 +11,14 @@ Libraries
 
 - [HDF5-CSharp](https://github.com/LiorBanai/HDF5-CSharp)
   - This is a fork of [Hdf5DotnetTools](https://github.com/reyntjesr/Hdf5DotnetTools) for .NET Core.
-  
+  - [SciSharp/HDF5-CSharp](https://github.com/SciSharp/HDF5-CSharp)
+
 - [HDF5DotNet](http://hdf5.net/) - HDF5DotNet - C++/CLI Wrapper of the HDF5 Library
   - [HDF5Reader](https://github.com/hypesystem/HDF5Reader)
   
 - [Hdf5DotnetTools](https://github.com/reyntjesr/Hdf5DotnetTools)
 
-- [HDF5.NET](https://github.com/Apollo3zehn/HDF5.NET)
+- [HDF5.NET](https://github.com/Apollo3zehn/HDF5.NET): A pure C# library without native dependencies that makes reading of HDF5 files very easy.
 
 - [LiteHDF](https://github.com/silkfire/LiteHDF)
 

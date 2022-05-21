@@ -423,3 +423,4 @@ static void Main(string[] args)
 // > the code create a 16×16 pixel bitmap. The bitmap’s size isn’t important;
 // > the code really just needs to use it to get a graphics device handle.
 // [How to make emf file dpi aware](https://stackoverflow.com/questions/54488961/how-to-make-emf-file-dpi-aware)
+// https://github.com/wieslawsoltes/Core2D/blob/master/src/Core2D.Modules.FileWriter.Emf/EmfWriter.cs

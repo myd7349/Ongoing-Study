@@ -44,6 +44,8 @@ Softwares:
 
 - [Notable](https://github.com/notable/notable)
 
+- [Notepads](https://github.com/0x7c13/Notepads)
+
 - [Obsidian](https://obsidian.md/)
 
 - [turndown](https://github.com/mixmark-io/turndown)
@@ -74,6 +76,7 @@ Libraries:
 
 Tools:
 
+- [DownmarkerWPF](https://github.com/Code52/DownmarkerWPF)
 - [htmldoc](https://github.com/michaelrsweet/htmldoc)
 - [lint-md](https://github.com/lint-md/lint-md)
 - [markdown-it-title](https://github.com/valeriangalliat/markdown-it-title)

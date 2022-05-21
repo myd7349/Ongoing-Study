@@ -158,3 +158,92 @@ Log exception V3, doesn't work as expected:
         layout="${longdate} ${level:uppercase=false:padding=-5}: ${message}${message:exceptionSeparator=${newline}}{exception:format=tostring}"
         optimizeBufferReuse="true" />
 ```
+
+[Console application not logging error with NLOG in AppDomain.CurrentDomain.UnhandledException](https://stackoverflow.com/questions/71415635/console-application-not-logging-error-with-nlog-in-appdomain-currentdomain-unhan)
+
+```csharp
+using System;
+using NLog;
+using NLog.Targets;
+
+namespace ConsoleDBLog;
+
+internal static class Program
+{
+    private static ILogger? _logger;
+
+    static void UnhandledExceptionTrapper(object sender, UnhandledExceptionEventArgs e)
+    {
+        _logger?.Error((Exception?) e.ExceptionObject, "unhandled exception");
+        LogManager.Shutdown();
+    }
+
+    private static void Main()
+    {
+        SetupDB_NLOG();
+        _logger = LogManager.GetCurrentClassLogger();
+        AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
+        throw new Exception("test");
+    }
+
+    static void SetupDB_NLOG()
+    {
+        DatabaseTarget target = new DatabaseTarget();
+        target.Name = "nlog-db";
+
+        target.DBProvider = "Npgsql.NpgsqlConnection, Npgsql";
+        target.ConnectionString = "Server=127.0.0.1;Port=5432;User Id=stephan;Password=;Database=stephan;";
+        target.CommandText =
+            "insert into \"public\".\"log_table\"(time_stamp,level,logger,message,stacktrace) values(CAST(@time_stamp AS timestamp),@level,@logger,@message,@stacktrace);";
+
+        var param = new DatabaseParameterInfo
+        {
+            Name = "@time_stamp",
+            Layout = "${date:format=yyyy-MM-ddTHH\\:mm\\:ss.fff}"
+        };
+        target.Parameters.Add(param);
+
+        param = new DatabaseParameterInfo
+        {
+            Name = "@level",
+            Layout = "${level}"
+        };
+        target.Parameters.Add(param);
+
+        param = new DatabaseParameterInfo
+        {
+            Name = "@logger",
+            Layout = "${logger}"
+        };
+        target.Parameters.Add(param);
+
+        param = new DatabaseParameterInfo
+        {
+            Name = "@message",
+            Layout = "${message}"
+        };
+        target.Parameters.Add(param);
+
+        param = new DatabaseParameterInfo
+        {
+            Name = "@stacktrace",
+            Layout = "${exception:format=stacktrace}"
+        };
+        target.Parameters.Add(param);
+
+        NLog.Config.SimpleConfigurator.ConfigureForTargetLogging(target, LogLevel.Debug);
+
+        //Uncomment the following lines to see things that would silently fail and
+        //to get more diagnostic debug output about what is actually running.
+        
+        // InternalLogger.LogToConsole = true;
+        // InternalLogger.LogLevel = LogLevel.Trace;
+        // LogManager.ThrowExceptions = true;
+
+        // LogManager.GetCurrentClassLogger().Debug("test logging");
+        // LogManager.Flush();
+    }
+}
+```
+
+[NLog configured to automatically log all exceptions?](https://stackoverflow.com/questions/13895929/nlog-configured-to-automatically-log-all-exceptions)

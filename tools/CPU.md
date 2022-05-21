@@ -1,2 +1,3 @@
+- [cpu-stat](https://github.com/vivaladav/cpu-stat)
 - [CPU-T](https://github.com/gongminmin/CPU-T)
 - CPU-Z

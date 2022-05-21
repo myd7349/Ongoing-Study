@@ -3,3 +3,7 @@ http://james.newtonking.com/archive/2018/11/27/json-net-12-0-release-1-net-found
 https://github.com/ctaggart/SourceLink
 
 https://github.com/esskar/Serialize.Linq/blob/master/src/Serialize.Linq/Serialize.Linq.csproj
+
+https://github.com/joaomatossilva/DateTimeExtensions
+
+https://github.com/oxyplot/oxyplot/issues/1156

@@ -1,14 +1,21 @@
 - [aquila](https://github.com/gozfree/aquila)
+- [auto-editor](https://github.com/WyattBlue/auto-editor)
 - 抖音视频编辑应用“[剪映](https://zh.wikipedia.org/w/index.php?title=剪映&action=edit&redlink=1)”
 - CapCut/ViaMaker：视频编辑应用“剪映”的海外版本
 - [CineEncoder](https://github.com/CineEncoder/cine-encoder)
 - [DialogueExtractor](https://github.com/COLOR-SKY/DialogueExtractor)
 - iMovie
+- ffmpeg
+  - [ffmpeg-commander](https://github.com/alfg/ffmpeg-commander)
 - Final Cut Pro
 - [gyroflow](https://github.com/gyroflow/gyroflow): Video stabilization using gyroscope data
 - [kdenlive](https://github.com/KDE/kdenlive)
 - [IINA](https://iina.io/)
+- [lossless-cut](https://github.com/mifi/lossless-cut)
 - [Olive Video Editor](https://github.com/olive-editor/olive)
+- PotPlayer
+  - [Potplayer-Subtitle-Translate-GoogleFix](https://github.com/veritas501/Potplayer-Subtitle-Translate-GoogleFix)
+- Premiere Pro
 - [real-url](https://github.com/wbt5/real-url)
 - [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)
 - [RxFFmpeg](https://github.com/microshow/RxFFmpeg)
@@ -16,6 +23,7 @@
 - [shotcut](https://github.com/mltframework/shotcut)
 - [SmartTubeNext](https://github.com/yuliskov/SmartTubeNext)
 - [syncplay](https://github.com/Syncplay/syncplay)
+- [TagEditor](https://github.com/Martchus/tageditor)
 - [xrcap](https://github.com/catid/xrcap)
 
 Video Players:

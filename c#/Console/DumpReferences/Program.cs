@@ -1,4 +1,4 @@
-﻿//#define USING_ASSEMBLY_NAME
+//#define USING_ASSEMBLY_NAME
 
 namespace DumpReferences
 {
@@ -9,6 +9,8 @@ namespace DumpReferences
 
     class Program
     {
+        static List<string> CandidateSearchDirectories = new List<string>();
+
         static void Main(string[] args)
         {
             foreach (var arg in args)
@@ -19,6 +21,10 @@ namespace DumpReferences
                 string path = arg;
                 if (!Path.IsPathRooted(path))
                     path = Path.GetFullPath(path);
+
+                CandidateSearchDirectories.Add(Path.GetDirectoryName(path));
+                CandidateSearchDirectories.Add(Directory.GetCurrentDirectory());
+                CandidateSearchDirectories.Add(AppDomain.CurrentDomain.BaseDirectory);
 
                 Assembly assembly;
                 try
@@ -35,6 +41,50 @@ namespace DumpReferences
             }
         }
 
+        static Assembly LoadAssemblyFrom(string assemblyFile)
+        {
+            if (Path.IsPathRooted(assemblyFile))
+                return Assembly.ReflectionOnlyLoadFrom(assemblyFile);
+
+            foreach (var dir in CandidateSearchDirectories)
+            {
+                var assemblyFilePath = Path.Combine(dir, assemblyFile);
+                if (File.Exists(assemblyFilePath))
+                {
+                    try
+                    {
+                        return Assembly.ReflectionOnlyLoadFrom(assemblyFilePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"**** Error: Failed to load {assemblyFilePath}: {ex.Message}");
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        static Assembly LoadAssembly(AssemblyName assemblyName)
+        {
+            try
+            {
+                return Assembly.ReflectionOnlyLoad(assemblyName.FullName);
+            }
+            catch
+            {
+                try
+                {
+                    return Assembly.Load(assemblyName);
+                }
+                catch
+                {
+                    var assemblyFileName = $"{assemblyName.Name}.dll";
+                    return LoadAssemblyFrom(assemblyFileName);
+                }
+            }
+        }
+
 #if USING_ASSEMBLY_NAME
         static void DumpReferences(Assembly assembly, int indentLevel, HashSet<AssemblyName> knownAssemblies)
 #else
@@ -43,7 +93,11 @@ namespace DumpReferences
         {
             var indent = new string(' ', indentLevel * 4);
 
-            foreach (var reference in assembly.GetReferencedAssemblies())
+            var referencedAssemblies = assembly.GetReferencedAssemblies();
+            if (referencedAssemblies == null)
+                return;
+
+            foreach (var reference in referencedAssemblies)
             {
                 Console.Write(indent);
                 Console.WriteLine(reference.Name);
@@ -64,8 +118,16 @@ namespace DumpReferences
 #else
                 if (!knownAssemblies.Contains(reference.FullName))
                 {
-                    knownAssemblies.Add(reference.FullName);
-                    DumpReferences(Assembly.Load(reference), indentLevel + 1, knownAssemblies);
+                    var referenceAssembly = LoadAssembly(reference);
+                    if (referenceAssembly == null)
+                    {
+                        Console.WriteLine($"*** Warning: Failed to load {reference}.");
+                    }
+                    else
+                    {
+                        knownAssemblies.Add(reference.FullName);
+                        DumpReferences(referenceAssembly, indentLevel + 1, knownAssemblies);
+                    }
                 }
 #endif
             }
@@ -77,3 +139,5 @@ namespace DumpReferences
 // References:
 // [C# Recursively Find References in All Projects In Solution](https://stackoverflow.com/questions/32974118/c-sharp-recursively-find-references-in-all-projects-in-solution)
 // https://github.com/nikeyes/DotNetProjectsDependenciesViewer
+// https://github.com/spectresystems/snitch
+// [How to add folder to assembly search path at runtime in .NET?](https://stackoverflow.com/questions/1373100/how-to-add-folder-to-assembly-search-path-at-runtime-in-net)

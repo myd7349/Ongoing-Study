@@ -54,3 +54,4 @@ void GetAllDisplayDevices(std::map<std::wstring, DisplayDeviceInfo> &displayDevi
 
 // References:
 // https://github.com/mpc-hc/mpc-hc/blob/develop/src/mpc-hc/MultiMonitor.h
+// https://github.com/Slion/SharpLibMonitorConfig

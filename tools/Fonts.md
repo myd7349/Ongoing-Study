@@ -6,6 +6,8 @@ Fonts:
 
 - [FiraCode](https://github.com/tonsky/FiraCode)
 
+- [font-writer](https://github.com/tonsky/font-writer)
+
 - [GitHub - ButTaiwan/iansui: 芫荽，基於 Klee One 改造的學習用台灣繁體字型](https://github.com/ButTaiwan/iansui)
 
 - [霞鹜文楷 / LXGW WenKai – 开源中文字体、免费可商用，兼仿宋和楷体特点，可读性高](https://www.appinn.com/lxgw-wenkai/)
@@ -38,6 +40,8 @@ Fonts:
 
 - [adobe-fonts/source-han-sans](https://github.com/adobe-fonts/source-han-sans)
 
+- [TangYuan-font](https://github.com/NightFurySL2001/TangYuan-font)
+
 - [Tiejili](https://github.com/Buernia/Tiejili)
 
 - [Reggae](https://github.com/fontworks-fonts/Reggae)
@@ -48,15 +52,33 @@ Fonts:
 
 - [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
   
-  - [tide](https://github.com/IlanCosman/tide)
+  - oh-my-posh
 
+  - [tide](https://github.com/IlanCosman/tide)
+  
 - [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
 
 - [Input Mono](https://input.djr.com/)
 
+- [scientifica](https://github.com/nerdypepper/scientifica)
+
+- [OSFCC](https://github.com/DrXie/OSFCC)
+
+- [zpix-pixel-font](https://github.com/SolidZORO/zpix-pixel-font)
+
+- [Maple-font](https://github.com/subframe7536/Maple-font)
+
+- [M+ Fonts](https://github.com/coz-m/MPLUS_FONTS)
+
+- [WD-XL-font](https://github.com/NightFurySL2001/WD-XL-font)
+
 Softwares:
 
 - [Character-Map-UWP](https://github.com/character-map-uwp/Character-Map-UWP)
+- [fontforge](https://github.com/fontforge/fontforge)
+- [lv_font_conv](https://github.com/lvgl/lv_font_conv)
 - [mactype](https://github.com/snowie2000/mactype)
 - [noMeiryoUI](https://github.com/Tatsu-syo/noMeiryoUI)
 - [secondary-axes](https://github.com/welai/secondary-axes)
+- [cfonts](https://github.com/dominikwilkowski/cfonts)
+  - [python-cfonts](https://github.com/frostming/python-cfonts)

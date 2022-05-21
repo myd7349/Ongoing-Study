@@ -23,3 +23,5 @@ Books:
 [Rayon](https://github.com/Lakr233/Rayon): yet another SSH machine manager.
 
 [endlessh](https://github.com/skeeto/endlessh)
+
+[skm](https://github.com/TimothyYe/skm)

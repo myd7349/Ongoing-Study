@@ -10,4 +10,7 @@
 - [Diagon](https://github.com/ArthurSonzogni/Diagon)
 - [figlet](http://www.figlet.org/)
   - [Ascii-Design](https://github.com/Faster3ck/Ascii-Design)
+  - pyfiglet
 - [Image-to-Braille](https://github.com/505e06b2/Image-to-Braille)
+- [cfonts](https://github.com/dominikwilkowski/cfonts)
+  - [python-cfonts](https://github.com/frostming/python-cfonts)

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32630.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapsToDevicePixelsDemo", "SnapsToDevicePixelsDemo\SnapsToDevicePixelsDemo.csproj", "{1814DF2B-41B8-4694-A674-6DA6BC55C5D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1814DF2B-41B8-4694-A674-6DA6BC55C5D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1814DF2B-41B8-4694-A674-6DA6BC55C5D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1814DF2B-41B8-4694-A674-6DA6BC55C5D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1814DF2B-41B8-4694-A674-6DA6BC55C5D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF014E52-5053-4D9E-A402-69D64CA1C5FE}
+	EndGlobalSection
+EndGlobal

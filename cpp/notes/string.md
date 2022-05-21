@@ -120,3 +120,9 @@ https://en.cppreference.com/w/cpp/string/basic_string/stof
 >     return data;
 > }
 > ```
+
+[Does std::string have a null terminator?](https://stackoverflow.com/questions/11752705/does-stdstring-have-a-null-terminator)
+
+> Not in C++03, and it's not even guaranteed before C++11 that in a C++ std::string is continuous in memory. Only C strings (char arrays which  are intended for storing strings) had the null terminator.
+>
+> In C++11 and later, `mystring.c_str()` is equivalent to `mystring.data()` is equivalent to `&mystring[0]`, and `mystring[mystring.size()]` is guaranteed to be `'\0'`.

@@ -196,3 +196,6 @@ std::size_t FindPeaks(const double *data, std::size_t length,
 // http://nbviewer.jupyter.org/github/demotu/BMC/blob/master/notebooks/DetectPeaks.ipynb
 // https://ccrma.stanford.edu/~jos/sasp/Quadratic_Peak_Interpolation.html
 // https://github.com/MonsieurV/py-findpeaks
+// https://github.com/mne-tools/mne-python/blob/main/mne/viz/utils.py
+// > _find_peaks
+// https://github.com/mne-tools/mne-python/blob/main/mne/preprocessing/_peak_finder.py

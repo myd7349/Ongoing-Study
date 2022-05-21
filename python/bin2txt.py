@@ -203,3 +203,4 @@ if __name__ == '__main__':
 # [Need Convert Binary file to Txt file](https://stackoverflow.com/questions/5168676/need-convert-binary-file-to-txt-file)
 # [python float to string without precision loss](https://stackoverflow.com/questions/38055000/python-float-to-string-without-precision-loss)
 # [How to make a short and long version of a required argument using Python Argparse?](https://stackoverflow.com/questions/28638813/how-to-make-a-short-and-long-version-of-a-required-argument-using-python-argpars)
+# https://numpy.org/doc/stable/reference/generated/numpy.fromfile.html

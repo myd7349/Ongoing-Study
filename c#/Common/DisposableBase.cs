@@ -83,3 +83,6 @@ namespace Common
 
 // References:
 // [IDisposable Interface](https://docs.microsoft.com/en-us/dotnet/api/system.idisposable?view=net-6.0)
+// https://github.com/Open-NET-Libraries/Open.Disposable
+// https://github.com/mono/SkiaSharp/blob/main/binding/Binding/SKObject.cs
+// https://github.com/StephenCleary/Disposables

@@ -63,3 +63,4 @@
 // [What does ##__VA_ARGS__ mean?](https://stackoverflow.com/questions/52891546/what-does-va-args-mean)
 // > C++20 introduced __VA_OPT__ for this purpose: https://en.cppreference.com/w/cpp/preprocessor/replace.
 // [Appending to __VA_ARGS__](https://stackoverflow.com/questions/4054085/appending-to-va-args)
+// https://github.com/cofyc/dnscrypt-wrapper/blob/master/logger.h

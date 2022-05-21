@@ -12,7 +12,11 @@ namespace FakeAD
     {
         static Natives()
         {
+#if false
             Is64Bit = IntPtr.Size == 8;
+#else
+            Is64Bit = Environment.Is64BitProcess;
+#endif
 
             Trace.WriteLine($"Is 64-bit? {Is64Bit}");
 
@@ -33,6 +37,20 @@ namespace FakeAD
 #else
             SetDllDirectory(searchPath);
 #endif
+            NativeLibrary.SetDllImportResolver(
+                typeof(FakeADWrapper).Assembly,
+                (libraryName, assembly, searchPath) =>
+                {
+                    Trace.Write($"Try to load native library {libraryName}. ");
+                    if (NativeLibrary.TryLoad(libraryName, out var handle))
+                    {
+                        Trace.WriteLine("OK!");
+                        return handle;
+                    }
+
+                    Trace.WriteLine("Failed!");
+                    return IntPtr.Zero;
+                });
         }
 
         public const string DllName = "fakead.dll";
@@ -84,3 +102,9 @@ namespace FakeAD
 // > xcopy.exe "$(ProjectDir)TheModifyiedFolder\Modifying.dll" "$(ProjectDir)obj" /y /s
 // [Are there any better ways to copy a native dll to the bin folder?](https://stackoverflow.com/questions/3863419/are-there-any-better-ways-to-copy-a-native-dll-to-the-bin-folder)
 // [Correct way to marshal SIZE_T*?](https://stackoverflow.com/questions/1309509/correct-way-to-marshal-size-t)
+// https://github.com/microsoft/msquic/blob/v2.0.3/src/cs/tool/Program.cs
+// https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.nativelibrary.setdllimportresolver?view=net-6.0
+// [Native interoperability best practices](https://docs.microsoft.com/en-us/dotnet/standard/native-interop/best-practices?source=recommendations)
+// https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.nativelibrary.load?source=recommendations&view=net-6.0
+// https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.defaultdllimportsearchpathsattribute?view=net-6.0
+// https://github.com/mono/SkiaSharp/blob/main/binding/Binding.Shared/LibraryLoader.cs

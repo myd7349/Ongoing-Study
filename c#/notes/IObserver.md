@@ -6,3 +6,8 @@
 
 [IObserver and IObservable in C# for Observer vs Delegates, Events](https://stackoverflow.com/questions/17020011/iobserver-and-iobservable-in-c-sharp-for-observer-vs-delegates-events)
 
+https://github.com/reactiveui/Pharmacist
+
+https://github.com/reactivemarbles/ObservableEvents
+
+https://github.com/kekekeks/NObservable

@@ -251,3 +251,4 @@ BOOL GetTemporaryFilePath(CString strExtension, CString& strFileName)
 */
 // https://github.com/libgit2/libgit2/blob/main/src/util/win32/path_w32.c
 // https://github.com/ClassViewer/java-gui-launcher/blob/master/whereami/whereami.h
+// https://github.com/bonsmile/lxd/blob/main/fileio.cpp

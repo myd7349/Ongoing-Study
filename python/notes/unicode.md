@@ -4,4 +4,4 @@ tokenize.detect_encoding
 
 [How to determine the encoding of text?](https://stackoverflow.com/questions/436220/how-to-determine-the-encoding-of-text)
 
-
+https://docs.python.org/3/using/windows.html#utf-8-mode

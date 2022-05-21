@@ -18,3 +18,17 @@ values = [1, 2, 3]
 dictionary = dict(zip(keys, values))
 print(dictionary) # {'a': 1, 'b': 2, 'c': 3}
 ```
+
+[Case insensitive dictionary](https://stackoverflow.com/questions/2082152/case-insensitive-dictionary)
+
+https://github.com/kennethreitz/requests/blob/v1.2.3/requests/structures.py#L37
+
+[Case insensitive dictionary search?](https://stackoverflow.com/questions/3296499/case-insensitive-dictionary-search)
+
+```python
+dict(zip(map(string.lower,a.keys()),a.values()))
+```
+
+https://peps.python.org/pep-0455/
+
+[Python dictionary: are keys() and values() always the same order?](https://stackoverflow.com/questions/835092/python-dictionary-are-keys-and-values-always-the-same-order)

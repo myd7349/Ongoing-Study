@@ -1,6 +1,9 @@
 - Atom Editor
+- [BrainWaves](https://github.com/makebrainwaves/BrainWaves)
 - [Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg)
 - [dogehouse](https://github.com/benawad/dogehouse)
+- [drawio](https://github.com/jgraph/drawio-desktop)
+- [Motrix](https://github.com/agalwood/Motrix)
 - [Google-Play-Music-Desktop-Player-UNOFFICIAL-](https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-)
 - [graphiql-app](https://github.com/skevy/graphiql-app)
 - [httptoolkit-desktop](https://github.com/httptoolkit/httptoolkit-desktop)

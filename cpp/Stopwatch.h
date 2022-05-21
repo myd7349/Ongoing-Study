@@ -173,3 +173,5 @@ private:
 // https://www.linuxquestions.org/questions/programming-9/how-to-convert-tsc-cpu-cycles-into-seconds-in-c-833190/
 // https://msdn.microsoft.com/en-us/library/twchhe95.aspx
 // https://github.com/Blinue/Magpie/blob/main/Runtime/StepTimer.h
+// https://docs.microsoft.com/en-us/dotnet/api/system.timespan.ticks?view=net-6.0
+// > The smallest unit of time is the tick, which is equal to 100 nanoseconds or one ten-millionth of a second. There are 10,000 ticks in a millisecond. The value of the Ticks property can be negative or positive to represent a negative or positive time interval.

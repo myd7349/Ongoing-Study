@@ -2,6 +2,7 @@ Extract tabular data from PDF:
 
 - [Tabula](https://github.com/tabulapdf/tabula)
 - [PDFPlumber](https://github.com/jsvine/pdfplumber)
+  - [Invoice2Excel](https://github.com/yooongchun/Invoice2Excel)
 - [Tabula #731](https://github.com/tabulapdf/tabula/issues/731)
 - [PDFBox](https://github.com/apache/pdfbox)
 - [PdfPig](https://github.com/UglyToad/PdfPig)
@@ -22,9 +23,15 @@ PDF Viewers:
 
 - [Reader for iOS](https://github.com/vfr/Reader)
 
+- [sioyek](https://github.com/ahrm/sioyek)
+
 - [XpdfReader](https://www.xpdfreader.com/about.html)
 
 Tools:
+
+- [WeasyPrint](https://github.com/Kozea/WeasyPrint)
+
+- [wkhtmltopdf](https://github.com/wkhtmltopdf/wkhtmltopdf)
 
 - [Xpdf & XpdfReader](https://www.xpdfreader.com/about.html)
 
@@ -123,6 +130,8 @@ Tools:
 - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
 
 - [GitHub - viper-framework/pdftools: Single directory containing pdfid and pdf-parser of Didier Stevens](https://github.com/viper-framework/pdftools)
+
+- [md-pdf](https://github.com/igormironchik/md-pdf)
 
 EMF
 

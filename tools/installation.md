@@ -20,6 +20,11 @@
 - https://github.com/tom-englert/Wax
 - [WalletWasabi](https://github.com/zkSNACKs/WalletWasabi)
 - https://github.com/nodejs/node/tree/master/tools/msvs/msi
+- https://github.com/ChangemakerStudios/Papercut-SMTP/tree/develop/src/Papercut.Installer
+- https://github.com/Code52/DownmarkerWPF
+- https://github.com/alexkay/spek
+- https://github.com/StephenCleary/DisplayProfiles
+- https://github.com/Dirkster99/Edi
 
 ### NSIS
 
@@ -32,6 +37,10 @@
 - [koodo-reader](https://github.com/troyeguo/koodo-reader)
 - [FreeCADInstProj](https://github.com/donovaly/FreeCADInstProj)
 - [LyXWinInstaller](https://github.com/donovaly/LyXWinInstaller)
+
+##### PyNSISt
+
+- [explorepy](https://github.com/Mentalab-hub/explorepy/tree/master/installer/windows)
 
 ### CPack
 
@@ -63,6 +72,8 @@
 - [TranslationTool](https://github.com/Kybs0/TranslationTool)
 - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 - [Resolute](https://github.com/rizonesoft/Resolute)
+- https://github.com/eranif/codelite
+- https://github.com/Tyrrrz/LightBulb/tree/master/Installer
 
 ### Advanced Installer
 
@@ -123,6 +134,8 @@
 
 - DeepL Translate App for Windows
 
+  - "C:\Users\myd7349\AppData\Roaming\Programs\Zero Install\0install-win.exe" run --no-wait https://appdownload.deepl.com/windows/0install/deepl.xml
+
 ### Linux
 
 - [linuxdeployqt](https://github.com/probonopd/linuxdeployqt)
@@ -136,3 +149,9 @@
 - [MsiSneakAttack](https://github.com/Redth/MsiSneakAttack)
 
 ### [AutoUpdater.NET](https://github.com/ravibpatel/AutoUpdater.NET)
+
+### [msicreator](https://github.com/jpakkane/msicreator)
+
+### [Onova](https://github.com/Tyrrrz/Onova)
+
+- [LightBulb](https://github.com/Tyrrrz/LightBulb)

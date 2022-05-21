@@ -1,8 +1,16 @@
 ### Framework
 
+- [c4core](https://github.com/biojppm/c4core)
+
+  - [vcpkg-ftxui-sample](https://github.com/MichaelGoulding/vcpkg-ftxui-sample)
+
 - [EAGine](https://github.com/matus-chochlik/eagine-all)
 
+- [muu](https://github.com/marzer/muu)
+
 - [quickcpplib](https://github.com/ned14/quickcpplib)
+
+- [tinybits](https://github.com/r-lyeh/tinybits)
 
 - [U++](https://github.com/ultimatepp/ultimatepp)
 
@@ -29,9 +37,11 @@
 - [7-Zip-zstd](https://github.com/mcmilk/7-Zip-zstd)
 - [cpp-zipper](https://github.com/yhirose/cpp-zipper)
 - [gztool](https://github.com/circulosmeos/gztool)
+- [parzip](https://github.com/jpakkane/parzip)
 - [POCO/SevenZip](https://github.com/pocoproject/poco/tree/master/SevenZip)
 - [Qt7z](https://github.com/kanryu/quickviewer/tree/master/Qt7z/Qt7z)
 - [sharc](https://github.com/k0dai/sharc)
+- [stdarc.c](https://github.com/r-lyeh/stdarc.c)
 - [ZipArchive](https://github.com/ZipArchive/ZipArchive)
 
 ### Audio
@@ -80,6 +90,10 @@
 
 - [vector_benchmark](https://github.com/graphitemaster/vector_benchmark)
 
+### Bluetooth
+
+- [SimpleBLE](https://github.com/OpenBluetoothToolbox/SimpleBLE)
+
 ### Charting
 
 - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
@@ -92,6 +106,10 @@
 
 - [matplotlib-cpp](https://github.com/lava/matplotlib-cpp)
 
+  - [ML-Murphy](https://github.com/frozenca/ML-Murphy)
+
+- [matplotlibcpp17](https://github.com/soblin/matplotlibcpp17): A C++ header-only library for matplotlib based on pybind.
+
 - [morphologica](https://github.com/ABRG-Models/morphologica)
 
 - [PLplot](http://plplot.sourceforge.net/)
@@ -103,6 +121,7 @@
 - [advcpmv](https://github.com/jarun/advcpmv)
 - [ansicolors.h](https://github.com/dobisel/httpload/blob/master/ansicolors.h)
 - [Argos](https://github.com/jebreimo/Argos)
+- [args-parser](https://github.com/igormironchik/args-parser)
 - [commandline](https://github.com/lionkor/commandline): A C++ commandline for use in servers and chat software. Provides very simple asynchronous input/output.
 - [cpp-terminal](https://github.com/jupyter-xeus/cpp-terminal)
 - [cxxopts](https://github.com/jarro2783/cxxopts)
@@ -119,9 +138,23 @@
 
 - [cppinsights](https://github.com/andreasfertig/cppinsights)
 
+- [Embarcadero C++ Compiler](https://www.embarcadero.com/cn/free-tools/ccompiler)
+
+- GCC
+
+  - MinGW
+
+  - TDM GCC
+
+  - [WinLibs](https://winlibs.com/)
+
 ### Compression
 
 - [density](https://github.com/k0dai/density)
+
+### Computer Vision
+
+- [AliceVision](https://github.com/alicevision/AliceVision)
 
 ### Concurrency
 
@@ -146,6 +179,8 @@
 - [tink](https://github.com/google/tink)
 
 ### CSV
+
+- [CSV](https://github.com/jay/CSV)
 
 - [SACsvStream.h](https://github.com/czyt1988/sa/blob/master/src/signALib/SACsvStream.h)
 
@@ -175,7 +210,17 @@
 
 - [libbacktrace](https://github.com/ianlancetaylor/libbacktrace)
 
+### Documentation generator
+
+- [stddoc.c](https://github.com/r-lyeh/stddoc.c)
+
 ### DSP
+
+- [Armadillo](http://arma.sourceforge.net/)
+
+  - [Recommended C/C++ General Purpose DSP Libraries](https://dsp.stackexchange.com/questions/19350/recommended-c-c-general-purpose-dsp-libraries)
+
+- [cusignal](https://github.com/rapidsai/cusignal)
 
 - [DSPFilters](https://github.com/vinniefalco/DSPFilters)
 
@@ -183,9 +228,15 @@
 
 - [EDFbrowser/filt](https://gitlab.com/Teuniz/EDFbrowser/-/tree/master/filt)
 
+- [Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page)
+
 - [Fidlib](https://uazu.net/fidlib/) - [source](https://github.com/uazu/fidlib) - [clone](https://github.com/JamesHight/fidlib)
 
   - [EDFbrowser](https://gitlab.com/Teuniz/EDFbrowser)
+
+- [gnuradio](https://github.com/gnuradio/gnuradio)
+
+  - [Recommended C/C++ General Purpose DSP Libraries](https://dsp.stackexchange.com/questions/19350/recommended-c-c-general-purpose-dsp-libraries)
 
 - [mkfilter](https://github.com/university-of-york/cs-www-users-fisher/tree/master/mkfilter)
 
@@ -194,9 +245,19 @@
 
 - [q](https://github.com/cycfi/q)
 
+- [ROOT](https://github.com/root-project/root)
+
+  - [Recommended C/C++ General Purpose DSP Libraries](https://dsp.stackexchange.com/questions/19350/recommended-c-c-general-purpose-dsp-libraries)
+
 - [wavelib](https://github.com/rafat/wavelib)
 
   - [brainflow](https://github.com/brainflow-dev/brainflow/blob/master/src/data_handler/data_handler.cpp)
+
+### File System
+
+- [ferris](https://github.com/monkeyiq/ferris)
+
+  - [libferrisstreams](https://github.com/monkeyiq/libferrisstreams)
 
 ### Functional Programming
 
@@ -232,13 +293,23 @@
 
   - [svgren](https://github.com/cppfw/svgren)
 
+- [agge](https://github.com/tyoma/agge)
+
+  - [Stateful drawing APIs considered harmful](https://github.com/cpp-io2d/P0267_RefImpl/issues/31)
+
 - [FNA3D](https://github.com/FNA-XNA/FNA3D)
 
 - [freetype-gl](https://github.com/rougier/freetype-gl)
 
+- [lolremez](https://github.com/samhocevar/lolremez)
+
+- [MaterialX](https://github.com/AcademySoftwareFoundation/MaterialX)
+
 - [MGL](https://github.com/openglonmetal/MGL)
 
 - [nanovg](https://github.com/inniyah/nanovg)
+
+- [neoGFX](https://github.com/i42output/neoGFX)
 
 - [oglplus](https://github.com/matus-chochlik/eagine-oglplus)
 
@@ -274,6 +345,8 @@
   
   - [nativefiledialog-extended](https://github.com/btzy/nativefiledialog-extended)
 
+- [neoGFX](https://github.com/i42output/neoGFX)
+
 - [SixtyFPS](https://github.com/sixtyfpsui/sixtyfps)
 
 - [tinyfiledialogs](https://sourceforge.net/projects/tinyfiledialogs/)
@@ -296,7 +369,21 @@
 
 ### IDE
 
+- Dev-C++
+
+  - [Original Dev-C++](https://sourceforge.net/projects/dev-cpp/)
+
+  - [wxDev-C++](http://wxdsgn.sourceforge.net/)
+
+  - [Orwell Dev-C++](https://sourceforge.net/projects/orwelldevcpp/)
+
+  - [Bloodshed Dev-C++](https://www.bloodshed.net/)
+
+  - :star: [Embarcadero Dev-C++](https://www.embarcadero.com/cn/free-tools/dev-cpp) - [GitHub](https://github.com/Embarcadero/Dev-Cpp)
+
 - [Geno](https://github.com/Geno-IDE/Geno)
+
+- [RAD Studio](https://www.embarcadero.com/cn/products/rad-studio)
 
 ### Image Processing
 
@@ -306,6 +393,8 @@
 - [psd_sdk](https://github.com/MolecularMatters/psd_sdk)
 
 ### IO
+
+- [ADIOS2](https://github.com/ornladios/ADIOS2)
 
 - [CFileModificationChecker.h](https://github.com/d0vgan/nppexec/blob/master/NppExec/src/CFileModificationChecker.h)
 
@@ -329,6 +418,8 @@
 
 - [llfio](https://github.com/ned14/llfio)
 
+- [mahi-daq](https://github.com/mahilab/mahi-daq)
+
 - [PlatformFolders](https://github.com/sago007/PlatformFolders)
 
 - [tinydir](https://github.com/cxong/tinydir)
@@ -340,6 +431,10 @@
   - [libwatchman](https://github.com/twitter/libwatchman)
 
 ##### Memory
+
+- [dlmalloc](https://github.com/greg7mdp/dlmalloc)
+
+- [gcpp](https://github.com/hsutter/gcpp)
 
 - [mallocng-draft](https://github.com/richfelker/mallocng-draft)
 
@@ -355,6 +450,8 @@
 
 - [mahi-com](https://github.com/mahilab/mahi-com)
 
+  - https://github.com/mahilab/mahi-com/blob/master/include/Mahi/Com/SharedMemory.hpp
+
 ### IPC
 
 - [AsyncIPC](https://github.com/JelinYao/AsyncIPC)
@@ -366,6 +463,8 @@
 - [tcpshm](https://github.com/MengRao/tcpshm)
 
 ### JSON
+
+- [bson-cxx](https://github.com/dwight/bson-cxx)
 
 - [cpp-jsonlib](https://github.com/yhirose/cpp-jsonlib)
 
@@ -387,6 +486,8 @@
 
 - [jwt-cpp](https://github.com/Thalhammer/jwt-cpp)
 
+- [QtJsonSchema](https://github.com/yznpku/QtJsonSchema)
+
 - [VaRest](https://github.com/ufna/VaRest)
 
 - [vjson](https://github.com/vivkin/vjson)
@@ -397,10 +498,18 @@
 
 ##### via JSON
 
+- [denoffi](https://github.com/denoffi/denoffi)
+
 - [TDLib](https://github.com/tdlib/td)
   - https://github.com/tdlib/td/blob/master/example/python/tdjson_example.py 
 
 - [sdkffi](https://github.com/BehroozAbbassi/sdkffi)
+
+##### Fortran -> C
+
+- [f2c](https://netlib.org/f2c/)
+
+  - [pffft](https://github.com/marton78/pffft)
 
 ##### C++ -> C
 
@@ -465,6 +574,10 @@
 
 - [cutlass](https://github.com/NVIDIA/cutlass)
 
+- Eigen
+
+  - [AI4Animation](https://github.com/sebastianstarke/AI4Animation)
+
 - [exprtk](https://github.com/ArashPartow/exprtk)
   
   - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
@@ -473,7 +586,13 @@
 
 - [GLFFT](https://github.com/Themaister/GLFFT)
 
+- [KMeansRex](https://github.com/michaelchughes/KMeansRex)
+
 - [libqalculate](https://github.com/Qalculate/libqalculate)
+
+- [light-matrix](https://github.com/lindahua/light-matrix)
+
+- [lolremez](https://github.com/samhocevar/lolremez)
 
 - [morn_calculate.c](https://github.com/jingweizhanghuai/Morn/blob/master/src/math/morn_calculate.c)
 
@@ -517,13 +636,19 @@
 
 - [Mesh](https://github.com/plasma-umass/Mesh)
 
+- [tracey](https://github.com/r-lyeh-archived/tracey)
+
 ### Multimedia
 
 ##### Video
 
 - [libaribcaption](https://github.com/xqq/libaribcaption)
 
+- [Video++](https://github.com/matt-42/vpp)
+
 ### Networking
+
+- [acl](https://github.com/acl-dev/acl)
 
 - [celix](https://github.com/apache/celix)
 
@@ -547,6 +672,8 @@
 
 - [libwebrtc](https://github.com/webrtc-sdk/libwebrtc)
 
+- [lithium](https://matt-42.github.io/lithium/) - [lithium](https://github.com/matt-42/lithium)
+
 - [MLS++](https://github.com/cisco/mlspp)
 
 - [mahi-com](https://github.com/mahilab/mahi-com)
@@ -568,6 +695,12 @@
 - [SFML/Network](https://github.com/SFML/SFML/tree/master/src/SFML/Network)
 
 - [tcpshm](https://github.com/MengRao/tcpshm)
+
+- [uWebSockets](https://github.com/uNetworking/uWebSockets)
+
+  - [hdf5.uws](https://github.com/HDF-NI/hdf5.uws)
+
+- [ZLMediaKit](https://github.com/ZLMediaKit/ZLMediaKit)
 
 ### Package Manager
 
@@ -637,6 +770,8 @@
 
 ### Serialization
 
+- [binaryfile](https://github.com/laferenorg/binaryfile)
+
 - [MetaStuff](https://github.com/eliasdaler/MetaStuff)
 
 - [nark-serialization](https://github.com/rockeet/nark-serialization)
@@ -669,12 +804,16 @@
 
 - [sse4-strstr](https://github.com/WojciechMula/sse4-strstr)
 
+- [stdstring.h](https://github.com/r-lyeh/stdstring.h)
+
 ### Templating
 
 - [kiss-templates](https://github.com/rbock/kiss-templates)
 - [Mustache](https://github.com/kainjow/Mustache)
 
 ### Tensor
+
+- [cudf](https://github.com/rapidsai/cudf)
 
 - [DataFrame](https://github.com/hosseinmoein/DataFrame)
 
@@ -684,15 +823,26 @@
 
 - [Boost.nowide](https://github.com/boostorg/nowide)
 - [cpp-unicodelib](https://github.com/yhirose/cpp-unicodelib)
+- [utfcpp](https://github.com/nemtrif/utfcpp)
+  - [sioyek](https://github.com/ahrm/sioyek)
 
 ### Unit Testing
 
 - [boost-ext-ut](https://github.com/boost-ext/ut)
 
+- [dessert](https://github.com/r-lyeh-archived/dessert)
+
 - [FakeIt](https://github.com/eranpeer/FakeIt)
+
+- [ftest](https://github.com/nemtrif/ftest)
+
+##### GUI Testing
+
+- [Squish](https://www.froglogic.com/squish/free-trial/)
 
 ### UUID
 
+- [sole](https://github.com/r-lyeh-archived/sole)
 - [stduuid](https://github.com/mariusbancila/stduuid)
 - [ulid](https://github.com/suyash/ulid)
 

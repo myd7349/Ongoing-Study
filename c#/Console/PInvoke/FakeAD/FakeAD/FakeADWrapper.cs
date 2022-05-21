@@ -147,3 +147,6 @@ namespace FakeAD
 // References:
 // https://docs.microsoft.com/en-us/dotnet/api/system.idisposable?view=net-6.0
 // [Set C# callback on a C++ struct obtained via P/Invoke](https://stackoverflow.com/questions/50818345/set-c-sharp-callback-on-a-c-struct-obtained-via-p-invoke)
+// [C++ callback to C#: an unhandled exception of type 'System.ExecutionEngineException' occurred in Unknown Module](https://stackoverflow.com/questions/67181407/c-callback-to-c-an-unhandled-exception-of-type-system-executionengineexcept)
+// > TestDll_AddObserver(OnMessage); is sugar for TestDll_AddObserver(new MessageDelegate(OnMessage)); -- that MessageDelegate instance needs to be kept alive (e.g. in a field) so long as the C++ code might try to invoke it. As it stands, the GC will come along and collect it at some point, and then you will crash when the C++ side tries to invoke it.
+

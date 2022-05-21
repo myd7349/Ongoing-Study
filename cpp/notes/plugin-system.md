@@ -4,6 +4,8 @@ https://github.com/sourcey/pluga
 
 https://github.com/Tracktion/pluginval
 
+https://github.com/WerWolv/ImHex-Cpp-Plugin-Template
+
 https://github.com/WerWolv/ImHex/blob/master/plugins/libimhex/include/hex/plugin.hpp
 
 https://github.com/WinMerge/winmerge/tree/master/Plugins
@@ -27,3 +29,9 @@ https://github.com/DISTRHO/DPF
 https://github.com/commontk/CTK/tree/master/Plugins
 
 https://github.com/medInria/medInria-public/tree/master/src/plugins
+
+https://github.com/Artikash/Example-Extension
+
+https://github.com/codereader/DarkRadiant/tree/master/plugins
+
+https://github.com/jferdelyi/GDSimpleBLE

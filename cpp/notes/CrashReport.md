@@ -1,3 +1,5 @@
+[Crash Reporter](https://firefox-source-docs.mozilla.org/toolkit/crashreporter/crashreporter/index.html)
+
 Libraries:
 
 - breakpad
@@ -9,6 +11,10 @@ Libraries:
   - [sentry-dotnet-minidump](https://github.com/getsentry/sentry-dotnet-minidump)
 
     - [sentry-dotnet](https://github.com/getsentry/sentry-dotnet)
+
+- [CrashReporter](https://github.com/Mogara/CrashReporter)
+
+  - [QSanguosha](https://github.com/Mogara/QSanguosha)
 
 - [CrashRpt2](https://github.com/CrashRpt/crashrpt2)
 

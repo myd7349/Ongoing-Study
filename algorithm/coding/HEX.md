@@ -29,3 +29,5 @@ https://stackoverflow.com/questions/10698097/c-sharp-hex-string-to-byte-image-an
 [Notepad2e/StrToHex.c at master · ProgerXP/Notepad2e · GitHub](https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/StrToHex.c)
 
 https://github.com/weidai11/cryptopp/blob/master/hex.h
+
+https://github.com/icedland/iced/blob/master/src/csharp/Intel/Iced/Intel/HexUtils.cs

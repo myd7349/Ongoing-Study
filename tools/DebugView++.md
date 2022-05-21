@@ -23,3 +23,13 @@ https://github.com/Yamato-Security/WELA
 https://github.com/titzer/progress
 
 https://github.com/nico/ninjatracing
+
+https://github.com/RolandPheasant/TailBlazer
+
+[Analogy.LogViewer](https://github.com/Analogy-LogViewer/Analogy.LogViewer)
+
+https://github.com/NickCarneiro/remtail
+
+https://github.com/soui3-demo/SlogViewer
+
+[YALV](https://github.com/LukePet/YALV)

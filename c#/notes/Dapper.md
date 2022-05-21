@@ -2,6 +2,10 @@
 
 [Delete multiple objects with a single query (or in transaction)](https://stackoverflow.com/questions/52588892/delete-multiple-objects-with-a-single-query-or-in-transaction)
 
+[How to use transactions with dapper.net?](https://stackoverflow.com/questions/10363933/how-to-use-transactions-with-dapper-net)
+
+[Bulk inserts taking longer than expected using Dapper](https://stackoverflow.com/questions/10689779/bulk-inserts-taking-longer-than-expected-using-dapper)
+
 ### YouTube Videos
 
 [Using SQLite in C# - Building Simple, Powerful, Portable Databases for Your Application](https://www.youtube.com/watch?v=ayp3tHEkRc0)

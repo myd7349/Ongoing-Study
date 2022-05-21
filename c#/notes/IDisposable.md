@@ -82,3 +82,5 @@ public static void OpenWithDefaultProgram(string path)
 ```
 
 [What scope does a using statement have without curly braces](https://stackoverflow.com/questions/24819576/what-scope-does-a-using-statement-have-without-curly-braces)
+
+https://github.com/StephenCleary/Disposables

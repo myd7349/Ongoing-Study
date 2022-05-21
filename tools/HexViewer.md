@@ -56,3 +56,17 @@ WinHex
 [VSCode HexEditor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor)
 
 https://hexed.it/
+
+[Hiew hex editor](https://www.hiew.ru/)
+
+- [Kiewtai](https://github.com/taviso/kiewtai)
+
+[Tools for compare binary files](https://stackoverflow.com/questions/8166697/tool-for-comparing-2-binary-files-in-windows):
+
+- BeyondCompare
+- TotalCommander
+- [cmp](https://github.com/Shelwien/cmp)
+
+https://github.com/dnSpy/dnSpy/tree/master/dnSpy/dnSpy/Hex
+
+[bitinsight](https://github.com/compilelife/bitinsight)

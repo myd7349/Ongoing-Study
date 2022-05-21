@@ -21,3 +21,4 @@
 > }
 > ```
 
+[Correct way of Renting and Returning a multi-dimensional array in C# from shared ArrayPool?](https://stackoverflow.com/questions/67231958/correct-way-of-renting-and-returning-a-multi-dimensional-array-in-c-sharp-from-s)

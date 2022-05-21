@@ -142,3 +142,6 @@
 // https://github.com/j-maly/CommandLineParser/blob/master/src/CommandLineArgumentsParser/Compatibility/TypeExtensions.cs
 // https://github.com/natemcmaster/DotNetCorePlugins
 // https://github.com/mattleibow/SkiaSharpFiddle
+// [ActivatorUtilities](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.activatorutilities?view=dotnet-plat-ext-6.0)
+// [.NET Core Console App with Dependency Injection, Logging, and Settings](https://www.youtube.com/watch?v=GAOCe-2nXqc)
+// [Understanding How Assemblies Load in C# .NET](https://michaelscodingspot.com/assemblies-load-in-dotnet/)

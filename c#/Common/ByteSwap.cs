@@ -118,3 +118,8 @@
 // https://github.com/dbrant/imageformats/blob/master/ImageFormats/Util.cs
 // https://github.com/ciniml/WireGuard-ESP32-Arduino/blob/main/src/crypto.h
 // https://github.com/iOrange/QoiFileTypeNet/blob/b8d8f899400cd0edb999294e860a2aa6bd0cffd6/QoiFile.cs#L59-L64
+// [BinaryPrimitives.ReadUInt32BigEndian](https://docs.microsoft.com/en-us/dotnet/api/system.buffers.binary.binaryprimitives.readuint32bigendian?view=net-6.0)
+// [C# 大端小端转换](https://blog.lindexi.com/post/C-%E5%A4%A7%E7%AB%AF%E5%B0%8F%E7%AB%AF%E8%BD%AC%E6%8D%A2.html)
+// https://github.com/Apollo3zehn/HDF5.NET/blob/master/src/HDF5.NET/Filters/EndiannessConverter.cs
+// https://github.com/aybe/BinaryExtensions/blob/develop/BinaryExtensions/BinaryExtensions/EndiannessExtensions.cs
+// https://github.com/StephenCleary/Guids/blob/master/src/Nito.Guids/GuidUtility.cs

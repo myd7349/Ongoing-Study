@@ -1,0 +1,100 @@
+﻿<Window x:Class="TTSDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
+        xmlns:speech="clr-namespace:System.Speech.Synthesis;assembly=System.Speech"
+        xmlns:local="clr-namespace:TTSDemo"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local:MainWindowViewModel x:Name="mainWindowViewModel_" />
+    </Window.DataContext>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0"
+                   VerticalContentAlignment="Center"
+                   Content="File:" />
+            <TextBox Grid.Column="2"
+                     IsReadOnly="True" />
+            <Button Grid.Column="4" Content="Select File..." />
+        </Grid>
+
+        <TextBox Grid.Row="2"
+                 AcceptsReturn="True"
+                 Text="{Binding TextToSpeak, UpdateSourceTrigger=PropertyChanged}"
+                 TextWrapping="Wrap" />
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1"
+                   VerticalContentAlignment="Center"
+                   Content="Voice:" />
+            <ComboBox Grid.Column="3"
+                      MinWidth="100"
+                      ItemsSource="{Binding InstalledVoices}"
+                      SelectedItem="{Binding SelectedVoice}"
+                      DisplayMemberPath="VoiceInfo.Name" />
+            <Label Grid.Column="5"
+                   VerticalContentAlignment="Center"
+                   Content="Volume:" />
+            <Slider Grid.Column="7"
+                    Width="100"
+                    VerticalAlignment="Center"
+                    Minimum="0"
+                    Maximum="100"
+                    Orientation="Horizontal"
+                    Value="{Binding Volume}" />
+            <Button Grid.Column="9"
+                    x:Name="speakButton_"
+                    Content="Speak"
+                    Click="speakButton__Click" />
+        </Grid>
+    </Grid>
+    <!--
+    References:
+    https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/wiki/Super-Quick-Start
+    https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/wiki/Getting-Started
+    https://www.youtube.com/watch?v=-n5yeEOsbCk
+    [How do I make a WPF TextBlock show my text on multiple lines?](https://stackoverflow.com/questions/7406973/how-do-i-make-a-wpf-textblock-show-my-text-on-multiple-lines)
+    -->
+</Window>

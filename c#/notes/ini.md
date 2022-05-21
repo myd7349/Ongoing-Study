@@ -6,6 +6,8 @@
 
 https://github.com/rickyah/ini-parser
 
+- Zero Install
+
 https://github.com/MarioZ/MadMilkman.Ini
 
 https://github.com/JeevanJames/IniFile
@@ -22,3 +24,4 @@ https://github.com/janerist/IniFile
 - https://github.com/microsoft/Vipr/blob/master/src/Core/Vipr/ConfigurationProvider.cs
 - https://github.com/aspnet/Configuration/blob/master/src/Config.Ini/IniConfigurationProvider.cs
 
+[INIFileParser](https://github.com/SoftCircuits/IniFileParser)

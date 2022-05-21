@@ -6,6 +6,7 @@
   - https://github.com/LEI-Hongfaan/UltimateOrb.Core
   - https://github.com/ArgusMagnus/FFTW.NET/blob/master/FFTW.NET/FftwInterop.tt
   - [Text Template (.tt file), Define array and iterate through generating method for multiple types](https://stackoverflow.com/questions/56922493/text-template-tt-file-define-array-and-iterate-through-generating-method-for)
+  - https://github.com/aybe/BinaryExtensions/blob/develop/BinaryExtensions/BinaryExtensions/EndiannessExtensions.tt
 
 - [T5](https://github.com/atifaziz/t5)
 

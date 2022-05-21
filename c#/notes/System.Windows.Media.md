@@ -46,3 +46,25 @@
 - https://github.com/reneschulte/WriteableBitmapEx/blob/master/Source/WriteableBitmapExBlitSample.Wpf/MainWindow.xaml.cs
 
 - https://github.com/walterlv/walterlv.demo/blob/master/Walterlv.Demo.HighPerformanceBitmap/Walterlv.Demo.HighPerformanceBitmap/MainWindow.xaml.cs
+
+- [How to draw a full ellipse in a StreamGeometry in WPF?](https://stackoverflow.com/questions/2979834/how-to-draw-a-full-ellipse-in-a-streamgeometry-in-wpf)
+
+- [EllipseGeometry Class](https://docs.microsoft.com/en-us/dotnet/api/system.windows.media.ellipsegeometry?view=windowsdesktop-6.0)
+
+##### DrawingGroup
+
+- [Rendering into a custom DrawingContext](https://stackoverflow.com/questions/18193122/rendering-into-a-custom-drawingcontext)
+
+- [How I can use the converted xaml in WPF with vector](https://github.com/ElinamLLC/SharpVectors/discussions/179)
+
+- [Get images from DrawingGroup](https://stackoverflow.com/questions/14267228/get-images-from-drawinggroup)
+
+- [How to: Draw an Image Using ImageDrawing](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/graphics-multimedia/how-to-draw-an-image-using-imagedrawing?view=netframeworkdesktop-4.8)
+
+- [How to: Hit Test Geometry in a Visual](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/graphics-multimedia/how-to-hit-test-geometry-in-a-visual?view=netframeworkdesktop-4.8)
+
+- [WPF: Converting nested DrawingGroup to nested DrawingVisual](https://stackoverflow.com/questions/3499676/wpf-converting-nested-drawinggroup-to-nested-drawingvisual)
+
+##### BitmapCache
+
+- [How to: Improve Rendering Performance by Caching an Element](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/graphics-multimedia/how-to-improve-rendering-performance-by-caching-an-element?view=netframeworkdesktop-4.8)

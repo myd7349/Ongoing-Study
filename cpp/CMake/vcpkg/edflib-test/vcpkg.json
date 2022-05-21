@@ -1,0 +1,7 @@
+{
+  "name": "edflib-test",
+  "version-semver": "1.1.0",
+  "dependencies": [
+    "edflib"
+  ]
+}

@@ -18,7 +18,11 @@
 
 - [QTranslate](https://quest-app.appspot.com/)
 
+- [qwerty-learner](https://github.com/Kaiyiwing/qwerty-learner)
+
 - StarDict
+
+- [translate-shell](https://github.com/soimort/translate-shell)
 
 - [TranslationTool](https://github.com/Kybs0/TranslationTool)
 
@@ -43,3 +47,9 @@
 - [wordlist](http://www-personal.umich.edu/~jlawler/wordlist)
 
 - [wordlists](https://github.com/xajkep/wordlists)
+
+### Abbrev
+
+- https://github.com/kkokosa/Strings.Abbreviations/blob/master/src/Strings.Abbreviations/Strings.cs
+
+- https://www.abbreviations.com/

@@ -3,5 +3,7 @@
 ```python
 import webbrowser
 webbrowser.open('http://google.co.kr', new=2)
+webbrowser.open_new('http://google.co.kr')
+webbrowser.open_new_tab('http://google.co.kr')
 ```
 

@@ -75,3 +75,15 @@ public string ImageFullPath
 ```
 
 [Use of Attributes... INotifyPropertyChanged](https://stackoverflow.com/questions/1662745/use-of-attributes-inotifypropertychanged)
+
+[ConditionalWeakTable<TKey,TValue>](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.conditionalweaktable-2?view=net-6.0)
+
+- [Understanding ConditionalWeakTable](https://stackoverflow.com/questions/18465630/understanding-conditionalweaktable)
+
+- https://github.com/CommunityToolkit/dotnet/blob/main/CommunityToolkit.Diagnostics/Extensions/TypeExtensions.cs
+
+- https://github.com/ronnieoverby/Overby.Extensions.Attachments
+
+Unsafe.Add
+
+- https://github.com/CommunityToolkit/dotnet/blob/main/CommunityToolkit.Diagnostics/Extensions/ValueTypeExtensions.cs

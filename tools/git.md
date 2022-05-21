@@ -49,7 +49,13 @@ Tools:
 
 - [git-crypt](https://github.com/AGWA/git-crypt)
 
+- [git-extras](https://github.com/tj/git-extras)
+
+- [git-repo](https://github.com/esrlabs/git-repo)
+
 - [git-revise](https://github.com/mystor/git-revise)
+
+- [git-sketch-plugin](https://github.com/mathieudutour/git-sketch-plugin)
 
 - [gitlist](https://github.com/klaussilveira/gitlist)
 

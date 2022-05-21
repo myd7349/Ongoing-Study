@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32630.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogUnhandledException", "LogUnhandledException\LogUnhandledException.csproj", "{F586D9CD-C833-4944-A4A2-E298CF9E428C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.DotNet", "..\..\..\Common.DotNet\Common.DotNet.csproj", "{977025A1-3970-4A43-B0BF-0D43D5572F7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F586D9CD-C833-4944-A4A2-E298CF9E428C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F586D9CD-C833-4944-A4A2-E298CF9E428C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F586D9CD-C833-4944-A4A2-E298CF9E428C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F586D9CD-C833-4944-A4A2-E298CF9E428C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{977025A1-3970-4A43-B0BF-0D43D5572F7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{977025A1-3970-4A43-B0BF-0D43D5572F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{977025A1-3970-4A43-B0BF-0D43D5572F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{977025A1-3970-4A43-B0BF-0D43D5572F7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {320CB41C-592E-4167-9E4B-1CF2ED58D5EC}
+	EndGlobalSection
+EndGlobal

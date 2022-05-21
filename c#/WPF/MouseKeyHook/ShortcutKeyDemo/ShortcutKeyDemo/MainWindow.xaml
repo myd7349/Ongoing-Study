@@ -1,0 +1,71 @@
+﻿<Window x:Class="ShortcutKeyDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShortcutKeyDemo"
+        xmlns:wpf="clr-namespace:Common.WPF;assembly=Common.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="WidthAndHeight">
+    <Window.DataContext>
+        <local:MainWindowViewModel x:Name="mainViewModel_" />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <Style TargetType="wpf:HotKeyTextBox">
+            <EventSetter Event="GotFocus" Handler="HotKeyTextBox_GotFocus" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="33" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="33" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="120" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0"
+               Content="Say hello:"
+               VerticalAlignment="Center" />
+        <wpf:HotKeyTextBox Grid.Row="0" Grid.Column="1"
+                           VerticalAlignment="Center"
+                           HotKey="{Binding SayHelloShortcut}" />
+
+        <Label Grid.Row="2" Grid.Column="0"
+               Content="Minimize:"
+               VerticalAlignment="Center" />
+        <wpf:HotKeyTextBox Grid.Row="2" Grid.Column="1"
+                           VerticalAlignment="Center"
+                           HotKey="{Binding MinimizeShortcut}" />
+
+        <Label Grid.Row="4" Grid.Column="0"
+               Content="Restore:"
+               VerticalAlignment="Center" />
+        <wpf:HotKeyTextBox Grid.Row="4" Grid.Column="1"
+                           VerticalAlignment="Center"
+                           HotKey="{Binding RestoreShortcut}" />
+
+        <CheckBox Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                  x:Name="globalHookCheckBox_"
+                  Content="Global hook"
+                  Click="globalHookCheckBox__Click" />
+        <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"
+                x:Name="hookButton_"
+                Content="{Binding HookButtonText}"
+                Click="hookButton__Click" />
+    </Grid>
+</Window>

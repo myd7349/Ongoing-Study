@@ -169,6 +169,7 @@
     - [getopt_long() -- proper way to use it?](https://stackoverflow.com/questions/7489093/getopt-long-proper-way-to-use-it)
   - [Argument-parsing helpers for C/Unix](https://stackoverflow.com/questions/189972/argument-parsing-helpers-for-c-unix)
     > GNU has [gengetopt](https://www.gnu.org/software/gengetopt/) which generates code for an options data structure and the getopt_long code to parse the command line and fill the structure.
+  - https://github.com/zint/zint
 
 - popt
   
@@ -205,3 +206,5 @@
 - [Parsing command-line arguments in C](https://stackoverflow.com/questions/9642732/parsing-command-line-arguments-in-c)
 
 - https://github.com/dberlin/superfuzz/blob/master/include/option.h
+
+- https://github.com/vivaladav/cpu-stat/blob/master/src/OptionsParser.h

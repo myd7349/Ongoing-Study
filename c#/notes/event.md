@@ -4,3 +4,4 @@
 
 [Check the eventhandler exist for particular event present in the object](https://stackoverflow.com/questions/18112391/check-the-eventhandler-exist-for-particular-event-present-in-the-object)
 
+[How to remove all event handlers from an event](https://stackoverflow.com/questions/91778/how-to-remove-all-event-handlers-from-an-event)

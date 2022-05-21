@@ -11,3 +11,7 @@ Neat Reader
 [Reader](https://github.com/binbyu/Reader)
 
 [QuickLook.Plugin.EpubViewer](https://github.com/QL-Win/QuickLook.Plugin.EpubViewer)
+
+https://github.com/jianyun8023/convert-ebook
+
+https://github.com/rupa/epub

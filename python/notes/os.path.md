@@ -14,3 +14,10 @@
    > ```
 
 3. [which](https://github.com/Z3Prover/z3/blob/z3-4.8.15/scripts/mk_util.py#L176-L191)
+
+4. expanduser
+
+```python
+# https://susam.net/blog/import-readline.html
+HISTORY_FILE = os.path.expanduser('~/.repl_history')
+```

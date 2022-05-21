@@ -128,3 +128,85 @@
 - [Globally catch exceptions in a WPF application?](https://stackoverflow.com/questions/793100/globally-catch-exceptions-in-a-wpf-application)
 
 - [WPF global exception handler](https://stackoverflow.com/questions/1472498/wpf-global-exception-handler)
+
+5. [Globally catch exceptions in a WPF application?](https://stackoverflow.com/questions/793100/globally-catch-exceptions-in-a-wpf-application)
+
+```csharp
+public partial class App : Application
+{
+    private static Logger _logger = LogManager.GetCurrentClassLogger();
+
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        base.OnStartup(e);
+
+        SetupExceptionHandling();
+    }
+
+    private void SetupExceptionHandling()
+    {
+        AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+            LogUnhandledException((Exception)e.ExceptionObject, "AppDomain.CurrentDomain.UnhandledException");
+
+        DispatcherUnhandledException += (s, e) =>
+        {
+            LogUnhandledException(e.Exception, "Application.Current.DispatcherUnhandledException");
+            e.Handled = true;
+        };
+
+        TaskScheduler.UnobservedTaskException += (s, e) =>
+        {
+            LogUnhandledException(e.Exception, "TaskScheduler.UnobservedTaskException");
+            e.SetObserved();
+        };
+    }
+
+    private void LogUnhandledException(Exception exception, string source)
+    {
+        string message = $"Unhandled exception ({source})";
+        try
+        {
+            System.Reflection.AssemblyName assemblyName = System.Reflection.Assembly.GetExecutingAssembly().GetName();
+            message = string.Format("Unhandled exception in {0} v{1}", assemblyName.Name, assemblyName.Version);
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Exception in LogUnhandledException");
+        }
+        finally
+        {
+            _logger.Error(exception, message);
+        }
+    }
+}
+```
+
+6. [Can you catch a native exception in C# code?](https://stackoverflow.com/questions/150544/can-you-catch-a-native-exception-in-c-sharp-code)
+
+```csharp
+[HandleProcessCorruptedStateExceptions] 
+[SecurityCritical]
+private static void Main() 
+{ 
+    try 
+    {
+       //call native code method
+    } 
+    catch (Exception ex) 
+    {
+       //do stuff
+    } 
+}
+
+<configuration>  
+   <runtime>  
+      <legacyCorruptedStateExceptionsPolicy enabled="true" />
+   </runtime>  
+</configuration>  
+```
+
+7. [WPF Corrupted state exceptions. How to implement HandleProcessCorruptedStateExceptions](https://stackoverflow.com/questions/5355768/wpf-corrupted-state-exceptions-how-to-implement-handleprocesscorruptedstateexce)
+
+8. [Exception in callback from native code crushes the whole application on Ubuntu 20.04](https://github.com/dotnet/runtime/issues/42842)
+
+9. [How slow are .NET exceptions?](https://stackoverflow.com/questions/161942/how-slow-are-net-exceptions)

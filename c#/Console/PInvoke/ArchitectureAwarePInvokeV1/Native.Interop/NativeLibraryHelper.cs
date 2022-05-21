@@ -72,3 +72,4 @@
 
 // References:
 // https://github.com/chmorgan/sharppcap/blob/master/SharpPcap/LibPcap/NativeLibraryHelper.cs
+// https://github.com/mono/SkiaSharp/blob/main/binding/Binding.Shared/LibraryLoader.cs

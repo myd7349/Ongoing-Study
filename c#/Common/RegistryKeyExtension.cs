@@ -129,3 +129,8 @@ namespace Common.Configuration.Registry
 
     }
 }
+
+
+// References:
+// https://github.com/Tyrrrz/LightBulb/blob/master/LightBulb.WindowsApi/Native/RegistryEx.cs
+// https://github.com/Tyrrrz/LightBulb/blob/master/LightBulb.WindowsApi/RegistrySwitch.cs

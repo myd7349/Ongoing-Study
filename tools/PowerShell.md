@@ -106,6 +106,8 @@ https://github.com/nodejs/node/blob/master/deps/corepack/shims/npm.ps1
 
 [oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh)
 
+[posh-git](https://github.com/dahlbyk/posh-git)
+
 Modules
 
 - [ImportExcel](https://github.com/dfinke/ImportExcel)
@@ -129,3 +131,12 @@ Others
 - https://github.com/sailay1996/SpoolTrigger
 
 - https://github.com/Yamato-Security/WELA
+
+- https://github.com/sorayuki/srt_build_win32
+
+https://github.com/bitwarden/server
+
+> ```powershell
+> Invoke-RestMethod -OutFile bitwarden.ps1 `
+>     -Uri https://raw.githubusercontent.com/bitwarden/server/master/scripts/bitwarden.ps1
+> ```

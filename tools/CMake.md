@@ -191,7 +191,7 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
 27. https://github.com/ess-dmsc/h5cpp/blob/master/cmake/cmake_uninstall.cmake.in
 
 28. https://github.com/KhronosGroup/glslang/blob/master/parse_version.cmake
-    
+
     https://github.com/KhronosGroup/glslang/blob/9431c53c84c14fa9e9cd37678262ebba55c62c87/parse_version.cmake#L23-L41
 
 29. [WIN32 var has been deprecated in later versions of cmake.](https://github.com/google/glog/commit/d2fed749a5a69354b22c32ee128f5dbabeeabcf3)
@@ -203,29 +203,29 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
 32. [Define DEBUG and RELEASE symbols in Visual Studio Code](https://stackoverflow.com/questions/58783805/define-debug-and-release-symbols-in-visual-studio-code)
 
 33. VS Code and CMake
-    
+
     - [Configure Visual Studio Code for CMake with some options](https://stackoverflow.com/questions/42423536/configure-visual-studio-code-for-cmake-with-some-options)
     - [Getting Started](https://vector-of-bool.github.io/docs/vscode-cmake-tools/getting_started.html#getting-started)
     - [Configuring CMake Tools](https://vector-of-bool.github.io/docs/vscode-cmake-tools/settings.html#conf-cmake-configuresettings)
     - [CMake Configuring](https://vector-of-bool.github.io/docs/vscode-cmake-tools/configuring.html#configuring)
 
 34. CMake project templates
-    
+
     - https://github.com/friendlyanon/cmake-init
     - https://github.com/friendlyanon/cxx-static-shared-example
     - https://github.com/friendlyanon/cmake-init-executable
     - https://github.com/friendlyanon/cmake-init-header-only
 
 35. FindPackageHandleStandardArgs.cmake
-    
+
     > `REQUIRED_VARS` specify the variables which are required for this package.
     > 
     > These may be named in the generated failure message asking the user to set the missing variable values. Therefore these should typically be cache entries such as `FOO_LIBRARY` and not output variables like `FOO_LIBRARIES`.
-    
+
     [What does FindPackageHandleStandardArgs do exactly?](https://stackoverflow.com/questions/52785157/what-does-findpackagehandlestandardargs-do-exactly)
-    
+
     Good:
-    
+
     > ```cmake
     > # https://github.com/facebook/folly/blob/427077374736415f4eb6c497f9172ae9e4a9f1d7/CMake/FindFmt.cmake#L15-L41
     > find_path(LIBFMT_INCLUDE_DIR fmt/core.h)
@@ -256,27 +256,27 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
     >     )
     > endif()
     > ```
-    
+
     Good:
-    
+
     FindCURL.cmake
-    
+
     Bad:
-    
+
     https://github.com/zeromq/czmq/blob/master/Findlibzmq.cmake
 
 36. https://github.com/desktop-app/cmake_helpers
 
 37. cmake_push_check_state
-    
+
     https://github.com/google/glog/pull/724/files
 
 38. [How to check for a symbol that requires two header files in CMake?](https://stackoverflow.com/questions/13611847/how-to-check-for-a-symbol-that-requires-two-header-files-in-cmake)
-    
+
     > check_symbol_exists (getifaddrs "sys/types.h;ifaddrs.h" SP_HAVE_IFADDRS)
 
 39. [cmake_format](https://github.com/cheshirekow/cmake_format)
-    
+
     [Format.cmake](https://github.com/TheLartians/Format.cmake)
 
 40. [cmake-examples: Useful CMake Examples](https://github.com/ttroy50/cmake-examples)
@@ -286,3 +286,9 @@ https://github.com/google/benchmark/blob/master/cmake/AddCXXCompilerFlag.cmake
 42. [GitHub - scikit-build/cmake-FindVcvars: Finds a &quot;vcvars&quot; batch script. This CMake module can be used when configuring a project or when running in cmake -P script mode.](https://github.com/scikit-build/cmake-FindVcvars)
 
 43. [corrosion](https://github.com/corrosion-rs/corrosion) - CMake & Rust
+
+44. https://github.com/Sarcasm/cmake-superbuild
+
+45. https://github.com/LLNL/blt
+
+    https://github.com/LLNL/Umpire

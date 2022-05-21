@@ -31,3 +31,8 @@ Extensions:
 - [VSCode HexEditor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor)
 
 - [.NET Interactive Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode)
+
+- [VSCode 配置最舒适的深度学习开发环境](https://l1aoxingyu.github.io/blogpages/vscode/tool/development/deep%20learning/2022/02/19/vscode-develop_tool.html)
+
+- [Visual Studio Code 配置 C/C++ 开发环境最佳实践(VSCode+Clang+Clangd+LLDB)](https://zhuanlan.zhihu.com/p/398790625)
+

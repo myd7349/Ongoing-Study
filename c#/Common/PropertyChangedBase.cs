@@ -1,9 +1,11 @@
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace Common
 {
-    public class PropertyChangedBase : INotifyPropertyChanged
+    public abstract class PropertyChangedBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -11,6 +13,24 @@ namespace Common
         {
             var handler = PropertyChanged;
             handler?.Invoke(sender ?? this, new PropertyChangedEventArgs(name));
+        }
+
+        protected virtual bool SetProperty<T2>(
+            ref T2 backingStore, T2 value,
+            [CallerMemberName]string propertyName = "",
+            Action onChanged = null,
+            Func<T2, T2, bool> validateValue = null)
+        {
+            if (EqualityComparer<T2>.Default.Equals(backingStore, value))
+                return false;
+
+            if (validateValue != null && !validateValue(backingStore, value))
+                return false;
+
+            backingStore = value;
+            onChanged?.Invoke();
+            OnPropertyChanged(propertyName);
+            return true;
         }
     }
 }
@@ -31,5 +51,6 @@ namespace Common
 //   - ObservableObject
 // - https://github.com/CommunityToolkit/MVVM-Samples
 // [mvvm-helpers](https://github.com/jamesmontemagno/mvvm-helpers)
+// - ObservableObject
 // - BaseViewModel
 // - [SkiaSharpFiddle](https://github.com/mattleibow/SkiaSharpFiddle)

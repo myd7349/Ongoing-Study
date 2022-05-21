@@ -49,3 +49,17 @@ How to load a dll from memory?
 - [pupy/LoadLibraryR.c at unstable · n1nj4sec/pupy · GitHub](https://github.com/n1nj4sec/pupy/blob/unstable/client/sources/LoadLibraryR.c)
 
 - [py2exe/MemoryModule.c at master · py2exe/py2exe · GitHub](https://github.com/py2exe/py2exe/blob/master/source/MemoryModule.c)
+
+[What is the use of .exp and what is the difference between .lib and .dll?](https://stackoverflow.com/questions/2727020/what-is-the-use-of-exp-and-what-is-the-difference-between-lib-and-dll)
+
+fftw-3.3.5-dll32\README-WINDOWS
+
+> In order to link to these .dll files from Visual C++, you need to create .lib "import libraries" for them, and can do so with the "lib" command that comes with VC++.  In particular, run:
+> 
+>   lib /def:libfftw3f-3.def
+>   
+>   lib /def:libfftw3-3.def
+>   
+>   lib /def:libfftw3l-3.def
+
+[What's the format of .lib in windows?](https://stackoverflow.com/questions/3811437/whats-the-format-of-lib-in-windows)

@@ -65,6 +65,10 @@ Awesome README.md:
 
 - [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-github-profile-readme)
 
+- https://github.com/vn7n24fzkq/github-profile-summary-cards
+
+  - https://github.com/maekawatoshiki/maekawatoshiki
+
 - https://github.com/RehanSaeed
 
 - https://github.com/ethomson
@@ -173,3 +177,7 @@ https://github.com/aaossa/git-activity
 https://github.com/brminnick/GitTrends
 
 https://github.com/ekalinin/github-markdown-toc
+
+https://github.com/dogsheep/github-to-sqlite
+
+https://github.com/jaywcjlove/github-rank

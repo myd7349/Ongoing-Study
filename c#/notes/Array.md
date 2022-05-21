@@ -8,3 +8,42 @@ C# 6.0 in a Nutshell, P301
 
 [ArraySegment](https://github.com/joaoportela/CircularBuffer-CSharp/blob/444a9ef47f03f5e687b9ba4a8be0de86a5a83027/CircularBuffer/CircularBuffer.cs#L259-L287)
 
+[Convert 2 dimensional array](https://stackoverflow.com/questions/641499/convert-2-dimensional-array)
+
+[Fast way to convert a two dimensional array to a List ( one dimensional )](https://stackoverflow.com/questions/5132397/fast-way-to-convert-a-two-dimensional-array-to-a-list-one-dimensional)
+
+[What's the best way to extract a one-dimensional array from a rectangular array in C#?](https://stackoverflow.com/questions/232545/whats-the-best-way-to-extract-a-one-dimensional-array-from-a-rectangular-array)
+
+[Getting a double[] row array of a double[,] rectangular array](https://stackoverflow.com/questions/2977242/getting-a-double-row-array-of-a-double-rectangular-array)
+
+```csharp
+var array1 = new double[3,4] { { 0, 0, 0, 0 }, { 1, 1, 1, 1 }, { 2, 2, 2, 2 } };
+Console.WriteLine(array1);
+try
+{
+    Console.WriteLine((double[])(object)array1);
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex);
+}
+var array2 = new double[Buffer.ByteLength(array1) / sizeof(double)];
+Buffer.BlockCopy(array1, 0, array2, 0, Buffer.ByteLength(array1));
+Console.WriteLine(array2);
+```
+
+Array.Empty<T>():
+
+```csharp
+var array = Array.Empty<double>();
+Console.WriteLine(array);
+Console.WriteLine(array.GetType());
+Console.WriteLine(array.Length);
+
+// References:
+// https://github.com/dotnet/runtime/blob/main/src/libraries/System.IO.Ports/src/System/IO/Ports/SerialPort.Win32.cs
+```
+
+[Avoiding Array Pitfalls in C# .NET](https://levelup.gitconnected.com/avoiding-array-pitfalls-in-c-net-a229a29bc45d)
+
+> Bottom-Line: Avoid allocating new empty arrays. Use Array.Empty<T>() instead.

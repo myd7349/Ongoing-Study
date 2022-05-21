@@ -36,3 +36,15 @@ $"{i:0000}"; // string interpolation (C# 6.0+)
 [How to do Alignment within string.Format in C#?](https://stackoverflow.com/questions/4579506/how-to-do-alignment-within-string-format-in-c)
 
 https://www.csharp-examples.net/align-string-with-spaces/
+
+[How to remove all white space from the beginning or end of a string?](https://stackoverflow.com/questions/3381952/how-to-remove-all-white-space-from-the-beginning-or-end-of-a-string)
+
+string.Concat
+
+```csha
+// https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/IO/Path.cs
+return extension.StartsWith('.') ?
+    string.Concat(subpath, extension) :
+    string.Concat(subpath, ".", extension);
+```
+

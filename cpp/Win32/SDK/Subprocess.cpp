@@ -164,4 +164,5 @@ unsigned int __stdcall Subprocess::ProcessOutput(void *arg) {
 // https://github.com/Genymobile/scrcpy/blob/master/app/src/util/process.h
 // https://github.com/kingsamchen/Eureka/tree/master/run-child-process
 // https://github.com/sheredom/subprocess.h
+// https://github.com/rochus-keller/MonoTools/blob/master/MonoEngine.cpp
 // clang-format on

@@ -1,7 +1,8 @@
 [windows下有什么好用的屏幕录像软件？](https://www.zhihu.com/question/22202142)
 
 - OBS Studio
-  - [capsule](https://github.com/itchio/capsule) 
+  - [capsule](https://github.com/itchio/capsule)
+  - [obs-multi-rtmp](https://github.com/sorayuki/obs-multi-rtmp)
   - [obs-websocket](https://github.com/obsproject/obs-websocket)
 - ApowerREC
 - __Bandicam
@@ -16,6 +17,7 @@
 - 屏幕录像大师
 - CompuClever Ultra Screen Recorder
 - FormatFactory
+- [Screencast Capture Lite](https://github.com/cesarsouza/screencast-capture)
 - Screencastify for Chrome
 - [Screenflow](https://sspai.com/post/71918)
 - [screengrab](https://github.com/lxqt/screengrab)
@@ -34,3 +36,13 @@
 - [lximage-qt](https://github.com/lxqt/lximage-qt)
 - [asciinema](https://github.com/asciinema/asciinema)
   - [cast2gif](https://github.com/foubian/cast2gif)
+- [HandyScreenshot](https://github.com/HandyOrg/HandyScreenshot)
+- [ZoomIt](https://docs.microsoft.com/en-us/sysinternals/downloads/zoomit)
+- [pageres-cli](https://github.com/sindresorhus/pageres-cli)
+- [Deepin Screen Recorder](https://github.com/linuxdeepin/deepin-screen-recorder)
+- [shot-scraper](https://github.com/simonw/shot-scraper)
+- [Shottr](https://shottr.cc/)
+- CleanShot
+- Xnip
+- ishot
+- [Kooha](https://github.com/SeaDve/Kooha)

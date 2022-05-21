@@ -18,6 +18,17 @@ namespace Common
                 array[i] = value;
         }
 
+        public static void Fill<T>(this T[] array, int offset, int count, T value)
+        {
+            if (array == null)
+                throw new ArgumentNullException("array");
+
+            ValidateArray(array, offset, count);
+
+            for (int i = 0; i < count; i++)
+                array[offset + i] = value;
+        }
+
         public static void Fill<T>(this T[,] array, T value)
         {
             if (array == null)
@@ -70,6 +81,18 @@ namespace Common
                 return (T[])array.Clone();
 
             return array.Skip(rotate).Concat(array.Take(rotate)).ToArray();
+        }
+
+        public static void ValidateArray<T>(T[] array, int offset, int count)
+        {
+            if (array == null)
+                throw new ArgumentNullException("array");
+
+            if (offset < 0 || offset >= array.Length)
+                throw new ArgumentOutOfRangeException("offset");
+
+            if (count <= 0 || offset + count > array.Length)
+                throw new ArgumentOutOfRangeException("count");
         }
     }
 }

@@ -95,3 +95,4 @@
 // https://github.com/mandreyel/endian/blob/master/endian.hpp
 // https://github.com/tge-was-taken/Amicitia.IO
 // https://github.com/MediaArea/ZenLib/blob/master/Source/ZenLib/BitStream.h
+// https://github.com/aybe/BinaryExtensions/blob/develop/BinaryExtensions/BinaryExtensions/EndiannessExtensions.g.cs

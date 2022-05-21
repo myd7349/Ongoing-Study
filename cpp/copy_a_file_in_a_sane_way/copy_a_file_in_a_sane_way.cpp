@@ -28,3 +28,14 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+
+/*
+https://github.com/hoffstadt/DearPyGui/blob/v1.5.0/DearSandbox/main.cpp
+
+```cpp
+auto ss = std::ostringstream{};
+std::ifstream input_file("../../DearSandbox/sandbox.py");
+ss << input_file.rdbuf();
+auto content = ss.str();
+```
+*/

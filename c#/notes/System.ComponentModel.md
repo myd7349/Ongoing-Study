@@ -21,3 +21,17 @@
 6. DisplayName
    - [Access DisplayName in xaml](https://stackoverflow.com/questions/6154050/access-displayname-in-xaml)
    - https://github.com/dotnet/DataGridExtensions/blob/master/src/DataGridExtensionsSample/Views/CopyPasteViewModel.cs
+7. IEditableObject
+   - [How to: Implement Validation with the DataGrid Control](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/controls/how-to-implement-validation-with-the-datagrid-control?view=netframeworkdesktop-4.8)
+8. INotifyDataErrorInfo
+   - [WPF Datagrid, how to access validation errors from a ControlTemplate](https://stackoverflow.com/questions/60142690/wpf-datagrid-how-to-access-validation-errors-from-a-controltemplate)
+   - [INotifyDataErrorInfo implementation for several values, check that there are no errors in Dictionary (WPF MVVM)](https://learn.microsoft.com/en-us/answers/questions/207982/inotifydataerrorinfo-implementation-for-several-va.html)
+   - [WPF Validation - Using INotifyDataErrorInfo](https://kmatyaszek.github.io/wpf%20validation/2019/03/13/wpf-validation-using-inotifydataerrorinfo.html)
+9. IDataErrorInfo
+   - [How do you get WPF DataGrid validation to work reliably](https://stackoverflow.com/questions/70020227/how-do-you-get-wpf-datagrid-validation-to-work-reliably)
+   - [How to: Implement Validation Logic on Custom Objects](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-validation-logic-on-custom-objects?view=netframeworkdesktop-4.8)
+10. BindingList
+    - [List<T> vs BindingList<T> Advantages/DisAdvantages](https://stackoverflow.com/questions/2243950/listt-vs-bindinglistt-advantages-disadvantages)
+    - [Difference between ObservableCollection and BindingList](https://stackoverflow.com/questions/4284663/difference-between-observablecollection-and-bindinglist)
+    - [BindingList vs ObservableCollection](https://siderite.dev/blog/bindinglist-vs-observablecollection.html/)
+    - [BindingList does not scale…](https://www.themissingdocs.net/wordpress/?p=465)

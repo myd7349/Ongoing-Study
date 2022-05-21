@@ -37,6 +37,10 @@ Projects using `pybind11`
 * [NumPyEigen](https://github.com/fwilliams/numpyeigen)
   - [libigl-python-bindings](https://github.com/libigl/libigl-python-bindings)
 * [tiledarray](https://github.com/ValeevGroup/tiledarray)
+* [gemmi](https://github.com/project-gemmi/gemmi)
+* [gnuradio](https://github.com/gnuradio/gnuradio)
+* [pygalmesh](https://github.com/meshpro/pygalmesh)
+* [LIEF](https://github.com/lief-project/LIEF)
 
 # Notes
 
@@ -62,21 +66,23 @@ Projects using `pybind11`
    > ```cmake
    > # Ongoing-Study/algorithm/dsp/FindPeaks/CMakeLists.txt
    > if(BUILD_PYFINDPEAKS)
-   >     include(FetchContent)
+   >  include(FetchContent)
    > 
-   >     FetchContent_Declare(
-   >         pybind11
-   >         GIT_REPOSITORY https://github.com/pybind/pybind11
-   >         GIT_TAG        v2.8.1
-   >     )
+   >  FetchContent_Declare(
+   >      pybind11
+   >      GIT_REPOSITORY https://github.com/pybind/pybind11
+   >      GIT_TAG        v2.8.1
+   >  )
    > 
-   >     FetchContent_GetProperties(pybind11)
-   >     if(NOT pybind11_POPULATED)
-   >         FetchContent_Populate(pybind11)
-   >         add_subdirectory(${pybind11_SOURCE_DIR} ${pybind11_BINARY_DIR})
-   >     endif()
+   >  FetchContent_GetProperties(pybind11)
+   >  if(NOT pybind11_POPULATED)
+   >      FetchContent_Populate(pybind11)
+   >      add_subdirectory(${pybind11_SOURCE_DIR} ${pybind11_BINARY_DIR})
+   >  endif()
    > 
-   >     pybind11_add_module(PyFindPeaks PyFindPeaksImpl.cpp)
-   >     target_link_libraries(PyFindPeaks PRIVATE FindPeaks)
+   >  pybind11_add_module(PyFindPeaks PyFindPeaksImpl.cpp)
+   >  target_link_libraries(PyFindPeaks PRIVATE FindPeaks)
    > endif()
    > ```
+   >
+   > 

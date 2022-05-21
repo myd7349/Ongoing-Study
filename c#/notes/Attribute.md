@@ -5,3 +5,6 @@
    - [runtime/Process.cs at main · dotnet/runtime · GitHub](https://github.com/dotnet/runtime/blob/main/src/libraries/System.Diagnostics.Process/src/System/Diagnostics/Process.cs)
 3. Obsolete
    - [runtime/Process.cs at main · dotnet/runtime · GitHub](https://github.com/dotnet/runtime/blob/main/src/libraries/System.Diagnostics.Process/src/System/Diagnostics/Process.cs)
+4. [ThreadStatic](https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/ThreadStaticAttribute.cs)
+   - [DataBindEngine](https://github.com/dotnet/wpf/blob/main/src/Microsoft.DotNet.Wpf/src/PresentationFramework/MS/Internal/Data/DataBindEngine.cs)
+   - [WPF 4.5 : EnableCollectionSynchronization](https://www.wittycoding.com/wpf-4.5-enablecollectionsynchronization)
