@@ -27,3 +27,9 @@ https://github.com/dazza-codes/bioelectromagnetism/blob/master/nearpoints.cxx
 https://github.com/InterTriplete2010/Biosemi-BDF-Reader
 
 https://github.com/ricedsp/rwt
+
+https://github.com/fieldtrip/fieldtrip/blob/master/realtime/src/buffer/cpp/mex/myfilter.cc
+
+https://biosig.sourceforge.net/index.html
+
+https://github.com/rncarpio/linterp

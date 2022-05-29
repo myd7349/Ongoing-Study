@@ -84,3 +84,36 @@ https://github.com/abolz/Drachennest/blob/master/src/schubfach_64.cc
 
 [Questions about the implemenation of f64_bin_to_dec](https://github.com/ibireme/yyjson/issues/54)
 
+[fma](https://en.cppreference.com/w/c/numeric/math/fma)
+
+https://github.com/mreineck/pocketfft/blob/master/pocketfft.c
+
+```c
+// adapted from https://stackoverflow.com/questions/42792939/
+// CAUTION: this function only works for arguments in the range [-0.25; 0.25]!
+static void my_sincosm1pi (double a, double *restrict res)
+  {
+  double s = a * a;
+  /* Approximate cos(pi*x)-1 for x in [-0.25,0.25] */
+  double r =     -1.0369917389758117e-4;
+  r = fma (r, s,  1.9294935641298806e-3);
+  r = fma (r, s, -2.5806887942825395e-2);
+  r = fma (r, s,  2.3533063028328211e-1);
+  r = fma (r, s, -1.3352627688538006e+0);
+  r = fma (r, s,  4.0587121264167623e+0);
+  r = fma (r, s, -4.9348022005446790e+0);
+  double c = r*s;
+  /* Approximate sin(pi*x) for x in [-0.25,0.25] */
+  r =             4.6151442520157035e-4;
+  r = fma (r, s, -7.3700183130883555e-3);
+  r = fma (r, s,  8.2145868949323936e-2);
+  r = fma (r, s, -5.9926452893214921e-1);
+  r = fma (r, s,  2.5501640398732688e+0);
+  r = fma (r, s, -5.1677127800499516e+0);
+  s = s * a;
+  r = r * s;
+  s = fma (a, 3.1415926535897931e+0, r);
+  res[0] = c;
+  res[1] = s;
+  }
+```

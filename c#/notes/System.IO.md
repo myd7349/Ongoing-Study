@@ -80,3 +80,22 @@ dir.Delete(true); // true => recursive delete
 ```
 
 File.ReadLines vs File.ReadAllLines
+
+Path.GetTempFileName
+
+```csharp
+// Create a temporary file on disk.
+string tempFile = Path.GetTempFileName();
+
+// Write random data to the temporary file.
+using (var fileStream = File.OpenWrite(tempFile))
+{
+   Random rand = new Random();
+   byte[] buffer = new byte[1024];
+   for (int i = 0; i < 512; i++)
+   {
+      rand.NextBytes(buffer);
+      fileStream.Write(buffer, 0, buffer.Length);
+   }
+}
+```

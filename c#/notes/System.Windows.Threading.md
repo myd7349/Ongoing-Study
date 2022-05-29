@@ -125,3 +125,7 @@ void DoWorkOnUIThread(int id)
     lastId = id;
 }
 ```
+
+[Dispatcher.Invoke from a new thread is locking my UI](https://stackoverflow.com/questions/8527778/dispatcher-invoke-from-a-new-thread-is-locking-my-ui)
+
+[WPF Dispatcher.Invoke 'hanging'](https://stackoverflow.com/questions/264163/wpf-dispatcher-invoke-hanging)

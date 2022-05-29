@@ -7,3 +7,5 @@ MemoryCache
 - [How to dump contents of MemoryCache to a file](https://stackoverflow.com/questions/27779027/how-to-dump-contents-of-memorycache-to-a-file)
 
 ObjectCache
+
+- [SQLiteCache](https://github.com/ClemensFischer/XAML-Map-Control/tree/master/SQLiteCache)

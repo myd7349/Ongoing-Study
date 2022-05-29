@@ -19,3 +19,17 @@
   > ORDER BY name;
 
 - [How can I list the tables in a SQLite database file that was opened with ATTACH?](https://stackoverflow.com/questions/82875/how-can-i-list-the-tables-in-a-sqlite-database-file-that-was-opened-with-attach)
+
+- [Save and Load image SQLite C#](https://stackoverflow.com/questions/10853301/save-and-load-image-sqlite-c-sharp)
+
+- [How do I store and retrieve a blob from sqlite?](https://stackoverflow.com/questions/625029/how-do-i-store-and-retrieve-a-blob-from-sqlite)
+
+- [C# & SQLite - Storing Images](https://www.codeproject.com/Articles/196618/C-SQLite-Storing-Images)
+
+- [Password Protect a SQLite DB. Is it possible?](https://stackoverflow.com/questions/1381264/password-protect-a-sqlite-db-is-it-possible)
+
+- [Encrypt connection string in app.config](https://stackoverflow.com/questions/11637348/encrypt-connection-string-in-app-config)
+
+- [Protecting Connection Strings and Other Configuration Information (C#)](https://learn.microsoft.com/en-us/aspnet/web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-cs)
+
+- [Could not load file or assembly System.Data.SQLite.SEE.License](https://stackoverflow.com/questions/71257247/could-not-load-file-or-assembly-system-data-sqlite-see-license)

@@ -146,3 +146,8 @@ namespace Common
 // https://github.com/dahall/Vanara/blob/master/PInvoke/Kernel32/ThreadPoolLegacyApiSet.cs
 // https://docs.microsoft.com/en-us/dotnet/api/system.idisposable?view=net-6.0
 // [Set C# callback on a C++ struct obtained via P/Invoke](https://stackoverflow.com/questions/50818345/set-c-sharp-callback-on-a-c-struct-obtained-via-p-invoke)
+// https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Threading/Timer.cs
+// > internal sealed class TimerQueueTimer : IThreadPoolWorkItem
+// https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenSource.cs
+// > private volatile TimerQueueTimer? _timer;
+

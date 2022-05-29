@@ -4,15 +4,21 @@
 - CapCut/ViaMaker：视频编辑应用“剪映”的海外版本
 - [CineEncoder](https://github.com/CineEncoder/cine-encoder)
 - [DialogueExtractor](https://github.com/COLOR-SKY/DialogueExtractor)
+- [Emby](https://emby.media/)
 - iMovie
 - ffmpeg
   - [ffmpeg-commander](https://github.com/alfg/ffmpeg-commander)
 - Final Cut Pro
 - [gyroflow](https://github.com/gyroflow/gyroflow): Video stabilization using gyroscope data
 - [kdenlive](https://github.com/KDE/kdenlive)
+- Kodi
+  - Plex Server + Infus
 - [IINA](https://iina.io/)
 - [lossless-cut](https://github.com/mifi/lossless-cut)
+- mpv
+- [mpv.net](https://github.com/mpvnet-player/mpv.net)
 - [Olive Video Editor](https://github.com/olive-editor/olive)
+- [openshot-qt](https://github.com/OpenShot/openshot-qt)
 - PotPlayer
   - [Potplayer-Subtitle-Translate-GoogleFix](https://github.com/veritas501/Potplayer-Subtitle-Translate-GoogleFix)
 - Premiere Pro
@@ -55,3 +61,7 @@ Media Manager
 Toolchain
 
 - [FFmpeg-Builds](https://github.com/BtbN/FFmpeg-Builds)
+
+Text to Video:
+
+- [CogVideo](https://github.com/THUDM/CogVideo)

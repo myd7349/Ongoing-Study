@@ -8,7 +8,15 @@ Projects using PyQt:
 
 - [bitinsight](https://github.com/compilelife/bitinsight)
 
+- [bsl](https://github.com/bsl-tools/bsl)
+
+- [calibre](https://github.com/kovidgoyal/calibre)
+
 - [everpad](https://github.com/nvbn/everpad)
+
+- [FeelUOwn](https://github.com/feeluown/FeelUOwn)
+
+- [Groove](https://github.com/zhiyiYo/Groove)
 
 - [mne-python](https://github.com/mne-tools/mne-python)
 
@@ -17,6 +25,8 @@ Projects using PyQt:
 - [mnelab](https://github.com/cbrnr/mnelab)
 
 - [Mu](https://github.com/mu-editor/mu)
+
+- [openshot-qt](https://github.com/OpenShot/openshot-qt)
 
 - [Plottr](https://github.com/toolsforexperiments/plottr): A framework for inspecting data, based on flowcharts from pyqtgraph.
 
@@ -27,6 +37,14 @@ Projects using PyQt:
 - [Syncplay](https://github.com/Syncplay/syncplay)
 
 - [ViTables](https://github.com/uvemas/ViTables)
+
+- [vtkmodules](https://github.com/Kitware/VTK/tree/master/Wrapping/Python/vtkmodules/qt)
+
+Libraries:
+
+- [PyQt-Frameless-Window](https://github.com/zhiyiYo/PyQt-Frameless-Window)
+
+- [QDarkStyleSheet](https://github.com/ColinDuquesnoy/QDarkStyleSheet)
 
 Articles:
 

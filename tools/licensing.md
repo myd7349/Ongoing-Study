@@ -25,3 +25,5 @@ http://activelock.sourceforge.net/documents/tutorials/BasicTutorial.html
 https://github.com/google/addlicense
 
 https://github.com/nexB/scancode-toolkit
+
+https://github.com/boyter/lc

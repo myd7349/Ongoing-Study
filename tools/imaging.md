@@ -30,7 +30,7 @@
 - Photopea
 - [pineapple-pictures](https://github.com/BLumia/pineapple-pictures)
 - [Pinta](https://github.com/PintaProject/Pinta)
-- RawTherapee
+- [RawTherapee](https://github.com/Beep6581/RawTherapee)
 - [Retouch-Photo2-UWP](https://github.com/ysdy44/Retouch-Photo2-UWP)
 - [SvgViewer](https://github.com/ElinamLLC/SvgViewer)
 - [tev](https://github.com/Tom94/tev)

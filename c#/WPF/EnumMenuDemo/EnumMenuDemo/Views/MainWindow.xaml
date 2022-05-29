@@ -1,0 +1,81 @@
+﻿<Window x:Class="EnumMenuDemo.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EnumMenuDemo.Views"
+        xmlns:converters="clr-namespace:Common.WPF.Converters;assembly=Common.WPF"
+        xmlns:models="clr-namespace:EnumMenuDemo.Models"
+        xmlns:viewmodels="clr-namespace:EnumMenuDemo.ViewModels"
+        xmlns:wpf="clr-namespace:Common.WPF;assembly=Common.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <converters:EqualityToBooleanConverter x:Key="equalityToBooleanConverter" />
+    </Window.Resources>
+    
+    <Window.DataContext>
+        <viewmodels:MainWindowViewModel />
+    </Window.DataContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0">
+            <Menu>
+                <MenuItem Header="Weekday"
+                          ItemsSource="{Binding Source={wpf:EnumBindingSource {x:Type models:Weekday}}}">
+                    <MenuItem.ItemContainerStyle>
+                        <Style TargetType="MenuItem">
+                            <Setter Property="IsCheckable" Value="True" />
+                            <Setter Property="IsChecked">
+                                <Setter.Value>
+                                    <MultiBinding Mode="OneWay"
+                                                  Converter="{StaticResource equalityToBooleanConverter}">
+                                        <!--
+                                        <Binding RelativeSource="{RelativeSource Self}" Path="DataContext" />
+                                        -->
+                                        <Binding Path="." />
+                                        <Binding RelativeSource="{RelativeSource AncestorType={x:Type Window}}"
+                                                 Path="DataContext.Weekday" />
+                                    </MultiBinding>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="wpf:MenuItemExtension.GroupName" Value="WeekdayMenuItemGroup" />
+                            <Setter Property="Command" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=DataContext.ChangeWeekdayCommand}" />
+                            <!--
+                            <Setter Property="CommandParameter" Value="{Binding .}" />
+                            -->
+                            <Setter Property="CommandParameter" Value="{Binding}" />
+                        </Style>
+                    </MenuItem.ItemContainerStyle>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <ToolBar Grid.Row="1">
+            <Label Content="Weekday: " />
+            <ComboBox MinWidth="100"
+                      ItemsSource="{Binding Source={wpf:EnumBindingSource {x:Type models:Weekday}}}"
+                      SelectedItem="{Binding Weekday}" />
+        </ToolBar>
+    </Grid>
+    
+    <!--
+    References:
+    [Passing Enum Value as a Command Parameter](https://stackoverflow.com/questions/5745642/passing-enum-value-as-a-command-parameter)
+    [Passing an enum value as command parameter from XAML](https://stackoverflow.com/questions/359699/passing-an-enum-value-as-command-parameter-from-xaml)
+    [WPF: How to attach events to enum-generated Context Menu?](https://stackoverflow.com/questions/41939773/wpf-how-to-attach-events-to-enum-generated-context-menu)
+    [Binding ItemsSource and IsChecked of a MenuItem to get a list of checkable items in WPF](https://stackoverflow.com/questions/3113967/binding-itemssource-and-ischecked-of-a-menuitem-to-get-a-list-of-checkable-items)
+    [WPF MultiBinding with and condition & nested or conditions](https://stackoverflow.com/questions/55930343/wpf-multibinding-with-and-condition-nested-or-conditions)
+    [Mutually exclusive checkable menu items?](https://stackoverflow.com/questions/3652688/mutually-exclusive-checkable-menu-items)
+    https://stackoverflow.com/questions/3652688/mutually-exclusive-checkable-menu-items/18643222#18643222
+    [WPF: Contextmenu MenuItem with static and dynamic entries and Command binding](https://stackoverflow.com/questions/64856819/wpf-contextmenu-menuitem-with-static-and-dynamic-entries-and-command-binding)
+    [A Generic way to create a checkable context menu from a list of enum values](https://stackoverflow.com/questions/32256222/a-generic-way-to-create-a-checkable-context-menu-from-a-list-of-enum-values)
+    https://www.wpfsharp.com/2012/07/14/wpf-menuitem-as-a-radiobutton/
+    [[WPF 自定义控件] 在 MenuItem 上使用 RadioButton](https://www.cnblogs.com/dino623/p/Uising_RadioButton_in_MenuItem.html)
+    -->
+</Window>

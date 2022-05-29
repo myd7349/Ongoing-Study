@@ -15,3 +15,7 @@ Neat Reader
 https://github.com/jianyun8023/convert-ebook
 
 https://github.com/rupa/epub
+
+[thorium-reader](https://github.com/edrlab/thorium-reader)
+
+[ebook-reader](https://github.com/ttu-ttu/ebook-reader)

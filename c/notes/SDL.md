@@ -1,6 +1,7 @@
 Projects using SDL:
 
 - [Agar](https://github.com/JulNadeauCA/libagar)
+- [cdogs-sdl](https://github.com/cxong/cdogs-sdl)
 - [darkplaces](https://github.com/DarkPlacesEngine/darkplaces)
 - DOSBox
 - [lightspark](https://github.com/lightspark/lightspark)

@@ -10,6 +10,10 @@
             return Math.PI / 180 * degrees;
         }
 
+        public static double Hypot(double a, double b) => Hypotenuse(a, b);
+
+        public static float Hypot(float a, float b) => (float)Hypotenuse(a, b);
+
         public static double Hypotenuse(double a, double b)
         {
             if (a < 0)
@@ -88,3 +92,4 @@
 // [C# Cookbook](https://www.oreilly.com/library/view/c-cookbook/0596003390/ch01s02.html)
 // [C# find the greatest common divisor](https://stackoverflow.com/questions/18541832/c-sharp-find-the-greatest-common-divisor)
 // [C# Lerping from position to position](https://stackoverflow.com/questions/33044848/c-sharp-lerping-from-position-to-position)
+// [Extension Method for degree to Radian conversion in .net](https://stackoverflow.com/questions/37858172/extension-method-for-degree-to-radian-conversion-in-net)

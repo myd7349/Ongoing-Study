@@ -15,3 +15,9 @@ https://github.com/takuya-takeuchi/DlibDotNet/blob/master/src/DlibDotNet/Array2D
 https://github.com/predictionmachines/SDSlite
 
 https://github.com/predictionmachines/Angara.Table
+
+[numpy.arange(), linspace(): Generate ndarray with evenly spaced values](https://note.nkmk.me/en/python-numpy-arange-linspace/)
+
+> numpy.arange() and numpy.linspace() generate numpy.ndarray with evenly spaced values.
+> 
+> The difference is that the interval is specified for np.arange() and the number of elements is specified for np.linspace().

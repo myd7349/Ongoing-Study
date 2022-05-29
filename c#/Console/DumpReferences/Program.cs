@@ -140,4 +140,5 @@ namespace DumpReferences
 // [C# Recursively Find References in All Projects In Solution](https://stackoverflow.com/questions/32974118/c-sharp-recursively-find-references-in-all-projects-in-solution)
 // https://github.com/nikeyes/DotNetProjectsDependenciesViewer
 // https://github.com/spectresystems/snitch
+// https://github.com/RicoSuter/ProjectDependencyBrowser
 // [How to add folder to assembly search path at runtime in .NET?](https://stackoverflow.com/questions/1373100/how-to-add-folder-to-assembly-search-path-at-runtime-in-net)

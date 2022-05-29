@@ -6,3 +6,8 @@ Codecov
 
 - https://github.com/codecov/example-csharp
 - https://github.com/microsoft/accessibility-insights-windows/blob/016659d5db758bbbf4a15123595e5942aec98e78/src/AccessibilityInsights.SetupLibraryUnitTests/SetupLibraryUnitTests.csproj#L15
+
+[coverlet](https://github.com/coverlet-coverage/coverlet)
+
+- https://github.com/reactiveui/Camelotia
+- [mvvm-dialogs](https://github.com/FantasticFiasco/mvvm-dialogs/tree/v8.0.0/samples/net-framework/TestBaseClasses)

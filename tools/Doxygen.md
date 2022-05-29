@@ -18,3 +18,5 @@ https://blend2d.com/doc/index.html
 https://github.com/ibireme/yyjson
 
 https://github.com/lief-project/LIEF
+
+https://github.com/QMCPACK/qmcpack

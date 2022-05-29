@@ -36,6 +36,10 @@
 
 - [万词王](https://github.com/thunlp/WantWords)
 
+### API
+
+- [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate)
+
 ### Word List
 
 - [Openwall wordlists collection](https://www.openwall.com/wordlists/)

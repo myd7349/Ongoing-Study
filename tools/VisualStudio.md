@@ -27,3 +27,9 @@ snippet:
 
 
 https://github.com/microsoft/TemplateStudio
+
+https://github.com/madskristensen/ShortcutExporter
+
+https://github.com/uctakeoff/vscode-counter
+
+[StringResourceVisualizer](https://github.com/mrlacey/StringResourceVisualizer)

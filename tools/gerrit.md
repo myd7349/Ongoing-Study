@@ -8,3 +8,5 @@ depot_tools/codereview.settings
 > Chrome OS和Android使用Gerrit来管理代码，前端使用Git与其交互。Gerrit可以配置数字证书验证，并且对一些用户关闭forger权限。没有forger权限的人根本无法提交code review。这个还是挺好使的。
 
 https://github.com/golang/go/pull/48110
+
+https://chromium-review.googlesource.com/q/status:open+-is:wip

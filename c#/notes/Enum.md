@@ -37,4 +37,6 @@ and what I want do:
 
 [Enums.NET](https://github.com/TylerBrinkley/Enums.NET)
 
-https://github.com/andrewlock/NetEscapades.EnumGenerators
+[NetEscapades.EnumGenerators](https://github.com/andrewlock/NetEscapades.EnumGenerators)
+
+[SmartEnum](https://github.com/ardalis/SmartEnum)

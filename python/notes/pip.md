@@ -57,3 +57,5 @@
 - [pip with embedded python - Stack Overflow](https://stackoverflow.com/questions/42666121/pip-with-embedded-python)
 
 - [最推荐使用pip的方式](https://www.dongwm.com/post/you-should-use-python-m-pip/)
+
+- [Installing specific package version with pip](https://stackoverflow.com/questions/5226311/installing-specific-package-version-with-pip)

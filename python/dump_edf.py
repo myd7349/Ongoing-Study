@@ -320,3 +320,4 @@ if __name__ == '__main__':
 # https://gitlab.com/Teuniz/EDFlib
 # > units per bit = (physical max - physical min) / (digital max - digital min)
 # > offset = (physical max / units per bit) - digital max
+# https://github.com/mne-tools/mne-python/blob/main/mne/io/edf/edf.py

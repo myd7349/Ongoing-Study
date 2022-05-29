@@ -9,3 +9,5 @@ Projects using getopt:
 - [unoconv](https://github.com/unoconv/unoconv)
 
 - [z3](https://github.com/Z3Prover/z3/blob/z3-4.8.15/scripts/mk_util.py#L625-L768)
+
+- [makepanda.py](https://github.com/panda3d/panda3d/blob/master/makepanda/makepanda.py)

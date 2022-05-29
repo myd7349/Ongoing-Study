@@ -59,3 +59,33 @@ https://github.com/microsoft/coyote
 ```csharp
 return Interlocked.Increment(ref COUNTER);
 ```
+
+[Cancelling a Task is throwing an exception](https://stackoverflow.com/questions/7343211/cancelling-a-task-is-throwing-an-exception)
+
+[Is a reference assignment threadsafe?](https://stackoverflow.com/questions/5209623/is-a-reference-assignment-threadsafe)
+
+[ThreadStart with parameters](https://stackoverflow.com/questions/1195896/threadstart-with-parameters)
+
+#### Interlocked
+
+[C# thread safety of global configuration settings](https://stackoverflow.com/questions/922715/c-sharp-thread-safety-of-global-configuration-settings)
+
+[C# Interlocked](https://thith.blogspot.com/2005/11/c-interlocked.html)
+
+[Is a reference assignment threadsafe?](https://stackoverflow.com/questions/5209623/is-a-reference-assignment-threadsafe)
+
+[Atomicity, Interlocked & Memory Operation Optimizations in C#](https://mangcut.vn/blog/2015-02-14-atomicity-interlocked-memory-operation-optimizations-csharp.html)
+
+[Why does Interlocked.Exchange not support Boolean type?](https://stackoverflow.com/questions/6164751/why-does-interlocked-exchange-not-support-boolean-type)
+
+[reference assignment is atomic so why is Interlocked.Exchange(ref Object, Object) needed?](https://stackoverflow.com/questions/2192124/reference-assignment-is-atomic-so-why-is-interlocked-exchangeref-object-object)
+
+[Using Interlocked.CompareExchange with a class](https://stackoverflow.com/questions/6690386/using-interlocked-compareexchange-with-a-class)
+
+[Is double read atomic on an Intel architecture?](https://stackoverflow.com/questions/24731791/is-double-read-atomic-on-an-intel-architecture)
+
+[Is reading a double not thread-safe?](https://stackoverflow.com/questions/3676808/is-reading-a-double-not-thread-safe)
+
+> If you want to avoid writing use compareExchange.
+> 
+> Interlocked.CompareExchange(ref somevariable, somevalue, somevalue);

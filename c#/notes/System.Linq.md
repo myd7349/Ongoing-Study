@@ -262,3 +262,40 @@ var points2D = points3D.ToDictionary(kv => kv.Key, kv => new Point(kv.Value.X, k
 > double[] v = Enumerable.Repeat(x, n).ToArray();
 
 [LINQ indexOf a particular entry](https://stackoverflow.com/questions/9300169/linq-indexof-a-particular-entry)
+
+Enumerable.Empty<T>()
+
+[Why does .NET foreach loop throw NullRefException when collection is null?](https://stackoverflow.com/questions/3088147/why-does-net-foreach-loop-throw-nullrefexception-when-collection-is-null)
+
+Array
+
+[LINQ with Array and ArrayList – Search Array using Lambda Expression](https://www.completecsharptutorial.com/linqtutorial/linq-with-array-and-arraylist-search-using-lambda-expression.php)
+
+```csharp
+var products = from Product product in Enum.GetValues(typeof(Product))
+    select (Product?)product;
+products = products.Concat(new Product?[] { null });
+```
+
+```csharp
+class Step
+{
+    public TimeSpan Interval { get; set; }
+}
+
+steps.Sum(step => step.Interval); // Not work
+steps.Select(step => step.Interval).Sum(); // Not work
+Enumerable.Sum(steps, step => step.Interval); // Not work
+```
+
+```csharp
+string a = null;
+Console.WriteLine(a?.Substring(0));
+
+IEnumerable<string> arr = null;
+Console.WriteLine(arr?.First());
+```
+
+Single
+
+https://github.com/Alex141/CalcBinding/blob/master/CalcBinding/CalcBinding.cs

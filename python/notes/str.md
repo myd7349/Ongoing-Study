@@ -30,3 +30,9 @@ casefold:
 [Case insensitive dictionary](https://stackoverflow.com/questions/2082152/case-insensitive-dictionary)
 
 > You should use .casefold() instead of .lower() for comparisons, self.key.casefold() == other.key.casefold(), to allow "ß" and "ss" to equate as true, among others.
+
+https://github.com/saltstack/istr
+
+https://github.com/aio-libs/multidict/blob/master/multidict/_multilib/istr.h
+
+[Split string with multiple delimiters in Python](https://stackoverflow.com/questions/4998629/split-string-with-multiple-delimiters-in-python)

@@ -7,13 +7,13 @@
 # 2015-04-19T11:20+08:00
 
 import re
+import sys
 
 
 def parse_re(str_re = ''):
-    from os import name as os_name
     from subprocess import check_output
     
-    args = ['python' if os_name == 'nt' else 'python3', '-c',
+    args = [sys.executable, '-c',
             'import re; re.compile(r"{0}", re.DEBUG)'.format(str_re)]
     # Potential exception: subprocess.CalledProcessError
     parse_ret = check_output(args, universal_newlines = True)

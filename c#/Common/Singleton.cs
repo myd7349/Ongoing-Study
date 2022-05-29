@@ -55,3 +55,4 @@ namespace Common
 // [Thread Safe C# Singleton Pattern](https://stackoverflow.com/questions/12316406/thread-safe-c-sharp-singleton-pattern)
 // [Implementing the Singleton Pattern in C#](https://csharpindepth.com/Articles/Singleton)
 // [Accessing a Private Constructor from Outside the Class in C#](https://stackoverflow.com/questions/4162776/accessing-a-private-constructor-from-outside-the-class-in-c-sharp)
+// [Passing parameters to Lazy singleton GetInstance](https://stackoverflow.com/questions/46517561/passing-parameters-to-lazy-singleton-getinstance)

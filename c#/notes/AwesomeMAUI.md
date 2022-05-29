@@ -8,6 +8,8 @@ Applications:
 
 Controls:
 
+- [Mopups](https://github.com/LuckyDucko/Mopups)
+
 - [Xamarin.Forms.InputKit](https://github.com/enisn/Xamarin.Forms.InputKit)
 
 - [XCalendar](https://github.com/ME-MarvinE/XCalendar)

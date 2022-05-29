@@ -118,3 +118,4 @@ namespace FakeAD
 // https://stackoverflow.com/questions/1287461/fill-listint-using-linq
 // https://stackoverflow.com/questions/30462079/run-async-method-regularly-with-specified-interval
 // https://stackoverflow.com/questions/13019433/calling-a-method-every-x-minutes
+// https://michaelscodingspot.com/performance-of-producer-consumer/

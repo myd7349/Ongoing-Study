@@ -13,3 +13,9 @@
 [My automationelement FindFirst/FindAll seems to be very slow. How to improve the performance?](https://stackoverflow.com/questions/19631284/my-automationelement-findfirst-findall-seems-to-be-very-slow-how-to-improve-the)
 
 [System.Windows.Automation is very slow at enumerating table rows vs. UIAutomationCore](https://stackoverflow.com/questions/28353671/system-windows-automation-is-very-slow-at-enumerating-table-rows-vs-uiautomatio)
+
+AutomationProperties.AutomationId
+
+- https://github.com/FantasticFiasco/mvvm-dialogs/blob/v8.0.0/samples/net-framework/Demo.ActivateNonModalDialog/CurrentTimeDialog.xaml
+
+- [Why AutomationProperties are needed in WPF](https://stackoverflow.com/questions/10496106/why-automationproperties-are-needed-in-wpf)

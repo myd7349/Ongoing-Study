@@ -1,3 +1,7 @@
+### Benchmark
+
+- [hyperfine](https://crates.io/crates/hyperfine) - [code](https://github.com/sharkdp/hyperfine)
+
 ### CLI
 
 - [indicatif](https://github.com/console-rs/indicatif)
@@ -10,6 +14,10 @@
 
 - [rbatis](https://github.com/rbatis/rbatis)
 - [xlite](https://github.com/x2bool/xlite)
+
+### DSP
+
+- [RustFFT](https://github.com/ejmahler/RustFFT)
 
 ### Graphics
 

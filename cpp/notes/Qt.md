@@ -1,5 +1,6 @@
 Applications:
 
+- [Aircraft-War](https://github.com/zccrs/Aircraft-War)
 - [albert](https://github.com/albertlauncher/albert)
 - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
 - [App-XDFStreamer](https://github.com/labstreaminglayer/App-XDFStreamer)
@@ -14,6 +15,7 @@ Applications:
 - [CopyQ](https://github.com/hluk/CopyQ)
 - [cool-retro-term](https://github.com/Swordfish90/cool-retro-term)
 - [CrossLine](https://github.com/rochus-keller/CrossLine)
+- [Cutter](https://github.com/rizinorg/cutter) - [website](https://cutter.re/)
 - [DIE](https://github.com/horsicq/Detect-It-Easy)
 - [DIE-engine](https://github.com/horsicq/DIE-engine)
 - [easy_profiler](https://github.com/yse/easy_profiler)
@@ -23,6 +25,7 @@ Applications:
 - [filemanager](https://github.com/cutefishos/filemanager)
 - [flameshot](https://github.com/flameshot-org/flameshot)
 - [FreeCAD](https://github.com/FreeCAD/FreeCAD)
+- [FreeSurfer](https://github.com/freesurfer/freesurfer)
 - [Fritzing](https://github.com/fritzing/fritzing-app)
 - [gamestudio](https://github.com/ensisoft/gamestudio)
 - [gif-editor](https://github.com/igormironchik/gif-editor)
@@ -35,12 +38,16 @@ Applications:
 - [gyroflow](https://github.com/gyroflow/gyroflow): Video stabilization using gyroscope data.
 - [Hanoi-Towers](https://github.com/QuasarApp/Hanoi-Towers)
 - [heaptrack](https://github.com/KDE/heaptrack)
+- [hotspot](https://github.com/KDAB/hotspot)
 - [hplayer](https://github.com/ithewei/hplayer)
 - [INIditor](https://github.com/Jeroen6/INIditor)
 - [Intan-RHX](https://github.com/Intan-Technologies/Intan-RHX)
+- [IntelligentHome](https://github.com/zccrs/IntelligentHome)
+- [jarvis](https://github.com/nuttyartist/jarvis)
 - [jellyfin-media-player](https://github.com/jellyfin/jellyfin-media-player)
   - [jellyfin-media-player](https://github.com/Terminus-Media/jellyfin-media-player)
 - [JetSqlConsole](https://github.com/aaron-reeves/JetSqlConsole)
+- [KadPlayer](https://github.com/hcaihao/KadPlayer)
 - [kdeconnect-kde](https://github.com/KDE/kdeconnect-kde)
 - [kdenlive](https://github.com/KDE/kdenlive)
 - [keepassxc](https://github.com/keepassxreboot/keepassxc)
@@ -88,6 +95,7 @@ Applications:
 - [photoflare](https://github.com/PhotoFlare/photoflare)
 - [photoquick](https://github.com/ksharindam/photoquick)
 - [pineapple-pictures](https://github.com/BLumia/pineapple-pictures)
+- [plantumlqeditor](https://github.com/jalbersol/plantumlqeditor)
 - [plasma-nm](https://github.com/KDE/plasma-nm)
 - [plex-media-player](https://github.com/plexinc/plex-media-player)
 - [PlotJuggler](https://github.com/facontidavide/PlotJuggler) :star:
@@ -101,6 +109,7 @@ Applications:
 - [Qmmp](https://github.com/Greedysky/qmmp)
 - [QNapi](https://github.com/QNapi/qnapi)
 - [QProtoView](https://github.com/pezy/QProtoView)
+- [QQStars](https://github.com/zccrs/QQStars)
 - [QSanguosha](https://github.com/Mogara/QSanguosha)
 - [Qt5-MusicPlayer](https://github.com/NJU-TJL/Qt5-MusicPlayer)
 - [qt-spek](https://github.com/Greedysky/qt-spek)
@@ -125,6 +134,7 @@ Applications:
 - [SASM](https://github.com/Dman95/SASM)
 - [screengrab](https://github.com/lxqt/screengrab)
 - [screenlocker](https://github.com/cutefishos/screenlocker)
+- [screensaver-pp](https://github.com/zccrs/screensaver-pp)
 - [seafile-client](https://github.com/haiwen/seafile-client)
 - [Seer](https://github.com/epasveer/seer)
 - [serial-com-tester](https://gitlab.com/Teuniz/serial-com-tester)
@@ -133,6 +143,7 @@ Applications:
 - [simc](https://github.com/simulationcraft/simc)
 - [SlitScanGenerator](https://github.com/jkriege2/SlitScanGenerator)
 - [Smalltalk](https://github.com/rochus-keller/Smalltalk)
+- [SmartPython](https://github.com/hcaihao/SmartPython)
 - [SmtpClient-for-Qt](https://github.com/bluetiger9/SmtpClient-for-Qt)
 - [spuc_filter](https://github.com/audiofilter/spuc_filter)
 - [sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)
@@ -194,6 +205,8 @@ Libraries:
   
   - [CrashReporter](https://github.com/RedisDesktop/CrashReporter)
 
+- [libqdark](https://github.com/suratovvlad/libqdark)
+
 - [log4qt](https://github.com/ZgblKylin/log4qt)
 
 - [PDF4QT](https://github.com/JakubMelka/PDF4QT)
@@ -210,10 +223,14 @@ Libraries:
 
 - [QCodeEditor](https://github.com/Megaxela/QCodeEditor)
 
+- [qcoro](https://github.com/danvratil/qcoro)
+
 - [QCustomPlot](https://www.qcustomplot.com/)
   
   - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
   - [nfc-laboratory](https://github.com/josevcm/nfc-laboratory)
+
+- [QDarkStyleSheet](https://github.com/ColinDuquesnoy/QDarkStyleSheet)
 
 - [QDeviceWatcher](https://github.com/wang-bin/qdevicewatcher)
 
@@ -277,6 +294,8 @@ Libraries:
 
 - [spix](https://github.com/faaxm/spix) - UI test automation.
 
+- [StyleWindow](https://github.com/hcaihao/StyleWindow)
+
 - [TTKTinyTools](https://github.com/Greedysky/TTKTinyTools)
 
 - [TTKWidgetTools](https://github.com/Greedysky/TTKWidgetTools)
@@ -286,6 +305,8 @@ Libraries:
 - [verdigris](https://github.com/woboq/verdigris)
 
 QML Libraries:
+
+- [Qaterial](https://github.com/OlivierLDff/Qaterial)
 
 - [QMLLoginView](https://github.com/QuasarApp/QMLLoginView)
 

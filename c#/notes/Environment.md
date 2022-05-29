@@ -19,3 +19,10 @@ https://github.com/FantasticFiasco/mvvm-dialogs/blob/v8.0.0/src/net/FrameworkDia
 ```csharp
 public Environment.SpecialFolder RootFolder { get; set; } = Environment.SpecialFolder.Desktop;
 ```
+
+https://github.com/AgigoNoTana/HiddenDesktopViewer/blob/master/HiddenDesktopViewer/Form1.cs#L754
+
+```csharp
+System.Environment.Is64BitProcess;
+System.Environment.Is64BitOperatingSystem;
+```

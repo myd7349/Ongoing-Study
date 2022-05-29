@@ -5,3 +5,7 @@
 - https://github.com/iberisoft/HL7
 - https://github.com/dib0/HL7Fuse
 - https://github.com/microsoft/FHIR-Analytics-Pipelines
+- https://github.com/Cinchoo/ChoETL.HL7
+- https://github.com/microsoft/Tools-for-Health-Data-Anonymization
+- https://github.com/microsoft/FHIR-Converter
+- https://github.com/microsoft/fhir-server

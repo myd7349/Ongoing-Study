@@ -2,3 +2,4 @@
 
 * [rufus](https://github.com/pbatard/rufus)
 
+* [Fido](https://github.com/pbatard/Fido)

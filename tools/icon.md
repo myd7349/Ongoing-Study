@@ -108,5 +108,10 @@ Softwares
 
 - [GDPackages](https://github.com/dogramacigokhan/GDPackages)
 
+- https://www.icoconverter.com/
+
 - IconWorkshop
+
 - [PyIcoMaker](https://github.com/ar1st0crat/PyIcoMaker)
+
+- [IconScout](https://iconscout.com/desktop/for-windows)

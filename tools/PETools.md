@@ -83,6 +83,8 @@
 
 - [pdbdump](https://github.com/microsoft/microsoft-pdb/blob/master/pdbdump/pdbdump.cpp)
 
+- [pdbex](https://github.com/wbenny/pdbex)
+
 - [EatPdb](https://github.com/codehz/EatPdb)
 
 - [pdb](https://github.com/willglynn/pdb)
@@ -115,6 +117,7 @@
 
 ### ELF Tools
 
+- https://github.com/NixOS/patchelf
 - https://github.com/eliben/pyelftools
 
 ### .so Tools
@@ -151,6 +154,10 @@
 
 - [Data2Array](https://github.com/CharlesCarley/Data2Array)
 
+- [IconsExtract](https://www.nirsoft.net/utils/iconsext.html)
+
+  - [C2-GUI-Template](https://github.com/echtdefault/C2-GUI-Template)
+
 - [incbin](https://github.com/graphitemaster/incbin)
 
 - [langcomp](https://github.com/namazso/langcomp)
@@ -181,6 +188,10 @@
 
 - [PeNet](https://github.com/secana/PeNet)
 
+- [resourcelib](https://github.com/resourcelib/resourcelib)
+
+  - [Quasar](https://github.com/quasar/Quasar)
+
 - [Ressy](https://github.com/Tyrrrz/Ressy): Library for managing native resources in PE files
 
 ### C++ Libraries
@@ -192,6 +203,7 @@
 
 ### Python Libraries
 
+- [pdbparse](https://github.com/moyix/pdbparse)
 - [pefile](https://github.com/erocarrera/pefile)
   - [Qiew](https://github.com/mtivadar/qiew)
 
@@ -220,6 +232,8 @@
 
 - UPX
 
+- [VMProtect](https://vmpsoft.com/)
+
 ### Binary Patching
 
 - [e9patch](https://github.com/GJDuck/e9patch)
@@ -228,3 +242,8 @@
 
 - [loadlibrary](https://github.com/taviso/loadlibrary): Porting Windows Dynamic Link Libraries to Linux.
 
+### Docs
+
+- [pe101](https://github.com/corkami/pics/tree/master/binary/pe101)
+
+- [pe102](https://github.com/corkami/pics/tree/master/binary/pe102)

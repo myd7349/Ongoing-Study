@@ -49,3 +49,8 @@ ss << input_file.rdbuf();
 auto content = ss.str();
 ```
 
+https://github.com/amrayn/licensepp/blob/e9501da1470a3bd29254975577d806612a3d3e3c/src/license.cc#L100-L101
+
+```cpp
+std::string licenseContents = std::string((std::istreambuf_iterator<char>(stream)), (std::istreambuf_iterator<char>()));
+```

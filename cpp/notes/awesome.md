@@ -52,11 +52,19 @@
 
 - [dsp](https://github.com/Signalsmith-Audio/dsp)
 
+- [libaudioverse](https://github.com/libaudioverse/libaudioverse)
+
+- [LibrosaCpp](https://github.com/ewan-xu/LibrosaCpp)
+
+- [Maximilian](https://github.com/micknoise/Maximilian)
+
 - [rnnoise](https://github.com/xiph/rnnoise)
 
 - [sanear](https://github.com/alexmarsev/sanear)
 
   - [MPC_HC](https://github.com/mpc-hc/mpc-hc)
+
+- [SimpleCompressor](https://github.com/DanielRudrich/SimpleCompressor)
 
 - [SpeechAlgorithms](https://github.com/Ryuk17/SpeechAlgorithms)
 
@@ -168,6 +176,10 @@
 
 - [Configuru](https://github.com/emilk/Configuru)
 
+### Container
+
+- [Dictionary](https://github.com/arkhipenko/Dictionary)
+
 ### Cross Compiling
 
 - [mxe](https://github.com/mxe/mxe)
@@ -226,6 +238,10 @@
 
   - [brainflow](https://github.com/brainflow-dev/brainflow/blob/master/src/data_handler/data_handler.cpp)
 
+  - [DSPFiltersDemo](https://github.com/vinniefalco/DSPFiltersDemo)
+
+- [dspfilters](https://github.com/ZipCPU/dspfilters)
+
 - [EDFbrowser/filt](https://gitlab.com/Teuniz/EDFbrowser/-/tree/master/filt)
 
 - [Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page)
@@ -234,14 +250,32 @@
 
   - [EDFbrowser](https://gitlab.com/Teuniz/EDFbrowser)
 
+- filter
+
+  - [FilterM: A faster FILTER and FILTFILT: Speedup factor 2.5 to 25](https://www.mathworks.com/matlabcentral/fileexchange/32261-filterm)
+
+  - https://github.com/RoyiAvital/FastGuassianBlur/blob/master/FilterM/FilterX.c
+
+  - https://github.com/fieldtrip/fieldtrip/blob/master/realtime/src/buffer/cpp/MultiChannelFilter.h
+
 - [gnuradio](https://github.com/gnuradio/gnuradio)
 
   - [Recommended C/C++ General Purpose DSP Libraries](https://dsp.stackexchange.com/questions/19350/recommended-c-c-general-purpose-dsp-libraries)
+
+- [Maximilian](https://github.com/micknoise/Maximilian)
 
 - [mkfilter](https://github.com/university-of-york/cs-www-users-fisher/tree/master/mkfilter)
 
   - [Fidlib](https://uazu.net/fidlib/)
     > The base set of filters comes from Dr Tony Fisher's [mkfilter](https://www-users.cs.york.ac.uk/~fisher/), plus various other additional filters from other sources, including some audio filters.
+
+- [pocketfft](https://gitlab.mpcdf.mpg.de/mtr/pocketfft)
+
+  - [numpy](https://github.com/numpy/numpy/blob/main/numpy/fft/_pocketfft.c)
+
+    - [replace fftpack with pocketfft](https://github.com/numpy/numpy/commit/062dc8f831e695c2c179482da35affcc6045b4f3) - [pr](https://github.com/numpy/numpy/pull/11888)
+
+  - [pocketfft](https://github.com/mreineck/pocketfft)
 
 - [q](https://github.com/cycfi/q)
 
@@ -252,6 +286,10 @@
 - [wavelib](https://github.com/rafat/wavelib)
 
   - [brainflow](https://github.com/brainflow-dev/brainflow/blob/master/src/data_handler/data_handler.cpp)
+
+### Embedded systems
+
+- [TaskScheduler](https://github.com/arkhipenko/TaskScheduler)
 
 ### File System
 
@@ -297,6 +335,8 @@
 
   - [Stateful drawing APIs considered harmful](https://github.com/cpp-io2d/P0267_RefImpl/issues/31)
 
+- [cxx-spline](https://github.com/snsinfu/cxx-spline)
+
 - [FNA3D](https://github.com/FNA-XNA/FNA3D)
 
 - [freetype-gl](https://github.com/rougier/freetype-gl)
@@ -310,6 +350,8 @@
 - [nanovg](https://github.com/inniyah/nanovg)
 
 - [neoGFX](https://github.com/i42output/neoGFX)
+
+- [octomap](https://github.com/OctoMap/octomap)
 
 - [oglplus](https://github.com/matus-chochlik/eagine-oglplus)
 
@@ -338,6 +380,10 @@
 - imgui
   
   - [remoteimgui](https://github.com/JordiRos/remoteimgui)
+
+- JUCE
+
+  - [DSP-Testbench](https://github.com/AndrewJJ/DSP-Testbench)
 
 - [NAppGUI](https://github.com/frang75/nappgui_src)
 
@@ -559,6 +605,10 @@
 
 - [cxx-qt](https://github.com/KDAB/cxx-qt)
 
+##### Code Generator
+
+- [sdkgenny](https://github.com/cursey/sdkgenny)
+
 ### Logging
 
 - [A C++ Debug Stream for Win32](https://marknelson.us/posts/2001/09/01/win32-debug-stream.html)
@@ -613,7 +663,9 @@
   - [stan-dev/math](https://github.com/stan-dev/math)
 
 - [tinyexpr](https://github.com/codeplea/tinyexpr)
-  
+
+  - [tinyexpr-plusplus](https://github.com/Blake-Madden/tinyexpr-plusplus)
+
   - [Notepad2e](https://github.com/ProgerXP/Notepad2e/tree/master/src/Extension/tinyexpr)
 
 - [TTMath](https://www.ttmath.org/) - Bignum C++ library.
@@ -706,6 +758,12 @@
 
 - [spack](https://github.com/spack/spack)
 
+### Parser
+
+- [cppparser](https://github.com/panda3d/panda3d/tree/master/dtool/src/cppparser)
+
+  - [interrogate](https://github.com/panda3d/panda3d/tree/master/dtool/src/interrogate)
+
 ### PDF
 
 - [PDFlib](https://www.pdflib.com/)
@@ -713,11 +771,17 @@
   - [pikepdf](https://github.com/pikepdf/pikepdf)
     - [pdfarranger](https://github.com/pdfarranger/pdfarranger)
 
+### Performance
+
+- [timemory](https://github.com/NERSC/timemory)
+
 ### Physics
 
 - [JoltPhysics](https://github.com/jrouwe/JoltPhysics)
 
 ### Project Templates
+
+- [HelloWorld](https://github.com/cristianadam/HelloWorld)
 
 - [pitchfork](https://github.com/vector-of-bool/pitchfork)
 
@@ -777,6 +841,8 @@
 - [nark-serialization](https://github.com/rockeet/nark-serialization)
 
 - [Protobuf lightweight](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/515.43.04/src/nvidia/inc/lib/protobuf/prb.h)
+
+- [protopuf](https://github.com/PragmaTwice/protopuf)
 
 - [riegeli](https://github.com/google/riegeli)
 

@@ -1,3 +1,5 @@
+[simple-exec](https://github.com/adamralph/simple-exec)
+
 [Trace vs Debug in .NET BCL](https://stackoverflow.com/questions/179868/trace-vs-debug-in-net-bcl)
 
 [Trace to a file](https://stackoverflow.com/questions/7769085/net-trace-to-a-file-not-working)
@@ -279,3 +281,23 @@ while (!proc.StandardOutput.EndOfStream)
 TraceListener
 
 https://github.com/ElinamLLC/SharpVectors/blob/master/Samples/WpfTestSvgControl/TextBoxTraceListener.cs
+
+[Finding how much memory I can allocate for an array in C#](https://stackoverflow.com/questions/346929/finding-how-much-memory-i-can-allocate-for-an-array-in-c-sharp)
+
+```csharp
+Using pc As New System.Diagnostics.PerformanceCounter("Memory", "Available Bytes")
+  FreeBytes = pc.NextValue();
+End Using
+```
+
+[WPF show control in debug mode only](https://stackoverflow.com/questions/2431625/wpf-show-control-in-debug-mode-only)
+
+> Debugger.IsAttached
+
+[How To Debug Data Binding Issues in WPF](https://spin.atomicobject.com/2013/12/11/wpf-data-binding-debug/)
+
+> Debugger.Break()
+
+[Debugging WPF data bindings](https://www.codeproject.com/Articles/244107/Debugging-WPF-data-bindings)
+
+> TextWriterTraceListener

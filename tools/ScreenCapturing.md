@@ -8,9 +8,10 @@
 - __Bandicam
 - [broz](https://github.com/antfu/broz)
 - __Captura
+- [eSearch](https://github.com/xushengfeng/eSearch)
 - __FastStone __Capture
 - HyperCam
-- oCam
+- [oCam](https://ohsoft.net/eng/ocam/intro.php?cate=1002)
 - OverSpeed
 - Microsoft Powerpoint 2013+
 - 迅捷屏幕录像工具
@@ -46,3 +47,6 @@
 - Xnip
 - ishot
 - [Kooha](https://github.com/SeaDve/Kooha)
+- [Screen2Exe/Screen2Swf](https://www.screen-record.com/screen2exe.htm)
+- [SoftwareHelper](https://github.com/WPFDevelopersOrg/SoftwareHelper)
+- [win32-screencapture](https://github.com/reterVision/win32-screencapture)

@@ -8,15 +8,22 @@ Applications:
 - [BingWallpaper](https://github.com/kfstorm/BingWallpaper)
 - [BingWallpaper](https://github.com/eaglexiang/BingWallpaper)
 - [BoomPowGui](https://github.com/mrexodia/BoomPowGui)
+- [calctus](https://github.com/shapoco/calctus)
+- [clashN](https://github.com/2dust/clashN)
 - [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)
+- [Diff.Net](https://github.com/menees/Diff.Net)
+  - https://github.com/Dirkster99/AvalonDock/issues/20
 - [DllExport](https://github.com/3F/DllExport)
 - [FunUtils](https://github.com/mrexodia/FunUtils)
 - [greenshot](https://github.com/greenshot/greenshot)
+- [HiddenDesktopViewer](https://github.com/AgigoNoTana/HiddenDesktopViewer)
 - [Html2Article](https://github.com/stanzhai/Html2Article)
 - [ImageGlass](https://github.com/d2phap/ImageGlass)
+- [JsonViewer](https://github.com/facebook-csharp-sdk/simple-json/tree/master/src/JsonViewer)
 - [LessMsi](https://github.com/activescott/lessmsi/tree/master/src/LessMsi.Gui)
 - [MatterControl](https://github.com/MatterHackers/MatterControl)
 - [mooc-downloader](https://github.com/xixixixixiao/mooc-downloader)
+- [mpv.net](https://github.com/mpvnet-player/mpv.net)
 - [naps2](https://github.com/cyanfish/naps2)
 - [nbt-studio](https://github.com/tryashtar/nbt-studio)
 - [ncmdumpGUI](https://github.com/kpali/ncmdumpGUI)
@@ -26,6 +33,7 @@ Applications:
 - [Open Hardware Monitor](https://github.com/openhardwaremonitor/openhardwaremonitor)
 - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
 - [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
+- [Quasar](https://github.com/quasar/Quasar)
 - [SCJMapper-V2](https://github.com/SCToolsfactory/SCJMapper-V2)
 - [Screencast Capture Lite](https://github.com/cesarsouza/screencast-capture)
 - [Serial-Oscilloscope](https://github.com/xioTechnologies/Serial-Oscilloscope)
@@ -33,7 +41,9 @@ Applications:
 - [SharpKeys](https://github.com/randyrants/sharpkeys)
 - [v2rayN](https://github.com/2dust/v2rayN)
 - [XboxDownload](https://github.com/skydevil88/XboxDownload)
+- [XmlNotepad](https://github.com/microsoft/XmlNotepad)
 - [YALV](https://github.com/LukePet/YALV)
+- [ZetaResourceEditor](https://github.com/UweKeim/ZetaResourceEditor)
 
 Libraries:
 
@@ -47,9 +57,15 @@ Libraries:
   
   - DeepL Translate App for Windows
 
+- [ConsoleControl](https://github.com/dwmkerr/consolecontrol)
+
 - [CSharp-ChatUI-Winforms](https://github.com/AbdisamadMoh/CSharp-ChatUI-Winforms)
 
 - [CSLA.NET](https://github.com/MarimerLLC/csla)
+
+- [Cyotek.Drawing.BitmapFont](https://github.com/cyotek/Cyotek.Drawing.BitmapFont)
+
+  - [Myra](https://github.com/rds1983/Myra)
 
 - [Cyotek.Windows.Forms.ColorPicker](https://github.com/cyotek/Cyotek.Windows.Forms.ColorPicker)
 
@@ -84,11 +100,23 @@ Libraries:
 
 - [InformationBox](https://github.com/JohannBlais/InformationBox)
 
+- [jot](https://github.com/anakic/jot)
+
+  - [WPF: How are you supposed to save window position in the year 2020?](https://www.reddit.com/r/csharp/comments/j0kkki/wpf_how_are_you_supposed_to_save_window_position/)
+
+  - [Easier .NET settings](https://www.codeproject.com/Articles/475498/Easier-NET-settings)
+
 - [Krypton](https://github.com/ComponentFactory/Krypton)
   
   - [Standard-Toolkit](https://github.com/Krypton-Suite/Standard-Toolkit)
 
+- [LoadingIndicator](https://github.com/MaxShoshin/LoadingIndicator)
+
 - [MaterialSkin](https://github.com/IgnaceMaes/MaterialSkin)
+
+  - [MaterialSkin](https://github.com/donaldsteele/MaterialSkin)
+
+    - [MaterialSkin](https://github.com/leocb/MaterialSkin)
 
 - [MetroFramework](https://github.com/peters/winforms-modernui)
   
@@ -113,6 +141,8 @@ Libraries:
 - [RawInput](https://github.com/mfakane/rawinput-sharp)
   
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+
+- [ReoGrid](https://github.com/unvell/ReoGrid)
 
 - [SevenSegment](https://github.com/dbrant/SevenSegment)
 

@@ -140,3 +140,9 @@ https://github.com/bitwarden/server
 > Invoke-RestMethod -OutFile bitwarden.ps1 `
 >     -Uri https://raw.githubusercontent.com/bitwarden/server/master/scripts/bitwarden.ps1
 > ```
+
+https://www.powershellgallery.com/
+
+[Command line reference.](https://ss64.com/)
+
+[Fido](https://github.com/pbatard/Fido)

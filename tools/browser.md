@@ -16,3 +16,5 @@ Tools:
 - [rrweb](https://github.com/rrweb-io/rrweb): record and replay the web.
 
 - [vimium-c](https://github.com/gdh1995/vimium-c)
+
+- [WebView2-Cookie-Stealer](https://github.com/mrd0x/WebView2-Cookie-Stealer)

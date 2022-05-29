@@ -1,10 +1,12 @@
 - [appflowy](https://github.com/AppFlowy-IO/appflowy)
 - [foam](https://github.com/foambubble/foam)
 - [logseq](https://github.com/logseq/logseq)
+- [memos](https://github.com/usememos/memos)
 - [nb](https://github.com/xwmx/nb)
 - [notes](https://github.com/nuttyartist/notes)
 - Notion
   - [notion-enhancer](https://github.com/notion-enhancer/desktop)
+- [Obsidian](https://obsidian.md/)
 - [Roam](https://roamresearch.com/)
 - [trilium](https://github.com/zadam/trilium)
 - [vnote](https://github.com/vnotex/vnote)

@@ -36,3 +36,4 @@ https://github.com/naudio/NAudio/blob/master/NAudio.Core/Wave/SampleProviders/SM
 >    ///</summary>
 >```
 
+https://github.com/DanielRudrich/SimpleCompressor

@@ -66,6 +66,10 @@ Libraries:
 
 - [imgui_markdown](https://github.com/juliettef/imgui_markdown)
 
+- [markdig](https://github.com/xoofx/markdig)
+
+  - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
+
 - [markdoc](https://github.com/markdoc/markdoc)
 
 - [milkdown](https://github.com/Saul-Mirone/milkdown)
@@ -84,9 +88,16 @@ Tools:
   - [vscode-markdownlint](https://github.com/DavidAnson/vscode-markdownlint)
 - [markdown-nice](https://github.com/mdnice/markdown-nice)
 - [slidev](https://github.com/slidevjs/slidev)
+- [Zettlr](https://github.com/Zettlr/Zettlr)
 
 Online Editors:
 
 - [awesome-web-editor](https://github.com/xjh22222228/awesome-web-editor)
 
 - [EasyMDE](https://github.com/Ionaru/easy-markdown-editor/)
+
+Templates:
+
+- https://github.com/sdsawtelle/markdown-resume
+
+- https://github.com/mszep/pandoc_resume

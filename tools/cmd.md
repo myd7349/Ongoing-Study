@@ -2,6 +2,8 @@ Tools:
 
 - [clink](https://github.com/mridgers/clink): Bash's powerful command line editing in cmd.exe
 
+  - [clink](https://github.com/chrisant996/clink)
+
 [correct quoting for cmd.exe for multiple arguments](https://stackoverflow.com/questions/12891383/correct-quoting-for-cmd-exe-for-multiple-arguments)
 
 [Multiple line command](https://github.com/zhihaoy/cpp-argparse-feedstock/blob/master/recipe/bld.bat)
@@ -113,3 +115,5 @@ reg query "HKLM\SOFTWARE\MICROSOFT\CRYPTOGRAPHY" /v "MachineGuid"
 [Is there any limit on line length when pasting to a terminal in Linux?](https://unix.stackexchange.com/questions/643777/is-there-any-limit-on-line-length-when-pasting-to-a-terminal-in-linux)
 
 > 4095 is the limit of the tty line discipline internal editor length on Linux.
+
+[Command line reference.](https://ss64.com/)

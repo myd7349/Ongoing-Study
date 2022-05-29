@@ -21,7 +21,13 @@
 * [blend2d-python](https://github.com/jwiggins/blend2d-python)
 * [tfrecord_lite](https://github.com/jongwook/tfrecord_lite)
 * [plot-sdl](https://github.com/bertrandmartel/plot-sdl)
+* [astra-toolbox](https://github.com/astra-toolbox/astra-toolbox)
+* [pyuvc](https://github.com/pupil-labs/pyuvc)
 
 ### Tools
 
 - [pyximport](https://github.com/cython/cython/tree/master/pyximport)
+
+### Articles
+
+- [How to compile C extension for Python where C function uses LAPACK library?](https://stackoverflow.com/questions/52106978/how-to-compile-c-extension-for-python-where-c-function-uses-lapack-library)

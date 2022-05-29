@@ -31,3 +31,15 @@ https://github.com/rgov/sqlite_protobuf
 [Online Protobuf Decoder](https://protogen.marcgravell.com/decode)
 
 - [Protobuf In C# .NET – Part 2 – Serializing/Deserializing](https://dotnetcoretutorials.com/2022/01/13/protobuf-in-c-net-part-2-serializing-deserializing/)
+
+[深入 ProtoBuf - 编码](https://www.jianshu.com/p/73c9ed3a4877)
+
+[[翻译] ProtoBuf 官方文档（一）- 开发者指南](https://yuehub.gitee.io/2018/20180730a/)
+
+Length-Delimited Protobuf Streams
+
+- [Protobuf In C# .NET – Part 3 – Using Length Prefixes](https://dotnetcoretutorials.com/2022/01/14/protobuf-in-c-net-part-3-using-length-prefixes/)
+
+- [Length-Delimited Protobuf Streams](https://seb-nyberg.medium.com/length-delimited-protobuf-streams-a39ebc4a4565)
+
+- [Is it possible to use google.protobuffer to serialize data without prefixing the length of each data field?](https://seb-nyberg.medium.com/length-delimited-protobuf-streams-a39ebc4a4565)

@@ -34,3 +34,19 @@
 [custom serializer for just one property in Json.NET](https://stackoverflow.com/questions/18521970/custom-serializer-for-just-one-property-in-json-net)
 
 [Newtonsoft.Json笔记 -JsonConverter](https://www.cnblogs.com/fanfan-90/p/13866912.html)
+
+[How can I deserialize JSON to a simple Dictionary<string,string> in ASP.NET?](https://stackoverflow.com/questions/1207731/how-can-i-deserialize-json-to-a-simple-dictionarystring-string-in-asp-net)
+
+[JavaScriptSerializer - JSON serialization of enum as string](https://stackoverflow.com/questions/2441290/javascriptserializer-json-serialization-of-enum-as-string)
+
+[Serializing and Deserializing Enumerations with Json.NET](https://www.bytefish.de/blog/enums_json_net.html)
+
+[How do I deserialize an array of enum using Json.Net?](https://stackoverflow.com/questions/23366364/how-do-i-deserialize-an-array-of-enum-using-json-net)
+
+[Explanation for ObjectCreationHandling using Newtonsoft JSON?](https://stackoverflow.com/questions/27848547/explanation-for-objectcreationhandling-using-newtonsoft-json)
+
+[ObjectCreationHandling setting](https://www.newtonsoft.com/json/help/html/DeserializeObjectCreationHandling.htm)
+
+[Support ObjectCreationHandling in JsonSerializerOptions like Json.NET does](https://github.com/dotnet/runtime/issues/31518)
+
+[Ignore Base Class Properties in Json.NET Serialization](https://stackoverflow.com/questions/31104335/ignore-base-class-properties-in-json-net-serialization)

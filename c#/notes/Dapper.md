@@ -1,3 +1,5 @@
+### Articles
+
 [How do you bind Dapper query result to WPF DataGrid](https://stackoverflow.com/questions/13299425/how-do-you-bind-dapper-query-result-to-wpf-datagrid)
 
 [Delete multiple objects with a single query (or in transaction)](https://stackoverflow.com/questions/52588892/delete-multiple-objects-with-a-single-query-or-in-transaction)
@@ -5,6 +7,23 @@
 [How to use transactions with dapper.net?](https://stackoverflow.com/questions/10363933/how-to-use-transactions-with-dapper-net)
 
 [Bulk inserts taking longer than expected using Dapper](https://stackoverflow.com/questions/10689779/bulk-inserts-taking-longer-than-expected-using-dapper)
+
+[Using Async Await keywords with Dapper](https://stackoverflow.com/questions/25833426/using-async-await-keywords-with-dapper)
+
+[Selecting Single Rows Of Data With Dapper](https://www.learndapper.com/selecting-single-rows)
+
+```csharp
+using (var connection = new SqlConnection(connString))
+{
+    var sql = "select ProductId, Productname from Products where Discontinued = 1";
+    var products = connection.Query<Product>(sql);
+    foreach (var product in products)
+    {
+        Console.WriteLine($"{product.ProductId} {product.ProductName}: {product.Discontinued}");
+    }
+    Console.ReadLine();
+}
+```
 
 ### YouTube Videos
 

@@ -5,6 +5,7 @@
 - [bottom](https://github.com/ClementTsang/bottom)
 - bpytop
 - btop
+- [Camelotia](https://github.com/reactiveui/Camelotia)
 - [Circus](https://github.com/circus-tent/circus)
 - [clumsy](https://github.com/jagt/clumsy)
 - [croc](https://github.com/schollz/croc)
@@ -19,6 +20,7 @@
   
   - [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
 - [FileSender](https://github.com/filesender/filesender)
+- [GoodbyeDPI](https://github.com/ValdikSS/GoodbyeDPI)
 - [hping](https://github.com/antirez/hping)
 - [httpie](https://httpie.io/)
 - [HTTP Toolkit](https://github.com/httptoolkit/httptoolkit)
@@ -28,10 +30,14 @@
 - [IO Ninja](https://ioninja.com/)
   
   - [protolesshooks](https://github.com/vovkos/protolesshooks)
+- [IP Messenger](https://ipmsg.org/)
+- [IPinfo CLI](https://github.com/ipinfo/cli)
 - [joy](https://github.com/cisco/joy)
 - [KS HostMonitor](https://www.ks-soft.net/hostmon.eng/)
 - [LANDrop](https://github.com/LANDrop/LANDrop)
 - [LFTP](https://github.com/lavv17/lftp)
+- [lnvis](https://github.com/jb55/lnvis)
+- [lsyncd](https://github.com/lsyncd/lsyncd)
 - [NamedPipeCapture](https://github.com/Vatyx/NamedPipeCapture)
 - [NatTypeTester](https://github.com/HMBSbige/NatTypeTester)
 - [net-search](https://github.com/wsdassssss/net-search)
@@ -40,17 +46,21 @@
 - [networkit](https://github.com/networkit/networkit)
 - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 - networkQuality - macOS
+- [networkx](https://github.com/networkx/networkx)
 - nsenter
 - [openspeedtest](https://openspeedtest.com/)
 - [PCredz](https://github.com/lgandx/PCredz)
 - [pingtop](https://github.com/laixintao/pingtop)
 - [pwnat](https://github.com/samyk/pwnat)
 - [realterm](https://sourceforge.net/projects/realterm/)
+- [rinetd](https://github.com/samhocevar/rinetd)
 - [rtop](https://github.com/rapidloop/rtop)
 - [RustScan](https://github.com/RustScan/RustScan)
 - [ServerScan](https://github.com/Adminisme/ServerScan)
 - [smartdns](https://github.com/pymumu/smartdns)
+- [SparkleShare](https://github.com/hbons/SparkleShare)
 - [speedtest](https://github.com/librespeed/speedtest)
+- [stubby](https://github.com/getdnsapi/stubby)
 - [SwitchHosts](https://github.com/oldj/SwitchHosts)
 - [syncthing](https://github.com/syncthing/syncthing)
 - tcpdump
@@ -81,3 +91,9 @@
 
 - [WEF](https://github.com/D3Ext/WEF)
 - [WiFiManager](https://github.com/tzapu/WiFiManager)
+
+### File Sharing
+
+- [Easy-Send](https://github.com/IvanHanloth/Easy-Send)
+
+- [sharik](https://github.com/marchellodev/sharik)

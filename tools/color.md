@@ -11,3 +11,7 @@ https://github.com/kalxd/happiny
 https://color.adobe.com/
 
 https://github.com/veler/DevToys
+
+[SoftwareHelper](https://github.com/WPFDevelopersOrg/SoftwareHelper)
+
+https://github.com/corkami/pics/blob/master/binary/basics/colors.pdf

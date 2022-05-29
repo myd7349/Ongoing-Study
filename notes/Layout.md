@@ -22,3 +22,5 @@ WPF Control Development Unleashed Building Advanced User Experiences (Pavan Podi
 https://github.com/DioxusLabs/taffy
 
 https://github.com/lvgl/lvgl/tree/master/src/layouts
+
+https://github.com/layoutBox/FlexLayout

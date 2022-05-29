@@ -19,3 +19,9 @@ https://github.com/decompiler-explorer/decompiler-explorer
 https://github.com/frida/frida
 
 - https://github.com/OH1TR/WinApiMapper
+
+### Softwares
+
++ [Cutter](https://github.com/rizinorg/cutter) - [website](https://cutter.re/)
++ IDA Pro
++ [rizin](https://github.com/rizinorg/rizin)

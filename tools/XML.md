@@ -1,2 +1,3 @@
 - Altova XMLSpy
+- [XmlNotepad](https://github.com/microsoft/XmlNotepad) - [XML Notepad Site](https://microsoft.github.io/XmlNotepad/)
 - [xmltools](https://github.com/morbac/xmltools)

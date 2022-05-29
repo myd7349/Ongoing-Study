@@ -44,6 +44,7 @@
 - Java
   
   - [Alibaba Java Coding Guidelines](https://github.com/alibaba/Alibaba-Java-Coding-Guidelines)
+  - [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript)
   - [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
 
 - JavaScript
@@ -80,6 +81,7 @@
 - Rust
   
   - [Rust code formatting RFCs](https://github.com/rust-lang-nursery/fmt-rfcs)
+  - [rust-coding-guidelines-zh](https://github.com/Rust-Coding-Guidelines/rust-coding-guidelines-zh)
 
 - Scala
 

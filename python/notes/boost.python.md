@@ -1,1 +1,3 @@
 - [libtorrent](https://github.com/arvidn/libtorrent/tree/RC_2_0/bindings/python)
+- [linterp](https://github.com/rncarpio/linterp/blob/master/src/linterp_python.cpp)
+- [Imath](https://github.com/AcademySoftwareFoundation/Imath)

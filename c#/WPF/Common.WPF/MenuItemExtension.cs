@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Windows;
+//using System.Windows.Data;
 using System.Windows.Controls;
 
 namespace Common.WPF
@@ -69,13 +70,20 @@ namespace Common.WPF
                 {
                     if (item.Key != menuItem && item.Value == GetGroupName(menuItem))
                     {
-                        item.Key.IsChecked = false;
+                        //var oldBinding = BindingOperations.GetBindingBase(item.Key, MenuItem.IsCheckedProperty);
+                        //item.Key.IsChecked = false;
+                        //var newBinding = BindingOperations.GetBindingBase(item.Key, MenuItem.IsCheckedProperty); // Got null
+                        //if (oldBinding != null && newBinding == null)
+                        //    BindingOperations.SetBinding(item.Key, MenuItem.IsCheckedProperty, oldBinding);
+                        
+                        item.Key.SetCurrentValue(MenuItem.IsCheckedProperty, false);
                     }
                 }
             }
             else // It's not possible for the user to deselect an item
             {
-                menuItem.IsChecked = true;
+                //menuItem.IsChecked = true;
+                menuItem.SetCurrentValue(MenuItem.IsCheckedProperty, true);
             }
         }
     }
@@ -87,3 +95,12 @@ namespace Common.WPF
 // [Mutually exclusive checkable menu items?](https://stackoverflow.com/questions/3652688/mutually-exclusive-checkable-menu-items/18643222#18643222)
 // [setting dependency property in user control style](https://stackoverflow.com/questions/15836548/setting-dependency-property-in-user-control-style)
 // https://github.com/PropertyTools/PropertyTools EnumMenuItem
+// [[WPF 自定义控件]在MenuItem上使用RadioButton](https://www.cnblogs.com/dino623/p/Uising_RadioButton_in_MenuItem.html)
+// https://github.com/DinoChan/Kino.Toolkit.Wpf/blob/master/Kino.Toolkit.Wpf/Kino.Toolkit.Wpf/RadioButtonMenuItem/RadioButtonMenuItem.cs
+// [WPF: How to change value and keep binding](https://stackoverflow.com/questions/46398445/wpf-how-to-change-value-and-keep-binding)
+// [Set the binding value directly](https://stackoverflow.com/questions/11121057/set-the-binding-value-directly)
+// > The problem when simply setting it via DependencyObject.SetValue is that this effectively removes the binding, but I want to change the underlying bound property.
+// [WPF Custom DependencyProperty Binding - SetValue set correct value but binded property set receive null](https://stackoverflow.com/questions/54072179/wpf-custom-dependencyproperty-binding-setvalue-set-correct-value-but-binded-pr)
+// > Without going into your code too deeply, have you tried using SetCurrentValue instead of SetValue?
+// [What's the difference between Dependency Property SetValue() & SetCurrentValue()](https://stackoverflow.com/questions/4230698/whats-the-difference-between-dependency-property-setvalue-setcurrentvalue)
+// > SetCurrentValue method changes the effective value of the property, but existing triggers, data bindings, and styles will continue to work.

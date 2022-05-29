@@ -161,6 +161,10 @@ https://github.com/TestStack/White
 > }
 > ```
 
+### UISpy
+
+- [Test Run - Automating UI Tests In WPF Applications](https://learn.microsoft.com/en-us/archive/msdn-magazine/2009/march/test-run-automating-ui-tests-in-wpf-applications)
+
 ### WinAppDriver
 
 https://github.com/microsoft/WinAppDriver

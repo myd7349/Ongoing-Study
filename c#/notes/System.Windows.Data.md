@@ -29,3 +29,12 @@ BindingOperations.EnableCollectionSynchronization
 - [WPF 4.5 : EnableCollectionSynchronization](https://www.wittycoding.com/wpf-4.5-enablecollectionsynchronization)
 
 - [BindingOperations.EnableCollectionSynchronization mystery in WPF](https://stackoverflow.com/questions/19734782/bindingoperations-enablecollectionsynchronization-mystery-in-wpf)
+
+RelativeSource
+
+- [WPF - RelativeSource in Style](https://stackoverflow.com/questions/18431043/wpf-relativesource-in-style)
+
+IsAsync
+
+- [Binding.IsAsync Property](https://learn.microsoft.com/en-us/dotnet/api/system.windows.data.binding.isasync?view=windowsdesktop-6.0)
+

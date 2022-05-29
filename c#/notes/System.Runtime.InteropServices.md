@@ -87,3 +87,5 @@ NativeLibrary.SetDllImportResolver(typeof(MsQuic).Assembly, (libraryName, assemb
 ```
 
 [Native interoperability best practices](https://docs.microsoft.com/en-us/dotnet/standard/native-interop/best-practices?source=recommendations)
+
+[WinApi - GetLastError vs. Marshal.GetLastWin32Error](https://stackoverflow.com/questions/17918266/winapi-getlasterror-vs-marshal-getlastwin32error)

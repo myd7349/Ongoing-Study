@@ -8,3 +8,5 @@ https://github.com/simdjson/simdjson/blob/v1.0.2/doc/parse_many.md#use-cases
 
 
 [miller](https://github.com/johnkerl/miller)
+
+[q](https://github.com/harelba/q)

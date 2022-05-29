@@ -9,3 +9,5 @@
 [.net - Enumerating all strings in resx](https://stackoverflow.com/questions/278249/enumerating-all-strings-in-resx)
 
 [Add new language - search by language name](https://github.com/dotnet/ResXResourceManager/issues/264)
+
+[StringResourceVisualizer](https://github.com/mrlacey/StringResourceVisualizer)

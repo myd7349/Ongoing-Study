@@ -7,3 +7,5 @@ https://github.com/rtfpessoa/diff2html
 https://github.com/mmanela/diffplex
 
 - [Notepads](https://github.com/0x7c13/Notepads)
+
+https://github.com/menees/Diff.Net

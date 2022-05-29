@@ -20,6 +20,8 @@ https://github.com/martin-olivier/Dylib
 
 [GitHub - rhcad/x3c: A plugin-framework that uses C++ and STL.](https://github.com/rhcad/x3c)
 
+https://github.com/phisko/putils/tree/main/pluginManager
+
 https://github.com/x64dbg/PluginTemplate
 
 [BowPad](https://github.com/stefankueng/BowPad) supports plugins written in JScript or VBScript
@@ -35,3 +37,5 @@ https://github.com/Artikash/Example-Extension
 https://github.com/codereader/DarkRadiant/tree/master/plugins
 
 https://github.com/jferdelyi/GDSimpleBLE
+
+https://github.com/rizinorg/cutter supports both Python and Native C++ plugins.

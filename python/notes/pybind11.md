@@ -41,6 +41,15 @@ Projects using `pybind11`
 * [gnuradio](https://github.com/gnuradio/gnuradio)
 * [pygalmesh](https://github.com/meshpro/pygalmesh)
 * [LIEF](https://github.com/lief-project/LIEF)
+* [ducc](https://github.com/mreineck/ducc)
+* [SciPy](https://github.com/scipy/scipy/blob/main/scipy/spatial/src/distance_pybind.cpp)
+  * [scipy.fft](https://github.com/scipy/scipy/blob/main/scipy/fft/_pocketfft/pypocketfft.cxx)
+* [skia-python](https://github.com/kyamagu/skia-python)
+* [imprint](https://github.com/Confirm-Solutions/imprint)
+* [envpool](https://github.com/sail-sg/envpool)
+* [openPMD-api](https://github.com/openPMD/openPMD-api)
+* [warp-ctc](https://github.com/SeanNaren/warp-ctc)
+* [pybind11_protobuf](https://github.com/pybind/pybind11_protobuf)
 
 # Notes
 

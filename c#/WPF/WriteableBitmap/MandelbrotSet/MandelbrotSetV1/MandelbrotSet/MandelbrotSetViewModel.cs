@@ -251,3 +251,4 @@ namespace MandelbrotSet
 // https://github.com/qt/qtbase/tree/dev/examples/corelib/threads/mandelbrot
 // https://www.boost.org/doc/libs/1_56_0/libs/gil/example/mandelbrot.cpp
 // https://github.com/FrankHB/YEGE/tree/master/MandelbrotSet
+// https://github.com/shapoco/picosys-mandelbrot

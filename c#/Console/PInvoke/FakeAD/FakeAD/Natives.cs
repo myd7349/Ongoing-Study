@@ -108,3 +108,7 @@ namespace FakeAD
 // https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.nativelibrary.load?source=recommendations&view=net-6.0
 // https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.defaultdllimportsearchpathsattribute?view=net-6.0
 // https://github.com/mono/SkiaSharp/blob/main/binding/Binding.Shared/LibraryLoader.cs
+// [PInvoke with 32 and 64 bit machines](file:///C:/Users/hp/Downloads/PInvoke%20with%2032%20and%2064%20bit%20machines%20_%20Microsoft%20Learn%20(2022_10_21%2013_44_04).html)
+// [.NET equivalent of size_t](https://stackoverflow.com/questions/772531/net-equivalent-of-size-t)
+// https://github.com/AgigoNoTana/HiddenDesktopViewer/blob/master/HiddenDesktopViewer/Form1.cs#L754
+// System.Environment.Is64BitOperatingSystem

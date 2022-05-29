@@ -30,8 +30,42 @@
 9. IDataErrorInfo
    - [How do you get WPF DataGrid validation to work reliably](https://stackoverflow.com/questions/70020227/how-do-you-get-wpf-datagrid-validation-to-work-reliably)
    - [How to: Implement Validation Logic on Custom Objects](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-validation-logic-on-custom-objects?view=netframeworkdesktop-4.8)
+   - [WPF Data Validation - Exception, IDataErrorInfo, ValidationRule, & Annotations](https://www.youtube.com/watch?v=5KF0GGObuAQ)
+     - [ValidationInWPF](https://github.com/Tosker/ValidationInWPF)
 10. BindingList
     - [List<T> vs BindingList<T> Advantages/DisAdvantages](https://stackoverflow.com/questions/2243950/listt-vs-bindinglistt-advantages-disadvantages)
     - [Difference between ObservableCollection and BindingList](https://stackoverflow.com/questions/4284663/difference-between-observablecollection-and-bindinglist)
     - [BindingList vs ObservableCollection](https://siderite.dev/blog/bindinglist-vs-observablecollection.html/)
     - [BindingList does not scale…](https://www.themissingdocs.net/wordpress/?p=465)
+11. INotifyPropertyChanged
+    - [How to manually invoke an event?](https://stackoverflow.com/questions/8734700/how-to-manually-invoke-an-event)
+
+      ```csharp
+      using CommunityToolkit.Mvvm.ComponentModel;
+      
+      class MyViewModel : ObservableObject
+      {
+          public string Property
+          {
+              get => property_;
+              set => SetProperty(ref property_, value);
+          }
+      
+          public void NotifyPropertyChanged() => OnPropertyChanged(nameof(Property));
+      
+          private string property_;
+      }
+      
+      ObservableCollection<MyViewModel> ViewModels { get; }
+      
+      // Not work.
+      foreach (var viewModel in ViewModels)
+          viewModel.OnPropertyChanged(nameof(MyViewModel.Property));
+      
+      // Not work.
+      foreach (var viewModel in ViewModels)
+          viewModel.PropertyChanged?.Invoke(new new PropertyChangedEventArgs(nameof(MyViewModel.Property)));
+      
+      foreach (var viewModel in ViewModels)
+          viewModel.NotifyPropertyChanged();
+      ```

@@ -12,3 +12,5 @@ https://github.com/fo-dicom/mdcm
 https://github.com/rexcardan/Evil-DICOM
 
 https://github.com/Refactoring/ECGToolkit
+
+https://github.com/microsoft/Tools-for-Health-Data-Anonymization

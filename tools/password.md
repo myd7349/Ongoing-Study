@@ -4,6 +4,8 @@
 
 - Bitwarden
 
+- [buttercup-desktop](https://github.com/buttercup/buttercup-desktop)
+
 - [hashcat](https://github.com/hashcat/hashcat)
 
 - [john](https://github.com/openwall/john)

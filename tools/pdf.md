@@ -29,6 +29,8 @@ PDF Viewers:
 
 Tools:
 
+- [CPDF](https://github.com/johnwhitington/cpdf-source)
+
 - [WeasyPrint](https://github.com/Kozea/WeasyPrint)
 
 - [wkhtmltopdf](https://github.com/wkhtmltopdf/wkhtmltopdf)
@@ -44,6 +46,8 @@ Tools:
   - [MacReFlower](https://github.com/fibasile/MacReFlower)
 
 - [pdf2svg](https://github.com/dawbarton/pdf2svg)
+
+- [pdfgrep](https://pdfgrep.org/) - [code](https://gitlab.com/pdfgrep/pdfgrep)
 
 - [Prince](https://www.princexml.com/): Convert HTML to PDF.
 

@@ -1,3 +1,5 @@
+[pywin32](https://github.com/mhammond/pywin32)
+
 [QuantLib-SWIG](https://github.com/lballabio/QuantLib-SWIG)
 
 [tinyspline](https://github.com/msteinbeck/tinyspline)
@@ -33,3 +35,11 @@
 [explorepy](https://github.com/Mentalab-hub/explorepy/blob/master/src/explorepy/exploresdk.py)
 
 - [explorepy](https://github.com/Mentalab-hub/explorepy/tree/master/lib/windows)
+
+[NumPy and SWIG](https://numpy.org/doc/stable/reference/swig.html)
+
+- [numpy.i: a SWIG Interface File for NumPy](https://numpy.org/doc/stable/reference/swig.interface-file.html)
+
+[pystfio](https://github.com/neurodroid/stimfit/tree/master/src/pystfio)
+
+[libopenshot](https://github.com/OpenShot/libopenshot)

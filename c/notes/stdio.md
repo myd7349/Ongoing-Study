@@ -609,3 +609,7 @@ static void set_delete_on_close_flag(const HANDLE std_out, const HANDLE target, 
     }
 }
 ```
+
+39. fgetc
+
+- [Conformance Should Mean Something - fputc, and Freestanding](https://thephd.dev/conformance-should-mean-something-fputc-and-freestanding)

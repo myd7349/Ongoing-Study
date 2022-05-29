@@ -1,3 +1,13 @@
+[How and when to use ‘async’ and ‘await’](https://stackoverflow.com/questions/14455293/how-and-when-to-use-async-and-await)
+
+[Wrapping synchronous code into asynchronous call](https://stackoverflow.com/questions/21406973/wrapping-synchronous-code-into-asynchronous-call)
+
+[There Is No Thread](https://blog.stephencleary.com/2013/11/there-is-no-thread.html)
+
+[Stephen Cleary — Asynchronous streams](https://www.youtube.com/watch?v=-Tq4wLyen7Q)
+
+[AsyncIntro](https://github.com/jskeet/DemoCode/tree/main/AsyncIntro)
+
 [What is the use for Task.FromResult in C#](https://stackoverflow.com/questions/19568280/what-is-the-use-for-task-fromresulttresult-in-c-sharp)
 
 [Task.FromResult应用场景举例](https://www.cnblogs.com/darrenji/p/4712504.html)
@@ -71,6 +81,8 @@ https://github.com/microsoft/FASTER
 
 [Async and Await](https://blog.stephencleary.com/2012/02/async-and-await.html)
 
+> One important point about awaitables is this: it is the type that is awaitable, not the method returning the type. In other words, you can await the result of an async method that returns Task … because the method returns Task, not because it’s async. So you can also await the result of a non-async method that returns Task.
+
 [ContinueWith a cancelled Task](https://stackoverflow.com/questions/11892315/continuewith-a-cancelled-task)
 
 [8 await async mistakes that you SHOULD avoid in .NET](https://www.youtube.com/watch?v=lQu-eBIIh-w)
@@ -90,3 +102,23 @@ https://github.com/microsoft/FASTER
 [Is it considered acceptable to not call Dispose() on a TPL Task object?](https://stackoverflow.com/questions/3734280/is-it-considered-acceptable-to-not-call-dispose-on-a-tpl-task-object)
 
 [Attached and Detached Child Tasks](https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/attached-and-detached-child-tasks)
+
+ValueTask
+
+[An Introduction to System.Threading.Channels](https://devblogs.microsoft.com/dotnet/an-introduction-to-system-threading-channels/)
+
+[Why would one use Task<T> over ValueTask<T> in C#?](https://stackoverflow.com/questions/43000520/why-would-one-use-taskt-over-valuetaskt-in-c)
+
+[Using async-await for database queries](https://stackoverflow.com/questions/63165599/using-async-await-for-database-queries)
+
+[DialogHost hangs](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/issues/2751)
+
+[C# - Making sync function to async](https://learn.microsoft.com/en-us/answers/questions/277316/c-making-sync-function-to-async.html)
+
+[How can I "adapt" a Task<IEnumerable<T>> to IAsyncEnumerable<T>?](https://stackoverflow.com/questions/55384089/how-can-i-adapt-a-taskienumerablet-to-iasyncenumerablet)
+
+Task.Status
+
+[A lap around the Microsoft MVVM Toolkit](https://xamlbrewer.wordpress.com/2020/11/16/a-lap-around-the-microsoft-mvvm-toolkit/comment-page-1/)
+
+[How would I run an async Task<T> method synchronously?](https://stackoverflow.com/questions/5095183/how-would-i-run-an-async-taskt-method-synchronously)

@@ -32,3 +32,7 @@ dict(zip(map(string.lower,a.keys()),a.values()))
 https://peps.python.org/pep-0455/
 
 [Python dictionary: are keys() and values() always the same order?](https://stackoverflow.com/questions/835092/python-dictionary-are-keys-and-values-always-the-same-order)
+
+https://github.com/aio-libs/multidict
+
+[How to create key or append an element to key?](https://stackoverflow.com/questions/12905999/how-to-create-key-or-append-an-element-to-key)

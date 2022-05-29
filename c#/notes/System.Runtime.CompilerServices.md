@@ -87,3 +87,7 @@ public string ImageFullPath
 Unsafe.Add
 
 - https://github.com/CommunityToolkit/dotnet/blob/main/CommunityToolkit.Diagnostics/Extensions/ValueTypeExtensions.cs
+
+ConditionalWeakTable
+
+- https://github.com/anakic/Jot/blob/master/Jot/Configuration/Trigger.cs

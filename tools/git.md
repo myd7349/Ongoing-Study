@@ -41,11 +41,15 @@ Commit Messages
 
 Tools:
 
+- [bfg-repo-cleaner](https://github.com/rtyley/bfg-repo-cleaner)
+
 - [commitlint](https://github.com/conventional-changelog/commitlint)
 
 - [dura](https://github.com/tkellogg/dura) - You shouldn't ever lose your work if you're using Git.
 
 - [git-big-picture](https://github.com/git-big-picture/git-big-picture)
+
+- [git-bug](https://github.com/MichaelMure/git-bug)
 
 - [git-crypt](https://github.com/AGWA/git-crypt)
 
@@ -60,6 +64,8 @@ Tools:
 - [gitlist](https://github.com/klaussilveira/gitlist)
 
 - [isomorphic-git](https://github.com/isomorphic-git/isomorphic-git)
+
+- [legit](https://github.com/frostming/legit)
 
 - [mergestat](https://github.com/mergestat/mergestat)
 
@@ -469,6 +475,10 @@ https://github.com/jesseduffield/lazygit
 > 
 > 知道了这些信息之后，就可以知道Git泄露攻击是如何进行的了，首先攻击者访问index文件，解析后得到文件名和对象哈希。接着按着对象哈希一个一个去objects目录获取到Git对象，解析后得到文件。
 
+[How does Git compute file hashes?](https://stackoverflow.com/questions/7225313/how-does-git-compute-file-hashes)
+
+[How to assign a Git SHA1's to a file without Git?](https://stackoverflow.com/questions/552659/how-to-assign-a-git-sha1s-to-a-file-without-git)
+
 [Git - index-format Documentation](https://git-scm.com/docs/index-format)
 
 [gum](https://github.com/gauseen/gum)
@@ -574,3 +584,11 @@ def git_hash():
         raise MKException("Unexpected git output " + r)
     return ls[0]
 ```
+
+[How do I delete a Git branch locally and remotely?](https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-locally-and-remotely)
+
+> git push -d origin branch
+
+https://github.com/hartwork/git-delete-merged-branches
+
+[Changing the Git remote 'push to' default](https://stackoverflow.com/questions/18801147/changing-the-git-remote-push-to-default)

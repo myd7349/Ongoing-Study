@@ -35,3 +35,7 @@ https://github.com/wieslawsoltes/Core2D
 [boids2](https://github.com/swharden/Csharp-Data-Visualization/tree/main/dev/old/drawing/boids2)
 
 [Dynamically draw lines with SkiaSharp in Xamarin](https://stackoverflow.com/questions/50288603/dynamically-draw-lines-with-skiasharp-in-xamarin)
+
+[Drawing with SkiaSharp](https://swharden.com/csdv/skiasharp/skiasharp/)
+
+[Drawing with SkiaSharp & OpenGL](https://swharden.com/csdv/skiasharp/skiasharp-opengl/)

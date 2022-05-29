@@ -28,6 +28,10 @@ Communication
 
 - [mahi-com](https://github.com/mahilab/mahi-com)
 
+Database
+
+- [dbpy](https://github.com/whiteclover/dbpy)
+
 File System
 
 - [alist](https://github.com/Xhofe/alist)
@@ -39,6 +43,8 @@ File System
 - [gdrive](https://github.com/BYVoid/gdrive)
 
 - [hackpadfs](https://github.com/hack-pad/hackpadfs)
+
+- [Namotion.Storage](https://github.com/RicoSuter/Namotion.Storage)
 
 - [physfs](https://github.com/icculus/physfs)
 
@@ -57,6 +63,8 @@ Graphics
 - [io2d](https://github.com/cpp-io2d/P0267_RefImpl)
 
 - [Moz2D](https://wiki.mozilla.org/Platform/GFX/Moz2D)
+
+- [nicegraf](https://github.com/nicebyte/nicegraf)
 
 GUI
 

@@ -4,6 +4,7 @@ explorer /select, C:\Windows\System32\notepad.exe
 
 > EXPLORER.EXE [/n][/e][,/root,<object>][[,/select],<subobject>]
 
+
 [ShellAnything](https://github.com/end2endzone/ShellAnything)
 
 [OpenHashTab](https://github.com/namazso/OpenHashTab)
@@ -11,3 +12,5 @@ explorer /select, C:\Windows\System32\notepad.exe
 [AdaptiveShell](https://github.com/w10m-research/AdaptiveShell)
 
 [ExplorerPatcher](https://github.com/valinet/ExplorerPatcher)
+
+[Q-Dir](https://www.softwareok.com/?seite=Freeware/Q-Dir)

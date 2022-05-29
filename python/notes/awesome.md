@@ -2,6 +2,7 @@
 
 - [micropython](https://github.com/micropython/micropython)
   - [circuitpython](https://github.com/adafruit/circuitpython)
+- [nogil](https://github.com/colesbury/nogil)
 - [pikascript](https://github.com/pikasTech/pikascript)
 
 ### AI
@@ -10,6 +11,8 @@
 
 ### Audio
 
+- [librosa](https://github.com/librosa/librosa)
+  - [LibrosaCpp](https://github.com/ewan-xu/LibrosaCpp)
 - [pedalboard](https://github.com/spotify/pedalboard)
 - pyaudio
 - [python-mingus](https://github.com/bspaans/python-mingus)
@@ -23,9 +26,17 @@
   
   - [shot-scraper](https://github.com/simonw/shot-scraper)
 
+### Benchmark
+
+- [asv](https://github.com/airspeed-velocity/asv)
+
 ### Bioinformatics
 
 - [biopandas](https://github.com/rasbt/biopandas)
+
+### C Preprocessor
+
+- [CppHeaderParser](https://pypi.org/project/CppHeaderParser/)
 
 ### Charting
 
@@ -37,7 +48,11 @@
 
 - [chartify](https://github.com/spotify/chartify)
 
+- [corner.py](https://github.com/dfm/corner.py)
+
 - [datoviz](https://github.com/datoviz/datoviz)
+
+- [mayavi](https://github.com/enthought/mayavi)
 
 - [PyQtGraph](https://www.pyqtgraph.org/)
 
@@ -48,6 +63,8 @@
 - [pyvista](https://github.com/pyvista/pyvista)
 
   - [mne-python](https://github.com/mne-tools/mne-python)
+
+    - [Plotting EEG sensors on the scalp](https://mne.tools/stable/auto_examples/visualization/eeg_on_scalp.html)
 
 - [SciencePlots](https://github.com/garrettj403/SciencePlots)
 
@@ -94,6 +111,8 @@
 - [progressbar2](https://github.com/WoLpH/python-progressbar)
 
 - [Pylsy](https://github.com/Leviathan1995/Pylsy)
+
+- [pytermgui](https://github.com/bczsalba/pytermgui)
 
 - [python-cfonts](https://github.com/frostming/python-cfonts)
 
@@ -143,9 +162,17 @@
 
 ### Container
 
+- [multidict](https://github.com/aio-libs/multidict)
+
+- [python-sortedcontainers](https://github.com/grantjenks/python-sortedcontainers)
+
 - [twodict](https://github.com/MrS0m30n3/twodict)
 
 ### Database
+
+- [ibis](https://github.com/ibis-project/ibis)
+
+- [intake-sqlite](https://github.com/catalyst-cooperative/intake-sqlite)
 
 - [litedict](https://github.com/litements/litedict): SQLite as a Python dictionary.
 
@@ -155,18 +182,34 @@
 
 - [sqlite-utils](https://github.com/simonw/sqlite-utils)
 
+##### Document Database
+
+- [tinydb](https://github.com/msiemens/tinydb)
+
 ### Debug
 
 - [Cyberbrain](https://github.com/laike9m/Cyberbrain)
 - [failprint](https://github.com/pawamoy/failprint)
 - [icecream](https://github.com/gruns/icecream)
 
+### Documentation
+
+- [interrogate](https://interrogate.readthedocs.io/en/latest/)
+
 ### DSP
 
 - [cusignal](https://github.com/rapidsai/cusignal)
 - [filterpy](https://github.com/rlabbe/filterpy)
+- [mkl_fft](https://github.com/IntelPython/mkl_fft)
+- [pyaec](https://github.com/ewan-xu/pyaec)
 - [pywt](https://github.com/PyWavelets/pywt)
 - [trefide](https://github.com/ikinsella/trefide)
+
+##### Books
+
+- [Python-for-Signal-Processing](https://github.com/unpingco/Python-for-Signal-Processing)
+
+- [ThinkDSP](https://github.com/AllenDowney/ThinkDSP)
 
 ### File System
 
@@ -192,7 +235,23 @@
 
 - [ballistica](https://github.com/efroemling/ballistica)
 
+- [panda3d](https://github.com/panda3d/panda3d)
+
 - PyGame
+
+### Geography
+
+- [gwpy](https://github.com/gwpy/gwpy)
+
+- [verde](https://github.com/fatiando/verde)
+
+### Graphics
+
+- [moderngl](https://github.com/moderngl/moderngl)
+
+  - [manim](https://github.com/3b1b/manim)
+
+- PyOpenGL
 
 ### GUI
 
@@ -238,6 +297,10 @@
   - [Phoenix](https://github.com/wxWidgets/Phoenix)
   - [youtube-dl-gui](https://github.com/MrS0m30n3/youtube-dl-gui)
 
+### Hook
+
+- [angr](https://github.com/angr/angr)
+
 ### Hot Reload
 
 - [reloadium](https://github.com/reloadware/reloadium)
@@ -278,6 +341,8 @@
 
 ##### C, C++ -> Python
 
+- Boost.Python
+
 - [cppyy](https://github.com/wlav/cppyy)
 
 - [nanobind](https://github.com/wjakob/nanobind)
@@ -288,15 +353,23 @@
 
 - [scikit-build](https://github.com/scikit-build/scikit-build): Improved build system generator for CPython C, C++, Cython and Fortran extensions.
 
+- [shedskin](https://github.com/shedskin/shedskin)
+
 - DIY
 
   - [dearpygui](https://github.com/hoffstadt/DearPyGui/blob/v1.5.0/DearPyGui/dearpygui/_dearpygui.pyi)
 
     - [mvPythonParser](https://github.com/hoffstadt/DearPyGui/blob/v1.5.0/DearPyGui/src/python/utilities/mvPythonParser.h)
 
+  - [panda3d](https://github.com/panda3d/panda3d/blob/master/CMakeLists.txt)
+
+    - [interrogate](https://github.com/panda3d/panda3d/tree/master/dtool/src/interrogate) 
+
 ##### Python -> C++
 
 - [matplotlibcpp17](https://github.com/soblin/matplotlibcpp17): A C++ header-only library for matplotlib based on pybind.
+
+- [shedskin](https://github.com/shedskin/shedskin)
 
 ##### Python -> MATLAB
 
@@ -330,6 +403,8 @@
 
 - https://github.com/pyodide/pyodide/blob/0.19.1/src/core/js2python.h
 
+- https://github.com/PetterS/quickjs
+
 ### Logging
 
 - [icecream](https://github.com/gruns/icecream)
@@ -348,7 +423,16 @@
 
 - [latexify_py](https://github.com/google/latexify_py)
 
+- [manim](https://github.com/3b1b/manim)
+
+  - [FFT Example: Unraveling the Recursion](https://www.youtube.com/watch?v=Ty0JcR6Dvis) - [code](https://github.com/nipunramk/Reducible/blob/master/2020/FFT/fft.py)
+
 - [pcpp.preprocessor.Evaluator](https://github.com/ned14/pcpp/blob/master/pcpp/evaluator.py)
+
+### Multimedia
+
+- [ffmpeg-python](https://github.com/kkroening/ffmpeg-python)
+- [moviepy](https://github.com/Zulko/moviepy)
 
 ### N-D Array
 
@@ -359,6 +443,7 @@
 - [h5py](https://github.com/h5py/h5py)
 - pandas.DataFrame
 - [PyTables](https://github.com/PyTables/PyTables)
+- [sparse](https://github.com/pydata/sparse)
 - [tiledarray](https://github.com/ValeevGroup/tiledarray)
 - [xarray](https://github.com/pydata/xarray)
   > Multi-dimensional (a.k.a. N-dimensional, ND) arrays (sometimes called "tensors") are an essential part of computational science.
@@ -381,7 +466,13 @@
 
   - https://github.com/mne-tools/mne-python/blob/v1.0.3/mne/datasets/_fetch.py#L229
 
+- [puppeteer](https://github.com/puppeteer/puppeteer)
+
+  - [DouBanSpider](https://github.com/zhou199864/DouBanSpider)
+
 - [scapy](https://github.com/secdev/scapy)
+
+- [spatula](https://github.com/jamesturk/spatula)
 
 - [whatismyip](https://github.com/asweigart/whatismyip)
 
@@ -405,6 +496,10 @@
 
 - [python-docx](https://github.com/python-openxml/python-docx)
 
+##### All in One
+
+- [oletools](https://github.com/decalage2/oletools)
+
 ### OOP
 
 - [attrs](https://github.com/python-attrs/attrs)
@@ -412,6 +507,10 @@
 ### Package Management
 
 - [delocate](https://github.com/matthew-brett/delocate)
+
+- [mamba](https://github.com/mamba-org/mamba)
+
+  - https://github.com/mne-tools/mne-installers/blob/main/.github/workflows/build.yml
 
 - [PyCon China 2021 演讲——Python 打包 101](https://frostming.com/2021/10-20/pycon-china-2021/)
 
@@ -463,19 +562,37 @@
 
 - [pyupgrade](https://github.com/asottile/pyupgrade)
 
+### Reverse Engineering
+
+- [angr](https://github.com/angr/angr)
+
 ### RPC
 
 - JSON-RPC
 
   - [aria2p](https://github.com/pawamoy/aria2p)
 
+- [rpyc](https://github.com/tomerfiliba-org/rpyc)
+
 ### Scientific Computing
 
 - [awesome-scientific-python](https://github.com/rossant/awesome-scientific-python)
 
+### Scientific Python distribution
+
+- [Python(x,y)](https://python-xy.github.io/)
+
 ### Static Analysis
 
 - [ibis](https://github.com/ibis-project/ibis)
+
+### String
+
+- https://github.com/aio-libs/multidict/blob/master/multidict/_multilib/istr.h
+
+  - [multidict](https://github.com/aio-libs/multidict)
+
+- [istr](https://github.com/saltstack/istr)
 
 ### Tree
 

@@ -46,3 +46,4 @@ Regex for datetime:
 
 - Regular Expressions Cookbook 4.5. Accurately Validate Traditional Date Formats: https://www.oreilly.com/library/view/regular-expressions-cookbook/9780596802837/ch04s05.html
 
+https://github.com/daviddrysdale/python-phonenumbers/blob/dev/python/phonenumbers/re_util.py

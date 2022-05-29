@@ -96,3 +96,4 @@
 // x &= (1 << (n + 1)) - 1;
 // toggle every bit of x
 // x = ~x;
+// https://github.com/OpenGenus/cosmos/tree/master/code/bit_manipulation

@@ -155,3 +155,4 @@ int simpson_rule_sum(math_fn_t *func, double a, double b, int n, double *result)
 // Calculus, 7ed, James.Stewart, P530, Chapter 7.7
 // https://stackoverflow.com/questions/16512817/numerical-integration-in-c
 // https://www.codeproject.com/Articles/31550/Fast-Numerical-Integration
+// [Finding the area under the curve y=x^2](https://www.youtube.com/watch?v=HJos5lgJ7Ns)

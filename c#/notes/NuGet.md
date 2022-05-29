@@ -61,3 +61,5 @@
     > Update-Package FastReport.OpenSource -Version 2020.3.0
     
     [Reinstalling and Updating NuGet Packages | Microsoft Docs](https://docs.microsoft.com/en-us/nuget/consume-packages/reinstalling-and-updating-packages)
+
+11. https://github.com/xoofx/dotnet-releaser

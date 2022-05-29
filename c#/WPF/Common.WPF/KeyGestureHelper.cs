@@ -104,3 +104,4 @@ namespace Common.WPF
 
 // References:
 // https://github.com/dotnet/wpf/blob/main/src/Microsoft.DotNet.Wpf/src/PresentationCore/System/Windows/Input/Command/KeyGestureConverter.cs
+// https://github.com/snoopwpf/snoopwpf/blob/develop/Snoop/Data/KeyGestureEx.cs

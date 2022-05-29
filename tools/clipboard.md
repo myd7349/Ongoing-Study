@@ -1,5 +1,6 @@
 - [clipboardzanager](https://github.com/veler/clipboardzanager)
 - [ClipboardViewer](https://github.com/walterlv/ClipboardViewer)
 - [CopyQ](https://github.com/hluk/CopyQ)
+- [crossclip](https://github.com/yue/crossclip)
 - [Maccy](https://github.com/p0deje/Maccy)
 - [TextCopy](https://github.com/CopyText/TextCopy)

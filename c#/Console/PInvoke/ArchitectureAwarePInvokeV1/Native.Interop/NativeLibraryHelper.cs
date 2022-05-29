@@ -73,3 +73,5 @@
 // References:
 // https://github.com/chmorgan/sharppcap/blob/master/SharpPcap/LibPcap/NativeLibraryHelper.cs
 // https://github.com/mono/SkiaSharp/blob/main/binding/Binding.Shared/LibraryLoader.cs
+// https://github.com/mono/SkiaSharp/blob/main/binding/Binding/SkiaApi.cs
+// https://github.com/mono/SkiaSharp/issues/190

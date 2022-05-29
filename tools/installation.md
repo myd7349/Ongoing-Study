@@ -8,6 +8,7 @@
 
 ### WiX toolset
 
+- https://gitlab.com/wireshark/wireshark/-/tree/master/packaging/wix
 - http://wudt.codeplex.com/releases/view/37074
 - https://github.com/yingDev/WGestures
 - https://github.com/python/cpython/blob/master/Tools/msi/wix.props
@@ -25,6 +26,10 @@
 - https://github.com/alexkay/spek
 - https://github.com/StephenCleary/DisplayProfiles
 - https://github.com/Dirkster99/Edi
+- [VisualJsonEditor](https://github.com/RicoSuter/VisualJsonEditor)
+- [ProjectDependencyBrowser](https://github.com/RicoSuter/ProjectDependencyBrowser)
+- https://github.com/getdnsapi/stubby/tree/develop/windows
+- https://github.com/microsoft/XmlNotepad/tree/master/src/XmlNotepadSetup
 
 ### NSIS
 
@@ -37,6 +42,17 @@
 - [koodo-reader](https://github.com/troyeguo/koodo-reader)
 - [FreeCADInstProj](https://github.com/donovaly/FreeCADInstProj)
 - [LyXWinInstaller](https://github.com/donovaly/LyXWinInstaller)
+- https://github.com/panda3d/panda3d/blob/master/makepanda/installer.nsi
+- https://github.com/mne-tools/mne-installers
+  - See logs for `Build the installers / build (windows-2019) (push)`/`Build Installers` GitHub CI workflow.
+- https://github.com/dail8859/NotepadNext
+- https://github.com/Mentalab-hub/explorepy
+- https://github.com/httpie/desktop
+  - Open https://github.com/httpie/desktop with Detect It Easy.
+- https://github.com/MediaArea/MediaInfo/tree/master/Source/Install
+- https://github.com/MediaArea/MediaInfoLib/tree/master/Source/Install
+- https://github.com/KangLin/FaceRecognizer
+- https://github.com/Orama-Interactive/Pixelorama
 
 ##### PyNSISt
 
@@ -74,6 +90,7 @@
 - [Resolute](https://github.com/rizonesoft/Resolute)
 - https://github.com/eranif/codelite
 - https://github.com/Tyrrrz/LightBulb/tree/master/Installer
+- https://github.com/OpenShot/openshot-qt
 
 ### Advanced Installer
 
@@ -116,6 +133,8 @@
 
 ### DIY
 
+- [FEBuilderGBA_Installer](https://github.com/FEBuilderGBA/FEBuilderGBA_Installer)
+
 - [Locale-Emulator/LEInstaller](https://github.com/xupefei/Locale-Emulator/tree/master/LEInstaller)
 
 ### MSIX
@@ -127,6 +146,10 @@
 > This format can either be used to ship applications
 > to Microsoft Windows’ Apps store, or you can
 > distribute application installers directly.
+
+[Creating an MSIX package](https://learn.microsoft.com/en-us/windows/msix/packaging-tool/create-an-msix-overview?source=recommendations)
+
+https://github.com/M2Team/NanaZip
 
 ### [Zero Install](https://0install.net/)
 
@@ -155,3 +178,16 @@
 ### [Onova](https://github.com/Tyrrrz/Onova)
 
 - [LightBulb](https://github.com/Tyrrrz/LightBulb)
+
+### Install vcredist
+
+- Wireshark
+
+  > vc_redist.x64.exe /install /quiet /norestart
+
+- BESA Research
+
+  > C:\Program Files (x86)\BESA\Research_7_1\Utilities\CallRedist.bat
+  > .\vcredist_x86.exe /qb
+
+### [Update](https://github.com/avplayer/avupdate)

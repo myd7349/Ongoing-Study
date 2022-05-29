@@ -16,13 +16,19 @@ Applications:
 
 - [BingWallpaper2](https://github.com/Dustray/BingWallpaper2)
 
+- [BugTracker](https://github.com/chris84948/BugTracker)
+
 - [cairoshell](https://github.com/cairoshell/cairoshell)
 
 - [Calculator](https://github.com/getandplay/Calculator)
 
+- [Camelotia](https://github.com/reactiveui/Camelotia)
+
 - [certify](https://github.com/webprofusion/certify)
 
 - [ChocolateyGUI](https://github.com/chocolatey/ChocolateyGUI)
+
+- [ChoEazyCopy](https://github.com/Cinchoo/ChoEazyCopy)
 
 - [ClipboardViewer](https://github.com/walterlv/ClipboardViewer)
 
@@ -58,6 +64,8 @@ Applications:
 
 - [FanControl](https://github.com/Rem0o/FanControl.Releases)
 
+- [fasetto-word](https://github.com/angelsix/fasetto-word)
+
 - [Files](https://github.com/files-community/Files)
 
 - [FontLink-GUI](https://github.com/VaslD/FontLink-GUI)
@@ -78,11 +86,17 @@ Applications:
 
 - [MindLated](https://github.com/Sato-Isolated/MindLated)
 
+- [mpv.net](https://github.com/mpvnet-player/mpv.net)
+
 - [MusCat](https://github.com/ar1st0crat/MusCat)
+
+- [my-todoapp](https://github.com/HenJigg/my-todoapp)
 
 - [NatTypeTester](https://github.com/HMBSbige/NatTypeTester)
 
 - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
+
+- [NewModernWinver](https://github.com/torchgm/NewModernWinver)
 
 - [NodeNetwork](https://github.com/Wouterdek/NodeNetwork)
 
@@ -95,6 +109,8 @@ Applications:
 - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
 
 - [PowerBuddy](https://github.com/PerfectlyCromulentLtd/PowerBuddy)
+
+- [ProjectDependencyBrowser](https://github.com/RicoSuter/ProjectDependencyBrowser)
 
 - [QSanguosha](https://github.com/Mogara/QSanguosha)
 
@@ -126,6 +142,10 @@ Applications:
 
 - [snoopwpf](https://github.com/snoopwpf/snoopwpf)
 
+- [SoftwareHelper](https://github.com/WPFDevelopersOrg/SoftwareHelper)
+
+- [SparkleShare](https://github.com/hbons/SparkleShare)
+
 - [SvgToXaml](https://github.com/BerndK/SvgToXaml)
 
 - [SyncTrayzor](https://github.com/canton7/SyncTrayzor)
@@ -133,6 +153,8 @@ Applications:
 - [TailBlazer](https://github.com/RolandPheasant/TailBlazer)
 
 - [TEditor](https://github.com/SkiTiSu/TEditor)
+
+- [ToastFish](https://github.com/Uahh/ToastFish)
 
 - [TranslationTool](https://github.com/Kybs0/TranslationTool)
 
@@ -144,15 +166,35 @@ Applications:
 
 - [YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)
 
+- [VisualJsonEditor](https://github.com/RicoSuter/VisualJsonEditor)
+
 - [WeatherCS](https://github.com/crashmax-dev/WeatherCS)
 
 - [WinCompose](https://github.com/samhocevar/wincompose)
 
+- [WindowDemo](https://github.com/DinoChan/WindowDemo)
+
 - [Wox](https://github.com/Wox-launcher/Wox)
+
+- [wpf_design_and_animation_lab](https://github.com/DinoChan/wpf_design_and_animation_lab)
+
+- [wpf-mstodo](https://github.com/HenJigg/wpf-mstodo)
 
 - [WPF-Music_Player](https://github.com/xingchuanzhen/WPF-Music_Player)
 
+- [WPF-Notepad](https://github.com/Tosker/WPF-Notepad)
+
+- [wpf-uidesign](https://github.com/HenJigg/wpf-uidesign)
+
 - [WpfDesigner](https://github.com/icsharpcode/WpfDesigner)
+
+- [WpfModernWinver](https://github.com/torchgm/WpfModernWinver)
+
+- [WPFTodoList](https://github.com/Tosker/WPFTodoList)
+
+- [WpfViewChanger](https://github.com/Tosker/WpfViewChanger)
+
+- [XmlNotepad](https://github.com/microsoft/XmlNotepad)
 
 Libraries:
 
@@ -174,6 +216,10 @@ Libraries:
 
   - [Shadow-FM](https://github.com/aduskin/Shadow-FM)
 
+- [AirspaceFixer](https://github.com/chris84948/AirspaceFixer)
+
+  - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
+
 - [AK.Toolkit](https://github.com/AndrewKeepCoding/AK.Toolkit)
 
 - [Assisticant](https://github.com/michaellperry/Assisticant)
@@ -190,6 +236,8 @@ Libraries:
 
   - [Gemini](https://github.com/tgjones/gemini)
 
+  - [Recommendations on a WPF Docking Library](https://stackoverflow.com/questions/344205/recommendations-on-a-wpf-docking-library)
+
 - [AvalonEdit](https://github.com/icsharpcode/AvalonEdit)
 
   - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
@@ -199,6 +247,8 @@ Libraries:
   - [XamlViewer](https://github.com/WPFDevelopersOrg/XamlViewer)
 
 - [bot](https://github.com/thinkpixellab/bot)
+
+- [C# Markup 2](https://github.com/VincentH-Net/CSharpForMarkup)
 
 - [CalcBinding](https://github.com/Alex141/CalcBinding)
 
@@ -233,10 +283,15 @@ Libraries:
     - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
   - https://github.com/sonicrang/RangPaint/tree/master/ColorPicker
 
+  - [Definitive Guide to WPF Colors, Color Spaces, Color Pickers and Creating Your Own Colors for Mere Mortals](https://www.codeproject.com/Articles/5296124/Definitive-Guide-to-WPF-Colors-Color-Spaces-Color)
+
+- [ConsoleControl](https://github.com/dwmkerr/consolecontrol)
+
 - [ControlzEx](https://github.com/ControlzEx/ControlzEx)
   
   - C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2007.6001.0_neutral__8wekyb3d8bbwe\ControlzEx.dll
   - DeepL Translate App for Windows
+  - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
   - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
   - PowerToys
 
@@ -278,7 +333,17 @@ Libraries:
 
 - [DMSkin](https://github.com/944095635/DMSkin)
 
+- Docking
+
+  - [how to create a docking(floating) toolbar in wpf](https://stackoverflow.com/questions/2887386/how-to-create-a-dockingfloating-toolbar-in-wpf)
+
+  - [WPF Docking Library](https://www.codeproject.com/Articles/18812/WPF-Docking-Library)
+
 - [Dragablz](https://github.com/ButchersBoy/Dragablz)
+
+  - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
+
+  - [Savablz](https://github.com/speedyalibaba/Savablz)
 
   - [TailBlazer](https://github.com/RolandPheasant/TailBlazer)
 
@@ -296,6 +361,8 @@ Libraries:
 
 - [FluentWPF](https://github.com/sourcechord/FluentWPF)
 
+- [FontAwesome6](https://github.com/MartinTopfstedt/FontAwesome6)
+
 - [FontAwesomeIconsWpf](https://github.com/charri/Font-Awesome-WPF)
   
   - [Quicker](https://github.com/cuiliang/Quicker)
@@ -309,6 +376,8 @@ Libraries:
   - DeepL Translate App for Windows
   
   - [Magpie](https://github.com/Blinue/Magpie)
+
+- [GLWpfControl](https://github.com/opentk/GLWpfControl)
 
 - [GMap.NET](https://github.com/judero01col/GMap.NET)
 
@@ -348,16 +417,32 @@ Libraries:
 
   - [wpf-samples](https://github.com/Infragistics/wpf-samples)
 
+- [jot](https://github.com/anakic/jot)
+
+  - [WPF: How are you supposed to save window position in the year 2020?](https://www.reddit.com/r/csharp/comments/j0kkki/wpf_how_are_you_supposed_to_save_window_position/)
+
+  - [Easier .NET settings](https://www.codeproject.com/Articles/475498/Easier-NET-settings)
+
 - [Kino.Toolkit.Wpf](https://github.com/DinoChan/Kino.Toolkit.Wpf)
 
+  - [[WPF 自定义控件]在MenuItem上使用RadioButton](https://www.cnblogs.com/dino623/p/Uising_RadioButton_in_MenuItem.html)
+
 - [Livet](https://github.com/runceel/Livet)
+
+- [LoadingIndicators.WPF](https://github.com/zeluisping/LoadingIndicators.WPF)
+
+  - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 
 - [LottieSharp](https://github.com/quicoli/LottieSharp)
 
 - [MahApps.Metro](https://github.com/MahApps/MahApps.Metro)
-  
+
+  - [Camelotia](https://github.com/reactiveui/Camelotia)
+
   - DeepL Translate App for Windows
-  
+
+  - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
+
   - [NextBootOSSelector](https://github.com/takuya-takeuchi/NextBootOSSelector)
 
   - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
@@ -369,6 +454,8 @@ Libraries:
 - [MahApps.Metro.SimpleChildWindow](https://github.com/punker76/MahApps.Metro.SimpleChildWindow)
 
 - [MaterialDesignInXamlToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
+
+  - [Camelotia](https://github.com/reactiveui/Camelotia)
 
   - [FanControl](https://github.com/Rem0o/FanControl.Releases)
 
@@ -396,7 +483,9 @@ Libraries:
   
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
   - PowerToys
-  
+
+- [MPF](https://github.com/sunnycase/MPF)
+
 - [mui](https://github.com/firstfloorsoftware/mui)
 
   - [XAML Spy](https://xamlspy.com/)
@@ -426,6 +515,8 @@ Libraries:
   - [HandyControl](https://github.com/HandyOrg/HandyControl)
 
   - [NextBootOSSelector](https://github.com/takuya-takeuchi/NextBootOSSelector)
+
+- [MyToolkit.Extended.Wpf](https://github.com/RicoSuter/MyToolkit/tree/master/src/MyToolkit.Extended.Wpf)
 
 - [NLogViewer](https://github.com/dojo90/NLogViewer): NlogViewer is a ui control library to visualize NLog logs
   
@@ -469,6 +560,8 @@ Libraries:
 
   - [How to bind inverse boolean properties in WPF?](https://stackoverflow.com/questions/1039636/how-to-bind-inverse-boolean-properties-in-wpf)
 
+  - [Add much more supported static classes](https://github.com/Alex141/CalcBinding/issues/4)
+
 - [RawInput](https://github.com/mfakane/rawinput-sharp)
   
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
@@ -481,6 +574,10 @@ Libraries:
 
 - [ReactiveUI.Validation](https://github.com/reactiveui/ReactiveUI.Validation)
 
+- [ReoGrid](https://github.com/unvell/ReoGrid)
+
+- [SegmentDisplay](https://github.com/Tosker/SegmentDisplay)
+
 - [SharpVectors](https://github.com/ElinamLLC/SharpVectors)
 
   - [WPF What is the correct way of using SVG files as icons in WPF](https://stackoverflow.com/questions/3526366/wpf-what-is-the-correct-way-of-using-svg-files-as-icons-in-wpf)
@@ -488,6 +585,8 @@ Libraries:
 - [ShowMeTheXAML](https://github.com/Keboo/ShowMeTheXAML)
 
   - https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/wiki/Getting-Started
+
+- [SimpleWPF](https://github.com/Joben28/SimpleWPF)
 
 - [SpicyTaco.AutoGrid](https://github.com/SpicyTaco/SpicyTaco.AutoGrid)
 
@@ -535,13 +634,19 @@ Libraries:
 
 - [WPF-ControlBase](https://github.com/HeBianGu/WPF-ControlBase)
 
+- [WPF-File-Dialog-Control](https://github.com/chris84948/WPF-File-Dialog-Control)
+
 - [WPFConverters](https://github.com/kentcb/WPFConverters)
 
   - [How to bind int to Visibility in WPF?](https://stackoverflow.com/questions/43434387/how-to-bind-int-to-visibility-in-wpf)
 
 - [WPFDarkTheme](https://github.com/AngryCarrot789/WPFDarkTheme)
 
+- [WPFDevelopers](https://github.com/WPFDevelopersOrg/WPFDevelopers)
+
 - [WpfExpressionBlendTheme](https://github.com/DanPristupov/WpfExpressionBlendTheme)
+
+- [WpfExtendedToolkit](https://github.com/dotnetprojects/WpfExtendedToolkit)
 
 - [WpfExtensions](https://github.com/DingpingZhang/WpfExtensions)
 
@@ -555,8 +660,6 @@ Libraries:
 
   - [open child window inside a parent window in wpf using MVVM](https://stackoverflow.com/questions/7446825/open-child-window-inside-a-parent-window-in-wpf-using-mvvm)
 
-- [WpfModernWinver](https://github.com/torchgm/WpfModernWinver)
-
 - [wpf-notifyicon](https://github.com/hardcodet/wpf-notifyicon) - [website](http://www.hardcodet.net/wpf-notifyicon)
 
   - [LightBulb](https://github.com/Tyrrrz/LightBulb)
@@ -568,6 +671,8 @@ Libraries:
 - [wpf-waveform](https://github.com/markheath/wpf-waveform)
 
 - [wpfshapes](https://github.com/markheath/wpfshapes)
+
+- [WPFSpark](https://github.com/ratishphilip/wpfspark)
 
 - [wpfsvl](https://github.com/jacobjohnston/wpfsvl) - [WPF library to display audio waveform](https://stackoverflow.com/questions/19731653/wpf-library-to-display-audio-waveform)
 
@@ -583,7 +688,11 @@ Libraries:
 
 - [WPF UI](https://github.com/lepoco/wpfui)
 
+- [WpfUtils](https://github.com/anakic/WpfUtils)
+
 - [XAML SDK](https://github.com/telerik/xaml-sdk)
+
+- [XAML-Map-Control](https://github.com/ClemensFischer/XAML-Map-Control)
 
 - [XamlAnimatedGif](https://github.com/XamlAnimatedGif/XamlAnimatedGif)
 
@@ -596,6 +705,8 @@ Tools:
 - [dotnet-counters-ui](https://github.com/kkokosa/dotnet-counters-ui)
 
 - [Kaxaml](https://github.com/thinkpixellab/kaxaml)
+
+  - [WPF path description for a sine curve using bezier curves](https://stackoverflow.com/questions/25423748/wpf-path-description-for-a-sine-curve-using-bezier-curves)
 
 - Performance Profiling Tools for Windows Presentation Foundation
 
@@ -649,11 +760,16 @@ Websites
 
 - [WPF Articles](http://www.blackwasp.co.uk/WPFArticles.aspx)
 
+- [WPF Tutorial](http://www.blackwasp.co.uk/WPFTutorial.aspx)
+
 - [WPF Tutorial](https://wpf-tutorial.com/zh/1/%E5%85%B3%E4%BA%8Ewpf/%E4%BB%80%E4%B9%88%E6%98%AFwpf/)
 
 - [WPFpedia](http://www.wpfpedia.com/)
 
 Samples
 
+- [Tutorials](https://github.com/rmsmech/Tutorials)
+
 - [WPF-Samples](https://github.com/microsoft/WPF-Samples)
 
+- [WPF](https://github.com/angelsix/youtube/tree/develop/WPF)

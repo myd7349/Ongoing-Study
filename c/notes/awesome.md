@@ -1,9 +1,16 @@
 ### Libraries
 
 - [mlibc](https://github.com/managarm/mlibc)
+- [musl libc](https://musl.libc.org/)
+  - musl-gcc
+    - [czmod](https://github.com/skywind3000/czmod)
 - [picolibc](https://github.com/picolibc/picolibc)
 
 ### Archive
+
+- [bled](https://github.com/pbatard/bled)
+
+- [easylzma](https://github.com/lloyd/easylzma)
 
 - [enchive](https://github.com/skeeto/enchive)
 
@@ -17,6 +24,10 @@
 
   - [dcm2niix](https://github.com/rordenlab/dcm2niix)
 
+- [quicklz](https://github.com/robottwo/quicklz)
+
+  - [Quasar](https://github.com/quasar/Quasar)
+
 - [zziplib](https://github.com/gdraheim/zziplib)
 
 ### Audio
@@ -25,7 +36,13 @@
 
 ### CLI
 
+- freegetopt
+
+  - [freegetopt](https://github.com/intel/pcm/tree/master/src/freegetopt)
+
 - [isocline](https://github.com/daanx/isocline)
+
+- [pv](https://github.com/a-j-wood/pv)
 
 ### Compiler
 
@@ -53,6 +70,10 @@
 
 - [buffet](https://github.com/alcover/buffet)
 
+- [circleq](https://github.com/pavelxdd/circleq)
+
+- [cwisstable](https://github.com/google/cwisstable)
+
 - [ctl](https://github.com/glouw/ctl): The C Template Library.
 
 - [hashmap.c](https://github.com/tidwall/hashmap.c)
@@ -77,6 +98,8 @@
 
 ### Debug
 
+- [drgn](https://github.com/osandov/drgn)
+
 - [strace](https://github.com/strace/strace)
 
 - [uftrace](https://github.com/namhyung/uftrace)
@@ -86,8 +109,15 @@
 - [filter-c](https://github.com/adis300/filter-c)
 
 - [fft](https://www.kurims.kyoto-u.ac.jp/~ooura/fft.html)
+
   - [r8brain-free-src](https://github.com/avaneev/r8brain-free-src)
-  
+
+- FFTW
+
+  - [qmcpack](https://github.com/QMCPACK/qmcpack)
+
+  - [stimfit](https://github.com/neurodroid/stimfit)
+
 - [Fidlib](https://github.com/uazu/fidlib): Run-time filter design and execution library.
   - [EDFbrowser](https://gitlab.com/Teuniz/EDFbrowser/)
   
@@ -95,10 +125,21 @@
 
 - [gnuradio](https://github.com/gnuradio/gnuradio)
   - [Recommended C/C++ General Purpose DSP Libraries](https://dsp.stackexchange.com/questions/19350/recommended-c-c-general-purpose-dsp-libraries)
-  
+
+- kissfft
+  - [libaudioverse](https://github.com/libaudioverse/libaudioverse)
+
 - [pfft](https://bitbucket.org/jpommier/pffft.git)
 - [pffft](https://github.com/marton78/pffft)
   - [r8brain-free-src](https://github.com/avaneev/r8brain-free-src)
+
+- [pocketfft](https://gitlab.mpcdf.mpg.de/mtr/pocketfft)
+
+  - [numpy](https://github.com/numpy/numpy/blob/main/numpy/fft/_pocketfft.c)
+
+    - [replace fftpack with pocketfft](https://github.com/numpy/numpy/commit/062dc8f831e695c2c179482da35affcc6045b4f3) - [pr](https://github.com/numpy/numpy/pull/11888)
+
+  - [pocketfft](https://github.com/mreineck/pocketfft)
 
 - [spek-fft.h](https://github.com/alexkay/spek/blob/master/src/spek-fft.h)
 
@@ -113,11 +154,19 @@
 
 - [lambdapp](https://github.com/graphitemaster/lambdapp)
 
+- [map-macro](https://github.com/Erlkoenig90/map-macro)
+
 ### Graphics
+
+- [libturtle](https://github.com/royqh1979/libturtle)
+
+- [nicegraf](https://github.com/nicebyte/nicegraf)
 
 - [simple2d](https://github.com/simple2d/simple2d)
 
 - [SuperSimpleGraphics](https://github.com/davecom/SuperSimpleGraphics)
+
+- [TinyGL](https://github.com/jserv/tinygl)
 
 ### GUI
 
@@ -125,7 +174,11 @@
 
 - [awtk](https://github.com/zlgopen/awtk)
 
+- [fgui](https://github.com/bjornfor/fgui)
+
 - [minigui](https://github.com/VincentWei/minigui)
+
+- [UGUI](https://github.com/achimdoebler/UGUI)
 
 - [vger](https://github.com/audulus/vger)
 
@@ -173,6 +226,8 @@
 
 - [physfs](https://github.com/icculus/physfs)
 
+- [tinydir](https://github.com/cxong/tinydir)
+
 ### IoT
 
 - [esp-idf](https://github.com/espressif/esp-idf)
@@ -194,6 +249,10 @@
 
 - [frozen](https://github.com/cesanta/frozen)
 
+- jsmn
+
+  - [LibreDWG](https://github.com/LibreDWG/libredwg)
+
 - [json-c](https://github.com/json-c/json-c)
   
   - [Dependencies](https://github.com/lucasg/Dependencies)
@@ -212,11 +271,16 @@
 
 - [moreram](https://github.com/graphitemaster/moreram)
 
+- [raii](https://github.com/pavelxdd/raii)
+
+- [ta](https://github.com/pavelxdd/ta)
+
 ### Networking
 
 - [Agar](https://github.com/JulNadeauCA/libagar)
 - [dnscrypt-wrapper](https://github.com/cofyc/dnscrypt-wrapper)
 - [dnsmasq](https://github.com/infinet/dnsmasq)
+- [nDPI](https://github.com/ntop/nDPI)
 - [ngtcp2](https://github.com/ngtcp2/ngtcp2)
 - [pquic](https://github.com/p-quic/pquic)
 - [WLANOptimizer](https://github.com/catid/WLANOptimizer)
@@ -245,6 +309,7 @@
 ### Serialization
 
 - [argdata](https://github.com/NuxiNL/argdata)
+- [bitproto](https://github.com/hit9/bitproto)
 - [Metaresc](https://github.com/alexanderchuranov/Metaresc)
 - [mpack](https://github.com/ludocode/mpack)
 - [protobluff](https://github.com/squidfunk/protobluff)
@@ -264,6 +329,8 @@
 - [stress-ng](https://github.com/ColinIanKing/stress-ng)
 
 ### Tree
+
+- [tbtree](https://github.com/pavelxdd/tbtree)
 
 - [tree.h](https://github.com/cofyc/dnscrypt-wrapper/blob/master/tree.h)
 

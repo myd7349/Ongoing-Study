@@ -175,3 +175,5 @@
 - https://github.com/Rookfighter/inifile-cpp
 
 - https://github.com/Tatsu-syo/noMeiryoUI/blob/master/program/iniReader.cpp
+
+- https://github.com/shirouzu/FastCopy/blob/master/src/TLib/tini.cpp

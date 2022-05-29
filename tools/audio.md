@@ -52,7 +52,11 @@
 
 - https://github.com/Baiyuetribe/paper2gui
 
+- https://github.com/JasonWei512/Tacotron-2-Chinese
+
 - https://github.com/tihu-nlp/tihu
+
+- https://github.com/espeak-ng/espeak-ng
 
 ### Speech to Text/Text to Speech
 

@@ -51,6 +51,8 @@ https://github.com/PedramNavid/GooeyPi
 * [Python打包exe的王炸-Nuitka](https://zhuanlan.zhihu.com/p/133303836)
 * [shiv](https://github.com/linkedin/shiv)
 * [PyOxidizer](https://github.com/indygreg/PyOxidizer)
+  - [PyOxy](https://github.com/indygreg/PyOxidizer/releases/tag/pyoxy%2F0.1.0)
+    - [Announcing the PyOxy Python Runner](https://gregoryszorc.com/blog/2022/05/10/announcing-the-pyoxy-python-runner/)
 
 [pex](https://github.com/pantsbuild/pex)
 
@@ -97,3 +99,14 @@ https://github.com/indygreg/python-build-standalone
 https://github.com/matthew-brett/delocate
 
 https://github.com/ronaldoussoren/py2app
+
+micromamba
+
+- https://github.com/mne-tools/mne-installers
+  - See logs for `Build the installers / build (windows-2019) (push)`/`Build Installers` GitHub CI workflow.
+
+[zipapp](https://docs.python.org/3/library/zipapp.html)
+
+[How can you bundle all your python code into a single zip file?](https://stackoverflow.com/questions/17486578/how-can-you-bundle-all-your-python-code-into-a-single-zip-file)
+
+[Python Zip Imports: Distribute Modules and Packages Quickly](https://realpython.com/python-zip-import/)

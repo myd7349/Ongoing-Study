@@ -1287,3 +1287,7 @@ namespace Common.Linq
         }
     }
 }
+
+
+// References:
+// [Get Max and Min in a single LINQ query](https://stackoverflow.com/questions/22240167/get-max-and-min-in-a-single-linq-query)

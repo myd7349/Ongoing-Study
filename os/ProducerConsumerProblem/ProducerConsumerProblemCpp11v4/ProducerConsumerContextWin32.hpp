@@ -85,3 +85,4 @@ private:
 // http://pages.cs.wisc.edu/~remzi/OSTEP/threads-cv.pdf
 // Operating Systems: Three Easy Pieces, P352
 // https://docs.microsoft.com/zh-cn/windows/desktop/Sync/condition-variables
+// https://bitbucket.org/EoghanRua/blog-work/src/e6222f89d243a2895e3ab54b3a9fc10d7b05abc3/C%2B%2B/ConcRT/?at=master

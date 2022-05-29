@@ -39,3 +39,5 @@
 - [NodeGraph](https://github.com/lifeisforu/NodeGraph)
 
 - [Graphite](https://github.com/GraphiteEditor/Graphite): Rust.
+
+- [Node_Editor_Framework](https://github.com/Seneral/Node_Editor_Framework): Unity

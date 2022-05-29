@@ -54,6 +54,21 @@ namespace ECGDemo
                 visual.TakeSnapshot(format, stream);
         }
 
+        public static void Save(this RenderTargetBitmap bitmap, ImageFormat format, Stream stream)
+        {
+            var bitmapEncoder = CreateBitmapEncoder(format);
+            bitmapEncoder.Frames.Add(BitmapFrame.Create(bitmap));
+            bitmapEncoder.Save(stream);
+        }
+
+        public static void Save(this RenderTargetBitmap bitmap, string filePath)
+        {
+            var fileExtension = Path.GetExtension(filePath);
+            var format = GetImageFormat(fileExtension);
+            using (var stream = File.Create(filePath))
+                bitmap.Save(format, stream);
+        }
+
         public static string GetSaveFileName()
         {
             var filters = new[]

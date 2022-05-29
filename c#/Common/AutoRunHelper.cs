@@ -33,3 +33,4 @@ namespace Common
 // https://github.com/Tyrrrz/LightBulb/blob/master/LightBulb/Services/SettingsService.cs
 // https://github.com/cuiliang/Caps2CtrlSpace
 // https://github.com/cuiliang/ClickShow
+// https://github.com/Uahh/ToastFish

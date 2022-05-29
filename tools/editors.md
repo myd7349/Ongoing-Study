@@ -86,6 +86,8 @@ Code Editors:
 
 - [TextMate](https://github.com/textmate/textmate)
 
+- [tilde](https://github.com/gphalkes/tilde)
+
 - UltraEdit
 
 - vi/Vim
@@ -119,3 +121,7 @@ Others:
 - [studio](https://github.com/stoplightio/studio): The modern editor for API Design and Technical Writing.
 - [GitHub - trimstray/the-book-of-secret-knowledge: A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, cli/web tools and more.](https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-text-editors)
 - [TextAnalysisTool](https://github.com/TextAnalysisTool/Releases)
+
+Color Themes:
+
+- [Yin-Yang](https://github.com/oskarsh/Yin-Yang)

@@ -7,3 +7,5 @@
 [exodus](https://github.com/intoli/exodus)
 
 - [tabdeeli](https://github.com/typon/tabdeeli#linux)
+
+[tldr](https://github.com/tldr-pages/tldr)

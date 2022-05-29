@@ -1,6 +1,10 @@
 - [grumpy](https://github.com/google/grumpy)
 - [GitHub - colrdavidson/debug: A simple linux debugger, made to learn ELF/DWARF](https://github.com/colrdavidson/debug)
 
+### CLI
+
+- [bubbletea](https://github.com/charmbracelet/bubbletea)
+
 ### Configuration
 
 - [protoconf](https://github.com/protoconf/protoconf)
@@ -13,9 +17,15 @@
 
 ### Database
 
+- [go-sqlite3](https://github.com/mattn/go-sqlite3)
+
 - [rqlite](https://github.com/rqlite/rqlite)
 
 - [sqlx](https://github.com/jmoiron/sqlx)
+
+##### Unique Id Generator
+
+- [xid](https://github.com/rs/xid)
 
 ### Dependency Injection
 
@@ -26,6 +36,10 @@
 - [dialog](https://github.com/sqweek/dialog)
 
 - [fyne](https://github.com/fyne-io/fyne)
+
+- [go-gtk](https://github.com/mattn/go-gtk)
+
+- [gotk3](https://github.com/gotk3/gotk3)
 
 - [lorca](https://github.com/zserge/lorca)
 
@@ -47,9 +61,13 @@
 
 ### Logging
 
+- [log](https://github.com/phuslu/log)
+
 - [logrus](github.com/sirupsen/logrus)
 
   - [WinslowSynth](https://github.com/rbren/WinslowSynth)
+
+- [zerolog](https://github.com/rs/zerolog)
 
 ### Networking
 

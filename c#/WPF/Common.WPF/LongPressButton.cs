@@ -129,3 +129,7 @@ namespace Common.WPF
 // References:
 // [#661 – ButtonBase.Click Event vs. Mouse Click Events](https://wpf.2000things.com/tag/buttonbase/)
 // https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.clickmode?view=windowsdesktop-6.0
+// [What is the best way to simulate a Click with MouseUp & MouseDown events or otherwise?](https://stackoverflow.com/questions/4830164/what-is-the-best-way-to-simulate-a-click-with-mouseup-mousedown-events-or-othe)
+// https://github.com/dotnet/wpf/blob/main/src/Microsoft.DotNet.Wpf/src/PresentationFramework/System/Windows/Controls/Primitives/ButtonBase.cs#L164
+// [WPF Button isPressed and isEnabled problem](https://stackoverflow.com/questions/3518146/wpf-button-ispressed-and-isenabled-problem)
+// [ButtonBase.IsPressed Property](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.primitives.buttonbase.ispressed?view=windowsdesktop-7.0)

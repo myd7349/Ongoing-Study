@@ -86,3 +86,6 @@ namespace Common
 // https://github.com/Open-NET-Libraries/Open.Disposable
 // https://github.com/mono/SkiaSharp/blob/main/binding/Binding/SKObject.cs
 // https://github.com/StephenCleary/Disposables
+// https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenSource.cs
+// > ThrowIfDisposed();
+

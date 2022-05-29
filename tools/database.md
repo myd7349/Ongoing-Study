@@ -10,6 +10,7 @@
 * [litecli](https://github.com/dbcli/litecli)
 * [litestream](https://github.com/benbjohnson/litestream)
 * Navicat
+* [q](https://github.com/harelba/q)
 * redis
   * [redis-windows](https://github.com/zkteco-home/redis-windows)
   * [redis](https://github.com/microsoftarchive/redis)

@@ -150,6 +150,10 @@ https://github.com/microsoft/win32metadata
 
 [UnmanagedFunctionPointer - FreeRDP example](https://github.com/FreeRDP/FreeRDP-Sharp/blob/0334b0dcc785243ba752b1731f123212a733fdc2/FreeRDP/Core/FreeRDP.cs#L25)
 
+Marshal.GetDelegateForFunctionPointer:
+
+https://github.com/mono/SkiaSharp/blob/v2.80.2/binding/Binding.Shared/LibraryLoader.cs
+
 https://github.com/HDFGroup/HDF.PInvoke/blob/d281aa75f1562e677d1307cc1a234f9079cd76c3/HDF5/H5Spublic.cs#L601-L609
 
 > ```c#
@@ -414,3 +418,11 @@ static T Fill<T>(T SomeStruct) where T : struct
 ### IntPtr vs pointer
 
 [c# pointers vs IntPtr](https://stackoverflow.com/questions/4319730/c-sharp-pointers-vs-intptr)
+
+### DllImportGenerator
+
+[DllImportGenerator](https://github.com/dotnet/runtimelab/tree/feature/DllImportGenerator)
+
+### UnmanagedType.LPUTF8Str
+
+https://github.com/mono/SkiaSharp/issues/1914

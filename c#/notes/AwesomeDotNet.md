@@ -1,11 +1,26 @@
+### Lists
+
+- [Awesome .NET!](https://github.com/quozd/awesome-dotnet) 
+
+- [Awesome .NET Core](https://github.com/thangchung/awesome-dotnet-core)
+
+- [dotnet](https://github.com/Microsoft/dotnet)
+
+- [net-libraries-that-make-your-life-easier](https://github.com/tallesl/net-libraries-that-make-your-life-easier)
+
 ### Framework
 
+- [Boxed](https://github.com/Dotnet-Boxed/Framework)
+- [Cinchoo](https://github.com/Cinchoo/Cinchoo)
 - [Framework-Class-Library-Extension](https://github.com/Whathecode/Framework-Class-Library-Extension)
   - [NET-Standard-Library-Extension](https://github.com/Whathecode/NET-Standard-Library-Extension)
   - [NET-Core-Library-Extension](https://github.com/Whathecode/NET-Core-Library-Extension)
 - [Furion](https://github.com/MonkSoul/Furion)
 - [Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework)
+- [MyToolkit](https://github.com/RicoSuter/MyToolkit)
 - [Open-NET-Libraries](https://github.com/Open-NET-Libraries)
+- [TerraFX](https://github.com/terrafx/terrafx)
+- [TinyHelpers](https://github.com/marcominerva/TinyHelpers)
 - [TomsToolbox](https://github.com/tom-englert/TomsToolbox)
 
 ### AI
@@ -28,9 +43,18 @@
 
 - [.NET-Big-O-Algorithm-Complexity-Cheat-Sheet](https://github.com/RehanSaeed/.NET-Big-O-Algorithm-Complexity-Cheat-Sheet)
 
+### API
+
+- [MagicOnion](https://github.com/Cysharp/MagicOnion)
+
+- [octokit](https://github.com/octokit/octokit.net)
+
+  - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
+
 ### Archive
 
 - [7z.Libs](https://github.com/3F/7z.Libs)
+- [7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
 - [DeltaCompressionDotNet](https://www.nuget.org/packages/DeltaCompressionDotNet/)
   
   - [Fork](https://fork.dev/)
@@ -41,11 +65,20 @@
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
   
   - https://github.com/Bunny83/SimpleJSON/blob/master/SimpleJSONBinary.cs
-  
+
+  - [Paillave.Etl.Zip](https://github.com/paillave/Etl.Net/tree/master/src/Paillave.Etl.Zip)
+
   - [Pinta](https://github.com/PintaProject/Pinta)
+
+  - [TarGZipHelper.cs](https://github.com/BeyondDimension/SteamTools/blob/develop/src/ST.Client/TarGZipHelper.cs)
+
+- [ironcompress](https://github.com/aloneguid/ironcompress)
 - [K4os.Compression.LZ4](https://github.com/MiloszKrajewski/K4os.Compression.LZ4)
   
   - [Pinta](https://github.com/PintaProject/Pinta)
+
+- [QuickLz](https://github.com/robottwo/quicklz)
+  - [Quasar](https://github.com/quasar/Quasar)
 - [SevenZipSharp](https://github.com/squid-box/SevenZipSharp)
 - [dnGrep](https://github.com/dnGrep/dnGrep)
 - [SharpCompress](https://github.com/adamhathcock/sharpcompress)
@@ -64,6 +97,10 @@
 
 - [abp](https://github.com/abpframework/abp)
 
+- [ApiEndpoints](https://github.com/ardalis/ApiEndpoints)
+
+- [CleanArchitecture](https://github.com/ardalis/CleanArchitecture)
+
 - [dotvvm](https://github.com/riganti/dotvvm)
 
 - [eShopOnWeb](https://github.com/dotnet-architecture/eShopOnWeb)
@@ -81,6 +118,8 @@
   - [JabbR](https://github.com/JabbR/JabbR)
 
 - [SimpleMvcSitemap](https://github.com/uhaciogullari/SimpleMvcSitemap)
+
+- [SqlDependency](https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/sql/detecting-changes-with-sqldependency)
 
 ### Attributes
 
@@ -140,7 +179,7 @@
 
   - [NWaves.Blueprints](https://github.com/ar1st0crat/NWaves.Blueprints)
 
-- [terrafx](https://github.com/terrafx/terrafx)
+- [TerraFX](https://github.com/terrafx/terrafx)
 
 - XAudio
 
@@ -156,9 +195,17 @@
 
 - [TestStack/White](https://github.com/TestStack/White)
 
+  - [mvvm-dialogs](https://github.com/FantasticFiasco/mvvm-dialogs/tree/v8.0.0/samples/net-framework/TestBaseClasses)
+
 - [Windows Input Simulator Plus](https://github.com/TChatzigiannakis/InputSimulatorPlus)
   
   - [Quicker](https://github.com/cuiliang/Quicker)
+
+### BDD
+
+- [SpecFlow](https://github.com/SpecFlowOSS/SpecFlow)
+
+  - [mvvm-dialogs](https://github.com/FantasticFiasco/mvvm-dialogs/tree/v8.0.0/samples/net-framework/TestBaseClasses)
 
 ### Benchmark
 
@@ -213,7 +260,9 @@
   - [IdleWakeups](https://github.com/google/IdleWakeups)
   
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
-  
+
+  - [OpenTK](https://github.com/opentk/opentk/blob/master/src/Generator.Converter/Main.cs)
+
   - [Snoop](https://github.com/snoopwpf/snoopwpf)
 
 - [CommandLineUtils](https://github.com/natemcmaster/CommandLineUtils)
@@ -222,9 +271,17 @@
 - [ConsoleAppLauncher](https://github.com/slavagu/ConsoleAppLauncher)
   
   - [Capturing console output from a .NET application (C#)](https://stackoverflow.com/questions/186822/capturing-console-output-from-a-net-application-c)
+
+- [consolecontrol](https://github.com/dwmkerr/consolecontrol)
+
+- [ConsoleUi](https://github.com/aaubry/ConsoleUi)
+
 - Mono.Options
   
   - [Pinta](https://github.com/PintaProject/Pinta/blob/master/Pinta/Main.cs)
+- [NO_COLOR](https://no-color.org/) - [GitHub](https://github.com/jcs/no_color)
+  - [bullseye](https://github.com/adamralph/bullseye)
+- [NConsole](https://github.com/RicoSuter/NConsole)
 - [NDesk.Options](http://www.ndesk.org/Options)
 
   - [NDesk.Options](https://github.com/gibbed/NDesk.Options)
@@ -237,7 +294,7 @@
   - https://github.com/devlead/Devlead.Console.Template/blob/develop/src/Devlead.Console.Template/templates/devleadconsole/Devlead.Console/Program.cs
 
 - System.CommandLine
-
+  - [bullseye](https://github.com/adamralph/bullseye)
   - [ClangSharpPInvokeGenerator](https://github.com/dotnet/ClangSharp/blob/main/sources/ClangSharpPInvokeGenerator/Program.cs)
 - [system-terminal](https://github.com/alexrp/system-terminal)
 - [Terminal.Gui](https://github.com/migueldeicaza/gui.cs)
@@ -252,6 +309,8 @@
 
 - https://github.com/protobuf-net/protobuf-net/blob/3.0.62/src/protogen/Program.cs
 
+- https://github.com/skahwah/SQLRecon
+
 ### Clipboard
 
 - [TextCopy](https://github.com/CopyText/TextCopy)
@@ -259,6 +318,8 @@
 ### Collections
 
 - [CircularBuffer-CSharp](https://github.com/joaoportela/CircularBuffer-CSharp)
+
+- [Cyotek.Collections.Generic.CircularBuffer](https://github.com/cyotek/Cyotek.Collections.Generic.CircularBuffer)
 
 - [Deque](https://github.com/StephenCleary/Deque)
 
@@ -294,7 +355,15 @@
 
 ### Configuration
 
+- [Config.Net](https://github.com/aloneguid/config)
+
 - [greenshot/src/Greenshot.Base/IniFile at release/1.3 · greenshot/greenshot · GitHub](https://github.com/greenshot/greenshot/tree/release/1.3/src/Greenshot.Base/IniFile)
+
+- [Jot](https://github.com/anakic/jot)
+
+  - [WPF: How are you supposed to save window position in the year 2020?](https://www.reddit.com/r/csharp/comments/j0kkki/wpf_how_are_you_supposed_to_save_window_position/)
+
+  - [Easier .NET settings](https://www.codeproject.com/Articles/475498/Easier-NET-settings)
 
 - [magic-chunks-dotnetcore](https://github.com/magic-chunks/magic-chunks-dotnetcore)
 
@@ -304,7 +373,13 @@
 
 - Microsoft.Extensions.Options
 
+- [System.Configuration](https://learn.microsoft.com/en-us/dotnet/api/system.configuration)
+
 - [Tyrrrz.Settings](https://github.com/Tyrrrz/Settings)
+
+##### INI
+
+- [ini-parser](https://github.com/rickyah/ini-parser)
 
 ### Container
 
@@ -318,11 +393,14 @@
 ### Crypto
 
 - [Bouncy Castle](https://github.com/bcgit/bc-csharp)
+- [ChoPGP](https://github.com/Cinchoo/ChoPGP)
 - [CryptoBase](https://github.com/HMBSbige/CryptoBase)
 
 ### CSV
 
 - [Angara.Table](https://github.com/predictionmachines/Angara.Table)
+
+- [ChoETL](https://github.com/Cinchoo/ChoETL)
 
 - [CsvHelper](https://joshclose.github.io/CsvHelper/)
   
@@ -334,13 +412,39 @@
 
 - [CsvTextEditor](https://github.com/WildGums/CsvTextEditor)
 
+- [ExcelDataReader](https://github.com/ExcelDataReader/ExcelDataReader)
+
 - [FlatFiles](https://github.com/jehugaleahsa/FlatFiles)
+
+- [FormCsvImport](https://github.com/microsoft/XmlNotepad/blob/master/src/Application/FormCsvImport.cs)
 
 - [KBCsv](https://github.com/kentcb/KBCsv)
 
 - [Meziantou.Framework.Csv](https://github.com/meziantou/Meziantou.Framework)
 
+- [MiniExcel.Csv](https://github.com/mini-software/MiniExcel/tree/master/src/MiniExcel/Csv)
+
+- [Paillave.Etl.TextFile](https://github.com/paillave/Etl.Net/tree/master/src/Paillave.Etl.TextFile)
+
 - [QuantityTypes.Csv](https://github.com/QuantityTypes/QuantityTypes/blob/main/Source/QuantityTypes.Csv/CsvFile.cs)
+
+- [ServiceStack.Text](https://github.com/ServiceStack/ServiceStack.Text)
+
+### Data Processing
+
+- [ChoETL](https://github.com/Cinchoo/ChoETL)
+
+- [Etl.Net](https://github.com/paillave/Etl.Net) - [website](https://paillave.github.io/Etl.Net/)
+
+  - [Extract, transform, load](https://en.wikipedia.org/wiki/Extract,_transform,_load)
+
+### Date Time
+
+- [DateTimeExtensions](https://github.com/joaomatossilva/DateTimeExtensions)
+
+- [FluentDateTime](https://github.com/FluentDateTime/FluentDateTime)
+
+- [nodatime](https://github.com/nodatime/nodatime)
 
 ### Data Visualization
 
@@ -363,6 +467,8 @@
   - [Real-time Line charts with WPF and Dynamic Data Display](https://www.mesta-automation.com/real-time-line-charts-with-wpf-and-dynamic-data-display/) - [code](https://github.com/mesta1/DynamicDataDisplay-example)
   
 - [Live-Charts](https://github.com/Live-Charts/Live-Charts)
+
+  - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 
 - [LiveCharts2](https://github.com/beto-rodriguez/LiveCharts2): WinForms, WPF
 
@@ -401,6 +507,8 @@
   - https://gist.github.com/dreikanter/3526685?permalink_comment_id=3349886#gistcomment-3349886
 
 - [skia-chart](https://github.com/NdubuisiJr/skia-chart)
+
+- [Sparrow Toolkit](https://www.nuget.org/packages/Sparrow.Chart.WP8) - [fork](https://github.com/jcw-/sparrowtoolkit)
 
 - [Spectrogram](https://github.com/swharden/Spectrogram): WinForms, WPF
   - [FftSharp](https://github.com/swharden/FftSharp)
@@ -460,6 +568,8 @@
 
 - [Akavache](https://github.com/reactiveui/Akavache)
 
+  - [Camelotia](https://github.com/reactiveui/Camelotia)
+
 ##### ORM
 
 - Entity Framework
@@ -470,6 +580,9 @@
 - [AntData.ORM](https://github.com/yuzd/AntData.ORM)
 - [Dapper](https://github.com/DapperLib/Dapper)
   - [Dapper-Extensions](https://github.com/tmsmith/Dapper-Extensions)
+  - [Dapper.Contrib](https://github.com/DapperLib/Dapper.Contrib)
+  - [Dapper.SimpleCRUD](https://github.com/ericdc1/Dapper.SimpleCRUD)
+- [DapperQueryBuilder](https://github.com/Drizin/DapperQueryBuilder)
 - [fluentdata](https://github.com/tiesont/fluentdata)
 - [Massive](https://github.com/FransBouma/Massive)
 - [PetaPoco](https://github.com/CollaboratingPlatypus/PetaPoco)
@@ -529,13 +642,23 @@
 
 - [RandomFriendlyNameGenerator](https://github.com/bartosz-jarmuz/RandomFriendlyNameGenerator)
 
+##### Caching
+
+- [SQLiteCache](https://github.com/ClemensFischer/XAML-Map-Control/tree/master/SQLiteCache)
+
 ##### Others
+
+- [AutoFilterer](https://github.com/enisn/AutoFilterer)
+
+- [ChoETL](https://github.com/Cinchoo/ChoETL)
 
 - [Community.CsharpSqlite](https://github.com/MatterHackers/MatterControl/tree/main/Community.CsharpSqlite)
 
 - [DataObjects.NET](https://github.com/DataObjects-NET/dataobjects-net)
 
 - [DynamicMapper](https://github.com/Rem0o/DynamicMapper)
+
+- [EfCore.GenericServices](https://github.com/JonPSmith/EfCore.GenericServices)
 
 - [EntityFramework-Reverse-POCO-Code-First-Generator](https://github.com/sjh37/EntityFramework-Reverse-POCO-Code-First-Generator)
 
@@ -549,7 +672,9 @@
 
 - [MasterMemory](https://github.com/Cysharp/MasterMemory) - Embedded Typed Readonly In-Memory Document Database for .NET Core and Unity.
 
-- Microsoft.Data.Sqlite
+- [Microsoft.Data.Sqlite](https://www.nuget.org/packages/Microsoft.Data.Sqlite/#versions-body-tab)
+
+  - [Encryption](https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/encryption?tabs=netcore-cli)
 
 - [Migrator.NET](https://github.com/dotnetprojects/Migrator.NET) - Database migration.
 
@@ -561,9 +686,13 @@
 
   - [Realm .NET Where query with Contains() throws System.NotSupportedException](https://stackoverflow.com/questions/67513679/realm-net-where-query-with-contains-throws-system-notsupportedexception)
 
-- [shortid](https://github.com/bolorundurowb/shortid)
+- [Simple.Migrations](https://github.com/canton7/Simple.Migrations)
 
 - [SmartSql](https://github.com/dotnetcore/SmartSql)
+
+- SQLCipher
+
+  - [Password Protect a SQLite DB. Is it possible?](https://stackoverflow.com/questions/1381264/password-protect-a-sqlite-db-is-it-possible)
 
 - [sqlite-net](https://github.com/praeclarum/sqlite-net)
 
@@ -574,12 +703,20 @@
 - [sqllocaldb](https://github.com/martincostello/sqllocaldb)
 
 - [SQLitePCL.raw](https://github.com/ericsink/SQLitePCL.raw)
-  
+
+  - [Camelotia](https://github.com/reactiveui/Camelotia)
+
   - [Fork](https://fork.dev/)
   
   - C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\SQLitePCLRaw.core.dll
 
+  - [Encryption](https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/encryption?tabs=netcore-cli)
+
 - [SqlQueryBuilder](https://github.com/Rem0o/SqlQueryBuilder)
+
+- [SQLRecon](https://github.com/skahwah/SQLRecon)
+
+- [SQLStreamStore](https://github.com/SQLStreamStore/SQLStreamStore)
 
 - [StructLinq](https://github.com/reegeek/StructLinq)
 
@@ -587,9 +724,7 @@
   
   - [How can i use a list of objects instead of a DataTable as DataSource?](https://github.com/davidegironi/advanceddatagridview/issues/24)
 
-### Date & Time
-
-- [DateTimeExtensions](https://github.com/joaomatossilva/DateTimeExtensions)
+- [Threenine.Data](https://github.com/threenine/Threenine.Data)
 
 ### Design Patterns
 
@@ -603,16 +738,27 @@
   
   - [Quicker](https://github.com/cuiliang/Quicker)
 
+- [SolidSample](https://github.com/ardalis/SolidSample)
+
 - [structuremap](https://github.com/structuremap/structuremap)
 
   - [TailBlazer](https://github.com/RolandPheasant/TailBlazer)
+
+  - [IoC, Dll References, and Assembly Scanning](https://stackoverflow.com/questions/809051/ioc-dll-references-and-assembly-scanning)
+
+  - [Dependency Injection - Choose DLL and class implementation at runtime through configuration file](https://stackoverflow.com/questions/6365539/dependency-injection-choose-dll-and-class-implementation-at-runtime-through-co)
 
 ##### AOP
 
 - [AOP](https://github.com/ValeraT1982/AOP)
 
 - [PostSharp](https://www.postsharp.net/)
-- [使用PostSharp在.NET平台上实现AOP](https://www.cnblogs.com/leoo2sk/archive/2010/11/30/aop-postsharp.html)
+
+  - [使用PostSharp在.NET平台上实现AOP](https://www.cnblogs.com/leoo2sk/archive/2010/11/30/aop-postsharp.html)
+
+  - [WPF UserControl DependencyProperty do not have BindingExpression?](https://learn.microsoft.com/en-us/answers/questions/751742/wpf-usercontrol-dependencyproperty-not-bindingexpr.html)
+
+  - [Dependency Property](https://doc.postsharp.net/dependency-property)
 
 ##### DependencyInjection
 
@@ -632,17 +778,61 @@
 
   - [Ioc](https://github.com/MicrosoftDocs/CommunityToolkit/blob/main/docs/mvvm/Ioc.md)
 
-- [Splat.DI.SourceGenerator](https://github.com/reactiveui/Splat.DI.SourceGenerator)
+  - [Dependency injection in .NET](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection)
+
+  - [Tutorial: Use dependency injection in .NET](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-usage)
+
+  - [WPF and C# - MVVM Pattern - Let's Make It Better #1 Part 3](https://www.youtube.com/watch?v=Nut-KSAM0As)
+
+  - [Putting things together](https://learn.microsoft.com/en-us/windows/communitytoolkit/mvvm/puttingthingstogether?source=recommendations)
+
+- [MvvmCross](https://github.com/MvvmCross/MvvmCross)
+
+- [Ninject](https://github.com/ninject/Ninject)
+
+  - [WpfNinjectProject](https://github.com/Tosker/WpfNinjectProject)
+
+- [SimpleInjector](https://github.com/simpleinjector/SimpleInjector) - [website](https://simpleinjector.org/index.html)
+
+- [Splat.DI](https://github.com/reactiveui/Splat.DI.SourceGenerator)
+
+- [XPlatUtils](https://github.com/jonathanpeppers/XPlatUtils)
 
 - Articles
 
   - [Closing Windows and Applications with WPF and MVVM](https://www.codeproject.com/Articles/413517/Closing-Windows-and-Applications-with-WPF-and-MVVM)
+
+  - [How to perform dependency injection through Microsoft.Extensions.Hosting in wpf](https://stackoverflow.com/questions/66196449/how-to-perform-dependency-injection-through-microsoft-extensions-hosting-in-wpf)
+
+  - [Dependency injection guidelines](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-guidelines)
+
+  - [Using Factory Pattern with ASP.NET Core Dependency Injection](https://stackoverflow.com/questions/54127414/using-factory-pattern-with-asp-net-core-dependency-injection)
+
+  - [Injecting a Factory Service in ASP.NET Core](https://espressocoder.com/2018/10/08/injecting-a-factory-service-in-asp-net-core/)
+
+  - [Putting things together](https://learn.microsoft.com/en-us/windows/communitytoolkit/mvvm/puttingthingstogether?source=recommendations)
+
+  - [Ioc](https://learn.microsoft.com/en-us/windows/communitytoolkit/mvvm/ioc)
+
+  - [How to handle layer specific Dependency Injection in a reusable dll with ninject?](https://stackoverflow.com/questions/28767425/how-to-handle-layer-specific-dependency-injection-in-a-reusable-dll-with-ninject)
+
+  - [Dependency Inject (DI) "friendly" library](https://stackoverflow.com/questions/2045904/dependency-inject-di-friendly-library)
+
+- Books
+
+  - [Dependency Injection in .NET](https://www.manning.com/books/dependency-injection-in-dot-net)
+
+    - [Open a new Window in MVVM](https://stackoverflow.com/questions/16652501/open-a-new-window-in-mvvm/16653029#16653029)
 
 - YouTube Videos
 
   - [.NET Core Console App with Dependency Injection, Logging, and Settings](https://www.youtube.com/watch?v=GAOCe-2nXqc)
 
   - [Trying to create a Dependency Injection/IoC Container FROM SCRATCH](https://www.youtube.com/watch?v=NSVZa4JuTl8)
+
+  - [Design Patterns: Dependency Inversion Principle Explained Practically in C# (The D in SOLID)](https://www.youtube.com/watch?v=NnZZMkwI6KI&t=15s)
+
+  - [C# Dependency Injection with Autofac](https://www.youtube.com/watch?v=mCUNrRtVVWY)
 
 ##### IoC
 
@@ -657,6 +847,10 @@
 - [Castle.Windsor](https://github.com/castleproject/Windsor)
 
   - [Edi](https://github.com/Dirkster99/Edi)
+
+- CommunityToolKit.Mvvm
+
+    - [Communicate Between View Models with Observer Pattern - WPF C# MVVM](https://www.youtube.com/watch?v=-6Td1iLBXGw): [code](https://github.com/centrolutions/BuildYourOwnMessenger)
 
 - [DryIoc](https://github.com/dadhi/DryIoc)
 
@@ -702,11 +896,29 @@
 
 - [error-or](https://github.com/amantinband/error-or)
 
+- [Exceptionless](https://github.com/exceptionless/Exceptionless)
+
+- [fluentassertions](https://github.com/fluentassertions/fluentassertions)
+
+  - [Camelotia](https://github.com/reactiveui/Camelotia)
+
+- [FluentValidation](https://github.com/FluentValidation/FluentValidation)
+
+  - [CleanArchitecture](https://github.com/jasontaylordev/CleanArchitecture)
+
+- [GlobalExceptionHandlerDotNet](https://github.com/josephwoodward/GlobalExceptionHandlerDotNet)
+
+- [GuardClauses](https://github.com/ardalis/GuardClauses)
+
+- [NullGuard](https://github.com/Fody/NullGuard)
+
 - [Polly](https://github.com/App-vNext/Polly)
   
   - DeepL Translate App for Windows
 
 - [QuicException.cs](https://github.com/microsoft/msquic/blob/v2.0.3/src/cs/lib/QuicException.cs)
+
+- [Result](https://github.com/ardalis/Result)
 
 - [Sentry](https://github.com/getsentry/sentry-dotnet)
   
@@ -716,9 +928,21 @@
 
 - [throw](https://github.com/amantinband/throw)
 
+- ThrowHelper.cs
+
+  - Search file `ThrowHelper.cs` in https://github.com/dotnet/runtime.
+
 - [Try](https://github.com/StephenCleary/Try)
 
+### Functional Programming
+
+- [MoreLINQ](https://github.com/morelinq/MoreLINQ)
+
 ### Game Programming
+
+- [MonoGame.Extended](https://github.com/craftworkgames/MonoGame.Extended)
+
+- [Myra](https://github.com/rds1983/Myra)
 
 - [Raylib-CsLo](https://github.com/NotNotTech/Raylib-CsLo)
 
@@ -727,6 +951,12 @@
   - [OpenHV](https://github.com/OpenHV/OpenHV)
 
 ### GIS
+
+- [CoordinateSharp](https://github.com/Tronald/CoordinateSharp)
+
+- [GMap.NET](https://github.com/judero01col/GMap.NET)
+
+- Microsoft.Maps.MapControl.WPF
 
 - [SharpMap](https://github.com/SharpMap/SharpMap)
 
@@ -744,9 +974,13 @@
 
 - [awesome-dotnet#graphics](https://github.com/quozd/awesome-dotnet#graphics)
 
+- [ActiViz.NET](https://vtk.org/Wiki/VTK/CSharp/ActiViz.NET)
+
 - [AGG](https://github.com/MatterHackers/agg-sharp)
 
   - [MatterControl](https://github.com/MatterHackers/MatterControl)
+
+- [Blazor.Canvas](https://github.com/excubo-ag/Blazor.Canvas)
 
 - [CairoSharp](https://github.com/GtkSharp/GtkSharp)
   
@@ -780,6 +1014,10 @@
 
 - [Helix Toolkit](https://github.com/helix-toolkit/helix-toolkit)
 
+- [ImageSharp](https://github.com/SixLabors/ImageSharp)
+
+- [ImageSharp.Drawing](https://github.com/SixLabors/ImageSharp.Drawing)
+
 - [KGySoft.Drawing](https://github.com/koszeggy/KGySoft.Drawing)
 
   - [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)
@@ -791,6 +1029,12 @@
 - [OpenTK](https://github.com/opentk/opentk)
 
   - https://github.com/SCToolsfactory/SCJMapper-V2/blob/master/OGL/CubicSpline.cs
+
+  - [GLWpfControl](https://github.com/opentk/GLWpfControl)
+
+  - [OpenTK-WPF](https://github.com/freakinpenguin/OpenTK-WPF)
+
+  - [ImGui.NET_OpenTK_Sample](https://github.com/NogginBops/ImGui.NET_OpenTK_Sample)
 
 - [Raylib-CsLo](https://github.com/NotNotTech/Raylib-CsLo)
 
@@ -812,11 +1056,15 @@
 
   - [GameOverlay.Net](https://github.com/michel-pi/GameOverlay.Net)
 
+- [SharpGL](https://github.com/dwmkerr/sharpgl)
+
 - [SharpVectors](https://github.com/ElinamLLC/SharpVectors)
 
 - [Silk.NET](https://github.com/dotnet/Silk.NET)
 
 - [SkiaSharp](https://github.com/mono/SkiaSharp)
+
+  - [Avalonia.Skia.Internals](https://github.com/BeyondDimension/SteamTools/tree/develop/src/Avalonia.Skia.Internals)
 
   - [CopyBitmap](https://github.com/MichaelRumpler/CopyBitmap)
 
@@ -888,7 +1136,13 @@
 
 - [SvgToXaml](https://github.com/BerndK/SvgToXaml)
 
-- [terrafx](https://github.com/terrafx/terrafx)
+- [SvgToXaml](https://github.com/wieslawsoltes/SvgToXaml)
+
+- System.Drawing.Common
+
+  - [System.Drawing.Common only supported on Windows](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)
+
+- [TerraFX](https://github.com/terrafx/terrafx)
 
 - [VectSharp](https://github.com/arklumpus/VectSharp)
 
@@ -914,7 +1168,11 @@
 
 - [Modern.Forms](https://github.com/modern-forms/Modern.Forms)
 
+- [RapidGUI](https://github.com/fuqunaga/RapidGUI)
+
 - [standard-ui](https://github.com/dotnet-standard-ui/standard-ui)
+
+- [TerraFX](https://github.com/terrafx/terrafx)
 
 - [xwt](https://github.com/mono/xwt)
 
@@ -958,9 +1216,11 @@
   - https://github.com/shadowsocks/shadowsocks-windows
 - [globalmousekeyhook](https://github.com/gmamaladze/globalmousekeyhook)
   - [Magpie](https://github.com/Blinue/Magpie)
+  - [Quasar](https://github.com/quasar/Quasar)
 - [H.Hooks](https://github.com/HavenDV/H.Hooks): Contains LowLevelKeyboardHook and LowLevelMouseHook.
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
 - [H.InputSimulator](https://github.com/HavenDV/H.InputSimulator)
+- [HotKeys.cs](https://github.com/BornToBeRoot/NETworkManager/blob/main/Source/NETworkManager.Utilities/HotKeys.cs)
 - [inputsimulator](https://github.com/michaelnoonan/inputsimulator)
 - [InputSimulatorPlus](https://github.com/TChatzigiannakis/InputSimulatorPlus)
   - Quicker 
@@ -968,6 +1228,8 @@
   - NHotkey.WindowsForms
   - NHotkey.Wpf
   - [Dota-2-Chat-Wheel-Soundboard](https://github.com/derdanielb/Dota-2-Chat-Wheel-Soundboard)
+- [SharpHook](https://github.com/TolikPylypchuk/SharpHook)
+- [WindowsInput](https://github.com/MediatedCommunications/WindowsInput)
 
 ###### Articles
 
@@ -1021,7 +1283,11 @@
 
 - [Edi](https://github.com/Dirkster99/Edi/tree/master/Edi/Edi.Util/Local)
 
+- [Globalization.Demo](https://github.com/rmsmech/Tutorials/tree/master/Globalization.Demo)
+
 - [greenshot/src/Greenshot/Languages at release/1.3 · greenshot/greenshot · GitHub](https://github.com/greenshot/greenshot/tree/release/1.3/src/Greenshot/Languages)
+
+- [iso3166](https://github.com/schourode/iso3166)
 
 - [Lepo.i18n](https://github.com/lepoco/i18n)
 
@@ -1031,9 +1297,15 @@
 
   - [ambie](https://github.com/jenius-apps/ambie)
 
+- [NETworkManager.Localization](https://github.com/BornToBeRoot/NETworkManager/tree/main/Source/NETworkManager.Localization)
+
 - [NGettext](https://github.com/VitaliiTsilnyk/NGettext)
   
   - [Pinta](https://github.com/PintaProject/Pinta)
+
+- [osu-localisation-analyser](https://github.com/ppy/osu-localisation-analyser)
+
+- [Resource Generator](https://marketplace.visualstudio.com/items?itemName=DonAirey.ResourceGenerator)
 
 - .restext
   
@@ -1051,19 +1323,29 @@
 
 - [国际化和本地化 · Issue #12 · wmjordan/PDFPatcher · GitHub](https://github.com/wmjordan/PDFPatcher/issues/12)
 
+- [ScreenToGif/Translator](https://github.com/NickeManarin/ScreenToGif/tree/master/Other/Translator)
+
+  - [LOCALIZATION](https://github.com/NickeManarin/ScreenToGif/blob/master/LOCALIZATION.md)
+
+- [ST.Tools.Translate](https://github.com/BeyondDimension/SteamTools/tree/develop/src/ST.Tools.Translate)
+
+- [StringResourceVisualizer](https://github.com/mrlacey/StringResourceVisualizer)
+
 - https://github.com/chocolatey/ChocolateyGUI/blob/1.0.0/Source/ChocolateyGui.Common/Utilities/TranslationSource.cs
 
-- https://github.com/ppy/osu-localisation-analyser
-
-- https://github.com/NickeManarin/ScreenToGif/blob/master/LOCALIZATION.md
-
 - [WPFLocalizeExtension](https://github.com/XAMLMarkupExtensions/WPFLocalizeExtension)
+
+- [ZetaResourceEditor](https://github.com/UweKeim/ZetaResourceEditor)
 
 ### IO
 
 - [BinaryExtensions](https://github.com/aybe/BinaryExtensions): Types and extension methods to deal with binary data.
 
 - [BinaryFileSchema](https://github.com/Andos/BinaryFileSchema)
+
+- [Camelotia](https://github.com/reactiveui/Camelotia)
+
+- [cassette](https://github.com/point-platform/cassette)
 
 - [CommunityToolkit.Common](https://github.com/CommunityToolkit/dotnet/tree/main/CommunityToolkit.Common/Helpers/ObjectStorage)
 
@@ -1082,6 +1364,16 @@
 - [Microsoft.Extensions.FileSystemGlobbing](https://docs.microsoft.com/en-us/dotnet/core/extensions/file-globbing)
 
   - https://github.com/dotnet/Silk.NET/blob/main/src/Core/Silk.NET.BuildTools/Generator.cs
+
+  - [Paillave.Etl.Zip](https://github.com/paillave/Etl.Net/tree/master/src/Paillave.Etl.Zip)
+
+  - [Pooling large arrays with ArrayPool](https://adamsitnik.com/Array-Pool/)
+
+- [Namotion.Storage](https://github.com/RicoSuter/Namotion.Storage)
+
+- [RestFS](https://github.com/secana/RestFS)
+
+- [Storage.NET](https://github.com/aloneguid/storage)
 
 - [TestableFileSystem](https://github.com/bkoelman/TestableFileSystem)
 
@@ -1107,17 +1399,35 @@
 
 ### JSON
 
+- [ChoETL](https://github.com/Cinchoo/ChoETL)
+
 - [litjson](https://github.com/LitJSON/litjson)
 
 - [JSONPath](https://github.com/atifaziz/JSONPath)
 
 - Newtonsoft.Json
 
+  - [ChoETL.JSON](https://github.com/Cinchoo/ChoETL/tree/master/src/ChoETL.JSON)
+
+  - [Jot](https://github.com/anakic/Jot)
+
   - [LightBulb](https://github.com/Tyrrrz/LightBulb)
+
+  - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
+
+  - [Paillave.Etl.Mail](https://github.com/paillave/Etl.Net/tree/master/src/Paillave.Etl.Mail)
+
+  - [XmlNotepad](https://github.com/microsoft/XmlNotepad)
 
 - Newtonsoft.Json.Bson
 
   - [BsonToJson.cs](https://gist.github.com/davideicardi/e001ce88663bb6ef1d9d04f96f8b16c6)
+
+  - [ChoETL.BSON](https://github.com/Cinchoo/ChoETL/tree/master/src/ChoETL.BSON)
+
+- [NJsonSchema](https://github.com/RicoSuter/NJsonSchema)
+
+  - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 
 - [JsonExtensions](https://github.com/Tyrrrz/JsonExtensions)
 
@@ -1126,6 +1436,14 @@
 - [jwt](https://github.com/jwt-dotnet/jwt)
 
 - [QuickJson](https://github.com/Tyrrrz/QuickJson)
+
+- [ServiceStack.Text](https://github.com/ServiceStack/ServiceStack.Text)
+
+- [simple-json](https://github.com/facebook-csharp-sdk/simple-json)
+
+  - MonoCloud
+
+- [SimpleJSON](https://github.com/Bunny83/SimpleJSON)
 
 - [SimdJsonSharp](https://github.com/EgorBo/SimdJsonSharp)
 
@@ -1162,6 +1480,8 @@
 - [CppSharp](https://github.com/mono/CppSharp)
 
 - [DInvoke](https://github.com/TheWover/DInvoke): Dynamically invoke arbitrary unmanaged code from managed code without PInvoke.
+
+- [DllImportGenerator](https://github.com/dotnet/runtimelab/tree/feature/DllImportGenerator)
 
 - CXXI
 
@@ -1230,6 +1550,14 @@
 
 - [xLua](https://github.com/Tencent/xLua)
 
+##### COM
+
+- https://github.com/kekekeks/MicroCom
+
+##### DIY
+
+- https://github.com/opentk/opentk
+
 ### Licensing
 
 - [CredentialManagement](https://www.nuget.org/packages/CredentialManagement)
@@ -1239,6 +1567,8 @@
 - [Kinda.Licensing](https://github.com/tibel/Kinda.Licensing)
 
 - [Orc.LicenseManager](https://github.com/WildGums/Orc.LicenseManager)
+
+- [ZetaResourceEditor/LicenseGenerator](https://github.com/UweKeim/ZetaResourceEditor/tree/master/Source/LicenseGenerator)
 
 - [C# 获取 PC 序列号](https://blog.lindexi.com/post/C-%E8%8E%B7%E5%8F%96-PC-%E5%BA%8F%E5%88%97%E5%8F%B7.html)
 
@@ -1268,12 +1598,18 @@
 
 - [GitHubActionsTestLogger](https://github.com/Tyrrrz/GitHubActionsTestLogger)
 
+- [LibLog](https://github.com/damianh/LibLog)
+
+  - [Microsoft.Extensions.Logging, Part 1: Introduction](https://blog.stephencleary.com/2018/05/microsoft-extensions-logging-part-1-introduction.html)
+
 - [log4net](https://github.com/apache/logging-log4net)
 
   - [Edi](https://github.com/Dirkster99/Edi)
 
   - [greenshot](https://github.com/greenshot/greenshot)
-  
+
+  - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
+
   - [Quicker](https://github.com/cuiliang/Quicker)
 
   - [sentinel](https://github.com/yarseyah/sentinel)
@@ -1290,6 +1626,7 @@
 
 - [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/)
   
+  - [Microsoft.Extensions.Logging, Part 1: Introduction](https://blog.stephencleary.com/2018/05/microsoft-extensions-logging-part-1-introduction.html)
   - [Logging in .NET Core and ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-5.0)
   - https://github.com/devlead/Devlead.Console.Template/blob/develop/src/Devlead.Console.Template/templates/devleadconsole/Devlead.Console/Program.cs
   - https://github.com/maikebing/CAP.Extensions/blob/master/src/MaiKeBing.CAP.ZeroMQ/ITransport.ZeroMQ.cs
@@ -1313,6 +1650,8 @@
   - [sentinel](https://github.com/yarseyah/sentinel)
 
   - [LoggingPerformance](https://github.com/panchengtao/LoggingPerformance)
+
+- [NReco.Logging.File](https://github.com/nreco/logging)
 
 - [PostSharp.Patterns.Diagnostics](https://www.nuget.org/packages/PostSharp.Patterns.Diagnostics/) - [website](https://www.postsharp.net/download/nuget)
 
@@ -1352,9 +1691,15 @@
 
 - [sentinel](https://github.com/yarseyah/sentinel)
 
-##### Blogs
+##### Articles
 
 - [A New Pattern for Exception Logging](https://blog.stephencleary.com/2020/06/a-new-pattern-for-exception-logging.html)
+
+- [Logging in .NET](https://learn.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line)
+
+- [High-performance logging in .NET](https://learn.microsoft.com/en-us/dotnet/core/extensions/high-performance-logging)
+
+- [Logging providers in .NET](https://learn.microsoft.com/en-us/dotnet/core/extensions/logging-providers)
 
 ##### Log Management System
 
@@ -1450,6 +1795,10 @@
 
 - [Demystifying Memory Profilers in C# .NET Part 3: Memory Pressure](https://michaelscodingspot.com/fix-memory-pressure-dotnet/)
 
+### Messaging
+
+- [Namotion.Messaging](https://github.com/RicoSuter/Namotion.Messaging)
+
 ### MIME
 
 - [Using .NET, how can you find the mime type of a file based on the file signature not the extension](https://stackoverflow.com/questions/58510/using-net-how-can-you-find-the-mime-type-of-a-file-based-on-the-file-signature?lq=1)
@@ -1478,11 +1827,21 @@
 
 - [FFMpegCore](https://github.com/rosenbjerg/FFMpegCore)
 
+  - [Render Video with SkiaSharp](https://swharden.com/csdv/skiasharp/video/) - [code](https://github.com/swharden/Csharp-Data-Visualization/tree/main/projects/skiasharp/video/)
+
 - [HanumanInstitute.FFmpeg](https://github.com/mysteryx93/HanumanInstitute.FFmpeg)
+
+- [jellyfin](https://github.com/jellyfin/jellyfin)
+
+- [MediaInfo.DotNetWrapper](https://github.com/StefH/MediaInfo.DotNetWrapper)
+
+- [MediaInfoDLL.cs](https://github.com/MediaArea/MediaInfoLib/blob/master/Source/MediaInfoDLL/MediaInfoDLL.cs)
 
 - [metadata-extractor-dotnet](https://github.com/drewnoakes/metadata-extractor-dotnet)
 
   - [C# find the greatest common divisor](https://stackoverflow.com/questions/18541832/c-sharp-find-the-greatest-common-divisor)
+
+- [mpv.net](https://github.com/mpvnet-player/mpv.net)
 
 - [ScreenRecorderLib](https://github.com/sskodje/ScreenRecorderLib)
   
@@ -1491,6 +1850,8 @@
 - [SFML.Net](https://www.sfml-dev.org/download/sfml.net/)
 
 - [TagLib](https://github.com/mono/taglib-sharp)
+
+- [TerraFX](https://github.com/terrafx/terrafx)
 
 - [YoutubeExplode](https://github.com/Tyrrrz/YoutubeExplode): The ultimate dirty YouTube library
   
@@ -1501,7 +1862,10 @@
 ### Networking
 
 - [Ben.Http](https://github.com/benaadams/Ben.Http)
+- [Camelotia](https://github.com/reactiveui/Camelotia)
 - [Castle.Core.Smtp](https://github.com/castleproject/Core)
+- [DnsClient.NET](https://github.com/MichaCo/DnsClient.NET)
+  - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 - [dotnetCampus.FileDownloader](https://github.com/dotnet-campus/dotnetCampus.FileDownloader)
 - [dotnetCampus.P2PFileShare](https://github.com/dotnet-campus/dotnetCampus.P2PFileShare)
 - [DotnetSpider](https://github.com/dotnetcore/DotnetSpider)
@@ -1509,18 +1873,27 @@
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
 - [Emby](https://github.com/MediaBrowser/Emby)
 - [evhttp-sharp](https://github.com/kekekeks/evhttp-sharp)
+- [file-server](https://github.com/deniskyashif/file-server)
+- [FluentFTP](https://github.com/robinrodricks/FluentFTP)
+  - [Camelotia](https://github.com/reactiveui/Camelotia)
 - [Flurl](https://github.com/tmenier/Flurl)
   - https://blog.lindexi.com/post/WPF-%E5%BC%80%E5%8F%91.html
 - [GameServer](https://github.com/LeagueSandbox/GameServer)
 - [H.Socket.IO](https://github.com/HavenDV/H.Socket.IO)
 - [ip2region](https://github.com/lionsoul2014/ip2region)
 - [KCP](https://github.com/KumoKyaku/KCP)
+- [MailKit](https://github.com/jstedfast/MailKit)
+  - [Paillave.Etl.Mail](https://github.com/paillave/Etl.Net/tree/master/src/Paillave.Etl.Mail)
 - [MassTransit](https://github.com/MassTransit/MassTransit)
+- [MimeTypes](https://github.com/khellang/MimeTypes)
+  - [Paillave.Etl.Mail](https://github.com/paillave/Etl.Net/tree/master/src/Paillave.Etl.Mail)
 - [ModernHttpClient](https://github.com/anaisbetts/ModernHttpClient)
 - [NetMQ](https://github.com/zeromq/netmq)
   - [CAP.Extensions](https://github.com/maikebing/CAP.Extensions)
 - [Octokit](https://github.com/octokit/octokit.net)
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
+- [Open.NAT](https://github.com/lontivero/Open.NAT)
+  - [Quasar](https://github.com/quasar/Quasar)
 - [Pipelines.Sockets.Unofficial](https://github.com/mgravell/Pipelines.Sockets.Unofficial)
 - [Pipelines.WebSockets](https://github.com/mgravell/Pipelines.WebSockets)
 - [Rebex.Net](https://www.rebex.net/doc/api/)
@@ -1533,18 +1906,27 @@
 - [Replicant](https://github.com/SimonCropp/Replicant)
 - [Resonance](https://github.com/royben/Resonance)
 - [RestClient.Net](https://github.com/MelbourneDeveloper/RestClient.Net)
+- [RestEase](https://github.com/canton7/RestEase)
 - [RestSharp](https://github.com/restsharp/RestSharp)
+- [Result](https://github.com/ardalis/Result)
 - [RiptideNetworking](https://github.com/tom-weiland/RiptideNetworking)
+- [sharpsnmplib](https://github.com/lextudio/sharpsnmplib)
+  - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 - [simple-http](https://github.com/dajuric/simple-http)
 - [simplsockets](https://github.com/mgravell/simplsockets)
   - [simplsockets](https://github.com/haneytron/simplsockets)
 - [sipsorcery](https://github.com/sipsorcery-org/sipsorcery) - A WebRTC, SIP and VoIP library for C# and .NET. Designed for real-time communications apps.
   - [GB28181.Solution](https://github.com/GB28181/GB28181.Solution)
+- [SSH.NET](https://github.com/sshnet/SSH.NET/)
+  - [Camelotia](https://github.com/reactiveui/Camelotia)
+  - [Paillave.Etl.Sftp](https://github.com/paillave/Etl.Net/tree/master/src/Paillave.Etl.Sftp)
 - [SuperSocket](https://github.com/kerryjiang/SuperSocket)
   - [SuperSocket.SerialIO](https://github.com/SuperSocket/SuperSocket.SerialIO)
 - WebSocket4Net
   - https://github.com/Emotiv/cortex-v2-example/blob/master/csharp/CortexAccess/CtxClient.cs
 - [whois](https://github.com/flipbit/whois)
+- [WinSCP](https://winscp.net/eng/docs/library)
+  - [C#实现FTP服务端和客户端](https://www.cnblogs.com/timefiles/p/CsharpFTP.html)
 
 ### OCR
 
@@ -1581,13 +1963,21 @@
 - [ClosedXML](https://github.com/ClosedXML/ClosedXML)
   - [ClosedXML.Report](https://github.com/ClosedXML/ClosedXML.Report)
 - [excel-mapper](https://github.com/hughbe/excel-mapper)
+- [ExcelDataReader](https://github.com/ExcelDataReader/ExcelDataReader)
+  - [Paillave.Etl.ExcelFile](https://github.com/paillave/Etl.Net/tree/master/src/Paillave.Etl.ExcelFile)
 - [excellibrary](https://github.com/darknessomi/excellibrary)
+- [ExcelNumberFormat](https://github.com/andersnm/ExcelNumberFormat)
 - Microsoft.Office.Interop.Excel
 - [MiniExcel](https://github.com/shps951023/MiniExcel)
+- [ReoGrid](https://github.com/unvell/ReoGrid)
 
 ### Online Compiler
 
 - [dotnetfiddle](https://dotnetfiddle.net/)
+
+### Parser Generator
+
+- [irony](https://github.com/daxnet/irony)
 
 ### PDF
 
@@ -1598,6 +1988,7 @@
 - [PdfiumViewer](https://github.com/pvginkel/PdfiumViewer)
   - DeepL Translate App for Windows
 - [PdfPig](https://github.com/UglyToad/PdfPig)
+  - [Paillave.Etl.Pdf](https://github.com/paillave/Etl.Net/tree/master/src/Paillave.Etl.Pdf)
 - [PDFsharp](https://github.com/empira/PDFsharp)
   - https://github.com/wieslawsoltes/Core2D/tree/master/src/Core2D/Modules/FileWriter.PdfSharp
   - [Quicker](https://github.com/cuiliang/Quicker)
@@ -1616,6 +2007,8 @@
 
 - [Artemis.Core/Plugins](https://github.com/Artemis-RGB/Artemis/tree/master/src/Artemis.Core/Plugins)
 - [BepInEx](https://github.com/BepInEx/BepInEx)
+- [BepisPlugins](https://github.com/IllusionMods/BepisPlugins)
+- [ChoETL](https://github.com/Cinchoo/ChoETL)
 - [dnSpy.Extensions](https://github.com/dnSpy/dnSpy/tree/master/Extensions)
   - [dnSpy.Extension.HoLLy](https://github.com/HoLLy-HaCKeR/dnSpy.Extension.HoLLy) 
 - [DotNetCorePlugins](https://github.com/natemcmaster/DotNetCorePlugins)
@@ -1628,6 +2021,7 @@
 - [MiniUML.Plugins](https://github.com/Dirkster99/Edi/tree/master/MiniUML/Plugins/src/MiniUML.Plugins.UmlClassDiagram)
 - Paint.NET Plugin System
   - https://github.com/iOrange/QoiFileTypeNet 
+- :star: [PluginFramework](https://github.com/weikio/PluginFramework)
 - [Prise](https://github.com/merken/Prise)
 - [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
 - [QoiFileTypeNet](https://github.com/iOrange/QoiFileTypeNet)
@@ -1641,6 +2035,10 @@
 
 - [Understanding How Assemblies Load in C# .NET](https://michaelscodingspot.com/assemblies-load-in-dotnet/)
 
+### Process
+
+- [simple-exec](https://github.com/adamralph/simple-exec)
+
 ### Profiling
 
 - [.NET-Big-O-Algorithm-Complexity-Cheat-Sheet](https://github.com/RehanSaeed/.NET-Big-O-Algorithm-Complexity-Cheat-Sheet)
@@ -1650,6 +2048,12 @@
 - [MiniProfiler](https://miniprofiler.com/)
 
 - [MsrUtil](https://github.com/clamchowder/MsrUtil)
+
+- perfmon.exe
+
+  - [Pooling large arrays with ArrayPool](https://adamsitnik.com/Array-Pool/)
+
+- [perfolizer](https://github.com/AndreyAkinshin/perfolizer)
 
 - [Tune](https://github.com/kkokosa/Tune)
 
@@ -1687,6 +2091,8 @@
 
   - [PeLib](https://github.com/rochus-keller/PeLib)
 
+- [TypeExtender](https://github.com/NdubuisiJr/TypeExtender)
+
 - [Fody](https://github.com/Fody/Fody)
 
   - [InfoOf](https://github.com/Fody/InfoOf)
@@ -1695,9 +2101,17 @@
 
 - [Harmony](https://github.com/pardeike/Harmony)
 
+- [Namotion.Reflection](https://github.com/RicoSuter/Namotion.Reflection)
+
+  - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
+
+  - [NJsonSchema](https://github.com/RicoSuter/NJsonSchema)
+
 - [ThisAssembly](https://github.com/devlooped/ThisAssembly)
 
 ### Regular Expression
+
+- [ChoETL](https://github.com/Cinchoo/ChoETL)
 
 - [Fare](https://github.com/moodmosaic/Fare)
 
@@ -1712,6 +2126,7 @@
 - [CoreRPC](https://github.com/kekekeks/CoreRPC)
 - GRpc
   - DeepL Translate App for Windows
+- [grpc-dotnet-namedpipes](https://github.com/cyanfish/grpc-dotnet-namedpipes)
 - [vs-streamjsonrpc](https://github.com/microsoft/vs-streamjsonrpc)
 
 ### Scientific Computing
@@ -1750,6 +2165,10 @@
 
 - [BinaryPack](https://github.com/Sergio0694/BinaryPack)
 
+- [Bond](https://github.com/microsoft/bond/)
+
+  - Bond.dll, Bond.IO.dll, Bond.JSON.dll, Bond.Reflection.dll
+
 - [Catel](https://github.com/Catel/Catel)
 
 - [Google Protobuffers](https://github.com/protocolbuffers/protobuf/tree/main/csharp)
@@ -1757,6 +2176,8 @@
   - [protobuf-net](https://github.com/protobuf-net/protobuf-net)
 
     - [Protobuf In C# .NET – Part 1 – Getting Started](https://dotnetcoretutorials.com/2022/01/13/protobuf-in-c-net-part-1-getting-started/)
+
+    - https://github.com/quasar/Quasar/blob/master/Quasar.Common/Video/Resolution.cs
 
   - [protobuf.Text](https://github.com/SciSharp/protobuf.Text)
 
@@ -1767,6 +2188,10 @@
 - [Hyperion](https://github.com/akkadotnet/Hyperion)
 
 - [Open.Serialization](https://github.com/Open-NET-Libraries/Open.Serialization)
+
+- System.Runtime.Serialization
+
+  - [Camelotia](https://github.com/reactiveui/Camelotia/blob/main/src/Camelotia.Services/Configuration/CloudConfiguration.cs)
 
 - [ysoserial.net](https://github.com/pwntester/ysoserial.net)
 
@@ -1785,6 +2210,10 @@
 - [Serialization Performance Update With .NET 4.7.2](https://aloiskraus.wordpress.com/2018/05/06/serialization-performance-update-with-net-4-7-2/)
 
 - [The Definitive Serialization Performance Guide](https://aloiskraus.wordpress.com/2017/04/23/the-definitive-serialization-performance-guide/)
+
+### State Machine
+
+- [StateMechanic](https://github.com/canton7/StateMechanic)
 
 ### Static Analysis
 
@@ -1828,6 +2257,7 @@
 
 ### Templating
 
+- [dotliquid](https://github.com/dotliquid/dotliquid)
 - [fluid](https://github.com/sebastienros/fluid)
 - [Handlebars.Net](https://github.com/Handlebars-Net/Handlebars.Net)
 - [MiniRazor](https://github.com/Tyrrrz/MiniRazor)
@@ -1853,9 +2283,13 @@
 
   - [MVVM-Samples](https://github.com/CommunityToolkit/MVVM-Samples)
 
+- [Green Threads](https://github.com/dotnet/runtimelab/tree/feature/green-threads)
+
 - [Open.ChannelExtensions](https://github.com/Open-NET-Libraries/Open.ChannelExtensions)
 
 - [PooledAwait](https://github.com/mgravell/PooledAwait)
+
+- [punchclock](https://github.com/reactiveui/punchclock)
 
 - [UniTask](https://github.com/Cysharp/UniTask)
 
@@ -1896,6 +2330,8 @@
 
 - Microsoft.VisualStudio.TestTools.UnitTesting
 
+  - [CommunityToolkit](https://github.com/CommunityToolkit/dotnet)
+
 - MSTest
   - [Automate your UI using Microsoft Automation Framework](https://www.codeproject.com/Articles/141842/Automate-your-UI-using-Microsoft-Automation-Framew)
   - [C# unit test tutorial - Visual Studio (Windows) | Microsoft Docs](https://docs.microsoft.com/en-us/visualstudio/test/walkthrough-creating-and-running-unit-tests-for-managed-code?view=vs-2022)
@@ -1913,6 +2349,8 @@
 
 - NUnit
 
+  - [Dragablz](https://github.com/ButchersBoy/Dragablz)
+
 - [PeanutButter.TestUtils](https://github.com/fluffynuts/PeanutButter)
 
 - [Pose](https://github.com/tonerdo/pose)
@@ -1925,13 +2363,33 @@
 
 - [xunit](https://github.com/xunit/xunit)
 
+  - [Camelotia](https://github.com/reactiveui/Camelotia)
+
   - [LightBulb](https://github.com/Tyrrrz/LightBulb)
 
   - [protobuf-net](https://github.com/protobuf-net/protobuf-net)
 
   - [xunit-logging](https://github.com/martincostello/xunit-logging)
 
+  - [Communicate Between View Models with Observer Pattern - WPF C# MVVM](https://www.youtube.com/watch?v=-6Td1iLBXGw): [code](https://github.com/centrolutions/BuildYourOwnMessenger)
+
+  - [Test Driven Development Process with XUnit](https://www.codeproject.com/Articles/5322646/Test-Driven-Development-Process-with-XUnit) - [code](https://github.com/npolyak/NP.TestDrivenSample)
+
 ##### Mocking
+
+- [FakeItEasy](https://github.com/FakeItEasy/FakeItEasy)
+
+- [JustMockLite](https://github.com/telerik/JustMockLite)
+
+- [Moq](https://github.com/moq/moq4)
+
+  - [Communicate Between View Models with Observer Pattern - WPF C# MVVM](https://www.youtube.com/watch?v=-6Td1iLBXGw): [code](https://github.com/centrolutions/BuildYourOwnMessenger)
+
+  - [mvvm-dialogs](https://github.com/FantasticFiasco/mvvm-dialogs)
+
+- [NSubstitute](https://github.com/nsubstitute/NSubstitute)
+
+  - [Camelotia](https://github.com/reactiveui/Camelotia)
 
 - [PCLMock](https://github.com/kentcb/PCLMock)
 
@@ -1949,6 +2407,20 @@
 
 - [JUnit Test Logger](https://github.com/spekt/junit.testlogger)
 
+### Versioning
+
+- [BuildVersioning](https://github.com/TurnerSoftware/BuildVersioning)
+
+- [GitVersion](https://github.com/GitTools/GitVersion)
+
+- [minver](https://github.com/adamralph/minver)
+
+- [Nerdbank.GitVersioning](https://github.com/dotnet/Nerdbank.GitVersioning)
+
+### Web Framework
+
+- [ServiceStack](https://github.com/ServiceStack/ServiceStack)
+
 ### Web Scraping
 
 - [NSoup](https://github.com/GeReV/NSoup)
@@ -1963,9 +2435,23 @@
 
   - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
 
+### Windows Development
+
+- [sharpshell](https://github.com/dwmkerr/sharpshell)
+
 ### XML
 
 - [YAXLib](https://github.com/YAXLib/YAXLib)
+
+### YAML
+
+- [SharpYaml](https://github.com/xoofx/SharpYaml)
+
+  - [ChoETL](https://github.com/Cinchoo/ChoETL)
+
+- [YamlDotNet](https://github.com/aaubry/YamlDotNet)
+
+  - [NJsonSchema.Yaml](https://github.com/RicoSuter/NJsonSchema/tree/master/src/NJsonSchema.Yaml)
 
 ### Miscellaneous
 
@@ -1995,8 +2481,6 @@
 
   - [MVVM-Samples](https://github.com/CommunityToolkit/MVVM-Samples)
 
-- [NullGuard](https://github.com/Fody/NullGuard)
-
 - [ObjectsComparer](https://github.com/ValeraT1982/ObjectsComparer)
 
 - [Pidgin](https://github.com/benjamin-hodgson/Pidgin)
@@ -2010,3 +2494,11 @@
 - [TaskScheduler](https://github.com/dahall/TaskScheduler)
 
 - [ViVe](https://github.com/thebookisclosed/ViVe)
+
+### Softwares
+
+##### Online Playground
+
+- [.NET Fiddle](https://dotnetfiddle.net/)
+
+- [SharpLab](https://github.com/ashmind/SharpLab)

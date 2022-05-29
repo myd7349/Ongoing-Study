@@ -68,3 +68,7 @@
 ##### BitmapCache
 
 - [How to: Improve Rendering Performance by Caching an Element](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/graphics-multimedia/how-to-improve-rendering-performance-by-caching-an-element?view=netframeworkdesktop-4.8)
+
+##### RenderOptions
+
+- [Smoothing image edges in WPF](https://stackoverflow.com/questions/14490574/smoothing-image-edges-in-wpf)

@@ -26,6 +26,8 @@ Fonts:
 
 - [glow-sans](https://github.com/welai/glow-sans)
 
+- [Google Fonts](https://github.com/google/fonts)
+
 - [googlefonts](https://github.com/googlefonts)
 
 - [FiraCode](https://github.com/tonsky/FiraCode)
@@ -49,6 +51,8 @@ Fonts:
 - [proggyfonts](https://github.com/bluescan/proggyfonts)
 
 - [汉仪浙风宋朝 W](https://www.hanyi.com.cn/productdetail?id=9143&type=0)
+
+- [飞花宋体](https://github.com/Skr-ZERO/FlyFlowerSong)
 
 - [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
   

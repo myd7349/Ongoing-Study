@@ -132,3 +132,4 @@ BOOL Execute(
 // [How to wait for ShellExecute to run?](https://stackoverflow.com/questions/17638674/how-to-wait-for-shellexecute-to-run)
 // https://github.com/xupefei/Locale-Emulator/blob/master/LECommonLibrary/SystemHelper.cs
 // https://github.com/M2Team/Privexec
+// https://github.com/getlantern/elevate

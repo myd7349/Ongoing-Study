@@ -20,3 +20,5 @@ while True:
 ```
 
 > At this point, it is worth mentioning that there are many interactive CLI tools that do not have line editing and history capabilities. They behave like our first toy REPL example in this post. Fortunately, there is the wonderful readline wrapper utility known as rlwrap that can be used to enable line editing and history in such tools. This utility can often be easily installed from package repositories of various operating systems.
+
+https://github.com/chrisant996/clink

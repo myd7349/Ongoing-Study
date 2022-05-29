@@ -64,13 +64,25 @@ Other Tools:
 
 - [cfonts](https://github.com/dominikwilkowski/cfonts)
 
+- [ConPtyShell](https://github.com/antonioCoco/ConPtyShell)
+
 - [ctypes.sh](https://github.com/taviso/ctypes.sh)
 
 - [fzf](https://github.com/junegunn/fzf)
 
+- [hyperfine](https://crates.io/crates/hyperfine) - [code](https://github.com/sharkdp/hyperfine)
+
+- [mosh](https://github.com/mobile-shell/mosh)
+
+- [neofetch](https://github.com/dylanaraps/neofetch)
+
 - [nb](https://github.com/xwmx/nb)
 
+- [oil](https://github.com/oilshell/oil)
+
 - [starship](https://github.com/starship/starship)
+
+- [termpair](https://github.com/cs01/termpair)
 
 - [termtosvg](https://github.com/nbedos/termtosvg): Record terminal sessions as SVG animations.
 
@@ -87,3 +99,19 @@ Other Tools:
 - [xxh](https://github.com/xxh/xxh)
 
 - [shell-history](https://github.com/pawamoy/shell-history)
+
+- [z.lua](https://github.com/skywind3000/z.lua)
+
+Cheat sheet:
+
+- [awesome-cheatsheets](https://github.com/skywind3000/awesome-cheatsheets)
+
+- [cheat.sh](https://github.com/chubin/cheat.sh)
+
+- [Command line reference.](https://ss64.com/)
+
+- [the-art-of-command-line](https://github.com/jlevy/the-art-of-command-line)
+
+- [tealdeer](https://github.com/dbrgn/tealdeer)
+
+- [tldr](https://github.com/tldr-pages/tldr)

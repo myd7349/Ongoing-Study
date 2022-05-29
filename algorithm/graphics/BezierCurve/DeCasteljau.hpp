@@ -372,3 +372,8 @@ small tolerance. If not, the curve is subdivided parametrically into two segment
 // https://github.com/markheath/wpf-waveform/blob/master/WpfWaveform/BezierSpline.cs
 // [How to draw a full ellipse in a StreamGeometry in WPF?](https://stackoverflow.com/questions/2979834/how-to-draw-a-full-ellipse-in-a-streamgeometry-in-wpf)
 // https://github.com/Ramshandilya/Bezier
+// [Bezier curvature](https://math.stackexchange.com/questions/220900/bezier-curvature)
+// [Curvature](https://en.wikipedia.org/wiki/Curvature)
+// [Computing the Radius of Curvature of a Bezier Curve Given Control Points](https://stackoverflow.com/questions/46762955/computing-the-radius-of-curvature-of-a-bezier-curve-given-control-points)
+// [Approximating Bézier curves with circular arcs](https://pomax.github.io/bezierinfo/#arcapproximation)
+// [WPF path description for a sine curve using bezier curves](https://stackoverflow.com/questions/25423748/wpf-path-description-for-a-sine-curve-using-bezier-curves)

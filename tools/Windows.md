@@ -99,3 +99,13 @@
 36. [DevToys](https://github.com/veler/DevToys)
 
 37. [LightBulb](https://github.com/Tyrrrz/LightBulb)
+
+38. [komorebi](https://github.com/LGUG2Z/komorebi)
+
+39. [gh0st](https://github.com/sin5678/gh0st)
+
+40. [Quasar](https://github.com/quasar/Quasar)
+
+41. [Loaf](https://github.com/DinoChan/Loaf)
+
+42. [Text-Grab](https://github.com/TheJoeFin/Text-Grab)

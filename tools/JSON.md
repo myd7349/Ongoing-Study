@@ -18,6 +18,10 @@
 
 [json-tui](https://github.com/ArthurSonzogni/json-tui)
 
+[jsonfs](https://github.com/droyo/jsonfs)
+
+[JsonViewer](https://github.com/facebook-csharp-sdk/simple-json/tree/master/src/JsonViewer)
+
 [miller](https://github.com/johnkerl/miller)
 
 [XML2JSON.XSL](https://xml2json.duttke.de/)
@@ -26,7 +30,11 @@
 
 [JSON Crack](https://github.com/AykutSarac/jsoncrack.com)
 
+[VisualJsonEditor](https://github.com/RicoSuter/VisualJsonEditor)
+
 [wal2json](https://github.com/eulerto/wal2json)
+
+[zipson](https://github.com/jgranstrom/zipson)
 
 BSON Tools:
 
@@ -39,3 +47,9 @@ Online Editors:
 - [jsoneditor](https://github.com/josdejong/jsoneditor)
 
 - [jsonvisio](https://github.com/AykutSarac/jsonvisio.com)
+
+Templating:
+
+- [Jsonnet](https://jsonnet.org/)
+
+  - [kubeflow](https://github.com/kubeflow/kubeflow)

@@ -88,5 +88,6 @@
     References:
     [How do you draw a line on a canvas in WPF that is 1 pixel thick](https://stackoverflow.com/questions/2879033/how-do-you-draw-a-line-on-a-canvas-in-wpf-that-is-1-pixel-thick)
     [How to draw an exact 1 monitor pixel line using drawingContext in OnRender for a 120 DPI resolution?](https://stackoverflow.com/questions/55542484/how-to-draw-an-exact-1-monitor-pixel-line-using-drawingcontext-in-onrender-for-a)
+    [The width of Lines are rendered differently in SkiaSharp](https://stackoverflow.com/questions/67664377/the-width-of-lines-are-rendered-differently-in-skiasharp)
     -->
 </Window>

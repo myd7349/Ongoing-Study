@@ -1,0 +1,1 @@
+[Impossible to use ref and out for first ("this") parameter in Extension methods?](https://stackoverflow.com/questions/2618597/impossible-to-use-ref-and-out-for-first-this-parameter-in-extension-methods/2618632#2618632)
