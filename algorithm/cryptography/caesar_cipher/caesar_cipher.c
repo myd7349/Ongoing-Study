@@ -174,3 +174,4 @@ const char *caesar_decode_cstr_simple(const char *cipher_str, char *plain_str, s
 // References:
 // https://en.wikipedia.org/wiki/Caesar_cipher
 // Computer Networking: A Top-Down Approach, 6th Edition, Chapter 8
+// [C++ Caesar Cipher (ASCII Codes) | Algo for Beginners](https://www.youtube.com/watch?v=0ZxqLybllNQ)

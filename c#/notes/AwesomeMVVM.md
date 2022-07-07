@@ -164,6 +164,12 @@
 
 - [Routed event from user control in MVVM application](https://stackoverflow.com/questions/11887141/routed-event-from-user-control-in-mvvm-application)
 
+- [Binding to base viewmodel command from View](https://stackoverflow.com/questions/12850865/binding-to-base-viewmodel-command-from-view)
+
+- [Passing two command parameters using a WPF binding](https://stackoverflow.com/questions/1350598/passing-two-command-parameters-using-a-wpf-binding)
+
+- [How to Passing multiple parameters RelayCommand?](https://stackoverflow.com/questions/8279782/how-to-passing-multiple-parameters-relaycommand)
+
 ##### YouTube Videos
 
 - [C# WPF UI Tutorials: 02 - TreeViews and Value Converters](https://youtu.be/6OwyNiLPDNw)
@@ -272,7 +278,7 @@
 
     - [UWP-MVVM-Toolkit-Sample](https://github.com/XamlBrewer/UWP-MVVM-Toolkit-Sample)
 
-  - [\[NotifyPropertyChanged\]](https://docs.microsoft.com/en-us/dotnet/api/microsoft.toolkit.mvvm.componentmodel.inotifypropertychangedattribute?view=win-comm-toolkit-dotnet-7.0)
+  - [\[NotifyPropertyChanged\]](https://docs.microsoft.com/en-us/dotnet/api/microsoft.toolkit.mvvm.componentmodel.inotifypropertychangedattribute?view=win-comm-toolkit-dotnet-6.1)
 
   - [Compiling fails when trying to use to ObservableProperty source generator property](https://github.com/CommunityToolkit/WindowsCommunityToolkit/issues/4174)
  
@@ -290,6 +296,10 @@
 
   - [Dynamic.Trader](https://github.com/RolandPheasant/Dynamic.Trader)
 
+- [Elmish.WPF](https://github.com/elmish/Elmish.WPF)
+
+- [Epoxy](https://github.com/kekyo/Epoxy)
+
 - [EssentialMVVM](https://github.com/thomaslevesque/EssentialMVVM)
 
 - Fody.PropertyChanged
@@ -299,6 +309,8 @@
   - [fasetto-word](https://github.com/angelsix/fasetto-word)
 
   - [YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)
+
+- [HanumanInstitute.MvvmDialogs](https://github.com/mysteryx93/HanumanInstitute.MvvmDialogs)
 
 - [JustMVVM](https://github.com/chris84948/JustMVVM)
   
@@ -326,9 +338,9 @@
 
   - [MVVM-Samples](https://github.com/CommunityToolkit/MVVM-Samples)
 
-  - [\[NotifyPropertyChanged\]](https://docs.microsoft.com/en-us/dotnet/api/microsoft.toolkit.mvvm.componentmodel.inotifypropertychangedattribute?view=win-comm-toolkit-dotnet-7.0)
+  - [\[NotifyPropertyChanged\]](https://docs.microsoft.com/en-us/dotnet/api/microsoft.toolkit.mvvm.componentmodel.inotifypropertychangedattribute?view=win-comm-toolkit-dotnet-6.1)
 
-  - [ObservableProperty & AlsoNotifyChangeFor](https://docs.microsoft.com/en-us/dotnet/api/microsoft.toolkit.mvvm.componentmodel.alsonotifychangeforattribute?view=win-comm-toolkit-dotnet-7.0)
+  - [ObservableProperty & AlsoNotifyChangeFor](https://docs.microsoft.com/en-us/dotnet/api/microsoft.toolkit.mvvm.componentmodel.alsonotifychangeforattribute?view=win-comm-toolkit-dotnet-6.1)
 
 - [MvvmLightLibs](https://www.nuget.org/packages/MvvmLightLibs)
 
@@ -353,7 +365,9 @@
 - Prism
 
   - [Documentation](https://prismlibrary.com/docs/index.html)
-  
+
+    - [Implementing the MVVM Pattern Using the Prism Library for WPF](https://prismlibrary.com/docs/wpf/legacy/Implementing-MVVM.html)
+
   - [wpf && silverlight开发框架(prism)系列教程](https://www.cnblogs.com/Clingingboy/archive/2009/06/01/prsim_tutorial.html)
 
   - [Adding a Prism Login Screen](https://www.youtube.com/watch?v=pnG9CNfqZzA)

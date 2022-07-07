@@ -31,3 +31,6 @@ std::string GetReadableFileSize(std::int64_t bytes, bool si, unsigned digits)
 // https://stackoverflow.com/questions/3758606/how-to-convert-byte-size-into-human-readable-format-in-java
 // https://www.zhihu.com/question/266520566/answer/361084338
 // Ongoing-Study/cpp/Win32/MFC/Utility.h:GetReadableFileSize
+// [convert astronomically large numbers into human readable form in C/C++](https://stackoverflow.com/questions/1499156/convert-astronomically-large-numbers-into-human-readable-form-in-c-c)
+// [humanize_number.c](http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libc/gen/humanize_number.c?rev=1.14&content-type=text/x-cvsweb-markup&only_with_tag=MAIN)
+// https://github.com/NetBSD/src/blob/trunk/lib/libc/gen/humanize_number.c

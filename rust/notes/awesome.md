@@ -5,6 +5,7 @@
 ### CLI
 
 - [indicatif](https://github.com/console-rs/indicatif)
+- [just](https://github.com/casey/just)
 
 ### Crash Reporting
 

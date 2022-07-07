@@ -19,6 +19,7 @@
 - [Mark Text](https://github.com/marktext/marktext)
 - Microsoft Azure Storage Explorer
 - [Rocket.Chat.Electron](https://github.com/RocketChat/Rocket.Chat.Electron)
+- [Streamlabs Desktop](https://github.com/stream-labs/desktop)
 - [theia](https://github.com/eclipse-theia/theia)
 - [thorium-reader](https://github.com/edrlab/thorium-reader)
 - Typora

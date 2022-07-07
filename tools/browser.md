@@ -9,6 +9,8 @@
 
 Tools:
 
+- [buku](https://github.com/jarun/buku)
+
 - [LaZagne](https://github.com/AlessandroZ/LaZagne#supported-software): Credentials recovery project.
 
 - [onenav](https://github.com/helloxz/onenav)

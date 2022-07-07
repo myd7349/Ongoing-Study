@@ -1,3 +1,5 @@
+[AppDomain](https://learn.microsoft.com/en-us/dotnet/api/system.appdomain?view=net-6.0)
+
 [AssemblyResolve](https://github.com/microsoft/perfview/blob/main/src/HeapDump/Program.cs)
 
 [greenshot/GreenshotMain.cs at 82b37bcaa4b051313dbe28cab84863fc0c048dd5 · greenshot/greenshot · GitHub](https://github.com/greenshot/greenshot/blob/82b37bcaa4b051313dbe28cab84863fc0c048dd5/src/Greenshot/GreenshotMain.cs#L35-L57)
@@ -65,3 +67,58 @@ AppDomain.CurrentDomain.AssemblyResolve += (sender, e) =>
     return null;
 };
 ```
+
+[How to load assemblies in different folders C#](https://stackoverflow.com/questions/39170790/how-to-load-assemblies-in-different-folders-c-sharp)
+
+```csharp
+public static Assembly LoadAssembly(string assemblyPath)
+{
+    try
+    {
+        var assemblyName = AssemblyName.GetAssemblyName(assemblyPath);
+        var assembly = Assembly.Load(assemblyName);
+        Debug.WriteLine("Assembly full name: " + assembly.FullName);
+        return assembly;
+    }
+    catch (Exception ex)
+    {
+        Debug.WriteLine("Failed to load " + assemblyPath + ":\n" + ex.ToString());
+
+        if (!Path.IsPathRooted(assemblyPath))
+        {
+            var dllPathes = Directory.GetFiles(
+                AppContext.BaseDirectory, assemblyPath, SearchOption.AllDirectories);
+            foreach (var dll in dllPathes)
+            {
+                try
+                {
+#if false
+                    // Boom!!!
+                    var assembly = Assembly.Load(dll);
+#elif false
+                    // OK!
+                    var assemblyName = AssemblyName.GetAssemblyName(dll);
+                    var assembly = Assembly.Load(assemblyName);
+#else
+                    var assembly = Assembly.LoadFrom(dll);
+#endif
+
+                    return assembly;
+                }
+                catch (Exception ex2)
+                {
+                    Debug.WriteLine("Failed to load " + dll + ":\n" + ex2.ToString());
+                }
+            }
+        }
+
+        return null;
+    }
+}
+```
+
+[C# Putting the required DLLs somewhere other than the root of the output](https://stackoverflow.com/questions/2445556/c-sharp-putting-the-required-dlls-somewhere-other-than-the-root-of-the-output)
+
+https://github.com/slmjy/PrettyBin
+
+https://github.com/nulastudio/NetBeauty2

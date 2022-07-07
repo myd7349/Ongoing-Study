@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EnumMenuDemo.Views"
+        xmlns:kino="https://github.com/DinoChan/Kino.Toolkit.Wpf"
         xmlns:converters="clr-namespace:Common.WPF.Converters;assembly=Common.WPF"
         xmlns:models="clr-namespace:EnumMenuDemo.Models"
         xmlns:viewmodels="clr-namespace:EnumMenuDemo.ViewModels"
@@ -53,6 +54,29 @@
                         </Style>
                     </MenuItem.ItemContainerStyle>
                 </MenuItem>
+
+                <kino:RadioButtonMenuItem Header="Weekday (Kino)"
+                                          ItemsSource="{Binding Source={wpf:EnumBindingSource {x:Type models:Weekday}}}">
+                    <kino:RadioButtonMenuItem.ItemContainerStyle>
+                        <Style TargetType="{x:Type kino:RadioButtonMenuItem}">
+                            <Setter Property="GroupName" Value="WeekdayRadioButtonMenuItemGroup" />
+
+                            <Setter Property="IsChecked">
+                                <Setter.Value>
+                                    <MultiBinding Mode="OneWay"
+                                                  Converter="{StaticResource equalityToBooleanConverter}">
+                                        <Binding Path="." />
+                                        <Binding RelativeSource="{RelativeSource AncestorType={x:Type Window}}"
+                                                 Path="DataContext.Weekday" />
+                                    </MultiBinding>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Setter Property="Command" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=DataContext.ChangeWeekdayCommand}" />
+                            <Setter Property="CommandParameter" Value="{Binding}" />
+                        </Style>
+                    </kino:RadioButtonMenuItem.ItemContainerStyle>
+                </kino:RadioButtonMenuItem>
             </Menu>
         </DockPanel>
 

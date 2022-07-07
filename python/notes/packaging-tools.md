@@ -42,6 +42,12 @@ The answer is NO:
 
 - https://github.com/soxoj/maigret/blob/main/.github/workflows/pyinstaller.yml
 
+- [psgcompiler](https://github.com/PySimpleGUI/psgcompiler)
+
+- [ACExplorer](https://github.com/gentlegiantJGC/ACExplorer)
+
+- [pyfda](https://github.com/chipmuenk/pyfda)
+
 [[Python executables: py2exe or PyInstaller?](https://stackoverflow.com/questions/6235123/python-executables-py2exe-or-pyinstaller)]
 
 This post mentioned `py2app`: [How to Create a Single Windows Executable from a Python and PyGame Project (Summary)](https://irwinkwan.com/2013/04/29/python-executables-pyinstaller-and-a-48-hour-game-design-compo/)
@@ -110,3 +116,7 @@ micromamba
 [How can you bundle all your python code into a single zip file?](https://stackoverflow.com/questions/17486578/how-can-you-bundle-all-your-python-code-into-a-single-zip-file)
 
 [Python Zip Imports: Distribute Modules and Packages Quickly](https://realpython.com/python-zip-import/)
+
+DIY:
+
+[BrainVision LSL Viewer](https://pressrelease.brainproducts.com/lsl-viewer/)

@@ -84,3 +84,40 @@ public static void OpenWithDefaultProgram(string path)
 [What scope does a using statement have without curly braces](https://stackoverflow.com/questions/24819576/what-scope-does-a-using-statement-have-without-curly-braces)
 
 https://github.com/StephenCleary/Disposables
+
+https://learn.microsoft.com/en-us/dotnet/api/system.printing.printsystemobject.internaldispose?view=windowsdesktop-7.0
+
+https://github.com/dotnet/wpf/blob/main/src/Microsoft.DotNet.Wpf/src/System.Printing/CPP/src/PrintQueue.cpp
+
+```csharp
+namespace System.Printing
+{
+    public abstract class PrintSystemObject : IDisposable
+    {
+        ~PrintSystemObject();
+
+        protected bool IsDisposed { get; set; }
+
+        public sealed override void Dispose();
+
+        protected virtual void Dispose(bool A_0);
+
+        protected virtual void InternalDispose(bool disposing);
+    }
+}
+
+namespace System.Printing
+{
+    public class PrintQueue : PrintSystemObject
+    {
+        protected sealed override void InternalDispose(bool disposing);
+    }
+}
+```
+
+https://github.com/dotnet/runtime/blob/main/src/libraries/System.Net.Sockets/src/System/Net/Sockets/NetworkStream.cs
+
+```csharp
+// Whether Dispose has been called. 0 == false, 1 == true
+private int _disposed;
+```

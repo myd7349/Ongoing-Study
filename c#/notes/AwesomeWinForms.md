@@ -14,6 +14,7 @@ Applications:
 - [Diff.Net](https://github.com/menees/Diff.Net)
   - https://github.com/Dirkster99/AvalonDock/issues/20
 - [DllExport](https://github.com/3F/DllExport)
+- [DualityEditor](https://github.com/AdamsLair/duality/tree/master/Source/Editor/DualityEditor)
 - [FunUtils](https://github.com/mrexodia/FunUtils)
 - [greenshot](https://github.com/greenshot/greenshot)
 - [HiddenDesktopViewer](https://github.com/AgigoNoTana/HiddenDesktopViewer)
@@ -32,6 +33,9 @@ Applications:
 - [OnTopReplica](https://github.com/LorenzCK/OnTopReplica)
 - [Open Hardware Monitor](https://github.com/openhardwaremonitor/openhardwaremonitor)
 - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
+- [PNGGauntlet](https://pnggauntlet.com/)
+  - [Be Aware of DPI with Image PNGs in WPF - Images Scale Weird or are Blurry](https://www.hanselman.com/blog/be-aware-of-dpi-with-image-pngs-in-wpf-images-scale-weird-or-are-blurry)
+- [PortProxyGUI](https://github.com/zmjack/PortProxyGUI)
 - [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
 - [Quasar](https://github.com/quasar/Quasar)
 - [SCJMapper-V2](https://github.com/SCToolsfactory/SCJMapper-V2)
@@ -52,6 +56,12 @@ Libraries:
 - [AeroWizard](https://github.com/dahall/AeroWizard)
 
   - Zero Install
+
+- [AForge.NET](https://github.com/andrewkirillov/AForge.NET)
+
+  - [HP PC Hardware Diagnostics Windows](https://support.hp.com/us-en/help/hp-pc-hardware-diagnostics)
+
+- [BorderlessForm](https://github.com/mganss/BorderlessForm)
 
 - [CefSharp](https://github.com/cefsharp/CefSharp)
   
@@ -83,6 +93,10 @@ Libraries:
 - [FastColoredTextBox](https://github.com/PavelTorgashov/FastColoredTextBox)
 
 - [FontAwesome.Sharp](https://github.com/awesome-inc/FontAwesome.Sharp)
+
+- [GlacialList](https://github.com/KillerGoldFisch/GCharp/tree/master/GSharp/UI/Controls/GlacialList)
+
+  - [PNGGauntlet](https://pnggauntlet.com/)
 
 - [globalmousekeyhook](https://github.com/gmamaladze/globalmousekeyhook)
   
@@ -130,6 +144,8 @@ Libraries:
 
 - [Ookii.Dialogs.WinForms](https://github.com/ookii-dialogs/ookii-dialogs-winforms)
 
+  - [StrokesPlus.net](https://www.strokesplus.net/)
+
 - [Ooui](https://github.com/praeclarum/Ooui)
 
 - [ReactiveUI](https://github.com/reactiveui/ReactiveUI)
@@ -144,6 +160,10 @@ Libraries:
 
 - [ReoGrid](https://github.com/unvell/ReoGrid)
 
+- [ScintillaNET](https://github.com/jacobslusser/ScintillaNET)
+
+  - [StrokesPlus.net](https://www.strokesplus.net/)
+
 - [SevenSegment](https://github.com/dbrant/SevenSegment)
 
 - [SunnyUI](https://github.com/yhuse/SunnyUI)
@@ -152,7 +172,15 @@ Libraries:
   
   - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
 
+- [TreeViewAdv](https://sourceforge.net/projects/treeviewadv/)
+
+  - [AdamsLair.TreeViewAdv](https://www.nuget.org/packages/AdamsLair.TreeViewAdv)
+
 - [Vanara](https://github.com/dahall/Vanara/tree/master/Windows.Forms)
+
+- [VistaBridgeLibrary](https://github.com/AdamsLair/duality/blob/master/Source/Editor/DualityEditor/VistaBridgeLibrary.dll)
+
+- [Windows7.DesktopIntegration](https://github.com/AdamsLair/duality/blob/master/Source/Editor/DualityEditor/Windows7.DesktopIntegration.dll)
 
 - [WindowsCommunityToolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit)
   
@@ -165,3 +193,7 @@ Libraries:
 - [WinFormsX](https://github.com/FlorianRappl/WinFormsX)
 
 - [Winotify](https://github.com/MarJose123/Winotify)
+
+Tools:
+
+- [ManagedSpy](https://github.com/ForNeVeR/ManagedSpy)

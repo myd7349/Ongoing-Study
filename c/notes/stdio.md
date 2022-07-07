@@ -277,6 +277,60 @@ https://github.com/beejjorgensen/bgc/blob/main/src/bgc_part_0850_malloc.md#readi
 > }
 > ```
 
+[ImGui Game Overlays using DLL injection](https://werwolv.net/blog/dll_injection)
+
+```c
+AllocConsole();                             // Open a new console window
+FILE *f = new FILE();
+freopen_s(&f, "CONOUT$", "w", stdout);      // Redirect stdout to CONOUT$, the
+                                            // current console window.
+
+printf("[*] Running under RuneScape!\n");   // Console works!
+```
+
+
+[win32 GUI app that writes usage text to stdout when invoked as "app.exe --help"](https://stackoverflow.com/questions/54536/win32-gui-app-that-writes-usage-text-to-stdout-when-invoked-as-app-exe-help)
+
+[sys.stdout problems with pythonw.exe](https://github.com/python/cpython/issues/40405)
+
+[pythonw.exe or python.exe?](https://stackoverflow.com/questions/9705982/pythonw-exe-or-python-exe)
+
+[Best solution for sys.stdout causing 'pythonw.exe' to crash](https://stackoverflow.com/questions/42630365/best-solution-for-sys-stdout-causing-pythonw-exe-to-crash)
+
+> GetConsoleWindow
+
+[AttachConsole() shows data on pipe but the > operator doesn't correctly redirect to file](https://stackoverflow.com/questions/11523595/attachconsole-shows-data-on-pipe-but-the-operator-doesnt-correctly-redirect)
+
+[using stdout in GUI programs](https://gist.github.com/Xsoda/3120099)
+
+[GUI窗口使用Console](https://www.cnblogs.com/kex1n/archive/2011/12/14/2287243.html)
+
+```cpp
+BOOL CMFCProjectApp::InitInstance()
+{
+     ....
+    int ret = 0;
+    FILE* fp;
+    AllocConsole();
+    ret = _open_osfhandle((long)GetStdHandle(STD_OUTPUT_HANDLE),       _O_TEXT);
+    fp = _fdopen(ret, "w");
+    *stdout = *fp;
+    setvbuf(stdout, NULL, _IONBF, 0);
+}
+```
+
+[CreatePseudoConsole](https://learn.microsoft.com/en-us/windows/console/createpseudoconsole)
+
+[GetStdHandle](https://learn.microsoft.com/en-us/windows/console/getstdhandle)
+
+> The standard handles of a process may be redirected by a call to SetStdHandle, in which case GetStdHandle returns the redirected handle. If the standard handles have been redirected, you can specify the `CONIN$` value in a call to the CreateFile function to get a handle to a console's input buffer. Similarly, you can specify the `CONOUT$` value to get a handle to a console's active screen buffer.
+
+> The standard handles of a process on entry of the main method are dictated by the configuration of the /SUBSYSTEM flag passed to the linker when the application was built. Specifying /SUBSYSTEM:CONSOLE requests that the operating system fill the handles with a console session on startup, if the parent didn't already fill the standard handle table by inheritance. On the contrary, /SUBSYSTEM:WINDOWS implies that the application does not need a console and will likely not be making use of the standard handles. More information on handle inheritance can be found in the documentation for STARTF_USESTDHANDLES.
+
+> Some applications operate outside the boundaries of their declared subsystem; for instance, a /SUBSYSTEM:WINDOWS application might check/use standard handles for logging or debugging purposes but operate normally with a graphical user interface. These applications will need to carefully probe the state of standard handles on startup and make use of AttachConsole, AllocConsole, and FreeConsole to add/remove a console if desired.
+
+> Some applications may also vary their behavior on the type of inherited handle. Disambiguating the type between console, pipe, file, and others can be performed with GetFileType.
+
 23. https://github.com/Tencent/rapidjson/blob/master/example/prettyauto/prettyauto.cpp
 
 > ```c

@@ -49,6 +49,7 @@
     <Compile Include="..\Common\MathHelper.cs" Link="MathHelper.cs" />
     <Compile Include="..\Common\MMTimer.cs" Link="MMTimer.cs" />
     <Compile Include="..\Common\MSVCRTHelper.cs" Link="MSVCRTHelper.cs" />
+    <Compile Include="..\Common\NetworkHelper.cs" Link="NetworkHelper.cs" />
     <Compile Include="..\Common\PropertyChangedBase.cs" Link="PropertyChangedBase.cs" />
     <Compile Include="..\Common\RegistryKeyExtension.cs" Link="RegistryKeyExtension.cs" />
     <Compile Include="..\Common\Singleton.cs" Link="Singleton.cs" />

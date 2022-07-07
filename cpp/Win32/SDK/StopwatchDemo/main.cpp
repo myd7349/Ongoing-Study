@@ -70,3 +70,8 @@ int main()
 
     return 0;
 }
+
+
+// References:
+// https://github.com/libsdl-org/SDL/blob/main/src/timer/windows/SDL_systimer.c
+

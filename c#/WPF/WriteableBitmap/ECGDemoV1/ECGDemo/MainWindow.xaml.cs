@@ -25,6 +25,7 @@ using PInvoke;
 using Microsoft.Samples.CustomControls;
 
 using Common;
+using Common.WPF;
 
 using FakeAD;
 

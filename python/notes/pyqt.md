@@ -1,12 +1,14 @@
-
-
 Projects using PyQt:
+
+- [ACExplorer](https://github.com/gentlegiantJGC/ACExplorer)
 
 - [Anki](https://github.com/ankitects/anki)
 
 - [App-SigVisualizer](https://github.com/labstreaminglayer/App-SigVisualizer)
 
 - [bitinsight](https://github.com/compilelife/bitinsight)
+
+- [BrainVision LSL Viewer](https://pressrelease.brainproducts.com/lsl-viewer/)
 
 - [bsl](https://github.com/bsl-tools/bsl)
 
@@ -17,6 +19,8 @@ Projects using PyQt:
 - [FeelUOwn](https://github.com/feeluown/FeelUOwn)
 
 - [Groove](https://github.com/zhiyiYo/Groove)
+
+- [iv](https://github.com/kovidgoyal/iv)
 
 - [mne-python](https://github.com/mne-tools/mne-python)
 
@@ -32,9 +36,19 @@ Projects using PyQt:
 
   - [How to use Plottr with QCoDeS for live plotting?](https://qcodes.github.io/Qcodes/examples/plotting/How-to-use-Plottr-with-QCoDeS-for-live-plotting.html)
 
+- [psychopy](https://github.com/psychopy/psychopy)
+
+- [pyfda](https://github.com/chipmuenk/pyfda)
+
+- [screenshot](https://github.com/siukwan/screenshot)
+
 - [spyder](https://github.com/spyder-ide/spyder)
 
+- [stream_viewer](https://github.com/intheon/stream_viewer)
+
 - [Syncplay](https://github.com/Syncplay/syncplay)
+
+- [yoyo-ocr-gui](https://github.com/Logistic98/yoyo-ocr-gui)
 
 - [ViTables](https://github.com/uvemas/ViTables)
 

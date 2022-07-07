@@ -48,3 +48,6 @@ https://github.com/lattera/glibc/blob/master/string/strdup.c
 
 [strtok](https://github.com/FreeRDP/FreeRDP/blob/d4ae65dbb54683cb08bff4d50f9637c0a325fb9a/winpr/libwinpr/utils/ini.c#L68)
 
+[Getting file extension in C](https://stackoverflow.com/questions/5309471/getting-file-extension-in-c)
+
+[Getting file extension in C language](https://stackoverflow.com/questions/3035225/getting-file-extension-in-c-language)

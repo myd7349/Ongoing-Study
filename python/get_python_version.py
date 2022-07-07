@@ -27,3 +27,4 @@ if __name__ == '__main__':
 
 # References:
 # https://github.com/myd7349/Ongoing-Study/issues/3
+# https://github.com/jwilk/python-syntax-errors

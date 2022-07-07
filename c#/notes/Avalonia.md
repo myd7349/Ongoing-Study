@@ -2,9 +2,13 @@
 
 ### Applications
 
+- [BEditor](https://github.com/b-editor/beutl)
+
 - [Camelotia](https://github.com/reactiveui/Camelotia)
 
 - [MQTTnetApp](https://github.com/chkr1011/MQTTnetApp)
+
+- [SkiaImageView](https://github.com/kekyo/SkiaImageView)
 
 - [SteamTools](https://github.com/BeyondDimension/SteamTools)
 
@@ -14,15 +18,27 @@
 
 ### Libraries
 
+- [Avalonia](https://github.com/AvaloniaUI/Avalonia)
+
 - [Avalonia.Controls.TreeDataGrid](https://github.com/AvaloniaUI/Avalonia.Controls.TreeDataGrid)
 
 - [Avalonia.ExtendedToolkit](https://github.com/mameolan/Avalonia.ExtendedToolkit)
 
 - [Avalonia.IconPacks](https://github.com/ahopper/Avalonia.IconPacks)
 
+- [AvaloniaAutoGrid](https://github.com/AvaloniaUI/AvaloniaAutoGrid)
+
 - [AvaloniaBehaviors](https://github.com/wieslawsoltes/AvaloniaBehaviors)
 
+- [AvaloniaProgressRing](https://github.com/Deadpikle/AvaloniaProgressRing)
+
+- [CefGlue](https://github.com/OutSystems/CefGlue)
+
 - [Citrus.Avalonia](https://github.com/AvaloniaUI/Citrus.Avalonia)
+
+- [ColorPicker](https://github.com/wieslawsoltes/ColorPicker)
+
+- [CSharpMath](https://github.com/verybadcat/CSharpMath)
 
 - [DialogHost.Avalonia](https://github.com/AvaloniaUtils/DialogHost.Avalonia)
 
@@ -32,15 +48,27 @@
 
 - [Icons.Avalonia](https://github.com/Projektanker/Icons.Avalonia)
 
+- [Markdown.Avalonia](https://github.com/whistyun/Markdown.Avalonia)
+
+- [Material.Avalonia](https://github.com/AvaloniaCommunity/Material.Avalonia)
+
+- [Material.Icons](https://github.com/SKProCH/Material.Icons)
+
+- [MediaPlayerUI.NET](https://github.com/mysteryx93/MediaPlayerUI.NET)
+
 - [MessageBox.Avalonia](https://github.com/AvaloniaCommunity/MessageBox.Avalonia)
 
+- [NXUI](https://github.com/wieslawsoltes/NXUI)
+
 - [Prism.Avalonia](https://github.com/AvaloniaCommunity/Prism.Avalonia)
+
+- [ShowMeTheXaml.Avalonia](https://github.com/AvaloniaUtils/ShowMeTheXaml.Avalonia)
 
 - [SukiUI](https://github.com/kikipoulet/SukiUI)
 
 - [WebView](https://github.com/OutSystems/WebView)
 
-https://github.com/AvaloniaUI/Avalonia
+- [XAML-Math](https://github.com/ForNeVeR/xaml-math)
 
 https://github.com/Dirkster99/AvalonDock
 
@@ -56,8 +84,6 @@ https://github.com/BeyondDimension/SteamTools
 
 https://github.com/AvaloniaUI/Live.Avalonia
 
-https://github.com/wieslawsoltes/ColorPicker
-
 https://github.com/AvaloniaUI/AvaloniaVS
 
 https://github.com/kekekeks/XamlX
@@ -65,5 +91,3 @@ https://github.com/kekekeks/XamlX
 https://github.com/npolyak/NP.Avalonia.UniDock
 
 - [UniDock - A New Multiplatform UI Docking Framework. UniDock Power Features.](https://www.codeproject.com/Articles/5316702/UniDock-A-New-Multiplatform-UI-Docking-Framework-U)
-
-https://github.com/Deadpikle/AvaloniaProgressRing

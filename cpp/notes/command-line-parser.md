@@ -161,6 +161,8 @@
       
       - [CLAP](https://www.cs.bgu.ac.il/~cgproj/CLAP/)
 
+      - [MGARD](https://github.com/CODARcode/MGARD)
+
 - GNU getopt
   
   - https://github.com/r4start/getoptpp
@@ -170,6 +172,7 @@
   - [Argument-parsing helpers for C/Unix](https://stackoverflow.com/questions/189972/argument-parsing-helpers-for-c-unix)
     > GNU has [gengetopt](https://www.gnu.org/software/gengetopt/) which generates code for an options data structure and the getopt_long code to parse the command line and fill the structure.
   - https://github.com/zint/zint
+  - https://github.com/wolfpld/tracy
 
 - popt
   

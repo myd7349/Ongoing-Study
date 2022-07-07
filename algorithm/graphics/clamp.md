@@ -29,3 +29,13 @@ extern void limiter(float* data, size_t size) {
 	}
 }
 ```
+
+https://github.com/xqq/libaribcaption/blob/master/src/renderer/alphablend_generic.hpp#L35
+
+```cpp
+// Fast clamp to 255 algorithm
+ALWAYS_INLINE uint8_t Clamp255(uint32_t x) {
+    x |= -(x > 255);
+    return static_cast<uint8_t>(x);
+}
+```

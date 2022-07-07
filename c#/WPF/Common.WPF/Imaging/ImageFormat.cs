@@ -1,4 +1,4 @@
-﻿namespace ECGDemo
+﻿namespace Common.WPF.Imaging
 {
     public enum ImageFormat
     {

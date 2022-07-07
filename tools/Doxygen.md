@@ -20,3 +20,5 @@ https://github.com/ibireme/yyjson
 https://github.com/lief-project/LIEF
 
 https://github.com/QMCPACK/qmcpack
+
+https://github.com/uriparser/uriparser

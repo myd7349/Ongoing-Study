@@ -48,3 +48,28 @@ https://mail.python.org/pipermail/python-dev/2013-November/130282.html
 sys.byteorder
 
 https://github.com/nodejs/node/blob/main/tools/getendian.py
+
+sys.stdout
+
+[pythonw.exe or python.exe?](https://stackoverflow.com/questions/9705982/pythonw-exe-or-python-exe)
+
+[sys.stdout problems with pythonw.exe](https://github.com/python/cpython/issues/40405)
+
+```python
+import sys
+
+class NullStream:
+    """
+    A file like class that writes nothing
+    """
+    def close(self): pass
+    def flush(self): pass
+    def write(self, str): pass
+    def writelines(self, sequence): pass
+
+if not isrealfile(sys.__stdout__): 
+   sys.stdout = NullStream()
+
+if not isrealfile(sys.__stderr__):
+   sys.stderr = NullStream()
+```

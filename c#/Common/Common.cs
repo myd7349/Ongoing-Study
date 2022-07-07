@@ -75,3 +75,5 @@ namespace Common
         }
     }
 */
+// https://github.com/adamralph/bullseye
+// > AppDomain.CurrentDomain.ProcessExit += (s, e) => Console.ReadKey();

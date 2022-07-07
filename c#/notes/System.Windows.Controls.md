@@ -7,3 +7,7 @@
 ##### ValidationRule
 
 [Validation in Windows Presentation Foundation](https://www.codeproject.com/Articles/15239/Validation-in-Windows-Presentation-Foundation)
+
+##### UserControl
+
+[Building a XAML UserControl for WinUI, UWP, WPF or Xamarin.Forms (.NET MAUI)](https://nicksnettravels.builttoroam.com/xaml-user-controls/)

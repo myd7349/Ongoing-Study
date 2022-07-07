@@ -50,6 +50,10 @@ Projects using `pybind11`
 * [openPMD-api](https://github.com/openPMD/openPMD-api)
 * [warp-ctc](https://github.com/SeanNaren/warp-ctc)
 * [pybind11_protobuf](https://github.com/pybind/pybind11_protobuf)
+* [zxing-cpp](https://github.com/zxing-cpp/zxing-cpp/blob/master/wrappers/python/zxing.cpp)
+* [fastText](https://github.com/facebookresearch/fastText)
+* [carma](https://github.com/RUrlus/carma)
+* [f3d](https://github.com/f3d-app/f3d)
 
 # Notes
 

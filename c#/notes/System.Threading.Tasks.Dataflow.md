@@ -27,3 +27,5 @@
 [How to: Perform Action When a Dataflow Block Receives Data](https://learn.microsoft.com/en-us/dotnet/standard/parallel-programming/how-to-perform-action-when-a-dataflow-block-receives-data?source=recommendations)
 
 [Walkthrough: Using BatchBlock and BatchedJoinBlock to Improve Efficiency](https://learn.microsoft.com/en-us/dotnet/standard/parallel-programming/walkthrough-using-batchblock-and-batchedjoinblock-to-improve-efficiency?source=recommendations)
+
+[DataflowBlog](https://github.com/carmeleve/DataflowBlog)

@@ -94,6 +94,8 @@ Code Editors:
 
 - Visual Studio Code
 
+- [Waf DotNetPad](https://github.com/jbe2277/dotnetpad)
+
 - [XI Editor](https://github.com/xi-editor/xi-mac)
   
   - [xi-editor](https://github.com/xi-editor/xi-editor)

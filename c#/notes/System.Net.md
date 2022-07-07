@@ -1,0 +1,1 @@
+[Best practices for System.Net classes](https://learn.microsoft.com/en-us/dotnet/framework/network-programming/best-practices-for-system-net-classes)

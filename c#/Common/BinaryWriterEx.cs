@@ -133,3 +133,4 @@
 //            return writer.DetachBuffer();
 //        }
 // https://github.com/tge-was-taken/Amicitia.IO
+// https://learn.microsoft.com/en-us/dotnet/api/system.uintptr.system-numerics-ibinaryinteger-system-uintptr--trywritebigendian?view=net-6.0

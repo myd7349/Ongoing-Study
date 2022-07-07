@@ -122,3 +122,13 @@ Task.Status
 [A lap around the Microsoft MVVM Toolkit](https://xamlbrewer.wordpress.com/2020/11/16/a-lap-around-the-microsoft-mvvm-toolkit/comment-page-1/)
 
 [How would I run an async Task<T> method synchronously?](https://stackoverflow.com/questions/5095183/how-would-i-run-an-async-taskt-method-synchronously)
+
+[How to handle Task.Run Exception](https://stackoverflow.com/questions/32067034/how-to-handle-task-run-exception)
+
+Timeout
+
+[TcpListener: how to stop listening while awaiting AcceptTcpClientAsync()?](https://stackoverflow.com/questions/19220957/tcplistener-how-to-stop-listening-while-awaiting-accepttcpclientasync)
+
+[Asynchronously wait for Task<T> to complete with timeout](https://stackoverflow.com/questions/4238345/asynchronously-wait-for-taskt-to-complete-with-timeout)
+
+[How to call asynchronous method from synchronous method in C#?](https://stackoverflow.com/questions/9343594/how-to-call-asynchronous-method-from-synchronous-method-in-c)

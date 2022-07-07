@@ -1,4 +1,5 @@
 - [Nerdbank.GitVersioning](https://github.com/dotnet/Nerdbank.GitVersioning)
+  - [veldrid](https://github.com/mellinoe/veldrid)
 - [GitVersion](https://github.com/GitTools/GitVersion)
 - [MinVer](https://github.com/adamralph/minver)
   - MinVer only works in SDK-style projects.

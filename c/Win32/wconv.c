@@ -140,6 +140,7 @@ void wconv_free(void *ptr)
 
 
 // References:
+// [How do I use MultiByteToWideChar?](https://stackoverflow.com/questions/6693010/how-do-i-use-multibytetowidechar)
 // https://github.com/pbatard/libwdi/blob/master/libwdi/msapi_utf8.h
 // atlconv.h
 // https://stackoverflow.com/questions/2108336/converting-multibyte-characters-to-utf-8
@@ -156,3 +157,5 @@ void wconv_free(void *ptr)
 // https://github.com/d0vgan/nppexec/blob/master/NppExec/src/encodings/SysUniConv.h
 // https://en.wikipedia.org/wiki/Unicode_in_Microsoft_Windows#UTF-8
 // C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\filesystem
+// [Why use MultiByteToWideChar and WideCharToMultiByte at the same time?](https://stackoverflow.com/questions/5959215/why-use-multibytetowidechar-and-widechartomultibyte-at-the-same-time)
+// [UTF-8 output on Windows console](https://stackoverflow.com/questions/1660492/utf-8-output-on-windows-console)

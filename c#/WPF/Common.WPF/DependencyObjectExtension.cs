@@ -1,3 +1,4 @@
+using System;
 using System.Windows;
 using System.Windows.Media;
 
@@ -65,6 +66,52 @@ namespace Common.WPF
 
             return foundChild;
         }
+
+        public static T FindChild<T>(this DependencyObject parent, Predicate<T> predicate = null) where T : DependencyObject
+        {
+            if (parent == null)
+                return null;
+
+            T foundChild = null;
+
+            int childrenCount = VisualTreeHelper.GetChildrenCount(parent);
+            for (int i = 0; i < childrenCount; i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+                var typedChild = child as T;
+
+                if (typedChild != null)
+                {
+                    if (predicate == null || predicate(typedChild))
+                    {
+                        foundChild = typedChild;
+                        break;
+                    }
+                }
+
+                // recursively drill down the tree
+                foundChild = FindChild<T>(child, predicate);
+
+                // If the child is found, break so we do not overwrite the found child. 
+                if (foundChild != null)
+                    break;
+            }
+
+            return foundChild;
+        }
+
+        public static T FindChild<T>(this DependencyObject parent, string name) where T : DependencyObject
+        {
+            return parent.FindChild<T>(
+                child =>
+                {
+                    if (string.IsNullOrEmpty(name))
+                        return true;
+
+                    var frameworkElement = child as FrameworkElement;
+                    return frameworkElement?.Name == name;
+                });
+        }
     }
 }
 
@@ -76,3 +123,4 @@ namespace Common.WPF
 // [How to properly throw an Exception inside yield return method in C#](https://stackoverflow.com/questions/38249895/how-to-properly-throw-an-exception-inside-yield-return-method-in-c-sharp)
 // [Inspect XAML properties while debugging](https://learn.microsoft.com/en-us/visualstudio/xaml-tools/inspect-xaml-properties-while-debugging?view=vs-2022)
 // [WPF: In an attached property, how to wait until visual tree loaded properly?](https://stackoverflow.com/questions/36037963/wpf-in-an-attached-property-how-to-wait-until-visual-tree-loaded-properly)
+// [How can I find WPF controls by name or type?](https://stackoverflow.com/questions/636383/how-can-i-find-wpf-controls-by-name-or-type)

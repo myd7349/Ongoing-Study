@@ -5,3 +5,7 @@ https://github.com/SimonKagstrom/kcov
 gcov
 
 - https://github.com/jibsen/tinf
+
+https://github.com/ibireme/yyjson
+
+https://github.com/f3d-app/f3d

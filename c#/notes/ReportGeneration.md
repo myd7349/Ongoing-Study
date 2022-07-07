@@ -97,3 +97,7 @@ FineReport
 - [ReoGrid](https://github.com/unvell/ReoGrid)
 
 - [RichTextKit](https://github.com/toptensoftware/RichTextKit)
+
+- [Magicodes.IE](https://github.com/dotnetcore/Magicodes.IE)
+
+- [DevExpress.XtraReports](https://docs.devexpress.com/XtraReports/DevExpress.XtraReports.UI.XtraReport)

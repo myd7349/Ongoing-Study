@@ -424,3 +424,4 @@ static void Main(string[] args)
 // > the code really just needs to use it to get a graphics device handle.
 // [How to make emf file dpi aware](https://stackoverflow.com/questions/54488961/how-to-make-emf-file-dpi-aware)
 // https://github.com/wieslawsoltes/Core2D/blob/master/src/Core2D.Modules.FileWriter.Emf/EmfWriter.cs
+// [100% .NET component for rendering PDF documents](https://www.codeproject.com/Articles/9858/100-NET-component-for-rendering-PDF-documents)

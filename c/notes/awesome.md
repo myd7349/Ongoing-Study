@@ -1,5 +1,7 @@
 ### Libraries
 
+- [cosmopolitan](https://github.com/jart/cosmopolitan)
+- [libs](https://github.com/mattiasgustavsson/libs)
 - [mlibc](https://github.com/managarm/mlibc)
 - [musl libc](https://musl.libc.org/)
   - musl-gcc
@@ -46,6 +48,12 @@
 
 ### Compiler
 
+- [cc65](https://github.com/cc65/cc65)
+
+- [CompCert](https://github.com/AbsInt/CompCert)
+
+- [cosmopolitan](https://github.com/jart/cosmopolitan)
+
 - [cparser](https://github.com/libfirm/cparser)
   
   - [incbin](https://github.com/graphitemaster/incbin)
@@ -83,6 +91,8 @@
 - [mlib](https://github.com/P-p-H-d/mlib)
 
 - [pottery](https://github.com/ludocode/pottery)
+
+- [rbtree](https://github.com/forhappy/rbtree)
 
 - [STC](https://github.com/tylov/STC)
 
@@ -127,6 +137,9 @@
   - [Recommended C/C++ General Purpose DSP Libraries](https://dsp.stackexchange.com/questions/19350/recommended-c-c-general-purpose-dsp-libraries)
 
 - kissfft
+
+  - EDFbrowser
+
   - [libaudioverse](https://github.com/libaudioverse/libaudioverse)
 
 - [pfft](https://bitbucket.org/jpommier/pffft.git)
@@ -158,7 +171,17 @@
 
 ### Graphics
 
+- [fontstash](https://github.com/memononen/fontstash)
+
 - [libturtle](https://github.com/royqh1979/libturtle)
+
+- nanovg
+
+  - [inviwo](https://github.com/inviwo/inviwo)
+
+  - [SilkyNvg](https://github.com/SilkCommunity/SilkyNvg)
+
+    - [FontStash.NET](https://github.com/MatijaBrown/FontStash.NET)
 
 - [nicegraf](https://github.com/nicebyte/nicegraf)
 
@@ -209,7 +232,13 @@
 
 - [bcdec](https://github.com/iOrange/bcdec)
 
+- [jasper](https://github.com/jasper-software/jasper)
+
+- [lwip](https://github.com/EyalAr/lwip)
+
 - [nanosvg](https://github.com/memononen/nanosvg)
+
+- [pixel](https://github.com/zchrissirhcz/pixel)
 
 - [qoi](https://github.com/phoboslab/qoi)
   - [QoiFileTypeNet](https://github.com/iOrange/QoiFileTypeNet)
@@ -221,6 +250,8 @@
 ### IO
 
 - [fs.c](https://github.com/jwerle/fs.c)
+
+- [libdirtrav](https://github.com/brechtsanders/libdirtrav)
 
 - [ParallelIO](https://github.com/NCAR/ParallelIO)
 
@@ -275,6 +306,8 @@
 
 - [ta](https://github.com/pavelxdd/ta)
 
+- [ugc](https://github.com/bullno1/ugc)
+
 ### Networking
 
 - [Agar](https://github.com/JulNadeauCA/libagar)
@@ -283,8 +316,13 @@
 - [nDPI](https://github.com/ntop/nDPI)
 - [ngtcp2](https://github.com/ngtcp2/ngtcp2)
 - [pquic](https://github.com/p-quic/pquic)
+- [proxysocket](https://github.com/brechtsanders/proxysocket)
 - [WLANOptimizer](https://github.com/catid/WLANOptimizer)
 - [xrdp](https://github.com/neutrinolabs/xrdp)
+
+### Office
+
+- [xlsxio](https://github.com/brechtsanders/xlsxio)
 
 ### OOP
 

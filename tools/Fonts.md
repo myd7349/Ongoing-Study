@@ -18,6 +18,8 @@ Fonts:
   
   - [copy-translator](https://github.com/zu1k/copy-translator)
 
+- [霞鹜新晰黑](https://github.com/lxgw/LxgwNeoXiHei)
+
 - 文悦古体仿宋
 
 - [IBM Plex Mono](https://www.ibm.com/plex/)

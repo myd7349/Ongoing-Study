@@ -199,3 +199,11 @@ std::size_t FindPeaks(const double *data, std::size_t length,
 // https://github.com/mne-tools/mne-python/blob/main/mne/viz/utils.py
 // > _find_peaks
 // https://github.com/mne-tools/mne-python/blob/main/mne/preprocessing/_peak_finder.py
+// http://accord-framework.net/docs/html/M_Accord_Audio_Tools_FindPeaks.htm
+// https://github.com/accord-net/framework/blob/master/Sources/Accord.Audio/Tools.cs#L259
+// [Finding Local Maxima Over a Dynamic Range](https://stackoverflow.com/questions/5269000/finding-local-maxima-over-a-dynamic-range)
+// [14.4 Rule-Based Peak Finding (.NET, C#, CSharp, VB, Visual Basic, F#)](https://centerspace.net/doc/NMath/user/signal-processing-84663.htm)
+// > Class PeakFinderRuleBased finds peaks subject to rules about peak height and 
+// > peak separation. A peak is defined as a point which is higher that both neighbors 
+// > or infinity. Non-infinite end points are excluded as a peak. This class is analogous 
+// > to MATLAB's findpeaks() function.

@@ -299,3 +299,33 @@ Console.WriteLine(arr?.First());
 Single
 
 https://github.com/Alex141/CalcBinding/blob/master/CalcBinding/CalcBinding.cs
+
+[Find item in IList with LINQ](https://stackoverflow.com/questions/15281311/find-item-in-ilist-with-linq)
+
+Enumerable.OrderBy
+
+[Enumerable.OrderBy](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.orderby?view=net-6.0)
+
+[How to Sort a List<T> by a property in the object](https://stackoverflow.com/questions/3309188/how-to-sort-a-listt-by-a-property-in-the-object)
+
+[Can I rely on the LINQ ToArray() always returning a new instance?](https://stackoverflow.com/questions/6074275/can-i-rely-on-the-linq-toarray-always-returning-a-new-instance)
+
+IndexOf
+
+[LINQ indexOf a particular entry](https://stackoverflow.com/questions/9300169/linq-indexof-a-particular-entry)
+
+Aggregate, Concat, Union
+
+[Elegant way to combine multiple collections of elements?](https://stackoverflow.com/questions/4493858/elegant-way-to-combine-multiple-collections-of-elements)
+
+SelectMany
+
+[Linq list of lists to single list](https://stackoverflow.com/questions/1145558/linq-list-of-lists-to-single-list)
+
+```csharp
+var a = new int[]{1,2,3};
+var b = new int[]{11,22,33};
+var c = new int[][]{a,b};
+//c.Aggregate((l1, l2) => l1.Concat(l2));
+Console.WriteLine(c.SelectMany(lst => lst).ToList());
+```

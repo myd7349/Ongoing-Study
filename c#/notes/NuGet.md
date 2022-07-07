@@ -63,3 +63,5 @@
     [Reinstalling and Updating NuGet Packages | Microsoft Docs](https://docs.microsoft.com/en-us/nuget/consume-packages/reinstalling-and-updating-packages)
 
 11. https://github.com/xoofx/dotnet-releaser
+
+12. [Package authoring best practices](https://learn.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices)

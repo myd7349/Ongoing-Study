@@ -11,3 +11,7 @@ https://docs.microsoft.com/en-us/dotnet/api/system.enum.getvalues?view=net-6.0
 [Understanding How Assemblies Load in C# .NET](https://michaelscodingspot.com/assemblies-load-in-dotnet/)
 
 https://github.com/anakic/Jot/blob/master/Jot/Configuration/Trigger.cs
+
+[C# load DLL from different folder?](https://stackoverflow.com/questions/12029870/c-sharp-load-dll-from-different-folder)
+
+https://github.com/slmjy/PrettyBin

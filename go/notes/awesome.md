@@ -59,6 +59,8 @@
 
 - [gjson](https://github.com/tidwall/gjson)
 
+- [sonic](https://github.com/bytedance/sonic)
+
 ### Logging
 
 - [log](https://github.com/phuslu/log)
@@ -86,6 +88,10 @@
 ### RPC
 
 - [protog](https://github.com/foxygoat/protog)
+
+### Serialization
+
+- [buf](https://github.com/bufbuild/buf)
 
 ### Unit Tests
 

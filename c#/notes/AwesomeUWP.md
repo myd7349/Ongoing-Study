@@ -16,4 +16,6 @@ Libraries:
 
 - [Telerik UI for UWP](https://github.com/telerik/UI-For-UWP)
 
+- [WindowsStateTriggers](https://github.com/dotMorten/WindowsStateTriggers)
+
 - [WinUIEx](https://github.com/dotMorten/WinUIEx)

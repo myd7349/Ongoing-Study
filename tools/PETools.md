@@ -2,6 +2,8 @@
 
 - [Alternate Tools - Alternate DLL Analyzer](https://www.alternate-tools.com/pages/c_dllanalyzer.php?lang=ENG)
 
+- [AuthHashCalc](https://github.com/hfiref0x/AuthHashCalc)
+
 - https://github.com/cybertechniques/site/tree/master/analysis_tools
 
 - [AHK DllExport Viewer](https://github.com/jNizM/DllExport)
@@ -154,6 +156,8 @@
 
 - [Data2Array](https://github.com/CharlesCarley/Data2Array)
 
+- [file2c](https://github.com/nmwsharp/polyscope/tree/master/misc/file2c)
+
 - [IconsExtract](https://www.nirsoft.net/utils/iconsext.html)
 
   - [C2-GUI-Template](https://github.com/echtdefault/C2-GUI-Template)
@@ -169,7 +173,9 @@
 - [Locale.py](https://github.com/zufuliu/notepad2/blob/main/locale/Locale.py)
 
 - [ResText](https://github.com/TortoiseGit/TortoiseGit/tree/master/src/ResText)
-  
+
+  - [grepWin](https://github.com/stefankueng/grepWin/blob/main/tools/ResText.exe)
+
   - [TortoiseGit/README.txt at master · TortoiseGit/TortoiseGit · GitHub](https://github.com/TortoiseGit/TortoiseGit/blob/master/Languages/README.txt)
 
 - [rres](https://github.com/raysan5/rres)
@@ -222,6 +228,13 @@
     >   
     >   lib /def:libfftw3l-3.def
 - [ListDLLs](https://github.com/MicrosoftDocs/sysinternals/blob/live/sysinternals/downloads/listdlls.md)
+- [ntdll](https://github.com/Fyyre/ntdll/blob/master/Makefile)
+
+  ```
+  lib /def:ntdll86.def /out:ntdll86.lib /machine:x86
+  dlltool -d ntdll86.def -l libntdll86.a -k
+  ```
+
 - [winapisearch](https://dennisbabkin.com/winapisearch/)
 
 ### PE Packers

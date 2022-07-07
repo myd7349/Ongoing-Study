@@ -7,6 +7,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
+using Microsoft.VisualBasic.FileIO;
+
 namespace Common.IO
 {
     public static class IOHelper
@@ -75,6 +77,146 @@ namespace Common.IO
 
             return true;
         }
+
+        public static string AddLastDirectorySeparatorChar(string path)
+        {
+            if (string.IsNullOrEmpty(path))
+                throw new ArgumentException(nameof(path));
+
+            var lastChar = path[path.Length - 1];
+            if (lastChar != Path.DirectorySeparatorChar &&
+                lastChar != Path.AltDirectorySeparatorChar)
+                path += Path.DirectorySeparatorChar;
+
+            return path;
+        }
+
+        public static string RemoveLastDirectorySeparatorChar(string path)
+        {
+            if (string.IsNullOrEmpty(path))
+                throw new ArgumentException(nameof(path));
+
+            // TODO: Use TrimEnd
+            var lastChar = path[path.Length - 1];
+            if (lastChar == Path.DirectorySeparatorChar ||
+                lastChar == Path.AltDirectorySeparatorChar)
+                path = path.Substring(0, path.Length - 1);
+
+            return path;
+        }
+
+        public static string MakeRelativePath(string relativeTo, string path, bool? withLastDirectorySeparatorChar = null)
+        {
+            if (string.IsNullOrEmpty(relativeTo))
+                throw new ArgumentNullException(nameof(relativeTo));
+
+            if (string.IsNullOrEmpty(path))
+                throw new ArgumentNullException(nameof(path));
+
+#if false
+            var lastChar = relativeTo[relativeTo.Length - 1];
+            if (lastChar != Path.DirectorySeparatorChar &&
+                lastChar != Path.AltDirectorySeparatorChar)
+                relativeTo += Path.DirectorySeparatorChar;
+#else
+            if (withLastDirectorySeparatorChar == true)
+                relativeTo = AddLastDirectorySeparatorChar(relativeTo);
+            else if (withLastDirectorySeparatorChar == false)
+                relativeTo = RemoveLastDirectorySeparatorChar(relativeTo);
+#endif
+
+            var relativeToUri = new Uri(relativeTo);
+            var pathUri = new Uri(path);
+
+            if (relativeToUri.Scheme != pathUri.Scheme)
+                return path; // path can't be made relative.
+
+            var relativeUri = relativeToUri.MakeRelativeUri(pathUri);
+            var relativePath = Uri.UnescapeDataString(relativeUri.ToString());
+
+            if (pathUri.Scheme.Equals("file", StringComparison.InvariantCultureIgnoreCase))
+                relativePath = relativePath.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar);
+
+            return relativePath;
+        }
+
+        public static IEnumerable<string> EnumerateFiles(string path, params string[] extensions)
+        {
+            return EnumerateFiles(path, System.IO.SearchOption.TopDirectoryOnly, extensions);
+        }
+
+        public static IEnumerable<string> EnumerateFiles(string path, System.IO.SearchOption searchOption, params string[] extensions)
+        {
+            if (extensions.Length == 0)
+            {
+                return Directory.EnumerateFiles(path, "*", searchOption);
+            }
+            else if (extensions.Length == 1)
+            {
+                var extension = extensions[0];
+                if (extension.StartsWith("."))
+                    extension = '*' + extension;
+                return Directory.EnumerateFiles(path, extension, searchOption);
+            }
+            else
+            {
+                var extensionsSet = extensions.ToHashSet(StringComparer.OrdinalIgnoreCase);
+                return Directory.EnumerateFiles(path, "*.*", searchOption)
+                    .Where(filePath => extensionsSet.Contains(Path.GetExtension(filePath)));
+            }
+        }
+
+        public static string GetBaseName(string path)
+        {
+            if (path == null)
+                throw new ArgumentNullException(nameof(path));
+        
+            path = path.TrimEnd(Path.DirectorySeparatorChar)
+                .TrimEnd(Path.AltDirectorySeparatorChar);
+            return Path.GetFileName(path);
+        }
+
+        public static string GetBaseNameV2(string path)
+        {
+            if (path == null)
+                throw new ArgumentNullException(nameof(path));
+        
+            return new DirectoryInfo(path).Name;
+        }
+
+        public static string GetTempFileName(string extension = null, string tempPath = null)
+        {
+            if (string.IsNullOrEmpty(extension))
+                extension = ".tmp";
+
+            if (string.IsNullOrEmpty(tempPath))
+                tempPath = Path.GetTempPath();
+
+            return Path.Combine(tempPath, Guid.NewGuid().ToString() + extension);
+        }
+
+        public static void OpenWithDefaultProgram(string path)
+        {
+            using (var process = new Process())
+            {
+                process.StartInfo.FileName = "explorer";
+                process.StartInfo.Arguments = "\"" + path + "\"";
+                process.Start();
+            }
+        }
+
+        // Move file to recycle bin
+        public static void DeleteFileToRecycleBin(string path)
+        {
+            if (File.Exists(path))
+                FileSystem.DeleteFile(path, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
+        }
+
+        public static void DeleteDirectoryToRecycleBin(string path)
+        {
+            if (Directory.Exists(path))
+                FileSystem.DeleteDirectory(path, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
+        }
     }
 
     public static class PathUtils
@@ -130,19 +272,26 @@ namespace Common.IO
             return startPathUri.MakeRelativeUri(fullPathUri).ToString();
         }
 
-        public static string NormalizePath(string path, bool keepLastDirectorySeparator = true)
+        // [PathCanonicalize equivalent in C#](https://stackoverflow.com/questions/623333/pathcanonicalize-equivalent-in-c-sharp)
+        // TODO: Fix for: NormalizePath("123.RPT");
+        public static string NormalizePath(string path, bool? keepLastDirectorySeparator = null)
         {
             var fullPath = Path.GetFullPath(new Uri(path).LocalPath);
 
-            if (keepLastDirectorySeparator)
+            if (keepLastDirectorySeparator == null)
                 return fullPath;
+            else if (keepLastDirectorySeparator == true)
+                return IOHelper.AddLastDirectorySeparatorChar(fullPath);
             else
                 return fullPath.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
         }
 
+        // IsSamePath(@"D:\123", @"D:/123");
+        // IsSamePath(@"D:\123\", @"D:/123");
+        // IsSamePath(@"D:\123\456\..\", @"D:/123");
         public static bool IsSamePath(string path1, string path2)
         {
-            return NormalizePath(path1).ToUpperInvariant() == NormalizePath(path2).ToUpperInvariant();
+            return string.Compare(NormalizePath(path1, false), NormalizePath(path2, false), true) == 0;
         }
 
         public static bool IsDirectoryEmpty(string path)
@@ -256,3 +405,18 @@ namespace Common.IO
 // https://github.com/microsoft/accessibility-insights-windows/blob/main/src/AccessibilityInsights.SetupLibrary/FileHelpers.cs
 // [How to open Explorer with a specific file selected?](https://stackoverflow.com/questions/13680415/how-to-open-explorer-with-a-specific-file-selected)
 // [https://stackoverflow.com/questions/3400884/how-do-i-open-an-explorer-window-in-a-given-directory-from-cmd-exe](https://stackoverflow.com/questions/3400884/how-do-i-open-an-explorer-window-in-a-given-directory-from-cmd-exe)
+// [How to get relative path from absolute path](https://stackoverflow.com/questions/275689/how-to-get-relative-path-from-absolute-path)
+// [Path.GetRelativePath(String, String)](https://learn.microsoft.com/en-us/dotnet/api/system.io.path.getrelativepath)
+// [Can you call Directory.GetFiles() with multiple filters?](https://stackoverflow.com/questions/163162/can-you-call-directory-getfiles-with-multiple-filters)
+// [How can I create a temp file with a specific extension with .NET?](https://stackoverflow.com/questions/581570/how-can-i-create-a-temp-file-with-a-specific-extension-with-net)
+// [c# open file with default application and parameters](https://stackoverflow.com/questions/11365984/c-sharp-open-file-with-default-application-and-parameters)
+// [Get the (last part of) current directory name in C#](https://stackoverflow.com/questions/6018293/get-the-last-part-of-current-directory-name-in-c-sharp)
+// https://en.wikipedia.org/wiki/Basename
+// [Verifying path equality with .Net](https://stackoverflow.com/questions/7344978/verifying-path-equality-with-net)
+// [Best way to determine if two path reference to same file in C#](https://stackoverflow.com/questions/410705/best-way-to-determine-if-two-path-reference-to-same-file-in-c-sharp)
+// [Detect if two paths are the same](https://stackoverflow.com/questions/31097236/detect-if-two-paths-are-the-same)
+// > Path.GetRandomFileName
+// [How to determine if two directory pathnames resolve to the same target](https://superuser.com/questions/881547/how-to-determine-if-two-directory-pathnames-resolve-to-the-same-target)
+// [PathCanonicalize equivalent in C#](https://stackoverflow.com/questions/623333/pathcanonicalize-equivalent-in-c-sharp)
+// [C# Remove all empty subdirectories](https://stackoverflow.com/questions/2811509/c-sharp-remove-all-empty-subdirectories)
+// [Send a File to the Recycle Bin](https://stackoverflow.com/questions/3282418/send-a-file-to-the-recycle-bin)

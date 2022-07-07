@@ -33,3 +33,7 @@ https://github.com/NickCarneiro/remtail
 https://github.com/soui3-demo/SlogViewer
 
 [YALV](https://github.com/LukePet/YALV)
+
+[LNAV -- The Logfile Navigator](https://github.com/tstack/lnav)
+
+[NXLog](https://nxlog.co/)

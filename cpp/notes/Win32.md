@@ -186,3 +186,13 @@ https://github.com/JelinYao/AsyncIPC
 [Handling user interface in a multi-threaded application (or being forced to have a UI-only main thread)](https://stackoverflow.com/questions/2438092/handling-user-interface-in-a-multi-threaded-application-or-being-forced-to-have)
 
 [win32-screencapture](https://github.com/reterVision/win32-screencapture)
+
+https://github.com/stefankueng/sktoolslib
+
+MUI:
+
+- https://github.com/stefankueng/sktoolslib/blob/main/Language.cpp
+
+https://github.com/cvsandbox/cam2web/tree/master/src/apps/win
+
+[ffftp](https://github.com/ffftp/ffftp)

@@ -26,3 +26,7 @@ https://github.com/AgigoNoTana/HiddenDesktopViewer/blob/master/HiddenDesktopView
 System.Environment.Is64BitProcess;
 System.Environment.Is64BitOperatingSystem;
 ```
+
+http://www.eggheadcafe.com/articles/20031219.asp
+
+> System.Environment.CurrentDirectory

@@ -17,7 +17,7 @@
                 typeof(T).IsAssignableFrom(type);
         }
 
-        public static Assembly LoadAssembly(string assemblyPath)
+        public static Assembly LoadAssembly(string assemblyPath, SearchOption searchOption = SearchOption.TopDirectoryOnly)
         {
             try
             {
@@ -29,6 +29,35 @@
             catch (Exception ex)
             {
                 Debug.WriteLine("Failed to load " + assemblyPath + ":\n" + ex.ToString());
+
+                if (!Path.IsPathRooted(assemblyPath))
+                {
+                    var dllPathes = Directory.GetFiles(
+                        AppContext.BaseDirectory, assemblyPath, searchOption);
+                    foreach (var dll in dllPathes)
+                    {
+                        try
+                        {
+#if false
+                            // Boom!!!
+                            var assembly = Assembly.Load(dll);
+#elif false
+                            // OK!
+                            var assemblyName = AssemblyName.GetAssemblyName(dll);
+                            var assembly = Assembly.Load(assemblyName);
+#else
+                            var assembly = Assembly.LoadFrom(dll);
+#endif
+
+                            return assembly;
+                        }
+                        catch (Exception ex2)
+                        {
+                            Debug.WriteLine("Failed to load " + dll + ":\n" + ex2.ToString());
+                        }
+                    }
+                }
+
                 return null;
             }
         }
@@ -40,6 +69,11 @@
 
         public static IDictionary<Assembly, IList<Type>> GetSubTypes<T>(string path, string pattern, Predicate<Type> typeFilter) where T : class
         {
+            return GetSubTypes<T>(path, pattern, SearchOption.TopDirectoryOnly, typeFilter);
+        }
+
+        public static IDictionary<Assembly, IList<Type>> GetSubTypes<T>(string path, string pattern, SearchOption searchOption, Predicate<Type> typeFilter) where T : class
+        {
             if (string.IsNullOrWhiteSpace(path))
                 path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             Debug.WriteLine("Library seaching path: " + path);
@@ -49,7 +83,7 @@
 
             var subTypesMap = new Dictionary<Assembly, IList<Type>>();
 
-            var dllPathes = Directory.GetFiles(path, pattern);
+            var dllPathes = Directory.GetFiles(path, pattern, searchOption);
             if (dllPathes.Length == 0)
                 return subTypesMap;
 
@@ -145,3 +179,4 @@
 // [ActivatorUtilities](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.activatorutilities?view=dotnet-plat-ext-6.0)
 // [.NET Core Console App with Dependency Injection, Logging, and Settings](https://www.youtube.com/watch?v=GAOCe-2nXqc)
 // [Understanding How Assemblies Load in C# .NET](https://michaelscodingspot.com/assemblies-load-in-dotnet/)
+// https://github.com/AdamsLair/duality/blob/master/Source/Core/Duality/Backend/PluginLoader/IAssemblyLoader.cs

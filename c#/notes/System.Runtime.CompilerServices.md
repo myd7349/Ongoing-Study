@@ -25,6 +25,8 @@ void Main()
 }
 ```
 
+[Inline functions in C#?](https://stackoverflow.com/questions/473782/inline-functions-in-c)
+
 https://github.com/EasyNetQ/EasyNetQ/blob/develop/Source/EasyNetQ/Internals/ReadOnlyMemoryStream.cs
 
 > ```csharp

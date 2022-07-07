@@ -27,6 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Common.DotNet\Common.DotNet.csproj" />
     <ProjectReference Include="..\..\..\..\Console\PInvoke\FakeAD\FakeAD\FakeAD.csproj" />
+    <ProjectReference Include="..\..\..\Common.WPF\Common.WPF.csproj" />
   </ItemGroup>
 
   <ItemGroup>

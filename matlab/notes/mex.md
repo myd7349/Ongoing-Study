@@ -33,3 +33,5 @@ https://github.com/fieldtrip/fieldtrip/blob/master/realtime/src/buffer/cpp/mex/m
 https://biosig.sourceforge.net/index.html
 
 https://github.com/rncarpio/linterp
+
+https://github.com/rej55/MEXCUDA_Example

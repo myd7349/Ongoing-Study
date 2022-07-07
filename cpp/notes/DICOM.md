@@ -1,3 +1,9 @@
+[CTK](https://github.com/commontk/CTK)
+
+[GDCM](https://github.com/malaterre/GDCM)
+
+- https://github.com/inviwo/modules/tree/master/medvis/dicom
+
 [GraphicsMagick Supported Formats](http://www.graphicsmagick.org/formats.html) can read DICOM files.
 
 https://github.com/libvips/libvips

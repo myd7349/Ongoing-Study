@@ -252,3 +252,6 @@ namespace MandelbrotSet
 // https://www.boost.org/doc/libs/1_56_0/libs/gil/example/mandelbrot.cpp
 // https://github.com/FrankHB/YEGE/tree/master/MandelbrotSet
 // https://github.com/shapoco/picosys-mandelbrot
+// https://github.com/nmondal/dynamicfractalviewer
+// [Functional-style programming in JavaScript with Ramda](https://carljohansen.wordpress.com/2019/02/14/functional-style-programming-in-javascript-with-ramda/)
+// https://github.com/carljohansen/mandelbrot-ramda

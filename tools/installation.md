@@ -6,6 +6,16 @@
 
 ### Visual Studio Installer Project
 
+- https://github.com/zodiacon/TotalRegistry/tree/master/Installer
+
+- [Setup Project Deployment of a Windows Forms Application](https://docs.devexpress.com/eXpressAppFramework/113235/deployment/deployment-tutorial/setup-project-deployment-of-a-windows-forms-application)
+
+### ClickOnce
+
+- [Publish Wizard Deployment of a Windows Forms Application](https://docs.devexpress.com/eXpressAppFramework/113234/deployment/deployment-tutorial/publish-wizard-deployment-of-a-windows-forms-application)
+
+- [Waf File Hash Generator](https://jbe2277.github.io/fhg/)
+
 ### WiX toolset
 
 - https://gitlab.com/wireshark/wireshark/-/tree/master/packaging/wix
@@ -30,6 +40,8 @@
 - [ProjectDependencyBrowser](https://github.com/RicoSuter/ProjectDependencyBrowser)
 - https://github.com/getdnsapi/stubby/tree/develop/windows
 - https://github.com/microsoft/XmlNotepad/tree/master/src/XmlNotepadSetup
+- https://github.com/stefankueng/grepWin/tree/main/src/Setup
+- https://github.com/ffftp/ffftp
 
 ### NSIS
 
@@ -53,6 +65,8 @@
 - https://github.com/MediaArea/MediaInfoLib/tree/master/Source/Install
 - https://github.com/KangLin/FaceRecognizer
 - https://github.com/Orama-Interactive/Pixelorama
+- [HM NIS Edit](https://nsis.sourceforge.io/HM_NIS_Edit)
+  - [YUView](https://github.com/IENT/YUView/blob/develop/deployment/deploy.nsi)
 
 ##### PyNSISt
 
@@ -91,6 +105,10 @@
 - https://github.com/eranif/codelite
 - https://github.com/Tyrrrz/LightBulb/tree/master/Installer
 - https://github.com/OpenShot/openshot-qt
+- https://github.com/andrewkirillov/AForge.NET
+- LINQPad 7
+- GIMP
+- Geph
 
 ### Advanced Installer
 
@@ -113,6 +131,8 @@
 
 ### [Squirrel/Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)
 
+- [carnac](https://github.com/Code52/carnac)
+
 - [Clowd.Squirrel](https://github.com/clowd/Clowd.Squirrel)
 
 - DeepL Translate App for Windows
@@ -120,6 +140,8 @@
 - [Fork](https://fork.dev/)
 
 - [GitHub Desktop](https://desktop.github.com/)
+
+- [MSBuildStructuredLog](https://github.com/KirillOsenkov/MSBuildStructuredLog)
 
 - [Wox Launcher](https://github.com/Wox-launcher/Wox)
 
@@ -136,6 +158,10 @@
 - [FEBuilderGBA_Installer](https://github.com/FEBuilderGBA/FEBuilderGBA_Installer)
 
 - [Locale-Emulator/LEInstaller](https://github.com/xupefei/Locale-Emulator/tree/master/LEInstaller)
+
+- https://github.com/AdamsLair/duality/tree/master/Source/Editor/Updater
+
+- https://github.com/aseprite/aseprite/tree/main/src/updater
 
 ### MSIX
 
@@ -158,6 +184,10 @@ https://github.com/M2Team/NanaZip
 - DeepL Translate App for Windows
 
   - "C:\Users\myd7349\AppData\Roaming\Programs\Zero Install\0install-win.exe" run --no-wait https://appdownload.deepl.com/windows/0install/deepl.xml
+
+### [InstallAware](https://www.installaware.com/)
+
+- [FastReport .NET trial version](https://www.fast-report.com/en/download/fast-report-net/)
 
 ### Linux
 
@@ -191,3 +221,19 @@ https://github.com/M2Team/NanaZip
   > .\vcredist_x86.exe /qb
 
 ### [Update](https://github.com/avplayer/avupdate)
+
+### Xcopy deployment
+
+[LINQPad Download](https://www.linqpad.net/Download.aspx)
+
+> Hate installers? 	Download xcopy-deploy build (LINQPad 7)
+
+[Using XCOPY Deployment](https://www.infragistics.com/help/winforms/win-using-xcopy-deployment)
+
+[Xcopy Deployment of a Windows Forms Application](https://docs.devexpress.com/eXpressAppFramework/113232/deployment/deployment-tutorial/xcopy-deployment-of-a-windows-forms-application)
+
+[Deploy an ASP.NET web application by using Xcopy deployment](https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/language-compilers/deploy-aspnet-app-xcopy-command)
+
+[89) Deployment - XCOPY](https://www.youtube.com/watch?v=sR8U58YrIiI)
+
+### [dotnet-packaging](https://github.com/quamotion/dotnet-packaging)

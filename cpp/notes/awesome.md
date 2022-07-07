@@ -6,6 +6,8 @@
 
 - [EAGine](https://github.com/matus-chochlik/eagine-all)
 
+- [laf](https://github.com/aseprite/laf)
+
 - [muu](https://github.com/marzer/muu)
 
 - [quickcpplib](https://github.com/ned14/quickcpplib)
@@ -142,6 +144,10 @@
 - [tableprinter](https://github.com/OzanCansel/tableprinter)
 - [widecharwidth](https://github.com/ridiculousfish/widecharwidth)
 
+### Clipboard
+
+- [clip](https://github.com/aseprite/clip)
+
 ### Compiler
 
 - [cppinsights](https://github.com/andreasfertig/cppinsights)
@@ -152,7 +158,13 @@
 
   - MinGW
 
-  - TDM GCC
+  - Mingw-w64
+
+    - [MINGW-packages](https://github.com/msys2/MINGW-packages)
+
+  - [TDM-GCC](https://github.com/jmeubank/tdm-gcc)
+
+    - [TDM-GCC Alternatives](https://alternativeto.net/software/tdm-gcc/)
 
   - [WinLibs](https://winlibs.com/)
 
@@ -174,7 +186,11 @@
 
 ### Configuration
 
+- [AppConfig](https://github.com/cvsandbox/cam2web/blob/master/src/apps/win/AppConfig.cpp)
+- [cfg](https://github.com/aseprite/aseprite/blob/main/src/cfg/cfg.h)
 - [Configuru](https://github.com/emilk/Configuru)
+- SimpleIni
+  - [cfg](https://github.com/aseprite/aseprite/blob/main/src/cfg/cfg.h)
 
 ### Container
 
@@ -258,6 +274,8 @@
 
   - https://github.com/fieldtrip/fieldtrip/blob/master/realtime/src/buffer/cpp/MultiChannelFilter.h
 
+- [GLFFT](https://github.com/Themaister/GLFFT)
+
 - [gnuradio](https://github.com/gnuradio/gnuradio)
 
   - [Recommended C/C++ General Purpose DSP Libraries](https://dsp.stackexchange.com/questions/19350/recommended-c-c-general-purpose-dsp-libraries)
@@ -268,6 +286,8 @@
 
   - [Fidlib](https://uazu.net/fidlib/)
     > The base set of filters comes from Dr Tony Fisher's [mkfilter](https://www-users.cs.york.ac.uk/~fisher/), plus various other additional filters from other sources, including some audio filters.
+
+- [muFFT](https://github.com/Themaister/muFFT)
 
 - [pocketfft](https://gitlab.mpcdf.mpg.de/mtr/pocketfft)
 
@@ -297,9 +317,17 @@
 
   - [libferrisstreams](https://github.com/monkeyiq/libferrisstreams)
 
+- [xdgpp](https://sr.ht/~danyspin97/xdgpp/)
+
+  - ImHex
+
+  - [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
+
 ### Functional Programming
 
 - [CppLinq](https://github.com/Berrysoft/CppLinq)
+
+- [fpxx](https://github.com/ericniebler/fpxx)
 
 - [function2](https://github.com/Naios/function2)
 
@@ -378,8 +406,14 @@
 - [Flutter](https://docs.flutter.dev/desktop)
 
 - imgui
-  
+
+  - [image-compare](https://github.com/zchrissirhcz/image-compare)
+
   - [remoteimgui](https://github.com/JordiRos/remoteimgui)
+
+  - [ShaderPiPFX](https://github.com/DarknessFX/ShaderPiPFX)
+
+  - [tracy](https://github.com/wolfpld/tracy)
 
 - JUCE
 
@@ -433,6 +467,7 @@
 
 ### Image Processing
 
+- [AForgeX](https://github.com/cvsandbox/AForgeX)
 - [libboard](https://github.com/c-koi/libboard)
 - [libvips](https://github.com/libvips/libvips)
 - [pngquant](https://github.com/kornelski/pngquant)
@@ -450,7 +485,11 @@
 
 - [DirFileLister.h](https://github.com/d0vgan/nppexec/blob/master/NppExec/src/DirFileLister.h)
 
+- [fast_io](https://github.com/cppfastio/fast_io)
+
 - [filesystem](https://github.com/gulrak/filesystem)
+
+- [FileWatcher.h](https://github.com/DarknessFX/ShaderPiPFX/blob/main/FileWatcher.h)
 
 - [glob](https://github.com/p-ranav/glob)
 
@@ -459,6 +498,8 @@
 - knownfolders.h
 
   - [wcap](https://github.com/mmozeiko/wcap/blob/bbdb2144fcc2a70593aa5f2a1b870be0df05e4be/wcap_config.c#L6)
+
+- [laf/base/fs.h](https://github.com/aseprite/laf/blob/main/base/fs.h)
 
 - [lib_storage](https://github.com/desktop-app/lib_storage)
 
@@ -475,6 +516,12 @@
 - [watchman](https://github.com/facebook/watchman)
   
   - [libwatchman](https://github.com/twitter/libwatchman)
+
+##### Math
+
+- [exprtk](https://github.com/ArashPartow/exprtk)
+
+- [fixmath](https://github.com/aseprite/aseprite/tree/main/src/fixmath)
 
 ##### Memory
 
@@ -504,9 +551,15 @@
 
 - [Notepad2e/src/Extension/IPC](https://github.com/ProgerXP/Notepad2e/tree/master/src/Extension/IPC)
 
+- [pstreams](https://github.com/jwakely/pstreams)
+
 - [shadesmar](https://github.com/Squadrick/shadesmar)
 
 - [tcpshm](https://github.com/MengRao/tcpshm)
+
+##### Articles
+
+- [Interprocess communication on iOS with Berkeley sockets](https://ddeville.me/2015/02/interprocess-communication-on-ios-with-berkeley-sockets/)
 
 ### JSON
 
@@ -702,6 +755,8 @@
 
 - [acl](https://github.com/acl-dev/acl)
 
+- [Aseprite Network Library](https://github.com/aseprite/aseprite/tree/main/src/net)
+
 - [celix](https://github.com/apache/celix)
 
 - [CppMicroServices](https://github.com/CppMicroServices/CppMicroServices)
@@ -709,6 +764,12 @@
 - [cpr](https://github.com/libcpr/cpr)
   
   - [Modern Library for HTTP Requests? : cpp](https://www.reddit.com/r/cpp/comments/snwofj/modern_library_for_http_requests/)
+
+  - [sleepy-discord](https://github.com/yourWaifu/sleepy-discord)
+
+- cURL
+
+  - [Aseprite Network Library](https://github.com/aseprite/aseprite/tree/main/src/net)
 
 - [fibre](https://github.com/samuelsadok/fibre)
 
@@ -752,6 +813,12 @@
 
   - [hdf5.uws](https://github.com/HDF-NI/hdf5.uws)
 
+  - [sleepy-discord](https://github.com/yourWaifu/sleepy-discord)
+
+- [WebSocket++](https://github.com/zaphoyd/websocketpp)
+
+  - [sleepy-discord](https://github.com/yourWaifu/sleepy-discord)
+
 - [ZLMediaKit](https://github.com/ZLMediaKit/ZLMediaKit)
 
 ### Package Manager
@@ -784,6 +851,10 @@
 - [HelloWorld](https://github.com/cristianadam/HelloWorld)
 
 - [pitchfork](https://github.com/vector-of-bool/pitchfork)
+
+### Reflection
+
+- [cpp-member-accessor](https://github.com/hliberacki/cpp-member-accessor)
 
 ### REPL
 
@@ -871,6 +942,8 @@
 - [sse4-strstr](https://github.com/WojciechMula/sse4-strstr)
 
 - [stdstring.h](https://github.com/r-lyeh/stdstring.h)
+
+- [str](https://github.com/ocornut/str)
 
 ### Templating
 

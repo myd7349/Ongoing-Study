@@ -9,3 +9,7 @@ https://github.com/mmanela/diffplex
 - [Notepads](https://github.com/0x7c13/Notepads)
 
 https://github.com/menees/Diff.Net
+
+https://github.com/ForNeVeR/ExtDiff
+
+https://github.com/dtolnay/dissimilar

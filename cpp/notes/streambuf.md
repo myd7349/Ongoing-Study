@@ -13,3 +13,7 @@ NullBuffer null_buffer;
 std::ostream null_stream(&null_buffer);
 null_stream << "Nothing will be printed";
 ```
+
+https://github.com/jwakely/pstreams
+
+[UTF-8 output on Windows console](https://stackoverflow.com/questions/1660492/utf-8-output-on-windows-console)

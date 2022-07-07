@@ -54,3 +54,4 @@ namespace Common
 // - ObservableObject
 // - BaseViewModel
 // - [SkiaSharpFiddle](https://github.com/mattleibow/SkiaSharpFiddle)
+// [How to: Implement Property Change Notification](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-property-change-notification?view=netframeworkdesktop-4.8)

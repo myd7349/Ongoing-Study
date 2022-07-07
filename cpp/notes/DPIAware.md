@@ -19,3 +19,5 @@
 https://github.com/shibukawa/imagesize_py/blob/master/imagesize.py
 
 https://github.com/mpc-hc/mpc-hc/blob/develop/src/mpc-hc/DpiHelper.h
+
+https://github.com/stefankueng/sktoolslib/blob/main/DPIAware.h

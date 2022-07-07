@@ -4,3 +4,4 @@ Projects using this library:
 
 - https://github.com/robinrodricks/ScintillaNET.Demo
 - [PDF Mosaic](https://www.colorpilot.com/pdf-mosaic-tutorials.html)
+- [StrokesPlus.net](https://www.strokesplus.net/)

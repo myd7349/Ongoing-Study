@@ -324,3 +324,5 @@ namespace filesystem {
 ```
 
 https://github.com/rizonesoft/Notepad3/blob/master/src/Encoding.h
+
+https://github.com/f3d-app/f3d/blob/master/application/main.cxx

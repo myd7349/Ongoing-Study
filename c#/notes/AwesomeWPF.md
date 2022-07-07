@@ -14,6 +14,8 @@ Applications:
 
 - [BiliRanking](https://github.com/SkiTiSu/BiliRanking)
 
+- [BinaryViewer](https://github.com/angelsix/youtube/tree/develop/FileFormats/BinaryViewer)
+
 - [BingWallpaper2](https://github.com/Dustray/BingWallpaper2)
 
 - [BugTracker](https://github.com/chris84948/BugTracker)
@@ -23,6 +25,8 @@ Applications:
 - [Calculator](https://github.com/getandplay/Calculator)
 
 - [Camelotia](https://github.com/reactiveui/Camelotia)
+
+- [carnac](https://github.com/Code52/carnac)
 
 - [certify](https://github.com/webprofusion/certify)
 
@@ -37,6 +41,8 @@ Applications:
 - [Core2D](https://github.com/wieslawsoltes/Core2D)
 
 - [CsvTextEditor](https://github.com/WildGums/CsvTextEditor)
+
+- [CyclopsChat](https://github.com/ForNeVeR/CyclopsChat)
 
 - [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter)
 
@@ -62,6 +68,8 @@ Applications:
 
 - [Easy-Cat-Timer](https://github.com/xujiangjiang/Easy-Cat-Timer)
 
+- [encryption_code_book](https://github.com/lindexi/encryption_code_book)
+
 - [FanControl](https://github.com/Rem0o/FanControl.Releases)
 
 - [fasetto-word](https://github.com/angelsix/fasetto-word)
@@ -82,11 +90,17 @@ Applications:
 
 - [Magpie](https://github.com/Blinue/Magpie)
 
+- [MailMasterDefaultClient](https://github.com/nulastudio/MailMasterDefaultClient)
+
 - [ManipulationDemo](https://github.com/dotnet-campus/ManipulationDemo)
+
+- [MarkdownMonster](https://github.com/RickStrahl/MarkdownMonster)
 
 - [MindLated](https://github.com/Sato-Isolated/MindLated)
 
 - [mpv.net](https://github.com/mpvnet-player/mpv.net)
+
+- [MSBuildStructuredLog](https://github.com/KirillOsenkov/MSBuildStructuredLog)
 
 - [MusCat](https://github.com/ar1st0crat/MusCat)
 
@@ -130,6 +144,8 @@ Applications:
 
 - [sentinel](https://github.com/yarseyah/sentinel)
 
+- [ShaderPaper](https://github.com/WerWolv/ShaderPaper)
+
 - [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows)
 
 - [ShadowsocksR-Windows](https://github.com/HMBSbige/ShadowsocksR-Windows)
@@ -137,6 +153,8 @@ Applications:
 - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
 
 - [simple-music-player](https://github.com/punker76/simple-music-player)
+
+- [SkiaImageView](https://github.com/kekyo/SkiaImageView)
 
 - [SkiaSharpFiddle](https://github.com/mattleibow/SkiaSharpFiddle)
 
@@ -248,6 +266,8 @@ Libraries:
 
 - [bot](https://github.com/thinkpixellab/bot)
 
+- [BusyIndicator](https://github.com/Moh3nGolshani/BusyIndicator)
+
 - [C# Markup 2](https://github.com/VincentH-Net/CSharpForMarkup)
 
 - [CalcBinding](https://github.com/Alex141/CalcBinding)
@@ -261,6 +281,8 @@ Libraries:
   - [WPF Controls with MVVM: ComboBox by IAmTimCorey](https://www.youtube.com/watch?v=nKJ_XDoAdtY)
 
 - [Catel](https://github.com/Catel/Catel)
+
+- [CefGlue](https://github.com/OutSystems/CefGlue)
 
 - [CefSharp](https://github.com/cefsharp/CefSharp)
   
@@ -285,12 +307,15 @@ Libraries:
 
   - [Definitive Guide to WPF Colors, Color Spaces, Color Pickers and Creating Your Own Colors for Mere Mortals](https://www.codeproject.com/Articles/5296124/Definitive-Guide-to-WPF-Colors-Color-Spaces-Color)
 
+- [ConnectionStatus](https://github.com/Moh3nGolshani/ConnectionStatus)
+
 - [ConsoleControl](https://github.com/dwmkerr/consolecontrol)
 
 - [ControlzEx](https://github.com/ControlzEx/ControlzEx)
   
   - C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2007.6001.0_neutral__8wekyb3d8bbwe\ControlzEx.dll
   - DeepL Translate App for Windows
+  - [MarkdownMonster](https://github.com/RickStrahl/MarkdownMonster)
   - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
   - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
   - PowerToys
@@ -341,6 +366,8 @@ Libraries:
 
 - [Dragablz](https://github.com/ButchersBoy/Dragablz)
 
+  - [MarkdownMonster](https://github.com/RickStrahl/MarkdownMonster)
+
   - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 
   - [Savablz](https://github.com/speedyalibaba/Savablz)
@@ -360,6 +387,8 @@ Libraries:
   - C:\Program Files\WindowsApps\Microsoft.WinDbg_1.2007.6001.0_neutral__8wekyb3d8bbwe\Fluent.Ribbon.dll
 
 - [FluentWPF](https://github.com/sourcechord/FluentWPF)
+
+- [FontAwesome.Sharp](https://github.com/awesome-inc/FontAwesome.Sharp)
 
 - [FontAwesome6](https://github.com/MartinTopfstedt/FontAwesome6)
 
@@ -441,6 +470,8 @@ Libraries:
 
   - DeepL Translate App for Windows
 
+  - [MarkdownMonster](https://github.com/RickStrahl/MarkdownMonster)
+
   - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 
   - [NextBootOSSelector](https://github.com/takuya-takeuchi/NextBootOSSelector)
@@ -453,6 +484,8 @@ Libraries:
 
 - [MahApps.Metro.SimpleChildWindow](https://github.com/punker76/MahApps.Metro.SimpleChildWindow)
 
+- [Material.Icons](https://github.com/SKProCH/Material.Icons)
+
 - [MaterialDesignInXamlToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
 
   - [Camelotia](https://github.com/reactiveui/Camelotia)
@@ -460,6 +493,8 @@ Libraries:
   - [FanControl](https://github.com/Rem0o/FanControl.Releases)
 
   - [LightBulb](https://github.com/Tyrrrz/LightBulb)
+
+  - [MaterialDesignInXaml.Examples](https://github.com/Keboo/MaterialDesignInXaml.Examples)
 
   - [NextBootOSSelector](https://github.com/takuya-takeuchi/NextBootOSSelector)
 
@@ -472,6 +507,8 @@ Libraries:
 - [MicaWPF](https://github.com/Simnico99/MicaWPF)
 
 - Microsoft.Web.WebView2.Wpf
+
+  - [HP PC Hardware Diagnostic Tools](https://support.hp.com/us-en/help/hp-pc-hardware-diagnostics)
 
   - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
 
@@ -576,6 +613,8 @@ Libraries:
 
 - [ReoGrid](https://github.com/unvell/ReoGrid)
 
+- [RichCanvas](https://github.com/mircea21S/RichCanvas)
+
 - [SegmentDisplay](https://github.com/Tosker/SegmentDisplay)
 
 - [SharpVectors](https://github.com/ElinamLLC/SharpVectors)
@@ -614,6 +653,24 @@ Libraries:
 
 - [TomsToolbox.Wpf](https://github.com/tom-englert/TomsToolbox/tree/master/src/TomsToolbox.Wpf)
 
+- TreeListView
+
+  - [WPF: Is there a built-in TreeGrid / TreeListView?](https://stackoverflow.com/questions/2703209/wpf-is-there-a-built-in-treegrid-treelistview)
+
+  - [WPF TreeListView Control](https://www.codeproject.com/Articles/30721/WPF-TreeListView-Control)
+
+    - [AdamsLair.TreeViewAdv](https://www.nuget.org/packages/AdamsLair.TreeViewAdv)
+
+      - [TreeViewAdv](https://sourceforge.net/projects/treeviewadv/)
+
+      - [TreeViewAdv](https://github.com/AdamsLair/treeviewadv)
+
+  - https://github.com/PropertyTools/PropertyTools
+
+- [UniversalWPF](https://github.com/dotMorten/UniversalWPF)
+
+- [WPF.Extensions](https://github.com/dahall/Vanara/tree/master/WPF.Extensions)
+
 - [VirtualCollection](https://github.com/samueldjack/VirtualCollection)
 
   - [TailBlazer](https://github.com/RolandPheasant/TailBlazer)
@@ -632,9 +689,15 @@ Libraries:
 
 - [WPF-AutoComplete-TextBox](https://github.com/quicoli/WPF-AutoComplete-TextBox)
 
+- [wpf-autogrid](https://github.com/carbonrobot/wpf-autogrid)
+
 - [WPF-ControlBase](https://github.com/HeBianGu/WPF-ControlBase)
 
 - [WPF-File-Dialog-Control](https://github.com/chris84948/WPF-File-Dialog-Control)
+
+- [WpfAnimatedGif](https://github.com/XamlAnimatedGif/WpfAnimatedGif)
+
+  - [用WPF实现“等待”小转盘](https://www.cnblogs.com/guogangj/archive/2013/03/02/2938971.html)
 
 - [WPFConverters](https://github.com/kentcb/WPFConverters)
 
@@ -655,6 +718,8 @@ Libraries:
 - [WPFLocalizeExtension](https://github.com/XAMLMarkupExtensions/WPFLocalizeExtension)
   
   - [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows)
+
+- [WPF-Math](https://github.com/ForNeVeR/wpf-math)
 
 - [wpfmdi](https://github.com/dutts/wpfmdi)
 
@@ -694,6 +759,8 @@ Libraries:
 
 - [XAML-Map-Control](https://github.com/ClemensFischer/XAML-Map-Control)
 
+- [XAML-Math](https://github.com/ForNeVeR/xaml-math)
+
 - [XamlAnimatedGif](https://github.com/XamlAnimatedGif/XamlAnimatedGif)
 
 - [XamlFlair](https://github.com/XamlFlair/XamlFlair)
@@ -707,6 +774,8 @@ Tools:
 - [Kaxaml](https://github.com/thinkpixellab/kaxaml)
 
   - [WPF path description for a sine curve using bezier curves](https://stackoverflow.com/questions/25423748/wpf-path-description-for-a-sine-curve-using-bezier-curves)
+
+- [OpenSilver](https://github.com/OpenSilver/OpenSilver)
 
 - Performance Profiling Tools for Windows Presentation Foundation
 
@@ -757,6 +826,8 @@ Blogs
 Websites
 
 - [2,000 Things You Should Know About WPF](https://wpf.2000things.com/)
+
+- [AngelSix WPF Tutorials](https://github.com/angelsix/youtube/tree/develop/WPF)
 
 - [WPF Articles](http://www.blackwasp.co.uk/WPFArticles.aspx)
 

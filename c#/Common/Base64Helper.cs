@@ -44,3 +44,6 @@
         }
     }
 }
+
+// References:
+// [XAML WPF How to add inline background image on FlowDocument?](https://stackoverflow.com/questions/25557891/xaml-wpf-how-to-add-inline-background-image-on-flowdocument)

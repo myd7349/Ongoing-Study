@@ -1,6 +1,7 @@
 - [aquila](https://github.com/gozfree/aquila)
 - [auto-editor](https://github.com/WyattBlue/auto-editor)
 - 抖音视频编辑应用“[剪映](https://zh.wikipedia.org/w/index.php?title=剪映&action=edit&redlink=1)”
+- [cam2web](https://github.com/cvsandbox/cam2web)
 - CapCut/ViaMaker：视频编辑应用“剪映”的海外版本
 - [CineEncoder](https://github.com/CineEncoder/cine-encoder)
 - [DialogueExtractor](https://github.com/COLOR-SKY/DialogueExtractor)

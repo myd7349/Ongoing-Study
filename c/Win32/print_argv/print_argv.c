@@ -50,3 +50,4 @@ int _tmain(void)
 // [Canonical way to parse the command line into arguments in plain C Windows API](https://stackoverflow.com/questions/291424/canonical-way-to-parse-the-command-line-into-arguments-in-plain-c-windows-api)
 // https://github.com/reactos/reactos/blob/9b716539182864bc077e362febcda74da50287ed/dll/win32/shell32/wine/shell32_main.c#L80-L311
 // explain how CommandLineToArgvW works.
+// https://github.com/f3d-app/f3d/blob/master/application/main.cxx

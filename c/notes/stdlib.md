@@ -145,3 +145,21 @@ malloc
   > 锁重入问题：申请锁之后再申请同样的锁，尤其信号处理函数调用不可重入函数如malloc
 
 https://github.com/google-research/automemcpy
+
+atexit
+
+[How to register a non-void function with atexit()?](https://stackoverflow.com/questions/28516411/how-to-register-a-non-void-function-with-atexit)
+
+[C atexit() considerations](https://www.ibm.com/docs/en/zos/2.4.0?topic=c-atexit-considerations)
+
+> In all C applications, the atexit list is honored only after all condition handling activity has taken place and all user code is removed from the stack, which invalidates any jump buffer previously established.
+> 
+> With C, you can register a number of routines that gain control during the termination of an enclave. When using the C atexit() function, consider the following:
+> 
+> - A C atexit routine can nominate only C routines, but those routines can call routines written in other languages.
+> - User-written condition handlers can be registered while running an atexit routine. However, any jump buffers established are invalid.
+> - If a severity 2 or greater condition arises while running an atexit routine and it is unhandled, further atexit routines are skipped and the Language Environment environment is terminated.
+> - A C exit() function or PL/I STOP or EXIT statement issued within an atexit routine halts all other atexit functions.
+> - If, while running an atexit routine, an attempt to register another atexit routine is made, the registration is ignored. The atexit routine returns a nonzero result indicating a failure to register the routine.
+> 
+> C++ supports atexit(), but any function pointer input to atexit() must be declared as having extern "C" linkage.

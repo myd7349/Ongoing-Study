@@ -99,3 +99,63 @@ using (var fileStream = File.OpenWrite(tempFile))
    }
 }
 ```
+
+[Can you call Directory.GetFiles() with multiple filters?](https://stackoverflow.com/questions/163162/can-you-call-directory-getfiles-with-multiple-filters)
+
+[How to get relative path from absolute path](https://stackoverflow.com/questions/275689/how-to-get-relative-path-from-absolute-path)
+
+[c# open file with default application and parameters](https://stackoverflow.com/questions/11365984/c-sharp-open-file-with-default-application-and-parameters)
+
+[Get the (last part of) current directory name in C#](https://stackoverflow.com/questions/6018293/get-the-last-part-of-current-directory-name-in-c-sharp)
+
+```csharp
+Console.WriteLine(Path.GetDirectoryName(@"D:\1\2\3"));
+Console.WriteLine(Path.GetDirectoryName(@"D:\1\2\3\"));
+
+Console.WriteLine(Path.GetFileName(@"D:\1\2\3"));
+Console.WriteLine(Path.GetFileName(@"D:\1\2\3\"));
+
+Console.WriteLine(GetBaseName(@"D:\1\2\3"));
+Console.WriteLine(GetBaseName(@"D:\1\2\3\"));
+
+Console.WriteLine(GetBaseNameV2(@"D:\1\2\3"));
+Console.WriteLine(GetBaseNameV2(@"D:\1\2\3\"));
+
+static string GetBaseName(string path)
+{
+    if (path == null)
+        throw new ArgumentNullException(nameof(path));
+
+    path = path.TrimEnd(Path.DirectorySeparatorChar)
+        .TrimEnd(Path.AltDirectorySeparatorChar);
+    return Path.GetFileName(path);
+}
+
+static string GetBaseNameV2(string path)
+{
+    if (path == null)
+        throw new ArgumentNullException(nameof(path));
+
+    return new DirectoryInfo(path).Name;
+}
+
+
+// References:
+// [Get the (last part of) current directory name in C#](https://stackoverflow.com/questions/6018293/get-the-last-part-of-current-directory-name-in-c-sharp)
+```
+
+[Verifying path equality with .Net](https://stackoverflow.com/questions/7344978/verifying-path-equality-with-net)
+
+[Best way to determine if two path reference to same file in C#](https://stackoverflow.com/questions/410705/best-way-to-determine-if-two-path-reference-to-same-file-in-c-sharp)
+
+[Detect if two paths are the same](https://stackoverflow.com/questions/31097236/detect-if-two-paths-are-the-same)
+
+> Path.GetRandomFileName
+
+[How to determine if two directory pathnames resolve to the same target](https://superuser.com/questions/881547/how-to-determine-if-two-directory-pathnames-resolve-to-the-same-target)
+
+Stream
+
+[NetworkStream Class](https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.networkstream?view=net-6.0)
+
+> The NetworkStream does not support random access to the network data stream. The value of the CanSeek property, which indicates whether the stream supports seeking, is always false; reading the Position property, reading the Length property, or calling the Seek method will throw a NotSupportedException.

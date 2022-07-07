@@ -1,5 +1,7 @@
 ### Dictionary
 
+- [Bob](https://github.com/ripperhe/Bob)
+
 - [chinese-xinhua](https://github.com/pwxcoo/chinese-xinhua)
 
 - [CopyTranslator](https://github.com/CopyTranslator/CopyTranslator)

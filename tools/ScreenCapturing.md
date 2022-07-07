@@ -4,6 +4,7 @@
   - [capsule](https://github.com/itchio/capsule)
   - [obs-multi-rtmp](https://github.com/sorayuki/obs-multi-rtmp)
   - [obs-websocket](https://github.com/obsproject/obs-websocket)
+  - [Streamlabs Desktop](https://github.com/stream-labs/desktop)
 - ApowerREC
 - __Bandicam
 - [broz](https://github.com/antfu/broz)
@@ -23,6 +24,7 @@
 - [Screenflow](https://sspai.com/post/71918)
 - [screengrab](https://github.com/lxqt/screengrab)
 - [Snipaste](https://www.zhihu.com/pin/1319210101270749184)
+  - [Snipaste](https://github.com/Snipaste) - [website](https://www.snipaste.com/)
 - [ShareX](https://getsharex.com/) - [GitHub](https://github.com/ShareX/ShareX)
 - [flameshot](https://github.com/flameshot-org/flameshot)
 - https://github.com/shutter-project/shutter
@@ -50,3 +52,5 @@
 - [Screen2Exe/Screen2Swf](https://www.screen-record.com/screen2exe.htm)
 - [SoftwareHelper](https://github.com/WPFDevelopersOrg/SoftwareHelper)
 - [win32-screencapture](https://github.com/reterVision/win32-screencapture)
+- [Quicker](https://getquicker.net/)
+- [TimelapseFX](https://github.com/DarknessFX/TimelapseFX)

@@ -1,3 +1,5 @@
+//#define USE_SETVALUE
+
 using System.Collections.Generic;
 using System.Windows;
 //using System.Windows.Data;
@@ -75,15 +77,23 @@ namespace Common.WPF
                         //var newBinding = BindingOperations.GetBindingBase(item.Key, MenuItem.IsCheckedProperty); // Got null
                         //if (oldBinding != null && newBinding == null)
                         //    BindingOperations.SetBinding(item.Key, MenuItem.IsCheckedProperty, oldBinding);
-                        
-                        item.Key.SetCurrentValue(MenuItem.IsCheckedProperty, false);
+
+#if USE_SETVALUE
+                        //item.Key.SetValue(MenuItem.IsCheckedProperty, false);
+                        item.Key.IsChecked = false;
+#else
+                        item.Key.SetCurrentValue(MenuItem.IsCheckedProperty, false);           
+#endif
                     }
                 }
             }
             else // It's not possible for the user to deselect an item
             {
-                //menuItem.IsChecked = true;
+#if USE_SETVALUE
+                menuItem.IsChecked = true;
+#else
                 menuItem.SetCurrentValue(MenuItem.IsCheckedProperty, true);
+#endif
             }
         }
     }

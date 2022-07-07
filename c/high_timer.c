@@ -174,3 +174,5 @@ int64_t high_timer_elapsed_ns(high_timer_t *timer)
 // https://github.com/chenshuo/muduo/blob/master/muduo/base/Timestamp.cc
 // https://github.com/jingweizhanghuai/Morn/blob/e8d48c9dc54be71ae2e3b11de0851bbd601f21e2/include/morn_util.h#L303-L304
 // [cputime](https://github.com/k0dai/cputime)
+// https://github.com/libsdl-org/SDL/blob/main/src/timer/windows/SDL_systimer.c
+// [Windows Timer Resolution: The Great Rule Change](https://randomascii.wordpress.com/2020/10/04/windows-timer-resolution-the-great-rule-change/)

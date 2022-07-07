@@ -177,3 +177,5 @@
 - https://github.com/Tatsu-syo/noMeiryoUI/blob/master/program/iniReader.cpp
 
 - https://github.com/shirouzu/FastCopy/blob/master/src/TLib/tini.cpp
+
+- https://github.com/hfiref0x/LightFTP/blob/master/Source/cfgparse.c

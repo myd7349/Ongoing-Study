@@ -10,4 +10,6 @@
 
   - [Dynamic-Link Library Search Order](https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-search-order)
 
+- [SystemExplorer](https://github.com/zodiacon/SystemExplorer)
+
 - [systeminformer](https://github.com/winsiderss/systeminformer)

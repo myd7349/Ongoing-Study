@@ -39,3 +39,7 @@ https://github.com/codereader/DarkRadiant/tree/master/plugins
 https://github.com/jferdelyi/GDSimpleBLE
 
 https://github.com/rizinorg/cutter supports both Python and Native C++ plugins.
+
+[CTK](https://github.com/commontk/CTK)
+
+[f3d](https://github.com/f3d-app/f3d)

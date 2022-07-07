@@ -17,3 +17,5 @@ for(ITER iter = mapTest.begin(); iter != mapTest.end();)
     mapTest.erase(iter++); 
 }
 ```
+
+https://github.com/martinus/map_benchmark

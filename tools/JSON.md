@@ -34,6 +34,10 @@
 
 [wal2json](https://github.com/eulerto/wal2json)
 
+[yq](https://github.com/mikefarah/yq)
+
+[yq](https://github.com/kislyuk/yq)
+
 [zipson](https://github.com/jgranstrom/zipson)
 
 BSON Tools:
@@ -53,3 +57,7 @@ Templating:
 - [Jsonnet](https://jsonnet.org/)
 
   - [kubeflow](https://github.com/kubeflow/kubeflow)
+
+Q&A:
+
+- [Can we make object as key in map when using JSON?](https://stackoverflow.com/questions/11628698/can-we-make-object-as-key-in-map-when-using-json)

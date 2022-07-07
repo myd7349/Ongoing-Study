@@ -16,9 +16,13 @@
 
 - [LaZagne](https://github.com/AlessandroZ/LaZagne)
 
+- [passwdqc](https://github.com/openwall/passwdqc)
+
 - [password_brute_dictionary](https://github.com/huyuanzhi2/password_brute_dictionary)
 
 - [PaZword](https://github.com/veler/PaZword)
+
+- [staticrypt](https://github.com/robinmoisson/staticrypt)
 
 - [XWordGiver](https://github.com/katahiromz/XWordGiver)
 

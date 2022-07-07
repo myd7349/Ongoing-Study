@@ -9,7 +9,6 @@
   <ItemGroup>
     <Compile Include="..\..\..\WriteableBitmap\ECGDemoV1\ECGDemo\AmplitudeConverter.cs" Link="AmplitudeConverter.cs" />
     <Compile Include="..\..\..\WriteableBitmap\ECGDemoV1\ECGDemo\ECGenerator.cs" Link="ECGenerator.cs" />
-    <Compile Include="..\..\..\WriteableBitmap\ECGDemoV1\ECGDemo\ImageFormat.cs" Link="ImageFormat.cs" />
     <Compile Include="..\..\..\WriteableBitmap\ECGDemoV1\ECGDemo\IntegerConverter.cs" Link="IntegerConverter.cs" />
     <Compile Include="..\..\..\WriteableBitmap\ECGDemoV1\ECGDemo\SpeedConverter.cs" Link="SpeedConverter.cs" />
     <Compile Include="..\..\..\WriteableBitmap\ECGDemoV1\ECGDemo\TimeSpanConverter.cs" Link="TimeSpanConverter.cs" />

@@ -31,6 +31,8 @@ Tools:
 
 - [CPDF](https://github.com/johnwhitington/cpdf-source)
 
+- [PDF Expert](https://pdfexpert.com/)
+
 - [WeasyPrint](https://github.com/Kozea/WeasyPrint)
 
 - [wkhtmltopdf](https://github.com/wkhtmltopdf/wkhtmltopdf)

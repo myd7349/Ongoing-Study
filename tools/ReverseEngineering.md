@@ -23,5 +23,7 @@ https://github.com/frida/frida
 ### Softwares
 
 + [Cutter](https://github.com/rizinorg/cutter) - [website](https://cutter.re/)
++ [Ghidra](https://github.com/NationalSecurityAgency/ghidra)
 + IDA Pro
 + [rizin](https://github.com/rizinorg/rizin)
++ x64dbg

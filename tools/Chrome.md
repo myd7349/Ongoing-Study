@@ -4,6 +4,8 @@
 
 Clearly Reader
 
+[hls-downloader](https://github.com/puemos/hls-downloader)
+
 Relingo
 
 [Twitter Media Downloader](https://chrome.google.com/webstore/detail/twitter-media-downloader/cblpjenafgeohmnjknfhpdbdljfkndig)

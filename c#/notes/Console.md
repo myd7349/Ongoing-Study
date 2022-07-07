@@ -22,3 +22,13 @@
 > }
 > ```
 
+[pythonw.exe or python.exe?](https://stackoverflow.com/questions/9705982/pythonw-exe-or-python-exe)
+
+> pythonw.exe is a GUI app for launching GUI/no-UI-at-all scripts.
+>
+> - NO console window is opened.
+> - Execution is asynchronous: 
+
+[AttachConsole() shows data on pipe but the > operator doesn't correctly redirect to file](https://stackoverflow.com/questions/11523595/attachconsole-shows-data-on-pipe-but-the-operator-doesnt-correctly-redirect)
+
+>  If you launch your application from a console you'll notice that any output appears after the next prompt. You can avoid this with start /wait.

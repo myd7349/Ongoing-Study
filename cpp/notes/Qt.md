@@ -1,3 +1,10 @@
+Lists:
+
+- [awesome-qt](https://github.com/JesseTG/awesome-qt)
+- [awesome-qt](https://github.com/fffaraz/awesome-qt)
+- [awesome-qt-qml](https://github.com/mikalv/awesome-qt-qml)
+- [QtAwesome](https://github.com/gamecreature/QtAwesome)
+
 Applications:
 
 - [Aircraft-War](https://github.com/zccrs/Aircraft-War)
@@ -43,6 +50,7 @@ Applications:
 - [INIditor](https://github.com/Jeroen6/INIditor)
 - [Intan-RHX](https://github.com/Intan-Technologies/Intan-RHX)
 - [IntelligentHome](https://github.com/zccrs/IntelligentHome)
+- [inviwo](https://github.com/inviwo/inviwo) :star:
 - [jarvis](https://github.com/nuttyartist/jarvis)
 - [jellyfin-media-player](https://github.com/jellyfin/jellyfin-media-player)
   - [jellyfin-media-player](https://github.com/Terminus-Media/jellyfin-media-player)
@@ -67,6 +75,7 @@ Applications:
 - [lximage-qt](https://github.com/lxqt/lximage-qt)
 - [md-pdf](https://github.com/igormironchik/md-pdf)
 - [medInria](https://github.com/medInria/medInria-public)
+- [MellowPlayer](https://gitlab.com/ColinDuquesnoy/MellowPlayer)
 - [mixxx](https://github.com/mixxxdj/mixxx)
 - [mne-cpp](https://github.com/mne-tools/mne-cpp)
 - [moonlight-qt](https://github.com/moonlight-stream/moonlight-qt)
@@ -128,6 +137,7 @@ Applications:
 - [RedPanda-CPP](https://github.com/royqh1979/RedPanda-CPP)
 - [robomongo](https://github.com/Studio3T/robomongo)
 - [rosbag_editor](https://github.com/facontidavide/rosbag_editor)
+- [RPCS3](https://github.com/RPCS3/rpcs3)
 - [Rythem](https://github.com/AlloyTeam/Rythem)
 - [Sanmill](https://github.com/calcitem/Sanmill)
 - [sa](https://github.com/czyt1988/sa)
@@ -145,6 +155,7 @@ Applications:
 - [Smalltalk](https://github.com/rochus-keller/Smalltalk)
 - [SmartPython](https://github.com/hcaihao/SmartPython)
 - [SmtpClient-for-Qt](https://github.com/bluetiger9/SmtpClient-for-Qt)
+- [Snipaste](https://github.com/Snipaste) - [website](https://www.snipaste.com/)
 - [spuc_filter](https://github.com/audiofilter/spuc_filter)
 - [sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)
 - [Stellarium](https://github.com/Stellarium/stellarium)
@@ -173,6 +184,7 @@ Applications:
 - [XOpcodeCalc](https://github.com/horsicq/XOpcodeCalc)
 - [XNTSV](https://github.com/horsicq/xntsv)
 - [xweather](https://github.com/ShawZG/xweather)
+- [YUView](https://github.com/IENT/YUView)
 - [zint](https://github.com/zint/zint)
 
 Libraries:
@@ -185,9 +197,13 @@ Libraries:
 
 - [CTK](https://github.com/commontk/CTK)
 
+- [DMS Navigation](https://github.com/Qt-Widgets/dmsnavigation)
+
 - [FakeVim](https://github.com/hluk/FakeVim)
 
 - [framelesshelper](https://github.com/wangwenx190/framelesshelper)
+
+- [grantlee](https://github.com/steveire/grantlee)
 
 - [JKQtPlotter](https://github.com/jkriege2/JKQtPlotter)
 
@@ -250,6 +266,8 @@ Libraries:
 
 - [qtcompress](https://github.com/nezticle/qtcompress)
 
+- [Qt-FramelessNativeWindow](https://github.com/Ochrazy/Qt-FramelessNativeWindow)
+
 - [Qt-FramelessWindow](https://github.com/winsoft666/Qt-FramelessWindow)
 
 - [qt-material-widgets](https://github.com/laserpants/qt-material-widgets)
@@ -295,6 +313,10 @@ Libraries:
 - [spix](https://github.com/faaxm/spix) - UI test automation.
 
 - [StyleWindow](https://github.com/hcaihao/StyleWindow)
+
+- [TabToolbar](https://github.com/SeriousAlexej/TabToolbar)
+
+  - [Best-Ribbon-Tab-Toolbar](https://github.com/Qt-Widgets/Best-Ribbon-Tab-Toolbar)
 
 - [TTKTinyTools](https://github.com/Greedysky/TTKTinyTools)
 

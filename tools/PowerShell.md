@@ -146,3 +146,9 @@ https://www.powershellgallery.com/
 [Command line reference.](https://ss64.com/)
 
 [Fido](https://github.com/pbatard/Fido)
+
+https://github.com/frostming/myrc/blob/main/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
+
+> Set-Alias -Name which Get-Command
+
+https://github.com/ForNeVeR/ExtDiff

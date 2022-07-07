@@ -62,3 +62,4 @@ namespace Common
 // https://github.com/JimBobSquarePants/ImageProcessor/blob/release/3.0.0/src/ImageProcessor/Bgra32.cs
 // [Is there a version of the class Tuple whose Items properties are not readonly and can be set?](https://stackoverflow.com/questions/7787994/is-there-a-version-of-the-class-tuple-whose-items-properties-are-not-readonly-an)
 // > Implementing GetHashCode() for a mutable type? - Risky that.
+// [Is there a complete IEquatable implementation reference?](https://stackoverflow.com/questions/1307493/is-there-a-complete-iequatable-implementation-reference)

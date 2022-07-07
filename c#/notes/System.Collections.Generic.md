@@ -18,7 +18,7 @@ List<string> L = new List<string> ( new string[10] );
 
 [Finding the lowest unused unique id in a list](https://stackoverflow.com/questions/3439571/finding-the-lowest-unused-unique-id-in-a-list)
 
-[IAsyncEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1?view=net-7.0)
+[IAsyncEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1?view=net-6.0)
 
 [Stephen Cleary — Asynchronous streams](https://www.youtube.com/watch?v=-Tq4wLyen7Q)
 

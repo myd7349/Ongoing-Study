@@ -38,6 +38,8 @@ Softwares:
 
 - Typora
 
+- [MarkdownMonster](https://github.com/RickStrahl/MarkdownMonster)
+
 - [marktext](https://github.com/marktext/marktext)
 
 - [milkdowns](https://github.com/Saul-Mirone/milkdown)
@@ -62,21 +64,37 @@ Libraries:
 
 - [ByteMD](https://github.com/bytedance/bytemd)
 
+- CommonMarkNet
+
+- [docfx](https://github.com/dotnet/docfx)
+
+  - [MarkdownMonster](https://github.com/RickStrahl/MarkdownMonster) - [issue](https://github.com/RickStrahl/MarkdownMonster/issues/20)
+
 - [hoedown](https://github.com/hoedown/hoedown)
 
 - [imgui_markdown](https://github.com/juliettef/imgui_markdown)
 
 - [markdig](https://github.com/xoofx/markdig)
 
+  - [MarkdownMonster](https://github.com/RickStrahl/MarkdownMonster)
+
   - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 
 - [markdoc](https://github.com/markdoc/markdoc)
+
+- MarkdownLite
 
 - [milkdown](https://github.com/Saul-Mirone/milkdown)
 
 - [MdXaml](https://github.com/whistyun/MdXaml)
 
+  - [Markdown.Avalonia](https://github.com/whistyun/Markdown.Avalonia)
+
 - [MyST-Parser](https://github.com/executablebooks/MyST-Parser)
+
+- [reversemarkdown](https://github.com/mysticmind/reversemarkdown-net)
+
+  - [MarkdownMonster](https://github.com/RickStrahl/MarkdownMonster)
 
 Tools:
 

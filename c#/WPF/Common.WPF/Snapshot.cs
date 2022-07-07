@@ -6,8 +6,10 @@ using System.Windows.Media.Imaging;
 
 using Microsoft.Win32;
 
+using Common.WPF.Imaging;
+using static Common.WPF.Imaging.ImageHelper;
 
-namespace ECGDemo
+namespace Common.WPF
 {
     public static class Snapshot
     {
@@ -110,46 +112,6 @@ namespace ECGDemo
             bitmapEncoder.Frames.Add(BitmapFrame.Create(bitmap));
             using (var stream = File.Create(filePath))
                 bitmapEncoder.Save(stream);
-        }
-
-        public static ImageFormat GetImageFormat(string fileExtension)
-        {
-            if (string.IsNullOrEmpty(fileExtension))
-                throw new ArgumentException("Invalid file extension");
-
-            if (fileExtension[0] != '.')
-                fileExtension = "." + fileExtension;
-
-            switch (fileExtension.ToLower())
-            {
-                case ".bmp":
-                case ".dib": return ImageFormat.Bmp;
-                case ".gif": return ImageFormat.Gif;
-                case ".jpg":
-                case ".jpeg": return ImageFormat.Jpeg;
-                case ".png": return ImageFormat.Png;
-                case ".tif":
-                case ".tiff": return ImageFormat.Tiff;
-                default: throw new NotImplementedException();
-            }
-        }
-
-        public static BitmapEncoder CreateBitmapEncoder(ImageFormat format)
-        {
-            switch (format)
-            {
-                case ImageFormat.Bmp:
-                    return new BmpBitmapEncoder();
-                case ImageFormat.Gif:
-                    return new GifBitmapEncoder();
-                case ImageFormat.Jpeg:
-                    return new JpegBitmapEncoder();
-                case ImageFormat.Png:
-                    return new PngBitmapEncoder();
-                case ImageFormat.Tiff:
-                    return new TiffBitmapEncoder();
-                default: throw new NotImplementedException();
-            }
         }
     }
 }

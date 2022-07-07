@@ -54,3 +54,12 @@ target_include_directories(
 # References:
 # https://github.com/microsoft/vcpkg/pull/11460
 # [Compile date and time using cmake](https://stackoverflow.com/questions/24292898/compile-date-and-time-using-cmake)
+# https://github.com/aseprite/aseprite/blob/main/src/ver/CMakeLists.txt
+# https://github.com/sccn/liblsl/blob/master/CMakeLists.txt
+# > set(LSL_VERSION_INFO "git:${lslgitrevision}/branch:${lslgitbranch}/build:${CMAKE_BUILD_TYPE}/compiler:${CMAKE_CXX_COMPILER_ID}-${CMAKE_CXX_COMPILER_VERSION}")
+# > set_source_files_properties("src/buildinfo.cpp"
+# >   PROPERTIES COMPILE_DEFINITIONS
+# >   LSL_LIBRARY_INFO_STR="${LSL_VERSION_INFO}/link:${LSL_LIB_TYPE}"
+# > )
+# https://github.com/sccn/liblsl/blob/master/src/buildinfo.cpp
+# https://gitlab.com/wireshark/wireshark/-/blob/master/ws_version.h.in

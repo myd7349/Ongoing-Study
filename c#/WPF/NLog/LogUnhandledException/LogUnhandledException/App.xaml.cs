@@ -55,3 +55,5 @@ namespace LogUnhandledException
 
 // References:
 // [Globally catch exceptions in a WPF application?](https://stackoverflow.com/questions/793100/globally-catch-exceptions-in-a-wpf-application)
+// https://github.com/microsoft/WPF-Samples/blob/main/Application Management/UnhandledExceptionHandling/App.cs
+// https://github.com/microsoft/WPF-Samples/blob/main/Application Management/UnhandledExceptionHandling/App.cs

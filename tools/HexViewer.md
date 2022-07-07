@@ -70,3 +70,9 @@ https://hexed.it/
 https://github.com/dnSpy/dnSpy/tree/master/dnSpy/dnSpy/Hex
 
 [bitinsight](https://github.com/compilelife/bitinsight)
+
+https://github.com/angelsix/youtube/tree/develop/FileFormats/BinaryViewer
+
+https://github.com/ocornut/imgui_club
+
+https://github.com/drewnoakes/hex-dump

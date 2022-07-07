@@ -12,6 +12,8 @@ Tutorials
 
 - https://github.com/onqtam/awesome-cmake
 
+- [modern-cmake-by-example](https://github.com/richardchien/modern-cmake-by-example)
+
 https://github.com/CLIUtils/modern_cmake
 
 [CMake and the Future of C++ Package Management](https://ibob.bg/blog/2020/01/13/cmake-package-management/)

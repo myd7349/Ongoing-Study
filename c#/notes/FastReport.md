@@ -281,3 +281,47 @@ Answer by Vitaliy Ezepchuk:
 > report.Load(reportPath);
 > report.SetParameterValue("FullPath", reportPath);
 > ```
+
+##### Print
+
+[Report printing](https://www.fast-report.com/documentation/UserMan/index.html?report_printing.htm)
+
+[How to print one page of the report in several copies](https://www.fast-report.com/en/blog/show/print-page-report-code/)
+
+[How to print Fastreport directly without showing Print Dialog](https://stackoverflow.com/questions/3058860/how-to-print-fastreport-directly-without-showing-print-dialog)
+
+##### Preview
+
+[Previewing a report](https://www.fast-report.com/documentation/ProgMan/index.html?previewing_a_report.htm)
+
+[How to show the PrintDialog just after showing the preview in FastReport?](https://stackoverflow.com/questions/65663960/how-to-show-the-printdialog-just-after-showing-the-preview-in-fastreport)
+
+##### Prepared Report
+
+[FastReport Viewer (*.fp3 and *.fpx reader)](https://www.fast-report.com/en/product/fast-report-viewer/)
+
+> FastReport Viewer - free tool for viewing FP3 and FPX files, containing prepared FastReport document. 
+>
+> It supports all modern formats, such as FP3 (both FastReport VCL and FastReport FMX), FPX (FastReport .NET and FastReport Open Source).
+
+##### WPF
+
+[How to use FastReport .NET controls in WPF application?](https://www.fast-report.com/en/faq/18/252/)
+
+[Using FastReport .NET components in WPF applications](https://www.fast-report.com/en/blog/show/fastreport-net-components-in-wpf-applications/)
+
+[How to make report viewer on WPF with FastReport Open Source. Part 1.](https://opensource.fast-report.com/2019/03/how-to-make-report-viewer-on-wpf-with.html)
+
+[How to make report viewer on WPF with FastReport Open Source. Part 2.](https://opensource.fast-report.com/2019/03/how-to-make-report-viewer-on-wpf-with_5.html)
+
+[WPFOpenSourceViewer](https://github.com/FastReports/FastReport/tree/master/Demos/OpenSource/WPFOpenSourceViewer)
+
+##### Multi-page reports exporting
+
+[FastReport export to image in multipage reports](https://stackoverflow.com/questions/19621454/fastreport-export-to-image-in-multipage-reports)
+
+[Multi-page reports](https://www.fast-report.com/documentation/UserMan/index.html?multipage_reports.htm)
+
+[Report viewing, printing and export](https://www.fast-report.com/documentation/UserMan/index.html?multipage_reports.htm)
+
+[How to export several reports into one PDF file](https://www.fast-report.com/en/blog/show/many-reports-one-pdf/)

@@ -19,3 +19,9 @@ https://github.com/rupa/epub
 [thorium-reader](https://github.com/edrlab/thorium-reader)
 
 [ebook-reader](https://github.com/ttu-ttu/ebook-reader)
+
+[xCHM](https://github.com/rzvncj/xCHM)
+
+[eCore](https://www.epubor.com/ecore.html)
+
+[foliate](https://github.com/johnfactotum/foliate)

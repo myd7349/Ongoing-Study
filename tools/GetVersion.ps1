@@ -193,3 +193,5 @@ else
 # https://github.com/sorayuki/srt_build_win32
 # https://github.com/veler/clipboardzanager
 # https://github.com/BornToBeRoot/NETworkManager/blob/2022.2.22.0/build.ps1
+# https://github.com/stefankueng/grepWin/blob/main/version.build.in
+# https://github.com/stefankueng/grepWin/blob/main/src/last/version.h

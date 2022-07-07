@@ -247,3 +247,11 @@ internal static class Program
 ```
 
 [NLog configured to automatically log all exceptions?](https://stackoverflow.com/questions/13895929/nlog-configured-to-automatically-log-all-exceptions)
+
+[Automatically log System.diagnostics.trace messages to an Nlog target](https://stackoverflow.com/questions/13260672/automatically-log-system-diagnostics-trace-messages-to-an-nlog-target)
+
+[How to route System.Diagnostics.TraceSource logs through NLog in .NET Core](https://stackoverflow.com/questions/40052355/how-to-route-system-diagnostics-tracesource-logs-through-nlog-in-net-core)
+
+[Routing System.Diagnostics.Trace and System.Diagnostics.TraceSource logs through NLog](https://nlog-project.org/2010/09/02/routing-system-diagnostics-trace-and-system-diagnostics-tracesource-logs-through-nlog.html)
+
+[Which trace source is used by System.Diagnostics.Trace.WriteLine?](https://stackoverflow.com/questions/34491311/which-trace-source-is-used-by-system-diagnostics-trace-writeline)

@@ -1,3 +1,4 @@
+- [aseprite](https://github.com/aseprite/aseprite)
 - [caesium-image-compressor](https://github.com/Lymphatus/caesium-image-compressor)
 - [ConvertTo-Jpeg](https://github.com/DavidAnson/ConvertTo-Jpeg)
 - [darktable](https://github.com/darktable-org/darktable)
@@ -13,6 +14,7 @@
 - [GMIC](https://github.com/dtschump/gmic)
 - [ImageJ](https://imagej.nih.gov/ij/)
   - https://github.com/swharden/Microscopy/tree/master/useful-imageJ-scripts
+- [image-compare](https://github.com/zchrissirhcz/image-compare)
 - ImageOptim
 - InkScape
 - [jpegview](https://github.com/sylikc/jpegview)
@@ -30,6 +32,10 @@
 - Photopea
 - [pineapple-pictures](https://github.com/BLumia/pineapple-pictures)
 - [Pinta](https://github.com/PintaProject/Pinta)
+- [PNGOUT](https://en.wikipedia.org/wiki/PNGOUT)
+  - [Be Aware of DPI with Image PNGs in WPF - Images Scale Weird or are Blurry](https://www.hanselman.com/blog/be-aware-of-dpi-with-image-pngs-in-wpf-images-scale-weird-or-are-blurry)
+    - [PNGGauntlet](https://pnggauntlet.com/)
+      - [OptiPNG](https://optipng.sourceforge.net/)
 - [RawTherapee](https://github.com/Beep6581/RawTherapee)
 - [Retouch-Photo2-UWP](https://github.com/ysdy44/Retouch-Photo2-UWP)
 - [SvgViewer](https://github.com/ElinamLLC/SvgViewer)
@@ -38,6 +44,7 @@
 - [tldraw](https://github.com/tldraw/tldraw)
 - [uPic](https://github.com/gee1k/uPic/tree/master/uPic)
 - [VTracer](https://github.com/visioncortex/vtracer)
+- [XnView](http://justsolve.archiveteam.org/wiki/XnView) - [website](https://www.xnview.com/en/)
 
 Image Super-Resolution
 

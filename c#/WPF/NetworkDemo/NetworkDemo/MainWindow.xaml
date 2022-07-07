@@ -1,0 +1,56 @@
+﻿<Window x:Class="NetworkDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:md="https://github.com/fantasticfiasco/mvvm-dialogs"
+        xmlns:local="clr-namespace:NetworkDemo"
+        mc:Ignorable="d"
+        md:DialogServiceViews.IsRegistered="True"
+        Title="MainWindow"
+        Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
+    
+    <Grid Margin="20,15,20,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="80" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0"
+               Content="IP Address: " />
+        <ComboBox Grid.Row="0" Grid.Column="1"
+                  ItemsSource="{Binding IPAddresses}"
+                  SelectedItem="{Binding SelectedIPAddress}" />
+
+        <Label Grid.Row="2" Grid.Column="0"
+               Content="EndPoint: " />
+        <TextBox Grid.Row="2" Grid.Column="1"
+                 Text="{Binding EndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Button Grid.Row="2" Grid.Column="3"
+                Content="Parse"
+                Command="{Binding ParseEndPointCommand}" />
+
+        <TextBox Grid.Row="4" Grid.Column="1"
+                 IsReadOnly="True"
+                 Text="{Binding ParsedResult}" />
+
+        <Button Grid.Row="6" Grid.Column="1"
+                Content="Start NCPA.cpl"
+                Command="{Binding StartNCPACommand}" />
+    </Grid>
+</Window>

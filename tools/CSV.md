@@ -7,6 +7,8 @@ https://github.com/simdjson/simdjson/blob/v1.0.2/doc/parse_many.md#use-cases
 > The biggest missing piece is an import/export filter for popular spreadsheet programs so that non-programmers can use this format.
 
 
+[CSVFileView](https://www.nirsoft.net/utils/csv_file_view.html)
+
 [miller](https://github.com/johnkerl/miller)
 
 [q](https://github.com/harelba/q)

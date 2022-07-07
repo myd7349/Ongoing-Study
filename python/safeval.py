@@ -72,3 +72,4 @@ if __name__ == '__main__':
 # https://github.com/FXuZ/colock-server/blob/master/colock/security.py
 # [Evaluating a mathematical expression in a string](https://stackoverflow.com/questions/2371436/evaluating-a-mathematical-expression-in-a-string)
 # [Python: make eval safe](https://stackoverflow.com/questions/3513292/python-make-eval-safe)
+# https://github.com/zopefoundation/RestrictedPython

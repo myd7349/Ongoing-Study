@@ -60,3 +60,4 @@ namespace Common
 // [When Clearing an ObservableCollection, There are No Items in e.OldItems](https://stackoverflow.com/questions/224155/when-clearing-an-observablecollection-there-are-no-items-in-e-olditems)
 // [Can I somehow temporarily disable WPF data binding changes?](https://stackoverflow.com/questions/10572522/can-i-somehow-temporarily-disable-wpf-data-binding-changes)
 // [what is notifycollectionchangedaction reset value](https://stackoverflow.com/questions/4495904/what-is-notifycollectionchangedaction-reset-value)
+// [WPF TreeListView Control](https://www.codeproject.com/Articles/30721/WPF-TreeListView-Control)

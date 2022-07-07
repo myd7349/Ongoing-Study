@@ -28,6 +28,8 @@
 
    - [rePaper](https://github.com/rocksdanister/rePaper)
 
+   - [ShaderPaper](https://github.com/WerWolv/ShaderPaper)
+
    - [Upupoo](http://www.upupoo.com/)
 
    - [VideoWallPaperDemo](https://github.com/3150601355/VideoWallPaperDemo)
@@ -109,3 +111,11 @@
 41. [Loaf](https://github.com/DinoChan/Loaf)
 
 42. [Text-Grab](https://github.com/TheJoeFin/Text-Grab)
+
+43. [grepWin](https://github.com/stefankueng/grepWin)
+
+44. [SystemExplorer](https://github.com/zodiacon/SystemExplorer)
+
+45. [TotalRegistry](https://github.com/zodiacon/TotalRegistry)
+
+46. [PEASS-ng](https://github.com/carlospolop/PEASS-ng)

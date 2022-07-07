@@ -1,5 +1,6 @@
 - [appflowy](https://github.com/AppFlowy-IO/appflowy)
 - [foam](https://github.com/foambubble/foam)
+- [GitNotes](https://github.com/OrangeX4/GitNotes)
 - [logseq](https://github.com/logseq/logseq)
 - [memos](https://github.com/usememos/memos)
 - [nb](https://github.com/xwmx/nb)

@@ -50,3 +50,24 @@
 [Support ObjectCreationHandling in JsonSerializerOptions like Json.NET does](https://github.com/dotnet/runtime/issues/31518)
 
 [Ignore Base Class Properties in Json.NET Serialization](https://stackoverflow.com/questions/31104335/ignore-base-class-properties-in-json-net-serialization)
+
+[Json.net getter property not serialized](https://stackoverflow.com/questions/9727836/json-net-getter-property-not-serialized)
+
+```csharp
+class ClassWithoutDefaultConstructor
+{
+    public ClassWithoutDefaultConstructor(int arg1, int arg2)
+    {
+    }
+}
+
+var obj = JsonHelper.LoadJson<ClassWithoutDefaultConstructor>(jsonFilePath);
+
+// Newtonsoft.Json.JsonSerializationException:“Unable to find a constructor to use for type ClassWithoutDefaultConstructor. A class should either have a default constructor, one constructor with arguments or a constructor marked with the JsonConstructor attribute. 
+```
+
+[JSON.net: how to deserialize without using the default constructor?](https://stackoverflow.com/questions/23017716/json-net-how-to-deserialize-without-using-the-default-constructor)
+
+[JsonConstructorAttribute](https://www.newtonsoft.com/json/help/html/JsonConstructorAttribute.htm)
+
+[How can I ignore unknown enum values during json deserialization?](https://stackoverflow.com/questions/22752075/how-can-i-ignore-unknown-enum-values-during-json-deserialization) (For example, you may have changed the name of an enumeration value in one of your code refactorings.)

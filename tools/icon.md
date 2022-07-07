@@ -100,6 +100,14 @@
 
 * [Free Icons](https://www.freeiconspng.com/)
 
+* [MaterialDesignSvgo](https://github.com/OlivierLDff/MaterialDesignSvgo)
+
+* [The Noun Project](https://thenounproject.com/)
+
+  * [ConfigureAwait](https://github.com/Fody/ConfigureAwait)
+
+* [icons8](https://icons8.com/)
+
 Softwares
 
 - [fontforge](https://github.com/fontforge/fontforge)

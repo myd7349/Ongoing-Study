@@ -50,6 +50,7 @@ Terminal emulators supported by [system-terminal](https://github.com/alexrp/syst
   - [SwiftTerm](https://github.com/migueldeicaza/SwiftTerm) 
 - [tabby](https://github.com/Eugeny/tabby)
 - [Terminal.app](https://support.apple.com/guide/terminal/welcome/mac)
+- [terminator](https://gnome-terminator.org/)
 - [Terminology](https://terminolo.gy)
 - [WezTerm](https://wezfurlong.org/wezterm)
 - [Windows Console](https://docs.microsoft.com/en-us/windows/console)
@@ -72,6 +73,8 @@ Other Tools:
 
 - [hyperfine](https://crates.io/crates/hyperfine) - [code](https://github.com/sharkdp/hyperfine)
 
+- [just](https://github.com/casey/just)
+
 - [mosh](https://github.com/mobile-shell/mosh)
 
 - [neofetch](https://github.com/dylanaraps/neofetch)
@@ -79,6 +82,8 @@ Other Tools:
 - [nb](https://github.com/xwmx/nb)
 
 - [oil](https://github.com/oilshell/oil)
+
+- [smenu](https://github.com/p-gen/smenu)
 
 - [starship](https://github.com/starship/starship)
 

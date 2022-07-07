@@ -33,3 +33,5 @@ https://github.com/madskristensen/ShortcutExporter
 https://github.com/uctakeoff/vscode-counter
 
 [StringResourceVisualizer](https://github.com/mrlacey/StringResourceVisualizer)
+
+[How to: Change the build output directory](https://learn.microsoft.com/en-us/visualstudio/ide/how-to-change-the-build-output-directory?view=vs-2019)

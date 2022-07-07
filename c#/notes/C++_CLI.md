@@ -3,3 +3,4 @@
 - [SharpLibMonitorConfig](https://github.com/Slion/SharpLibMonitorConfig)
 - [TDLib .NET Interface](https://github.com/tdlib/td#using-dotnet)
 - [tinet](https://github.com/TulipCharts/tinet)
+- [wpf](https://github.com/dotnet/wpf/blob/main/src/Microsoft.DotNet.Wpf/src/System.Printing/CPP/inc/PrintSystemObject.hpp)

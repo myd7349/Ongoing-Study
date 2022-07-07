@@ -9,3 +9,5 @@ https://github.com/lief-project/LIEF
 https://github.com/mne-tools/mne-python
 
 https://github.com/numpy/numpydoc
+
+https://github.com/hailstorm75/ModularDoc

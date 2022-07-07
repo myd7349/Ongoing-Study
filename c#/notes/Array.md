@@ -47,3 +47,7 @@ Console.WriteLine(array.Length);
 [Avoiding Array Pitfalls in C# .NET](https://levelup.gitconnected.com/avoiding-array-pitfalls-in-c-net-a229a29bc45d)
 
 > Bottom-Line: Avoid allocating new empty arrays. Use Array.Empty<T>() instead.
+
+[How to sort a list of objects by a specific field in C#?](https://stackoverflow.com/questions/1301822/how-to-sort-a-list-of-objects-by-a-specific-field-in-c)
+
+[How to sort an array containing class objects by a property value of a class instance?](https://stackoverflow.com/questions/1304278/how-to-sort-an-array-containing-class-objects-by-a-property-value-of-a-class-ins)

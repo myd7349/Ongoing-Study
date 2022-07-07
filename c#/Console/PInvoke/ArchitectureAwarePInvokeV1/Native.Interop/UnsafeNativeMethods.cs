@@ -719,3 +719,4 @@ namespace Native.Interop
 // https://github.com/chmorgan/sharppcap/blob/master/SharpPcap/LibPcap/NativeLibraryHelper.cs
 // https://github.com/squid-box/SevenZipSharp/blob/dev/SevenZip/LibraryManager.cs
 // https://github.com/libimobiledevice-win32/imobiledevice-net/blob/master/iMobileDevice-net/LibraryResolver.cs
+// https://github.com/mellinoe/nativelibraryloader

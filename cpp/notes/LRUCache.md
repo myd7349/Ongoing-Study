@@ -7,3 +7,7 @@ https://github.com/pydata/xarray/blob/main/xarray/backends/lru_cache.py
 https://github.com/lvgl/lv_binding_micropython/blob/master/gen/gen_mpy.py
 
 https://github.com/pdm-project/pdm/blob/main/src/pdm/installers/installers.py
+
+https://github.com/kyriosli/node-shared-cache
+
+https://github.com/isaacs/node-lru-cache

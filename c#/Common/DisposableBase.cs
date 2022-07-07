@@ -70,10 +70,13 @@ namespace Common
         {
         }
 
-        protected void CheckDisposed(string name)
+        // https://github.com/dotnet/runtime/blob/main/src/libraries/System.Net.Sockets/src/System/Net/Sockets/NetworkStream.cs
+        // > ThrowIfDisposed();
+        protected void CheckIsDisposed()
         {
             if (disposed_)
-                throw new ObjectDisposedException(string.Format("{0} object is disposed.", name));
+                throw new ObjectDisposedException(
+                    string.Format("{0} object is disposed.", GetType().Name));
         }
 
         protected bool disposed_ = false;
@@ -88,4 +91,4 @@ namespace Common
 // https://github.com/StephenCleary/Disposables
 // https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenSource.cs
 // > ThrowIfDisposed();
-
+// Ongoing-Study/c#/notes/IDisposable.md

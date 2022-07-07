@@ -21,3 +21,18 @@ https://github.com/json-c/json-c/pull/501/files
 > ```
 
 https://github.com/ibireme/yyjson/blob/master/test/util/yy_test_utils.h
+
+static_assert
+
+https://github.com/sccn/liblsl/blame/master/include/lsl/common.h
+
+```c
+// Abort compilation if lsl_channel_format_t isn't exactly 4 bytes wide
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L
+_Static_assert(sizeof(lsl_channel_format_t) == 4, "lsl_channel_format_t size breaks the LSL ABI");
+#elif defined(__cplusplus) && __cplusplus >= 201103L
+static_assert (sizeof(lsl_channel_format_t) == 4, "lsl_channel_format_t size breaks the LSL ABI");
+#elif !defined(LIBLSL_FFI)
+static char _lsl_channel_format_size_check[1 - 2*!(sizeof(lsl_channel_format_t)==4)];
+#endif
+```

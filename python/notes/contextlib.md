@@ -38,3 +38,5 @@ def _auto_close(fid):
         except Exception:
             pass  # we did our best
 ```
+
+[Redirecting stdout to "nothing" in python](https://stackoverflow.com/questions/6735917/redirecting-stdout-to-nothing-in-python)

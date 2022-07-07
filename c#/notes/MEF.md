@@ -13,3 +13,5 @@
 https://github.com/veler/DevToys
 
 https://github.com/PrismLibrary/Prism-Documentation/blob/master/docs/wpf/legacy/Advanced-MVVM.md#creating-the-view-and-view-model-using-mef
+
+https://github.com/microsoft/vs-mef

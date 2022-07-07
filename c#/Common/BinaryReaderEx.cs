@@ -96,3 +96,4 @@
 // https://github.com/tge-was-taken/Amicitia.IO
 // https://github.com/MediaArea/ZenLib/blob/master/Source/ZenLib/BitStream.h
 // https://github.com/aybe/BinaryExtensions/blob/develop/BinaryExtensions/BinaryExtensions/EndiannessExtensions.g.cs
+// https://github.com/dotnet/runtime/blob/main/src/libraries/System.Reflection.Metadata/src/System/Reflection/PortableExecutable/PEBinaryReader.cs

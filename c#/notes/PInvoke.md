@@ -337,12 +337,16 @@ Function pointer:
 - [C++ callback to C#: an unhandled exception of type 'System.ExecutionEngineException' occurred in Unknown Module](https://stackoverflow.com/questions/67181407/c-callback-to-c-an-unhandled-exception-of-type-system-executionengineexcept)
   > TestDll_AddObserver(OnMessage); is sugar for TestDll_AddObserver(new MessageDelegate(OnMessage)); -- that MessageDelegate instance needs to be kept alive (e.g. in a field) so long as the C++ code might try to invoke it. As it stands, the GC will come along and collect it at some point, and then you will crash when the C++ side tries to invoke it.
 
+- [CallbackOnCollectedDelegate was detected](https://stackoverflow.com/questions/4855513/callbackoncollecteddelegate-was-detected)
 
 Array size:
 
 - [Pinvoke - callback from C++, arrays passed between functions have unexpected size](https://stackoverflow.com/questions/27649794/pinvoke-callback-from-c-arrays-passed-between-functions-have-unexpected-siz)
 - [Correct way to marshal SIZE_T*?](https://stackoverflow.com/questions/1309509/correct-way-to-marshal-size-t)
 - https://github.com/reneschulte/WriteableBitmapEx/blob/master/Source/WriteableBitmapEx.Wpf/NativeMethods.cs
+- https://referencesource.microsoft.com/#UIAutomationClientsideProviders/MS/Win32/UnsafeNativeMethods.cs,63
+- https://github.com/dotnet/wpf/blob/main/src/Microsoft.DotNet.Wpf/src/UIAutomation/UIAutomationClientSideProviders/MS/Win32/UnsafeNativeMethods.cs
+  > internal static extern bool ReadProcessMemory(MS.Internal.AutomationProxies.SafeProcessHandle hProcess, IntPtr Source, IntPtr Dest, IntPtr /*SIZE_T*/ size, out IntPtr /*SIZE_T*/ bytesRead);
 
 bool:
 
@@ -426,3 +430,7 @@ static T Fill<T>(T SomeStruct) where T : struct
 ### UnmanagedType.LPUTF8Str
 
 https://github.com/mono/SkiaSharp/issues/1914
+
+### NativeLibraryLoader
+
+https://github.com/mellinoe/nativelibraryloader

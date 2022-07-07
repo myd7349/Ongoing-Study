@@ -91,3 +91,38 @@ True
 [Hashtable with MultiDimensional Key in C#](https://stackoverflow.com/questions/689940/hashtable-with-multidimensional-key-in-c-sharp)
 
 [Multi-key dictionary in c#?](https://stackoverflow.com/questions/1171812/multi-key-dictionary-in-c)
+
+[Editing dictionary values in a foreach loop](https://stackoverflow.com/questions/1070766/editing-dictionary-values-in-a-foreach-loop)
+
+```csharp
+var dict = new Dictionary<int, int>
+{
+    [1] = 1,
+    [2] = 2,
+    [3] = 3,
+    [4] = 4,
+    [5] = 5,
+    [0] = 100,
+};
+
+Console.WriteLine(dict);
+
+try
+{
+    foreach (var kv in dict)
+    {
+        Console.WriteLine($"---- {kv.Key} ----");
+        if (kv.Key % 2 == 0)
+            dict[kv.Key] = kv.Value * kv.Value;
+    }
+
+    // In LINQPad 7 with .NET 7.0/6.0/5.0, we got here.
+    Console.WriteLine(dict);
+}
+catch (InvalidOperationException ex)
+{
+    // In VS2022 with .NET 4.7.2, we got here.
+    // In LINQPad 7 with .NET 3.1(.NET Core 3.1), we got here.
+    Console.WriteLine(ex);
+}
+```

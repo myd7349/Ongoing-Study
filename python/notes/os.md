@@ -19,6 +19,10 @@ def unpack(archive, location, log = EmptyLogger()):
 
 This code snippet shows when to use `os.devnull`.
 
+[Redirecting stdout to "nothing" in python](https://stackoverflow.com/questions/6735917/redirecting-stdout-to-nothing-in-python)
+
+[Redirect stdout to a file in Python?](https://stackoverflow.com/questions/4675728/redirect-stdout-to-a-file-in-python)
+
 ##### os.replace
 
 https://github.com/psf/requests/blob/main/requests/utils.py

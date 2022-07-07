@@ -197,6 +197,8 @@ int Socket::SendTo(const char *buffer, std::size_t sizeInBytes, const struct soc
 }
 
 
+// https://github.com/dotnet/runtime/blob/main/src/libraries/System.Net.Sockets/src/System/Net/Sockets/NetworkStream.cs
+// > SetSocketTimeoutOption(SocketShutdown.Receive, value, false);
 int Socket::Receive(char *buffer, std::size_t sizeInBytes, int flags, unsigned timeoutInMs)
 {
     assert(IsValid());
@@ -318,3 +320,4 @@ int Socket::ReceiveFrom(char *buffer, std::size_t sizeInBytes, int flags, struct
 // https://github.com/ThisIsRobokitty/netgame
 // https://github.com/libsdl-org/SDL_net
 // https://github.com/cofyc/lua-ssocket
+// [Why should I use non-blocking or blocking sockets?](https://stackoverflow.com/questions/10654286/why-should-i-use-non-blocking-or-blocking-sockets)

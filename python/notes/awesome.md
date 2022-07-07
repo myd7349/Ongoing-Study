@@ -34,9 +34,16 @@
 
 - [biopandas](https://github.com/rasbt/biopandas)
 
+### Bluetooth
+
+- [bleak](https://github.com/hbldh/bleak)
+
+  - [PythonCatPrinter](https://github.com/WerWolv/PythonCatPrinter)
+
 ### C Preprocessor
 
 - [CppHeaderParser](https://pypi.org/project/CppHeaderParser/)
+- pcpp
 
 ### Charting
 
@@ -202,6 +209,7 @@
 - [filterpy](https://github.com/rlabbe/filterpy)
 - [mkl_fft](https://github.com/IntelPython/mkl_fft)
 - [pyaec](https://github.com/ewan-xu/pyaec)
+- [pyfda](https://github.com/chipmuenk/pyfda)
 - [pywt](https://github.com/PyWavelets/pywt)
 - [trefide](https://github.com/ikinsella/trefide)
 
@@ -295,6 +303,7 @@
   
   - [wxPython-Classic](https://github.com/wxWidgets/wxPython-Classic)
   - [Phoenix](https://github.com/wxWidgets/Phoenix)
+  - [psychopy](https://github.com/psychopy/psychopy)
   - [youtube-dl-gui](https://github.com/MrS0m30n3/youtube-dl-gui)
 
 ### Hook
@@ -337,6 +346,8 @@
 
 - [hyperjson](https://github.com/mre/hyperjson)
 
+- [python-fastjsonschema](https://github.com/horejsek/python-fastjsonschema)
+
 ### Language Interoperability
 
 ##### C, C++ -> Python
@@ -354,6 +365,10 @@
 - [scikit-build](https://github.com/scikit-build/scikit-build): Improved build system generator for CPython C, C++, Cython and Fortran extensions.
 
 - [shedskin](https://github.com/shedskin/shedskin)
+
+- [shiboken2](https://pypi.org/project/shiboken2/)
+
+  - [BrainVision LSL Viewer](https://pressrelease.brainproducts.com/lsl-viewer/)
 
 - DIY
 
@@ -399,6 +414,10 @@
 
   - - [FlaUI](https://github.com/GDATASoftwareAG/robotframework-flaui)
 
+##### Go -> Python
+
+- [gopy](https://github.com/go-python/gopy)
+
 ##### JavaScript -> Python
 
 - https://github.com/pyodide/pyodide/blob/0.19.1/src/core/js2python.h
@@ -442,6 +461,7 @@
 - [cudf](https://github.com/rapidsai/cudf)
 - [h5py](https://github.com/h5py/h5py)
 - pandas.DataFrame
+- [polars](https://github.com/pola-rs/polars)
 - [PyTables](https://github.com/PyTables/PyTables)
 - [sparse](https://github.com/pydata/sparse)
 - [tiledarray](https://github.com/ValeevGroup/tiledarray)
@@ -538,6 +558,8 @@
 
 - [easy_profiler](https://github.com/rossant/easy_profiler)
 
+- [faster-cpython/ideas](https://github.com/faster-cpython/ideas)
+
 - [filprofiler](https://github.com/pythonspeed/filprofiler)
 
 - [meminfo](https://github.com/slideinc/meminfo)
@@ -611,6 +633,12 @@
 - pytest
 
   - [pdir2](https://github.com/laike9m/pdir2)
+
+### Units
+
+- [cf-units](https://github.com/SciTools/cf-units)
+
+- [pint](https://github.com/hgrecco/pint)
 
 ### Versioning
 

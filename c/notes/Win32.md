@@ -22,6 +22,14 @@ https://github.com/LADSoft/OCIDE
 
 https://github.com/getdnsapi/stubby
 
+https://github.com/j00ru/windows-syscalls
+
+https://github.com/Fyyre/ntdll
+
+https://github.com/hfiref0x/SyscallTables
+
+[AuthHashCalc](https://github.com/hfiref0x/AuthHashCalc)
+
 ### LoadLibrary
 
 - [DLL Load Library - Error Code 126](https://stackoverflow.com/questions/14361992/dll-load-library-error-code-126)

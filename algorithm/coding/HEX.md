@@ -31,3 +31,5 @@ https://stackoverflow.com/questions/10698097/c-sharp-hex-string-to-byte-image-an
 https://github.com/weidai11/cryptopp/blob/master/hex.h
 
 https://github.com/icedland/iced/blob/master/src/csharp/Intel/Iced/Intel/HexUtils.cs
+
+https://github.com/drewnoakes/hex-dump

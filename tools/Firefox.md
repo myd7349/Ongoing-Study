@@ -9,3 +9,5 @@ https://github.com/gildas-lormeau/SingleFileZ
 https://github.com/firefox-devtools/profiler
 
 [Automa](https://www.automa.site/)
+
+[hls-downloader](https://github.com/puemos/hls-downloader)

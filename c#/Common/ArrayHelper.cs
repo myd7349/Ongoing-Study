@@ -83,6 +83,8 @@ namespace Common
             return array.Skip(rotate).Concat(array.Take(rotate)).ToArray();
         }
 
+        // https://github.com/dotnet/runtime/blob/main/src/libraries/System.Net.Sockets/src/System/Net/Sockets/NetworkStream.cs
+        // > ValidateBufferArguments(buffer, offset, count);
         public static void ValidateArray<T>(T[] array, int offset, int count)
         {
             if (array == null)

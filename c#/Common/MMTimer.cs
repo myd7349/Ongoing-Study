@@ -42,7 +42,7 @@
 
             set
             {
-                CheckDisposed("MMTimer");
+                CheckIsDisposed();
 
                 if (value < 0)
                     throw new ArgumentOutOfRangeException("Interval");
@@ -65,7 +65,7 @@
             }
             set
             {
-                CheckDisposed("MMTimer");
+                CheckIsDisposed();
 
                 if (value < 0)
                     throw new ArgumentOutOfRangeException("Resolution");
@@ -86,7 +86,7 @@
 
             set
             {
-                CheckDisposed("MMTimer");
+                CheckIsDisposed();
 
                 if (IsRunning)
                     throw new InvalidOperationException("Timer is already running");

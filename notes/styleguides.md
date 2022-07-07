@@ -31,6 +31,8 @@
 
 - C#
   
+  - [C# at Google Style Guide](https://google.github.io/styleguide/csharp-style.html)
+  
   - [CSharpGuidelines](https://github.com/dennisdoomen/CSharpGuidelines)
   
   - [C# Style Guide](https://github.com/quozd/awesome-dotnet#style-guide)

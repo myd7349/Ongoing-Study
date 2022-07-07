@@ -4,9 +4,13 @@ Applications:
 
 - [dotnet-maui-workshop](https://github.com/dotnet-presentations/dotnet-maui-workshop)
 
+- [HackerNews](https://github.com/brminnick/HackerNews)
+
 - [WeatherTwentyOne](https://github.com/davidortinau/WeatherTwentyOne)
 
 Controls:
+
+- [Maui.VirtualListView](https://github.com/Redth/Maui.VirtualListView)
 
 - [Mopups](https://github.com/LuckyDucko/Mopups)
 

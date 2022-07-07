@@ -5,5 +5,7 @@
 - [Iced](https://github.com/icedland/iced)
 - ildasm
 - ILSpy
+- [JustDecompile](https://www.telerik.com/products/decompiler.aspx)
+  - [Which trace source is used by System.Diagnostics.Trace.WriteLine?](https://stackoverflow.com/questions/34491311/which-trace-source-is-used-by-system-diagnostics-trace-writeline)
 - [PowerUp](https://github.com/badamczewski/PowerUp)
 - Reflector

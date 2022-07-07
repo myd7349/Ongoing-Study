@@ -301,3 +301,33 @@ End Using
 [Debugging WPF data bindings](https://www.codeproject.com/Articles/244107/Debugging-WPF-data-bindings)
 
 > TextWriterTraceListener
+
+[TraceSwitch and SourceSwitch - what's the difference?](https://stackoverflow.com/questions/3691749/traceswitch-and-sourceswitch-whats-the-difference)
+
+EventLog
+
+https://github.com/microsoft/WPF-Samples/blob/main/Application%20Management/UnhandledExceptionHandling/App.cs
+
+DebuggerDisplayAttribute
+
+[Enhancing Debugging with the Debugger Display Attributes](https://learn.microsoft.com/en-us/dotnet/framework/debug-trace-profile/enhancing-debugging-with-the-debugger-display-attributes)
+
+[Display Subclass of List correctly in Debugger](https://stackoverflow.com/questions/50428305/display-subclass-of-list-correctly-in-debugger)
+
+Debug.Print
+
+[Debug.Print Method](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.debug.print?view=netframework-4.7.1)
+
+[Where does System.Diagnostics.Debug.Write output appear?](https://stackoverflow.com/questions/1159755/where-does-system-diagnostics-debug-write-output-appear)
+
+[Automatically log System.diagnostics.trace messages to an Nlog target](https://stackoverflow.com/questions/13260672/automatically-log-system-diagnostics-trace-messages-to-an-nlog-target)
+
+[Routing System.Diagnostics.Trace and System.Diagnostics.TraceSource logs through NLog](https://nlog-project.org/2010/09/02/routing-system-diagnostics-trace-and-system-diagnostics-tracesource-logs-through-nlog.html)
+
+[TraceSource Class](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.tracesource?view=net-6.0)
+
+https://github.com/Alex141/CalcBinding/blob/master/CalcBinding/Trace/Tracer.cs
+
+> SourceSwitch
+
+[Which trace source is used by System.Diagnostics.Trace.WriteLine?](https://stackoverflow.com/questions/34491311/which-trace-source-is-used-by-system-diagnostics-trace-writeline)

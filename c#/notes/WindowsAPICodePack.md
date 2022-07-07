@@ -3,3 +3,7 @@
 [Windows API Code Pack: Where is it?](https://stackoverflow.com/questions/24081665/windows-api-code-pack-where-is-it)
 
 https://github.com/aybe/Windows-API-Code-Pack-1.1
+
+https://www.nuget.org/packages/Microsoft.WindowsAPICodePack-Core
+
+[PNGGauntlet](https://pnggauntlet.com/)

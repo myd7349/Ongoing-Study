@@ -15,3 +15,13 @@
 [What is a good way to bubble up INotifyPropertyChanged events through ViewModel properties with MVVM?](https://stackoverflow.com/questions/3933242/what-is-a-good-way-to-bubble-up-inotifypropertychanged-events-through-viewmodel)
 
 [When nesting properties that implement INotifyPropertyChanged must the parent object propagate changes?](https://stackoverflow.com/questions/1336414/when-nesting-properties-that-implement-inotifypropertychanged-must-the-parent-obj)
+
+### AddRange
+
+https://github.com/jamesmontemagno/mvvm-helpers/blob/master/MvvmHelpers/ObservableRangeCollection.cs
+
+https://github.com/CommunityToolkit/dotnet/issues/256
+
+https://github.com/dotnet/runtime/issues/18087
+
+[WPF TreeListView Control](https://www.codeproject.com/Articles/30721/WPF-TreeListView-Control)

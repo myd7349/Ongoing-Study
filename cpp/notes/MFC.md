@@ -8,6 +8,8 @@ Projects using MFC:
   
   - [Shutter-cn](https://github.com/dream7180/Shutter-cn)
 
+- [grepWin](https://github.com/stefankueng/grepWin)
+
 - [MPC-HC](https://github.com/mpc-hc/mpc-hc)
 
 - [TortoiseGit](https://github.com/TortoiseGit/TortoiseGit)
