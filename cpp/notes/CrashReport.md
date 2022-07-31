@@ -12,6 +12,8 @@ Libraries:
 
     - [sentry-dotnet](https://github.com/getsentry/sentry-dotnet)
 
+- [crashreport](https://github.com/winsoft666/crashreport)
+
 - [CrashReporter](https://github.com/Mogara/CrashReporter)
 
   - [QSanguosha](https://github.com/Mogara/QSanguosha)

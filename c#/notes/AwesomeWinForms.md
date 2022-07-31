@@ -9,20 +9,28 @@ Applications:
 - [BingWallpaper](https://github.com/eaglexiang/BingWallpaper)
 - [BoomPowGui](https://github.com/mrexodia/BoomPowGui)
 - [calctus](https://github.com/shapoco/calctus)
+- [CenterWindows](https://github.com/arthurits/CenterWindows)
 - [clashN](https://github.com/2dust/clashN)
+- [CodeGenerator](https://github.com/yuanrui/CodeGenerator)
 - [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)
 - [Diff.Net](https://github.com/menees/Diff.Net)
   - https://github.com/Dirkster99/AvalonDock/issues/20
 - [DllExport](https://github.com/3F/DllExport)
 - [DualityEditor](https://github.com/AdamsLair/duality/tree/master/Source/Editor/DualityEditor)
+- [EverythingSZ](https://github.com/yuanrui/EverythingSZ)
+- [FlowSharp](https://github.com/cliftonm/FlowSharp)
+- [FreelancerModStudio](https://github.com/DomGries/FreelancerModStudio)
 - [FunUtils](https://github.com/mrexodia/FunUtils)
 - [greenshot](https://github.com/greenshot/greenshot)
 - [HiddenDesktopViewer](https://github.com/AgigoNoTana/HiddenDesktopViewer)
 - [Html2Article](https://github.com/stanzhai/Html2Article)
 - [ImageGlass](https://github.com/d2phap/ImageGlass)
+- [JexusManager](https://github.com/jexuswebserver/JexusManager)
 - [JsonViewer](https://github.com/facebook-csharp-sdk/simple-json/tree/master/src/JsonViewer)
 - [LessMsi](https://github.com/activescott/lessmsi/tree/master/src/LessMsi.Gui)
+- [LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor)
 - [MatterControl](https://github.com/MatterHackers/MatterControl)
+- :star: [MemoryNumbers](https://github.com/arthurits/MemoryNumbers)
 - [mooc-downloader](https://github.com/xixixixixiao/mooc-downloader)
 - [mpv.net](https://github.com/mpvnet-player/mpv.net)
 - [naps2](https://github.com/cyanfish/naps2)
@@ -32,6 +40,7 @@ Applications:
 - [nvidiaProfileInspector](https://github.com/Orbmu2k/nvidiaProfileInspector)
 - [OnTopReplica](https://github.com/LorenzCK/OnTopReplica)
 - [Open Hardware Monitor](https://github.com/openhardwaremonitor/openhardwaremonitor)
+- [PdfiumViewer](https://github.com/pvginkel/PdfiumViewer)
 - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
 - [PNGGauntlet](https://pnggauntlet.com/)
   - [Be Aware of DPI with Image PNGs in WPF - Images Scale Weird or are Blurry](https://www.hanselman.com/blog/be-aware-of-dpi-with-image-pngs-in-wpf-images-scale-weird-or-are-blurry)
@@ -40,14 +49,22 @@ Applications:
 - [Quasar](https://github.com/quasar/Quasar)
 - [SCJMapper-V2](https://github.com/SCToolsfactory/SCJMapper-V2)
 - [Screencast Capture Lite](https://github.com/cesarsouza/screencast-capture)
+- [SendEmail](https://github.com/LiveXY/SendEmail)
 - [Serial-Oscilloscope](https://github.com/xioTechnologies/Serial-Oscilloscope)
 - [Seven Converter](https://github.com/SevenbytesSoftware/SevenConverter)
 - [SharpKeys](https://github.com/randyrants/sharpkeys)
+- [Sheng.Winform.IDE](https://github.com/iccb1013/Sheng.Winform.IDE)
+- [SignalAnalysis](https://github.com/arthurits/SignalAnalysis)
+- [TaskEditor](https://github.com/dahall/TaskScheduler/tree/master/TaskEditor)
 - [v2rayN](https://github.com/2dust/v2rayN)
 - [XboxDownload](https://github.com/skydevil88/XboxDownload)
 - [XmlNotepad](https://github.com/microsoft/XmlNotepad)
 - [YALV](https://github.com/LukePet/YALV)
 - [ZetaResourceEditor](https://github.com/UweKeim/ZetaResourceEditor)
+
+Alternatives:
+
+- [Modern.Forms](https://github.com/modern-forms/Modern.Forms)
 
 Libraries:
 
@@ -60,6 +77,8 @@ Libraries:
 - [AForge.NET](https://github.com/andrewkirillov/AForge.NET)
 
   - [HP PC Hardware Diagnostics Windows](https://support.hp.com/us-en/help/hp-pc-hardware-diagnostics)
+
+- [BindingListView](https://github.com/geomatics-io/BindingListView)
 
 - [BorderlessForm](https://github.com/mganss/BorderlessForm)
 
@@ -132,6 +151,8 @@ Libraries:
 
     - [MaterialSkin](https://github.com/leocb/MaterialSkin)
 
+- [MaterialSkin2DotNet](https://github.com/DigitalAdeel/MaterialSkin2DotNet)
+
 - [MetroFramework](https://github.com/peters/winforms-modernui)
   
   - [metroframework-modern-ui](https://github.com/dennismagno/metroframework-modern-ui)
@@ -141,6 +162,10 @@ Libraries:
 - [NetWinformControl](https://github.com/kwwwvagaa/NetWinformControl)
 
 - [NodeEditorWinforms](https://github.com/komorra/NodeEditorWinforms)
+
+- [ObjectListView](https://objectlistview.sourceforge.net/cs/index.html) - [GitHub clone](https://github.com/geomatics-io/ObjectListView)
+
+  - [FreelancerModStudio](https://github.com/DomGries/FreelancerModStudio)
 
 - [Ookii.Dialogs.WinForms](https://github.com/ookii-dialogs/ookii-dialogs-winforms)
 
@@ -176,6 +201,8 @@ Libraries:
 
   - [AdamsLair.TreeViewAdv](https://www.nuget.org/packages/AdamsLair.TreeViewAdv)
 
+  - [LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor)
+
 - [Vanara](https://github.com/dahall/Vanara/tree/master/Windows.Forms)
 
 - [VistaBridgeLibrary](https://github.com/AdamsLair/duality/blob/master/Source/Editor/DualityEditor/VistaBridgeLibrary.dll)
@@ -193,6 +220,8 @@ Libraries:
 - [WinFormsX](https://github.com/FlorianRappl/WinFormsX)
 
 - [Winotify](https://github.com/MarJose123/Winotify)
+
+- [ZedGraph](https://github.com/ZedGraph/ZedGraph)
 
 Tools:
 

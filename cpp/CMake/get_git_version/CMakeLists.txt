@@ -63,3 +63,4 @@ target_include_directories(
 # > )
 # https://github.com/sccn/liblsl/blob/master/src/buildinfo.cpp
 # https://gitlab.com/wireshark/wireshark/-/blob/master/ws_version.h.in
+# https://github.com/jonls/redshift/blob/master/src/windows/versioninfo.rc

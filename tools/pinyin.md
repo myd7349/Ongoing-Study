@@ -25,3 +25,5 @@ https://github.com/creeperyang/pinyin
 https://github.com/BeyondDimension/SteamTools/blob/develop/src/Common.PinyinLib/Pinyin.cs
 
 https://github.com/zmjack/Chinese
+
+https://github.com/jishipu/Chinese2Pinyin

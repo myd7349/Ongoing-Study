@@ -101,3 +101,7 @@ FineReport
 - [Magicodes.IE](https://github.com/dotnetcore/Magicodes.IE)
 
 - [DevExpress.XtraReports](https://docs.devexpress.com/XtraReports/DevExpress.XtraReports.UI.XtraReport)
+
+- [CodeReason.Reports](https://github.com/jogibear9988/CodeReason.Reports)
+
+- [WPFReports](https://github.com/darthmaure/WPFReports)

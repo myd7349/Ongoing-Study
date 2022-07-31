@@ -4,6 +4,12 @@
 
 > :set ff=unix
 
+### Color Themes
+
+- [everforest](https://github.com/sainnhe/everforest)
+
 ### Tutorials
 
 - [Learn-Vim](https://github.com/iggredible/Learn-Vim)
+
+- [vimllearn](https://github.com/lymslive/vimllearn)

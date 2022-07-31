@@ -4,6 +4,8 @@ Fonts:
 
 - [comic-mono-font](https://github.com/dtinth/comic-mono-font)
 
+- [figtree](https://github.com/erikdkennedy/figtree)
+
 - [FiraCode](https://github.com/tonsky/FiraCode)
 
 - [font-writer](https://github.com/tonsky/font-writer)
@@ -82,6 +84,7 @@ Softwares:
 
 - [Character-Map-UWP](https://github.com/character-map-uwp/Character-Map-UWP)
 - [fontforge](https://github.com/fontforge/fontforge)
+- [gerb](https://github.com/epilys/gerb)
 - [lv_font_conv](https://github.com/lvgl/lv_font_conv)
 - [mactype](https://github.com/snowie2000/mactype)
 - [noMeiryoUI](https://github.com/Tatsu-syo/noMeiryoUI)

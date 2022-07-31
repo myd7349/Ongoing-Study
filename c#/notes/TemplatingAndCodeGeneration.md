@@ -8,6 +8,7 @@
   - [Text Template (.tt file), Define array and iterate through generating method for multiple types](https://stackoverflow.com/questions/56922493/text-template-tt-file-define-array-and-iterate-through-generating-method-for)
   - https://github.com/aybe/BinaryExtensions/blob/develop/BinaryExtensions/BinaryExtensions/EndiannessExtensions.tt
   - https://github.com/Sergio0694/ComputeSharp/blob/main/src/ComputeSharp.Core/Primitives/Bool/Bool2.tt
+  - [CodeGenerator](https://github.com/yuanrui/CodeGenerator)
 
 - [T5](https://github.com/atifaziz/t5)
 

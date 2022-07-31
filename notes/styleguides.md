@@ -67,6 +67,10 @@
   
   - [NYTimes Objective-C Style Guide](https://github.com/NYTimes/objective-c-style-guide)
 
+- PySpark
+
+  - [pyspark-style-guide](https://github.com/palantir/pyspark-style-guide)
+
 - Python
   
   - [Exercises in Programming Style](https://github.com/crista/exercises-in-programming-style)

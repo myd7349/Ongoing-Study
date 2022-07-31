@@ -132,6 +132,8 @@ BOOL HasLastPathSep(const CString &strPath)
 }
 
 // 2015-05-07T09:33+08:00
+// PathAddBackslashA
+// PathCchAddBackslash
 CString AddLastPathSep(const CString &strPath)
 {
     if (!HasLastPathSep(strPath))
@@ -145,6 +147,7 @@ CString AddLastPathSep(const CString &strPath)
 }
 
 // 2015-05-07T09:33+08:00
+// PathCchRemoveBackslash
 CString RemoveLastPathSep(const CString &strPath)
 {
     if (HasLastPathSep(strPath))

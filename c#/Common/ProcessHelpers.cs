@@ -111,3 +111,4 @@ namespace Common
 // https://github.com/microsoft/perfview/blob/main/src/HeapDump/GCHeapDump.cs
 // [Restore application from system tray when clicking on desktop shortcut](https://stackoverflow.com/questions/10529370/restore-application-from-system-tray-when-clicking-on-desktop-shortcut)
 // [Is there any async equivalent of Process.Start?](https://stackoverflow.com/questions/10788982/is-there-any-async-equivalent-of-process-start)
+// https://github.com/PixiEditor/PixiEditor/blob/master/src/PixiEditor/Helpers/ProcessHelper.cs

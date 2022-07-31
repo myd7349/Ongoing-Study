@@ -195,3 +195,6 @@ else
 # https://github.com/BornToBeRoot/NETworkManager/blob/2022.2.22.0/build.ps1
 # https://github.com/stefankueng/grepWin/blob/main/version.build.in
 # https://github.com/stefankueng/grepWin/blob/main/src/last/version.h
+# https://github.com/jonls/redshift/blob/master/src/windows/versioninfo.rc
+# https://github.com/Flow-Launcher/Flow.Launcher/blob/dev/Scripts/post_build.ps1
+# https://github.com/PixiEditor/PixiEditor/blob/master/assemblyVerReader.ps1

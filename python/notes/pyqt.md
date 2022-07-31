@@ -14,9 +14,13 @@ Projects using PyQt:
 
 - [calibre](https://github.com/kovidgoyal/calibre)
 
+- [codeEditor](https://github.com/leixingyu/codeEditor)
+
 - [everpad](https://github.com/nvbn/everpad)
 
 - [FeelUOwn](https://github.com/feeluown/FeelUOwn)
+
+- [GraphDigitizer](https://github.com/hustlei/GraphDigitizer)
 
 - [Groove](https://github.com/zhiyiYo/Groove)
 
@@ -40,6 +44,10 @@ Projects using PyQt:
 
 - [pyfda](https://github.com/chipmuenk/pyfda)
 
+- [QssStylesheetEditor](https://github.com/hustlei/QssStylesheetEditor)
+
+- [qutebrowser](https://github.com/qutebrowser/qutebrowser)
+
 - [screenshot](https://github.com/siukwan/screenshot)
 
 - [spyder](https://github.com/spyder-ide/spyder)
@@ -59,6 +67,10 @@ Libraries:
 - [PyQt-Frameless-Window](https://github.com/zhiyiYo/PyQt-Frameless-Window)
 
 - [QDarkStyleSheet](https://github.com/ColinDuquesnoy/QDarkStyleSheet)
+
+Tools:
+
+- [QssStylesheetEditor](https://github.com/hustlei/QssStylesheetEditor)
 
 Articles:
 

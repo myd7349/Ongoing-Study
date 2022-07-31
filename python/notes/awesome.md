@@ -14,16 +14,20 @@
 - [librosa](https://github.com/librosa/librosa)
   - [LibrosaCpp](https://github.com/ewan-xu/LibrosaCpp)
 - [pedalboard](https://github.com/spotify/pedalboard)
+- [plyer](https://github.com/kivy/plyer)
 - pyaudio
 - [python-mingus](https://github.com/bspaans/python-mingus)
 - [Realtime_PyAudio_FFT](https://github.com/aiXander/Realtime_PyAudio_FFT)
+- [TTS](https://github.com/coqui-ai/TTS)
 
 ### Automation
 
 - [FlaUI](https://github.com/GDATASoftwareAG/robotframework-flaui)
 
 - playwright
-  
+
+  - [deepl-cli](https://github.com/eggplants/deepl-cli)
+
   - [shot-scraper](https://github.com/simonw/shot-scraper)
 
 ### Benchmark
@@ -39,6 +43,8 @@
 - [bleak](https://github.com/hbldh/bleak)
 
   - [PythonCatPrinter](https://github.com/WerWolv/PythonCatPrinter)
+
+- [plyer](https://github.com/kivy/plyer)
 
 ### C Preprocessor
 
@@ -364,6 +370,8 @@
 
 - [scikit-build](https://github.com/scikit-build/scikit-build): Improved build system generator for CPython C, C++, Cython and Fortran extensions.
 
+- [Shiboken](https://github.com/pyside/Shiboken)
+
 - [shedskin](https://github.com/shedskin/shedskin)
 
 - [shiboken2](https://pypi.org/project/shiboken2/)
@@ -462,6 +470,7 @@
 - [h5py](https://github.com/h5py/h5py)
 - pandas.DataFrame
 - [polars](https://github.com/pola-rs/polars)
+- [python-blosc](https://github.com/Blosc/python-blosc)
 - [PyTables](https://github.com/PyTables/PyTables)
 - [sparse](https://github.com/pydata/sparse)
 - [tiledarray](https://github.com/ValeevGroup/tiledarray)
@@ -481,6 +490,8 @@
 - [MechanicalSoup](https://github.com/MechanicalSoup/MechanicalSoup)
 
 - [paramiko](https://github.com/paramiko/paramiko)
+
+- [plyer](https://github.com/kivy/plyer)
 
 - [pooch](https://github.com/fatiando/pooch)
 

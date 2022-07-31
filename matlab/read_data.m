@@ -26,3 +26,4 @@ end
 % https://stackoverflow.com/questions/1897422/how-can-i-display-an-error-message-in-matlab
 % https://stackoverflow.com/questions/849739/how-do-you-get-the-size-of-a-file-in-matlab
 % https://www.mathworks.com/help/matlab/math/removing-rows-or-columns-from-a-matrix.html
+% https://github.com/sccn/eeglab/blob/develop/functions/miscfunc/shortread.m

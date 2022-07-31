@@ -1,0 +1,88 @@
+﻿<Window x:Class="ColorMap.Demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ColorMap.Demo"
+        xmlns:colormap="clr-namespace:ColorMap.WPF;assembly=ColorMap.WPF"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        Title="ColorMap Demo"
+        Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="100" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="30" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <ComboBox ItemsSource="{Binding ColorPalettes}"
+                      SelectedItem="{Binding SelectedColorPalette}" />
+            <xctk:IntegerUpDown Value="{Binding ColorCount}"
+                                Minimum="2"
+                                Maximum="256" />
+        </StackPanel>
+
+        <Rectangle Grid.Column="2"
+                   Fill="{Binding ColorMapBrush}">
+            <Rectangle.LayoutTransform>
+                <RotateTransform Angle="-90" />
+            </Rectangle.LayoutTransform>
+        </Rectangle>
+
+        <!--
+        <colormap:ColorMapControl Grid.Column="4" />
+        -->
+        
+        <!--
+        <Rectangle Grid.Column="4"
+                   Fill="{Binding ColorMapBrush2}"
+                   Width="{Binding Width, Mode=OneWayToSource}"
+                   Height="{Binding Height, Mode=OneWayToSource}">
+            <Rectangle.LayoutTransform>
+                <RotateTransform Angle="-90" />
+            </Rectangle.LayoutTransform>
+        </Rectangle>
+        -->
+
+        <!--
+        <Rectangle Grid.Column="4"
+                   Fill="{Binding ColorMapBrush2}"
+                   ActualWidth="{Binding Width, Mode=OneWayToSource}"
+                   ActualHeight="{Binding Height, Mode=OneWayToSource}">
+            <Rectangle.LayoutTransform>
+                <RotateTransform Angle="-90" />
+            </Rectangle.LayoutTransform>
+        </Rectangle>
+        -->
+
+        <Rectangle x:Name="rectangle_"
+                   Grid.Column="4"
+                   Fill="{Binding ColorMapBrush2}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SizeChanged">
+                    <!--
+                    <i:InvokeCommandAction Command="{Binding UpdateSizeCommand}"
+                                           CommandParameter="{Binding RelativeSource={RelativeSource Self}}" />
+                    -->
+                    <i:InvokeCommandAction Command="{Binding UpdateSizeCommand}"
+                                           CommandParameter="{Binding ElementName=rectangle_}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            
+            <!--
+            <Rectangle.LayoutTransform>
+                <RotateTransform Angle="-90" />
+            </Rectangle.LayoutTransform>
+            -->
+        </Rectangle>
+    </Grid>
+</Window>

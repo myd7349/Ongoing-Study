@@ -25,3 +25,7 @@ https://github.com/rupa/epub
 [eCore](https://www.epubor.com/ecore.html)
 
 [foliate](https://github.com/johnfactotum/foliate)
+
+[EpubViewer](https://github.com/hustlei/EpubViewer)
+
+[QuickLook.Plugin.EpubViewer](https://github.com/QL-Win/QuickLook.Plugin.EpubViewer)

@@ -55,3 +55,7 @@ namespace Common.WPF
         }
     }
 }
+
+
+// References:
+// https://github.com/Flow-Launcher/Flow.Launcher/blob/dev/Flow.Launcher.Infrastructure/UI/EnumBindingSource.cs

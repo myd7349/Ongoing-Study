@@ -12,4 +12,8 @@ Projects that using `NSIS`:
 NSIS Themes:
 * [BiuSetup](https://github.com/Watch-Later/BiuSetup)
 
+Plugins:
+
+* [nsis-plugins](https://github.com/xenoplastic/nsis-plugins)
+
 See Also: [Installation Software](installation.md)

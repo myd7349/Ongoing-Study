@@ -89,3 +89,20 @@ return Interlocked.Increment(ref COUNTER);
 > If you want to avoid writing use compareExchange.
 > 
 > Interlocked.CompareExchange(ref somevariable, somevalue, somevalue);
+
+[How do I atomically swap 2 ints in C#?](https://stackoverflow.com/questions/3855671/how-do-i-atomically-swap-2-ints-in-c)
+
+#### volatile
+
+[When should the volatile keyword be used in C#?](https://stackoverflow.com/questions/72275/when-should-the-volatile-keyword-be-used-in-c)
+
+[Atomicity, volatility and immutability are different, part three](https://ericlippert.com/2011/06/16/atomicity-volatility-and-immutability-are-different-part-three/)
+
+["A reference to a volatile field will not be treated as volatile" implications](https://stackoverflow.com/questions/425132/a-reference-to-a-volatile-field-will-not-be-treated-as-volatile-implications)
+
+```csharp
+volatile int a;
+volatile int b;
+
+SwapHelper.Swap(ref a, ref b);
+```

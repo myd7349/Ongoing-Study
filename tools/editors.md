@@ -48,6 +48,8 @@ Code Editors:
 
 - [ne, the nice editor](https://ne.di.unimi.it/)
 
+- [nedit-ng](https://github.com/eteran/nedit-ng)
+
 - NeoVim
 
 - NotePad++

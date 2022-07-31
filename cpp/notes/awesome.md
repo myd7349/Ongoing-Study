@@ -22,6 +22,8 @@
 
 ### Libraries
 
+- [cpp-utilities](https://github.com/eteran/cpp-utilities)
+
 - [ZenLib](https://github.com/MediaArea/ZenLib)
 
   - [MPC_HC](https://github.com/mpc-hc/mpc-hc)
@@ -37,7 +39,9 @@
 ### Archive
 
 - [7-Zip-zstd](https://github.com/mcmilk/7-Zip-zstd)
+- [bit7z](https://github.com/rikyoz/bit7z)
 - [cpp-zipper](https://github.com/yhirose/cpp-zipper)
+- [easyzip](https://github.com/winsoft666/easyzip)
 - [gztool](https://github.com/circulosmeos/gztool)
 - [parzip](https://github.com/jpakkane/parzip)
 - [POCO/SevenZip](https://github.com/pocoproject/poco/tree/master/SevenZip)
@@ -133,6 +137,7 @@
 - [Argos](https://github.com/jebreimo/Argos)
 - [args-parser](https://github.com/igormironchik/args-parser)
 - [commandline](https://github.com/lionkor/commandline): A C++ commandline for use in servers and chat software. Provides very simple asynchronous input/output.
+- [cpp-cmd](https://github.com/eteran/cpp-cmd)
 - [cpp-terminal](https://github.com/jupyter-xeus/cpp-terminal)
 - [cxxopts](https://github.com/jarro2783/cxxopts)
   - https://github.com/p-ranav/glob/blob/master/standalone/source/main.cpp 
@@ -188,6 +193,7 @@
 
 - [AppConfig](https://github.com/cvsandbox/cam2web/blob/master/src/apps/win/AppConfig.cpp)
 - [cfg](https://github.com/aseprite/aseprite/blob/main/src/cfg/cfg.h)
+- [configor](https://github.com/Nomango/configor)
 - [Configuru](https://github.com/emilk/Configuru)
 - SimpleIni
   - [cfg](https://github.com/aseprite/aseprite/blob/main/src/cfg/cfg.h)
@@ -409,11 +415,15 @@
 
   - [image-compare](https://github.com/zchrissirhcz/image-compare)
 
+  - [L2DFileDialog](https://github.com/Limeoats/L2DFileDialog)
+
   - [remoteimgui](https://github.com/JordiRos/remoteimgui)
 
   - [ShaderPiPFX](https://github.com/DarknessFX/ShaderPiPFX)
 
   - [tracy](https://github.com/wolfpld/tracy)
+
+  - [vengi](https://github.com/mgerhardy/vengi)
 
 - JUCE
 
@@ -435,6 +445,7 @@
 
 ### Hashing
 
+- [cpp-utilities](https://github.com/eteran/cpp-utilities)
 - [SpookyHash](https://burtleburtle.net/bob/hash/spooky.html)
   - [spookyhash](https://github.com/k0dai/spookyhash)
   - https://github.com/tgfrerer/island/blob/v0.4.0/3rdparty/src/spooky/SpookyV2.h
@@ -505,6 +516,8 @@
 
 - [llfio](https://github.com/ned14/llfio)
 
+- [libuiohook](https://github.com/kwhat/libuiohook)
+
 - [mahi-daq](https://github.com/mahilab/mahi-daq)
 
 - [PlatformFolders](https://github.com/sago007/PlatformFolders)
@@ -517,7 +530,17 @@
   
   - [libwatchman](https://github.com/twitter/libwatchman)
 
+##### JSON
+
+- [cpp-json](https://github.com/eteran/cpp-json)
+
+##### Logging
+
+- [cpp-utilities](https://github.com/eteran/cpp-utilities)
+
 ##### Math
+
+- [calculator](https://github.com/kimwalisch/calculator)
 
 - [exprtk](https://github.com/ArashPartow/exprtk)
 
@@ -548,6 +571,10 @@
 ### IPC
 
 - [AsyncIPC](https://github.com/JelinYao/AsyncIPC)
+
+- [cpp-ipc](https://github.com/mutouyun/cpp-ipc)
+
+- [ipc-bench](https://github.com/goldsborough/ipc-bench)
 
 - [Notepad2e/src/Extension/IPC](https://github.com/ProgerXP/Notepad2e/tree/master/src/Extension/IPC)
 
@@ -586,6 +613,8 @@
 - [jwt-cpp](https://github.com/Thalhammer/jwt-cpp)
 
 - [QtJsonSchema](https://github.com/yznpku/QtJsonSchema)
+
+- [SimpleJSON](https://github.com/nbsdx/SimpleJSON)
 
 - [VaRest](https://github.com/ufna/VaRest)
 
@@ -743,7 +772,13 @@
 
 - [tracey](https://github.com/r-lyeh-archived/tracey)
 
+### Mouse & Keyboard
+
+- [libuiohook](https://github.com/kwhat/libuiohook)
+
 ### Multimedia
+
+- [ffmpeg-cpp](https://github.com/Raveler/ffmpeg-cpp)
 
 ##### Video
 
@@ -770,6 +805,8 @@
 - cURL
 
   - [Aseprite Network Library](https://github.com/aseprite/aseprite/tree/main/src/net)
+
+  - [teemo](https://github.com/winsoft666/teemo)
 
 - [fibre](https://github.com/samuelsadok/fibre)
 
@@ -808,6 +845,8 @@
 - [SFML/Network](https://github.com/SFML/SFML/tree/master/src/SFML/Network)
 
 - [tcpshm](https://github.com/MengRao/tcpshm)
+
+- [teemo](https://github.com/winsoft666/teemo)
 
 - [uWebSockets](https://github.com/uNetworking/uWebSockets)
 
@@ -945,12 +984,16 @@
 
 - [str](https://github.com/ocornut/str)
 
+- [strenc](https://github.com/winsoft666/strenc)
+
 ### Templating
 
 - [kiss-templates](https://github.com/rbock/kiss-templates)
 - [Mustache](https://github.com/kainjow/Mustache)
 
 ### Tensor
+
+- [c-blosc2](https://github.com/Blosc/c-blosc2)
 
 - [cudf](https://github.com/rapidsai/cudf)
 
@@ -962,6 +1005,7 @@
 
 - [Boost.nowide](https://github.com/boostorg/nowide)
 - [cpp-unicodelib](https://github.com/yhirose/cpp-unicodelib)
+- [utf-converter](https://github.com/eteran/utf-converter)
 - [utfcpp](https://github.com/nemtrif/utfcpp)
   - [sioyek](https://github.com/ahrm/sioyek)
 

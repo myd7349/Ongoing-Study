@@ -23,6 +23,7 @@
 * [plot-sdl](https://github.com/bertrandmartel/plot-sdl)
 * [astra-toolbox](https://github.com/astra-toolbox/astra-toolbox)
 * [pyuvc](https://github.com/pupil-labs/pyuvc)
+* [python-qsoptex](https://github.com/jonls/python-qsoptex)
 
 ### Tools
 

@@ -205,6 +205,28 @@
             return strings;
         }
 #endif
+
+        public static string RemoveChars(this string s, params char[] chars)
+        {
+            if (s == null)
+                throw new ArgumentNullException(nameof(s));
+
+            foreach (var c in chars)
+                s = s.Replace(c.ToString(), string.Empty);
+
+            return s;
+        }
+
+        public static string RemoveChars(this string s, params string[] chars)
+        {
+            if (s == null)
+                throw new ArgumentNullException(nameof(s));
+
+            foreach (var c in chars)
+                s = s.Replace(c, string.Empty);
+
+            return s;
+        }
     }
 }
 
@@ -218,3 +240,5 @@
 // https://github.com/ChangemakerStudios/Papercut-SMTP/blob/develop/src/Papercut.Common/Helper/StringHelpers.cs
 // [Most efficient way to remove special characters from string](https://stackoverflow.com/questions/1120198/most-efficient-way-to-remove-special-characters-from-string)
 // https://github.com/Tyrrrz/Extensions/blob/master/Tyrrrz.Extensions/StringExtensions.cs
+// [Remove characters from C# string](https://stackoverflow.com/questions/7411438/remove-characters-from-c-sharp-string)
+// [How to: Strip Invalid Characters from a String](https://learn.microsoft.com/en-us/dotnet/standard/base-types/how-to-strip-invalid-characters-from-a-string)

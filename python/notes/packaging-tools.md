@@ -120,3 +120,9 @@ micromamba
 DIY:
 
 [BrainVision LSL Viewer](https://pressrelease.brainproducts.com/lsl-viewer/)
+
+[QssStylesheetEditor](https://github.com/hustlei/QssStylesheetEditor): Release files.
+
+codon:
+
+https://github.com/exaloop/codon

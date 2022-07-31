@@ -19,3 +19,7 @@ Tools:
 https://jonskeet.uk/csharp/DoubleConverter.cs
 
 [numpy_half](https://github.com/mwiebe/numpy_half): Half-precision floating point for NumPy
+
+https://github.com/astojanov/Clover
+
+https://github.com/10110111/gdtoa-desktop

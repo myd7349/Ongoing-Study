@@ -6,6 +6,8 @@ https://github.com/confluentinc/bincover
 
 https://github.com/ibireme/yyjson
 
+https://github.com/planetarium/libplanet
+
 ##### coveralls
 
 https://coveralls.io/

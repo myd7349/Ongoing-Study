@@ -84,3 +84,5 @@ namespace Common.WPF.Imaging
 // [Load a WPF BitmapImage from a System.Drawing.Bitmap](https://stackoverflow.com/questions/94456/load-a-wpf-bitmapimage-from-a-system-drawing-bitmap)
 // [Convert ImageSource to BitmapImage - WPF](https://stackoverflow.com/questions/920517/convert-imagesource-to-bitmapimage-wpf)
 // [How to display Windows Metafile?](https://stackoverflow.com/questions/10147293/how-to-display-windows-metafile)
+// https://github.com/ScottPlot/ScottPlot/blob/main/src/ScottPlot4/ScottPlot.WPF/WpfPlot.xaml.cs
+// > BitmapImage BmpImageFromBmp(System.Drawing.Bitmap bmp)

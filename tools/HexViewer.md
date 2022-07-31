@@ -2,6 +2,8 @@
 
 https://github.com/sharkdp/hexyl
 
+https://github.com/Simsys/qhexedit2
+
 https://github.com/horsicq/QHexView
 
 https://github.com/Dax89/QHexView
@@ -76,3 +78,7 @@ https://github.com/angelsix/youtube/tree/develop/FileFormats/BinaryViewer
 https://github.com/ocornut/imgui_club
 
 https://github.com/drewnoakes/hex-dump
+
+https://github.com/chcg/NPP_HexEdit
+
+https://github.com/dnSpy/dnSpy#hex-editor

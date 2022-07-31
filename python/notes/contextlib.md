@@ -40,3 +40,5 @@ def _auto_close(fid):
 ```
 
 [Redirecting stdout to "nothing" in python](https://stackoverflow.com/questions/6735917/redirecting-stdout-to-nothing-in-python)
+
+[python 'with' statement, should I use contextlib.closing?](https://stackoverflow.com/questions/20793283/python-with-statement-should-i-use-contextlib-closing)

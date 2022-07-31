@@ -15,7 +15,7 @@ DEFAULT_USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKi
 def fetch_page(url, encoding='utf-8'):
     request = urllib.request.Request(url, headers={'User-Agent': DEFAULT_USER_AGENT})
     response = urllib.request.urlopen(request)
-    
+
     if encoding:
         charset = response.headers.get_content_charset(failobj = encoding)
         for line in response:
@@ -31,8 +31,8 @@ def fetch_page_contents(url, encoding='utf-8'):
 def iurl(page_contents):
     pq = pyquery.PyQuery(page_contents)
     yield from (url.attrib.get('href') for url in pq('a') if url.attrib.get('href'))
-        
-        
+
+
 # References:
 # https://stackoverflow.com/questions/9535732/how-to-extract-all-the-urls-from-a-website
 # http://pyquery.readthedocs.io/en/latest/

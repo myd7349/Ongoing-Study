@@ -32,6 +32,7 @@
 - Photopea
 - [pineapple-pictures](https://github.com/BLumia/pineapple-pictures)
 - [Pinta](https://github.com/PintaProject/Pinta)
+- [PixiEditor](https://github.com/PixiEditor/PixiEditor)
 - [PNGOUT](https://en.wikipedia.org/wiki/PNGOUT)
   - [Be Aware of DPI with Image PNGs in WPF - Images Scale Weird or are Blurry](https://www.hanselman.com/blog/be-aware-of-dpi-with-image-pngs-in-wpf-images-scale-weird-or-are-blurry)
     - [PNGGauntlet](https://pnggauntlet.com/)
@@ -43,6 +44,7 @@
 - [tifig](https://github.com/monostream/tifig)
 - [tldraw](https://github.com/tldraw/tldraw)
 - [uPic](https://github.com/gee1k/uPic/tree/master/uPic)
+- [vengi](https://github.com/mgerhardy/vengi)
 - [VTracer](https://github.com/visioncortex/vtracer)
 - [XnView](http://justsolve.archiveteam.org/wiki/XnView) - [website](https://www.xnview.com/en/)
 
@@ -57,6 +59,8 @@ Image Searching
 QR Code
 
 - [CodeScanner](https://github.com/twostraws/CodeScanner)
+
+- [node-qrcode](https://github.com/soldair/node-qrcode)
 
 - [qcode-decoder](https://github.com/cirocosta/qcode-decoder) - [website](https://research.swtch.com/qart) - [code](https://github.com/rsc/qr/tree/master/qart)
 

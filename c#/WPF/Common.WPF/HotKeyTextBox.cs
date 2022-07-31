@@ -143,3 +143,9 @@ namespace Common.WPF
         }
     }
 }
+
+
+// References:
+// https://github.com/PixiEditor/PixiEditor/blob/master/src/PixiEditor/Views/UserControls/ShortcutBox.cs
+// https://github.com/PixiEditor/PixiEditor/blob/master/src/PixiEditor/Views/UserControls/KeyCombinationBox.xaml
+// https://github.com/Flow-Launcher/Flow.Launcher/blob/dev/Flow.Launcher/HotkeyControl.xaml

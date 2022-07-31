@@ -35,3 +35,7 @@ https://biosig.sourceforge.net/index.html
 https://github.com/rncarpio/linterp
 
 https://github.com/rej55/MEXCUDA_Example
+
+https://github.com/donnchadh/biosig/blob/master/biosig4c%2B%2B/doc/mexSLOAD.1
+
+https://eeglab.org/tutorials/04_Import/Importing_Continuous_and_Epoched_Data.html#data-import-plugins-and-custom-import

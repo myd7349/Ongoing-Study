@@ -434,3 +434,7 @@ https://github.com/mono/SkiaSharp/issues/1914
 ### NativeLibraryLoader
 
 https://github.com/mellinoe/nativelibraryloader
+
+### DependencySharp
+
+https://github.com/evanwon/dependencysharp

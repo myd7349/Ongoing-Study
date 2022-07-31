@@ -54,3 +54,6 @@
 - [win32-screencapture](https://github.com/reterVision/win32-screencapture)
 - [Quicker](https://getquicker.net/)
 - [TimelapseFX](https://github.com/DarknessFX/TimelapseFX)
+- [Gif123](https://gif123.aardio.com/) - [gif123](https://github.com/aardio/gif123)
+- QuickTime
+- [deepin-screenshot](https://github.com/martyr-deepin/deepin-screenshot)

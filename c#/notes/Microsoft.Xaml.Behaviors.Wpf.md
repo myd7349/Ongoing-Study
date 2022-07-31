@@ -40,3 +40,9 @@ EventTrigger:
 Triggers:
 
 - [MVVM pattern and dialogs](https://www.plainionist.net/Mvvm-Dialogs/)
+
+ClearFocusOnClickBehavior:
+
+- https://github.com/PixiEditor/PixiEditor/blob/master/src/PixiEditor/Views/Dialogs/SettingsWindow.xaml
+
+- [WPF - Remove focus when clicking outside of a textbox](https://stackoverflow.com/questions/6489032/wpf-remove-focus-when-clicking-outside-of-a-textbox)

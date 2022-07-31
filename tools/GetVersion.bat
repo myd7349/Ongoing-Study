@@ -57,3 +57,4 @@ if "%1" == "csharp" (
 :: https://github.com/veler/clipboardzanager
 :: https://github.com/stefankueng/grepWin/blob/main/version.build.in
 :: https://github.com/stefankueng/grepWin/blob/main/src/last/version.h
+:: https://github.com/jonls/redshift/blob/master/src/windows/versioninfo.rc

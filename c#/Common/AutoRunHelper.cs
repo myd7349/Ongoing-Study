@@ -38,3 +38,4 @@ namespace Common
 // > Login to admin account and add Snipaste.exe to startup using Nirsoft.net (free) "WhatInStartup" http://www.nirsoft.net/utils/what_run_in_startup.html ...
 // > You can add items with "WhatInStartup"
 // https://www.nirsoft.net/utils/what_run_in_startup.html
+// https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/blob/master/LibreHardwareMonitor/UI/StartupManager.cs

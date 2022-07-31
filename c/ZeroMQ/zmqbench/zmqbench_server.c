@@ -152,3 +152,4 @@ int main()
 // References:
 // https://github.com/nanomsg/nng/issues/560
 // https://github.com/zeromq/cppzmq/issues/47
+// https://github.com/goldsborough/ipc-bench

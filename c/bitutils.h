@@ -97,3 +97,7 @@
 // toggle every bit of x
 // x = ~x;
 // https://github.com/OpenGenus/cosmos/tree/master/code/bit_manipulation
+// [Sign extend a nine-bit number in C](https://stackoverflow.com/questions/5814072/sign-extend-a-nine-bit-number-in-c)
+// https://graphics.stanford.edu/~seander/bithacks.html#FixedSignExtend
+// http://www.c-jump.com/CIS77/CPU/Numbers/U77_0160_sign_extension.htm
+// [Bit Padding (C)](https://stackoverflow.com/questions/42910368/bit-padding-c)

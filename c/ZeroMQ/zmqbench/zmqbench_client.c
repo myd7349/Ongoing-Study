@@ -180,3 +180,4 @@ int main(int argc, char *argv[])
 // https://www.cnblogs.com/fullsail/p/4285215.html
 // https://github.com/nanomsg/nng/issues/560
 // https://github.com/zeromq/cppzmq/issues/47
+// https://github.com/goldsborough/ipc-bench

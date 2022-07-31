@@ -12,6 +12,8 @@ Projects using MFC:
 
 - [MPC-HC](https://github.com/mpc-hc/mpc-hc)
 
+- [refFoxuc](https://github.com/yueguanyu/refFoxuc)
+
 - [TortoiseGit](https://github.com/TortoiseGit/TortoiseGit)
 
 - [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)

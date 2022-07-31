@@ -8,6 +8,14 @@
 
 * <a href="http://tango.freedesktop.org/Tango_Desktop_Project">Tango Project</a> - ICONs used in wxMaxima.
 
+  * [Tango icons](https://commons.wikimedia.org/wiki/Tango_icons)
+
+    * [JexusManager](https://github.com/jexuswebserver/JexusManager)
+
+  * [Tango MIME Icons](https://www.deviantart.com/8666/art/Tango-MIME-Icons-114829865)
+
+    * [JexusManager](https://github.com/jexuswebserver/JexusManager)
+
 * <a href="https://sourceforge.net/projects/openiconlibrary/">Open Icon Library</a>
 
 * <a href="https://sourceforge.net/projects/toolbaricons/">Toolbar Icons</a>
@@ -108,6 +116,8 @@
 
 * [icons8](https://icons8.com/)
 
+  - [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
+
 Softwares
 
 - [fontforge](https://github.com/fontforge/fontforge)
@@ -121,5 +131,7 @@ Softwares
 - IconWorkshop
 
 - [PyIcoMaker](https://github.com/ar1st0crat/PyIcoMaker)
+
+- [svgo](https://github.com/svg/svgo)
 
 - [IconScout](https://iconscout.com/desktop/for-windows)

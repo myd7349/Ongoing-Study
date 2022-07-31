@@ -25,3 +25,5 @@ https://github.com/shidenggui/pit/blob/main/git-objects.py
 [C-like structures in Python](https://stackoverflow.com/questions/35988/c-like-structures-in-python)
 
 https://github.com/scipy/scipy/blob/main/scipy/spatial/distance.py
+
+https://github.com/mne-tools/mne-python/blob/v1.1.0/mne/channels/montage.py#L15

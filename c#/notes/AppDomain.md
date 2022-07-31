@@ -122,3 +122,5 @@ public static Assembly LoadAssembly(string assemblyPath)
 https://github.com/slmjy/PrettyBin
 
 https://github.com/nulastudio/NetBeauty2
+
+See also [System.Runtime.Loader](System.Runtime.Loader.md).

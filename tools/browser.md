@@ -4,6 +4,7 @@
 - Chromium
 - Firefox
 - Microsoft Edge
+- [qutebrowser](https://github.com/qutebrowser/qutebrowser)
 - [vise](https://github.com/kovidgoyal/vise)
 - Vivaldi
 

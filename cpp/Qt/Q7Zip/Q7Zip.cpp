@@ -976,6 +976,7 @@ void Q7Zip::operation_slot_extract(const QString archive_name, const QString out
 // https://sourceforge.net/p/sevenzip/discussion/45798/thread/0499591f/
 // https://github.com/pocoproject/poco/blob/master/SevenZip/include/Poco/SevenZip/Archive.h
 // https://github.com/horsicq/XArchive
+// [bit7z](https://github.com/rikyoz/bit7z)
 /*
 ————————————————
 版权声明：本文为CSDN博主「AsukaV_V」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。

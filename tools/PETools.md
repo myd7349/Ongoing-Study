@@ -37,6 +37,10 @@
 
   - https://github.com/caj2pdf/caj-convert/issues/1#issuecomment-881995683
 
+- eXeScope
+
+  - [汉化 foobar2000 的一种方案](https://www.fournoas.com/posts/a-way-to-localize-foobar2000/)
+
 - [Explorer Suite](https://ntcore.com/?page_id=388)
   
   - [CFF Explorer](https://github.com/cybertechniques/site/blob/master/analysis_tools/cff-explorer/index.md) - [Video](https://www.youtube.com/watch?v=9Hyg3_WE9Ks)
@@ -48,6 +52,8 @@
 - [NSubsys](https://github.com/jmacato/NSubsys)
 
   - [dotnet core 通过修改文件头的方式隐藏控制台窗口](https://blog.lindexi.com/post/dotnet-core-%E9%80%9A%E8%BF%87%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%A4%B4%E7%9A%84%E6%96%B9%E5%BC%8F%E9%9A%90%E8%97%8F%E6%8E%A7%E5%88%B6%E5%8F%B0%E7%AA%97%E5%8F%A3.html)
+
+- [pe2pic](https://github.com/hasherezade/pe2pic)
 
 - [pecheck.py](https://blog.didierstevens.com/2018/06/12/update-pecheck-py-version-0-7-3/)
   
@@ -116,6 +122,10 @@
   - https://github.com/OH1TR/WinApiMapper
 
 - [Wumpbin](https://www.benf.org/other/wumpbin/index.html)
+
+- [Microsoft.DiaSymReader.Native](https://www.nuget.org/packages/Microsoft.DiaSymReader.Native)
+
+  - [dnSpy](https://github.com/dnSpy/dnSpy)
 
 ### ELF Tools
 
@@ -206,11 +216,16 @@
 - [dll.hpp](https://github.com/WerWolv/ILInterpreter/blob/master/include/dll.hpp)
 - [LIEF](https://github.com/lief-project/LIEF)
 - [pe-parse](https://github.com/trailofbits/pe-parse)
+- https://github.com/x64dbg/GleeBug/blob/vs2015/GleeBug/Static.Pe.h
 
 ### Python Libraries
 
 - [pdbparse](https://github.com/moyix/pdbparse)
+
 - [pefile](https://github.com/erocarrera/pefile)
+
+  - [pe2pic](https://github.com/hasherezade/pe2pic)
+
   - [Qiew](https://github.com/mtivadar/qiew)
 
 ### DLL Tools

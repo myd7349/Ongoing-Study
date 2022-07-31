@@ -36,6 +36,10 @@ Applications:
 
 - [ClipboardViewer](https://github.com/walterlv/ClipboardViewer)
 
+- [CodeReason.Reports](https://github.com/jogibear9988/CodeReason.Reports)
+
+- [ConfuserEx](https://github.com/yck1509/ConfuserEx)
+
 - [ConvertZZ](https://github.com/flier268/ConvertZZ)
 
 - [Core2D](https://github.com/wieslawsoltes/Core2D)
@@ -43,6 +47,8 @@ Applications:
 - [CsvTextEditor](https://github.com/WildGums/CsvTextEditor)
 
 - [CyclopsChat](https://github.com/ForNeVeR/CyclopsChat)
+
+- [DiagrammDesigner](https://github.com/jogibear9988/DiagrammDesigner)
 
 - [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter)
 
@@ -70,13 +76,21 @@ Applications:
 
 - [encryption_code_book](https://github.com/lindexi/encryption_code_book)
 
+- [EpubViewer](https://github.com/hustlei/EpubViewer)
+
+- [FamilyShow](https://github.com/fredatgithub/FamilyShow)
+
 - [FanControl](https://github.com/Rem0o/FanControl.Releases)
 
 - [fasetto-word](https://github.com/angelsix/fasetto-word)
 
 - [Files](https://github.com/files-community/Files)
 
+- [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
+
 - [FontLink-GUI](https://github.com/VaslD/FontLink-GUI)
+
+- [Fork.dev](https://fork.dev/)
 
 - [GeometryToolDemo](https://github.com/dotnet-campus/GeometryToolDemo)
 
@@ -117,6 +131,8 @@ Applications:
 - [NWaves.Blueprints](https://github.com/ar1st0crat/NWaves.Blueprints)
 
 - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
+
+- [PdfiumViewer](https://github.com/pvginkel/PdfiumViewer)
 
 - [perfview](https://github.com/microsoft/perfview)
 
@@ -208,6 +224,10 @@ Applications:
 
 - [WpfModernWinver](https://github.com/torchgm/WpfModernWinver)
 
+- [WPFPathDesigner](https://github.com/darthmaure/WPFPathDesigner)
+
+- [WPFReports](https://github.com/darthmaure/WPFReports)
+
 - [WPFTodoList](https://github.com/Tosker/WPFTodoList)
 
 - [WpfViewChanger](https://github.com/Tosker/WpfViewChanger)
@@ -254,11 +274,15 @@ Libraries:
 
   - [Gemini](https://github.com/tgjones/gemini)
 
+  - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
+
   - [Recommendations on a WPF Docking Library](https://stackoverflow.com/questions/344205/recommendations-on-a-wpf-docking-library)
 
 - [AvalonEdit](https://github.com/icsharpcode/AvalonEdit)
 
   - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
+
+  - [ShowMeTheXAML](https://github.com/Keboo/ShowMeTheXAML)
 
   - [SkiaSharpFiddle](https://github.com/mattleibow/SkiaSharpFiddle)
 
@@ -288,6 +312,8 @@ Libraries:
   
   - DeepL Translate App for Windows
 
+- [CodeReason.Reports](https://github.com/jogibear9988/CodeReason.Reports)
+
 - Color Picker Dialog
 
   - https://github.com/PropertyTools/PropertyTools/tree/develop/Source/PropertyTools.Wpf/Controls/ColorPicker
@@ -303,6 +329,7 @@ Libraries:
   - [ColorPicker](https://github.com/PixiEditor/ColorPicker) - [NuGet](https://www.nuget.org/packages/PixiEditor.ColorPicker)
 
     - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
+
   - https://github.com/sonicrang/RangPaint/tree/master/ColorPicker
 
   - [Definitive Guide to WPF Colors, Color Spaces, Color Pickers and Creating Your Own Colors for Mere Mortals](https://www.codeproject.com/Articles/5296124/Definitive-Guide-to-WPF-Colors-Color-Spaces-Color)
@@ -325,6 +352,8 @@ Libraries:
 - [DataGridExtensions](https://github.com/dotnet/DataGridExtensions)
 
 - [DataGridFilter](https://github.com/macgile/DataGridFilter)
+
+- [DiagrammDesigner](https://github.com/jogibear9988/DiagrammDesigner)
 
 - [Dirkster fsc](https://github.com/Dirkster99/fsc)
 
@@ -442,6 +471,12 @@ Libraries:
   
   - [LittleBigMouse](https://github.com/mgth/LittleBigMouse)
 
+- [ICSharpCode.TreeView](https://github.com/dnSpy/ICSharpCode.TreeView)
+
+  - [CodeReason.Reports](https://github.com/jogibear9988/CodeReason.Reports)
+
+  - [dnSpy](https://github.com/dnSpy/dnSpy)
+
 - Infragistics Ultimate UI for WPF
 
   - [wpf-samples](https://github.com/Infragistics/wpf-samples)
@@ -506,6 +541,10 @@ Libraries:
 
 - [MicaWPF](https://github.com/Simnico99/MicaWPF)
 
+- [Microsoft.Toolkit.Uwp.Notifications](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications)
+
+  - [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
+
 - Microsoft.Web.WebView2.Wpf
 
   - [HP PC Hardware Diagnostic Tools](https://support.hp.com/us-en/help/hp-pc-hardware-diagnostics)
@@ -516,8 +555,13 @@ Libraries:
 
   - [LightBulb](https://github.com/Tyrrrz/LightBulb)
 
+  - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
+
+- [ModernCharts](https://github.com/darthmaure/ModernCharts)
+
 - [ModernWpf](https://github.com/Kinnara/ModernWpf)
-  
+
+  - [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
   - PowerToys
 
@@ -567,6 +611,8 @@ Libraries:
 
 - [NumericUpDownLib](https://github.com/Dirkster99/NumericUpDownLib)
 
+- [OdysseyWPF](https://github.com/jogibear9988/OdysseyWPF)
+
 - [Ookii.Dialogs.Wpf](https://github.com/ookii-dialogs/ookii-dialogs-wpf)
 
   - dnSpy
@@ -592,6 +638,8 @@ Libraries:
   - [WTS.WPF.Prism.GeneratedApps](https://github.com/mvegaca/WTS.WPF.Prism.GeneratedApps)
 
 - [PropertyTools](https://github.com/PropertyTools/PropertyTools)
+
+- [PropertyTools.Magic](https://github.com/vblegend/PropertyTools.Magic)
 
 - [QuickConverter](https://github.com/JohannesMoersch/QuickConverter)
 
@@ -627,6 +675,8 @@ Libraries:
 
 - [SimpleWPF](https://github.com/Joben28/SimpleWPF)
 
+- [SlGanttChart](https://github.com/jogibear9988/SlGanttChart)
+
 - [SpicyTaco.AutoGrid](https://github.com/SpicyTaco/SpicyTaco.AutoGrid)
 
 - [Stylet](https://github.com/canton7/Stylet)
@@ -638,6 +688,8 @@ Libraries:
 - [Syncfusion WPF controls](https://www.syncfusion.com/wpf-controls)
   
   - https://github.com/syncfusion/wpf-demos
+
+  - [QuickLook.Plugin.OfficeViewer](https://github.com/QL-Win/QuickLook.Plugin.OfficeViewer)
 
 - [SVGImage](https://github.com/dotnetprojects/SVGImage)
 
@@ -675,6 +727,10 @@ Libraries:
 
   - [TailBlazer](https://github.com/RolandPheasant/TailBlazer)
 
+- [VirtualizingWrapPanel](https://github.com/sbaeumlisberger/VirtualizingWrapPanel)
+
+  - [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
+
 - [WAF](https://github.com/jbe2277/waf)
   
   - [Firing a double click event from a WPF ListView item using MVVM](https://stackoverflow.com/questions/1035023/firing-a-double-click-event-from-a-wpf-listview-item-using-mvvm)
@@ -699,9 +755,13 @@ Libraries:
 
   - [用WPF实现“等待”小转盘](https://www.cnblogs.com/guogangj/archive/2013/03/02/2938971.html)
 
+  - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
+
 - [WPFConverters](https://github.com/kentcb/WPFConverters)
 
   - [How to bind int to Visibility in WPF?](https://stackoverflow.com/questions/43434387/how-to-bind-int-to-visibility-in-wpf)
+
+- [WPFCustomMessageBox](https://github.com/evanwon/WPFCustomMessageBox)
 
 - [WPFDarkTheme](https://github.com/AngryCarrot789/WPFDarkTheme)
 
@@ -735,6 +795,8 @@ Libraries:
 
 - [wpf-waveform](https://github.com/markheath/wpf-waveform)
 
+- [WPFReports](https://github.com/darthmaure/WPFReports)
+
 - [wpfshapes](https://github.com/markheath/wpfshapes)
 
 - [WPFSpark](https://github.com/ratishphilip/wpfspark)
@@ -747,6 +809,8 @@ Libraries:
   
   - [What is the best way to make a wizard using native WPF controls](https://stackoverflow.com/questions/17418455/what-is-the-best-way-to-make-a-wizard-using-native-wpf-controls)
 
+  - [EpubViewer](https://github.com/hustlei/EpubViewer)
+
   - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics) 
 
   - [WPF DatePicker to show the time as well as the date](https://stackoverflow.com/questions/25764111/wpf-datepicker-to-show-the-time-as-well-as-the-date)
@@ -754,6 +818,10 @@ Libraries:
 - [WPF UI](https://github.com/lepoco/wpfui)
 
 - [WpfUtils](https://github.com/anakic/WpfUtils)
+
+- [WriteableBitmapEx](https://github.com/reneschulte/WriteableBitmapEx)
+
+  - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
 
 - [XAML SDK](https://github.com/telerik/xaml-sdk)
 
@@ -787,6 +855,8 @@ Tools:
 
 - [Rapid-XAML-Toolkit](https://github.com/mrlacey/Rapid-XAML-Toolkit)
 
+- [ShowMeTheXAML](https://github.com/Keboo/ShowMeTheXAML)
+
 - [Snoop](https://github.com/snoopwpf/snoopwpf): The WPF Spy Utility
 
   - [Want a tool to visualize XAML hierarchy, tried XAMLPadX had problems](https://stackoverflow.com/questions/11782372/want-a-tool-to-visualize-xaml-hierarchy-tried-xamlpadx-had-problems)
@@ -812,6 +882,8 @@ Tools:
 - [XamlStyler](https://github.com/Xavalon/XamlStyler)
 
   - [Graph-Controls](https://github.com/CommunityToolkit/Graph-Controls/pull/181)
+
+- [XAMLTest](https://github.com/Keboo/XAMLTest)
 
 - [XAMLTools](https://github.com/batzen/XAMLTools)
 

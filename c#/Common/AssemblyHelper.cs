@@ -24,3 +24,4 @@
 
 // References:
 // https://github.com/mattleibow/SkiaSharpFiddle/blob/master/SkiaSharpFiddle/ViewModels/MainViewModel.cs
+// https://github.com/PixiEditor/PixiEditor/blob/master/src/PixiEditor/Helpers/VersionHelpers.cs

@@ -267,3 +267,4 @@ std::string ws2s(const std::wstring &str)
 // https://github.com/abseil/abseil-cpp/blob/master/absl/strings/substitute.h
 // https://github.com/abseil/abseil-cpp/blob/master/absl/strings/str_replace.h
 // https://github.com/dwight/bsontools/blob/master/src/util/str.h
+// https://github.com/eteran/cpp-cmd

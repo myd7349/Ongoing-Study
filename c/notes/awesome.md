@@ -12,6 +12,8 @@
 
 - [bled](https://github.com/pbatard/bled)
 
+- [bundle](https://github.com/r-lyeh-archived/bundle)
+
 - [easylzma](https://github.com/lloyd/easylzma)
 
 - [enchive](https://github.com/skeeto/enchive)
@@ -78,6 +80,8 @@
 
 - [buffet](https://github.com/alcover/buffet)
 
+- [c-vector](https://github.com/eteran/c-vector)
+
 - [circleq](https://github.com/pavelxdd/circleq)
 
 - [cwisstable](https://github.com/google/cwisstable)
@@ -87,6 +91,8 @@
 - [hashmap.c](https://github.com/tidwall/hashmap.c)
 
 - [hashmap.h](https://github.com/sheredom/hashmap.h)
+
+- [libhl](https://github.com/xant/libhl)
 
 - [mlib](https://github.com/P-p-H-d/mlib)
 
@@ -162,6 +168,12 @@
   - [spuc_filter](https://github.com/audiofilter/spuc_filter)
   
 - [spuce](https://github.com/audiofilter/spuce)
+
+### File Formats
+
+##### .lnk
+
+- [liblnk](https://github.com/libyal/liblnk)
 
 ### Functional Programming
 
@@ -262,6 +274,10 @@
 ### IoT
 
 - [esp-idf](https://github.com/espressif/esp-idf)
+
+### IPC
+
+- [ipc-bench](https://github.com/goldsborough/ipc-bench)
 
 ### Language Interoperability
 
@@ -391,6 +407,8 @@
 - [CUnit](http://cunit.sourceforge.net/)
   
   - [xquic](https://github.com/alibaba/xquic)
+
+- [LTEST](https://github.com/randrew/layout/blob/master/test_layout.c)
 
 - [Temper](https://github.com/dangmoody/Temper)
 

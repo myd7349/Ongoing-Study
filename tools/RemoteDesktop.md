@@ -12,3 +12,4 @@
 * [SuperRDP](https://github.com/anhkgg/SuperRDP)
 * [xpra](https://github.com/Xpra-org/xpra)
 * [Quasar](https://github.com/quasar/Quasar)
+* FreeRDP

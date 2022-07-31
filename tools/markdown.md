@@ -50,6 +50,8 @@ Softwares:
 
 - [Obsidian](https://obsidian.md/)
 
+- [QOwnNotes](https://github.com/pbek/QOwnNotes)
+
 - [turndown](https://github.com/mixmark-io/turndown)
 
 - [MarkdownViewerPlusPlus](https://github.com/nea/MarkdownViewerPlusPlus)
@@ -95,6 +97,8 @@ Libraries:
 - [reversemarkdown](https://github.com/mysticmind/reversemarkdown-net)
 
   - [MarkdownMonster](https://github.com/RickStrahl/MarkdownMonster)
+
+- [texme](https://github.com/susam/texme)
 
 Tools:
 

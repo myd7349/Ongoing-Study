@@ -68,3 +68,10 @@ public class TypeModel : IEquatable<TypeModel>
 }
 ```
 
+[Best way to compare two complex objects](https://stackoverflow.com/questions/10454519/best-way-to-compare-two-complex-objects)
+
+[How to compare two objects (testing for equality) in C#](https://grantwinney.com/how-to-compare-two-objects-testing-for-equality-in-c/)
+
+[c# compare two generic values](https://stackoverflow.com/questions/488250/c-sharp-compare-two-generic-values)
+
+[Can't operator == be applied to generic types in C#?](https://stackoverflow.com/questions/390900/cant-operator-be-applied-to-generic-types-in-c)

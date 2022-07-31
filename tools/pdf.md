@@ -1,6 +1,7 @@
 Extract tabular data from PDF:
 
 - [Tabula](https://github.com/tabulapdf/tabula)
+  - [tabula-java](https://github.com/tabulapdf/tabula-java)
 - [PDFPlumber](https://github.com/jsvine/pdfplumber)
   - [Invoice2Excel](https://github.com/yooongchun/Invoice2Excel)
 - [Tabula #731](https://github.com/tabulapdf/tabula/issues/731)

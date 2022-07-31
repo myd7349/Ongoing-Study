@@ -92,3 +92,4 @@ namespace Common
 // https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenSource.cs
 // > ThrowIfDisposed();
 // Ongoing-Study/c#/notes/IDisposable.md
+// https://github.com/InCerryGit/Dispose.Scope

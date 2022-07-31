@@ -129,3 +129,29 @@ void DoWorkOnUIThread(int id)
 [Dispatcher.Invoke from a new thread is locking my UI](https://stackoverflow.com/questions/8527778/dispatcher-invoke-from-a-new-thread-is-locking-my-ui)
 
 [WPF Dispatcher.Invoke 'hanging'](https://stackoverflow.com/questions/264163/wpf-dispatcher-invoke-hanging)
+
+```csharp
+public MainWindowViewModel : ObservableObject
+{
+    private int status_ = 0;
+
+    public int Status
+    {
+        get => status_;
+        set => Dispatcher.InvokeAsync(() => SetProperty(ref status_, value));
+    }
+
+    private void StartThread()
+    {
+        var thread = new Thread(ThreadCallback);
+        // ...
+    }
+
+    private void ThreadCallback()
+    {
+        Status = 404;
+
+        Trace.WriteLine($"{Status}"); // 0
+    }
+}
+```

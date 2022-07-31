@@ -2,6 +2,7 @@
 - [art](https://github.com/sepandhaghighi/art)
 - [Asceils](https://github.com/nikvoronin/Asceils)
 - [ascii_art](https://github.com/symisc/ascii_art)
+- [ascii-video-player](https://github.com/IonelPopJara/ascii-video-player)
 - [asciidoctor-diagram](https://github.com/asciidoctor/asciidoctor-diagram)
 - [AsciiEngine](https://github.com/RandyGaul/AsciiEngine)
 - [asciinema](https://asciinema.org/explore)

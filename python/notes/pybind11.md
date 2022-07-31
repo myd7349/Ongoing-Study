@@ -54,6 +54,7 @@ Projects using `pybind11`
 * [fastText](https://github.com/facebookresearch/fastText)
 * [carma](https://github.com/RUrlus/carma)
 * [f3d](https://github.com/f3d-app/f3d)
+* [kaldilm](https://github.com/csukuangfj/kaldilm)
 
 # Notes
 

@@ -49,3 +49,4 @@ inline const char *GetEndianName(Endian endian)
 // https://github.com/nemequ/portable-snippets/blob/master/endian/endian.h
 // https://github.com/caryll/otfcc/blob/master/lib/support/bin-io.h
 // https://github.com/mandreyel/endian/blob/master/endian.hpp
+// https://github.com/managarm/mlibc/blob/master/options/glibc/include/endian.h

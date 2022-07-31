@@ -71,3 +71,95 @@ var obj = JsonHelper.LoadJson<ClassWithoutDefaultConstructor>(jsonFilePath);
 [JsonConstructorAttribute](https://www.newtonsoft.com/json/help/html/JsonConstructorAttribute.htm)
 
 [How can I ignore unknown enum values during json deserialization?](https://stackoverflow.com/questions/22752075/how-can-i-ignore-unknown-enum-values-during-json-deserialization) (For example, you may have changed the name of an enumeration value in one of your code refactorings.)
+
+[Order of serialized fields using JSON.NET](https://stackoverflow.com/questions/3330989/order-of-serialized-fields-using-json-net)
+
+```csharp
+using System.Collections.Generic;
+
+using Newtonsoft.Json;
+
+namespace MyApp.Config
+{
+    public IPConfig
+    {
+        public string Address;
+
+        public int Port;
+    }
+
+    [JsonObject(MemberSerialization.OptIn)]
+    public class IPConfigGroup
+    {
+        // Consider moving the definition of SelectedGroup after the one of IPConfigurations.
+        // Otherwise, there is a chance that SelectedGroup will be deserialized first when
+        // deserializing. And at this time, IPConfigurations is still empty.
+        [JsonProperty]
+        public string SelectedGroup
+        {
+            get => selectedGroup_;
+
+            set
+            {
+                if (SetProperty(ref selectedGroup_, value))
+                {
+                    // IPConfigurations might be empty here.
+                    if (!IPConfigurations.ContainsKey(selectedGroup_))
+                        IPConfigurations[selectedGroup_] = new IPConfig();
+
+                    IPConfig = IPConfigurations[selectedGroup_];
+                }
+            }
+        }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public Dictionary<string, IPConfig> IPConfigurations { get; set; }
+            = new Dictionary<string, IPConfig>();
+
+        public string Address
+        {
+            get => ipConfig_?.Address;
+
+            set
+            {
+                if (ipConfig_ != null)
+                    SetProperty(ref ipConfig_.Address, value);
+            }
+        }
+
+        public int Port
+        {
+            get => ipConfig_?.Port ?? -1;
+
+            set
+            {
+                if (ipConfig_ != null)
+                    SetProperty(ref ipConfig_.Port, value);
+            }
+        }
+
+        private IPConfig IPConfig
+        {
+            get => ipConfig_;
+
+            set
+            {
+                if (ipConfig_ != value)
+                {
+                    ipConfig_ = value;
+
+                    OnPropertyChanged(nameof(Address));
+                    OnPropertyChanged(nameof(Port));
+                }
+            }
+        }
+
+        private string selectedGroup_;
+        private IPConfig ipConfig_;
+    }
+}
+```
+
+[Json.net serialize specific private field](https://stackoverflow.com/questions/32008869/json-net-serialize-specific-private-field)
+
+[How do I get json.net to serialize members of a class deriving from List<T>?](https://stackoverflow.com/questions/21265629/how-do-i-get-json-net-to-serialize-members-of-a-class-deriving-from-listt)

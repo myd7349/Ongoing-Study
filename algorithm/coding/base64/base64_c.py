@@ -170,3 +170,4 @@ if __name__ == '__main__':
 # https://stackoverflow.com/questions/54357920/python-ctypes-create-bytearray-from-void
 # https://stackoverflow.com/questions/1825715/how-to-pack-and-unpack-using-ctypes-structure-str
 # https://github.com/labstreaminglayer/pylsl/blob/master/pylsl/pylsl.py
+# https://github.com/csukuangfj/kaldilm/blob/master/setup.py

@@ -18,6 +18,7 @@
   - [NET-Standard-Library-Extension](https://github.com/Whathecode/NET-Standard-Library-Extension)
   - [NET-Core-Library-Extension](https://github.com/Whathecode/NET-Core-Library-Extension)
 - [Furion](https://github.com/MonkSoul/Furion)
+- [Masuit.Tools](https://github.com/ldqk/Masuit.Tools)
 - [Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework)
 - [MyToolkit](https://github.com/RicoSuter/MyToolkit)
 - [NetDevPack](https://github.com/NetDevPack/NetDevPack)
@@ -66,6 +67,9 @@
   - [Fork](https://fork.dev/)
 
   - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics) 
+
+- [DotNetZip](https://github.com/haf/DotNetZip.Semverd)
+
 - [ICSharpCode.SharpZipLib](https://github.com/icsharpcode/SharpZipLib)
   
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
@@ -77,6 +81,10 @@
   - [Pinta](https://github.com/PintaProject/Pinta)
 
   - [TarGZipHelper.cs](https://github.com/BeyondDimension/SteamTools/blob/develop/src/ST.Client/TarGZipHelper.cs)
+
+- [Ionic.Zip](https://www.nuget.org/packages/Ionic.Zip/)
+
+  - [EpubViewer](https://github.com/hustlei/EpubViewer)
 
 - [ironcompress](https://github.com/aloneguid/ironcompress)
 - [K4os.Compression.LZ4](https://github.com/MiloszKrajewski/K4os.Compression.LZ4)
@@ -217,6 +225,8 @@
 
   - [mvvm-dialogs](https://github.com/FantasticFiasco/mvvm-dialogs/tree/v8.0.0/samples/net-framework/TestBaseClasses)
 
+- [YWinAppDriver](https://github.com/licanhua/YWinAppDriver)
+
 - [Windows Input Simulator Plus](https://github.com/TChatzigiannakis/InputSimulatorPlus)
   
   - [Quicker](https://github.com/cuiliang/Quicker)
@@ -352,6 +362,12 @@
 
 - [trienet](https://github.com/gmamaladze/trienet)
 
+### Color
+
+- [CLSEncoderDecoder](https://github.com/Equbuxu/CLSEncoderDecoder)
+
+  - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
+
 ### Compiler
 
 - [FastExpressionCompiler](https://github.com/dadhi/FastExpressionCompiler)
@@ -397,6 +413,8 @@
 - Microsoft.Extensions.Options
 
 - [System.Configuration](https://learn.microsoft.com/en-us/dotnet/api/system.configuration)
+
+  - [SwagLyricsGUI](https://github.com/SwagLyrics/SwagLyricsGUI)
 
 - [Tyrrrz.Settings](https://github.com/Tyrrrz/Settings)
 
@@ -518,7 +536,12 @@
 
   - [Microcharts.Matplotlib](https://github.com/SciSharp/Microcharts.Matplotlib)
 
+- [ModernCharts](https://github.com/darthmaure/ModernCharts)
+
 - [OxyPlot](https://github.com/oxyplot/oxyplot)
+
+  - [LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor)
+
   - [Orc.Plot](https://github.com/WildGums/Orc.Plot)
   
   - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
@@ -542,8 +565,11 @@
 - [SciColorMaps](https://github.com/ar1st0crat/SciColorMaps) :star: Custom .NET color maps (user-defined or imported from matplotlib) for scientific visualization.
   
 - [ScottPlot](https://github.com/ScottPlot/ScottPlot): WinForms, WPF
+
   - [ABFview](https://github.com/swharden/ABFview)
-  
+
+  - [SignalAnalysis](https://github.com/arthurits/SignalAnalysis)
+
   - [SoundCardECG](https://github.com/swharden/SoundCardECG): A WinForms demo.
   
   - https://gist.github.com/dreikanter/3526685?permalink_comment_id=3349886#gistcomment-3349886
@@ -736,6 +762,8 @@
 
   - [Realm .NET Where query with Contains() throws System.NotSupportedException](https://stackoverflow.com/questions/67513679/realm-net-where-query-with-contains-throws-system-notsupportedexception)
 
+- [SharpRepository](https://github.com/SharpRepository/SharpRepository)
+
 - [Simple.Migrations](https://github.com/canton7/Simple.Migrations)
 
 - [SmartSql](https://github.com/dotnetcore/SmartSql)
@@ -835,12 +863,16 @@
 - [Microsoft.Extensions.DependencyInjection](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection)
 
   - [ambie](https://github.com/jenius-apps/ambie)
-  
+
+  - [AutoDI](https://github.com/Keboo/AutoDI)
+
   - [IdGen.DependencyInjection](https://www.nuget.org/packages/IdGen.DependencyInjection)
 
   - [Ioc](https://github.com/MicrosoftDocs/CommunityToolkit/blob/main/docs/mvvm/Ioc.md)
 
   - [Dependency injection in .NET](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection)
+
+  - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
 
   - [Tutorial: Use dependency injection in .NET](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-usage)
 
@@ -896,6 +928,8 @@
 
   - [C# Dependency Injection with Autofac](https://www.youtube.com/watch?v=mCUNrRtVVWY)
 
+  - [Dependency Injection in .NET Core (.NET 6)](https://www.youtube.com/watch?v=Hhpq7oYcpGE)
+
 ##### IoC
 
 - [Autofac](https://autofac.org/)
@@ -938,7 +972,11 @@
 
 ### DSP
 
+- [BurstFFT](https://github.com/keijiro/BurstFFT)
+
 - [FftSharp](https://github.com/swharden/FftSharp)
+
+  - [SignalAnalysis](https://github.com/arthurits/SignalAnalysis)
 
 - [FFTW.NET](https://github.com/ArgusMagnus/FFTW.NET)
 
@@ -1064,6 +1102,8 @@
 
 - [QuickGraph](https://github.com/YaccConstructor/QuickGraph)
 
+- [ZedGraph](https://github.com/ZedGraph/ZedGraph)
+
 ### Graphics
 
 - [awesome-dotnet#graphics](https://github.com/quozd/awesome-dotnet#graphics)
@@ -1113,6 +1153,8 @@
 - [GLWpfControl](https://github.com/opentk/GLWpfControl)
 
 - [Helix Toolkit](https://github.com/helix-toolkit/helix-toolkit)
+
+  - [FreelancerModStudio](https://github.com/DomGries/FreelancerModStudio)
 
 - [ImageSharp](https://github.com/SixLabors/ImageSharp)
 
@@ -1165,6 +1207,8 @@
 - [SharpGL](https://github.com/dwmkerr/sharpgl)
 
 - [SharpVectors](https://github.com/ElinamLLC/SharpVectors)
+
+  - [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
 
 - [Silk.NET](https://github.com/dotnet/Silk.NET)
 
@@ -1256,6 +1300,8 @@
 
   - [Displaying SVGs in Xamarin.Forms](https://www.damirscorner.com/blog/posts/20220603-DisplayingSvgsInXamarinForms.html)
 
+- [SvgNet](https://github.com/managed-commons/SvgNet)
+
 - SVGReader & SVGWriter from NGraphics
 
 - [SvgToXaml](https://github.com/BerndK/SvgToXaml)
@@ -1320,6 +1366,10 @@
 
   - [Reading data from USB using C#?](https://stackoverflow.com/questions/3053977/reading-data-from-usb-using-c)
 
+- [Hardware.Info](https://github.com/Jinjinov/Hardware.Info)
+
+  - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
+
 - [HidSharp](https://github.com/IntergatedCircuits/HidSharp)
 
   - [FanControl](https://github.com/Rem0o/FanControl.Releases)
@@ -1353,6 +1403,8 @@
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
 - [H.InputSimulator](https://github.com/HavenDV/H.InputSimulator)
 - [HotKeys.cs](https://github.com/BornToBeRoot/NETworkManager/blob/main/Source/NETworkManager.Utilities/HotKeys.cs)
+- [InputSimulator](https://www.nuget.org/packages/InputSimulator)
+  - [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
 - [inputsimulator](https://github.com/michaelnoonan/inputsimulator)
   - [StrokesPlus.net](https://www.strokesplus.net/)
 - [InputSimulatorPlus](https://github.com/TChatzigiannakis/InputSimulatorPlus)
@@ -1361,6 +1413,7 @@
   - NHotkey.WindowsForms
   - NHotkey.Wpf
   - [Dota-2-Chat-Wheel-Soundboard](https://github.com/derdanielb/Dota-2-Chat-Wheel-Soundboard)
+  - [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
 - [SharpHook](https://github.com/TolikPylypchuk/SharpHook)
 - [WindowsInput](https://github.com/MediatedCommunications/WindowsInput)
 
@@ -1478,6 +1531,8 @@
 
 - https://github.com/chocolatey/ChocolateyGUI/blob/1.0.0/Source/ChocolateyGui.Common/Utilities/TranslationSource.cs
 
+- [WpfExtensions i18nextension](https://github.com/DingpingZhang/WpfExtensions#4-i18nextension)
+
 - [WPFLocalizeExtension](https://github.com/XAMLMarkupExtensions/WPFLocalizeExtension)
 
 - [ZetaResourceEditor](https://github.com/UweKeim/ZetaResourceEditor)
@@ -1563,11 +1618,15 @@
 
   - [Jot](https://github.com/anakic/Jot)
 
+  - [LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor)
+
   - [LightBulb](https://github.com/Tyrrrz/LightBulb)
 
   - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 
   - [Paillave.Etl.Mail](https://github.com/paillave/Etl.Net/tree/master/src/Paillave.Etl.Mail)
+
+  - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
 
   - [ShaderPaper](https://github.com/WerWolv/ShaderPaper)
 
@@ -1804,7 +1863,9 @@
   - [Device.Net](https://github.com/MelbourneDeveloper/Device.Net)
 
 - [NLog](https://github.com/NLog/NLog)
-  
+
+  - [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
+
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
 
   - [Magpie](https://github.com/Blinue/Magpie)
@@ -1847,12 +1908,15 @@
 
   - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
 
+  - [SwagLyricsGUI](https://github.com/SwagLyrics/SwagLyricsGUI)
+
   - [.NET Core Console App with Dependency Injection, Logging, and Settings](https://www.youtube.com/watch?v=GAOCe-2nXqc)
 
   - [C# Logging with Serilog and Seq - Structured Logging Made Easy](https://www.youtube.com/watch?v=_iryZxv8Rxw)
 
-- [Splat](https://github.com/reactiveui/splat)
+  - [Dependency Injection in .NET Core (.NET 6)](https://www.youtube.com/watch?v=Hhpq7oYcpGE)
 
+- [Splat](https://github.com/reactiveui/splat)
   - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
 
 - [ZLogger](https://github.com/Cysharp/ZLogger)
@@ -2074,6 +2138,9 @@
   - https://blog.lindexi.com/post/WPF-%E5%BC%80%E5%8F%91.html
 - [GameServer](https://github.com/LeagueSandbox/GameServer)
 - [H.Socket.IO](https://github.com/HavenDV/H.Socket.IO)
+- [Hardware.Info](https://github.com/Jinjinov/Hardware.Info)
+  - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
+- [HslCommunication](https://github.com/dathlin/HslCommunication)
 - [ip2region](https://github.com/lionsoul2014/ip2region)
 - [ipnetwork](https://github.com/lduchosal/ipnetwork)
 - [Jumony](https://github.com/Ivony/Jumony)
@@ -2088,6 +2155,7 @@
 - [Nerdbank.Streams](https://github.com/AArnott/Nerdbank.Streams): Specialized .NET Streams and pipes for full duplex in-proc communication, web sockets, and multiplexing.
 - [NetMQ](https://github.com/zeromq/netmq)
   - [CAP.Extensions](https://github.com/maikebing/CAP.Extensions)
+- [NetworkSocket](https://github.com/xljiulang/NetworkSocket)
 - [Octokit](https://github.com/octokit/octokit.net)
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
 - [Open.NAT](https://github.com/lontivero/Open.NAT)
@@ -2148,6 +2216,7 @@
   - [Quicker](https://github.com/cuiliang/Quicker)
 - [Open-XML-SDK](https://github.com/OfficeDev/Open-XML-SDK)
   - [html2openxml](https://github.com/onizet/html2openxml)
+- [Spire.Office](https://www.nuget.org/packages/Spire.Office/)
 
 ##### Outlook
 
@@ -2175,6 +2244,11 @@
 - Microsoft.Office.Interop.Excel
 - [MiniExcel](https://github.com/shps951023/MiniExcel)
 - [ReoGrid](https://github.com/unvell/ReoGrid)
+- [Spire.XLS](https://www.nuget.org/packages/Spire.XLS)
+
+##### Preview
+
+- [QuickLook.Plugin.OfficeViewer](https://github.com/QL-Win/QuickLook.Plugin.OfficeViewer)
 
 ### Online Compiler
 
@@ -2189,22 +2263,39 @@
 ### PDF
 
 - [Ghostscript.NET](https://github.com/jhabjan/Ghostscript.NET)
+
 - [Magicodes.IE](https://github.com/dotnetcore/Magicodes.IE)
+
+- [Pdfium.Net.SDK](https://www.nuget.org/packages/Pdfium.Net.SDK/)
+
 - [PDFiumSharp](https://github.com/ArgusMagnus/PDFiumSharp)
+
   - [On the Shoulders of Giants · QL-Win/QuickLook Wiki · GitHub](https://github.com/QL-Win/QuickLook/wiki/On-the-Shoulders-of-Giants)
+
 - [PdfiumViewer](https://github.com/pvginkel/PdfiumViewer)
+
   - DeepL Translate App for Windows
+
+  - [PdfiumViewer.Native](https://www.nuget.org/packages/PdfiumViewer.Native.x86.v8-xfa/)
+
+    - [PdfiumBuild](https://github.com/pvginkel/PdfiumBuild)
+
 - [PdfPig](https://github.com/UglyToad/PdfPig)
   - [Paillave.Etl.Pdf](https://github.com/paillave/Etl.Net/tree/master/src/Paillave.Etl.Pdf)
+
 - [PDFsharp](https://github.com/empira/PDFsharp)
   - https://github.com/wieslawsoltes/Core2D/tree/master/src/Core2D/Modules/FileWriter.PdfSharp
   - [Quicker](https://github.com/cuiliang/Quicker)
   - https://github.com/oxyplot/oxyplot/issues/1518
     > The PdfSharp project seems to be inactive, there is not even support for netstandard.
+
 - [QuestPDF](https://github.com/QuestPDF/QuestPDF)
+
 - [SharpMuPDF](https://github.com/wmjordan/SharpMuPDF)
   - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
+
 - [Spire.Doc](https://www.e-iceblue.com/Introduce/word-for-net-introduce.html)
+
 - [TallComponents.PDFRasterizer](https://www.nuget.org/packages/TallComponents.PDFRasterizer) - [website](https://tallcomponents.com/)
 
 ### Physics
@@ -2224,6 +2315,7 @@
 - FanControl.Plugins
   - [FanControl.DellPlugin](https://github.com/Rem0o/FanControl.DellPlugin) 
   - [FanControl.HWInfo](https://github.com/Rem0o/FanControl.HWInfo) 
+- [Flow.Launcher.Plugin](https://github.com/Flow-Launcher/Flow.Launcher/tree/dev/Flow.Launcher.Plugin)
 - [Greenshot Plugins](https://github.com/greenshot/greenshot/tree/release/1.3/src)
 - [MatterControl.Plugins](https://github.com/MatterHackers/MatterControl/tree/main/Plugins)
 - [MeiamSubtitles](https://github.com/91270/MeiamSubtitles)
@@ -2235,6 +2327,8 @@
 - [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
 - [QoiFileTypeNet](https://github.com/iOrange/QoiFileTypeNet)
 - [QuickLook.Plugin](https://github.com/QL-Win/QuickLook/tree/master/QuickLook.Plugin)
+  - [QuickLook.Common.Plugin](https://github.com/QL-Win/QuickLook.Common/tree/master/Plugin)
+    - [QuickLook.Plugin.EpubViewer](https://github.com/QL-Win/QuickLook.Plugin.EpubViewer)
 - [Steamless Plugin](https://github.com/atom0s/Steamless/tree/master/ExamplePlugin)
 - [TextAnalysisTool.NET.Plugin](https://textanalysistool.github.io/)
 - [WinSW.Plugins](https://github.com/winsw/winsw/tree/v3/src/WinSW.Plugins)
@@ -2360,6 +2454,8 @@
 
   - [StrokesPlus.net](https://www.strokesplus.net/)
 
+- [Esprima .NET](https://github.com/sebastienros/esprima-dotnet)
+
 - [Expressions](https://github.com/pvginkel/Expressions): C#, VB.NET
 
 - [jint](https://github.com/sebastienros/jint): Javascript Interpreter for .NET
@@ -2407,6 +2503,8 @@
 - [Hyperion](https://github.com/akkadotnet/Hyperion)
 
 - [MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp)
+
+  - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
 
 - [Open.Serialization](https://github.com/Open-NET-Libraries/Open.Serialization)
 
@@ -2466,9 +2564,23 @@
 
 ### String
 
+- [ByteSize](https://github.com/omar/ByteSize)
+
+  - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
+
+- [HumanBytes](https://github.com/thomaslevesque/HumanBytes)
+
 - [Humanizer](https://github.com/Humanizr/Humanizer)
 
 - [Microsoft.Extensions.Primitives](https://docs.microsoft.com/en-us/dotnet/core/extensions/primitives#string-tokenizers-segments-and-values)
+
+- [Microsoft.NET.StringTools](https://www.nuget.org/packages/Microsoft.NET.StringTools)
+
+  - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
+
+- [NanoByte.Common](https://github.com/nano-byte/common)
+  
+  - DeepL Translate App for Windows
 
 - [NaughtyStrings](https://github.com/SimonCropp/NaughtyStrings)
 
@@ -2523,6 +2635,10 @@
 
 - [Sharpnado.TaskMonitor](https://github.com/roubachof/Sharpnado.TaskMonitor)
 
+- [TaskScheduler](https://github.com/dahall/taskscheduler)
+
+  - [LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor)
+
 - [UniTask](https://github.com/Cysharp/UniTask)
 
 - [WindowsJobAPI](https://github.com/HMBSbige/WindowsJobAPI)
@@ -2530,6 +2646,8 @@
   - [BilibiliLiveRecordDownLoader](https://github.com/HMBSbige/BilibiliLiveRecordDownLoader/blob/master/BilibiliLiveRecordDownLoader.FFmpeg/FFmpegCommand.cs)
 
 ### Tree
+
+- [QuadTrees](https://github.com/splitice/QuadTrees)
 
 - [TreeLib](https://github.com/Dirkster99/TreeLib)
 
@@ -2565,6 +2683,8 @@
 - Microsoft.VisualStudio.TestTools.UnitTesting
 
   - [CommunityToolkit](https://github.com/CommunityToolkit/dotnet)
+
+  - [FamilyShow](https://github.com/fredatgithub/FamilyShow)
 
 - MSTest
   - [Automate your UI using Microsoft Automation Framework](https://www.codeproject.com/Articles/141842/Automate-your-UI-using-Microsoft-Automation-Framew)
@@ -2661,7 +2781,11 @@
 
 - [Contours2HeightMap](https://github.com/happy-turtle/Contours2HeightMap)
 
+- [Lasp](https://github.com/keijiro/Lasp)
+
 - [oit-unity](https://github.com/happy-turtle/oit-unity)
+
+- [Voxelman](https://github.com/keijiro/Voxelman)
 
 ### Versioning
 
@@ -2725,11 +2849,15 @@
 
 ### Miscellaneous
 
+- [Aggregates.NET](https://github.com/charlessolar/Aggregates.NET)
+
 - [Azos](https://github.com/azist/azos)
 
 - [bullseye](https://github.com/adamralph/bullseye)
 
 - [CalculatedProperties](https://github.com/StephenCleary/CalculatedProperties)
+
+- [Chronicle](https://github.com/snatch-dev/Chronicle)
 
 - [CleanArchitecture](https://github.com/jasontaylordev/CleanArchitecture)
 
@@ -2747,12 +2875,6 @@
 
 - [Guids](https://github.com/StephenCleary/Guids)
 
-- [HumanBytes](https://github.com/thomaslevesque/HumanBytes)
-
-- [NanoByte.Common](https://github.com/nano-byte/common)
-  
-  - DeepL Translate App for Windows
-
 - [nativelibraryloader](https://github.com/mellinoe/nativelibraryloader)
 
 - [NetEscapades.EnumGenerators](https://github.com/andrewlock/NetEscapades.EnumGenerators)
@@ -2763,15 +2885,23 @@
 
 - [ObjectsComparer](https://github.com/ValeraT1982/ObjectsComparer)
 
+- [OneOf](https://github.com/mcintyre321/OneOf)
+
+  - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
+
 - [Pidgin](https://github.com/benjamin-hodgson/Pidgin)
 
 - [QuantityTypes](https://github.com/QuantityTypes/QuantityTypes)
+
+- [Revo](https://github.com/revoframework/Revo)
 
 - [StrongNamer](https://github.com/dsplaisted/strongnamer)
 
   - [Strong naming](https://github.com/punker76/gong-wpf-dragdrop/wiki/Strong-naming)
 
 - [TaskScheduler](https://github.com/dahall/TaskScheduler)
+
+- [ValueOf](https://github.com/mcintyre321/valueof)
 
 - [ViVe](https://github.com/thebookisclosed/ViVe)
 

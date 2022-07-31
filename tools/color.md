@@ -17,3 +17,5 @@ https://github.com/veler/DevToys
 https://github.com/corkami/pics/blob/master/binary/basics/colors.pdf
 
 https://github.com/AcademySoftwareFoundation/OpenColorIO
+
+https://github.com/vn971/linux-color-inversion

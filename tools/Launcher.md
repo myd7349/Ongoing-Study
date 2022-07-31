@@ -1,8 +1,10 @@
 - [albert](https://github.com/albertlauncher/albert)
 - Alfred
+- [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
 - Launchbar
 - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
 - Manico
 - [kbar](https://github.com/timc1/kbar)
 - [Raycast](https://www.raycast.com/)
+- uTools
 - [Wox](http://www.wox.one/) - [GitHub](https://github.com/Wox-launcher/Wox)

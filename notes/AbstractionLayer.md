@@ -36,6 +36,8 @@ File System
 
 - [alist](https://github.com/Xhofe/alist)
 
+- [alluxio](https://github.com/Alluxio/alluxio)
+
 - [Enchilada](https://github.com/sparkeh9/Enchilada)
 
 - [fs9](https://github.com/reusee/fs9)

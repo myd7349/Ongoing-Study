@@ -40,3 +40,9 @@ and what I want do:
 [NetEscapades.EnumGenerators](https://github.com/andrewlock/NetEscapades.EnumGenerators)
 
 [SmartEnum](https://github.com/ardalis/SmartEnum)
+
+[Test if an object is an Enum](https://stackoverflow.com/questions/2918800/test-if-an-object-is-an-enum)
+
+https://github.com/PixiEditor/PixiEditor/blob/master/src/PixiEditor/Helpers/Converters/EqualityBoolToVisibilityConverter.cs
+
+> if (value.GetType().IsAssignableTo(typeof(Enum)) && parameter is string s)

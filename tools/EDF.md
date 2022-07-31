@@ -14,6 +14,8 @@ https://github.com/tungntEmotiv/community-sdk/blob/master/include/EdfData.h
 
 [edfread](https://www.mathworks.com/help/signal/ref/edfread.html)
 
+[import_edf](https://sccn.ucsd.edu/eeglab/plugin_uploader/plugin_list_all.php) - [GitHub](https://github.com/amisepa/import_edf)
+
 ### Python
 
 [mne](https://mne.tools/stable/generated/mne.io.read_raw_edf.html#mne.io.read_raw_edf)

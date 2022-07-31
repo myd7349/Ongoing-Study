@@ -3,6 +3,7 @@ Lists:
 - [awesome-qt](https://github.com/JesseTG/awesome-qt)
 - [awesome-qt](https://github.com/fffaraz/awesome-qt)
 - [awesome-qt-qml](https://github.com/mikalv/awesome-qt-qml)
+- [IndustrialSoftwareOfQt](https://github.com/czyt1988/IndustrialSoftwareOfQt)
 - [QtAwesome](https://github.com/gamecreature/QtAwesome)
 
 Applications:
@@ -14,6 +15,7 @@ Applications:
 - [Ascii-Design](https://github.com/Faster3ck/Ascii-Design)
 - [B23Downloader](https://github.com/vooidzero/B23Downloader)
 - [BingWallpaper](https://github.com/ypingcn/BingWallpaper)
+- [blackchocobo](https://github.com/sithlord48/blackchocobo)
 - [caesium-image-compressor](https://github.com/Lymphatus/caesium-image-compressor)
 - [CineEncoder](https://github.com/CineEncoder/cine-encoder)
 - [Clementine](https://github.com/clementine-player/Clementine): Clementine Music Player
@@ -23,9 +25,11 @@ Applications:
 - [cool-retro-term](https://github.com/Swordfish90/cool-retro-term)
 - [CrossLine](https://github.com/rochus-keller/CrossLine)
 - [Cutter](https://github.com/rizinorg/cutter) - [website](https://cutter.re/)
+- [deepin-screenshot](https://github.com/martyr-deepin/deepin-screenshot)
 - [DIE](https://github.com/horsicq/Detect-It-Easy)
 - [DIE-engine](https://github.com/horsicq/DIE-engine)
 - [easy_profiler](https://github.com/yse/easy_profiler)
+- [edb-debugger](https://github.com/eteran/edb-debugger)
 - [EDFbrowser](https://gitlab.com/Teuniz/EDFbrowser)
 - [FastCAE](https://github.com/DISOGitHub/FastCAE)
 - [feiq](https://github.com/compilelife/feiq)
@@ -81,6 +85,7 @@ Applications:
 - [moonlight-qt](https://github.com/moonlight-stream/moonlight-qt)
 - [mous](https://github.com/bsdelf/mous)
 - [Nauz-File-Detector](https://github.com/horsicq/Nauz-File-Detector)
+- [nedit-ng](https://github.com/eteran/nedit-ng)
 - [NeteaseMusic](https://github.com/sonichy/NeteaseMusic)
 - [nfc-laboratory](https://github.com/josevcm/nfc-laboratory)
 - [nodeeditor](https://github.com/paceholder/nodeeditor)
@@ -117,6 +122,7 @@ Applications:
 - [QMidiPlayer](https://github.com/chirs241097/QMidiPlayer)
 - [Qmmp](https://github.com/Greedysky/qmmp)
 - [QNapi](https://github.com/QNapi/qnapi)
+- [QOwnNotes](https://github.com/pbek/QOwnNotes)
 - [QProtoView](https://github.com/pezy/QProtoView)
 - [QQStars](https://github.com/zccrs/QQStars)
 - [QSanguosha](https://github.com/Mogara/QSanguosha)
@@ -225,6 +231,8 @@ Libraries:
 
 - [log4qt](https://github.com/ZgblKylin/log4qt)
 
+- [Log4Qt](https://github.com/MEONMedical/Log4Qt)
+
 - [PDF4QT](https://github.com/JakubMelka/PDF4QT)
 
 - [QAdvancedItemViews](https://github.com/Alexpux/QAdvancedItemViews)
@@ -254,9 +262,21 @@ Libraries:
   
   - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
 
+- [qhexedit2](https://github.com/Simsys/qhexedit2)
+
+  - [blackchocobo](https://github.com/sithlord48/blackchocobo)
+
 - [QHexView](https://github.com/horsicq/QHexView)
 
+- [qhexview](https://github.com/eteran/qhexview)
+
+- [QHotkey](https://github.com/Skycoder42/QHotkey)
+
+- [qmarkdowntextedit](https://github.com/pbek/qmarkdowntextedit)
+
 - [QNanoPainter](https://github.com/QUItCoding/qnanopainter)
+
+- [QScintilla](https://github.com/winsoft666/QScintilla)
 
 - [QSkinny](https://github.com/uwerat/qskinny)
 
@@ -281,6 +301,8 @@ Libraries:
 - [Qt7z](https://github.com/kanryu/quickviewer/tree/master/Qt7z/Qt7z)
 
 - [QtBigInt](https://github.com/QuasarApp/QtBigInt)
+
+- [QtCipherSqlitePlugin](https://github.com/devbean/QtCipherSqlitePlugin)
 
 - [qtdcm](https://github.com/medInria/qtdcm_archived)
 
@@ -364,6 +386,8 @@ Tools:
 - [Qbs](https://github.com/qbs/qbs)
   
   - [tiled](https://github.com/mapeditor/tiled)
+
+- [QssStylesheetEditor](https://github.com/hustlei/QssStylesheetEditor)
 
 - [zint](https://github.com/zint/zint)
 

@@ -59,6 +59,7 @@
 - [pingtop](https://github.com/laixintao/pingtop)
 - [PortProxyGUI](https://github.com/zmjack/PortProxyGUI)
 - [pwnat](https://github.com/samyk/pwnat)
+- [pyWhat](https://github.com/bee-san/pyWhat)
 - [realterm](https://sourceforge.net/projects/realterm/)
 - [rinetd](https://github.com/samhocevar/rinetd)
 - [rtop](https://github.com/rapidloop/rtop)
@@ -81,6 +82,7 @@
 - [tinyPortMapper](https://github.com/wangyu-/tinyPortMapper)
 - [tiptop](https://github.com/nschloe/tiptop)
 - [Universal Radio Hacker](https://github.com/jopohl/urh)
+- [vnstat](https://github.com/vergoh/vnstat)
 - [wait-for-it](https://github.com/vishnubob/wait-for-it)
 - [WebBench](https://github.com/EZLippi/WebBench)
 - WireShark
@@ -90,6 +92,8 @@
 ### Tools from Other Lists
 
 - https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-network
+
+- [Windows 常用软件清单](https://www.fournoas.com/posts/personal-list-of-commonly-used-Windows-software/)
 
 ### Download Manager
 
@@ -111,6 +115,8 @@
 - [Easy-Send](https://github.com/IvanHanloth/Easy-Send)
 
 - [sharik](https://github.com/marchellodev/sharik)
+
+- [wave-share](https://github.com/ggerganov/wave-share)
 
 ### File Synchronization
 

@@ -14,6 +14,10 @@ https://github.com/Greedysky/TTKMusicplayer
 
 [MusCat](https://github.com/ar1st0crat/MusCat)
 
+Lists:
+
+- [八款 Windows 免费音频播放器评测](https://www.fournoas.com/posts/free-audio-players-for-windows/)
+
 Tools:
 
 - [beats-audio-api](https://github.com/JMPerez/beats-audio-api)

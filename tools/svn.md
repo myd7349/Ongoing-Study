@@ -10,3 +10,7 @@ $ svn up -rXXXX
 Servers:
 
 - VisualSVN
+
+Visual Studio Extensions:
+
+- VisualSVN

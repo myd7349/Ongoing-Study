@@ -170,6 +170,14 @@
 
 - [How to Passing multiple parameters RelayCommand?](https://stackoverflow.com/questions/8279782/how-to-passing-multiple-parameters-relaycommand)
 
+- [C# MVVM Toolkit Demo](https://www.codeproject.com/Articles/5332442/Csharp-MVVM-Toolkit-Demo)
+
+- Dispatcher
+
+  - [How to pass the UI Dispatcher to the ViewModel](https://stackoverflow.com/questions/2354438/how-to-pass-the-ui-dispatcher-to-the-viewmodel)
+
+  - [Is it wrong to use the Dispatcher within my ViewModel?](https://stackoverflow.com/questions/7473973/is-it-wrong-to-use-the-dispatcher-within-my-viewmodel)
+
 ##### YouTube Videos
 
 - [C# WPF UI Tutorials: 02 - TreeViews and Value Converters](https://youtu.be/6OwyNiLPDNw)
@@ -243,7 +251,7 @@
 - [How to Close Windows from a ViewModel in C#](https://www.youtube.com/watch?v=U7Qclpe2joo)
 
   - ICloseWindows
-  
+
   - [Closing Windows and Applications with WPF and MVVM](https://www.codeproject.com/Articles/413517/Closing-Windows-and-Applications-with-WPF-and-MVVM)
 
 - [MVVM Dialogs: Showing Dialogs in an MVVM Application with a Dialog Service](https://www.youtube.com/watch?v=S8hEjLahNtU)
@@ -256,6 +264,18 @@
 
 - [MVVM Source Generators: Never Write MVVM Boilerplate Code Again!](https://www.youtube.com/watch?v=aCxl0z04BN8)
 
+- [What is the MVVM pattern, What benefits does MVVM have?](https://youtu.be/AXpTeiWtbC8)
+
+  - MAUI
+
+  - Microsoft.Toolkit.Mvvm
+
+    - ObservableProperty
+
+    - NotifyPropertyChangedFor
+
+    - RelayCommand
+
 ##### Libraries
 
 - AsyncAwaitBestPractices
@@ -263,6 +283,8 @@
   - [BaseViewModel](https://github.com/brminnick/AsyncAwaitBestPractices/blob/main/Src/HackerNews/ViewModels/Base/BaseViewModel.cs)
   
 - Caliburn.Micro
+
+  - [EpubViewer](https://github.com/hustlei/EpubViewer)
 
   - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
 
@@ -274,14 +296,14 @@
 
   - [Putting things together](https://learn.microsoft.com/en-us/windows/communitytoolkit/mvvm/puttingthingstogether?source=recommendations)
 
-  - [A lap around the Microsoft MVVM Toolkit](https://xamlbrewer.wordpress.com/2020/11/16/a-lap-around-the-microsoft-mvvm-toolkit/comment-page-1/)
+  - :star:[A lap around the Microsoft MVVM Toolkit](https://xamlbrewer.wordpress.com/2020/11/16/a-lap-around-the-microsoft-mvvm-toolkit/comment-page-1/)
 
     - [UWP-MVVM-Toolkit-Sample](https://github.com/XamlBrewer/UWP-MVVM-Toolkit-Sample)
 
   - [\[NotifyPropertyChanged\]](https://docs.microsoft.com/en-us/dotnet/api/microsoft.toolkit.mvvm.componentmodel.inotifypropertychangedattribute?view=win-comm-toolkit-dotnet-6.1)
 
   - [Compiling fails when trying to use to ObservableProperty source generator property](https://github.com/CommunityToolkit/WindowsCommunityToolkit/issues/4174)
- 
+
   - [Picking a New MVVM Framework - Moving from Caliburn Micro](https://www.youtube.com/watch?v=8E000zu8UhQ)
 
   - [mvvm-dialogs](https://github.com/FantasticFiasco/mvvm-dialogs)
@@ -289,6 +311,10 @@
   - [MVVM-Samples](https://github.com/CommunityToolkit/MVVM-Samples)
 
     - https://github.com/CommunityToolkit/MVVM-Samples/blob/master/samples/MvvmSampleUwp/Services/DialogService.cs
+
+  - [Request to include ObservableRangeCollection, an updated ObservableCollection available as part of Xamarin.CommunityToolkit and MVVM Helpers](https://github.com/CommunityToolkit/dotnet/issues/256)
+
+  - [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
 
 - [DynamicData](https://github.com/reactivemarbles/DynamicData)
 

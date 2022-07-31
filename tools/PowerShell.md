@@ -152,3 +152,5 @@ https://github.com/frostming/myrc/blob/main/WindowsPowerShell/Microsoft.PowerShe
 > Set-Alias -Name which Get-Command
 
 https://github.com/ForNeVeR/ExtDiff
+
+https://github.com/lextm/windowsterminal-shell

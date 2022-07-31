@@ -71,6 +71,8 @@ Other Tools:
 
 - [fzf](https://github.com/junegunn/fzf)
 
+- [hishtory](https://github.com/ddworken/hishtory)
+
 - [hyperfine](https://crates.io/crates/hyperfine) - [code](https://github.com/sharkdp/hyperfine)
 
 - [just](https://github.com/casey/just)
@@ -104,6 +106,10 @@ Other Tools:
 - [xxh](https://github.com/xxh/xxh)
 
 - [shell-history](https://github.com/pawamoy/shell-history)
+
+- [ttyd](https://github.com/tsl0922/ttyd)
+
+- [windowsterminal-shell](https://github.com/lextm/windowsterminal-shell)
 
 - [z.lua](https://github.com/skywind3000/z.lua)
 

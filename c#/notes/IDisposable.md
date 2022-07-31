@@ -121,3 +121,5 @@ https://github.com/dotnet/runtime/blob/main/src/libraries/System.Net.Sockets/src
 // Whether Dispose has been called. 0 == false, 1 == true
 private int _disposed;
 ```
+
+https://github.com/InCerryGit/Dispose.Scope

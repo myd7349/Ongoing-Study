@@ -51,3 +51,15 @@ Console.WriteLine(array.Length);
 [How to sort a list of objects by a specific field in C#?](https://stackoverflow.com/questions/1301822/how-to-sort-a-list-of-objects-by-a-specific-field-in-c)
 
 [How to sort an array containing class objects by a property value of a class instance?](https://stackoverflow.com/questions/1304278/how-to-sort-an-array-containing-class-objects-by-a-property-value-of-a-class-ins)
+
+```csharp
+var a = new int[,]
+{
+    {1,2,3},
+    {4,5,6}
+};
+
+Console.WriteLine(a.Length); // 6
+Console.WriteLine(a.GetLength(0)); // 2
+Console.WriteLine(a.GetLength(1)); // 3
+```

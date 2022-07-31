@@ -1,3 +1,9 @@
+### Lists
+
+[Windows 常用软件清单](https://www.fournoas.com/posts/personal-list-of-commonly-used-Windows-software/)
+
+### Applications
+
 1. Switch desktop
 
    `Ctrl` + `Win` + :arrow_left:/:arrow_right:
@@ -119,3 +125,12 @@
 45. [TotalRegistry](https://github.com/zodiacon/TotalRegistry)
 
 46. [PEASS-ng](https://github.com/carlospolop/PEASS-ng)
+
+47. [LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor)
+
+48. [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
+
+49. [windowsterminal-shell](https://github.com/lextm/windowsterminal-shell)
+
+50. [UACME](https://github.com/hfiref0x/UACME)
+

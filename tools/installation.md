@@ -42,6 +42,7 @@
 - https://github.com/microsoft/XmlNotepad/tree/master/src/XmlNotepadSetup
 - https://github.com/stefankueng/grepWin/tree/main/src/Setup
 - https://github.com/ffftp/ffftp
+- https://github.com/debauchee/barrier/tree/master/dist/wix
 
 ### NSIS
 
@@ -67,10 +68,23 @@
 - https://github.com/Orama-Interactive/Pixelorama
 - [HM NIS Edit](https://nsis.sourceforge.io/HM_NIS_Edit)
   - [YUView](https://github.com/IENT/YUView/blob/develop/deployment/deploy.nsi)
+- https://github.com/sithlord48/blackchocobo
+- https://github.com/hustlei/QssStylesheetEditor
+- [EpubViewer](https://github.com/hustlei/EpubViewer)
+
+##### NSIS-UI-Plugin (Qt)
+
+- [NSIS-UI-Plugin](https://github.com/winsoft666/NSIS-UI-Plugin)
 
 ##### PyNSISt
 
 - [explorepy](https://github.com/Mentalab-hub/explorepy/tree/master/installer/windows)
+
+##### Articles
+
+- [NSIS安装包开发笔记（一）：NSIS介绍、使用NSIS默认向导脚本制作Windows安装包](https://blog.csdn.net/qq21497936/article/details/116445811)
+- [NSIS安装包开发笔记（二）：NSIS使用NSIS+Qt界面制作安装包流程](https://hpzwl.blog.csdn.net/article/details/116446926)
+- [NSIS安装包开发笔记（三）：NSIS使用Qt做的安装界面制作安装包交互详解](https://blog.csdn.net/qq21497936/article/details/116572813)
 
 ### CPack
 
@@ -109,6 +123,10 @@
 - LINQPad 7
 - GIMP
 - Geph
+- [InnoDependencyInstaller](https://github.com/DomGries/InnoDependencyInstaller)
+  - https://github.com/PixiEditor/PixiEditor/tree/master/src/Installer
+- https://github.com/DomGries/FreelancerModStudio
+- [Embarcardero Delphi](https://www.embarcadero.com/products/delphi)
 
 ### Advanced Installer
 
@@ -128,6 +146,7 @@
 
 - [cairoshell](https://github.com/cairoshell/cairoshell/tree/master/Dependencies/WinSparkle)
 - [NetSparkle](https://github.com/NetSparkleUpdater/NetSparkle)
+- [wireshark](https://gitlab.com/wireshark/wireshark)
 
 ### [Squirrel/Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)
 
@@ -136,6 +155,8 @@
 - [Clowd.Squirrel](https://github.com/clowd/Clowd.Squirrel)
 
 - DeepL Translate App for Windows
+
+- [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
 
 - [Fork](https://fork.dev/)
 
@@ -163,6 +184,8 @@
 
 - https://github.com/aseprite/aseprite/tree/main/src/updater
 
+- https://github.com/hustlei/QssStylesheetEditor/blob/master/src/update/__init__.py
+
 ### MSIX
 
 [Desktop support for Flutter | Flutter](https://docs.flutter.dev/desktop)
@@ -188,6 +211,12 @@ https://github.com/M2Team/NanaZip
 ### [InstallAware](https://www.installaware.com/)
 
 - [FastReport .NET trial version](https://www.fast-report.com/en/download/fast-report-net/)
+
+- [lextudio](https://www.lextudio.com/)
+
+  > - Custom Inno Setup installer development.
+  > - Custom WiX installer development.
+  > - Custom InstallAware installer development.
 
 ### Linux
 
@@ -237,3 +266,5 @@ https://github.com/M2Team/NanaZip
 [89) Deployment - XCOPY](https://www.youtube.com/watch?v=sR8U58YrIiI)
 
 ### [dotnet-packaging](https://github.com/quamotion/dotnet-packaging)
+
+### [PixiEditor.UpdateModule](https://github.com/PixiEditor/PixiEditor/tree/master/src/PixiEditor.UpdateModule)

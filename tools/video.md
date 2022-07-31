@@ -35,6 +35,8 @@
 
 Video Players:
 
+- [ascii-video-player](https://github.com/IonelPopJara/ascii-video-player)
+
 - [jellyfin-media-player](https://github.com/jellyfin/jellyfin-media-player)
 
 - [Kodi](https://github.com/xbmc/xbmc)
@@ -58,6 +60,10 @@ Media Manager
 - [Dim](https://github.com/Dusk-Labs/dim)
 
 - [XBMC](https://github.com/xbmc/xbmc)
+
+Streaming
+
+- [streamlink](https://github.com/streamlink/streamlink)
 
 Toolchain
 

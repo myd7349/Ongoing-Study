@@ -6,6 +6,8 @@
 
 - [Camelotia](https://github.com/reactiveui/Camelotia)
 
+- [Jaya](https://github.com/waliarubal/Jaya)
+
 - [MQTTnetApp](https://github.com/chkr1011/MQTTnetApp)
 
 - [SkiaImageView](https://github.com/kekyo/SkiaImageView)
@@ -13,6 +15,8 @@
 - [SteamTools](https://github.com/BeyondDimension/SteamTools)
 
 - [SvgToXaml](https://github.com/wieslawsoltes/SvgToXaml)
+
+- [SwagLyricsGUI](https://github.com/SwagLyrics/SwagLyricsGUI)
 
 - [WalletWasabi](https://github.com/zkSNACKs/WalletWasabi)
 
@@ -26,9 +30,13 @@
 
 - [Avalonia.IconPacks](https://github.com/ahopper/Avalonia.IconPacks)
 
+- [avalonia-aero-theme](https://github.com/Splitwirez/avalonia-aero-theme)
+
 - [AvaloniaAutoGrid](https://github.com/AvaloniaUI/AvaloniaAutoGrid)
 
 - [AvaloniaBehaviors](https://github.com/wieslawsoltes/AvaloniaBehaviors)
+
+- [AvalonDock](https://github.com/Dirkster99/AvalonDock)
 
 - [AvaloniaProgressRing](https://github.com/Deadpikle/AvaloniaProgressRing)
 
@@ -41,6 +49,8 @@
 - [CSharpMath](https://github.com/verybadcat/CSharpMath)
 
 - [DialogHost.Avalonia](https://github.com/AvaloniaUtils/DialogHost.Avalonia)
+
+- [Dock](https://github.com/wieslawsoltes/Dock)
 
 - [FluentAvalonia](https://github.com/amwx/FluentAvalonia)
 
@@ -69,10 +79,6 @@
 - [WebView](https://github.com/OutSystems/WebView)
 
 - [XAML-Math](https://github.com/ForNeVeR/xaml-math)
-
-https://github.com/Dirkster99/AvalonDock
-
-https://github.com/wieslawsoltes/Dock
 
 https://github.com/wieslawsoltes/PanAndZoom
 

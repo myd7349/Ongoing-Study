@@ -2,6 +2,8 @@
 
 [clifm](https://github.com/leo-arch/clifm)
 
+[Jaya](https://github.com/waliarubal/Jaya)
+
 [ShellAnything](https://github.com/end2endzone/ShellAnything)
 
 [OpenHashTab](https://github.com/namazso/OpenHashTab)

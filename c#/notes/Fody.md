@@ -1,5 +1,7 @@
 https://github.com/Fody/Home/
 
+https://github.com/vescon/MethodBoundaryAspect.Fody
+
 https://github.com/Fody/MethodDecorator
 
 https://github.com/Fody/Costura
@@ -19,5 +21,7 @@ https://github.com/Fody/Costura
 - [TEditor](https://github.com/SkiTiSu/TEditor)
 
 https://github.com/Fody/PropertyChanged
+
+- [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
 
 - [TEditor](https://github.com/SkiTiSu/TEditor)

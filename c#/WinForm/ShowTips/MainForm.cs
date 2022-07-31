@@ -93,3 +93,4 @@
 // [C# tooltip doesn't display long enough](https://stackoverflow.com/questions/8225807/c-sharp-tooltip-doesnt-display-long-enough)
 // [[WinApp]写个简单的NotifyIcon(TrayIcon)小程式](https://dotblogs.com.tw/rainmaker/2011/03/10/21773)
 // https://github.com/rocksdanister/lively/blob/dev-v1.0-fluent-netcore/src/livelywpf/livelywpf/Systray.cs
+// https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/blob/master/LibreHardwareMonitor/UI/SystemTray.cs
