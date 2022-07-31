@@ -211,3 +211,5 @@
 - https://github.com/dberlin/superfuzz/blob/master/include/option.h
 
 - https://github.com/vivaladav/cpu-stat/blob/master/src/OptionsParser.h
+
+- https://github.com/electron/rcedit/blob/master/src/main.cc

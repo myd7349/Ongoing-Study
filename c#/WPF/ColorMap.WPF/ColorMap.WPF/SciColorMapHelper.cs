@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 using SciColorMap = SciColorMaps.Portable.ColorMap;
 
@@ -58,9 +60,6 @@ namespace ColorMap.WPF
 
             var cmap = new SciColorMap(palette, colorCount: colorCount);
 
-            if (colorCount < 2 || colorCount > 256)
-                throw new ArgumentOutOfRangeException(nameof(colorCount));
-
             if (height < colorCount)
                 return cmap.CreatePaletteBrush(colorCount);
 
@@ -74,7 +73,6 @@ namespace ColorMap.WPF
             var yStart = 0.0;
             while (yStart < height)
             {
-
                 var rect = new Rect(0, yStart, width, step);
                 var rectangleGeometry = new RectangleGeometry(rect);
 
@@ -87,6 +85,9 @@ namespace ColorMap.WPF
                 drawingGroup.Children.Add(geometryDrawing);
                 
                 yStart += step;
+
+                if (colorIndex < colors.Length - 1)
+                    colorIndex += 1;
             }
 
             var brush = new DrawingBrush
@@ -95,6 +96,215 @@ namespace ColorMap.WPF
             };
 
             return brush;
+        }
+
+        public static DrawingImage CreateDrawingImage(string palette, int colorCount)
+        {
+            if (string.IsNullOrEmpty(palette))
+                return null;
+
+            if (colorCount < 2 || colorCount > 256)
+                throw new ArgumentOutOfRangeException(nameof(colorCount));
+
+            var cmap = new SciColorMap(palette, colorCount: colorCount);
+            
+            var colors = cmap.Colors().ToArray();
+            
+            var drawingGroup = new DrawingGroup();
+            
+            for (int i = 0; i < colors.Length; ++i)
+            {
+                var rect = new Rect(0, i, 1, 1);
+                var rectangleGeometry = new RectangleGeometry(rect);
+
+                var geometryDrawing = new GeometryDrawing
+                {
+                    Brush = new SolidColorBrush(colors[i].ToMediaColor()),
+                    Geometry = rectangleGeometry,
+                };
+
+                drawingGroup.Children.Add(geometryDrawing);
+            }
+
+            var drawingImage = new DrawingImage(drawingGroup);
+            drawingImage.Freeze();
+
+            return drawingImage;
+        }
+
+        public static WriteableBitmap CreateColorMapImage(
+            string palette, int colorCount,
+            double width, double height,
+            Orientation orientation,
+            bool showTicks,
+            Color tickColor)
+        {
+            if (orientation == Orientation.Horizontal)
+            {
+                return CreateHorizontalColorMapImage(
+                    palette, colorCount, width, height, showTicks, tickColor);
+            }
+            else
+            {
+                return CreateVerticalColorMapImage(
+                    palette, colorCount, width, height, showTicks, tickColor);
+            }
+        }
+
+        public static WriteableBitmap CreateHorizontalColorMapImage(
+            string palette, int colorCount,
+            double width, double height,
+            bool showTicks, Color tickColor)
+        {
+            if (width <= 0 || height <= 0)
+                return null;
+
+            if (string.IsNullOrEmpty(palette))
+                return null;
+
+            if (colorCount < 2 || colorCount > 256)
+                throw new ArgumentOutOfRangeException(nameof(colorCount));
+
+            var cmap = new SciColorMap(palette, colorCount: colorCount);
+            var colors = cmap.Colors().ToArray();
+
+            var bitmap = BitmapFactory.New((int)width, (int)height);
+
+            var xStart = 0.0;
+            var step = width / colorCount;
+
+            using (var bitmapContext = bitmap.GetBitmapContext())
+            {
+                for (int i = 0; i < colors.Length; ++i)
+                {
+                    bitmap.FillRectangle(
+                        (int)xStart,
+                        0,
+                        (int)(xStart + step),
+                        (int)height,
+                        colors[i].ToMediaColor());
+
+                    xStart += step;
+                }
+
+                if (showTicks)
+                {
+                    bitmap.DrawRectangle(
+                        0,
+                        0,
+                        (int)width,
+                        (int)height,
+                        tickColor);
+
+                    int stepFactor = 1;
+
+                    if (step < 5)
+                    {
+                        stepFactor = (int)Math.Ceiling(5 / step);
+                        step *= stepFactor;
+                    }
+
+                    xStart = 0;
+
+                    for (int i = 0; i < colors.Length; i += stepFactor)
+                    {
+                        bitmap.DrawLine(
+                            (int)xStart,
+                            0,
+                            (int)xStart,
+                            5,
+                            Colors.Black);
+                        bitmap.DrawLine(
+                            (int)xStart,
+                            (int)height - 5,
+                            (int)xStart,
+                            (int)height,
+                            tickColor);
+
+                        xStart += step;
+                    }
+                }
+            }
+
+            return bitmap;
+        }
+
+        public static WriteableBitmap CreateVerticalColorMapImage(
+            string palette, int colorCount,
+            double width, double height,
+            bool showTicks, Color tickColor)
+        {
+            if (width <= 0 || height <= 0)
+                return null;
+
+            if (string.IsNullOrEmpty(palette))
+                return null;
+
+            if (colorCount < 2 || colorCount > 256)
+                throw new ArgumentOutOfRangeException(nameof(colorCount));
+
+            var cmap = new SciColorMap(palette, colorCount: colorCount);
+            var colors = cmap.Colors().ToArray();
+
+            var bitmap = BitmapFactory.New((int)width, (int)height);
+
+            var yStart = 0.0;
+            var step = height / colorCount;
+
+            using (var bitmapContext = bitmap.GetBitmapContext())
+            {
+                for (int i = 0; i < colors.Length; ++i)
+                {
+                    bitmap.FillRectangle(
+                        0,
+                        (int)yStart,
+                        (int)width,
+                        (int)(yStart + step),
+                        colors[i].ToMediaColor());
+
+                    yStart += step;
+                }
+
+                if (showTicks)
+                {
+                    bitmap.DrawRectangle(
+                        0,
+                        0,
+                        (int)width,
+                        (int)height,
+                        tickColor);
+
+                    int stepFactor = 1;
+
+                    if (step < 5)
+                    {
+                        stepFactor = (int)Math.Ceiling(5 / step);
+                        step *= stepFactor;
+                    }
+
+                    yStart = 0;
+
+                    for (int i = 0; i < colors.Length; i += stepFactor)
+                    {
+                        bitmap.DrawLine(
+                            0,
+                            (int)yStart,
+                            5,
+                            (int)yStart,
+                            Colors.Black);
+                        bitmap.DrawLine(
+                            (int)width - 5,
+                            (int)yStart,
+                            (int)width,
+                            (int)yStart,
+                            tickColor);
+
+                        yStart += step;
+                    }
+                }
+            }
+
+            return bitmap;
         }
 
         public static readonly Brush TransparentBrush = new DrawingBrush

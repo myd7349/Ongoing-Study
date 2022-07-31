@@ -6,7 +6,13 @@
              xmlns:local="clr-namespace:ColorMap.WPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid x:Name="grid_"
+          Background="{x:Static local:SciColorMapHelper.TransparentBrush}">
+        <Image x:Name="image_"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch"
+               Stretch="Fill"
+               Source="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=ImageSource}"
+               SizeChanged="Image_SizeChanged" />
     </Grid>
 </UserControl>

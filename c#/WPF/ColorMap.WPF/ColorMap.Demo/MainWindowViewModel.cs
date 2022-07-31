@@ -34,6 +34,7 @@ namespace ColorMap.Demo
                 {
                     CreateColorMapBrush();
                     CreateColorMapBrush2();
+                    CreateDrawingImage();
                 }
             }
         }
@@ -48,6 +49,7 @@ namespace ColorMap.Demo
                 {
                     CreateColorMapBrush();
                     CreateColorMapBrush2();
+                    CreateDrawingImage();
                 }
             }
         }
@@ -90,6 +92,12 @@ namespace ColorMap.Demo
             }
         }
 
+        public DrawingImage DrawingImage
+        {
+            get => drawingImage_;
+            set => SetProperty(ref drawingImage_, value);
+        }
+
         private void UpdateSize(Rectangle rectangle)
         {
             Width = rectangle.ActualWidth;
@@ -108,6 +116,12 @@ namespace ColorMap.Demo
                 selectedColorPalette_, colorCount_, width_, height_);
         }
 
+        private void CreateDrawingImage()
+        {
+            DrawingImage = SciColorMapHelper.CreateDrawingImage(
+                selectedColorPalette_, colorCount_);
+        }
+
         private string? selectedColorPalette_;
         private int colorCount_ = 256;
         private Brush? colorMapBrush_;
@@ -115,5 +129,6 @@ namespace ColorMap.Demo
         private Command? updateSizeCommand_;
         private double width_;
         private double height_;
+        private DrawingImage drawingImage_;
     }
 }

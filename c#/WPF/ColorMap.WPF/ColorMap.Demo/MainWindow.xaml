@@ -14,9 +14,22 @@
         <local:MainWindowViewModel />
     </Window.DataContext>
 
-    <Grid Margin="20">
+    <Grid Margin="20"
+          UseLayoutRounding="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" MinWidth="100" />
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="30" />
             <ColumnDefinition Width="10" />
             <ColumnDefinition Width="30" />
             <ColumnDefinition Width="10" />
@@ -84,5 +97,28 @@
             </Rectangle.LayoutTransform>
             -->
         </Rectangle>
+
+        <Image Grid.Column="6"
+               Stretch="Fill"
+               SnapsToDevicePixels="False"
+               Source="{Binding DrawingImage}" />
+
+        <colormap:ColorMapControl Grid.Column="8"
+                                  Orientation="Vertical"
+                                  Gradation="{Binding ColorCount}"
+                                  Palette="{Binding SelectedColorPalette}" />
+
+        <colormap:ColorMapControl Grid.Column="10"
+                                  Orientation="Vertical"
+                                  Gradation="{Binding ColorCount}"
+                                  Palette="{Binding SelectedColorPalette}"
+                                  ShowTicks="True" />
+
+        <colormap:ColorMapControl Grid.Row="2"
+                                  Grid.Column="0" Grid.ColumnSpan="11"
+                                  Orientation="Horizontal"
+                                  Gradation="{Binding ColorCount}"
+                                  Palette="{Binding SelectedColorPalette}"
+                                  ShowTicks="True" />
     </Grid>
 </Window>

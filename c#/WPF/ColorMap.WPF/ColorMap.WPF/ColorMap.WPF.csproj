@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="ar1st0crat.SciColorMaps.Portable" Version="1.0.2" />
+    <PackageReference Include="WriteableBitmapEx" Version="1.6.8" />
   </ItemGroup>
 
 </Project>
