@@ -892,3 +892,4 @@ void dyarr_apply(dyarr_t arr, void(*apply_fn)(size_t, void *))
 // https://github.com/pjreddie/wordle/blob/main/src/vector.c
 // https://github.com/glouw/ctl/blob/master/ctl/vec.h
 // https://github.com/eteran/c-vector
+// https://github.com/genome-vendor/Math-FFT/blob/master/arrays.c

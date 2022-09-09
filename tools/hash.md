@@ -12,6 +12,10 @@ HashCalc
 
 - [Hasher Lite.小巧实用的HASH(哈希)计算小工具](https://zhuanlan.zhihu.com/p/84157209)
 
+[hc](https://github.com/aegoroff/hc)
+
+[multihash](https://github.com/Cigaes/multihash)
+
 [OpenHashTab](https://github.com/namazso/OpenHashTab)
 
 PowerShell Get-FileHash

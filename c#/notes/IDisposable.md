@@ -123,3 +123,5 @@ private int _disposed;
 ```
 
 https://github.com/InCerryGit/Dispose.Scope
+
+https://github.com/DotNetAnalyzers/IDisposableAnalyzers

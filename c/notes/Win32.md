@@ -30,6 +30,12 @@ https://github.com/hfiref0x/SyscallTables
 
 [AuthHashCalc](https://github.com/hfiref0x/AuthHashCalc)
 
+[csvtab-wlx](https://github.com/little-brother/csvtab-wlx)
+
+[sqlite-gui](https://github.com/little-brother/sqlite-gui)
+
+[jsontab-wlx](https://github.com/little-brother/jsontab-wlx)
+
 ### LoadLibrary
 
 - [DLL Load Library - Error Code 126](https://stackoverflow.com/questions/14361992/dll-load-library-error-code-126)

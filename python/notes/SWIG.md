@@ -43,3 +43,9 @@
 [pystfio](https://github.com/neurodroid/stimfit/tree/master/src/pystfio)
 
 [libopenshot](https://github.com/OpenShot/libopenshot)
+
+[PyMuPDF](https://github.com/pymupdf/PyMuPDF)
+
+[pyISCML](https://github.com/mmatthe/pyISCML)
+
+[shogun](https://github.com/shogun-toolbox/shogun/tree/develop/src/interfaces/python)

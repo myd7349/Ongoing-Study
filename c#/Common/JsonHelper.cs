@@ -1,5 +1,7 @@
 ﻿namespace Common
 {
+    using System;
+    using System.Diagnostics;
     using System.IO;
     using System.Text;
 
@@ -182,6 +184,42 @@
                 });
         }
 #endif
+
+        public static T DeepClone<T>(T source) where T : class
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            var json = JsonConvert.SerializeObject(source);
+
+            // initialize inner objects individually
+            // for example in default constructor some list property initialized with some values,
+            // but in 'source' these items are cleaned -
+            // without ObjectCreationHandling.Replace default constructor values will be added to result
+            var deserializeSettings = new JsonSerializerSettings
+            {
+                ObjectCreationHandling = ObjectCreationHandling.Replace
+            };
+
+            return JsonConvert.DeserializeObject<T>(json, deserializeSettings);
+        }
+
+        public static void PopulateWith<T>(this T target, T source) where T : class
+        {
+            if (target == null)
+                throw new ArgumentNullException(nameof(target));
+
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            Debug.Assert(!ReferenceEquals(target, source));
+            if (ReferenceEquals(target, source))
+                return;
+
+            var json = JsonConvert.SerializeObject(source);
+
+            JsonConvert.PopulateObject(json, target);
+        }
     }
 }
 
@@ -229,3 +267,5 @@ namespace ObjectInspector
 // [What is the minimum valid JSON?](https://stackoverflow.com/questions/18419428/what-is-the-minimum-valid-json)
 // [Is null valid JSON (4 bytes, nothing else)](https://stackoverflow.com/questions/8526995/is-null-valid-json-4-bytes-nothing-else)
 // https://github.com/mathiasbynens/small/issues/22
+// [Deep cloning objects](https://stackoverflow.com/questions/78536/deep-cloning-objects)
+// [Overlay data from JSON string to existing object instance](https://stackoverflow.com/questions/5157079/overlay-data-from-json-string-to-existing-object-instance)

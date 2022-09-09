@@ -54,6 +54,8 @@
 
   - [Pass ViewModel to UserControl](https://stackoverflow.com/questions/39908358/pass-viewmodel-to-usercontrol)
 
+  - :star: [Wpf UserControl and MVVM](https://stackoverflow.com/questions/3333934/wpf-usercontrol-and-mvvm)
+
 - [M-V-VM Design Question. Calling View from ViewModel](https://stackoverflow.com/questions/303006/m-v-vm-design-question-calling-view-from-viewmodel)
 
   - Catel
@@ -178,6 +180,32 @@
 
   - [Is it wrong to use the Dispatcher within my ViewModel?](https://stackoverflow.com/questions/7473973/is-it-wrong-to-use-the-dispatcher-within-my-viewmodel)
 
+- [Saving image (screenshot) of control in WPF - MVVM Pattern](https://stackoverflow.com/questions/65611709/saving-image-screenshot-of-control-in-wpf-mvvm-pattern)
+
+- [How to Passing multiple parameters RelayCommand?](https://stackoverflow.com/questions/8279782/how-to-passing-multiple-parameters-relaycommand)
+
+- [Passing two command parameters using a WPF binding](https://stackoverflow.com/questions/1350598/passing-two-command-parameters-using-a-wpf-binding)
+
+- [Declaring Tuple in Xaml](https://stackoverflow.com/questions/3918470/declaring-tuple-in-xaml)
+
+- [Print WPF Visuals with MVVM pattern](https://stackoverflow.com/questions/3875789/print-wpf-visuals-with-mvvm-pattern)
+
+- [MVVM – Made Easy with Microsoft MVVM Toolkit – Part 1](https://egvijayanand.in/2022/04/22/mvvm-made-easy/)
+
+- [MVVM – Made Easy with Microsoft MVVM Toolkit – Part 2](https://egvijayanand.in/2022/05/09/mvvm-made-easy-with-microsoft-mvvm-toolkit-part-2/)
+
+- Supervising Controller pattern
+
+  - [How can i access a control in mvvm model in viewmodel?](https://stackoverflow.com/questions/14236222/how-can-i-access-a-control-in-mvvm-model-in-viewmodel)
+
+  - [Talk to the View](http://drc.ideablade.com/devforce-2012/bin/view/Documentation/cocktail-tutorial-talk-to-view)
+
+  - [Getting Window from view model](https://stackoverflow.com/questions/47266184/getting-window-from-view-model)
+
+- IRelayCommand
+
+  - [Passing event args and sender to the RelayCommand](https://stackoverflow.com/questions/2963830/passing-event-args-and-sender-to-the-relaycommand)
+
 ##### YouTube Videos
 
 - [C# WPF UI Tutorials: 02 - TreeViews and Value Converters](https://youtu.be/6OwyNiLPDNw)
@@ -290,6 +318,8 @@
 
   - [NWaves.Blueprints](https://github.com/ar1st0crat/NWaves.Blueprints)
 
+- Catel.MVVM
+
 - [CommunityToolkit.Mvvm](https://www.nuget.org/packages/CommunityToolkit.Mvvm/)
 
   - [Introduction to the MVVM Toolkit](https://learn.microsoft.com/en-us/windows/communitytoolkit/mvvm/introduction)
@@ -315,6 +345,8 @@
   - [Request to include ObservableRangeCollection, an updated ObservableCollection available as part of Xamarin.CommunityToolkit and MVVM Helpers](https://github.com/CommunityToolkit/dotnet/issues/256)
 
   - [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
+
+- [DevExpress.Mvvm.Free](https://github.com/DevExpress/DevExpress.Mvvm.Free)
 
 - [DynamicData](https://github.com/reactivemarbles/DynamicData)
 
@@ -346,6 +378,10 @@
 
 - [maui-bindableproperty-generator](https://github.com/rrmanzano/maui-bindableproperty-generator)
 
+- [ModalContentPresenter](https://github.com/BenjaminGale/ModalContentPresenter)
+
+  - [Access XAML object in ViewModel](https://stackoverflow.com/questions/25119470/access-xaml-object-in-viewmodel)
+
 - [Mvvm](https://github.com/StephenCleary/Mvvm)
 
 - [mvvm-helpers](https://github.com/jamesmontemagno/mvvm-helpers)
@@ -359,6 +395,8 @@
 - [MvvmCross](https://github.com/MvvmCross/MvvmCross) - [website](https://www.mvvmcross.com/)
 
   - [ViewModel Lifecycle](https://www.mvvmcross.com/documentation/fundamentals/viewmodel-lifecycle)
+
+- [MvvmGen](https://github.com/thomasclaudiushuber/mvvmgen)
 
 - [Microsoft.Toolkit.Mvvm](https://www.nuget.org/packages/Microsoft.Toolkit.Mvvm)
 
@@ -415,7 +453,15 @@
 - [ReactiveProperty](https://github.com/runceel/ReactiveProperty)
 
 - [ReactiveUI](https://github.com/reactiveui/ReactiveUI)
-  
+
+  - [NodeNetwork](https://github.com/Wouterdek/NodeNetwork)
+
+- Splat
+
+  - [NodeNetwork](https://github.com/Wouterdek/NodeNetwork)
+
+    - https://github.com/Wouterdek/NodeNetwork/blob/master/ExampleCalculatorApp/ViewModels/IntegerValueEditorViewModel.cs
+
 - [Stylet](https://github.com/canton7/Stylet): A very lightweight but powerful ViewModel-First MVVM framework for WPF for .NET Framework and .NET Core, inspired by Caliburn.Micro.
 
   - Screen

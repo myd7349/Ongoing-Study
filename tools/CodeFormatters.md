@@ -6,5 +6,5 @@
 - [CodeMaid](https://github.com/codecadwallader/codemaid)
 - [joker](https://github.com/candid82/joker)
 - [prettier](https://github.com/prettier/prettier)
-- uncrustify
+- [uncrustify](https://github.com/uncrustify/uncrustify)
 - [yapf](https://github.com/google/yapf)

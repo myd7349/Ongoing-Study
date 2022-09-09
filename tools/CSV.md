@@ -9,6 +9,8 @@ https://github.com/simdjson/simdjson/blob/v1.0.2/doc/parse_many.md#use-cases
 
 [CSVFileView](https://www.nirsoft.net/utils/csv_file_view.html)
 
+[csvtab-wlx](https://github.com/little-brother/csvtab-wlx)
+
 [miller](https://github.com/johnkerl/miller)
 
 [q](https://github.com/harelba/q)

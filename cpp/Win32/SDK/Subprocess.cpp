@@ -166,4 +166,5 @@ unsigned int __stdcall Subprocess::ProcessOutput(void *arg) {
 // https://github.com/sheredom/subprocess.h
 // https://github.com/rochus-keller/MonoTools/blob/master/MonoEngine.cpp
 // https://github.com/kingsamchen/Eureka/tree/master/Lumper
+// [redirecting output to the text file c#](https://stackoverflow.com/questions/16256587/redirecting-output-to-the-text-file-c-sharp)
 // clang-format on

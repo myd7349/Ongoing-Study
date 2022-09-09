@@ -19,3 +19,5 @@ for(ITER iter = mapTest.begin(); iter != mapTest.end();)
 ```
 
 https://github.com/martinus/map_benchmark
+
+https://github.com/endless-sky/endless-sky/blob/master/source/Dictionary.h

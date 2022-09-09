@@ -378,3 +378,5 @@ void DrawMandelbrot(HWND hWnd, BitmapPtr bitmap)
 // https://doc.qt.io/qt-5/qtcore-threads-mandelbrot-example.html
 // https://github.com/qt/qtbase/tree/dev/examples/corelib/threads/mandelbrot
 // https://www.boost.org/doc/libs/1_56_0/libs/gil/example/mandelbrot.cpp
+// https://github.com/mattip/c_from_python
+// https://github.com/holoviz/holoviews/blob/main/examples/gallery/apps/bokeh/mandelbrot.py

@@ -112,3 +112,4 @@ namespace Common
 // [Restore application from system tray when clicking on desktop shortcut](https://stackoverflow.com/questions/10529370/restore-application-from-system-tray-when-clicking-on-desktop-shortcut)
 // [Is there any async equivalent of Process.Start?](https://stackoverflow.com/questions/10788982/is-there-any-async-equivalent-of-process-start)
 // https://github.com/PixiEditor/PixiEditor/blob/master/src/PixiEditor/Helpers/ProcessHelper.cs
+// [redirecting output to the text file c#](https://stackoverflow.com/questions/16256587/redirecting-output-to-the-text-file-c-sharp)

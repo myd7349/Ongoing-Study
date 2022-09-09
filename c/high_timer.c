@@ -176,3 +176,6 @@ int64_t high_timer_elapsed_ns(high_timer_t *timer)
 // [cputime](https://github.com/k0dai/cputime)
 // https://github.com/libsdl-org/SDL/blob/main/src/timer/windows/SDL_systimer.c
 // [Windows Timer Resolution: The Great Rule Change](https://randomascii.wordpress.com/2020/10/04/windows-timer-resolution-the-great-rule-change/)
+// https://github.com/mattip/c_from_python/blob/master/main.c
+// [Measure time in Linux - time vs clock vs getrusage vs clock_gettime vs gettimeofday vs timespec_get?](https://stackoverflow.com/questions/12392278/measure-time-in-linux-time-vs-clock-vs-getrusage-vs-clock-gettime-vs-gettimeof)
+// > POSIX.1-2008 says that. "Applications should use the clock_gettime() function instead of the obsolescent gettimeofday() function", so you should stay away from it. Linux x86 and implements it as a system call.

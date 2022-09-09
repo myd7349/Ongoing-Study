@@ -6,7 +6,17 @@ Applications:
 
 - [ActiveDesktopPlus](https://github.com/torchgm/ActiveDesktopPlus)
 
+- [AdvancedSerialCommunicator](https://github.com/AngryCarrot789/AdvancedSerialCommunicator)
+
+- [AkavacheExplorer](https://github.com/anaisbetts/AkavacheExplorer)
+
+- [ANTLR4ParseTreeVisualizer](https://github.com/zspitz/ANTLR4ParseTreeVisualizer)
+
 - [AutumnBox](https://github.com/zsh2401/AutumnBox)
+
+- [BasicSerialCommunicator](https://github.com/AngryCarrot789/BasicSerialCommunicator)
+
+- [BCEdit180](https://github.com/AngryCarrot789/BCEdit180)
 
 - [BilibiliLiveRecordDownLoader](https://github.com/HMBSbige/BilibiliLiveRecordDownLoader)
 
@@ -34,9 +44,17 @@ Applications:
 
 - [ChoEazyCopy](https://github.com/Cinchoo/ChoEazyCopy)
 
+- [Chordious](https://github.com/jonthysell/Chordious)
+
 - [ClipboardViewer](https://github.com/walterlv/ClipboardViewer)
 
+- [clovett/tools](https://github.com/clovett/tools)
+
 - [CodeReason.Reports](https://github.com/jogibear9988/CodeReason.Reports)
+
+- [ColorPicker](https://github.com/martinchrzan/ColorPicker)
+
+- [ColorPickerUX](https://github.com/niels9001/ColorPickerUX)
 
 - [ConfuserEx](https://github.com/yck1509/ConfuserEx)
 
@@ -74,6 +92,8 @@ Applications:
 
 - [Easy-Cat-Timer](https://github.com/xujiangjiang/Easy-Cat-Timer)
 
+- [EasyBackup](https://github.com/Deadpikle/EasyBackup)
+
 - [encryption_code_book](https://github.com/lindexi/encryption_code_book)
 
 - [EpubViewer](https://github.com/hustlei/EpubViewer)
@@ -93,6 +113,12 @@ Applications:
 - [Fork.dev](https://fork.dev/)
 
 - [GeometryToolDemo](https://github.com/dotnet-campus/GeometryToolDemo)
+
+- [ILSpy](https://github.com/icsharpcode/ILSpy)
+
+- [iRobotGUI](https://github.com/jiasli/iRobotGUI)
+
+- [KeyDownTester](https://github.com/AngryCarrot789/KeyDownTester)
 
 - [LightBulb](https://github.com/Tyrrrz/LightBulb): Reduces eye strain by adjusting gamma based on the current time
 
@@ -116,9 +142,13 @@ Applications:
 
 - [MSBuildStructuredLog](https://github.com/KirillOsenkov/MSBuildStructuredLog)
 
+- [Multi-login-CSharp-WPF](https://github.com/alihaider11/Multi-login-CSharp-WPF)
+
 - [MusCat](https://github.com/ar1st0crat/MusCat)
 
 - [my-todoapp](https://github.com/HenJigg/my-todoapp)
+
+- [Mzinga](https://github.com/jonthysell/Mzinga)
 
 - [NatTypeTester](https://github.com/HMBSbige/NatTypeTester)
 
@@ -134,6 +164,8 @@ Applications:
 
 - [PdfiumViewer](https://github.com/pvginkel/PdfiumViewer)
 
+  - [PdfiumViewer](https://github.com/bezzad/PdfiumViewer)
+
 - [perfview](https://github.com/microsoft/perfview)
 
 - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
@@ -141,6 +173,8 @@ Applications:
 - [PowerBuddy](https://github.com/PerfectlyCromulentLtd/PowerBuddy)
 
 - [ProjectDependencyBrowser](https://github.com/RicoSuter/ProjectDependencyBrowser)
+
+- [PSWRDMGR](https://github.com/AngryCarrot789/PSWRDMGR)
 
 - [QSanguosha](https://github.com/Mogara/QSanguosha)
 
@@ -154,6 +188,10 @@ Applications:
 
 - [RetroBar](https://github.com/dremin/RetroBar)
 
+- [RoslynPad](https://github.com/roslynpad/roslynpad)
+
+- [RotatingCube](https://github.com/cshung/RotatingCube)
+
 - [RoundedTB](https://github.com/torchgm/RoundedTB)
 
 - [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)
@@ -166,7 +204,11 @@ Applications:
 
 - [ShadowsocksR-Windows](https://github.com/HMBSbige/ShadowsocksR-Windows)
 
+- [sharppad](https://github.com/AngryCarrot789/sharppad)
+
 - [SidebarDiagnostics](https://github.com/ArcadeRenegade/SidebarDiagnostics)
+
+- [Simple-Icon-File-Maker](https://github.com/TheJoeFin/Simple-Icon-File-Maker)
 
 - [simple-music-player](https://github.com/punker76/simple-music-player)
 
@@ -178,6 +220,8 @@ Applications:
 
 - [SoftwareHelper](https://github.com/WPFDevelopersOrg/SoftwareHelper)
 
+- [SoftwareTrails](https://github.com/clovett/SoftwareTrails)
+
 - [SparkleShare](https://github.com/hbons/SparkleShare)
 
 - [SvgToXaml](https://github.com/BerndK/SvgToXaml)
@@ -188,9 +232,17 @@ Applications:
 
 - [TEditor](https://github.com/SkiTiSu/TEditor)
 
+- [TerminalMACS.ManagerForWPF](https://github.com/dotnet9/TerminalMACS.ManagerForWPF)
+
+- [Tetris-Game](https://github.com/OttoBotCode/Tetris-Game)
+
+- [Text-Grab](https://github.com/TheJoeFin/Text-Grab)
+
 - [ToastFish](https://github.com/Uahh/ToastFish)
 
 - [TranslationTool](https://github.com/Kybs0/TranslationTool)
+
+- [TsinghuaNet](https://github.com/Berrysoft/TsinghuaNet)
 
 - [Tune](https://github.com/kkokosa/Tune)
 
@@ -200,9 +252,13 @@ Applications:
 
 - [YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)
 
+- [USBLib](https://github.com/Dainter/USBLib)
+
 - [VisualJsonEditor](https://github.com/RicoSuter/VisualJsonEditor)
 
 - [WeatherCS](https://github.com/crashmax-dev/WeatherCS)
+
+- [WinClean](https://github.com/5cover/WinClean)
 
 - [WinCompose](https://github.com/samhocevar/wincompose)
 
@@ -254,6 +310,8 @@ Libraries:
 
   - [Shadow-FM](https://github.com/aduskin/Shadow-FM)
 
+- [ag.WPF.ColorPicker](https://github.com/dedpichto/ag.WPF.ColorPicker)
+
 - [AirspaceFixer](https://github.com/chris84948/AirspaceFixer)
 
   - [NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
@@ -278,6 +336,8 @@ Libraries:
 
   - [Recommendations on a WPF Docking Library](https://stackoverflow.com/questions/344205/recommendations-on-a-wpf-docking-library)
 
+  - [RoslynPad](https://github.com/roslynpad/roslynpad)
+
 - [AvalonEdit](https://github.com/icsharpcode/AvalonEdit)
 
   - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
@@ -287,6 +347,8 @@ Libraries:
   - [SkiaSharpFiddle](https://github.com/mattleibow/SkiaSharpFiddle)
 
   - [XamlViewer](https://github.com/WPFDevelopersOrg/XamlViewer)
+
+- [BlurMessageBox](https://github.com/bezzad/BlurMessageBox)
 
 - [bot](https://github.com/thinkpixellab/bot)
 
@@ -334,6 +396,18 @@ Libraries:
 
   - [Definitive Guide to WPF Colors, Color Spaces, Color Pickers and Creating Your Own Colors for Mere Mortals](https://www.codeproject.com/Articles/5296124/Definitive-Guide-to-WPF-Colors-Color-Spaces-Color)
 
+  - [Dirkster99.ColorPickerLib](https://github.com/Dirkster99/ColorPickerLib)
+
+  - [ColorPickerWPF](https://github.com/drogoganor/ColorPickerWPF)
+
+  - [ag.WPF.ColorPicker](https://github.com/dedpichto/ag.WPF.ColorPicker)
+
+  - https://github.com/clovett/tools/tree/master/ColorPicker/ColorPicker
+
+- [CommonValueConverters](https://github.com/FS-NulL/CommonValueConverters)
+
+- [CompiledBindings](https://github.com/levitali/CompiledBindings)
+
 - [ConnectionStatus](https://github.com/Moh3nGolshani/ConnectionStatus)
 
 - [ConsoleControl](https://github.com/dwmkerr/consolecontrol)
@@ -347,6 +421,8 @@ Libraries:
   - [Papercut-SMTP](https://github.com/ChangemakerStudios/Papercut-SMTP)
   - PowerToys
 
+- [CSharpMath](https://github.com/verybadcat/CSharpMath)
+
 - [CSLA.NET](https://github.com/MarimerLLC/csla)
 
 - [DataGridExtensions](https://github.com/dotnet/DataGridExtensions)
@@ -354,6 +430,8 @@ Libraries:
 - [DataGridFilter](https://github.com/macgile/DataGridFilter)
 
 - [DiagrammDesigner](https://github.com/jogibear9988/DiagrammDesigner)
+
+- [Dirkster99.ColorPickerLib](https://github.com/Dirkster99/ColorPickerLib)
 
 - [Dirkster fsc](https://github.com/Dirkster99/fsc)
 
@@ -407,6 +485,10 @@ Libraries:
 
 - [Elmish.WPF](https://github.com/elmish/Elmish.WPF)
 
+- [Emoji.Wpf](https://github.com/samhocevar/emoji.wpf)
+
+- [EventBinder](https://github.com/Serg046/EventBinder)
+
 - [FFME](https://github.com/unosquare/ffmediaelement): The Advanced WPF MediaElement Alternative.
 
   - [On the Shoulders of Giants](https://github.com/QL-Win/QuickLook/wiki/On-the-Shoulders-of-Giants)
@@ -457,7 +539,27 @@ Libraries:
 
 - [Gu.Wpf.DataGrid2D](https://github.com/GuOrg/Gu.Wpf.DataGrid2D)
 
+- [Gu.Wpf.Gauges](https://github.com/GuOrg/Gu.Wpf.Gauges)
+
 - [Gu.Wpf.Geometry](https://github.com/GuOrg/Gu.Wpf.Geometry)
+
+- [Gu.Wpf.GridExtensions](https://github.com/GuOrg/Gu.Wpf.GridExtensions)
+
+- [Gu.Wpf.Media](https://github.com/GuOrg/Gu.Wpf.Media)
+
+- [Gu.Wpf.ModernUI](https://github.com/GuOrg/Gu.Wpf.ModernUI)
+
+- [Gu.Wpf.NumericInput](https://github.com/GuOrg/Gu.Wpf.NumericInput)
+
+  - [Filtering multiple columns, previous filters will fail](https://github.com/dotnet/DataGridExtensions/issues/67)
+
+- [Gu.Wpf.PropertyGrid](https://github.com/GuOrg/Gu.Wpf.PropertyGrid)
+
+- [Gu.Wpf.ToolTips](https://github.com/GuOrg/Gu.Wpf.ToolTips)
+
+- [Gu.Wpf.UiAutomation](https://github.com/GuOrg/Gu.Wpf.UiAutomation)
+
+- [Gu.Wpf.Validation](https://github.com/GuOrg/Gu.Wpf.Validation)
 
 - [H.NotifyIcon](https://github.com/HavenDV/H.NotifyIcon)
 
@@ -476,6 +578,8 @@ Libraries:
   - [CodeReason.Reports](https://github.com/jogibear9988/CodeReason.Reports)
 
   - [dnSpy](https://github.com/dnSpy/dnSpy)
+
+- [Ifp.Validation.WPF](https://github.com/ifpanalytics/Ifp.Validation.WPF)
 
 - Infragistics Ultimate UI for WPF
 
@@ -557,6 +661,10 @@ Libraries:
 
   - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
 
+- [ModalContentPresenter](https://github.com/BenjaminGale/ModalContentPresenter)
+
+  - [Access XAML object in ViewModel](https://stackoverflow.com/questions/25119470/access-xaml-object-in-viewmodel)
+
 - [ModernCharts](https://github.com/darthmaure/ModernCharts)
 
 - [ModernWpf](https://github.com/Kinnara/ModernWpf)
@@ -566,6 +674,8 @@ Libraries:
   - PowerToys
 
 - [MPF](https://github.com/sunnycase/MPF)
+
+- [Mpv.WPF](https://github.com/milleniumbug/Mpv.WPF)
 
 - [mui](https://github.com/firstfloorsoftware/mui)
 
@@ -611,11 +721,15 @@ Libraries:
 
 - [NumericUpDownLib](https://github.com/Dirkster99/NumericUpDownLib)
 
+- [NZazu](https://github.com/awesome-inc/NZazu)
+
 - [OdysseyWPF](https://github.com/jogibear9988/OdysseyWPF)
 
 - [Ookii.Dialogs.Wpf](https://github.com/ookii-dialogs/ookii-dialogs-wpf)
 
   - dnSpy
+
+  - [iRobotGUI](https://github.com/jiasli/iRobotGUI)
 
 - [Orc.Controls](https://github.com/WildGums/Orc.Controls)
 
@@ -626,6 +740,8 @@ Libraries:
 - [Panuon.UI.Silver](https://github.com/Panuon/Panuon.UI.Silver)
 
 - [PanuonUI.Silver](https://github.com/Mochengvia/PanuonUI.Silver)
+
+- [PdfiumViewer](https://github.com/bezzad/PdfiumViewer)
 
 - [Prism](https://github.com/PrismLibrary/Prism)
   
@@ -640,6 +756,8 @@ Libraries:
 - [PropertyTools](https://github.com/PropertyTools/PropertyTools)
 
 - [PropertyTools.Magic](https://github.com/vblegend/PropertyTools.Magic)
+
+- [QRCoder](https://github.com/codebude/QRCoder)
 
 - [QuickConverter](https://github.com/JohannesMoersch/QuickConverter)
 
@@ -675,6 +793,8 @@ Libraries:
 
 - [SimpleWPF](https://github.com/Joben28/SimpleWPF)
 
+- [Singulink.WPF.Data.MethodBinding](https://github.com/Singulink/Singulink.WPF.Data.MethodBinding)
+
 - [SlGanttChart](https://github.com/jogibear9988/SlGanttChart)
 
 - [SpicyTaco.AutoGrid](https://github.com/SpicyTaco/SpicyTaco.AutoGrid)
@@ -705,6 +825,8 @@ Libraries:
 
 - [TomsToolbox.Wpf](https://github.com/tom-englert/TomsToolbox/tree/master/src/TomsToolbox.Wpf)
 
+  - [ILSpy](https://github.com/icsharpcode/ILSpy)
+
 - TreeListView
 
   - [WPF: Is there a built-in TreeGrid / TreeListView?](https://stackoverflow.com/questions/2703209/wpf-is-there-a-built-in-treegrid-treelistview)
@@ -719,9 +841,21 @@ Libraries:
 
   - https://github.com/PropertyTools/PropertyTools
 
+  - https://github.com/dnSpy/ICSharpCode.TreeView
+
+  - https://github.com/jogibear9988/CodeReason.Reports/blob/master/ReportEditor/ExternalDlls/ICSharpCode.TreeView.dll
+
+  - https://github.com/AvaloniaUI/Avalonia.Controls.TreeDataGrid
+
+  - https://github.com/icsharpcode/ILSpy/tree/master/SharpTreeView
+
+  - https://github.com/icsharpcode/SharpDevelop/tree/master/src/Libraries/SharpTreeView/ICSharpCode.TreeView
+
 - [UniversalWPF](https://github.com/dotMorten/UniversalWPF)
 
 - [WPF.Extensions](https://github.com/dahall/Vanara/tree/master/WPF.Extensions)
+
+- [VirtualCanvas](https://github.com/clovett/VirtualCanvas)
 
 - [VirtualCollection](https://github.com/samueldjack/VirtualCollection)
 
@@ -756,6 +890,10 @@ Libraries:
   - [用WPF实现“等待”小转盘](https://www.cnblogs.com/guogangj/archive/2013/03/02/2938971.html)
 
   - [PixiEditor](https://github.com/PixiEditor/PixiEditor)
+
+- [WpfContrib](https://github.com/aelij/WPFContrib)
+
+  - [RoslynPad](https://github.com/roslynpad/roslynpad)
 
 - [WPFConverters](https://github.com/kentcb/WPFConverters)
 

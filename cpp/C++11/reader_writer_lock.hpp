@@ -136,3 +136,4 @@ private:
 // https://en.wikipedia.org/wiki/Readers%E2%80%93writers_problem
 // https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock
 // Modern Operating System, 2.5.2 The Readers and Writers Problem
+// https://github.com/scoder/fastrlock

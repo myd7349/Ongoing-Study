@@ -1,0 +1,41 @@
+﻿<Window x:Class="MVVMDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:md="https://github.com/fantasticfiasco/mvvm-dialogs"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:local="clr-namespace:MVVMDemo"
+        mc:Ignorable="d"
+        md:DialogServiceViews.IsRegistered="True"
+        Title="MVVM Demo" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </i:EventTrigger>
+
+        <i:EventTrigger EventName="Closed">
+            <i:InvokeCommandAction Command="{Binding ClosedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid VerticalAlignment="Center">
+        <StackPanel>
+            <TextBox Height="25" Width="120"
+                     Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Height="25" Width="120"
+                    Content="Show Text"
+                    Command="{Binding ShowTextCommand}" />
+            <Button Height="25" Width="120"
+                    Content="Open File..."
+                    Command="{Binding OpenFileCommand}" />
+            <Button Height="25" Width="120"
+                    Content="Edit Text"
+                    Command="{Binding EditTextCommand}" />
+        </StackPanel>
+    </Grid>
+</Window>

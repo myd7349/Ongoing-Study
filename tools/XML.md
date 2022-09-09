@@ -1,3 +1,6 @@
 - Altova XMLSpy
+- [foxe](http://www.firstobject.com/dn_editor.htm)
+  - built on [CMarkup](http://www.firstobject.com/dn_markup.htm)
+- [xmldiff](https://github.com/lovettchris/xmldiff)
 - [XmlNotepad](https://github.com/microsoft/XmlNotepad) - [XML Notepad Site](https://microsoft.github.io/XmlNotepad/)
 - [xmltools](https://github.com/morbac/xmltools)

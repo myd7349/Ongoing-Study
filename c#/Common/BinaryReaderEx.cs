@@ -97,3 +97,4 @@
 // https://github.com/MediaArea/ZenLib/blob/master/Source/ZenLib/BitStream.h
 // https://github.com/aybe/BinaryExtensions/blob/develop/BinaryExtensions/BinaryExtensions/EndiannessExtensions.g.cs
 // https://github.com/dotnet/runtime/blob/main/src/libraries/System.Reflection.Metadata/src/System/Reflection/PortableExecutable/PEBinaryReader.cs
+// https://github.com/mikeobrien/TDMSReader/blob/master/src/TDMSReader/BinaryReaderExtensions.cs

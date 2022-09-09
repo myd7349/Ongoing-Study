@@ -116,3 +116,5 @@ tem.Reflection.Assembly.Location' always returns an empty string for assemblies 
 ath to the app directory is needed, consider calling 'System.AppContext.BaseDirectory'. [C:\Users\myd7349\Desktop\CoilQueryT
 ool\WPF\CoilQueryTool\CoilQueryTool\CoilQueryTool.csproj]
 */
+// [Find the location of my application's executable in WPF (C# or vb.net)?](https://stackoverflow.com/questions/3123870/find-the-location-of-my-applications-executable-in-wpf-c-or-vb-net/)
+// > System.Environment.ProcessPath

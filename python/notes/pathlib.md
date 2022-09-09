@@ -40,3 +40,5 @@ or:
 > ```
 
 [你应该使用pathlib替代os.path](https://www.dongwm.com/post/use-pathlib/)
+
+[How to get a Python os.PathLike object from a NamedTemporaryFile using the tempfile module?](https://stackoverflow.com/questions/66887968/how-to-get-a-python-os-pathlike-object-from-a-namedtemporaryfile-using-the-tempf)

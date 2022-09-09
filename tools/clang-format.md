@@ -4,7 +4,7 @@ https://github.com/zeromq/zproject/issues/1070
 
 [clang-format online tool](https://clangformat.com/)
 
-[clang format configurator](https://zed0.co.uk/clang-format-configurator/)
+[clang format configurator](https://zed0.co.uk/clang-format-configurator/) - [code](https://github.com/zed0/clang-format-configurator)
 
 [apply-clang-format.py](https://github.com/CobaltFusion/DebugViewPP/blob/master/apply-clang-format.py)
 

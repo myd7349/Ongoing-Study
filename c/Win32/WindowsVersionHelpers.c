@@ -47,3 +47,4 @@ BOOL IsWindowsServer()
 // https://github.com/dahall/Vanara/blob/56cda5a8f4d6648563651996d99f471f9e49e56f/PInvoke/Kernel32/VersionHelpers.cs#L49
 // https://github.com/novotnyllc/OSVersionHelper
 // https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/VersionHelper.c
+// https://github.com/sindresorhus/recycle-bin/blob/main/recycle-bin.c

@@ -416,3 +416,5 @@ void *easy_base64_decode(const char *base64, void *data, size_t *out_len)
 // https://github.com/pistacheio/pistache/blob/master/include/pistache/base64.h
 // https://github.com/bonsmile/lxd/blob/main/encoding.cpp
 // https://github.com/aseprite/laf/blob/main/base/base64.h
+// https://github.com/amrayn/mine
+// https://github.com/granduke/justscram/tree/master/base64

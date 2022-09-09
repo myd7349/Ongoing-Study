@@ -2,6 +2,7 @@
 using System.Windows.Media.Imaging;
 
 using Common;
+using Common.WPF;
 
 namespace SkiaSharp.WPF
 {
@@ -9,17 +10,29 @@ namespace SkiaSharp.WPF
     {
         public SKSurfaceContext(WriteableBitmap bitmap)
         {
-            bitmap_ = bitmap ?? throw new ArgumentNullException(nameof(bitmap));
+            Bitmap = bitmap ?? throw new ArgumentNullException(nameof(bitmap));
 
-            bitmap_.Lock();
+            Bitmap.Lock();
 
             var info = new SKImageInfo(bitmap.PixelWidth, bitmap.PixelHeight, SKImageInfo.PlatformColorType, SKAlphaType.Premul);
             Surface = SKSurface.Create(info, bitmap.BackBuffer, bitmap.BackBufferStride);
         }
 
+        public WriteableBitmap Bitmap { get; }
+
         public SKSurface Surface { get; }
 
         public SKCanvas Canvas => Surface?.Canvas;
+
+        public void Invalidate()
+        {
+            Invalidate(0, 0, Bitmap.PixelWidth, Bitmap.PixelHeight);
+        }
+
+        public void Invalidate(int x, int y, int width, int height)
+        {
+            Bitmap.AddDirtyRectAutoAdjust(x, y, width, height);
+        }
 
         public static SKSurfaceContext Create(WriteableBitmap bitmap)
         {
@@ -30,9 +43,7 @@ namespace SkiaSharp.WPF
         {
             Surface.Dispose();
 
-            bitmap_.Unlock();
+            Bitmap.Unlock();
         }
-
-        private WriteableBitmap bitmap_;
     }
 }

@@ -9,3 +9,6 @@
 - https://github.com/microsoft/Tools-for-Health-Data-Anonymization
 - https://github.com/microsoft/FHIR-Converter
 - https://github.com/microsoft/fhir-server
+- https://github.com/angusmillar/PeterPiper
+- https://github.com/angusmillar/Pyro
+- https://github.com/angusmillar/SmartHealthCard

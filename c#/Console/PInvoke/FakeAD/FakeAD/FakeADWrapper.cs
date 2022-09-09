@@ -66,19 +66,27 @@ namespace FakeAD
             Dispose(false);
         }
 
+#if false
 #if ARCH_32
         public uint Read(IntPtr buffer, uint size)
 #else
         public ulong Read(IntPtr buffer, ulong size)
 #endif
+#else
+        public nuint Read(IntPtr buffer, nuint size)
+#endif
         {
             if (handle_ == IntPtr.Zero)
                 throw new InvalidOperationException("fakead not initialized.");
 
+#if false
 #if ARCH_32
             return Natives.Read32(handle_, buffer, size);
 #else
             return Natives.Read64(handle_, buffer, size);
+#endif
+#else
+            return Natives.Read(handle_, buffer, size);
 #endif
         }
 

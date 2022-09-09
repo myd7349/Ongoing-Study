@@ -110,3 +110,6 @@ and another example:
 - http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libc/time/strptime.c?rev=HEAD
 - [Parsing date/time strings problem](https://stackoverflow.com/questions/4325847/parsing-date-time-strings-problem)
 
+4. timespec_get
+
+- [Measure time in Linux - time vs clock vs getrusage vs clock_gettime vs gettimeofday vs timespec_get?](https://stackoverflow.com/questions/12392278/measure-time-in-linux-time-vs-clock-vs-getrusage-vs-clock-gettime-vs-gettimeof)

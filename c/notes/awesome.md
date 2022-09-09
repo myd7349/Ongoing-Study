@@ -1,3 +1,7 @@
+### Lists
+
+- [A list of open source C libraries](https://en.cppreference.com/w/c/links/libs)
+
 ### Libraries
 
 - [cosmopolitan](https://github.com/jart/cosmopolitan)
@@ -36,7 +40,23 @@
 
 ### Audio
 
+- [audio-smarc](https://sourceforge.net/projects/audio-smarc/)
+
+  - [Yaafe](https://github.com/Yaafe/Yaafe)
+
+- [libinstpatch](https://github.com/swami/libinstpatch)
+
+- libsndfile
+
+  - [Yaafe](https://github.com/Yaafe/Yaafe)
+
 - [r8brain-free-src](https://github.com/avaneev/r8brain-free-src)
+
+- [Yaafe](https://github.com/Yaafe/Yaafe)
+
+### Bluetooth
+
+- [hidapi](https://github.com/signal11/hidapi)
 
 ### CLI
 
@@ -94,6 +114,8 @@
 
 - [libhl](https://github.com/xant/libhl)
 
+- [lockfree-queue](https://github.com/supermartian/lockfree-queue)
+
 - [mlib](https://github.com/P-p-H-d/mlib)
 
 - [pottery](https://github.com/ludocode/pottery)
@@ -130,9 +152,19 @@
 
 - FFTW
 
+  - [IT++](https://itpp.sourceforge.net/4.3.1/)
+
   - [qmcpack](https://github.com/QMCPACK/qmcpack)
 
+  - [OceanSurface](https://github.com/jiasli/OceanSurface)
+
+  - [SigPack](https://sigpack.sourceforge.net/)
+
   - [stimfit](https://github.com/neurodroid/stimfit)
+
+  - [tspl](https://github.com/ceze/tspl) - [Google Code](https://code.google.com/archive/p/tspl/)
+
+  - [Yaafe](https://github.com/Yaafe/Yaafe)
 
 - [Fidlib](https://github.com/uazu/fidlib): Run-time filter design and execution library.
   - [EDFbrowser](https://gitlab.com/Teuniz/EDFbrowser/)
@@ -148,6 +180,10 @@
 
   - [libaudioverse](https://github.com/libaudioverse/libaudioverse)
 
+- [libdspl](http://en.dsplib.org/dspl/) - [sf](https://sourceforge.net/p/libdspl-2-0/code/ci/master/tree/) - [GitHub](https://github.com/Dsplib/libdspl-2.0)
+
+- [liquid-dsp](https://github.com/jgaeddert/liquid-dsp)
+
 - [pfft](https://bitbucket.org/jpommier/pffft.git)
 - [pffft](https://github.com/marton78/pffft)
   - [r8brain-free-src](https://github.com/avaneev/r8brain-free-src)
@@ -159,6 +195,8 @@
     - [replace fftpack with pocketfft](https://github.com/numpy/numpy/commit/062dc8f831e695c2c179482da35affcc6045b4f3) - [pr](https://github.com/numpy/numpy/pull/11888)
 
   - [pocketfft](https://github.com/mreineck/pocketfft)
+
+- [rtfilter](https://github.com/mmlabs-mindmaze/rtfilter)
 
 - [spek-fft.h](https://github.com/alexkay/spek/blob/master/src/spek-fft.h)
 
@@ -182,6 +220,8 @@
 - [map-macro](https://github.com/Erlkoenig90/map-macro)
 
 ### Graphics
+
+- [drawtk](https://github.com/nbourdau/drawtk)
 
 - [fontstash](https://github.com/memononen/fontstash)
 
@@ -265,9 +305,15 @@
 
 - [libdirtrav](https://github.com/brechtsanders/libdirtrav)
 
+- [mman-win32](https://github.com/drogonframework/drogon/tree/master/third_party/mman-win32)
+
 - [ParallelIO](https://github.com/NCAR/ParallelIO)
 
 - [physfs](https://github.com/icculus/physfs)
+
+- [RS-232](https://gitlab.com/Teuniz/RS-232)
+
+  - [iRobotGUI](https://github.com/jiasli/iRobotGUI)
 
 - [tinydir](https://github.com/cxong/tinydir)
 
@@ -287,6 +333,8 @@
 - [js-os](https://github.com/pitust/js-os)
 
 ### Logging
+
+- [c-logging](https://github.com/Azure/c-logging)
 
 - [Infinite-File-Curtailer](https://github.com/Comcast/Infinite-File-Curtailer)
 
@@ -309,6 +357,12 @@
 - [tiny-json](https://github.com/rafagafe/tiny-json)
   
   - [OpenHashTab](https://github.com/namazso/OpenHashTab)
+
+### Math
+
+- lapack
+
+  - [Yaafe](https://github.com/Yaafe/Yaafe)
 
 ### Memory Management
 
@@ -343,6 +397,7 @@
 ### OOP
 
 - [interface99](https://github.com/Hirrolot/interface99)
+- [LiteOOC](https://github.com/suda-morris/LiteOOC)
 
 ### PDF
 
@@ -402,6 +457,8 @@
 
 ### Unit Testing
 
+- [acutest](https://github.com/mity/acutest)
+
 - [bcu](https://github.com/beejjorgensen/bcu)
 
 - [CUnit](http://cunit.sourceforge.net/)
@@ -413,6 +470,16 @@
 - [Temper](https://github.com/dangmoody/Temper)
 
 - [tinyexpr/minctest.h](https://github.com/ProgerXP/Notepad2e/blob/master/src/Extension/tinyexpr/minctest.h)
+
+### USB
+
+- [hidapi](https://github.com/signal11/hidapi)
+
+- [libusb](https://github.com/libusb/libusb)
+
+- [libusbp](https://github.com/pololu/libusbp)
+
+- [USBDevice](https://github.com/IntergatedCircuits/USBDevice)
 
 ### WASM
 

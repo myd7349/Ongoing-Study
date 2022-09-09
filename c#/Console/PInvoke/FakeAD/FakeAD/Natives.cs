@@ -63,11 +63,16 @@ namespace FakeAD
         [DllImport(DllName, EntryPoint = "fake_ad_init")]
         public static extern IntPtr Init64(ref Config64 config);
 
+#if false
         [DllImport(DllName, EntryPoint = "fake_ad_read")]
         public static extern uint Read32([In] IntPtr context, IntPtr buffer, uint size);
-
+        
         [DllImport(DllName, EntryPoint = "fake_ad_read")]
         public static extern ulong Read64([In] IntPtr context, IntPtr buffer, ulong size);
+#else
+        [DllImport(DllName, EntryPoint = "fake_ad_read")]
+        public static extern nuint Read([In] IntPtr context, IntPtr buffer, nuint size);
+#endif
 
         [DllImport(DllName, EntryPoint = "fake_ad_free")]
         public static extern void Free(ref IntPtr context);

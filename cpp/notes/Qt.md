@@ -11,11 +11,13 @@ Applications:
 - [Aircraft-War](https://github.com/zccrs/Aircraft-War)
 - [albert](https://github.com/albertlauncher/albert)
 - [AlphaPlot](https://github.com/narunlifescience/AlphaPlot)
+- [AntNeuro_impedanceChecker](https://github.com/fcbg-hnp-meeg/AntNeuro_impedanceChecker)
 - [App-XDFStreamer](https://github.com/labstreaminglayer/App-XDFStreamer)
 - [Ascii-Design](https://github.com/Faster3ck/Ascii-Design)
 - [B23Downloader](https://github.com/vooidzero/B23Downloader)
 - [BingWallpaper](https://github.com/ypingcn/BingWallpaper)
 - [blackchocobo](https://github.com/sithlord48/blackchocobo)
+- [BoomerangDecompiler](https://github.com/BoomerangDecompiler/boomerang)
 - [caesium-image-compressor](https://github.com/Lymphatus/caesium-image-compressor)
 - [CineEncoder](https://github.com/CineEncoder/cine-encoder)
 - [Clementine](https://github.com/clementine-player/Clementine): Clementine Music Player
@@ -31,6 +33,7 @@ Applications:
 - [easy_profiler](https://github.com/yse/easy_profiler)
 - [edb-debugger](https://github.com/eteran/edb-debugger)
 - [EDFbrowser](https://gitlab.com/Teuniz/EDFbrowser)
+- [eego2lsl](https://github.com/fcbg-hnp-meeg/eego2lsl)
 - [FastCAE](https://github.com/DISOGitHub/FastCAE)
 - [feiq](https://github.com/compilelife/feiq)
 - [filemanager](https://github.com/cutefishos/filemanager)
@@ -49,6 +52,7 @@ Applications:
 - [gyroflow](https://github.com/gyroflow/gyroflow): Video stabilization using gyroscope data.
 - [Hanoi-Towers](https://github.com/QuasarApp/Hanoi-Towers)
 - [heaptrack](https://github.com/KDE/heaptrack)
+- [Horde3DEditor](https://github.com/horde3d/Horde3D/tree/master/Horde3DEditor)
 - [hotspot](https://github.com/KDAB/hotspot)
 - [hplayer](https://github.com/ithewei/hplayer)
 - [INIditor](https://github.com/Jeroen6/INIditor)
@@ -66,6 +70,7 @@ Applications:
 - [kepka](https://github.com/procxx/kepka)
 - [KikoPlay](https://github.com/KikoPlayProject/KikoPlay)
 - [kiwix-desktop](https://github.com/kiwix/kiwix-desktop)
+- [klogg](https://github.com/variar/klogg)
 - [kotatogram-desktop](https://github.com/kotatogram/kotatogram-desktop)
 - [krita](https://github.com/KDE/krita)
 - [kylin-ipmsg](https://github.com/UbuntuKylin/kylin-ipmsg)
@@ -73,13 +78,17 @@ Applications:
 - [LANMessenger](https://github.com/lanmessenger/lanmessenger)
 - [LaunchyQt](https://github.com/samsonwang/LaunchyQt)
 - [LeoCAD](https://github.com/leozide/leocad) - https://www.leocad.org/
+- [libfive](https://github.com/libfive/libfive)
+- [LibreCAD](https://github.com/LibreCAD/LibreCAD)
 - [linuxdeployqt](https://github.com/probonopd/linuxdeployqt)
 - [liteide](https://github.com/visualfc/liteide)
 - [LjTools](https://github.com/rochus-keller/LjTools)
 - [lximage-qt](https://github.com/lxqt/lximage-qt)
+- [mayo](https://github.com/fougue/mayo)
 - [md-pdf](https://github.com/igormironchik/md-pdf)
 - [medInria](https://github.com/medInria/medInria-public)
 - [MellowPlayer](https://gitlab.com/ColinDuquesnoy/MellowPlayer)
+- [MeshLab](https://github.com/cnr-isti-vclab/meshlab)
 - [mixxx](https://github.com/mixxxdj/mixxx)
 - [mne-cpp](https://github.com/mne-tools/mne-cpp)
 - [moonlight-qt](https://github.com/moonlight-stream/moonlight-qt)
@@ -97,15 +106,19 @@ Applications:
 - [Oberon](https://github.com/rochus-keller/Oberon)
 - [OBS Studio](https://github.com/obsproject/obs-studio)
   - [obs-studio/obs-win-crash-handler.c at master · obsproject/obs-studio · GitHub](https://github.com/obsproject/obs-studio/blob/master/libobs/obs-win-crash-handler.c)
+- [OCCT](https://github.com/Open-Cascade-SAS/OCCT)
 - [Olive Video Editor](https://github.com/olive-editor/olive)
 - [opencc-gui](https://github.com/BYVoid/opencc-gui)
 - [OpenMW](https://github.com/OpenMW/openmw)
 - [OpenSCAD](https://github.com/openscad/openscad/)
 - [OpenWalnut](http://www.openwalnut.org/)
+- [owncloud client](https://github.com/owncloud/client)
 - [ParaView](https://www.paraview.org/) - [source](https://gitlab.kitware.com/paraview/paraview)
   - [gismo](https://github.com/gismo/gismo)
+- [ParticleEditor2D](https://github.com/aster2013/ParticleEditor2D)
 - [pcmanfm-qt](https://github.com/lxqt/pcmanfm-qt)
 - [PDBRipper](https://github.com/horsicq/PDBRipper)
+- [PetoiControllerQt](https://github.com/PetoiCamp/PetoiControllerQt)
 - [photoflare](https://github.com/PhotoFlare/photoflare)
 - [photoquick](https://github.com/ksharindam/photoquick)
 - [pineapple-pictures](https://github.com/BLumia/pineapple-pictures)
@@ -162,6 +175,7 @@ Applications:
 - [SmartPython](https://github.com/hcaihao/SmartPython)
 - [SmtpClient-for-Qt](https://github.com/bluetiger9/SmtpClient-for-Qt)
 - [Snipaste](https://github.com/Snipaste) - [website](https://www.snipaste.com/)
+- [Sourcetrail](https://github.com/CoatiSoftware/Sourcetrail)
 - [spuc_filter](https://github.com/audiofilter/spuc_filter)
 - [sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)
 - [Stellarium](https://github.com/Stellarium/stellarium)
@@ -179,6 +193,8 @@ Applications:
 - [TTKMusicplayer](https://github.com/Greedysky/TTKMusicplayer)
 - [TTKOCR](https://github.com/Greedysky/TTKOCR)
 - [TTKWeather](https://github.com/Greedysky/TTKWeather)
+- [UBFG](https://github.com/scriptum/UBFG)
+- [vcglib](https://github.com/cnr-isti-vclab/vcglib/tree/main/apps/QT)
 - [VerilogCreator](https://github.com/rochus-keller/VerilogCreator)
 - [vnote](https://github.com/vnotex/vnote)
 - [vokoscreenNG](https://github.com/vkohaupt/vokoscreenNG)
@@ -207,6 +223,8 @@ Libraries:
 
 - [FakeVim](https://github.com/hluk/FakeVim)
 
+- [FougTools](https://github.com/fougue/fougtools)
+
 - [framelesshelper](https://github.com/wangwenx190/framelesshelper)
 
 - [grantlee](https://github.com/steveire/grantlee)
@@ -228,6 +246,8 @@ Libraries:
   - [CrashReporter](https://github.com/RedisDesktop/CrashReporter)
 
 - [libqdark](https://github.com/suratovvlad/libqdark)
+
+- [libQGLViewer](https://github.com/GillesDebunne/libQGLViewer)
 
 - [log4qt](https://github.com/ZgblKylin/log4qt)
 
@@ -317,6 +337,8 @@ Libraries:
   - [kiwix-desktop](https://github.com/kiwix/kiwix-desktop)
   - [medInria-public](https://github.com/medInria/medInria-public/blob/master/src/app/medInria/QSingleApplication/qtsingleapplication.h)
   - [SASM](https://github.com/Dman95/SASM)
+
+- [QtSOAP](https://github.com/commontk/QtSOAP)
 
 - [QuasarApp Heart](https://github.com/QuasarApp/Heart)
 

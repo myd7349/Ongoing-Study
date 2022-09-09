@@ -89,3 +89,4 @@ def store(config, config_file):
 # [How to initialize a dict from a SimpleNamespace?](https://stackoverflow.com/questions/52783883/how-to-initialize-a-dict-from-a-simplenamespace)
 # [Python update a key in dict if it doesn't exist](https://stackoverflow.com/questions/42315072/python-update-a-key-in-dict-if-it-doesnt-exist/42315120)
 # [Proper way to declare custom exceptions in modern Python?](https://stackoverflow.com/questions/1319615/proper-way-to-declare-custom-exceptions-in-modern-python)
+# https://github.com/mne-tools/mne-python/blob/main/mne/utils/config.py

@@ -76,11 +76,15 @@ Code Editors:
 
 - [Notepads](https://github.com/0x7c13/Notepads)
 
+- [Quick-Pad](https://github.com/fredatgithub/Quick-Pad)
+
 - [Runestone](https://github.com/simonbs/Runestone)
 
 - [sam](https://github.com/deadpixi/sam)
 
 - [SciTE](https://www.scintilla.org/SciTE.html)
+
+- [sharppad](https://github.com/AngryCarrot789/sharppad)
 
 - [Storylines](https://github.com/morning4coffe-dev/storylines)
 

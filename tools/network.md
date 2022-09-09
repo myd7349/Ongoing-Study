@@ -6,6 +6,7 @@
 - bpytop
 - btop
 - [Camelotia](https://github.com/reactiveui/Camelotia)
+- [Charles](https://www.charlesproxy.com/)
 - [Circus](https://github.com/circus-tent/circus)
 - [clumsy](https://github.com/jagt/clumsy)
 - [croc](https://github.com/schollz/croc)
@@ -21,6 +22,7 @@
   
   - [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
 - [FileSender](https://github.com/filesender/filesender)
+- [frp](https://github.com/fatedier/frp)
 - [GoodbyeDPI](https://github.com/ValdikSS/GoodbyeDPI)
 - [hls-downloader](https://github.com/puemos/hls-downloader)
 - [hping](https://github.com/antirez/hping)
@@ -60,12 +62,15 @@
 - [PortProxyGUI](https://github.com/zmjack/PortProxyGUI)
 - [pwnat](https://github.com/samyk/pwnat)
 - [pyWhat](https://github.com/bee-san/pyWhat)
+- [rathole](https://github.com/rapiz1/rathole)
+- [rclone](https://github.com/rclone/rclone)
 - [realterm](https://sourceforge.net/projects/realterm/)
 - [rinetd](https://github.com/samhocevar/rinetd)
 - [rtop](https://github.com/rapidloop/rtop)
 - [RustScan](https://github.com/RustScan/RustScan)
 - [ServerScan](https://github.com/Adminisme/ServerScan)
 - [smartdns](https://github.com/pymumu/smartdns)
+- [SoapUI](https://github.com/SmartBear/soapui)
 - [SparkleShare](https://github.com/hbons/SparkleShare)
 - [speedtest](https://github.com/librespeed/speedtest)
 - [sslsplit](https://github.com/droe/sslsplit)
@@ -85,6 +90,7 @@
 - [vnstat](https://github.com/vergoh/vnstat)
 - [wait-for-it](https://github.com/vishnubob/wait-for-it)
 - [WebBench](https://github.com/EZLippi/WebBench)
+- [whistle](https://github.com/avwo/whistle)
 - WireShark
 - [Heimdall - 解决内网服务搭建太多，记不住网址的问题 | 内网应用仪表盘 - 小众软件](https://www.appinn.com/heimdall/)
 - [ZeroSyncDesktop](https://github.com/zerosync/zerodesk)
@@ -119,5 +125,7 @@
 - [wave-share](https://github.com/ggerganov/wave-share)
 
 ### File Synchronization
+
+- [owncloud client](https://github.com/owncloud/client)
 
 - [syncthing](https://github.com/syncthing/syncthing)

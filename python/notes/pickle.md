@@ -12,3 +12,5 @@ Python Documentation
 The tp_init slot is exposed in Python as the __init__() method. It is used to initialize an object after it¡¯s created. Unlike the new method, we can¡¯t guarantee that the initializer is called. The initializer isn¡¯t called when unpickling objects and it can be overridden.
 
 [Python multiprocessing PicklingError: Can't pickle <type 'function'>](https://stackoverflow.com/questions/8804830/python-multiprocessing-picklingerror-cant-pickle-type-function)
+
+[hdf5pickle](https://github.com/pv/hdf5pickle)

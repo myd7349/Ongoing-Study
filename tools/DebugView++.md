@@ -37,3 +37,13 @@ https://github.com/soui3-demo/SlogViewer
 [LNAV -- The Logfile Navigator](https://github.com/tstack/lnav)
 
 [NXLog](https://nxlog.co/)
+
+[logviewer](https://github.com/aegoroff/logviewer)
+
+https://github.com/pinojs/pino-pretty
+
+https://github.com/variar/klogg
+
+https://github.com/clovett/tools/tree/master/LogViewer
+
+[PX4 Log Viewer](https://lovettsoftwarestorage.blob.core.windows.net/downloads/Px4LogViewer/Px4LogViewer.application) - [website](https://lovettsoftware.com/#apps/)

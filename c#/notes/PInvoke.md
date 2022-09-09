@@ -438,3 +438,15 @@ https://github.com/mellinoe/nativelibraryloader
 ### DependencySharp
 
 https://github.com/evanwon/dependencysharp
+
+### Dapplo
+
+https://github.com/dapplo/Dapplo.Windows
+
+### nint, nuint
+
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-9.0/native-integers
+
+C# 10.0 in a Nutshell:
+
+> C# 9 also introduced the nint and nuint native-sized integer types (see “Native-Sized Integers”), which map at runtime to System.IntPtr and System.UIntPtr. At compile time, they behave like numeric types with support for arithmetic operations.

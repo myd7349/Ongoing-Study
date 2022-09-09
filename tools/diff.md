@@ -13,3 +13,5 @@ https://github.com/menees/Diff.Net
 https://github.com/ForNeVeR/ExtDiff
 
 https://github.com/dtolnay/dissimilar
+
+https://github.com/mitsuhiko/similar

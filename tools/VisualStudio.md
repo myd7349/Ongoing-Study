@@ -35,3 +35,7 @@ https://github.com/uctakeoff/vscode-counter
 [StringResourceVisualizer](https://github.com/mrlacey/StringResourceVisualizer)
 
 [How to: Change the build output directory](https://learn.microsoft.com/en-us/visualstudio/ide/how-to-change-the-build-output-directory?view=vs-2019)
+
+[Copy always to output directory does not work](https://stackoverflow.com/questions/495505/copy-always-to-output-directory-does-not-work)
+
+https://github.com/league1991/CodeAtlasVsix

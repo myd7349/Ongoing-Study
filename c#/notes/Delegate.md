@@ -22,3 +22,15 @@ Action action = () => {}; // ok
 ```
 
 https://github.com/coder0xff/FastDelegate.Net
+
+[Why does asynchronous delegate method require calling EndInvoke?](https://stackoverflow.com/questions/1712741/why-does-asynchronous-delegate-method-require-calling-endinvoke?rq=1)
+
+[C# Is action.BeginInvoke(action.EndInvoke,null) a good idea?](https://stackoverflow.com/questions/15967574/c-sharp-is-action-begininvokeaction-endinvoke-null-a-good-idea)
+
+https://github.com/mikeobrien/HidLibrary/blob/master/src/HidLibrary/HidDeviceEventMonitor.cs
+
+[How to await on async delegate](https://stackoverflow.com/questions/23285753/how-to-await-on-async-delegate)
+
+[How to use BeginInvoke C#](https://stackoverflow.com/questions/14388136/how-to-use-begininvoke-c-sharp)
+
+[Simplest way to do a fire and forget method in C#?](https://stackoverflow.com/questions/1018610/simplest-way-to-do-a-fire-and-forget-method-in-c)

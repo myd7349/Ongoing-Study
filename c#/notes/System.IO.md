@@ -159,3 +159,7 @@ Stream
 [NetworkStream Class](https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.networkstream?view=net-6.0)
 
 > The NetworkStream does not support random access to the network data stream. The value of the CanSeek property, which indicates whether the stream supports seeking, is always false; reading the Position property, reading the Length property, or calling the Seek method will throw a NotSupportedException.
+
+FileSystemWatcher
+
+- https://github.com/microsoft/XmlNotepad/blob/master/src/Model/Settings.cs

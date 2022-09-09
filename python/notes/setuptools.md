@@ -9,3 +9,5 @@
 https://github.com/libyal/liblnk/blob/main/setup.py
 
 [Questions about Setuptools and alternatives](https://stackoverflow.com/questions/368636/questions-about-setuptools-and-alternatives)
+
+https://gitlab.com/rcmz/libfivepy

@@ -104,3 +104,4 @@ private:
 // https://github.com/wfaithfull/cd4soft
 // https://en.wikipedia.org/wiki/Change_detection
 // https://www.newton.ac.uk/files/seminar/20140113140015001-153901.pdf
+// https://gitlab.com/conradsnicta/armadillo-code/-/blob/12.0.x/include/armadillo_bits/fn_cumsum.hpp?ref_type=heads

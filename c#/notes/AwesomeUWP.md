@@ -10,11 +10,15 @@
 
 [OnePomodoro](https://github.com/DinoChan/OnePomodoro)
 
+[Quick-Pad](https://github.com/fredatgithub/Quick-Pad)
+
 [Text-Grab](https://github.com/TheJoeFin/Text-Grab)
 
 Libraries:
 
 - [Telerik UI for UWP](https://github.com/telerik/UI-For-UWP)
+
+- [Template10](https://github.com/Windows-XAML/Template10)
 
 - [WindowsStateTriggers](https://github.com/dotMorten/WindowsStateTriggers)
 

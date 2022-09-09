@@ -6,6 +6,8 @@
 
 - [buttercup-desktop](https://github.com/buttercup/buttercup-desktop)
 
+- [gacpass](https://github.com/roodkcab/gacpass)
+
 - [hashcat](https://github.com/hashcat/hashcat)
 
 - [john](https://github.com/openwall/john)
@@ -22,6 +24,8 @@
 
 - [PaZword](https://github.com/veler/PaZword)
 
+- [PSWRDMGR](https://github.com/AngryCarrot789/PSWRDMGR)
+
 - [staticrypt](https://github.com/robinmoisson/staticrypt)
 
 - [XWordGiver](https://github.com/katahiromz/XWordGiver)
@@ -33,6 +37,8 @@
 - [ZipPasswordCrack](https://github.com/dib0/ZipPasswordCrack)
 
 - [passwordstore](https://www.passwordstore.org/)
+
+- [XWordGiver](https://github.com/katahiromz/XWordGiver)
 
 [Configuring two-factor authentication - GitHub Docs](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)
 

@@ -2,6 +2,12 @@
 
 ### Applications
 
+- [apollo-studio](https://github.com/mat1jaczyyy/apollo-studio)
+
+- [AvaloniaILSpy](https://github.com/icsharpcode/AvaloniaILSpy)
+
+- [AvantGarde](https://github.com/kuiperzone/AvantGarde)
+
 - [BEditor](https://github.com/b-editor/beutl)
 
 - [Camelotia](https://github.com/reactiveui/Camelotia)
@@ -9,6 +15,8 @@
 - [Jaya](https://github.com/waliarubal/Jaya)
 
 - [MQTTnetApp](https://github.com/chkr1011/MQTTnetApp)
+
+- [RoslynPad](https://github.com/roslynpad/roslynpad)
 
 - [SkiaImageView](https://github.com/kekyo/SkiaImageView)
 
@@ -21,6 +29,8 @@
 - [WalletWasabi](https://github.com/zkSNACKs/WalletWasabi)
 
 ### Libraries
+
+- [AsyncImageLoader.Avalonia](https://github.com/AvaloniaUtils/AsyncImageLoader.Avalonia)
 
 - [Avalonia](https://github.com/AvaloniaUI/Avalonia)
 
@@ -51,6 +61,8 @@
 - [DialogHost.Avalonia](https://github.com/AvaloniaUtils/DialogHost.Avalonia)
 
 - [Dock](https://github.com/wieslawsoltes/Dock)
+
+- [EventBinder](https://github.com/Serg046/EventBinder)
 
 - [FluentAvalonia](https://github.com/amwx/FluentAvalonia)
 

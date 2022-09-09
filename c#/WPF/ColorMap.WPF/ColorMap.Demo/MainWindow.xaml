@@ -34,14 +34,40 @@
             <ColumnDefinition Width="30" />
             <ColumnDefinition Width="10" />
             <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="30" />
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0">
             <ComboBox ItemsSource="{Binding ColorPalettes}"
                       SelectedItem="{Binding SelectedColorPalette}" />
+            <ComboBox ItemsSource="{Binding ColorPalettes}"
+                      SelectedItem="{Binding SelectedColorPalette}"
+                      HorizontalContentAlignment="Stretch">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <!--
+                        [WPF ComboBox ItemTemplate binding to a string collection](https://stackoverflow.com/questions/26138809/wpf-combobox-itemtemplate-binding-to-a-string-collection)
+                        [How do I make a WPF data template fill the entire width of the listbox?](https://stackoverflow.com/questions/135375/how-do-i-make-a-wpf-data-template-fill-the-entire-width-of-the-listbox)
+                        -->
+                        <colormap:ColorMapControl Height="20"
+                                                  Orientation="Horizontal"
+                                                  Gradation="{Binding RelativeSource={RelativeSource AncestorType=ComboBox}, Path=DataContext.ColorCount}"
+                                                  Palette="{Binding .}"
+                                                  IsQualitative="{Binding RelativeSource={RelativeSource AncestorType=ComboBox}, Path=DataContext.IsQualitative}"
+                                                  IsReversed="{Binding RelativeSource={RelativeSource AncestorType=ComboBox}, Path=DataContext.IsReversed}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
             <xctk:IntegerUpDown Value="{Binding ColorCount}"
                                 Minimum="2"
                                 Maximum="256" />
+            <CheckBox Content="IsQualitative"
+                      IsChecked="{Binding IsQualitative}" />
+            <CheckBox Content="IsReversed"
+                      IsChecked="{Binding IsReversed}" />
         </StackPanel>
 
         <Rectangle Grid.Column="2"
@@ -106,19 +132,46 @@
         <colormap:ColorMapControl Grid.Column="8"
                                   Orientation="Vertical"
                                   Gradation="{Binding ColorCount}"
-                                  Palette="{Binding SelectedColorPalette}" />
+                                  Palette="{Binding SelectedColorPalette}"
+                                  IsQualitative="{Binding IsQualitative}"
+                                  IsReversed="{Binding IsReversed}" />
 
         <colormap:ColorMapControl Grid.Column="10"
                                   Orientation="Vertical"
                                   Gradation="{Binding ColorCount}"
                                   Palette="{Binding SelectedColorPalette}"
-                                  ShowTicks="True" />
+                                  ShowTicks="True"
+                                  IsQualitative="{Binding IsQualitative}"
+                                  IsReversed="{Binding IsReversed}" />
+
+        <colormap:ColorMapControl Grid.Column="12"
+                                  Orientation="Vertical"
+                                  Gradation="{Binding ColorCount}"
+                                  Palette="{Binding SelectedColorPalette}"
+                                  DrawEdge="True"
+                                  ShowTicks="True"
+                                  IsQualitative="{Binding IsQualitative}"
+                                  IsReversed="{Binding IsReversed}" />
+
+        <colormap:ColorMapControl Grid.Column="14"
+                                  Orientation="Vertical"
+                                  Gradation="{Binding ColorCount}"
+                                  Palette="{Binding SelectedColorPalette}"
+                                  DrawEdge="True"
+                                  ShowTicks="False"
+                                  IsQualitative="{Binding IsQualitative}"
+                                  IsReversed="{Binding IsReversed}" />
 
         <colormap:ColorMapControl Grid.Row="2"
                                   Grid.Column="0" Grid.ColumnSpan="11"
                                   Orientation="Horizontal"
                                   Gradation="{Binding ColorCount}"
                                   Palette="{Binding SelectedColorPalette}"
-                                  ShowTicks="True" />
+                                  DrawEdge="True"
+                                  ShowTicks="True"
+                                  TickLength="3"
+                                  TickColor="DarkGray"
+                                  IsQualitative="{Binding IsQualitative}"
+                                  IsReversed="{Binding IsReversed}" />
     </Grid>
 </Window>

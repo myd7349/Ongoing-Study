@@ -207,3 +207,6 @@ std::size_t FindPeaks(const double *data, std::size_t length,
 // > peak separation. A peak is defined as a point which is higher that both neighbors 
 // > or infinity. Non-infinite end points are excluded as a peak. This class is analogous 
 // > to MATLAB's findpeaks() function.
+// [peakdet: Peak detection using MATLAB (non-derivative local extremum, maximum, minimum)](http://billauer.co.il/blog/2009/01/peakdet-matlab-octave/)
+// https://github.com/GCY/wxECGAnalyzer
+// https://github.com/ig248/pyampd

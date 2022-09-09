@@ -54,3 +54,7 @@ var image = new Image(...);
 image.Blur(0.5);
 image.GetWidth();
 ```
+
+##### [Multiple Inheritance in C#](https://stackoverflow.com/questions/178333/multiple-inheritance-in-c-sharp)
+
+Consider just using *[composition](http://en.wikipedia.org/wiki/Object_composition)* instead of trying to simulate Multiple Inheritance. You can use Interfaces to define what classes make up the composition.

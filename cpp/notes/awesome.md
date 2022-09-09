@@ -1,3 +1,7 @@
+### Lists
+
+- [A list of open source C++ libraries](https://en.cppreference.com/w/cpp/links/libs)
+
 ### Framework
 
 - [c4core](https://github.com/biojppm/c4core)
@@ -43,6 +47,7 @@
 - [cpp-zipper](https://github.com/yhirose/cpp-zipper)
 - [easyzip](https://github.com/winsoft666/easyzip)
 - [gztool](https://github.com/circulosmeos/gztool)
+- [LiteZip/LiteUnzip](https://www.codeproject.com/Articles/13370/LiteZip-and-LiteUnzip)
 - [parzip](https://github.com/jpakkane/parzip)
 - [POCO/SevenZip](https://github.com/pocoproject/poco/tree/master/SevenZip)
 - [Qt7z](https://github.com/kanryu/quickviewer/tree/master/Qt7z/Qt7z)
@@ -146,6 +151,7 @@
 - [paramkit](https://github.com/hasherezade/paramkit)
   - [mal_unpack](https://github.com/hasherezade/mal_unpack) 
 - [rang](https://github.com/agauniyal/rang)
+- [SlicerExecutionModel](https://github.com/Slicer/SlicerExecutionModel)
 - [tableprinter](https://github.com/OzanCansel/tableprinter)
 - [widecharwidth](https://github.com/ridiculousfish/widecharwidth)
 
@@ -208,6 +214,10 @@
 
 ### Cryptography
 
+- [mine](https://github.com/amrayn/mine)
+
+- [ripe](https://github.com/amrayn/ripe)
+
 - [smhasher](https://github.com/rurban/smhasher)
 
 - [tink](https://github.com/google/tink)
@@ -254,6 +264,8 @@
 
   - [Recommended C/C++ General Purpose DSP Libraries](https://dsp.stackexchange.com/questions/19350/recommended-c-c-general-purpose-dsp-libraries)
 
+  - [SigPack](https://sigpack.sourceforge.net/)
+
 - [cusignal](https://github.com/rapidsai/cusignal)
 
 - [DSPFilters](https://github.com/vinniefalco/DSPFilters)
@@ -265,6 +277,10 @@
 - [dspfilters](https://github.com/ZipCPU/dspfilters)
 
 - [EDFbrowser/filt](https://gitlab.com/Teuniz/EDFbrowser/-/tree/master/filt)
+
+- [eDSP](https://github.com/mohabouje/eDSP)
+
+  - [01_数字滤波器调研](https://www.cnblogs.com/zhaopengpeng/p/14476066.html)
 
 - [Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page)
 
@@ -285,6 +301,8 @@
 - [gnuradio](https://github.com/gnuradio/gnuradio)
 
   - [Recommended C/C++ General Purpose DSP Libraries](https://dsp.stackexchange.com/questions/19350/recommended-c-c-general-purpose-dsp-libraries)
+
+- [IT++](https://itpp.sourceforge.net/4.3.1/)
 
 - [Maximilian](https://github.com/micknoise/Maximilian)
 
@@ -309,6 +327,18 @@
 
   - [Recommended C/C++ General Purpose DSP Libraries](https://dsp.stackexchange.com/questions/19350/recommended-c-c-general-purpose-dsp-libraries)
 
+- [SigPack](https://sigpack.sourceforge.net/)
+
+  - [edf2cfs](https://github.com/amiyapatanaik/edf2cfs)
+
+- [tspl](https://github.com/ceze/tspl) - [Google Code](https://code.google.com/archive/p/tspl/)
+
+  - [SP++3.0 已发布，欢迎大家使用（同心协力，共创开源）](https://my.oschina.net/zmjerry/blog/13049)
+
+  - [01_数字滤波器调研](https://www.cnblogs.com/zhaopengpeng/p/14476066.html)
+
+- [VkFFT](https://github.com/DTolm/VkFFT)
+
 - [wavelib](https://github.com/rafat/wavelib)
 
   - [brainflow](https://github.com/brainflow-dev/brainflow/blob/master/src/data_handler/data_handler.cpp)
@@ -322,6 +352,10 @@
 - [ferris](https://github.com/monkeyiq/ferris)
 
   - [libferrisstreams](https://github.com/monkeyiq/libferrisstreams)
+
+- [fswatch](https://github.com/p-ranav/fswatch)
+
+- [watcher](https://github.com/parcel-bundler/watcher)
 
 - [xdgpp](https://sr.ht/~danyspin97/xdgpp/)
 
@@ -374,6 +408,12 @@
 - [FNA3D](https://github.com/FNA-XNA/FNA3D)
 
 - [freetype-gl](https://github.com/rougier/freetype-gl)
+
+- [ftgles](https://github.com/cdave1/ftgles)
+
+- [Horde3D](https://github.com/horde3d/Horde3D)
+
+  - [Horde3DForPsychtoolbox](https://github.com/kleinerm/Horde3DForPsychtoolbox)
 
 - [lolremez](https://github.com/samhocevar/lolremez)
 
@@ -428,6 +468,12 @@
 - JUCE
 
   - [DSP-Testbench](https://github.com/AndrewJJ/DSP-Testbench)
+
+  - [DSPFilters](https://github.com/vinniefalco/DSPFilters)
+
+  - [DSPFiltersDemo](https://github.com/vinniefalco/DSPFiltersDemo)
+
+  - [open-ephys/plugin-GUI](https://github.com/open-ephys/plugin-GUI)
 
 - [NAppGUI](https://github.com/frang75/nappgui_src)
 
@@ -500,6 +546,8 @@
 
 - [filesystem](https://github.com/gulrak/filesystem)
 
+- [filewatch](https://github.com/variar/klogg/tree/master/src/filewatch)
+
 - [FileWatcher.h](https://github.com/DarknessFX/ShaderPiPFX/blob/main/FileWatcher.h)
 
 - [glob](https://github.com/p-ranav/glob)
@@ -540,11 +588,21 @@
 
 ##### Math
 
+- [Armadillo](https://arma.sourceforge.net/)
+
+  - [mlpack](https://github.com/mlpack/mlpack)
+
 - [calculator](https://github.com/kimwalisch/calculator)
+
+- [ensmallen](https://ensmallen.org/)
+
+  - [mlpack](https://github.com/mlpack/mlpack)
 
 - [exprtk](https://github.com/ArashPartow/exprtk)
 
 - [fixmath](https://github.com/aseprite/aseprite/tree/main/src/fixmath)
+
+- [mathpresso](https://github.com/kobalicek/mathpresso)
 
 ##### Memory
 
@@ -814,6 +872,10 @@
 
 - [GameNetworkingSockets](https://github.com/ValveSoftware/GameNetworkingSockets)
 
+- [gfal2](https://github.com/cern-fts/gfal2)
+
+- [gSOAP](https://github.com/Genivia/gsoap)
+
 - [libdatachannel](https://github.com/paullouisageneau/libdatachannel)
 
 - [libsrtp](https://github.com/cisco/libsrtp)
@@ -1038,6 +1100,10 @@
 - [webby](https://github.com/deplinenoise/webby)
   
   - [remoteimgui](https://github.com/JordiRos/remoteimgui)
+
+### XML
+
+- [CMarkup](http://www.firstobject.com/dn_markup.htm)
 
 ### Miscellaneous
 

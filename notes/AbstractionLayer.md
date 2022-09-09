@@ -56,6 +56,8 @@ File System
 
 - [s5cmd](https://github.com/peak/s5cmd)
 
+- [TestableIO.System.IO.Abstractions](https://github.com/TestableIO/System.IO.Abstractions)
+
 - [ytfs](https://github.com/rasguanabana/ytfs)
 
 Graphics

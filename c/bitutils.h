@@ -101,3 +101,8 @@
 // https://graphics.stanford.edu/~seander/bithacks.html#FixedSignExtend
 // http://www.c-jump.com/CIS77/CPU/Numbers/U77_0160_sign_extension.htm
 // [Bit Padding (C)](https://stackoverflow.com/questions/42910368/bit-padding-c)
+// [Rounding up to next power of 2](https://stackoverflow.com/questions/466204/rounding-up-to-next-power-of-2)
+// [Bit Twiddling Hacks](https://graphics.stanford.edu/%7Eseander/bithacks.html#RoundUpPowerOf2)
+// [Round to the nearest power of two](https://stackoverflow.com/questions/4398711/round-to-the-nearest-power-of-two)
+// [How does this bitwise operation check for a power of 2?](https://stackoverflow.com/questions/1053582/how-does-this-bitwise-operation-check-for-a-power-of-2)
+// https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Numerics/BitOperations.cs

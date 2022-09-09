@@ -420,3 +420,4 @@ namespace Common.IO
 // [PathCanonicalize equivalent in C#](https://stackoverflow.com/questions/623333/pathcanonicalize-equivalent-in-c-sharp)
 // [C# Remove all empty subdirectories](https://stackoverflow.com/questions/2811509/c-sharp-remove-all-empty-subdirectories)
 // [Send a File to the Recycle Bin](https://stackoverflow.com/questions/3282418/send-a-file-to-the-recycle-bin)
+// https://github.com/sindresorhus/recycle-bin/blob/main/recycle-bin.c

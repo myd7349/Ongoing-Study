@@ -124,3 +124,4 @@ namespace Common.WPF
 // [Inspect XAML properties while debugging](https://learn.microsoft.com/en-us/visualstudio/xaml-tools/inspect-xaml-properties-while-debugging?view=vs-2022)
 // [WPF: In an attached property, how to wait until visual tree loaded properly?](https://stackoverflow.com/questions/36037963/wpf-in-an-attached-property-how-to-wait-until-visual-tree-loaded-properly)
 // [How can I find WPF controls by name or type?](https://stackoverflow.com/questions/636383/how-can-i-find-wpf-controls-by-name-or-type)
+// https://github.com/Wouterdek/NodeNetwork/blob/master/NodeNetwork/Utilities/WPF/WPFUtils.cs

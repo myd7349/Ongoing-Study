@@ -81,3 +81,4 @@ namespace Common.WPF
 // [Is it possible to bind two source properties to one control property?](https://stackoverflow.com/questions/2002489/is-it-possible-to-bind-two-source-properties-to-one-control-property)
 // [[WPF] Custom ValidationRule with an additional parameter](https://michlg.wordpress.com/2010/01/29/wpf-custom-validationrule-with-an-additional-parameter/)
 // [WPF Error: Cannot find governing FrameworkElement for target element](https://stackoverflow.com/questions/7660967/wpf-error-cannot-find-governing-frameworkelement-for-target-element)
+// [Cannot find source for binding with reference 'RelativeSource FindAncestor' [duplicate]](https://stackoverflow.com/questions/15494226/cannot-find-source-for-binding-with-reference-relativesource-findancestor)

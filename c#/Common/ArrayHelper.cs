@@ -62,6 +62,25 @@ namespace Common
             return true;
         }
 
+        public static bool SequenceEqual<T>(this T[] source, int sourceIndex, T[] target, int targetIndex, int count)
+        {
+            ValidateArray(source, sourceIndex, count);
+            ValidateArray(target, targetIndex, count);
+
+            for (var i = 0; i < count; i++)
+            {
+                if (!EqualityComparer<T>.Default.Equals(source[sourceIndex + i], target[targetIndex + i]))
+                    return false;
+            }
+
+            return true;
+        }
+
+        public static bool SequenceEqual<T>(this T[] source, int sourceIndex, params T[] target)
+        {
+            return source.SequenceEqual(sourceIndex, target, 0, target.Length);
+        }
+
         public static T[] Rotate<T>(this T[] array, int rotate)
         {
             if (array == null)
@@ -112,3 +131,4 @@ namespace Common
 // https://github.com/commandlineparser/commandline/blob/master/src/CommandLine/Infrastructure/EnumerableExtensions.cs
 // https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.sequenceequal?view=net-5.0
 // https://github.com/commandlineparser/commandline/blob/master/src/CommandLine/ParserResult.cs
+// [Comparing two byte arrays in .NET](https://stackoverflow.com/questions/43289/comparing-two-byte-arrays-in-net)

@@ -20,6 +20,8 @@
 
 [jsonfs](https://github.com/droyo/jsonfs)
 
+[jsontab-wlx](https://github.com/little-brother/jsontab-wlx)
+
 [JsonViewer](https://github.com/facebook-csharp-sdk/simple-json/tree/master/src/JsonViewer)
 
 [miller](https://github.com/johnkerl/miller)

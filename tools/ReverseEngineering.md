@@ -24,6 +24,7 @@ https://github.com/frida/frida
 
 + [Cutter](https://github.com/rizinorg/cutter) - [website](https://cutter.re/)
 + [Ghidra](https://github.com/NationalSecurityAgency/ghidra)
+  + [ghidra-dark](https://github.com/zackelia/ghidra-dark)
 + IDA Pro
 + [rizin](https://github.com/rizinorg/rizin)
 + x64dbg

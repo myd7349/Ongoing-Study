@@ -60,13 +60,19 @@ Projects using PyQt:
 
 - [ViTables](https://github.com/uvemas/ViTables)
 
+- [vizzero](https://github.com/cyber-punk-me/vizzero)
+
 - [vtkmodules](https://github.com/Kitware/VTK/tree/master/Wrapping/Python/vtkmodules/qt)
 
 Libraries:
 
+- [magicgui](https://github.com/pyapp-kit/magicgui)
+
 - [PyQt-Frameless-Window](https://github.com/zhiyiYo/PyQt-Frameless-Window)
 
 - [QDarkStyleSheet](https://github.com/ColinDuquesnoy/QDarkStyleSheet)
+
+- [superqt](https://github.com/pyapp-kit/superqt)
 
 Tools:
 

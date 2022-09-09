@@ -139,3 +139,4 @@ void EasyCreateBMPFile(LPTSTR pszFile, HBITMAP hBitmap, HDC hDC) {
 // https://github.com/skywind3000/BasicBitmap
 // https://github.com/skywind3000/RenderHelp/blob/2d3b6057178a54423e101a6375cb920da05e6928/RenderHelp.h#L840-L1107
 // https://github.com/DarknessFX/TimelapseFX/blob/main/TimelapseFX_Helper.cpp
+// https://github.com/katahiromz/SaveBitmapToFile

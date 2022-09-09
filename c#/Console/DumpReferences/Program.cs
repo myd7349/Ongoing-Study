@@ -142,3 +142,6 @@ namespace DumpReferences
 // https://github.com/spectresystems/snitch
 // https://github.com/RicoSuter/ProjectDependencyBrowser
 // [How to add folder to assembly search path at runtime in .NET?](https://stackoverflow.com/questions/1373100/how-to-add-folder-to-assembly-search-path-at-runtime-in-net)
+// https://github.com/seesharper/dotnet-deps
+// https://github.com/clovett/tools/blob/master/ComponentDependency/ComponentDependency/Program.cs
+// https://github.com/clovett/tools/tree/master/DependencyViewer

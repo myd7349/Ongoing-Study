@@ -30,3 +30,13 @@ System.Environment.Is64BitOperatingSystem;
 http://www.eggheadcafe.com/articles/20031219.asp
 
 > System.Environment.CurrentDirectory
+
+Environment.StackTrace
+
+https://github.com/benaadams/Ben.Demystifier/
+
+[How to print the current Stack Trace in .NET without any exception?](https://stackoverflow.com/questions/531695/how-to-print-the-current-stack-trace-in-net-without-any-exception)
+
+Environment.ProcessPath
+
+[Find the location of my application's executable in WPF (C# or vb.net)?](https://stackoverflow.com/questions/3123870/find-the-location-of-my-applications-executable-in-wpf-c-or-vb-net/)

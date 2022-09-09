@@ -163,6 +163,8 @@
 
       - [MGARD](https://github.com/CODARcode/MGARD)
 
+      - [edf2cfs](https://github.com/amiyapatanaik/edf2cfs)
+
 - GNU getopt
   
   - https://github.com/r4start/getoptpp
@@ -213,3 +215,9 @@
 - https://github.com/vivaladav/cpu-stat/blob/master/src/OptionsParser.h
 
 - https://github.com/electron/rcedit/blob/master/src/main.cc
+
+- https://github.com/qhull/qhull/blob/master/src/qdelaunay/qdelaun.c
+
+- https://github.com/mkazhdan/PoissonRecon/blob/master/Src/CmdLineParser.h
+
+- https://github.com/libigl/triangle/blob/master/showme.c

@@ -273,8 +273,7 @@ namespace ECGDemo
 
             var samples = SamplingRate * timeSliceInMilliseconds / 1000;
 
-            var bufferSizeInBytes =
-                (ulong)samples * ECGenerator.Channels * sizeof(double);
+            var bufferSizeInBytes = (nuint)(samples * ECGenerator.Channels * sizeof(double));
             var buffer = new UnmanagedBuffer((int)bufferSizeInBytes);
 
             Debug.Assert(ECGenerator.Channels == 1);

@@ -132,3 +132,9 @@ Timeout
 [Asynchronously wait for Task<T> to complete with timeout](https://stackoverflow.com/questions/4238345/asynchronously-wait-for-taskt-to-complete-with-timeout)
 
 [How to call asynchronous method from synchronous method in C#?](https://stackoverflow.com/questions/9343594/how-to-call-asynchronous-method-from-synchronous-method-in-c)
+
+[C# - Threading, Tasks, Async Code and Synchronization Techniques - Part 1](https://www.linkedin.com/pulse/c-threading-tasks-async-code-synchronization-part-1-meikopoulos/)
+
+[C# - Threading, Tasks, Async Code and Synchronization Techniques - Part 2](https://www.linkedin.com/pulse/c-threading-tasks-async-code-synchronization-part-2-meikopoulos)
+
+[Simplest way to do a fire and forget method in C#?](https://stackoverflow.com/questions/1018610/simplest-way-to-do-a-fire-and-forget-method-in-c)

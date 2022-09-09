@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31112.23
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MandelbrotSet", "MandelbrotSet\MandelbrotSet.csproj", "{EAA013D6-F69F-46B7-BFEC-998AAD832F91}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.DotNet", "..\..\..\..\Common.DotNet\Common.DotNet.csproj", "{6841F39F-01B0-4E33-8C5F-96D08E5EBB59}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColorMap.WPF", "..\..\..\ColorMap.WPF\ColorMap.WPF\ColorMap.WPF.csproj", "{C206D97B-FD5D-4887-B559-BE958C6CC405}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6841F39F-01B0-4E33-8C5F-96D08E5EBB59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6841F39F-01B0-4E33-8C5F-96D08E5EBB59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6841F39F-01B0-4E33-8C5F-96D08E5EBB59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C206D97B-FD5D-4887-B559-BE958C6CC405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C206D97B-FD5D-4887-B559-BE958C6CC405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C206D97B-FD5D-4887-B559-BE958C6CC405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C206D97B-FD5D-4887-B559-BE958C6CC405}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MandelbrotSet"
+        xmlns:cmap="clr-namespace:ColorMap.WPF;assembly=ColorMap.WPF"
         xmlns:ecgdemo="clr-namespace:ECGDemo"
         xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
@@ -30,6 +31,20 @@
             <ToolBar>
                 <xceed:ColorPicker SelectedColor="{Binding BackColor}"
                                    ToolTip="Back color" />
+
+                <cmap:ColorMapControl Width="200"
+                                      Orientation="Horizontal"
+                                      DrawEdge="True"
+                                      Palette="{Binding SelectedColorPalette}"
+                                      Gradation="{Binding Gradation}" />
+
+                <ComboBox Width="120"
+                          ItemsSource="{Binding ColorPalettes}"
+                          SelectedItem="{Binding SelectedColorPalette}" />
+
+                <xceed:IntegerUpDown Value="{Binding Gradation}"
+                                     Minimum="2"
+                                     Maximum="256" />
             </ToolBar>
         </ToolBarTray>
 

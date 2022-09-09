@@ -30,6 +30,8 @@
 
   - [shot-scraper](https://github.com/simonw/shot-scraper)
 
+- [undetected-chromedriver](https://github.com/ultrafunkamsterdam/undetected-chromedriver)
+
 ### Benchmark
 
 - [asv](https://github.com/airspeed-velocity/asv)
@@ -59,11 +61,21 @@
 
   - [explorepy](https://github.com/Mentalab-hub/explorepy)
 
+- [chaco](https://github.com/enthought/chaco)
+
 - [chartify](https://github.com/spotify/chartify)
+
+- [colorcet](https://github.com/holoviz/colorcet)
 
 - [corner.py](https://github.com/dfm/corner.py)
 
 - [datoviz](https://github.com/datoviz/datoviz)
+
+- [geoviews](https://github.com/holoviz/geoviews)
+
+- [holoviews](https://github.com/holoviz/holoviews)
+
+- [hvplot](https://github.com/holoviz/hvplot)
 
 - [mayavi](https://github.com/enthought/mayavi)
 
@@ -85,7 +97,11 @@
 
   - [SeabornCN](https://github.com/Vambooo/SeabornCN)
 
+  - [Compute the average bandpower of an EEG signal](https://raphaelvallat.com/bandpower.html)
+
 - [seaborn-image](https://github.com/SarthakJariwala/seaborn-image)
+
+- [vedo](https://github.com/marcomusy/vedo)
 
 - [vispy](https://github.com/vispy/vispy)
 
@@ -96,6 +112,10 @@
 - click
   
   - [argparse 的高级用法](https://frostming.com/2021/11-23/advanced-argparse/)
+
+- [clikit](https://github.com/sdispater/clikit)
+
+  - [pystan](https://github.com/stan-dev/pystan)
 
 - [colorama](https://github.com/tartley/colorama)
 
@@ -114,6 +134,8 @@
 - [pick](https://github.com/wong2/pick)
 
 - [plumbum](https://github.com/tomerfiliba/plumbum)
+
+- [pyct.cmd](https://github.com/pyviz-dev/pyct/blob/main/pyct/cmd.py)
 
 - [prettytable](https://github.com/jazzband/prettytable)
   
@@ -181,6 +203,10 @@
 
 - [twodict](https://github.com/MrS0m30n3/twodict)
 
+### CSV
+
+- [tablib](https://github.com/jazzband/tablib)
+
 ### Database
 
 - [ibis](https://github.com/ibis-project/ibis)
@@ -204,6 +230,7 @@
 - [Cyberbrain](https://github.com/laike9m/Cyberbrain)
 - [failprint](https://github.com/pawamoy/failprint)
 - [icecream](https://github.com/gruns/icecream)
+- [pyflyby](https://github.com/deshaw/pyflyby)
 
 ### Documentation
 
@@ -259,6 +286,12 @@
 
 - [verde](https://github.com/fatiando/verde)
 
+### Geometry
+
+- [PyMeshLab](https://github.com/cnr-isti-vclab/PyMeshLab)
+
+- [trimesh](https://github.com/mikedh/trimesh)
+
 ### Graphics
 
 - [moderngl](https://github.com/moderngl/moderngl)
@@ -280,6 +313,10 @@
 * [Gooey](https://github.com/chriskiehl/Gooey)
 
 * [kivy](https://github.com/kivy/kivy)
+
+* [magicgui](https://github.com/pyapp-kit/magicgui)
+
+* [moderngl-window](https://github.com/moderngl/moderngl-window)
 
 * [PyGUI](https://github.com/gcewing/PyGUI)
 
@@ -328,6 +365,8 @@
 
 - [pyscripter](https://github.com/pyscripter/pyscripter)
 
+- [pyzo](https://github.com/pyzo/pyzo)
+
 - Qt Creator
   
   - [The Best IDE for Python GUI Programming. Installing Qt Creator and PyQt - YouTube](https://www.youtube.com/watch?v=ts7nebUk71s)
@@ -344,6 +383,8 @@
 
 ### Imaging
 
+- [photohash](https://github.com/bunchesofdonald/photohash)
+
 - [photoshop-python-api](https://github.com/loonghao/photoshop-python-api)
 
 - [pymatting](https://github.com/pymatting/pymatting)
@@ -351,6 +392,12 @@
 ### JSON
 
 - [hyperjson](https://github.com/mre/hyperjson)
+
+- [jsonpickle](https://github.com/jsonpickle/jsonpickle)
+
+- pysimdjson
+
+  - [pystan](https://github.com/stan-dev/pystan)
 
 - [python-fastjsonschema](https://github.com/horejsek/python-fastjsonschema)
 
@@ -416,6 +463,10 @@
   
   - [maturin](https://github.com/PyO3/maturin)
 
+##### Python -> MATLAB
+
+- [pythoncall](https://github.com/pv/pythoncall)
+
 ##### C# -> Python
 
 - Python.Net
@@ -444,6 +495,8 @@
 
 ### Math
 
+- [bsplines](https://github.com/charris/bsplines)
+
 - [clifford](https://github.com/pygae/clifford)
 
 - [ganja.js](https://github.com/enkimute/ganja.js)
@@ -468,6 +521,9 @@
     - [flashlight](https://github.com/flashlight/flashlight) 
 - [cudf](https://github.com/rapidsai/cudf)
 - [h5py](https://github.com/h5py/h5py)
+- NumPy
+  - [NumPy: the absolute basics for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)
+    > The NumPy ndarray class is used to represent both matrices and vectors. A vector is an array with a single dimension (there’s no difference between row and column vectors), while a matrix refers to an array with two dimensions. For 3-D or higher dimensional arrays, the term tensor is also commonly used.
 - pandas.DataFrame
 - [polars](https://github.com/pola-rs/polars)
 - [python-blosc](https://github.com/Blosc/python-blosc)
@@ -521,6 +577,7 @@
 
 ##### Excel
 
+- [PyExcelerate](https://github.com/kz26/PyExcelerate)
 - [xlwings](https://github.com/xlwings/xlwings)
 
 ##### Word
@@ -553,9 +610,12 @@
 
 - [pdfplumber](https://github.com/jsvine/pdfplumber)
   - [Invoice2Excel](https://github.com/yooongchun/Invoice2Excel)
+- [pdfrw](https://github.com/pmaupin/pdfrw)
 - [pikepdf](https://github.com/pikepdf/pikepdf)
 - [pyfpdf](https://github.com/reingart/pyfpdf)
   - [fpdf2](https://github.com/PyFPDF/fpdf2)
+- [PyMuPDF](https://github.com/pymupdf/PyMuPDF)
+- [pypdf](https://github.com/py-pdf/pypdf)
 - [PyPDF2](https://github.com/py-pdf/PyPDF2)
 - [ReportLab](https://www.reportlab.com/)
   - https://github.com/driscollis/reportlabbookcode
@@ -614,6 +674,12 @@
 ### Scientific Python distribution
 
 - [Python(x,y)](https://python-xy.github.io/)
+
+### Serialization
+
+- [hdf5pickle](https://github.com/pv/hdf5pickle)
+
+- [jsonpickle](https://github.com/jsonpickle/jsonpickle)
 
 ### Static Analysis
 

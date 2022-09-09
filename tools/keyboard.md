@@ -21,3 +21,7 @@ https://github.com/walterlv/Walterlv.CloudKeyboard
 [synergy](https://github.com/symless/synergy-core): Keyboard and mouse sharing. [website](https://symless.com/synergy)
 
 [barrier](https://github.com/debauchee/barrier): Open-source KVM software.
+
+https://github.com/mfakane/MagicInput
+
+[WinCompose](https://github.com/samhocevar/wincompose)

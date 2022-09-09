@@ -6,12 +6,13 @@ Libraries:
   
   - https://github.com/desktop-app/lib_base/blob/master/base/crash_report_writer.cpp
 
+- [crash_handler](https://github.com/variar/klogg/tree/master/src/crash_handler)
+
 - CrashPad
-
   - [sentry-dotnet-minidump](https://github.com/getsentry/sentry-dotnet-minidump)
-
+  
     - [sentry-dotnet](https://github.com/getsentry/sentry-dotnet)
-
+  
 - [crashreport](https://github.com/winsoft666/crashreport)
 
 - [CrashReporter](https://github.com/Mogara/CrashReporter)

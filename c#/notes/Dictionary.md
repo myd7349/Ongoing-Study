@@ -126,3 +126,7 @@ catch (InvalidOperationException ex)
     Console.WriteLine(ex);
 }
 ```
+
+[What changed in .net 5 that makes it not throw when changing dictionary values in foreach](https://stackoverflow.com/questions/66939923/what-changed-in-net-5-that-makes-it-not-throw-when-changing-dictionary-values-i)
+
+> There was a change to the source code of Dictionary<TKey, TValue> to allow updates of existing keys during enumeration. It was commited on April 9, 2020 by Stephen Toub. That commit can be found here along with corresponding PR [#34667](https://github.com/dotnet/runtime/pull/34667).

@@ -55,6 +55,8 @@ Projects using `pybind11`
 * [carma](https://github.com/RUrlus/carma)
 * [f3d](https://github.com/f3d-app/f3d)
 * [kaldilm](https://github.com/csukuangfj/kaldilm)
+* [PDAL](https://github.com/PDAL/python)
+* [pybind11-stubgen](https://github.com/sizmailov/pybind11-stubgen)
 
 # Notes
 
@@ -100,3 +102,5 @@ Projects using `pybind11`
    > ```
    >
    > 
+
+3. [使用 CMake 构建 Python C/C++ 扩展](https://messense.me/build-python-c-extensions-with-cmake)

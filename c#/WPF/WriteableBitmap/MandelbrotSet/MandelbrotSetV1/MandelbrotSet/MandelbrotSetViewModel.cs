@@ -1,20 +1,28 @@
 ﻿//#define USE_SETPIXEL
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 using MvvmHelpers;
+using SciColorMap = SciColorMaps.Portable.ColorMap;
 
 using Common;
-
+using ColorMap.WPF;
 
 namespace MandelbrotSet
 {
     public class MandelbrotSetViewModel : BaseViewModel
     {
+        public MandelbrotSetViewModel()
+        {
+            ColorPalettes = SciColorMap.Palettes;
+        }
+        
         public WriteableBitmap CanvasBitmap
         {
             get => canvasBitmap_;
@@ -39,6 +47,36 @@ namespace MandelbrotSet
             set => SetProperty(ref backColor_, value, onChanged: Reset);
         }
 
+        public IEnumerable<string> ColorPalettes { get; }
+
+        public string SelectedColorPalette
+        {
+            get => selectedColorPalette_;
+
+            set
+            {
+                if (SetProperty(ref selectedColorPalette_, value))
+                {
+                    CreateColorMap();
+                    Reset();
+                }
+            }
+        }
+
+        public int Gradation
+        {
+            get => gradation_;
+
+            set
+            {
+                if (SetProperty(ref gradation_, value))
+                {
+                    CreateColorMap();
+                    Reset();
+                }
+            }
+        }
+        
         public int IterationCount
         {
             get => iterationCount_;
@@ -94,6 +132,13 @@ namespace MandelbrotSet
                 MaximumRenderingTimeInMilliseconds = RenderingTimeInMilliseconds;
             else if (RenderingTimeInMilliseconds < MinimumRenderingTimeInMilliseconds)
                 MinimumRenderingTimeInMilliseconds = RenderingTimeInMilliseconds;
+        }
+
+        private void CreateColorMap()
+        {
+            var colorMap = SciColorMapHelper.CreateColorMap(selectedColorPalette_, gradation_);
+            if (colorMap != null)
+                colors_ = colorMap.GetColors().ToArray();
         }
 
         private void OnCanvasSizeChanged()
@@ -168,6 +213,20 @@ namespace MandelbrotSet
 
                 var red = (byte)((iterationCount_ % 64) * 4);
 
+                Color color;
+                int colorI;
+
+                if (colors_?.Length > 0)
+                {
+                    color = colors_[iterationCount_ % colors_.Length];
+                    colorI = (color.R << 16) | (color.G << 8) | color.B;
+                }
+                else
+                {
+                    color = Color.FromRgb(red, 0, 0);
+                    colorI = red << 16;
+                }
+
                 for (int col = 0; col < CanvasWidth; ++col)
                 {
                     // Convert from image coordinate to coordinate on the complex plane.
@@ -198,12 +257,12 @@ namespace MandelbrotSet
                         if (inSet)
                             canvasBitmap_.SetPixel(col, row, Colors.Black);
                         else
-                            canvasBitmap_.SetPixel(col, row, red, 0, 0);
+                            canvasBitmap_.SetPixel(col, row, color);
 #else
                         if (inSet)
                             *(int*)destPixel = 0;
                         else
-                            *(int*)destPixel = red << 16;
+                            *(int*)destPixel = colorI;
 #endif
 
                         inSet_[row, col] = inSet;
@@ -230,6 +289,9 @@ namespace MandelbrotSet
         private int canvasHeight_;
         private WriteableBitmap canvasBitmap_;
         private Color backColor_ = Colors.Black;
+        private string selectedColorPalette_;
+        private int gradation_ = 2;
+        private Color[] colors_;
         private Point[,] points_;
         private bool[,] inSet_;
         private int iterationCount_ = 0;
@@ -255,3 +317,5 @@ namespace MandelbrotSet
 // https://github.com/nmondal/dynamicfractalviewer
 // [Functional-style programming in JavaScript with Ramda](https://carljohansen.wordpress.com/2019/02/14/functional-style-programming-in-javascript-with-ramda/)
 // https://github.com/carljohansen/mandelbrot-ramda
+// https://github.com/mattip/c_from_python
+// https://github.com/holoviz/holoviews/blob/main/examples/gallery/apps/bokeh/mandelbrot.py

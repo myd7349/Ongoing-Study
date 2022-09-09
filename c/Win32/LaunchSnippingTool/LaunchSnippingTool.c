@@ -88,3 +88,18 @@ References:
 */
 // [Windows平台下System32和SysWOW64文件夹](https://blog.wangzhl.com/posts/windows-system32-and-syswow64/)
 // https://github.com/xupefei/Locale-Emulator/blob/db03abf6914beeca09ee975120ff5ce2091c8dca/LECommonLibrary/SystemHelper.cs#L38-L46
+// [Add a button on my winform to run the Snipping Tool application](https://stackoverflow.com/questions/28318284/add-a-button-on-my-winform-to-run-the-snipping-tool-application)
+/*
+        Process snippingToolProcess = new Process();
+        snippingToolProcess.EnableRaisingEvents = true;
+        if (!Environment.Is64BitProcess)
+        {
+            snippingToolProcess.StartInfo.FileName = "C:\\Windows\\sysnative\\SnippingTool.exe";
+            snippingToolProcess.Start(); 
+        }
+        else
+        {
+            snippingToolProcess.StartInfo.FileName = "C:\\Windows\\system32\\SnippingTool.exe";
+            snippingToolProcess.Start();            
+        }
+*/

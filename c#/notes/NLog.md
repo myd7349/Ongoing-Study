@@ -255,3 +255,13 @@ internal static class Program
 [Routing System.Diagnostics.Trace and System.Diagnostics.TraceSource logs through NLog](https://nlog-project.org/2010/09/02/routing-system-diagnostics-trace-and-system-diagnostics-tracesource-logs-through-nlog.html)
 
 [Which trace source is used by System.Diagnostics.Trace.WriteLine?](https://stackoverflow.com/questions/34491311/which-trace-source-is-used-by-system-diagnostics-trace-writeline)
+
+[Force NLog to create a new log folder for year, month and day](https://stackoverflow.com/questions/6685659/force-nlog-to-create-a-new-log-folder-for-year-month-and-day)
+
+```xml
+<target name="logFile" xsi:type="File" fileName="${basedir}/Logs/${date:format=yyyy}/${shortdate}.log"
+        layout="${longdate}|${level:uppercase=false:padding=-5}|${appdomain} - ${callsite-filename}(${callsite-linenumber}) - ${callsite:methodName=false}> ${message} ${onexception:${exception:format=tostring} ${newline} ${stacktrace} ${newline}"
+        maxArchiveFiles="30" />
+```
+
+[NLog settings not deleting MaxArchiveDays or MaxArchiveFiles?](https://stackoverflow.com/questions/61347861/nlog-settings-not-deleting-maxarchivedays-or-maxarchivefiles)

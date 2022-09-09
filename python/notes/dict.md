@@ -36,3 +36,13 @@ https://peps.python.org/pep-0455/
 https://github.com/aio-libs/multidict
 
 [How to create key or append an element to key?](https://stackoverflow.com/questions/12905999/how-to-create-key-or-append-an-element-to-key)
+
+https://github.com/urllib3/urllib3/pull/2336/files
+
+```
+# Starting in Python 3.7 the 'dict' class is guaranteed to be
+# ordered by insertion. This behavior was an implementation
+# detail in Python 3.6. OrderedDict is implemented in C in
+# later Python versions but still requires a lot more memory
+# due to being implemented as a linked list.
+```

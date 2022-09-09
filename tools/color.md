@@ -19,3 +19,9 @@ https://github.com/corkami/pics/blob/master/binary/basics/colors.pdf
 https://github.com/AcademySoftwareFoundation/OpenColorIO
 
 https://github.com/vn971/linux-color-inversion
+
+[ColorPicker](https://github.com/martinchrzan/ColorPicker)
+
+[ColorPickerUX](https://github.com/niels9001/ColorPickerUX)
+
+https://github.com/clovett/tools/tree/master/ColorContrast

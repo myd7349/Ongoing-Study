@@ -6,9 +6,15 @@
 
 [Bob](https://github.com/ripperhe/Bob)
 
+Caffeine
+
 CleanShot
 
+[Gifski](https://github.com/sindresorhus/Gifski)
+
 [Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements)
+
+[LuLu](https://github.com/objective-see/LuLu)
 
 [MiaoYan](https://github.com/tw93/MiaoYan)
 
@@ -20,6 +26,10 @@ CleanShot
 
 QuickLook
 
+[ScreenFlow](https://www.telestream.net/screenflow/overview.htm)
+
 [Sloth](https://github.com/sveinbjornt/Sloth)
+
+[uPic](https://github.com/gee1k/uPic)
 
 [yabai](https://github.com/koekeishiya/yabai)

@@ -1,4 +1,4 @@
- using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -301,3 +301,4 @@ namespace Common.WPF.Behaviors
 // [How to autosize and right-align GridViewColumn data in WPF?](https://stackoverflow.com/questions/560581/how-to-autosize-and-right-align-gridviewcolumn-data-in-wpf)
 // [WPF C# ListView Column Width Auto & *](https://lazycowprojects.tumblr.com/post/7063214400/wpf-c-listview-column-width-auto)
 // https://github.com/rolfwessels/lazycowprojects/blob/master/Wpf/GridViewColumnResize.cs
+// https://github.com/icsharpcode/ILSpy/blob/master/ILSpy/Controls/GridViewColumnAutoSize.cs

@@ -24,3 +24,13 @@
 [C# Channels - Async Data Pipelines](https://deniskyashif.com/2020/01/07/csharp-channels-part-3/)
 
 [System.Threading.Channels](https://sachabarbs.wordpress.com/2018/11/28/system-threading-channels/)
+
+[C# – Using Channel as an async queue](https://makolyte.com/event-driven-dotnet-concurrent-producer-consumer-using-a-channel-as-a-non-blocking-async-queue/)
+
+[C# – How to batch read with Threading.ChannelReader](https://makolyte.com/csharp-how-to-batch-read-with-threading-channelreader/)
+
+[C# – Example of using BlockingCollection](https://makolyte.com/event-driven-dotnet-concurrent-producer-consumer-using-blockingcollection/)
+
+[System.Threading.Channels. Ability to delete an item from channel queue only after its successful processing](https://github.com/dotnet/runtime/issues/31182)
+
+[How to make count available on .NET Channel](https://stackoverflow.com/questions/70375696/how-to-make-count-available-on-net-channel)

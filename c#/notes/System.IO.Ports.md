@@ -18,3 +18,7 @@
 - [Detecting when a SerialPort gets disconnected](https://stackoverflow.com/questions/13408476/detecting-when-a-serialport-gets-disconnected)
 
 https://github.com/jcurl/SerialPortStream
+
+[AdvancedSerialCommunicator](https://github.com/AngryCarrot789/AdvancedSerialCommunicator)
+
+[BasicSerialCommunicator](https://github.com/AngryCarrot789/BasicSerialCommunicator)

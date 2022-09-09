@@ -18,3 +18,7 @@
 2. decay_t
    
    [morphologica/HdfData.h at main · ABRG-Models/morphologica · GitHub](https://github.com/ABRG-Models/morphologica/blob/main/morph/HdfData.h)
+
+3. void_t
+
+   [How does `void_t` work](https://stackoverflow.com/questions/27687389/how-does-void-t-work)

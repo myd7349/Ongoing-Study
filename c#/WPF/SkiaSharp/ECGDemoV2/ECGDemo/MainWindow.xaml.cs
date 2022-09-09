@@ -211,7 +211,7 @@ namespace ECGDemo
             var samples = SamplingRate * timeSliceInMilliseconds / 1000;
 
             var bufferSizeInBytes =
-                (ulong)samples * ECGenerator.Channels * sizeof(double);
+                (nuint)samples * ECGenerator.Channels * sizeof(double);
             var buffer = new UnmanagedBuffer((int)bufferSizeInBytes);
 
             Debug.Assert(ECGenerator.Channels == 1);
@@ -230,7 +230,7 @@ namespace ECGDemo
                 {
                     var lastError = FakeADWrapper.GetLastError();
                     var lastErrorString = FakeADWrapper.ErrorToString(lastError);
-                    var errorMessage = $"{lastError.ToString()} - {lastErrorString}";
+                    var errorMessage = $"{lastError} - {lastErrorString}";
 
                     Dispatcher.InvokeAsync(() => lastErrorTextBlock_.Text = errorMessage);
 

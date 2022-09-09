@@ -13,3 +13,5 @@ https://github.com/jgraph/drawio
 https://github.com/steveruizok/perfect-freehand
 
 https://github.com/mermaid-js/mermaid
+
+https://github.com/bramp/js-sequence-diagrams

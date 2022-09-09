@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,6 +17,45 @@ namespace ColorMap.WPF
             return Color.FromRgb(rgb[0], rgb[1], rgb[2]);
         }
 
+        public static IEnumerable<Color> GetColors(this SciColorMap colorMap, bool isReversed = false)
+        {
+            ArgumentNullException.ThrowIfNull(colorMap);
+
+            if (!isReversed)
+                return colorMap.Colors().Select(rgb => rgb.ToMediaColor());
+            else
+                return colorMap.Colors().Select(rgb => rgb.ToMediaColor()).Reverse();
+        }
+
+        public static int GetColorIndex(int colorCount, double min, double max, double value)
+        {
+            if (colorCount <= 0)
+                throw new ArgumentException(nameof(colorCount));
+
+            if (min >= max)
+                throw new ArgumentException(nameof(min));
+
+            if (value < min)
+                return 0;
+
+            if (value > max)
+                return colorCount - 1;
+
+            var index = (int)((value - min) / (max - min) * (colorCount - 1));
+            return index;
+        }
+
+        public static SciColorMap CreateColorMap(string palette, int colorCount)
+        {
+            if (string.IsNullOrEmpty(palette))
+                throw new ArgumentException(nameof(palette));
+
+            if (colorCount < 2 || colorCount > 256)
+                throw new ArgumentOutOfRangeException(nameof(colorCount));
+
+            return new SciColorMap(palette, colorCount: colorCount);
+        }
+
         public static Brush CreatePaletteBrush(string palette, int colorCount)
         {
             if (string.IsNullOrEmpty(palette))
@@ -24,7 +64,7 @@ namespace ColorMap.WPF
             if (colorCount < 2 || colorCount > 256)
                 throw new ArgumentOutOfRangeException(nameof(colorCount));
             
-            var colorMap = new SciColorMap(palette, colorCount: colorCount);
+            var colorMap = CreateColorMap(palette, colorCount);
             return colorMap.CreatePaletteBrush(colorCount);
         }
         
@@ -55,10 +95,7 @@ namespace ColorMap.WPF
             if (string.IsNullOrEmpty(palette))
                 return TransparentBrush;
 
-            if (colorCount < 2 || colorCount > 256)
-                throw new ArgumentOutOfRangeException(nameof(colorCount));
-
-            var cmap = new SciColorMap(palette, colorCount: colorCount);
+            var cmap = CreateColorMap(palette, colorCount);
 
             if (height < colorCount)
                 return cmap.CreatePaletteBrush(colorCount);
@@ -103,10 +140,7 @@ namespace ColorMap.WPF
             if (string.IsNullOrEmpty(palette))
                 return null;
 
-            if (colorCount < 2 || colorCount > 256)
-                throw new ArgumentOutOfRangeException(nameof(colorCount));
-
-            var cmap = new SciColorMap(palette, colorCount: colorCount);
+            var cmap = CreateColorMap(palette, colorCount);
             
             var colors = cmap.Colors().ToArray();
             
@@ -136,37 +170,69 @@ namespace ColorMap.WPF
             string palette, int colorCount,
             double width, double height,
             Orientation orientation,
+            bool isReversed,
+            bool drawEdge,
             bool showTicks,
+            int tickLength,
             Color tickColor)
         {
             if (orientation == Orientation.Horizontal)
             {
                 return CreateHorizontalColorMapImage(
-                    palette, colorCount, width, height, showTicks, tickColor);
+                    palette, colorCount, width, height, isReversed, 
+                    drawEdge, showTicks, tickLength, tickColor);
             }
             else
             {
                 return CreateVerticalColorMapImage(
-                    palette, colorCount, width, height, showTicks, tickColor);
+                    palette, colorCount, width, height, isReversed, 
+                    drawEdge, showTicks, tickLength, tickColor);
             }
         }
 
         public static WriteableBitmap CreateHorizontalColorMapImage(
-            string palette, int colorCount,
-            double width, double height,
-            bool showTicks, Color tickColor)
+            string palette,
+            int colorCount,
+            double width,
+            double height,
+            bool isReversed,
+            bool drawEdge,
+            bool showTicks,
+            int tickLength,
+            Color tickColor)
         {
-            if (width <= 0 || height <= 0)
-                return null;
-
             if (string.IsNullOrEmpty(palette))
                 return null;
 
-            if (colorCount < 2 || colorCount > 256)
-                throw new ArgumentOutOfRangeException(nameof(colorCount));
+            var cmap = CreateColorMap(palette, colorCount);
+            return CreateHorizontalColorMapImage(
+                cmap,
+                width,
+                height,
+                isReversed,
+                drawEdge,
+                showTicks,
+                tickLength,
+                tickColor);
+        }
 
-            var cmap = new SciColorMap(palette, colorCount: colorCount);
+        public static WriteableBitmap CreateHorizontalColorMapImage(
+            SciColorMap cmap,
+            double width,
+            double height,
+            bool isReversed,
+            bool drawEdge,
+            bool showTicks,
+            int tickLength,
+            Color tickColor)
+        {
+            ArgumentNullException.ThrowIfNull(cmap);
+            
+            if (width <= 0 || height <= 0)
+                return null;
+
             var colors = cmap.Colors().ToArray();
+            var colorCount = colors.Length;
 
             var bitmap = BitmapFactory.New((int)width, (int)height);
 
@@ -177,17 +243,21 @@ namespace ColorMap.WPF
             {
                 for (int i = 0; i < colors.Length; ++i)
                 {
+                    var color = !isReversed ?
+                        colors[i] :
+                        colors[colors.Length - 1 - i];
+
                     bitmap.FillRectangle(
                         (int)xStart,
                         0,
                         (int)(xStart + step),
                         (int)height,
-                        colors[i].ToMediaColor());
+                        color.ToMediaColor());
 
                     xStart += step;
                 }
 
-                if (showTicks)
+                if (drawEdge)
                 {
                     bitmap.DrawRectangle(
                         0,
@@ -195,7 +265,10 @@ namespace ColorMap.WPF
                         (int)width,
                         (int)height,
                         tickColor);
+                }
 
+                if (showTicks)
+                {
                     int stepFactor = 1;
 
                     if (step < 5)
@@ -203,6 +276,9 @@ namespace ColorMap.WPF
                         stepFactor = (int)Math.Ceiling(5 / step);
                         step *= stepFactor;
                     }
+
+                    if (tickLength > height)
+                        tickLength = (int)height;
 
                     xStart = 0;
 
@@ -212,16 +288,19 @@ namespace ColorMap.WPF
                             (int)xStart,
                             0,
                             (int)xStart,
-                            5,
-                            Colors.Black);
+                            tickLength,
+                            tickColor);
                         bitmap.DrawLine(
                             (int)xStart,
-                            (int)height - 5,
+                            (int)height - tickLength - 1,
                             (int)xStart,
                             (int)height,
                             tickColor);
 
                         xStart += step;
+
+                        if (width - xStart < 3)
+                            break;
                     }
                 }
             }
@@ -230,21 +309,48 @@ namespace ColorMap.WPF
         }
 
         public static WriteableBitmap CreateVerticalColorMapImage(
-            string palette, int colorCount,
-            double width, double height,
-            bool showTicks, Color tickColor)
+            string palette,
+            int colorCount,
+            double width,
+            double height,
+            bool isReversed,
+            bool drawEdge,
+            bool showTicks,
+            int tickLength,
+            Color tickColor)
         {
-            if (width <= 0 || height <= 0)
-                return null;
-
             if (string.IsNullOrEmpty(palette))
                 return null;
 
-            if (colorCount < 2 || colorCount > 256)
-                throw new ArgumentOutOfRangeException(nameof(colorCount));
+            var cmap = CreateColorMap(palette, colorCount);
+            return CreateVerticalColorMapImage(
+                cmap,
+                width,
+                height,
+                isReversed,
+                drawEdge,
+                showTicks,
+                tickLength,
+                tickColor);
+        }
 
-            var cmap = new SciColorMap(palette, colorCount: colorCount);
+        public static WriteableBitmap CreateVerticalColorMapImage(
+            SciColorMap cmap,
+            double width,
+            double height,
+            bool isReversed,
+            bool drawEdge,
+            bool showTicks,
+            int tickLength,
+            Color tickColor)
+        {
+            ArgumentNullException.ThrowIfNull(cmap);
+            
+            if (width <= 0 || height <= 0)
+                return null;
+
             var colors = cmap.Colors().ToArray();
+            var colorCount = colors.Length;
 
             var bitmap = BitmapFactory.New((int)width, (int)height);
 
@@ -255,17 +361,21 @@ namespace ColorMap.WPF
             {
                 for (int i = 0; i < colors.Length; ++i)
                 {
+                    var color = !isReversed ?
+                        colors[colors.Length - 1 - i] :
+                        colors[i];
+
                     bitmap.FillRectangle(
                         0,
                         (int)yStart,
                         (int)width,
                         (int)(yStart + step),
-                        colors[i].ToMediaColor());
+                        color.ToMediaColor());
 
                     yStart += step;
                 }
 
-                if (showTicks)
+                if (drawEdge)
                 {
                     bitmap.DrawRectangle(
                         0,
@@ -273,7 +383,10 @@ namespace ColorMap.WPF
                         (int)width,
                         (int)height,
                         tickColor);
+                }
 
+                if (showTicks)
+                {
                     int stepFactor = 1;
 
                     if (step < 5)
@@ -282,6 +395,9 @@ namespace ColorMap.WPF
                         step *= stepFactor;
                     }
 
+                    if (tickLength > width)
+                        tickLength = (int)width;
+
                     yStart = 0;
 
                     for (int i = 0; i < colors.Length; i += stepFactor)
@@ -289,17 +405,20 @@ namespace ColorMap.WPF
                         bitmap.DrawLine(
                             0,
                             (int)yStart,
-                            5,
+                            tickLength,
                             (int)yStart,
-                            Colors.Black);
+                            tickColor);
                         bitmap.DrawLine(
-                            (int)width - 5,
+                            (int)width - tickLength - 1,
                             (int)yStart,
                             (int)width,
                             (int)yStart,
                             tickColor);
 
                         yStart += step;
+
+                        if (height - yStart < 3)
+                            break;
                     }
                 }
             }

@@ -155,3 +155,7 @@ public MainWindowViewModel : ObservableObject
     }
 }
 ```
+
+[WPF forcing redraw of canvas](https://stackoverflow.com/questions/5959217/wpf-forcing-redraw-of-canvas)
+
+[Build More Responsive Apps With The Dispatcher](https://learn.microsoft.com/en-us/archive/msdn-magazine/2007/october/wpf-threads-build-more-responsive-apps-with-the-dispatcher)

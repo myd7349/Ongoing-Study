@@ -18,6 +18,7 @@
 * [sql-generator](https://github.com/liyupi/sql-generator)
 * [sqlfluff](https://github.com/sqlfluff/sqlfluff)
 * SQLite Expert
+* [sqlite-gui](https://github.com/little-brother/sqlite-gui)
 * [sqlite-utils](https://github.com/simonw/sqlite-utils)
 * [sqlite3todot](https://github.com/chunky/sqlite3todot)
 * [SQLiteStudio](https://github.com/pawelsalawa/sqlitestudio)

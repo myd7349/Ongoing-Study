@@ -223,3 +223,4 @@ if __name__ == '__main__':
 # [Open web in new tab Selenium + Python](https://stackoverflow.com/questions/28431765/open-web-in-new-tab-selenium-python)
 # [python-selenium-open-tab.md](https://gist.github.com/lrhache/7686903)
 # https://github.com/SergeyPirogov/webdriver_manager
+# https://github.com/ultrafunkamsterdam/undetected-chromedriver

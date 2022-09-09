@@ -1,3 +1,4 @@
+- [clifm](https://github.com/leo-arch/clifm)
 - [Cloudreve](https://github.com/cloudreve/Cloudreve)
 - [Explorer++](https://github.com/derceg/explorerplusplus)
 - [filebrowser: Web File Browser](https://github.com/filebrowser/filebrowser)

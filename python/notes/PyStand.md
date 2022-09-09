@@ -57,3 +57,13 @@
 >    ```
 > 
 > 5. Clean
+
+Python builds:
+
+- [idf-python](https://github.com/espressif/idf-python)
+
+- [python-build-standalone](https://github.com/indygreg/python-build-standalone)
+
+PEP:
+
+- https://peps.python.org/pep-0711/

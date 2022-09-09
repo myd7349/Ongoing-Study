@@ -49,6 +49,16 @@ namespace SkiaSharp.WPF
 
         private static Lazy<SKPaint> linePaint = new Lazy<SKPaint>();
     }
+
+#if false
+        public static WriteableBitmap GetUnderlyingBitmap(this SKElement skElement)
+        {
+            var fields = typeof(SKElement).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+            var bitmapField = fields.FirstOrDefault(fi => fi.FieldType == typeof(WriteableBitmap));
+            Debug.Assert(bitmapField != null);
+            return bitmapField.GetValue(skElement) as WriteableBitmap;
+        }
+#endif
 }
 
 

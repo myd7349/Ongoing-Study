@@ -1,5 +1,7 @@
 Projects that using `ctypes`:
 
+- [c_from_python](https://github.com/mattip/c_from_python)
+
 - [pyharu](https://github.com/libharu/libharu/tree/master/if/python)
 
 - [pyNuklear](https://github.com/billsix/pyNuklear)
@@ -42,3 +44,7 @@ Projects that using `ctypes`:
 - [PyFibre](https://github.com/samuelsadok/fibre/tree/devel/python)
 
 - [pyedf](https://github.com/jusjusjus/pyedf)
+
+- [libfivepy](https://gitlab.com/rcmz/libfivepy)
+
+- [Yaafe](https://github.com/Yaafe/Yaafe)

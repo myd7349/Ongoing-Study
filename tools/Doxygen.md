@@ -22,3 +22,7 @@ https://github.com/lief-project/LIEF
 https://github.com/QMCPACK/qmcpack
 
 https://github.com/uriparser/uriparser
+
+https://github.com/jcurl/docbookgen-cmake
+
+https://github.com/adobe/hyde

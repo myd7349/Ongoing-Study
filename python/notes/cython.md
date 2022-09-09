@@ -1,5 +1,6 @@
 #### Projects that using `Cython`:
 
+* [c_from_python](https://github.com/mattip/c_from_python)
 * [folly/python](https://github.com/facebook/folly/tree/master/folly/python)
 * [openage](https://github.com/SFTtech/openage)
 * [python-netfilterqueue](https://github.com/kti/python-netfilterqueue)
@@ -24,6 +25,15 @@
 * [astra-toolbox](https://github.com/astra-toolbox/astra-toolbox)
 * [pyuvc](https://github.com/pupil-labs/pyuvc)
 * [python-qsoptex](https://github.com/jonls/python-qsoptex)
+* [fpylll](https://github.com/fplll/fpylll)
+* [pyreadstat](https://github.com/Roche/pyreadstat)
+* [cyipopt](https://github.com/mechmotum/cyipopt)
+* [triangle](https://github.com/drufat/triangle)
+* [python-blosc2](https://github.com/Blosc/python-blosc2)
+* [mlpack](https://github.com/mlpack/mlpack/tree/master/src/mlpack/bindings/python)
+* [pysimdjson](https://github.com/TkTech/pysimdjson)
+* [quicktions](https://github.com/scoder/quicktions)
+* [tetgen](https://github.com/pyvista/tetgen)
 
 ### Tools
 
@@ -32,3 +42,4 @@
 ### Articles
 
 - [How to compile C extension for Python where C function uses LAPACK library?](https://stackoverflow.com/questions/52106978/how-to-compile-c-extension-for-python-where-c-function-uses-lapack-library)
+- [在 Cython 项目中使用 abseil-cpp](https://messense.me/use-abseil-cpp-with-cython)

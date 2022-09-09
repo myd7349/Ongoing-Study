@@ -10,6 +10,8 @@
 
 - [Setup Project Deployment of a Windows Forms Application](https://docs.devexpress.com/eXpressAppFramework/113235/deployment/deployment-tutorial/setup-project-deployment-of-a-windows-forms-application)
 
+- https://github.com/roodkcab/gacpass
+
 ### ClickOnce
 
 - [Publish Wizard Deployment of a Windows Forms Application](https://docs.devexpress.com/eXpressAppFramework/113234/deployment/deployment-tutorial/publish-wizard-deployment-of-a-windows-forms-application)
@@ -43,6 +45,13 @@
 - https://github.com/stefankueng/grepWin/tree/main/src/Setup
 - https://github.com/ffftp/ffftp
 - https://github.com/debauchee/barrier/tree/master/dist/wix
+- https://github.com/aegoroff/logviewer
+- https://github.com/icsharpcode/ILSpy/tree/master/ILSpy.Installer
+- https://github.com/jonthysell/Mzinga
+- https://github.com/jonthysell/Chordious
+- https://github.com/mlpack/mlpack/tree/master/dist/win-installer
+- https://github.com/gitextensions/gitextensions
+- https://github.com/PraiseBase-Presenter/PraiseBase-Presenter
 
 ### NSIS
 
@@ -71,6 +80,9 @@
 - https://github.com/sithlord48/blackchocobo
 - https://github.com/hustlei/QssStylesheetEditor
 - [EpubViewer](https://github.com/hustlei/EpubViewer)
+- https://github.com/kfstorm/DoubanFM/tree/master/ScriptForInstaller
+- https://github.com/da2x/EdgeDeflector
+- https://github.com/KangLin/SerialPortAssistant
 
 ##### NSIS-UI-Plugin (Qt)
 
@@ -127,6 +139,9 @@
   - https://github.com/PixiEditor/PixiEditor/tree/master/src/Installer
 - https://github.com/DomGries/FreelancerModStudio
 - [Embarcardero Delphi](https://www.embarcadero.com/products/delphi)
+- https://github.com/mysteryx93/HanumanInstituteApps
+- https://github.com/mat1jaczyyy/apollo-studio
+- https://github.com/sylveon/SearchWithMyBrowser
 
 ### Advanced Installer
 
@@ -175,6 +190,8 @@
 - [Add MSIX installer to GitHub workflow by davidanthoff · Pull Request #3331 · git-for-windows/git · GitHub](https://github.com/git-for-windows/git/pull/3331/files)
 
 ### DIY
+
+- [apollo-studio](https://github.com/mat1jaczyyy/apollo-studio)
 
 - [FEBuilderGBA_Installer](https://github.com/FEBuilderGBA/FEBuilderGBA_Installer)
 

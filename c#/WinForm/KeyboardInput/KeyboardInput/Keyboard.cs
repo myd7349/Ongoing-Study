@@ -79,3 +79,5 @@ namespace Common.WinForms.Input
 // [How to detect if any key is pressed](http://stackoverflow.com/questions/12076107/how-to-detect-if-any-key-is-pressed)
 // [How can I convert 'System.Windows.Input.Key' to 'System.Windows.Forms.Keys'?](http://stackoverflow.com/questions/1153009/how-can-i-convert-system-windows-input-key-to-system-windows-forms-keys)
 // https://github.com/FlaUI/FlaUI/blob/master/src/FlaUI.Core/Input/Keyboard.cs
+// https://github.com/gitextensions/gitextensions/blob/master/GitUI/Hotkey/KeysExtensions.cs
+// https://github.com/dotnet/winforms/blob/main/src/Microsoft.VisualBasic.Forms/src/Microsoft/VisualBasic/Devices/Keyboard.vb

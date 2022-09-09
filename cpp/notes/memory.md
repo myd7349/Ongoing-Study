@@ -42,3 +42,7 @@ unique_ptr vs HANDLE
 [dynamic cast of a shared_ptr](https://stackoverflow.com/questions/20219385/dynamic-cast-of-a-shared-ptr)
 
 [dynamic_cast across a shared_ptr?](https://stackoverflow.com/questions/23795265/dynamic-cast-across-a-shared-ptr)
+
+[C++ delete syntax](https://stackoverflow.com/questions/3037655/c-delete-syntax)
+
+[deleting multiple pointers in one line. c++](https://stackoverflow.com/questions/15692418/deleting-multiple-pointers-in-one-line-c)

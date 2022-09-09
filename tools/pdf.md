@@ -32,6 +32,8 @@ Tools:
 
 - [CPDF](https://github.com/johnwhitington/cpdf-source)
 
+- [FOCA](https://github.com/ElevenPaths/FOCA)
+
 - [PDF Expert](https://pdfexpert.com/)
 
 - [WeasyPrint](https://github.com/Kozea/WeasyPrint)
@@ -47,6 +49,8 @@ Tools:
 - [k2pdfopt](https://www.willus.com/k2pdfopt/)
 
   - [MacReFlower](https://github.com/fibasile/MacReFlower)
+
+- [pdf2json](https://github.com/modesty/pdf2json)
 
 - [pdf2svg](https://github.com/dawbarton/pdf2svg)
 
@@ -140,6 +144,8 @@ Tools:
 
 - [md-pdf](https://github.com/igormironchik/md-pdf)
 
+- [svg2pdf](https://github.com/typst/svg2pdf)
+
 EMF
 
 - [How to render the PDF page as EMF or meta file in PDFium](https://stackoverflow.com/questions/49153715/how-to-render-the-pdf-page-as-emf-or-meta-file-in-pdfium)
@@ -197,3 +203,7 @@ PDF translation:
 Online Tools:
 
 - https://pdffly.com/
+
+PDF Validation
+
+- [veraPDF](https://github.com/veraPDF)

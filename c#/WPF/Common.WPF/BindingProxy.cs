@@ -4,3 +4,4 @@
 // [RelativeSource binding from a ToolTip or ContextMenu](https://stackoverflow.com/questions/3668654/relativesource-binding-from-a-tooltip-or-contextmenu)
 // [WPF Event to Command Binding in Parent Child DataGrid failing to bind Child DataGrid Events](https://stackoverflow.com/questions/57594058/wpf-event-to-command-binding-in-parent-child-datagrid-failing-to-bind-child-data)
 // [[WPF] How to bind to data when the DataContext is not inherited](https://thomaslevesque.com/2011/03/21/wpf-how-to-bind-to-data-when-the-datacontext-is-not-inherited/)
+// [WPF Error: Cannot find governing FrameworkElement for target element](https://stackoverflow.com/questions/7660967/wpf-error-cannot-find-governing-frameworkelement-for-target-element)

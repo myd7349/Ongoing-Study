@@ -77,3 +77,4 @@
 // TODO: Benchmark
 //     1. new PinnedObject(array);
 //     2. fixed (byte *pArray = array) {};
+// https://github.com/TimothyMeadows/PinnedMemory

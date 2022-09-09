@@ -171,3 +171,5 @@ if __name__ == '__main__':
 # https://stackoverflow.com/questions/1825715/how-to-pack-and-unpack-using-ctypes-structure-str
 # https://github.com/labstreaminglayer/pylsl/blob/master/pylsl/pylsl.py
 # https://github.com/csukuangfj/kaldilm/blob/master/setup.py
+# https://github.com/libigl/libigl-python-bindings/blob/main/setup.py
+# [使用 CMake 构建 Python C/C++ 扩展](https://messense.me/build-python-c-extensions-with-cmake)

@@ -32,6 +32,7 @@
 - [TerminalStudio](https://github.com/TerminalStudio/lite)
 - [WindTerm](https://github.com/kingToolbox/WindTerm)
 - [nushell](https://github.com/nushell/nushell)
+- [ish](https://github.com/ish-app/ish)
 
 Terminal emulators supported by [system-terminal](https://github.com/alexrp/system-terminal):
 
@@ -65,6 +66,8 @@ Other Tools:
 
 - [cfonts](https://github.com/dominikwilkowski/cfonts)
 
+- [chafa](https://github.com/hpjansson/chafa)
+
 - [ConPtyShell](https://github.com/antonioCoco/ConPtyShell)
 
 - [ctypes.sh](https://github.com/taviso/ctypes.sh)
@@ -84,6 +87,8 @@ Other Tools:
 - [nb](https://github.com/xwmx/nb)
 
 - [oil](https://github.com/oilshell/oil)
+
+- [progress](https://github.com/Xfennec/progress)
 
 - [smenu](https://github.com/p-gen/smenu)
 

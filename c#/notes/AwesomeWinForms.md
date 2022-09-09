@@ -8,6 +8,7 @@ Applications:
 - [BingWallpaper](https://github.com/kfstorm/BingWallpaper)
 - [BingWallpaper](https://github.com/eaglexiang/BingWallpaper)
 - [BoomPowGui](https://github.com/mrexodia/BoomPowGui)
+- [Caffeinated](https://github.com/dmnd/Caffeinated)
 - [calctus](https://github.com/shapoco/calctus)
 - [CenterWindows](https://github.com/arthurits/CenterWindows)
 - [clashN](https://github.com/2dust/clashN)
@@ -21,6 +22,7 @@ Applications:
 - [FlowSharp](https://github.com/cliftonm/FlowSharp)
 - [FreelancerModStudio](https://github.com/DomGries/FreelancerModStudio)
 - [FunUtils](https://github.com/mrexodia/FunUtils)
+- [gitextensions](https://github.com/gitextensions/gitextensions)
 - [greenshot](https://github.com/greenshot/greenshot)
 - [HiddenDesktopViewer](https://github.com/AgigoNoTana/HiddenDesktopViewer)
 - [Html2Article](https://github.com/stanzhai/Html2Article)
@@ -29,6 +31,9 @@ Applications:
 - [JsonViewer](https://github.com/facebook-csharp-sdk/simple-json/tree/master/src/JsonViewer)
 - [LessMsi](https://github.com/activescott/lessmsi/tree/master/src/LessMsi.Gui)
 - [LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor)
+- [logviewer](https://github.com/aegoroff/logviewer)
+  - [Fixed size dictionary to achieve performance goals](https://codereview.stackexchange.com/questions/158339/fixed-size-dictionary-to-achieve-performance-goals)
+- [MakeClassSchedule](https://github.com/bezzad/MakeClassSchedule)
 - [MatterControl](https://github.com/MatterHackers/MatterControl)
 - :star: [MemoryNumbers](https://github.com/arthurits/MemoryNumbers)
 - [mooc-downloader](https://github.com/xixixixixiao/mooc-downloader)
@@ -40,11 +45,13 @@ Applications:
 - [nvidiaProfileInspector](https://github.com/Orbmu2k/nvidiaProfileInspector)
 - [OnTopReplica](https://github.com/LorenzCK/OnTopReplica)
 - [Open Hardware Monitor](https://github.com/openhardwaremonitor/openhardwaremonitor)
+- [OpticalCharacterRecognition](https://github.com/fredatgithub/OpticalCharacterRecognition)
 - [PdfiumViewer](https://github.com/pvginkel/PdfiumViewer)
 - [PDFPatcher](https://github.com/wmjordan/PDFPatcher)
 - [PNGGauntlet](https://pnggauntlet.com/)
   - [Be Aware of DPI with Image PNGs in WPF - Images Scale Weird or are Blurry](https://www.hanselman.com/blog/be-aware-of-dpi-with-image-pngs-in-wpf-images-scale-weird-or-are-blurry)
 - [PortProxyGUI](https://github.com/zmjack/PortProxyGUI)
+- [PraiseBase-Presenter](https://github.com/PraiseBase-Presenter/PraiseBase-Presenter)
 - [ProtobufInspector](https://github.com/BlueMatthew/ProtobufInspector)
 - [Quasar](https://github.com/quasar/Quasar)
 - [SCJMapper-V2](https://github.com/SCToolsfactory/SCJMapper-V2)
@@ -80,7 +87,11 @@ Libraries:
 
 - [BindingListView](https://github.com/geomatics-io/BindingListView)
 
+- [BlurMessageBox](https://github.com/bezzad/BlurMessageBox)
+
 - [BorderlessForm](https://github.com/mganss/BorderlessForm)
+
+- [CADability](https://github.com/SOFAgh/CADability)
 
 - [CefSharp](https://github.com/cefsharp/CefSharp)
   
@@ -108,6 +119,8 @@ Libraries:
   
   - [How to make a floating control](https://stackoverflow.com/questions/4390300/how-to-make-a-floating-control)
   - https://sourceforge.net/projects/dockpanelsuite/
+
+- [DotSpatial](https://github.com/DotSpatial/DotSpatial)
 
 - [FastColoredTextBox](https://github.com/PavelTorgashov/FastColoredTextBox)
 

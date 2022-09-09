@@ -5,3 +5,5 @@
 Projects using AvalonEdit:
 
 - https://github.com/BerndK/SvgToXaml
+
+- https://github.com/WPFDevelopersOrg/XamlViewer

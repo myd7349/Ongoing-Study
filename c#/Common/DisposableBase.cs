@@ -2,7 +2,7 @@
 
 namespace Common
 {
-    public class DisposableBase : IDisposable
+    public abstract class DisposableBase : IDisposable
     {
         // Use C# finalizer syntax for finalization code.
         // This finalizer will run only if the Dispose method
@@ -93,3 +93,6 @@ namespace Common
 // > ThrowIfDisposed();
 // Ongoing-Study/c#/notes/IDisposable.md
 // https://github.com/InCerryGit/Dispose.Scope
+// https://github.com/DotNetAnalyzers/IDisposableAnalyzers
+// https://github.com/emgucv/emgucv/blob/master/Emgu.Util/DisposableObject.cs
+// https://github.com/porrey/System.DisposableObject

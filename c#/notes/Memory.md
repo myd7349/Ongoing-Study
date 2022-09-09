@@ -9,3 +9,5 @@
 - [KCP](https://github.com/KumoKyaku/KCP)
 
 https://github.com/protobuf-net/protobuf-net/commit/ba57e42552318ec81a9f49a50ec3383db43d3182
+
+https://github.com/adams85/filelogger/blob/master/source/FileLogger.Json/PooledByteBufferWriter.cs

@@ -26,6 +26,7 @@
                 throw new ArgumentException("data");
 
             var peaks = new IntPtr[data.Length];
+#if false
             var peaksCount = FindPeaks(data, new IntPtr(data.Length), peaks,
                 mph, mpd, threshold, edgeType, kpsh, valley);
 
@@ -33,14 +34,32 @@
                 .Take(peaksCount.ToInt32())
                 .Select(position => position.ToInt32())
                 .ToArray();
+#else
+            var peaksCount = FindPeaks(data, (nuint)data.Length, peaks,
+                mph, mpd, threshold, edgeType, kpsh, valley);
+
+            return peaks
+                .Take((int)peaksCount)
+                .Select(position => position.ToInt32())
+                .ToArray();
+#endif
         }
 
+#if false
         [DllImport("FindPeaksNative.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "FindPeaks")]
         private static extern IntPtr FindPeaks(
             [In] double[] data, IntPtr length, [Out] IntPtr[] peaks,
             double mph, int mpd, double threshold, EdgeType edgeType,
             [MarshalAs(UnmanagedType.U1)] bool kpsh,
             [MarshalAs(UnmanagedType.U1)] bool valley);
+#else
+        [DllImport("FindPeaksNative.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "FindPeaks")]
+        private static extern nuint FindPeaks(
+            [In] double[] data, nuint length, [Out] IntPtr[] peaks,
+            double mph, nint mpd, double threshold, EdgeType edgeType,
+            [MarshalAs(UnmanagedType.U1)] bool kpsh,
+            [MarshalAs(UnmanagedType.U1)] bool valley);
+#endif
     }
 }
 

@@ -337,3 +337,5 @@
 28. https://github.com/LLNL/H5Z-ZFP
 
 29. [inviwo](https://github.com/inviwo/inviwo) supports NetCDF.
+
+30. https://github.com/emgucv/emgucv/tree/master/Emgu.CV.Extern/hdf

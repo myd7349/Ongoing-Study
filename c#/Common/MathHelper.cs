@@ -77,6 +77,20 @@
             return Convert.ToInt32(a / b + 0.5) * b;
         }
 
+        // https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Buffers/Utilities.cs#L13
+        // https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Numerics/BitOperations.cs
+        public static int AlignUpToPowerOfTwo(int num)
+        {
+            if (num <= 0 || num > 1073741824) // 2^30
+                throw new ArgumentOutOfRangeException(nameof(num));
+
+            int power = 1;
+            while (power < num)
+                power *= 2;
+
+            return power;
+        }
+
         public static int Lerp(int v0, int v1, float t)
         {
             Debug.Assert(v0 < v1);
@@ -93,3 +107,5 @@
 // [C# find the greatest common divisor](https://stackoverflow.com/questions/18541832/c-sharp-find-the-greatest-common-divisor)
 // [C# Lerping from position to position](https://stackoverflow.com/questions/33044848/c-sharp-lerping-from-position-to-position)
 // [Extension Method for degree to Radian conversion in .net](https://stackoverflow.com/questions/37858172/extension-method-for-degree-to-radian-conversion-in-net)
+// [Bit Twiddling Hacks](https://graphics.stanford.edu/%7Eseander/bithacks.html#RoundUpPowerOf2)
+// [Round to the nearest power of two](https://stackoverflow.com/questions/4398711/round-to-the-nearest-power-of-two)

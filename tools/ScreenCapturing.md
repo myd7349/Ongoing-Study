@@ -57,3 +57,4 @@
 - [Gif123](https://gif123.aardio.com/) - [gif123](https://github.com/aardio/gif123)
 - QuickTime
 - [deepin-screenshot](https://github.com/martyr-deepin/deepin-screenshot)
+- [greenshot](https://github.com/greenshot/greenshot)

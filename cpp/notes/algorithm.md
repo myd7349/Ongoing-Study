@@ -14,3 +14,13 @@ std::for_each(v.begin(), v.end(), [](int &x) { x += 1000; });
 [How to find minimum element in a given range of indices for a vector?](https://stackoverflow.com/questions/54470808/how-to-find-minimum-element-in-a-given-range-of-indices-for-a-vector)
 
 [How to find minimum distance using lambda](https://stackoverflow.com/questions/61595990/how-to-find-minimum-distance-using-lambda)
+
+[adjacent_find](https://zed0.co.uk/clang-format-configurator/)
+
+```cpp
+template <typename T, int size>
+bool is_sorted(T (&array)[size]) {
+  return std::adjacent_find(array, array + size, std::greater<T>()) ==
+         array + size;
+}
+```

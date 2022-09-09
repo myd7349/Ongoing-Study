@@ -17,3 +17,9 @@ https://github.com/PrismLibrary/Prism-Documentation/blob/master/docs/wpf/legacy/
 https://github.com/microsoft/vs-mef
 
 - https://github.com/dnSpy/dnSpy
+
+https://github.com/tom-englert/TomsToolbox/tree/master/src/TomsToolbox.Composition.Mef
+
+https://github.com/tom-englert/TomsToolbox/tree/master/src/TomsToolbox.Composition.Mef2
+
+[Prism MEF](https://github.com/FantasticFiasco/mvvm-dialogs/issues/16)

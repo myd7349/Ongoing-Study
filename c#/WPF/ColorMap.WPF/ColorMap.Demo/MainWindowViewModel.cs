@@ -17,7 +17,7 @@ namespace ColorMap.Demo
         {
             ColorPalettes = SciColorMap.Palettes;
 
-            //SelectedColorPalette = "viridis";
+            SelectedColorPalette = "viridis";
             
             CreateColorMapBrush();
         }
@@ -98,6 +98,18 @@ namespace ColorMap.Demo
             set => SetProperty(ref drawingImage_, value);
         }
 
+        public bool IsQualitative
+        {
+            get => isQualitative_;
+            set => SetProperty(ref isQualitative_, value);
+        }
+
+        public bool IsReversed
+        {
+            get => isReversed_;
+            set => SetProperty(ref isReversed_, value);
+        }
+
         private void UpdateSize(Rectangle rectangle)
         {
             Width = rectangle.ActualWidth;
@@ -130,5 +142,7 @@ namespace ColorMap.Demo
         private double width_;
         private double height_;
         private DrawingImage drawingImage_;
+        private bool isQualitative_;
+        private bool isReversed_;
     }
 }

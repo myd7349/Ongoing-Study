@@ -110,6 +110,8 @@ https://github.com/nodejs/node/blob/master/deps/corepack/shims/npm.ps1
 
 Modules
 
+- [ADModule](https://github.com/samratashok/ADModule)
+
 - [ImportExcel](https://github.com/dfinke/ImportExcel)
 
 - [NameIT](https://github.com/dfinke/NameIT)
@@ -117,6 +119,8 @@ Modules
 - [PowerShellHumanizer](https://github.com/dfinke/PowerShellHumanizer)
 
 - [PSFuzzySearch](https://github.com/dfinke/PSFuzzySearch)
+
+- [Sophia-Script-for-Windows](https://github.com/farag2/Sophia-Script-for-Windows)
 
 Others
 
@@ -154,3 +158,11 @@ https://github.com/frostming/myrc/blob/main/WindowsPowerShell/Microsoft.PowerShe
 https://github.com/ForNeVeR/ExtDiff
 
 https://github.com/lextm/windowsterminal-shell
+
+[Spaces cause split in path with PowerShell](https://stackoverflow.com/questions/18537098/spaces-cause-split-in-path-with-powershell)
+
+```powershell
+& "C:\Windows Services\MyService.exe"
+```
+
+Use &, the call operator, to invoke commands whose names or paths are stored in quoted strings and/or are referenced via variables, as in the accepted answer. Invoke-Expression is not only the wrong tool to use in this particular case, it should generally be avoided.

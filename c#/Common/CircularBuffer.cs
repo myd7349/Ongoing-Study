@@ -500,3 +500,4 @@
 // https://github.com/MaskRay/ell/blob/master/ell/ringbuf.c
 // https://github.com/Cinegy/TsDecoder/blob/master/Cinegy.TsDecoder/Buffers/RingBuffer.cs
 // https://github.com/padenot/ringbuf.js
+// https://github.com/jcurl/RJCP.DLL.BufferIO/blob/master/BufferIO/Buffer/CircularBuffer.cs

@@ -41,3 +41,5 @@
 - [Graphite](https://github.com/GraphiteEditor/Graphite): Rust.
 
 - [Node_Editor_Framework](https://github.com/Seneral/Node_Editor_Framework): Unity
+
+- [fluid-dialogue](https://github.com/ashblue/fluid-dialogue)

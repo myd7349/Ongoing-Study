@@ -21,3 +21,5 @@ https://github.com/sammycage/lunasvg
 https://github.com/sammycage/plutovg
 
 https://github.com/sammycage/plutosvg
+
+https://github.com/typst/svg2pdf

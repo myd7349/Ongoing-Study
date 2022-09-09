@@ -105,3 +105,7 @@ FineReport
 - [CodeReason.Reports](https://github.com/jogibear9988/CodeReason.Reports)
 
 - [WPFReports](https://github.com/darthmaure/WPFReports)
+
+- [AspNetCore.ReportViewer](https://github.com/ststeiger/AspNetCore.ReportViewer)
+
+- [UpworkPdfGenerator](https://github.com/HavenDV/UpworkPdfGenerator)

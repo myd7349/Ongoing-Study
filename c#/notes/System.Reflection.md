@@ -15,3 +15,9 @@ https://github.com/anakic/Jot/blob/master/Jot/Configuration/Trigger.cs
 [C# load DLL from different folder?](https://stackoverflow.com/questions/12029870/c-sharp-load-dll-from-different-folder)
 
 https://github.com/slmjy/PrettyBin
+
+[how to get both fields and properties in single call via reflection?](https://stackoverflow.com/questions/12680341/how-to-get-both-fields-and-properties-in-single-call-via-reflection)
+
+[Fastest Way to do Shallow Copy in C#](https://stackoverflow.com/questions/966451/fastest-way-to-do-shallow-copy-in-c-sharp)
+
+[Find a private field with Reflection?](https://stackoverflow.com/questions/95910/find-a-private-field-with-reflection)

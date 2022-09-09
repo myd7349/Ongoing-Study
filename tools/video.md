@@ -10,12 +10,14 @@
 - ffmpeg
   - [ffmpeg-commander](https://github.com/alfg/ffmpeg-commander)
 - Final Cut Pro
+- [Gifski](https://github.com/sindresorhus/Gifski)
 - [gyroflow](https://github.com/gyroflow/gyroflow): Video stabilization using gyroscope data
 - [kdenlive](https://github.com/KDE/kdenlive)
 - Kodi
   - Plex Server + Infus
 - [IINA](https://iina.io/)
 - [lossless-cut](https://github.com/mifi/lossless-cut)
+- [MP4Box](https://github.com/gpac/gpac/wiki/MP4Box)
 - mpv
 - [mpv.net](https://github.com/mpvnet-player/mpv.net)
 - [Olive Video Editor](https://github.com/olive-editor/olive)

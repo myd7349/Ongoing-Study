@@ -331,3 +331,13 @@ https://github.com/Alex141/CalcBinding/blob/master/CalcBinding/Trace/Tracer.cs
 > SourceSwitch
 
 [Which trace source is used by System.Diagnostics.Trace.WriteLine?](https://stackoverflow.com/questions/34491311/which-trace-source-is-used-by-system-diagnostics-trace-writeline)
+
+[Resolving harmless binding errors in WPF](https://weblogs.asp.net/akjoshi/resolving-un-harmful-binding-errors-in-wpf)
+
+```csharp
+#if DEBUG
+System.Diagnostics.PresentationTraceSources.DataBindingSource.Switch.Level = System.Diagnostics.SourceLevels.Error;
+#endif
+```
+
+[How to print the current Stack Trace in .NET without any exception?](https://stackoverflow.com/questions/531695/how-to-print-the-current-stack-trace-in-net-without-any-exception)

@@ -63,6 +63,7 @@
     <Compile Include="DiagnosticsHelper.cs" />
     <Compile Include="DisposableBase.cs" />
     <Compile Include="DoubleConverter.cs" />
+    <Compile Include="EnumDictionary.cs" />
     <Compile Include="GraphicsUnitConvert.cs" />
     <Compile Include="ImageHelper.cs" />
     <Compile Include="IniFile.cs" />

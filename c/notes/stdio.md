@@ -145,6 +145,8 @@ https://github.com/njriasan/graphene-docker/blob/aa0a0dcc893a3865345c26a78299326
 
 https://sourcegraph.com/github.com/DanBloomberg/leptonica/-/blob/src/utils2.c#L1896:1-1896:20
 
+https://github.com/Yaafe/Yaafe/tree/master/externals/fmemopen
+
 11.
 
 https://github.com/erikd/libsndfile/blob/master/src/file_io.c
@@ -667,3 +669,35 @@ static void set_delete_on_close_flag(const HANDLE std_out, const HANDLE target, 
 39. fgetc
 
 - [Conformance Should Mean Something - fputc, and Freestanding](https://thephd.dev/conformance-should-mean-something-fputc-and-freestanding)
+
+40.
+
+- [How do I print a non-null-terminated string using printf?](https://stackoverflow.com/questions/2137779/how-do-i-print-a-non-null-terminated-string-using-printf)
+
+- [Using printf with a non-null terminated string](https://stackoverflow.com/questions/3767284/using-printf-with-a-non-null-terminated-string)
+
+> ```c
+> printf("%.*s", length, string) will NOT work.
+> ```
+> 
+> This means to print UP TO length bytes OR a null byte, whichever comes first. If your non-null-terminated array-of-char contains null bytes BEFORE the length, printf will stop on those, and not continue.
+
+```c
+#include <stddef.h>
+#include <stdio.h>
+
+int main(void)
+{
+    char s[] = { 'H', 'e', 'l', 'l', 'o', ',', ' ', 'W', 'o', 'r', 'l', 'd', '!' };
+    unsigned len = sizeof(s);
+
+    printf("%.*s\n", len, s);
+    printf("[%*.*s]\n", 20, len, s);
+    printf("[%-*.*s]\n", 20, len, s);
+
+    fwrite(s, 1, len, stdout);
+    putchar('\n');
+
+    return 0;
+}
+```

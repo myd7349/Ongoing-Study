@@ -159,3 +159,4 @@ void wconv_free(void *ptr)
 // C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\filesystem
 // [Why use MultiByteToWideChar and WideCharToMultiByte at the same time?](https://stackoverflow.com/questions/5959215/why-use-multibytetowidechar-and-widechartomultibyte-at-the-same-time)
 // [UTF-8 output on Windows console](https://stackoverflow.com/questions/1660492/utf-8-output-on-windows-console)
+// https://github.com/samhocevar/portable-file-dialogs/blob/main/portable-file-dialogs.h

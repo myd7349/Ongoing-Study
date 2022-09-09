@@ -198,3 +198,4 @@ else
 # https://github.com/jonls/redshift/blob/master/src/windows/versioninfo.rc
 # https://github.com/Flow-Launcher/Flow.Launcher/blob/dev/Scripts/post_build.ps1
 # https://github.com/PixiEditor/PixiEditor/blob/master/assemblyVerReader.ps1
+# https://github.com/MoneyTools/MyMoney.Net/tree/master/Source/WPF/Version

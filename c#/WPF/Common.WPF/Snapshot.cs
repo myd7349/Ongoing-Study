@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Media;
@@ -113,6 +114,21 @@ namespace Common.WPF
             using (var stream = File.Create(filePath))
                 bitmapEncoder.Save(stream);
         }
+
+        public static void LaunchSnippingTool()
+        {
+            var snippingToolPath = Environment.Is64BitProcess ?
+                @"C:\Windows\System32\SnippingTool.exe" :
+                @"C:\Windows\Sysnative\SnippingTool.exe";
+
+            if (!File.Exists(snippingToolPath)) // Fix for Win11
+                snippingToolPath = "SnippingTool";
+
+            var snippingToolProcess = new Process();
+            snippingToolProcess.EnableRaisingEvents = true;
+            snippingToolProcess.StartInfo.FileName = snippingToolPath;
+            snippingToolProcess.Start();
+        }
     }
 }
 
@@ -124,4 +140,5 @@ namespace Common.WPF
 // [how to filter more than once in Microsoft.Win32.OpenFileDialog()](https://stackoverflow.com/questions/10493417/how-to-filter-more-than-once-in-microsoft-win32-openfiledialog)
 // https://github.com/wieslawsoltes/Core2D/blob/master/src/Core2D.Screenshot/Capture.cs
 // [How do I correctly transform an image in WPF?](https://stackoverflow.com/questions/34219949/how-do-i-correctly-transform-an-image-in-wpf)
-// 
+// [Saving image (screenshot) of control in WPF - MVVM Pattern](https://stackoverflow.com/questions/65611709/saving-image-screenshot-of-control-in-wpf-mvvm-pattern)
+// [Add a button on my winform to run the Snipping Tool application](https://stackoverflow.com/questions/28318284/add-a-button-on-my-winform-to-run-the-snipping-tool-application)

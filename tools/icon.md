@@ -118,6 +118,12 @@
 
   - [Flow.Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
 
+* [Phosphor Icons](https://github.com/phosphor-icons/homepage)
+
+* [VisualPharm](https://www.visualpharm.com/)
+
+  - [Caffeinated](https://github.com/dmnd/Caffeinated)
+
 Softwares
 
 - [fontforge](https://github.com/fontforge/fontforge)
@@ -131,6 +137,8 @@ Softwares
 - IconWorkshop
 
 - [PyIcoMaker](https://github.com/ar1st0crat/PyIcoMaker)
+
+- [Simple-Icon-File-Maker](https://github.com/TheJoeFin/Simple-Icon-File-Maker)
 
 - [svgo](https://github.com/svg/svgo)
 

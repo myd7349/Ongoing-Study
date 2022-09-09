@@ -1,5 +1,7 @@
 https://github.com/MahmudX/awesome-maui
 
+https://github.com/jsuarezruiz/awesome-xamarin-forms
+
 Applications:
 
 - [dotnet-maui-workshop](https://github.com/dotnet-presentations/dotnet-maui-workshop)

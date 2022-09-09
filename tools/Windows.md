@@ -134,3 +134,8 @@
 
 50. [UACME](https://github.com/hfiref0x/UACME)
 
+51. [windows-defender-remover](https://github.com/jbara2002/windows-defender-remover)
+
+52. [Sophia-Script-for-Windows](https://github.com/farag2/Sophia-Script-for-Windows)
+
+53. [Caffeinated](https://github.com/dmnd/Caffeinated)

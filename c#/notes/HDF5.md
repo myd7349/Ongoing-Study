@@ -38,3 +38,5 @@ Libraries
 - [SDSlite](https://github.com/predictionmachines/SDSlite): Scientific DataSet library to work with NetCDF-like data sets from .NET.
 
 - [Angara.Table](https://github.com/predictionmachines/Angara.Table)
+
+- [Emgu.CV.Hdf](https://github.com/emgucv/emgucv/tree/master/Emgu.CV.Contrib/Hdf)

@@ -6,6 +6,8 @@ https://github.com/tungntEmotiv/community-sdk/blob/master/include/EdfData.h
 
 [edflib](https://github.com/jonbrennecke/edflib)
 
+https://github.com/neurodroid/stimfit/tree/master/src/libstfio
+
 ### C#
 
 - [SharpLibEuropeanDataFormat](https://github.com/Slion/SharpLibEuropeanDataFormat)

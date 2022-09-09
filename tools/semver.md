@@ -17,3 +17,11 @@ https://github.com/GitTools/GitVersion
 https://github.com/dotnet/Nerdbank.GitVersioning
 
 https://github.com/terrafx/terrafx/blob/main/docs/project/Versioning.md
+
+https://github.com/Hamlib/Hamlib
+
+https://github.com/saucecontrol/PhotoSauce
+
+https://github.com/semantic-release/semantic-release
+
+- https://github.com/activescott/lessmsi

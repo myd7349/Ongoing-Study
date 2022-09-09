@@ -65,3 +65,5 @@
 11. https://github.com/xoofx/dotnet-releaser
 
 12. [Package authoring best practices](https://learn.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices)
+
+13. [Create nuget package with multiple DLLs](https://stackoverflow.com/questions/7486651/create-nuget-package-with-multiple-dlls)
