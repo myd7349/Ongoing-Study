@@ -52,4 +52,5 @@ namespace GetApplicationPath
 // - Assembly.Location
 // - Application.StartupPath(WinForms)
 // - Application.ExecutablePath
-
+// https://github.com/dotnet/runtime/pull/78843
+// > Process.GetCurrentProcess().MainModule.FileName
