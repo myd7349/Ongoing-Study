@@ -50,6 +50,7 @@
 - [RustScan](https://github.com/RustScan/RustScan)
 - [ServerScan](https://github.com/Adminisme/ServerScan)
 - [smartdns](https://github.com/pymumu/smartdns)
+- [sniffnet](https://github.com/GyulyVGC/sniffnet)
 - [speedtest](https://github.com/librespeed/speedtest)
 - [SwitchHosts](https://github.com/oldj/SwitchHosts)
 - [syncthing](https://github.com/syncthing/syncthing)
