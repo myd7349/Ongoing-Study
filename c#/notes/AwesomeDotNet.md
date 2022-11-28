@@ -407,7 +407,9 @@
   
 - [System.Windows.Forms.DataVisualization](https://github.com/dotnet/winforms-datavisualization)
   - LINQPad 7
-  
+
+- [waves.ui.charts](https://github.com/waves-framework/waves.ui.charts)
+
 - [winforms-datavisualization](https://github.com/dotnet/winforms-datavisualization)
 
 - [WPF-Chart](https://github.com/HeBianGu/WPF-Chart)
