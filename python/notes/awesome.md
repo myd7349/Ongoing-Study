@@ -137,6 +137,8 @@
 
 ### Configuration
 
+- [confection](https://github.com/explosion/confection)
+
 - [environ-config](https://github.com/hynek/environ-config)
 
 - [omegaconf](https://github.com/omry/omegaconf)
