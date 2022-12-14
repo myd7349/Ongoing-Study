@@ -135,6 +135,10 @@
   
   - [wordle-tui](https://github.com/frostming/wordle-tui)
 
+### Compiler
+
+- [codon](https://github.com/exaloop/codon)
+
 ### Configuration
 
 - [confection](https://github.com/explosion/confection)
