@@ -74,6 +74,7 @@
 - [Resolute](https://github.com/rizonesoft/Resolute)
 - https://github.com/eranif/codelite
 - https://github.com/Tyrrrz/LightBulb/tree/master/Installer
+- [LenovoLegionToolkit](https://github.com/BartoszCichecki/LenovoLegionToolkit)
 
 ### Advanced Installer
 
