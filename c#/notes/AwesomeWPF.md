@@ -64,6 +64,8 @@ Applications:
 
 - [GeometryToolDemo](https://github.com/dotnet-campus/GeometryToolDemo)
 
+- [LenovoLegionToolkit](https://github.com/BartoszCichecki/LenovoLegionToolkit)
+
 - [LightBulb](https://github.com/Tyrrrz/LightBulb): Reduces eye strain by adjusting gamma based on the current time
 
 - [LittleBigMouse](https://github.com/mgth/LittleBigMouse)
