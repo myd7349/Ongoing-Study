@@ -41,6 +41,7 @@ Projects using `pybind11`
 * [gnuradio](https://github.com/gnuradio/gnuradio)
 * [pygalmesh](https://github.com/meshpro/pygalmesh)
 * [LIEF](https://github.com/lief-project/LIEF)
+* [CloudComPy](https://github.com/CloudCompare/CloudComPy)
 
 # Notes
 
