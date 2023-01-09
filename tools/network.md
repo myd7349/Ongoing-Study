@@ -5,6 +5,7 @@
 - [bottom](https://github.com/ClementTsang/bottom)
 - bpytop
 - btop
+- [CDC File Transfer](https://github.com/google/cdc-file-transfer)
 - [Circus](https://github.com/circus-tent/circus)
 - [clumsy](https://github.com/jagt/clumsy)
 - [croc](https://github.com/schollz/croc)
