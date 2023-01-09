@@ -67,6 +67,8 @@
 
 - [RunPE](https://github.com/Zer0Mem0ry/RunPE)
 
+- [TotalPE2](https://github.com/zodiacon/TotalPE2)
+
 - [XPEViewer](https://github.com/horsicq/XPEViewer)
 
 ### PDB Tools
