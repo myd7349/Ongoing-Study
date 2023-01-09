@@ -110,3 +110,5 @@ micromamba
 [How can you bundle all your python code into a single zip file?](https://stackoverflow.com/questions/17486578/how-can-you-bundle-all-your-python-code-into-a-single-zip-file)
 
 [Python Zip Imports: Distribute Modules and Packages Quickly](https://realpython.com/python-zip-import/)
+
+https://github.com/pypackaging-native/pypackaging-native
