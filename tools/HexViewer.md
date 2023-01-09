@@ -70,3 +70,5 @@ https://hexed.it/
 https://github.com/dnSpy/dnSpy/tree/master/dnSpy/dnSpy/Hex
 
 [bitinsight](https://github.com/compilelife/bitinsight)
+
+https://github.com/zodiacon/TotalPE2/tree/master/HexControl
