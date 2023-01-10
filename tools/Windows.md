@@ -109,3 +109,5 @@
 41. [Loaf](https://github.com/DinoChan/Loaf)
 
 42. [Text-Grab](https://github.com/TheJoeFin/Text-Grab)
+
+43. [WindowsVirtualDesktopHelper](https://github.com/dankrusi/WindowsVirtualDesktopHelper)
