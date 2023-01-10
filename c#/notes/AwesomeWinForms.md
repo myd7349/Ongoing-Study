@@ -40,6 +40,7 @@ Applications:
 - [Seven Converter](https://github.com/SevenbytesSoftware/SevenConverter)
 - [SharpKeys](https://github.com/randyrants/sharpkeys)
 - [v2rayN](https://github.com/2dust/v2rayN)
+- [WindowsVirtualDesktopHelper](https://github.com/dankrusi/WindowsVirtualDesktopHelper)
 - [XboxDownload](https://github.com/skydevil88/XboxDownload)
 - [XmlNotepad](https://github.com/microsoft/XmlNotepad)
 - [YALV](https://github.com/LukePet/YALV)
