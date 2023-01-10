@@ -110,3 +110,10 @@ and another example:
 - http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libc/time/strptime.c?rev=HEAD
 - [Parsing date/time strings problem](https://stackoverflow.com/questions/4325847/parsing-date-time-strings-problem)
 
+[tools/psl.c: Fix build on Windows](https://github.com/rockdaboot/libpsl/pull/195)
+
+```c
+// Windows does not have localtime_r but has localtime_s, which is more or less
+// the same except that the arguments are reversed
+# define localtime_r(t_sec,t_now) localtime_s(t_now,t_sec)
+```
