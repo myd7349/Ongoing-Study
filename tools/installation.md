@@ -6,6 +6,8 @@
 
 ### Visual Studio Installer Project
 
+- [WindowsVirtualDesktopHelper](https://github.com/dankrusi/WindowsVirtualDesktopHelper)
+
 ### WiX toolset
 
 - https://gitlab.com/wireshark/wireshark/-/tree/master/packaging/wix
