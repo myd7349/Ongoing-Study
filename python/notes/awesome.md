@@ -585,6 +585,7 @@
 ### Static Analysis
 
 - [ibis](https://github.com/ibis-project/ibis)
+- [ruff](https://github.com/charliermarsh/ruff)
 
 ### String
 
