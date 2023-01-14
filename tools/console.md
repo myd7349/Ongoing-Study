@@ -64,6 +64,8 @@ Other Tools:
 
 - [cfonts](https://github.com/dominikwilkowski/cfonts)
 
+- [Clipboard](https://github.com/Slackadays/Clipboard)
+
 - [ConPtyShell](https://github.com/antonioCoco/ConPtyShell)
 
 - [ctypes.sh](https://github.com/taviso/ctypes.sh)
