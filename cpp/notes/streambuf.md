@@ -13,3 +13,5 @@ NullBuffer null_buffer;
 std::ostream null_stream(&null_buffer);
 null_stream << "Nothing will be printed";
 ```
+
+https://github.com/Slackadays/Clipboard/blob/main/src/gui/include/clipboard/logging.hpp
