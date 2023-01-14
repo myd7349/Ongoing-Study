@@ -1,4 +1,5 @@
 - [clipboardzanager](https://github.com/veler/clipboardzanager)
+- [Clipboard](https://github.com/Slackadays/Clipboard)
 - [ClipboardViewer](https://github.com/walterlv/ClipboardViewer)
 - [CopyQ](https://github.com/hluk/CopyQ)
 - [crossclip](https://github.com/yue/crossclip)
