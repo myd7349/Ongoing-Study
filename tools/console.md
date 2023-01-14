@@ -100,6 +100,8 @@ Other Tools:
 
 - [shell-history](https://github.com/pawamoy/shell-history)
 
+- [vhs](https://github.com/charmbracelet/vhs)
+
 - [z.lua](https://github.com/skywind3000/z.lua)
 
 Cheat sheet:
