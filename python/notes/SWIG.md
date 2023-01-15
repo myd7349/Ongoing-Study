@@ -43,3 +43,5 @@
 [pystfio](https://github.com/neurodroid/stimfit/tree/master/src/pystfio)
 
 [libopenshot](https://github.com/OpenShot/libopenshot)
+
+[webview](https://github.com/webview/webview)
