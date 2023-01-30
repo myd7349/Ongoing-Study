@@ -3,4 +3,9 @@
 - [CopyQ](https://github.com/hluk/CopyQ)
 - [crossclip](https://github.com/yue/crossclip)
 - [Maccy](https://github.com/p0deje/Maccy)
+- [pngpaste](https://github.com/jcsalterego/pngpaste)
+  - https://twitter.com/yayale_umi/status/1619714816595341312
+    > snipaste 真是相当好用的小工具，已经用了好多年了。不过发现刚 OCR 这个需求竟然拖了 6 年多了，有几十个 duplicate issue🤪。感觉做成收费功能应该也有不少人愿意付费，如果开源项目的话应该早就有人做了🤔
+  - https://github.com/Snipaste/feedback/issues/188
+  - [pngpaste – | tesseract stdin stdout](https://www.kawabangga.com/posts/4876)
 - [TextCopy](https://github.com/CopyText/TextCopy)
