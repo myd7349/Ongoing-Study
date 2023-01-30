@@ -210,6 +210,14 @@
 ### DLL Tools
 
 - [dump2def](https://github.com/weidai11/cryptopp/blob/master/TestPrograms/dump2def.cpp): Create a module definitions file from a dumpbin file.
+- gendef
+  - https://twitter.com/phuslu/status/1616682533227483136
+    - https://phus.lu/soft/StrokesPlus.zip
+      > gendef PrScrn.dll
+      > 
+      > i686-w64-mingw32-dlltool -v -d PrScrn.def -l PrScrn.lib
+      > 
+      > i686-w64-mingw32-g++ -Wall -O3 -static -s -o PrScrn.exe PrScrn.c -mwindows -nostdlib -luser32 -L. -lPrScrn
 - [ImpLibEditor](https://github.com/sorayuki/ImpLibEditor)
 - [implibGenerator](https://github.com/sorayuki/implibGenerator)
 - lib
