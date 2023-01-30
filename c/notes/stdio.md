@@ -452,10 +452,10 @@ int main(void)
     }
 
     printf("sum(%d, %d) == %d\n", a, b, a + b);
-	fclose(stdout);
+    fclose(stdout);
 
     stdin = fdopen(STDIN_FILENO, "r");
-	stdout = fdopen(STDOUT_FILENO, "w");
+    stdout = fdopen(STDOUT_FILENO, "w");
 
 	return 0;
 }
@@ -476,9 +476,9 @@ int main(void)
 
 void sum_test(void)
 {
-	int a, b;
-	scanf("%d %d", &a, &b);
-	printf("sum(%d, %d) == %d\n", a, b, a + b);
+    int a, b;
+    scanf("%d %d", &a, &b);
+    printf("sum(%d, %d) == %d\n", a, b, a + b);
 }
 
 
@@ -499,20 +499,20 @@ int main(void)
     sum_test();
 
     fclose(stdin);
-	fclose(stdout);
+    fclose(stdout);
 
 #ifdef _WIN32
     freopen("CONIN$", "r", stdin);
     freopen("CONOUT$", "w", stdout);
 #else
-	// freopen ("/dev/tty", "a", stdout)
+    // freopen ("/dev/tty", "a", stdout)
     stdin = fdopen(STDIN_FILENO, "r");
-	stdout = fdopen(STDOUT_FILENO, "w");
+    stdout = fdopen(STDOUT_FILENO, "w");
 #endif
 
     sum_test();
 
-	return 0;
+    return 0;
 }
 ```
 
@@ -524,16 +524,16 @@ int main(void)
 
 void sum_test()
 {
-	int a, b;
-	std::scanf("%d %d", &a, &b);
-	std::printf("C: sum(%d, %d) == %d\n", a, b, a + b);
+    int a, b;
+    std::scanf("%d %d", &a, &b);
+    std::printf("C: sum(%d, %d) == %d\n", a, b, a + b);
 }
 
 void sum_test_cpp()
 {
-	int a, b;
-	std::cin >> a >> b;
-	std::cout << "C++: sum(" << a << ", " << b << ") == " << a + b << std::endl; 
+    int a, b;
+    std::cin >> a >> b;
+    std::cout << "C++: sum(" << a << ", " << b << ") == " << a + b << std::endl; 
 }
 
 
@@ -554,12 +554,12 @@ int main(void)
     }
 
     sum_test();
-	sum_test_cpp();
+    sum_test_cpp();
 
     std::fclose(stdin);
-	std::fclose(stdout);
+    std::fclose(stdout);
 
-	return 0;
+    return 0;
 }
 
 // https://stackoverflow.com/questions/65068411/question-about-using-freopen-and-cin-cout-to-read-large-input-from-file
@@ -567,6 +567,22 @@ int main(void)
 ```
 
 https://github.com/localsend/localsend/blob/main/windows/runner/utils.cpp
+
+```cpp
+void CreateAndAttachConsole() {
+  if (::AllocConsole()) {
+    FILE *unused;
+    if (freopen_s(&unused, "CONOUT$", "w", stdout)) {
+      _dup2(_fileno(stdout), 1);
+    }
+    if (freopen_s(&unused, "CONOUT$", "w", stderr)) {
+      _dup2(_fileno(stdout), 2);
+    }
+    std::ios::sync_with_stdio();
+    FlutterDesktopResyncOutputStreams();
+  }
+}
+```
 
 35. feof
 
