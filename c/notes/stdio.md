@@ -457,7 +457,7 @@ int main(void)
     stdin = fdopen(STDIN_FILENO, "r");
     stdout = fdopen(STDOUT_FILENO, "w");
 
-	return 0;
+    return 0;
 }
 ```
 
