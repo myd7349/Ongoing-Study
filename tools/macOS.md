@@ -14,4 +14,6 @@ CleanShot
 
 [Mos](https://github.com/Caldis/Mos)
 
+[Raycast](https://github.com/raycast/script-commands)
+
 [yabai](https://github.com/koekeishiya/yabai)
