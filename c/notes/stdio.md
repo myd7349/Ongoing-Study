@@ -539,7 +539,7 @@ void sum_test_cpp()
 
 int main(void)
 {
-	std::ios::sync_with_stdio(false);
+    std::ios::sync_with_stdio(false);
 
     if (std::freopen("./input.txt", "r", stdin) == NULL)
     {
@@ -565,6 +565,8 @@ int main(void)
 // https://stackoverflow.com/questions/65068411/question-about-using-freopen-and-cin-cout-to-read-large-input-from-file
 // http://c-faq.com/stdio/undofreopen.html
 ```
+
+https://github.com/localsend/localsend/blob/main/windows/runner/utils.cpp
 
 35. feof
 
