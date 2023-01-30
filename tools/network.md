@@ -96,4 +96,6 @@
 
 - [Easy-Send](https://github.com/IvanHanloth/Easy-Send)
 
+- [localsend](https://github.com/localsend/localsend)
+
 - [sharik](https://github.com/marchellodev/sharik)
