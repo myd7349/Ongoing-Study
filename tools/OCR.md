@@ -14,3 +14,4 @@
   - [pngpaste – | tesseract stdin stdout](https://www.kawabangga.com/posts/4876)
 - [Text-Grab](https://github.com/TheJoeFin/Text-Grab)
 - [TTKOCR](https://github.com/Greedysky/TTKOCR)
+- [yoyo-ocr-gui](https://github.com/Logistic98/yoyo-ocr-gui)
