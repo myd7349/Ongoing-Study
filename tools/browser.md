@@ -1,5 +1,6 @@
 - Brave
 - [broz](https://github.com/antfu/broz)
+- [carbonyl](https://github.com/fathyb/carbonyl)
 - Chrome
 - Chromium
 - Firefox
