@@ -97,3 +97,5 @@
 - [Easy-Send](https://github.com/IvanHanloth/Easy-Send)
 
 - [sharik](https://github.com/marchellodev/sharik)
+
+- [SyncFolder](https://apps.microsoft.com/store/detail/syncfolder/9NC73MJWHSWW?hl=en-us&gl=us)
