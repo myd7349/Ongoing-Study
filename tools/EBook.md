@@ -19,3 +19,5 @@ https://github.com/rupa/epub
 [thorium-reader](https://github.com/edrlab/thorium-reader)
 
 [ebook-reader](https://github.com/ttu-ttu/ebook-reader)
+
+[将外文电子书翻译成双语对照版本，并在任何设备上阅读](https://utgd.net/article/10001)
