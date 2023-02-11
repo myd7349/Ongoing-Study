@@ -1661,6 +1661,8 @@
   - PostSharp.Patterns.Diagnostics.NLog
   - PostSharp.Patterns.Diagnostics.Serilog
 
+- [Saladim.SalLogger](https://github.com/saladim-org/Saladim.SalLogger)
+
 - [serilog](https://github.com/serilog/serilog)
   
   - Sentry.Serilog
