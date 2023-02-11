@@ -613,3 +613,5 @@ static void set_delete_on_close_flag(const HANDLE std_out, const HANDLE target, 
 39. fgetc
 
 - [Conformance Should Mean Something - fputc, and Freestanding](https://thephd.dev/conformance-should-mean-something-fputc-and-freestanding)
+
+40. [使用 cstdio 而不是 stdio.h 不能保证 POSIX 相容性](https://github.com/Qihoo360/safe-rules/issues/18)
