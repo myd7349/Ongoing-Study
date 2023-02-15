@@ -381,9 +381,15 @@
   
   - [remoteimgui](https://github.com/JordiRos/remoteimgui)
 
+  - [SignalDigitization](https://github.com/Jacckii/SignalDigitization)
+
+  - [Simplex2D](https://github.com/Jacckii/Simplex2D)
+
 - JUCE
 
   - [DSP-Testbench](https://github.com/AndrewJJ/DSP-Testbench)
+
+  - [Music 320c](https://ccrma.stanford.edu/courses/320c-spring-2022/)
 
 - [NAppGUI](https://github.com/frang75/nappgui_src)
 
