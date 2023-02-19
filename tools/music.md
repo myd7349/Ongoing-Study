@@ -27,3 +27,5 @@ Tools:
 - [ncmdumpGUI](https://github.com/kpali/ncmdumpGUI)
 
 - [OpenMusic](https://openmusic-project.github.io/)
+
+- [swingmusic](https://github.com/geoffrey45/swingmusic)
