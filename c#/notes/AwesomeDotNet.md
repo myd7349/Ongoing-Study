@@ -1021,6 +1021,8 @@
 
 ### Internationalization and localization
 
+- [beutl/ResourcesGenerator](https://github.com/b-editor/beutl/tree/main/build/generators/ResourcesGenerator)
+
 - [Edi](https://github.com/Dirkster99/Edi/tree/master/Edi/Edi.Util/Local)
 
 - [greenshot/src/Greenshot/Languages at release/1.3 · greenshot/greenshot · GitHub](https://github.com/greenshot/greenshot/tree/release/1.3/src/Greenshot/Languages)
