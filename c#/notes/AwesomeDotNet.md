@@ -294,6 +294,8 @@
 
 ### Configuration
 
+- [Beutl.Configuration](https://github.com/b-editor/beutl/tree/main/src/Beutl.Configuration)
+
 - [greenshot/src/Greenshot.Base/IniFile at release/1.3 · greenshot/greenshot · GitHub](https://github.com/greenshot/greenshot/tree/release/1.3/src/Greenshot.Base/IniFile)
 
 - [magic-chunks-dotnetcore](https://github.com/magic-chunks/magic-chunks-dotnetcore)
@@ -1131,6 +1133,8 @@
 
 - [System.Text.Json](https://www.nuget.org/packages/System.Text.Json)
 
+  - [beutl](https://github.com/b-editor/beutl)
+
   - [Protobuf In C# .NET – Part 4 – Performance Comparisons](https://dotnetcoretutorials.com/2022/01/18/protobuf-in-c-net-part-4-performance-comparisons/)
 
   - [Compare Newtonsoft.Json to System.Text.Json, and migrate to System.Text.Json](https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/migrate-from-newtonsoft?pivots=dotnet-6-0)
@@ -1463,6 +1467,8 @@
 - [Accord.Video](https://github.com/accord-net/framework/tree/development/Sources/Accord.Video)
 
   - [Screencast Capture Lite](https://github.com/cesarsouza/screencast-capture)
+
+- [Beutl.Extensions.FFmpeg](https://github.com/b-editor/beutl/tree/main/src/Beutl.Extensions.FFmpeg)
 
 - [cuetools.net](https://github.com/gchudov/cuetools.net)
 
