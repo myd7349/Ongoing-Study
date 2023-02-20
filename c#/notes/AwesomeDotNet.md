@@ -1476,6 +1476,10 @@
 
   - [MeiamSubtitles](https://github.com/91270/MeiamSubtitles)
 
+- [FFmpeg.AutoGen](https://github.com/Ruslan-B/FFmpeg.AutoGen)
+
+  - [Beutl.Extensions.FFmpeg](https://github.com/b-editor/beutl/tree/main/src/Beutl.Extensions.FFmpeg)
+
 - [FFmpeg.NET](https://github.com/mysteryx93/FFmpeg.NET)
 
 - [FFmpeg.NET](https://github.com/cmxl/FFmpeg.NET)
