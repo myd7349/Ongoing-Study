@@ -192,3 +192,4 @@ else
 # https://github.com/Z3Prover/z3/blob/z3-4.8.15/scripts/mk_util.py#L129-L138
 # https://github.com/sorayuki/srt_build_win32
 # https://github.com/veler/clipboardzanager
+# https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/blob/master/.github/workflows/master.yml
