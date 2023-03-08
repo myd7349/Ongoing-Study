@@ -54,3 +54,4 @@ target_include_directories(
 # References:
 # https://github.com/microsoft/vcpkg/pull/11460
 # [Compile date and time using cmake](https://stackoverflow.com/questions/24292898/compile-date-and-time-using-cmake)
+# https://github.com/mne-tools/mne-cpp/blob/main/src/libraries/utils/buildinfo.h
