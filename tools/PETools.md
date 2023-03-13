@@ -65,6 +65,8 @@
 
   - [What's the format of .lib in windows?](https://stackoverflow.com/questions/3811437/whats-the-format-of-lib-in-windows)
 
+- [PortexAnalyzerGUI](https://github.com/struppigel/PortexAnalyzerGUI)
+
 - [RunPE](https://github.com/Zer0Mem0ry/RunPE)
 
 - [TotalPE2](https://github.com/zodiacon/TotalPE2)
