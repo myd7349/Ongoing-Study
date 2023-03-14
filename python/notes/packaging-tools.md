@@ -55,6 +55,10 @@ This post mentioned `py2app`: [How to Create a Single Windows Executable from a 
 https://github.com/PedramNavid/GooeyPi
 
 * [Python打包exe的王炸-Nuitka](https://zhuanlan.zhihu.com/p/133303836)
+  * [Nuitka-winsvc](https://github.com/tabris17/Nuitka-winsvc)
+    * [发送 Ctrl+C 事件终止 Windows 控制台进程](https://www.fournoas.com/posts/send-ctrl-c-event-to-end-windows-console-process/)
+    * [使用 Nuitka 将 Python 程序编译为 Windows 服务](https://www.fournoas.com/posts/compile-python-script-to-windows-service-using-nuitka/)
+    * [Nuitka 编译时注入自定义 C 代码](https://www.fournoas.com/posts/nuitka-inject-custom-c-code-at-compile-time/)
 * [shiv](https://github.com/linkedin/shiv)
 * [PyOxidizer](https://github.com/indygreg/PyOxidizer)
   - [PyOxy](https://github.com/indygreg/PyOxidizer/releases/tag/pyoxy%2F0.1.0)
