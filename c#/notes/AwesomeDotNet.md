@@ -2047,6 +2047,8 @@
 
   - [terrafx.interop.windows](https://github.com/terrafx/terrafx.interop.windows)
 
+- [WPF-MediaConverter](https://github.com/HeBianGu/WPF-MediaConverter)
+
 - [YoutubeExplode](https://github.com/Tyrrrz/YoutubeExplode): The ultimate dirty YouTube library
   
   - [Lively Wallpaper](https://github.com/rocksdanister/lively)
