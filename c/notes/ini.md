@@ -179,3 +179,5 @@
 - https://github.com/shirouzu/FastCopy/blob/master/src/TLib/tini.cpp
 
 - https://github.com/hfiref0x/LightFTP/blob/master/Source/cfgparse.c
+
+- https://github.com/BumfuzzledGames/ini_parse
