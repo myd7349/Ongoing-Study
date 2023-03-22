@@ -2681,6 +2681,8 @@
 
   - [veldrid](https://github.com/mellinoe/veldrid)
 
+- [ScottPlot/dev/BumpVersion](https://github.com/ScottPlot/ScottPlot/tree/main/dev/BumpVersion)
+
 ### Web Framework
 
 - [ServiceStack](https://github.com/ServiceStack/ServiceStack)
