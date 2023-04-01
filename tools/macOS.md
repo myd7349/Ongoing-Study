@@ -18,6 +18,8 @@ CleanShot
 
 [PDF Expert](https://pdfexpert.com/)
 
+[Screen Studio](https://www.screen.studio/)
+
 [Sloth](https://github.com/sveinbjornt/Sloth)
 
 [yabai](https://github.com/koekeishiya/yabai)
