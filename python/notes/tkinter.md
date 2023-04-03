@@ -1,6 +1,12 @@
-https://github.com/marcomusy/pianoplayer/blob/master/bin/pianoplayer
+Projects using tkinter:
 
-[Ultimate Vocal Remover GUI](https://github.com/Anjok07/ultimatevocalremovergui)
+- [BBDownEasyGUI](https://github.com/jjaruna/BBDownEasyGUI)
+
+- [pianoplayer](https://github.com/marcomusy/pianoplayer/blob/master/bin/pianoplayer)
+
+- [Ultimate Vocal Remover GUI](https://github.com/Anjok07/ultimatevocalremovergui)
+
+Articles:
 
 [Quick and easy file dialog in Python?](https://stackoverflow.com/questions/9319317/quick-and-easy-file-dialog-in-python)
 
