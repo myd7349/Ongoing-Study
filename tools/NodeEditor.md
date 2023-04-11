@@ -41,3 +41,5 @@
 - [Graphite](https://github.com/GraphiteEditor/Graphite): Rust.
 
 - [Node_Editor_Framework](https://github.com/Seneral/Node_Editor_Framework): Unity
+
+- [nodl](https://github.com/emilwidlund/nodl)
