@@ -17,3 +17,4 @@ namespace Common
 // [How do you do a deep copy of an object in .NET?](https://stackoverflow.com/questions/129389/how-do-you-do-a-deep-copy-of-an-object-in-net)
 // https://github.com/ModernMAK/PartyClassCardGame/blob/main/Assets/Scripts/Core/IDeepCloneable.cs
 // https://learn.microsoft.com/en-us/dotnet/api/system.object.memberwiseclone?view=net-6.0#system-object-memberwiseclone
+// https://github.com/mysteryx93/HanumanInstituteApps/blob/master/Services/Utilities/CloneExtension.cs
