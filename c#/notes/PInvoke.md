@@ -438,3 +438,7 @@ https://github.com/mellinoe/nativelibraryloader
 ### DependencySharp
 
 https://github.com/evanwon/dependencysharp
+
+### Articles
+
+[P/Invoke之C#调用动态链接库DLL](https://www.cnblogs.com/baibaomen-org/p/17267694.html)
