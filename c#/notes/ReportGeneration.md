@@ -101,3 +101,9 @@ FineReport
 - [Magicodes.IE](https://github.com/dotnetcore/Magicodes.IE)
 
 - [DevExpress.XtraReports](https://docs.devexpress.com/XtraReports/DevExpress.XtraReports.UI.XtraReport)
+
+- [只用最适合的 | 主流 .NET 报表控件全面对比](https://blog.csdn.net/Juvien_Huang/article/details/129275957)
+
+  - FastReport.NET
+  - Stimulsoft Report
+  - SAP Crystal Reports
