@@ -1781,6 +1781,10 @@
 
 ### Licensing
 
+- [AppSoftware.LicenceEngine.KeyVerification](https://www.nuget.org/packages/AppSoftware.LicenceEngine.KeyVerification)
+
+  - [HanumanInstituteApps](https://github.com/mysteryx93/HanumanInstituteApps)
+
 - [CredentialManagement](https://www.nuget.org/packages/CredentialManagement)
   
   - [Fork](https://fork.dev/)
