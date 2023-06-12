@@ -114,3 +114,5 @@ namespace Common.WPF
 // > Without going into your code too deeply, have you tried using SetCurrentValue instead of SetValue?
 // [What's the difference between Dependency Property SetValue() & SetCurrentValue()](https://stackoverflow.com/questions/4230698/whats-the-difference-between-dependency-property-setvalue-setcurrentvalue)
 // > SetCurrentValue method changes the effective value of the property, but existing triggers, data bindings, and styles will continue to work.
+// https://github.com/abbaye/WpfHexEditorControl/pull/134
+// > Control should always use SetCurrentValue to set the value of its own dependency properties, since it changes the effective value of the property, but keeps existing triggers, data bindings, and styles.
