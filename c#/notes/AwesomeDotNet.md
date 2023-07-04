@@ -1728,6 +1728,8 @@
 
 - [Globalization with Attached Properties in WPF](https://www.pluralsight.com/guides/globalization-with-attached-properties-in-wpf)
 
+- [sudo localize --crossplatform [Free PseudoLocalizer class makes it easy to identify localization issues in WPF, Silverlight, and Windows Phone 7 applications!]](https://dlaa.me/blog/post/10130509)
+
 ### IO
 
 - [BinaryExtensions](https://github.com/aybe/BinaryExtensions): Types and extension methods to deal with binary data.
