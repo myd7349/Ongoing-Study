@@ -163,3 +163,7 @@ Stream
 FileSystemWatcher
 
 - https://github.com/microsoft/XmlNotepad/blob/master/src/Model/Settings.cs
+
+[UnmanagedMemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.unmanagedmemorystream?view=net-6.0&redirectedfrom=MSDN)
+
+- [sudo localize --crossplatform [Free PseudoLocalizer class makes it easy to identify localization issues in WPF, Silverlight, and Windows Phone 7 applications!]](https://dlaa.me/blog/post/10130509)
