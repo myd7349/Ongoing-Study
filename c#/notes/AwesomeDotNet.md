@@ -1654,6 +1654,8 @@
 
   - [Myra](https://github.com/rds1983/Myra)
 
+- [WIC-DotNet](https://github.com/sbaeumlisberger/WIC-DotNet)
+
 ### Internationalization and localization
 
 - [Edi](https://github.com/Dirkster99/Edi/tree/master/Edi/Edi.Util/Local)
